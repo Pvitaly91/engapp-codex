@@ -1,0 +1,1713 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/phrasal.v1.json",
+        "sha256": "ae5d6202591a755b8271cf6391a9bfc57e9e4cd436455ad3b839a537eea0db91"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoicePhrasalVerbsQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-phrasal-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_phrasal": {
+            "name": "Passive Voice Quality: Пасив із фразовими дієсловами"
+        }
+    },
+    "tags": {
+        "passive_voice_phrasal_verbs": {
+            "name": "Phrasal Verbs",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "phrasal_passive": {
+            "name": "Phrasal Passive",
+            "category": "topic"
+        },
+        "particle_kept": {
+            "name": "Particle Kept",
+            "category": "topic"
+        },
+        "looked_after": {
+            "name": "Looked After",
+            "category": "topic"
+        },
+        "put_off": {
+            "name": "Put Off",
+            "category": "topic"
+        },
+        "brought_up": {
+            "name": "Brought Up",
+            "category": "topic"
+        },
+        "turned_down": {
+            "name": "Turned Down",
+            "category": "topic"
+        },
+        "dealt_with": {
+            "name": "Dealt With",
+            "category": "topic"
+        },
+        "active_passive": {
+            "name": "Active Passive",
+            "category": "topic"
+        },
+        "word_order_particle": {
+            "name": "Word Order Particle",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-phrasal-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The lights {a1} after the game.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Світло вимкнули після гри.",
+            "target_text": "The lights were turned off after the game.",
+            "markers": {
+                "a1": {
+                    "answer": "were turned off",
+                    "options": [
+                        "were turned off",
+                        "is turned off",
+                        "was turned off"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію «вимкнути», зберігши частку фразового дієслова."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію «вимкнути», зберігши частку фразового дієслова.",
+            "accepted_target_texts": [
+                "The lights were turned off after the game.",
+                "The lights were switched off after the game."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "were switched off"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "were switched off"
+                ]
+            },
+            "reorder_groups": [
+                "The lights",
+                "were",
+                "turned off",
+                "after the game."
+            ],
+            "token_groups": [
+                "The lights",
+                "were",
+                "turned off",
+                "after the game."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-phrasal-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The old papers {a1} yesterday.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Старі папери викинули вчора.",
+            "target_text": "The old papers were thrown away yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "were thrown away",
+                    "options": [
+                        "were thrown away",
+                        "is thrown away",
+                        "was thrown away"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію «викинути», зберігши частку фразового дієслова."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію «викинути», зберігши частку фразового дієслова.",
+            "accepted_target_texts": [
+                "The old papers were thrown away yesterday.",
+                "The old papers were thrown out yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "were thrown out"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "were thrown out"
+                ]
+            },
+            "reorder_groups": [
+                "The old papers",
+                "were",
+                "thrown away",
+                "yesterday."
+            ],
+            "token_groups": [
+                "The old papers",
+                "were",
+                "thrown away",
+                "yesterday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-phrasal-a1-g03",
+            "author_id": "A1-g03",
+            "question": "The blue tent {a1} by my uncle.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Синій намет поставив мій дядько.",
+            "target_text": "The blue tent was put up by my uncle.",
+            "markers": {
+                "a1": {
+                    "answer": "was put up",
+                    "options": [
+                        "was put up",
+                        "is put up",
+                        "will be put up"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію «поставити намет» у пасиві однини."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію «поставити намет» у пасиві однини.",
+            "accepted_target_texts": [
+                "The blue tent was put up by my uncle."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The blue tent",
+                "was",
+                "put up",
+                "by my uncle."
+            ],
+            "token_groups": [
+                "The blue tent",
+                "was",
+                "put up",
+                "by my uncle."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-phrasal-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The fallen apples {a1} before lunch.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Опалі яблука підняли до обіду.",
+            "target_text": "The fallen apples were picked up before lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "were picked up",
+                    "options": [
+                        "were picked up",
+                        "is picked up",
+                        "was picked up"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію «підняти з землі», не гублячи частку."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію «підняти з землі», не гублячи частку.",
+            "accepted_target_texts": [
+                "The fallen apples were picked up before lunch."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The fallen apples",
+                "were",
+                "picked up",
+                "before lunch."
+            ],
+            "token_groups": [
+                "The fallen apples",
+                "were",
+                "picked up",
+                "before lunch."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-phrasal-a1-g05",
+            "author_id": "A1-g05",
+            "question": "The toy blocks {a1} after playtime.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Іграшкові кубики прибирають після гри.",
+            "target_text": "The toy blocks are put away after playtime.",
+            "markers": {
+                "a1": {
+                    "answer": "are put away",
+                    "options": [
+                        "are put away",
+                        "is put away",
+                        "was put away"
+                    ],
+                    "verb_hint": "Передай регулярну дію «прибирати на місце» в теперішньому пасиві множини."
+                }
+            },
+            "verb_hint": "Передай регулярну дію «прибирати на місце» в теперішньому пасиві множини.",
+            "accepted_target_texts": [
+                "The toy blocks are put away after playtime."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The toy blocks",
+                "are",
+                "put away",
+                "after playtime."
+            ],
+            "token_groups": [
+                "The toy blocks",
+                "are",
+                "put away",
+                "after playtime."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-phrasal-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The hungry kitten {a1} by my sister.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "За голодним кошеням доглядає моя сестра.",
+            "target_text": "The hungry kitten is looked after by my sister.",
+            "markers": {
+                "a1": {
+                    "answer": "is looked after",
+                    "options": [
+                        "is looked after",
+                        "was looked after",
+                        "will be looked after"
+                    ],
+                    "verb_hint": "Передай регулярну дію «доглядати» в теперішньому пасиві однини."
+                }
+            },
+            "verb_hint": "Передай регулярну дію «доглядати» в теперішньому пасиві однини.",
+            "accepted_target_texts": [
+                "The hungry kitten is looked after by my sister.",
+                "The hungry kitten is taken care of by my sister."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is taken care of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is taken care of"
+                ]
+            },
+            "reorder_groups": [
+                "The hungry kitten",
+                "is",
+                "looked after",
+                "by my sister."
+            ],
+            "token_groups": [
+                "The hungry kitten",
+                "is",
+                "looked after",
+                "by my sister."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-phrasal-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The address {a1} on a napkin.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Адресу записали на серветці.",
+            "target_text": "The address was written down on a napkin.",
+            "markers": {
+                "a1": {
+                    "answer": "was written down",
+                    "options": [
+                        "was written down",
+                        "is written down",
+                        "will be written down"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію «записати», зберігши частку фразового дієслова."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію «записати», зберігши частку фразового дієслова.",
+            "accepted_target_texts": [
+                "The address was written down on a napkin."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The address",
+                "was",
+                "written down",
+                "on a napkin."
+            ],
+            "token_groups": [
+                "The address",
+                "was",
+                "written down",
+                "on a napkin."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-phrasal-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The broken chair {a1} this morning.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Зламаний стілець забрали сьогодні вранці.",
+            "target_text": "The broken chair was taken away this morning.",
+            "markers": {
+                "a1": {
+                    "answer": "was taken away",
+                    "options": [
+                        "was taken away",
+                        "is taken away",
+                        "will be taken away"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію «забрати геть» у пасиві однини."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію «забрати геть» у пасиві однини.",
+            "accepted_target_texts": [
+                "The broken chair was taken away this morning."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The broken chair",
+                "was",
+                "taken away",
+                "this morning."
+            ],
+            "token_groups": [
+                "The broken chair",
+                "was",
+                "taken away",
+                "this morning."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-phrasal-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The picnic {a1} because of thunder.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Пікнік скасували через грім.",
+            "target_text": "The picnic was called off because of thunder.",
+            "markers": {
+                "a1": {
+                    "answer": "was called off",
+                    "options": [
+                        "was called off",
+                        "is called off",
+                        "will be called off"
+                    ],
+                    "verb_hint": "Передай завершене минуле скасування фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай завершене минуле скасування фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The picnic was called off because of thunder."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The picnic",
+                "was",
+                "called off",
+                "because of thunder."
+            ],
+            "token_groups": [
+                "The picnic",
+                "was",
+                "called off",
+                "because of thunder."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-phrasal-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The room {a1} before the visitors arrived.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Кімнату звільнили від речей до приходу відвідувачів.",
+            "target_text": "The room was cleared out before the visitors arrived.",
+            "markers": {
+                "a1": {
+                    "answer": "was cleared out",
+                    "options": [
+                        "was cleared out",
+                        "is cleared out",
+                        "will be cleared out"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію прибирання всіх речей фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію прибирання всіх речей фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The room was cleared out before the visitors arrived."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The room",
+                "was",
+                "cleared out",
+                "before the visitors",
+                "arrived."
+            ],
+            "token_groups": [
+                "The room",
+                "was",
+                "cleared out",
+                "before the visitors",
+                "arrived."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-phrasal-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The camp rules {a1} every Monday.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Правила табору читають уголос щопонеділка.",
+            "target_text": "The camp rules are read out every Monday.",
+            "markers": {
+                "a1": {
+                    "answer": "are read out",
+                    "options": [
+                        "are read out",
+                        "is read out",
+                        "was read out"
+                    ],
+                    "verb_hint": "Передай регулярне читання вголос фразовим дієсловом у пасиві множини."
+                }
+            },
+            "verb_hint": "Передай регулярне читання вголос фразовим дієсловом у пасиві множини.",
+            "accepted_target_texts": [
+                "The camp rules are read out every Monday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The camp rules",
+                "are",
+                "read out",
+                "every Monday."
+            ],
+            "token_groups": [
+                "The camp rules",
+                "are",
+                "read out",
+                "every Monday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-phrasal-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The fresh posters {a1} around the village.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Нові плакати розвісили по всьому селу.",
+            "target_text": "The fresh posters were put up around the village.",
+            "markers": {
+                "a1": {
+                    "answer": "were put up",
+                    "options": [
+                        "were put up",
+                        "is put up",
+                        "was put up"
+                    ],
+                    "verb_hint": "Передай завершене минуле розвішування фразовим дієсловом у пасиві множини."
+                }
+            },
+            "verb_hint": "Передай завершене минуле розвішування фразовим дієсловом у пасиві множини.",
+            "accepted_target_texts": [
+                "The fresh posters were put up around the village."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The fresh posters",
+                "were",
+                "put up",
+                "around the village."
+            ],
+            "token_groups": [
+                "The fresh posters",
+                "were",
+                "put up",
+                "around the village."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-phrasal-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The new words {a1} in a reliable dictionary.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Нові слова слід пошукати в надійному словнику.",
+            "target_text": "The new words should be looked up in a reliable dictionary.",
+            "markers": {
+                "a1": {
+                    "answer": "should be looked up",
+                    "options": [
+                        "should be looked up",
+                        "is looked up",
+                        "was looked up"
+                    ],
+                    "verb_hint": "Передай рекомендацію пошуку фразовим дієсловом у модальному пасиві."
+                }
+            },
+            "verb_hint": "Передай рекомендацію пошуку фразовим дієсловом у модальному пасиві.",
+            "accepted_target_texts": [
+                "The new words should be looked up in a reliable dictionary."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The new words",
+                "should be",
+                "looked up",
+                "in",
+                "a reliable dictionary."
+            ],
+            "token_groups": [
+                "The new words",
+                "should be",
+                "looked up",
+                "in",
+                "a reliable dictionary."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-phrasal-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The lost property {a1} at reception.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Загублені речі вже здали на рецепції.",
+            "target_text": "The lost property has been handed in at reception.",
+            "markers": {
+                "a1": {
+                    "answer": "has been handed in",
+                    "options": [
+                        "has been handed in",
+                        "is handed in",
+                        "was handed in"
+                    ],
+                    "verb_hint": "Передай теперішній результат здавання фразовим дієсловом у перфектному пасиві."
+                }
+            },
+            "verb_hint": "Передай теперішній результат здавання фразовим дієсловом у перфектному пасиві.",
+            "accepted_target_texts": [
+                "The lost property has been handed in at reception."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The lost property",
+                "has been",
+                "handed in",
+                "at reception."
+            ],
+            "token_groups": [
+                "The lost property",
+                "has been",
+                "handed in",
+                "at reception."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-phrasal-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The broken laptop {a1} by a technician.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Зламаний ноутбук зараз розбирає технік.",
+            "target_text": "The broken laptop is being taken apart by a technician.",
+            "markers": {
+                "a1": {
+                    "answer": "is being taken apart",
+                    "options": [
+                        "is being taken apart",
+                        "is taken apart",
+                        "was taken apart"
+                    ],
+                    "verb_hint": "Передай поточне розбирання фразовим дієсловом у тривалому пасиві."
+                }
+            },
+            "verb_hint": "Передай поточне розбирання фразовим дієсловом у тривалому пасиві.",
+            "accepted_target_texts": [
+                "The broken laptop is being taken apart by a technician."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The broken laptop",
+                "is being",
+                "taken apart",
+                "by a technician."
+            ],
+            "token_groups": [
+                "The broken laptop",
+                "is being",
+                "taken apart",
+                "by a technician."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-phrasal-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The noise complaints {a1} next week.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Скарги на шум додатково перевірять наступного тижня.",
+            "target_text": "The noise complaints will be followed up next week.",
+            "markers": {
+                "a1": {
+                    "answer": "will be followed up",
+                    "options": [
+                        "will be followed up",
+                        "is followed up",
+                        "was followed up"
+                    ],
+                    "verb_hint": "Передай майбутнє подальше опрацювання фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай майбутнє подальше опрацювання фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The noise complaints will be followed up next week."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The noise complaints",
+                "will be",
+                "followed up",
+                "next week."
+            ],
+            "token_groups": [
+                "The noise complaints",
+                "will be",
+                "followed up",
+                "next week."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-phrasal-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The wrong sum {a1} before the form was signed.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Неправильну суму викреслили до підписання форми.",
+            "target_text": "The wrong sum had been crossed out before the form was signed.",
+            "markers": {
+                "a1": {
+                    "answer": "had been crossed out",
+                    "options": [
+                        "had been crossed out",
+                        "is crossed out",
+                        "was crossed out"
+                    ],
+                    "verb_hint": "Передай раніший минулий результат викреслювання фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай раніший минулий результат викреслювання фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The wrong sum had been crossed out before the form was signed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The wrong sum",
+                "had been",
+                "crossed out",
+                "before the form",
+                "was signed."
+            ],
+            "token_groups": [
+                "The wrong sum",
+                "had been",
+                "crossed out",
+                "before the form",
+                "was signed."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-phrasal-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The campsite {a1} when the rain began.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Табір згортали, коли почався дощ.",
+            "target_text": "The campsite was being packed up when the rain began.",
+            "markers": {
+                "a1": {
+                    "answer": "was being packed up",
+                    "options": [
+                        "was being packed up",
+                        "is packed up",
+                        "was packed up"
+                    ],
+                    "verb_hint": "Передай тривалу минулу дію згортання фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай тривалу минулу дію згортання фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The campsite was being packed up when the rain began."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The campsite",
+                "was being",
+                "packed up",
+                "when the rain",
+                "began."
+            ],
+            "token_groups": [
+                "The campsite",
+                "was being",
+                "packed up",
+                "when the rain",
+                "began."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-phrasal-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The outstanding balance {a1} as unrecoverable.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Непогашений залишок списали як безнадійний.",
+            "target_text": "The outstanding balance has been written off as unrecoverable.",
+            "markers": {
+                "a1": {
+                    "answer": "has been written off",
+                    "options": [
+                        "has been written off",
+                        "is written off",
+                        "was written off"
+                    ],
+                    "verb_hint": "Передай теперішній результат списання фразовим дієсловом у перфектному пасиві."
+                }
+            },
+            "verb_hint": "Передай теперішній результат списання фразовим дієсловом у перфектному пасиві.",
+            "accepted_target_texts": [
+                "The outstanding balance has been written off as unrecoverable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The outstanding balance",
+                "has been",
+                "written off",
+                "as unrecoverable."
+            ],
+            "token_groups": [
+                "The outstanding balance",
+                "has been",
+                "written off",
+                "as unrecoverable."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-phrasal-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The annual subscription {a1} before the journey began.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Річну передплату оформили до початку подорожі.",
+            "target_text": "The annual subscription was taken out before the journey began.",
+            "markers": {
+                "a1": {
+                    "answer": "was taken out",
+                    "options": [
+                        "was taken out",
+                        "is taken out",
+                        "will be taken out"
+                    ],
+                    "verb_hint": "Передай завершене минуле оформлення передплати фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай завершене минуле оформлення передплати фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The annual subscription was taken out before the journey began."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The annual subscription",
+                "was",
+                "taken out",
+                "before the journey",
+                "began."
+            ],
+            "token_groups": [
+                "The annual subscription",
+                "was",
+                "taken out",
+                "before the journey",
+                "began."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-phrasal-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The alternative supplier {a1} about a longer contract.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "З альтернативним постачальником попередньо з'ясовували можливість довшого договору.",
+            "target_text": "The alternative supplier was being sounded out about a longer contract.",
+            "markers": {
+                "a1": {
+                    "answer": "was being sounded out",
+                    "options": [
+                        "was being sounded out",
+                        "is sounded out",
+                        "was sounded out"
+                    ],
+                    "verb_hint": "Передай тривале минуле неформальне з'ясування фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай тривале минуле неформальне з'ясування фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The alternative supplier was being sounded out about a longer contract."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The alternative supplier",
+                "was being",
+                "sounded out",
+                "about",
+                "a longer contract."
+            ],
+            "token_groups": [
+                "The alternative supplier",
+                "was being",
+                "sounded out",
+                "about",
+                "a longer contract."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-phrasal-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The customs inquiry {a1} by an independent team.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Митний запит розгляне незалежна команда.",
+            "target_text": "The customs inquiry will be looked into by an independent team.",
+            "markers": {
+                "a1": {
+                    "answer": "will be looked into",
+                    "options": [
+                        "will be looked into",
+                        "is looked into",
+                        "was looked into"
+                    ],
+                    "verb_hint": "Передай майбутнє розслідування фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай майбутнє розслідування фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The customs inquiry will be looked into by an independent team."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The customs inquiry",
+                "will be",
+                "looked into",
+                "by",
+                "an independent team."
+            ],
+            "token_groups": [
+                "The customs inquiry",
+                "will be",
+                "looked into",
+                "by",
+                "an independent team."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-phrasal-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The disputed expenses {a1} by department.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Спірні витрати слід деталізувати за відділами.",
+            "target_text": "The disputed expenses should be broken down by department.",
+            "markers": {
+                "a1": {
+                    "answer": "should be broken down",
+                    "options": [
+                        "should be broken down",
+                        "is broken down",
+                        "was broken down"
+                    ],
+                    "verb_hint": "Передай рекомендацію деталізації фразовим дієсловом у модальному пасиві."
+                }
+            },
+            "verb_hint": "Передай рекомендацію деталізації фразовим дієсловом у модальному пасиві.",
+            "accepted_target_texts": [
+                "The disputed expenses should be broken down by department."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The disputed expenses",
+                "should be",
+                "broken down",
+                "by department."
+            ],
+            "token_groups": [
+                "The disputed expenses",
+                "should be",
+                "broken down",
+                "by department."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-phrasal-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The security checks {a1} before the summit.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Перевірки безпеки посилили до саміту.",
+            "target_text": "The security checks had been stepped up before the summit.",
+            "markers": {
+                "a1": {
+                    "answer": "had been stepped up",
+                    "options": [
+                        "had been stepped up",
+                        "is stepped up",
+                        "was stepped up"
+                    ],
+                    "verb_hint": "Передай раніший минулий результат посилення фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай раніший минулий результат посилення фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The security checks had been stepped up before the summit."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The security checks",
+                "had been",
+                "stepped up",
+                "before the summit."
+            ],
+            "token_groups": [
+                "The security checks",
+                "had been",
+                "stepped up",
+                "before the summit."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-phrasal-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The earlier assurances {a1} following the minister's resignation.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Від попередніх запевнень відступили після відставки міністра.",
+            "target_text": "The earlier assurances have been walked back following the minister's resignation.",
+            "markers": {
+                "a1": {
+                    "answer": "have been walked back",
+                    "options": [
+                        "have been walked back",
+                        "is walked back",
+                        "was walked back"
+                    ],
+                    "verb_hint": "Передай теперішній результат відмови від сказаного фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай теперішній результат відмови від сказаного фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The earlier assurances have been walked back following the minister's resignation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The earlier assurances",
+                "have been",
+                "walked back",
+                "following",
+                "the minister's resignation."
+            ],
+            "token_groups": [
+                "The earlier assurances",
+                "have been",
+                "walked back",
+                "following",
+                "the minister's resignation."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-phrasal-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The compliance failures {a1} in the executive summary.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Порушення вимог побіжно замовчали в резюме для керівництва.",
+            "target_text": "The compliance failures were glossed over in the executive summary.",
+            "markers": {
+                "a1": {
+                    "answer": "were glossed over",
+                    "options": [
+                        "were glossed over",
+                        "is glossed over",
+                        "was glossed over"
+                    ],
+                    "verb_hint": "Передай завершене минуле згладжування проблем фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай завершене минуле згладжування проблем фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The compliance failures were glossed over in the executive summary."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The compliance failures",
+                "were",
+                "glossed over",
+                "in",
+                "the executive summary."
+            ],
+            "token_groups": [
+                "The compliance failures",
+                "were",
+                "glossed over",
+                "in",
+                "the executive summary."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-phrasal-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The inherited liabilities {a1} when valuing the acquisition.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Успадковані зобов'язання треба врахувати під час оцінювання придбання.",
+            "target_text": "The inherited liabilities must be factored in when valuing the acquisition.",
+            "markers": {
+                "a1": {
+                    "answer": "must be factored in",
+                    "options": [
+                        "must be factored in",
+                        "is factored in",
+                        "was factored in"
+                    ],
+                    "verb_hint": "Передай обов'язкове врахування фразовим дієсловом у модальному пасиві."
+                }
+            },
+            "verb_hint": "Передай обов'язкове врахування фразовим дієсловом у модальному пасиві.",
+            "accepted_target_texts": [
+                "The inherited liabilities must be factored in when valuing the acquisition."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inherited liabilities",
+                "must be",
+                "factored in",
+                "when valuing",
+                "the acquisition."
+            ],
+            "token_groups": [
+                "The inherited liabilities",
+                "must be",
+                "factored in",
+                "when valuing",
+                "the acquisition."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-phrasal-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The competing bids {a1} against long-term strategic needs.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Конкуруючі пропозиції зараз зважують з огляду на довгострокові стратегічні потреби.",
+            "target_text": "The competing bids are being weighed up against long-term strategic needs.",
+            "markers": {
+                "a1": {
+                    "answer": "are being weighed up",
+                    "options": [
+                        "are being weighed up",
+                        "is weighed up",
+                        "was weighed up"
+                    ],
+                    "verb_hint": "Передай поточне ретельне порівняння фразовим дієсловом у тривалому пасиві."
+                }
+            },
+            "verb_hint": "Передай поточне ретельне порівняння фразовим дієсловом у тривалому пасиві.",
+            "accepted_target_texts": [
+                "The competing bids are being weighed up against long-term strategic needs."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The competing bids",
+                "are being",
+                "weighed up",
+                "against",
+                "long-term strategic needs."
+            ],
+            "token_groups": [
+                "The competing bids",
+                "are being",
+                "weighed up",
+                "against",
+                "long-term strategic needs."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-phrasal-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The dissenting view {a1} before any evidence was presented.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Іншу думку заглушили вигуками ще до подання будь-яких доказів.",
+            "target_text": "The dissenting view had been shouted down before any evidence was presented.",
+            "markers": {
+                "a1": {
+                    "answer": "had been shouted down",
+                    "options": [
+                        "had been shouted down",
+                        "is shouted down",
+                        "was shouted down"
+                    ],
+                    "verb_hint": "Передай раніший минулий результат заглушення вигуками фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай раніший минулий результат заглушення вигуками фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The dissenting view had been shouted down before any evidence was presented."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dissenting view",
+                "had been",
+                "shouted down",
+                "before any evidence",
+                "was presented."
+            ],
+            "token_groups": [
+                "The dissenting view",
+                "had been",
+                "shouted down",
+                "before any evidence",
+                "was presented."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-phrasal-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The procedural loophole {a1} by the forthcoming regulations.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Процедурну лазівку перекриють майбутні правила.",
+            "target_text": "The procedural loophole will be closed off by the forthcoming regulations.",
+            "markers": {
+                "a1": {
+                    "answer": "will be closed off",
+                    "options": [
+                        "will be closed off",
+                        "is closed off",
+                        "was closed off"
+                    ],
+                    "verb_hint": "Передай майбутнє перекривання можливості фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай майбутнє перекривання можливості фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The procedural loophole will be closed off by the forthcoming regulations."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The procedural loophole",
+                "will be",
+                "closed off",
+                "by",
+                "the forthcoming regulations."
+            ],
+            "token_groups": [
+                "The procedural loophole",
+                "will be",
+                "closed off",
+                "by",
+                "the forthcoming regulations."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-phrasal-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The evidential objections {a1} without a reasoned determination.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Доказові заперечення відкинули без обґрунтованого рішення.",
+            "target_text": "The evidential objections were swept aside without a reasoned determination.",
+            "markers": {
+                "a1": {
+                    "answer": "were swept aside",
+                    "options": [
+                        "were swept aside",
+                        "is swept aside",
+                        "was swept aside"
+                    ],
+                    "verb_hint": "Передай завершене минуле безцеремонне відкидання фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай завершене минуле безцеремонне відкидання фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The evidential objections were swept aside without a reasoned determination."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The evidential objections",
+                "were",
+                "swept aside",
+                "without",
+                "a reasoned determination."
+            ],
+            "token_groups": [
+                "The evidential objections",
+                "were",
+                "swept aside",
+                "without",
+                "a reasoned determination."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-phrasal-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The disputed allocation {a1} into a separately governed trust.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Спірне фінансування відокремили в траст з окремим управлінням.",
+            "target_text": "The disputed allocation has been hived off into a separately governed trust.",
+            "markers": {
+                "a1": {
+                    "answer": "has been hived off",
+                    "options": [
+                        "has been hived off",
+                        "is hived off",
+                        "was hived off"
+                    ],
+                    "verb_hint": "Передай теперішній результат організаційного відокремлення фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай теперішній результат організаційного відокремлення фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The disputed allocation has been hived off into a separately governed trust."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The disputed allocation",
+                "has been",
+                "hived off",
+                "into",
+                "a",
+                "separately governed trust."
+            ],
+            "token_groups": [
+                "The disputed allocation",
+                "has been",
+                "hived off",
+                "into",
+                "a",
+                "separately governed trust."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-phrasal-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The interpretative differences {a1} by a superficial redraft.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Відмінності тлумачення не можна усунути поверховим переписуванням.",
+            "target_text": "The interpretative differences cannot be ironed out by a superficial redraft.",
+            "markers": {
+                "a1": {
+                    "answer": "cannot be ironed out",
+                    "options": [
+                        "cannot be ironed out",
+                        "is ironed out",
+                        "was ironed out"
+                    ],
+                    "verb_hint": "Передай неможливість владнання розбіжностей фразовим дієсловом у модальному пасиві."
+                }
+            },
+            "verb_hint": "Передай неможливість владнання розбіжностей фразовим дієсловом у модальному пасиві.",
+            "accepted_target_texts": [
+                "The interpretative differences cannot be ironed out by a superficial redraft."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The interpretative differences",
+                "cannot be",
+                "ironed out",
+                "by",
+                "a superficial redraft."
+            ],
+            "token_groups": [
+                "The interpretative differences",
+                "cannot be",
+                "ironed out",
+                "by",
+                "a superficial redraft."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-phrasal-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The speculative allegations {a1} as though they were established facts.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Неперевіреними звинуваченнями розкидалися так, ніби це встановлені факти.",
+            "target_text": "The speculative allegations were being bandied about as though they were established facts.",
+            "markers": {
+                "a1": {
+                    "answer": "were being bandied about",
+                    "options": [
+                        "were being bandied about",
+                        "is bandied about",
+                        "was bandied about"
+                    ],
+                    "verb_hint": "Передай тривале минуле недбале поширення фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай тривале минуле недбале поширення фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The speculative allegations were being bandied about as though they were established facts."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The speculative allegations",
+                "were being",
+                "bandied about",
+                "as though they",
+                "were established facts."
+            ],
+            "token_groups": [
+                "The speculative allegations",
+                "were being",
+                "bandied about",
+                "as though they",
+                "were established facts."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-phrasal-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The constitutional safeguards {a1} through successive emergency measures.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Конституційні гарантії поступово послабили послідовними надзвичайними заходами.",
+            "target_text": "The constitutional safeguards had been whittled away through successive emergency measures.",
+            "markers": {
+                "a1": {
+                    "answer": "had been whittled away",
+                    "options": [
+                        "had been whittled away",
+                        "is whittled away",
+                        "was whittled away"
+                    ],
+                    "verb_hint": "Передай раніший минулий результат поступового послаблення фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай раніший минулий результат поступового послаблення фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The constitutional safeguards had been whittled away through successive emergency measures."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The constitutional safeguards",
+                "had been",
+                "whittled away",
+                "through",
+                "successive emergency measures."
+            ],
+            "token_groups": [
+                "The constitutional safeguards",
+                "had been",
+                "whittled away",
+                "through",
+                "successive emergency measures."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-phrasal-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The anomalous transactions {a1} through forensic analysis.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_phrasal",
+            "translation_uk": "Аномальні операції виокремлять у процесі експертного аналізу.",
+            "target_text": "The anomalous transactions will be teased out through forensic analysis.",
+            "markers": {
+                "a1": {
+                    "answer": "will be teased out",
+                    "options": [
+                        "will be teased out",
+                        "is teased out",
+                        "was teased out"
+                    ],
+                    "verb_hint": "Передай майбутнє поступове виявлення складних відмінностей фразовим дієсловом у пасиві."
+                }
+            },
+            "verb_hint": "Передай майбутнє поступове виявлення складних відмінностей фразовим дієсловом у пасиві.",
+            "accepted_target_texts": [
+                "The anomalous transactions will be teased out through forensic analysis."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The anomalous transactions",
+                "will be",
+                "teased out",
+                "through forensic analysis."
+            ],
+            "token_groups": [
+                "The anomalous transactions",
+                "will be",
+                "teased out",
+                "through forensic analysis."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

@@ -1,70 +1,81 @@
 {
     "question": {
-        "id": 82,
+        "id": 35784,
         "uuid": "pvpa-v3-a1-10",
-        "question": "In the passive, the old object {a1} the subject.",
+        "question": "Our bags {a1} in the car.",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 2,
+        "category_id": 10,
+        "source_id": 343,
         "flag": 2,
-        "created_at": "2026-05-26T15:07:39.000000Z",
-        "updated_at": "2026-05-26T15:08:08.000000Z"
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoicePastSimpleAllLevelsV3Seeder",
+        "options_by_marker": {
+            "a1": [
+                "were not left",
+                "was not left",
+                "are not left",
+                "not left"
+            ]
+        },
+        "theory_text_block_uuid": null,
+        "created_at": "2026-05-21T18:54:07.000000Z",
+        "updated_at": "2026-10-21T21:31:21.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 10,
         "name": "Passive Voice",
-        "created_at": "2026-05-26T15:07:37.000000Z",
-        "updated_at": "2026-05-26T15:07:37.000000Z"
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 343,
         "name": "Passive Voice Past Simple",
-        "created_at": "2026-05-26T15:07:39.000000Z",
-        "updated_at": "2026-05-26T15:07:39.000000Z"
+        "created_at": "2026-05-21T18:54:05.000000Z",
+        "updated_at": "2026-05-21T18:54:05.000000Z"
     },
     "tags": [
         {
             "tag": {
-                "id": 19,
+                "id": 44,
                 "name": "A1",
                 "category": "level",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-04-23T11:41:02.000000Z",
+                "updated_at": "2026-04-23T11:41:02.000000Z"
             },
             "pivot": {
-                "question_id": 82,
-                "tag_id": 19,
+                "question_id": 35784,
+                "tag_id": 44,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 24,
+                "id": 2706,
                 "name": "Object Subject",
                 "category": "topic",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-05-21T18:53:51.000000Z",
+                "updated_at": "2026-05-21T18:53:51.000000Z"
             },
             "pivot": {
-                "question_id": 82,
-                "tag_id": 24,
+                "question_id": 35784,
+                "tag_id": 2706,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 29,
+                "id": 2709,
                 "name": "Passive Voice Past Simple",
                 "category": "passive_voice",
-                "created_at": "2026-05-26T15:07:39.000000Z",
-                "updated_at": "2026-05-26T15:07:39.000000Z"
+                "created_at": "2026-05-21T18:54:05.000000Z",
+                "updated_at": "2026-05-21T18:54:05.000000Z"
             },
             "pivot": {
-                "question_id": 82,
-                "tag_id": 29,
+                "question_id": 35784,
+                "tag_id": 2709,
                 "created_at": null,
                 "updated_at": null
             }
@@ -73,53 +84,53 @@
     "options": [
         {
             "option": {
-                "id": 37,
-                "option": "becomes",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
-            },
-            "pivot": {
-                "question_id": 82,
-                "option_id": 37,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 38,
+                "id": 2742,
                 "option": "become",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-04-23T14:18:31.000000Z",
+                "updated_at": "2026-04-23T14:18:31.000000Z"
             },
             "pivot": {
-                "question_id": 82,
-                "option_id": 38,
+                "question_id": 35784,
+                "option_id": 2742,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 40,
+                "id": 2930,
+                "option": "becomes",
+                "created_at": "2026-04-23T14:18:42.000000Z",
+                "updated_at": "2026-04-23T14:18:42.000000Z"
+            },
+            "pivot": {
+                "question_id": 35784,
+                "option_id": 2930,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 3380,
                 "option": "became",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-04-23T14:19:19.000000Z",
+                "updated_at": "2026-04-23T14:19:19.000000Z"
             },
             "pivot": {
-                "question_id": 82,
-                "option_id": 40,
+                "question_id": 35784,
+                "option_id": 3380,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 79,
+                "id": 23450,
                 "option": "was become",
-                "created_at": "2026-05-26T15:07:39.000000Z",
-                "updated_at": "2026-05-26T15:07:39.000000Z"
+                "created_at": "2026-05-21T18:54:07.000000Z",
+                "updated_at": "2026-05-21T18:54:07.000000Z"
             },
             "pivot": {
-                "question_id": 82,
-                "option_id": 79,
+                "question_id": 35784,
+                "option_id": 23450,
                 "flag": null
             }
         }
@@ -127,29 +138,29 @@
     "answers": [
         {
             "answer": {
-                "id": 82,
-                "question_id": 82,
+                "id": 188124,
+                "question_id": 35784,
                 "marker": "a1",
-                "option_id": 40,
-                "created_at": "2026-05-26T15:07:39.000000Z",
-                "updated_at": "2026-05-26T15:07:39.000000Z"
+                "option_id": 3380,
+                "created_at": "2026-05-21T18:54:07.000000Z",
+                "updated_at": "2026-05-21T18:54:07.000000Z"
             },
             "option": {
-                "id": 40,
+                "id": 3380,
                 "option": "became",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-04-23T14:19:19.000000Z",
+                "updated_at": "2026-04-23T14:19:19.000000Z"
             }
         }
     ],
     "verb_hints": [],
     "variants": [
         {
-            "id": 82,
-            "question_id": 82,
+            "id": 25423,
+            "question_id": 35784,
             "text": "In the passive, the old object {a1} the subject.",
-            "created_at": "2026-05-26T15:07:39.000000Z",
-            "updated_at": "2026-05-26T15:07:39.000000Z"
+            "created_at": "2026-05-21T18:54:07.000000Z",
+            "updated_at": "2026-05-21T18:54:07.000000Z"
         }
     ],
     "hints": [],

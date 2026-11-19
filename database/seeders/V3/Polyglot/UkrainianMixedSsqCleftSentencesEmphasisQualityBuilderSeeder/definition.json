@@ -1,0 +1,1976 @@
+{
+    "schema_version": 1,
+    "quality_revision": "ssq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-structure-quality/cleft-sentences-emphasis.v1.json",
+        "sha256": "892aaadac6d5206497066788422db5d474bc469d8acc35d0930b7e131acafb25"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedSsqCleftSentencesEmphasisQualityBuilderSeeder",
+        "uuid_namespace": "sentence-structure-quality-cleft-sentences-emphasis-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "sentence_structure_quality_cleft_sentences_emphasis": {
+            "name": "Sentence Structure Quality: Cleft Sentences and Emphasis"
+        }
+    },
+    "tags": {
+        "cleft_sentences_emphasis": {
+            "name": "cleft sentences emphasis",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "contrastive_focus": {
+            "name": "contrastive focus",
+            "category": "grammar"
+        },
+        "it_clefts": {
+            "name": "it clefts",
+            "category": "grammar"
+        },
+        "what_clefts": {
+            "name": "what clefts",
+            "category": "grammar"
+        },
+        "all_clefts": {
+            "name": "all clefts",
+            "category": "grammar"
+        },
+        "reason_thing_place_patterns": {
+            "name": "reason thing place patterns",
+            "category": "grammar"
+        },
+        "focus_types": {
+            "name": "focus types",
+            "category": "grammar"
+        },
+        "correction_emphasis": {
+            "name": "correction emphasis",
+            "category": "grammar"
+        },
+        "information_structure": {
+            "name": "information structure",
+            "category": "grammar"
+        },
+        "register_naturalness": {
+            "name": "register naturalness",
+            "category": "grammar"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "grammar"
+        },
+        "subject_focus": {
+            "name": "subject focus",
+            "category": "grammar"
+        },
+        "object_focus": {
+            "name": "object focus",
+            "category": "grammar"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "cleft_sentences_emphasis"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "ssq-cse-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Я замовив сік, а не воду.",
+            "level": "A1",
+            "type": 4,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Я замовив сік, а не воду.",
+            "target_text": "I ordered juice, not water.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Протистав замовлений напій іншому; збережи минулий час і заперечення другого варіанта.",
+                    "options": [
+                        "I",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "ordered",
+                    "verb_hint": "Протистав замовлений напій іншому; збережи минулий час і заперечення другого варіанта.",
+                    "options": [
+                        "ordered",
+                        "bought",
+                        "chose",
+                        "brought"
+                    ]
+                },
+                "a3": {
+                    "answer": "juice,",
+                    "verb_hint": "Протистав замовлений напій іншому; збережи минулий час і заперечення другого варіанта.",
+                    "options": [
+                        "juice",
+                        "butter",
+                        "honey",
+                        "milk"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Протистав замовлений напій іншому; збережи минулий час і заперечення другого варіанта.",
+                    "options": [
+                        "not",
+                        "almost",
+                        "never",
+                        "always"
+                    ]
+                },
+                "a5": {
+                    "answer": "water.",
+                    "verb_hint": "Протистав замовлений напій іншому; збережи минулий час і заперечення другого варіанта.",
+                    "options": [
+                        "water",
+                        "sugar",
+                        "salt",
+                        "bread"
+                    ]
+                }
+            },
+            "verb_hint": "Протистав замовлений напій іншому; збережи минулий час і заперечення другого варіанта.",
+            "accepted_target_texts": [
+                "I ordered juice, not water.",
+                "I ordered some juice, not water.",
+                "I requested juice, not water.",
+                "I requested some juice, not water.",
+                "I asked for juice, not water.",
+                "I asked for some juice, not water."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "requested"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "requested"
+                ]
+            },
+            "reorder_groups": [
+                "I ordered",
+                "juice,",
+                "not water."
+            ],
+            "token_groups": [
+                "I ordered",
+                "juice,",
+                "not water."
+            ],
+            "quality_revision": "ssq-v1",
+            "tokens_correct": [
+                "I",
+                "ordered",
+                "juice,",
+                "not",
+                "water."
+            ],
+            "options": [
+                "I",
+                "He",
+                "She",
+                "It",
+                "ordered",
+                "bought",
+                "chose",
+                "brought",
+                "juice",
+                "butter",
+                "honey",
+                "milk",
+                "not",
+                "almost",
+                "never",
+                "always",
+                "water",
+                "sugar",
+                "salt",
+                "bread"
+            ],
+            "source_text_uk": "Я замовив сік, а не воду.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "ordered",
+                    "bought",
+                    "chose",
+                    "brought"
+                ],
+                "a3": [
+                    "juice",
+                    "butter",
+                    "honey",
+                    "milk"
+                ],
+                "a4": [
+                    "not",
+                    "almost",
+                    "never",
+                    "always"
+                ],
+                "a5": [
+                    "water",
+                    "sugar",
+                    "salt",
+                    "bread"
+                ]
+            },
+            "slot_roles": {
+                "a1": "aone_part_one",
+                "a2": "aone_part_one",
+                "a3": "aone_part_two",
+                "a4": "aone_part_three",
+                "a5": "aone_part_three"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "ssq-cse-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Він хотів той великий рушник, а не маленький.",
+            "level": "A2",
+            "type": 4,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Він хотів той великий рушник, а не маленький.",
+            "target_text": "He wanted that large towel, not the small one.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Порівняй два вже показані рушники: бажаний великий і протиставлений йому маленький.",
+                    "options": [
+                        "He",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "wanted",
+                    "verb_hint": "Порівняй два вже показані рушники: бажаний великий і протиставлений йому маленький.",
+                    "options": [
+                        "wanted",
+                        "ordered",
+                        "bought",
+                        "needed"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Порівняй два вже показані рушники: бажаний великий і протиставлений йому маленький.",
+                    "options": [
+                        "that",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "large",
+                    "verb_hint": "Порівняй два вже показані рушники: бажаний великий і протиставлений йому маленький.",
+                    "options": [
+                        "large",
+                        "heavy",
+                        "clear",
+                        "safe"
+                    ]
+                },
+                "a5": {
+                    "answer": "towel,",
+                    "verb_hint": "Порівняй два вже показані рушники: бажаний великий і протиставлений йому маленький.",
+                    "options": [
+                        "towel",
+                        "coat",
+                        "scarf",
+                        "rug"
+                    ]
+                },
+                "a6": {
+                    "answer": "not",
+                    "verb_hint": "Порівняй два вже показані рушники: бажаний великий і протиставлений йому маленький.",
+                    "options": [
+                        "not",
+                        "just",
+                        "also",
+                        "usually"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Порівняй два вже показані рушники: бажаний великий і протиставлений йому маленький.",
+                    "options": [
+                        "the",
+                        "those",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "small",
+                    "verb_hint": "Порівняй два вже показані рушники: бажаний великий і протиставлений йому маленький.",
+                    "options": [
+                        "small",
+                        "useful",
+                        "helpful",
+                        "different"
+                    ]
+                },
+                "a9": {
+                    "answer": "one.",
+                    "verb_hint": "Порівняй два вже показані рушники: бажаний великий і протиставлений йому маленький.",
+                    "options": [
+                        "one",
+                        "picture",
+                        "child",
+                        "teacher"
+                    ]
+                }
+            },
+            "verb_hint": "Порівняй два вже показані рушники: бажаний великий і протиставлений йому маленький.",
+            "accepted_target_texts": [
+                "He wanted that large towel, not the small one.",
+                "He wanted that large towel, not the little one.",
+                "He wanted that big towel, not the small one.",
+                "He wanted that big towel, not the little one."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "little"
+                ],
+                "a4": [
+                    "big"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "little"
+                ],
+                "a4": [
+                    "big"
+                ]
+            },
+            "reorder_groups": [
+                "He wanted",
+                "that large towel,",
+                "not the",
+                "small one."
+            ],
+            "token_groups": [
+                "He wanted",
+                "that large towel,",
+                "not the",
+                "small one."
+            ],
+            "quality_revision": "ssq-v1",
+            "tokens_correct": [
+                "He",
+                "wanted",
+                "that",
+                "large",
+                "towel,",
+                "not",
+                "the",
+                "small",
+                "one."
+            ],
+            "options": [
+                "He",
+                "Us",
+                "Them",
+                "Myself",
+                "wanted",
+                "ordered",
+                "bought",
+                "needed",
+                "that",
+                "each",
+                "every",
+                "no",
+                "large",
+                "heavy",
+                "clear",
+                "safe",
+                "towel",
+                "coat",
+                "scarf",
+                "rug",
+                "not",
+                "just",
+                "also",
+                "usually",
+                "the",
+                "those",
+                "another",
+                "either",
+                "small",
+                "useful",
+                "helpful",
+                "different",
+                "one",
+                "picture",
+                "child",
+                "teacher"
+            ],
+            "source_text_uk": "Він хотів той великий рушник, а не маленький.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "wanted",
+                    "ordered",
+                    "bought",
+                    "needed"
+                ],
+                "a3": [
+                    "that",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "large",
+                    "heavy",
+                    "clear",
+                    "safe"
+                ],
+                "a5": [
+                    "towel",
+                    "coat",
+                    "scarf",
+                    "rug"
+                ],
+                "a6": [
+                    "not",
+                    "just",
+                    "also",
+                    "usually"
+                ],
+                "a7": [
+                    "the",
+                    "those",
+                    "another",
+                    "either"
+                ],
+                "a8": [
+                    "small",
+                    "useful",
+                    "helpful",
+                    "different"
+                ],
+                "a9": [
+                    "one",
+                    "picture",
+                    "child",
+                    "teacher"
+                ]
+            },
+            "slot_roles": {
+                "a1": "atwo_part_one",
+                "a2": "atwo_part_one",
+                "a3": "atwo_part_two",
+                "a4": "atwo_part_two",
+                "a5": "atwo_part_two",
+                "a6": "atwo_part_three",
+                "a7": "atwo_part_three",
+                "a8": "atwo_part_four",
+                "a9": "atwo_part_four"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "ssq-cse-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Саме Люсі, а не її брат, загубила квитки.",
+            "level": "B1",
+            "type": 4,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Саме Люсі, а не її брат, загубила квитки.",
+            "target_text": "It was Lucy, not her brother, who lost the tickets.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Виправ припущення про брата розщепленим реченням; збережи минулий час, ідеться саме про її брата.",
+                    "options": [
+                        "It",
+                        "Themselves",
+                        "I",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Виправ припущення про брата розщепленим реченням; збережи минулий час, ідеться саме про її брата.",
+                    "options": [
+                        "was",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a3": {
+                    "answer": "Lucy,",
+                    "verb_hint": "Виправ припущення про брата розщепленим реченням; збережи минулий час, ідеться саме про її брата.",
+                    "options": [
+                        "Lucy",
+                        "Grace",
+                        "Nora",
+                        "Maya"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Виправ припущення про брата розщепленим реченням; збережи минулий час, ідеться саме про її брата.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a5": {
+                    "answer": "her",
+                    "verb_hint": "Виправ припущення про брата розщепленим реченням; збережи минулий час, ідеться саме про її брата.",
+                    "options": [
+                        "her",
+                        "hers",
+                        "ours",
+                        "theirs"
+                    ]
+                },
+                "a6": {
+                    "answer": "brother,",
+                    "verb_hint": "Виправ припущення про брата розщепленим реченням; збережи минулий час, ідеться саме про її брата.",
+                    "options": [
+                        "brother",
+                        "friend",
+                        "sister",
+                        "cousin"
+                    ]
+                },
+                "a7": {
+                    "answer": "who",
+                    "verb_hint": "Виправ припущення про брата розщепленим реченням; збережи минулий час, ідеться саме про її брата.",
+                    "options": [
+                        "who",
+                        "wherever",
+                        "whenever",
+                        "whom"
+                    ]
+                },
+                "a8": {
+                    "answer": "lost",
+                    "verb_hint": "Виправ припущення про брата розщепленим реченням; збережи минулий час, ідеться саме про її брата.",
+                    "options": [
+                        "lost",
+                        "sold",
+                        "checked",
+                        "printed"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Виправ припущення про брата розщепленим реченням; збережи минулий час, ідеться саме про її брата.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a10": {
+                    "answer": "tickets.",
+                    "verb_hint": "Виправ припущення про брата розщепленим реченням; збережи минулий час, ідеться саме про її брата.",
+                    "options": [
+                        "tickets",
+                        "keys",
+                        "glasses",
+                        "receipts"
+                    ]
+                }
+            },
+            "verb_hint": "Виправ припущення про брата розщепленим реченням; збережи минулий час, ідеться саме про її брата.",
+            "accepted_target_texts": [
+                "It was Lucy, not her brother, who lost the tickets.",
+                "It was Lucy, not her brother, that lost the tickets.",
+                "It was Lucy, not her brother, who misplaced the tickets.",
+                "It was Lucy, not her brother, that misplaced the tickets."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "that"
+                ],
+                "a8": [
+                    "misplaced"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "that"
+                ],
+                "a8": [
+                    "misplaced"
+                ]
+            },
+            "reorder_groups": [
+                "It was",
+                "Lucy,",
+                "not her brother,",
+                "who lost",
+                "the tickets."
+            ],
+            "token_groups": [
+                "It was",
+                "Lucy,",
+                "not her brother,",
+                "who lost",
+                "the tickets."
+            ],
+            "quality_revision": "ssq-v1",
+            "tokens_correct": [
+                "It",
+                "was",
+                "Lucy,",
+                "not",
+                "her",
+                "brother,",
+                "who",
+                "lost",
+                "the",
+                "tickets."
+            ],
+            "options": [
+                "It",
+                "Themselves",
+                "I",
+                "You",
+                "was",
+                "be",
+                "been",
+                "being",
+                "Lucy",
+                "Grace",
+                "Nora",
+                "Maya",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "her",
+                "hers",
+                "ours",
+                "theirs",
+                "brother",
+                "friend",
+                "sister",
+                "cousin",
+                "who",
+                "wherever",
+                "whenever",
+                "whom",
+                "lost",
+                "sold",
+                "checked",
+                "printed",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "tickets",
+                "keys",
+                "glasses",
+                "receipts"
+            ],
+            "source_text_uk": "Саме Люсі, а не її брат, загубила квитки.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "Themselves",
+                    "I",
+                    "You"
+                ],
+                "a2": [
+                    "was",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a3": [
+                    "Lucy",
+                    "Grace",
+                    "Nora",
+                    "Maya"
+                ],
+                "a4": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a5": [
+                    "her",
+                    "hers",
+                    "ours",
+                    "theirs"
+                ],
+                "a6": [
+                    "brother",
+                    "friend",
+                    "sister",
+                    "cousin"
+                ],
+                "a7": [
+                    "who",
+                    "wherever",
+                    "whenever",
+                    "whom"
+                ],
+                "a8": [
+                    "lost",
+                    "sold",
+                    "checked",
+                    "printed"
+                ],
+                "a9": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a10": [
+                    "tickets",
+                    "keys",
+                    "glasses",
+                    "receipts"
+                ]
+            },
+            "slot_roles": {
+                "a1": "bone_part_one",
+                "a2": "bone_part_one",
+                "a3": "bone_part_two",
+                "a4": "bone_part_three",
+                "a5": "bone_part_three",
+                "a6": "bone_part_three",
+                "a7": "bone_part_four",
+                "a8": "bone_part_four",
+                "a9": "bone_part_five",
+                "a10": "bone_part_five"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "ssq-cse-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Найбільше відвідувачам сподобалася саме тераса на даху.",
+            "level": "B2",
+            "type": 4,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Найбільше відвідувачам сподобалася саме тераса на даху.",
+            "target_text": "What the visitors liked most was the rooftop terrace.",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Почни з підметової частини про те, що найбільше сподобалося відвідувачам; після зв’язки постав наголошений об’єкт.",
+                    "options": [
+                        "What",
+                        "Whatever",
+                        "Wherever",
+                        "Whenever"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з підметової частини про те, що найбільше сподобалося відвідувачам; після зв’язки постав наголошений об’єкт.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a3": {
+                    "answer": "visitors",
+                    "verb_hint": "Почни з підметової частини про те, що найбільше сподобалося відвідувачам; після зв’язки постав наголошений об’єкт.",
+                    "options": [
+                        "visitors",
+                        "workers",
+                        "residents",
+                        "tenants"
+                    ]
+                },
+                "a4": {
+                    "answer": "liked",
+                    "verb_hint": "Почни з підметової частини про те, що найбільше сподобалося відвідувачам; після зв’язки постав наголошений об’єкт.",
+                    "options": [
+                        "liked",
+                        "mentioned",
+                        "expected",
+                        "disliked"
+                    ]
+                },
+                "a5": {
+                    "answer": "most",
+                    "verb_hint": "Почни з підметової частини про те, що найбільше сподобалося відвідувачам; після зв’язки постав наголошений об’єкт.",
+                    "options": [
+                        "most",
+                        "first",
+                        "least",
+                        "last"
+                    ]
+                },
+                "a6": {
+                    "answer": "was",
+                    "verb_hint": "Почни з підметової частини про те, що найбільше сподобалося відвідувачам; після зв’язки постав наголошений об’єкт.",
+                    "options": [
+                        "was",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з підметової частини про те, що найбільше сподобалося відвідувачам; після зв’язки постав наголошений об’єкт.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a8": {
+                    "answer": "rooftop",
+                    "verb_hint": "Почни з підметової частини про те, що найбільше сподобалося відвідувачам; після зв’язки постав наголошений об’єкт.",
+                    "options": [
+                        "rooftop",
+                        "entrance",
+                        "ground-floor",
+                        "indoor"
+                    ]
+                },
+                "a9": {
+                    "answer": "terrace.",
+                    "verb_hint": "Почни з підметової частини про те, що найбільше сподобалося відвідувачам; після зв’язки постав наголошений об’єкт.",
+                    "options": [
+                        "terrace",
+                        "hall",
+                        "café",
+                        "pool"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з підметової частини про те, що найбільше сподобалося відвідувачам; після зв’язки постав наголошений об’єкт.",
+            "accepted_target_texts": [
+                "What the visitors liked most was the rooftop terrace.",
+                "What the visitors liked most was the roof terrace.",
+                "What the visitors enjoyed most was the rooftop terrace.",
+                "What the visitors enjoyed most was the roof terrace."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "roof"
+                ],
+                "a4": [
+                    "enjoyed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "roof"
+                ],
+                "a4": [
+                    "enjoyed"
+                ]
+            },
+            "reorder_groups": [
+                "What the visitors",
+                "liked most",
+                "was the",
+                "rooftop terrace."
+            ],
+            "token_groups": [
+                "What the visitors",
+                "liked most",
+                "was the",
+                "rooftop terrace."
+            ],
+            "quality_revision": "ssq-v1",
+            "tokens_correct": [
+                "What",
+                "the",
+                "visitors",
+                "liked",
+                "most",
+                "was",
+                "the",
+                "rooftop",
+                "terrace."
+            ],
+            "options": [
+                "What",
+                "Whatever",
+                "Wherever",
+                "Whenever",
+                "the",
+                "an",
+                "some",
+                "any",
+                "visitors",
+                "workers",
+                "residents",
+                "tenants",
+                "liked",
+                "mentioned",
+                "expected",
+                "disliked",
+                "most",
+                "first",
+                "least",
+                "last",
+                "was",
+                "being",
+                "isn't",
+                "aren't",
+                "that",
+                "these",
+                "those",
+                "rooftop",
+                "entrance",
+                "ground-floor",
+                "indoor",
+                "terrace",
+                "hall",
+                "café",
+                "pool"
+            ],
+            "source_text_uk": "Найбільше відвідувачам сподобалася саме тераса на даху.",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "Whatever",
+                    "Wherever",
+                    "Whenever"
+                ],
+                "a2": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a3": [
+                    "visitors",
+                    "workers",
+                    "residents",
+                    "tenants"
+                ],
+                "a4": [
+                    "liked",
+                    "mentioned",
+                    "expected",
+                    "disliked"
+                ],
+                "a5": [
+                    "most",
+                    "first",
+                    "least",
+                    "last"
+                ],
+                "a6": [
+                    "was",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a7": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a8": [
+                    "rooftop",
+                    "entrance",
+                    "ground-floor",
+                    "indoor"
+                ],
+                "a9": [
+                    "terrace",
+                    "hall",
+                    "café",
+                    "pool"
+                ]
+            },
+            "slot_roles": {
+                "a1": "btwo_part_one",
+                "a2": "btwo_part_one",
+                "a3": "btwo_part_one",
+                "a4": "btwo_part_two",
+                "a5": "btwo_part_two",
+                "a6": "btwo_part_three",
+                "a7": "btwo_part_three",
+                "a8": "btwo_part_four",
+                "a9": "btwo_part_four"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "ssq-cse-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Саме взаємне визнання кваліфікацій, а не спільна валюта, полегшило працевлаштування.",
+            "level": "C1",
+            "type": 4,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Саме взаємне визнання кваліфікацій, а не спільна валюта, полегшило працевлаштування.",
+            "target_text": "It was the mutual recognition of qualifications, not the common currency, that made employment easier.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+                    "options": [
+                        "It",
+                        "She",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a4": {
+                    "answer": "mutual",
+                    "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+                    "options": [
+                        "mutual",
+                        "partial",
+                        "formal",
+                        "unilateral"
+                    ]
+                },
+                "a5": {
+                    "answer": "recognition",
+                    "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+                    "options": [
+                        "recognition",
+                        "renewal",
+                        "withdrawal",
+                        "suspension"
+                    ]
+                },
+                "a6": {
+                    "answer": "of",
+                    "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+                    "options": [
+                        "of",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a7": {
+                    "answer": "qualifications,",
+                    "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+                    "options": [
+                        "qualifications",
+                        "applications",
+                        "licences",
+                        "permits"
+                    ]
+                },
+                "a8": {
+                    "answer": "not",
+                    "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a10": {
+                    "answer": "common",
+                    "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+                    "options": [
+                        "common",
+                        "joint",
+                        "central",
+                        "key"
+                    ]
+                },
+                "a11": {
+                    "answer": "currency,",
+                    "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+                    "options": [
+                        "currency",
+                        "committee",
+                        "authority",
+                        "policy"
+                    ]
+                },
+                "a12": {
+                    "answer": "that",
+                    "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+                    "options": [
+                        "that",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a13": {
+                    "answer": "made",
+                    "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+                    "options": [
+                        "made",
+                        "wrote",
+                        "rode",
+                        "drove"
+                    ]
+                },
+                "a14": {
+                    "answer": "employment",
+                    "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+                    "options": [
+                        "employment",
+                        "trade",
+                        "assessment",
+                        "recruitment"
+                    ]
+                },
+                "a15": {
+                    "answer": "easier.",
+                    "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+                    "options": [
+                        "easier",
+                        "slower",
+                        "cheaper",
+                        "faster"
+                    ]
+                }
+            },
+            "verb_hint": "Підкресли справжній чинник полегшення працевлаштування й прямо відкинь альтернативу про валюту.",
+            "accepted_target_texts": [
+                "It was the mutual recognition of qualifications, not the common currency, that made employment easier.",
+                "It was the mutual recognition of qualifications, not the common currency, that made finding work easier.",
+                "It was the mutual recognition of qualifications, not the common currency, which made employment easier.",
+                "It was the mutual recognition of qualifications, not the common currency, which made finding work easier.",
+                "It was the mutual recognition of qualifications, not the single currency, that made employment easier.",
+                "It was the mutual recognition of qualifications, not the single currency, that made finding work easier.",
+                "It was the mutual recognition of qualifications, not the single currency, which made employment easier.",
+                "It was the mutual recognition of qualifications, not the single currency, which made finding work easier.",
+                "It was the reciprocal recognition of qualifications, not the common currency, that made employment easier.",
+                "It was the reciprocal recognition of qualifications, not the common currency, that made finding work easier.",
+                "It was the reciprocal recognition of qualifications, not the common currency, which made employment easier.",
+                "It was the reciprocal recognition of qualifications, not the common currency, which made finding work easier.",
+                "It was the reciprocal recognition of qualifications, not the single currency, that made employment easier.",
+                "It was the reciprocal recognition of qualifications, not the single currency, that made finding work easier.",
+                "It was the reciprocal recognition of qualifications, not the single currency, which made employment easier.",
+                "It was the reciprocal recognition of qualifications, not the single currency, which made finding work easier."
+            ],
+            "answer_synonyms": {
+                "a12": [
+                    "which"
+                ],
+                "a10": [
+                    "single"
+                ],
+                "a4": [
+                    "reciprocal"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a12": [
+                    "which"
+                ],
+                "a10": [
+                    "single"
+                ],
+                "a4": [
+                    "reciprocal"
+                ]
+            },
+            "reorder_groups": [
+                "It was",
+                "the mutual recognition",
+                "of qualifications,",
+                "not the",
+                "common currency,",
+                "that made",
+                "employment easier."
+            ],
+            "token_groups": [
+                "It was",
+                "the mutual recognition",
+                "of qualifications,",
+                "not the",
+                "common currency,",
+                "that made",
+                "employment easier."
+            ],
+            "quality_revision": "ssq-v1",
+            "tokens_correct": [
+                "It",
+                "was",
+                "the",
+                "mutual",
+                "recognition",
+                "of",
+                "qualifications,",
+                "not",
+                "the",
+                "common",
+                "currency,",
+                "that",
+                "made",
+                "employment",
+                "easier."
+            ],
+            "options": [
+                "It",
+                "She",
+                "We",
+                "They",
+                "was",
+                "were",
+                "be",
+                "been",
+                "the",
+                "both",
+                "a",
+                "an",
+                "mutual",
+                "partial",
+                "formal",
+                "unilateral",
+                "recognition",
+                "renewal",
+                "withdrawal",
+                "suspension",
+                "of",
+                "to",
+                "from",
+                "for",
+                "qualifications",
+                "applications",
+                "licences",
+                "permits",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "those",
+                "each",
+                "every",
+                "common",
+                "joint",
+                "central",
+                "key",
+                "currency",
+                "committee",
+                "authority",
+                "policy",
+                "that",
+                "no",
+                "another",
+                "either",
+                "made",
+                "wrote",
+                "rode",
+                "drove",
+                "employment",
+                "trade",
+                "assessment",
+                "recruitment",
+                "easier",
+                "slower",
+                "cheaper",
+                "faster"
+            ],
+            "source_text_uk": "Саме взаємне визнання кваліфікацій, а не спільна валюта, полегшило працевлаштування.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "She",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a3": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a4": [
+                    "mutual",
+                    "partial",
+                    "formal",
+                    "unilateral"
+                ],
+                "a5": [
+                    "recognition",
+                    "renewal",
+                    "withdrawal",
+                    "suspension"
+                ],
+                "a6": [
+                    "of",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a7": [
+                    "qualifications",
+                    "applications",
+                    "licences",
+                    "permits"
+                ],
+                "a8": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a9": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a10": [
+                    "common",
+                    "joint",
+                    "central",
+                    "key"
+                ],
+                "a11": [
+                    "currency",
+                    "committee",
+                    "authority",
+                    "policy"
+                ],
+                "a12": [
+                    "that",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a13": [
+                    "made",
+                    "wrote",
+                    "rode",
+                    "drove"
+                ],
+                "a14": [
+                    "employment",
+                    "trade",
+                    "assessment",
+                    "recruitment"
+                ],
+                "a15": [
+                    "easier",
+                    "slower",
+                    "cheaper",
+                    "faster"
+                ]
+            },
+            "slot_roles": {
+                "a1": "cone_part_one",
+                "a2": "cone_part_one",
+                "a3": "cone_part_two",
+                "a4": "cone_part_two",
+                "a5": "cone_part_two",
+                "a6": "cone_part_three",
+                "a7": "cone_part_three",
+                "a8": "cone_part_four",
+                "a9": "cone_part_four",
+                "a10": "cone_part_five",
+                "a11": "cone_part_five",
+                "a12": "cone_part_six",
+                "a13": "cone_part_six",
+                "a14": "cone_part_seven",
+                "a15": "cone_part_seven"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "ssq-cse-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Вирішальним виявилося саме те, чого переклад не передав: відмінність між дозволом і зобов’язанням.",
+            "level": "C2",
+            "type": 4,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Вирішальним виявилося саме те, чого переклад не передав: відмінність між дозволом і зобов’язанням.",
+            "target_text": "What proved decisive was what the translation failed to convey: the distinction between permission and obligation.",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "What",
+                        "Whom",
+                        "Which",
+                        "Where"
+                    ]
+                },
+                "a2": {
+                    "answer": "proved",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "proved",
+                        "remained",
+                        "became",
+                        "appeared"
+                    ]
+                },
+                "a3": {
+                    "answer": "decisive",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "decisive",
+                        "doubtful",
+                        "obvious",
+                        "bad"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "was",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "what",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "what",
+                        "when",
+                        "why",
+                        "how"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "translation",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "translation",
+                        "annotation",
+                        "transcript",
+                        "appendix"
+                    ]
+                },
+                "a8": {
+                    "answer": "failed",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "failed",
+                        "purported",
+                        "managed",
+                        "tried"
+                    ]
+                },
+                "a9": {
+                    "answer": "to",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "to",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a10": {
+                    "answer": "convey:",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "convey",
+                        "explain",
+                        "suggest",
+                        "establish"
+                    ]
+                },
+                "a11": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "the",
+                        "an",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a12": {
+                    "answer": "distinction",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "distinction",
+                        "correlation",
+                        "correspondence",
+                        "similarity"
+                    ]
+                },
+                "a13": {
+                    "answer": "between",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "between",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a14": {
+                    "answer": "permission",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "permission",
+                        "prohibition",
+                        "exemption",
+                        "consent"
+                    ]
+                },
+                "a15": {
+                    "answer": "and",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "and",
+                        "though",
+                        "unless",
+                        "whereas"
+                    ]
+                },
+                "a16": {
+                    "answer": "obligation.",
+                    "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+                    "options": [
+                        "obligation",
+                        "entitlement",
+                        "recommendation",
+                        "expectation"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй вкладену фокусну конструкцію; збережи пропущений перекладом смисл і протиставлення дозволу та зобов’язання.",
+            "accepted_target_texts": [
+                "What proved decisive was what the translation failed to convey: the distinction between permission and obligation.",
+                "What proved decisive was what the translation failed to convey: the distinction between permission and duty.",
+                "What proved decisive was what the translation failed to convey: the distinction between authorisation and obligation.",
+                "What proved decisive was what the translation failed to convey: the distinction between authorisation and duty.",
+                "What proved decisive was what the translation failed to convey: the distinction between authorization and obligation.",
+                "What proved decisive was what the translation failed to convey: the distinction between authorization and duty.",
+                "What proved decisive was what the translation failed to convey: the difference between permission and obligation.",
+                "What proved decisive was what the translation failed to convey: the difference between permission and duty.",
+                "What proved decisive was what the translation failed to convey: the difference between authorisation and obligation.",
+                "What proved decisive was what the translation failed to convey: the difference between authorisation and duty.",
+                "What proved decisive was what the translation failed to convey: the difference between authorization and obligation.",
+                "What proved decisive was what the translation failed to convey: the difference between authorization and duty.",
+                "What proved decisive was what the translation did not convey: the distinction between permission and obligation.",
+                "What proved decisive was what the translation did not convey: the distinction between permission and duty.",
+                "What proved decisive was what the translation did not convey: the distinction between authorisation and obligation.",
+                "What proved decisive was what the translation did not convey: the distinction between authorisation and duty.",
+                "What proved decisive was what the translation did not convey: the distinction between authorization and obligation.",
+                "What proved decisive was what the translation did not convey: the distinction between authorization and duty.",
+                "What proved decisive was what the translation did not convey: the difference between permission and obligation.",
+                "What proved decisive was what the translation did not convey: the difference between permission and duty.",
+                "What proved decisive was what the translation did not convey: the difference between authorisation and obligation.",
+                "What proved decisive was what the translation did not convey: the difference between authorisation and duty.",
+                "What proved decisive was what the translation did not convey: the difference between authorization and obligation.",
+                "What proved decisive was what the translation did not convey: the difference between authorization and duty.",
+                "What was decisive was what the translation failed to convey: the distinction between permission and obligation.",
+                "What was decisive was what the translation failed to convey: the distinction between permission and duty.",
+                "What was decisive was what the translation failed to convey: the distinction between authorisation and obligation.",
+                "What was decisive was what the translation failed to convey: the distinction between authorisation and duty.",
+                "What was decisive was what the translation failed to convey: the distinction between authorization and obligation.",
+                "What was decisive was what the translation failed to convey: the distinction between authorization and duty.",
+                "What was decisive was what the translation failed to convey: the difference between permission and obligation.",
+                "What was decisive was what the translation failed to convey: the difference between permission and duty.",
+                "What was decisive was what the translation failed to convey: the difference between authorisation and obligation.",
+                "What was decisive was what the translation failed to convey: the difference between authorisation and duty.",
+                "What was decisive was what the translation failed to convey: the difference between authorization and obligation.",
+                "What was decisive was what the translation failed to convey: the difference between authorization and duty.",
+                "What was decisive was what the translation did not convey: the distinction between permission and obligation.",
+                "What was decisive was what the translation did not convey: the distinction between permission and duty.",
+                "What was decisive was what the translation did not convey: the distinction between authorisation and obligation.",
+                "What was decisive was what the translation did not convey: the distinction between authorisation and duty.",
+                "What was decisive was what the translation did not convey: the distinction between authorization and obligation.",
+                "What was decisive was what the translation did not convey: the distinction between authorization and duty.",
+                "What was decisive was what the translation did not convey: the difference between permission and obligation.",
+                "What was decisive was what the translation did not convey: the difference between permission and duty.",
+                "What was decisive was what the translation did not convey: the difference between authorisation and obligation.",
+                "What was decisive was what the translation did not convey: the difference between authorisation and duty.",
+                "What was decisive was what the translation did not convey: the difference between authorization and obligation.",
+                "What was decisive was what the translation did not convey: the difference between authorization and duty."
+            ],
+            "answer_synonyms": {
+                "a16": [
+                    "duty."
+                ],
+                "a14": [
+                    "authorisation",
+                    "authorization"
+                ],
+                "a12": [
+                    "difference"
+                ],
+                "a8": [
+                    "did"
+                ],
+                "a9": [
+                    "not"
+                ],
+                "a2": [
+                    "was"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a16": [
+                    "duty."
+                ],
+                "a14": [
+                    "authorisation",
+                    "authorization"
+                ],
+                "a12": [
+                    "difference"
+                ],
+                "a8": [
+                    "did"
+                ],
+                "a9": [
+                    "not"
+                ],
+                "a2": [
+                    "was"
+                ]
+            },
+            "reorder_groups": [
+                "What proved decisive",
+                "was what",
+                "the translation",
+                "failed to convey:",
+                "the distinction",
+                "between permission",
+                "and obligation."
+            ],
+            "token_groups": [
+                "What proved decisive",
+                "was what",
+                "the translation",
+                "failed to convey:",
+                "the distinction",
+                "between permission",
+                "and obligation."
+            ],
+            "quality_revision": "ssq-v1",
+            "tokens_correct": [
+                "What",
+                "proved",
+                "decisive",
+                "was",
+                "what",
+                "the",
+                "translation",
+                "failed",
+                "to",
+                "convey:",
+                "the",
+                "distinction",
+                "between",
+                "permission",
+                "and",
+                "obligation."
+            ],
+            "options": [
+                "What",
+                "Whom",
+                "Which",
+                "Where",
+                "proved",
+                "remained",
+                "became",
+                "appeared",
+                "decisive",
+                "doubtful",
+                "obvious",
+                "bad",
+                "was",
+                "been",
+                "being",
+                "isn't",
+                "what",
+                "when",
+                "why",
+                "how",
+                "the",
+                "some",
+                "any",
+                "this",
+                "translation",
+                "annotation",
+                "transcript",
+                "appendix",
+                "failed",
+                "purported",
+                "managed",
+                "tried",
+                "to",
+                "by",
+                "with",
+                "without",
+                "convey",
+                "explain",
+                "suggest",
+                "establish",
+                "an",
+                "that",
+                "these",
+                "distinction",
+                "correlation",
+                "correspondence",
+                "similarity",
+                "between",
+                "onto",
+                "over",
+                "under",
+                "permission",
+                "prohibition",
+                "exemption",
+                "consent",
+                "and",
+                "though",
+                "unless",
+                "whereas",
+                "obligation",
+                "entitlement",
+                "recommendation",
+                "expectation"
+            ],
+            "source_text_uk": "Вирішальним виявилося саме те, чого переклад не передав: відмінність між дозволом і зобов’язанням.",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "Whom",
+                    "Which",
+                    "Where"
+                ],
+                "a2": [
+                    "proved",
+                    "remained",
+                    "became",
+                    "appeared"
+                ],
+                "a3": [
+                    "decisive",
+                    "doubtful",
+                    "obvious",
+                    "bad"
+                ],
+                "a4": [
+                    "was",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a5": [
+                    "what",
+                    "when",
+                    "why",
+                    "how"
+                ],
+                "a6": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "translation",
+                    "annotation",
+                    "transcript",
+                    "appendix"
+                ],
+                "a8": [
+                    "failed",
+                    "purported",
+                    "managed",
+                    "tried"
+                ],
+                "a9": [
+                    "to",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a10": [
+                    "convey",
+                    "explain",
+                    "suggest",
+                    "establish"
+                ],
+                "a11": [
+                    "the",
+                    "an",
+                    "that",
+                    "these"
+                ],
+                "a12": [
+                    "distinction",
+                    "correlation",
+                    "correspondence",
+                    "similarity"
+                ],
+                "a13": [
+                    "between",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a14": [
+                    "permission",
+                    "prohibition",
+                    "exemption",
+                    "consent"
+                ],
+                "a15": [
+                    "and",
+                    "though",
+                    "unless",
+                    "whereas"
+                ],
+                "a16": [
+                    "obligation",
+                    "entitlement",
+                    "recommendation",
+                    "expectation"
+                ]
+            },
+            "slot_roles": {
+                "a1": "ctwo_part_one",
+                "a2": "ctwo_part_one",
+                "a3": "ctwo_part_one",
+                "a4": "ctwo_part_two",
+                "a5": "ctwo_part_two",
+                "a6": "ctwo_part_three",
+                "a7": "ctwo_part_three",
+                "a8": "ctwo_part_four",
+                "a9": "ctwo_part_four",
+                "a10": "ctwo_part_four",
+                "a11": "ctwo_part_five",
+                "a12": "ctwo_part_five",
+                "a13": "ctwo_part_six",
+                "a14": "ctwo_part_six",
+                "a15": "ctwo_part_seven",
+                "a16": "ctwo_part_seven"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

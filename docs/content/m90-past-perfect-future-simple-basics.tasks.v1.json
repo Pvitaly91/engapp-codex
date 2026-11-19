@@ -1,0 +1,1318 @@
+{
+    "Database\\Seeders\\Page_V3\\Tenses\\PastPerfect\\PastPerfectFormsTheorySeeder": [
+        {
+            "old_block_source_index": 5,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "a) When I arrived, the film had started. / b) When I arrived, the film has started.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "<p>Який варіант правильний? Фільм почався до мого прибуття; розповідаємо про ці дві минулі події. Потрібен Past Perfect для ранішої.</p><p lang=\"en\">a) When I arrived, the film had started. / b) When I arrived, the film has started.</p><p>Коли я прийшов, фільм уже почався.</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "When I arrived, the film had started. — Коли я прийшов, фільм уже почався. Початок фільму раніший за прибуття; had started співвідноситься з цією минулою точкою.",
+                    "b": "Потрібне When I arrived, the film had started. — Коли я прийшов, фільм уже почався. Has started не передає потрібного погляду назад із названого минулого прибуття."
+                }
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Вибір правильної Past Perfect форми за видимим контекстом.",
+            "change_reason": "Old letter key and both EN alternatives retained; explicit Ukrainian criterion is visible in label, full translation/plainfeedback added; accepted=[unchangedanswer] is data-only validator alignment. No old ID/source_index invented.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "a) She had went home before noon that day. / b) She had gone home before noon that day.",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "<p>Який варіант правильний? Обери Past Perfect із правильною V3 дієслова go. Минулий орієнтир — полудень того дня.</p><p lang=\"en\">a) She had went home before noon that day. / b) She had gone home before noon that day.</p><p>Того дня вона пішла додому до полудня.</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "Потрібне She had gone home before noon that day. — Того дня вона пішла додому до полудня. Went — V2 дієслова go; у цій моделі потрібна V3 gone.",
+                    "b": "She had gone home before noon that day. — Того дня вона пішла додому до полудня. Had + gone правильно утворює Past Perfect."
+                }
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Вибір правильної Past Perfect форми за видимим контекстом.",
+            "change_reason": "Old letter key and both EN alternatives retained; explicit Ukrainian criterion is visible in label, full translation/plainfeedback added; accepted=[unchangedanswer] is data-only validator alignment. No old ID/source_index invented.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "old_task": {
+                "before": "started / we arrived / the film / before / had",
+                "after": "→",
+                "answer": "The film had started before we arrived."
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "before": "before / The film / we arrived. / had started",
+                "after": "Фільм почався до того, як ми приїхали. Використай Past Perfect із start та повне had. Почни з The film; частину з before постав наприкінці. Збережи we, а не I.",
+                "answer": "The film had started before we arrived.",
+                "accepted": [
+                    "The film had started before we arrived."
+                ],
+                "feedback": {
+                    "the film had started before we arrived.": "The film had started before we arrived. — Фільм почався до того, як ми приїхали. Had started передує arrived; порядок двох подій збережено."
+                }
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Повне речення: лексика,форма та заданий порядок;manual і tokens — одне завдання.",
+            "change_reason": "Old canonical and participants/time relation retained. Grouped before-bank now composes exact fullcase/punct canonical; visible condition fixes subject-first/time-clause-final order and fullhad. Accepted=[oldcanonical] explicitly declared; no contraction support assumed.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "full_sentence"
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "old_task": {
+                "before": "the report / began / Maya / Friday’s meeting / had / before / completed",
+                "after": "→",
+                "answer": "Maya had completed the report before Friday’s meeting began."
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "before": "the report / Friday’s meeting / Maya / began. / before / had completed",
+                "after": "Мая завершила звіт до початку п’ятничної зустрічі. Побудуй Past Perfect із complete та повним had. Почни з Maya, далі назви завершення звіту; частину з before та Friday’s meeting залиш наприкінці.",
+                "answer": "Maya had completed the report before Friday’s meeting began.",
+                "accepted": [
+                    "Maya had completed the report before Friday’s meeting began."
+                ],
+                "feedback": {
+                    "maya had completed the report before friday’s meeting began.": "Maya had completed the report before Friday’s meeting began. — Мая завершила звіт до початку п’ятничної зустрічі. Maya — виконавиця; звіт уже був завершений раніше, ніж почалася зустріч."
+                }
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Повне речення: лексика,форма та заданий порядок;manual і tokens — одне завдання.",
+            "change_reason": "Old canonical and participants/time relation retained. Grouped before-bank now composes exact fullcase/punct canonical; visible condition fixes subject-first/time-clause-final order and fullhad. Accepted=[oldcanonical] explicitly declared; no contraction support assumed.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "full_sentence"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m90-past-perfect-forms-meaning-1",
+                "label": "<p lang=\"en\">By 5 p.m., she had written three emails.</p><p>До п’ятої вона вже написала три електронні листи. Що можна стверджувати лише з цього речення?</p>",
+                "prompt": "A) Три електронні листи вже були написані до п’ятої; чи їх відправили, не сказано.<br>B) Три електронні листи обов’язково вже відправили до п’ятої.",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "By 5 p.m., she had written three emails. — До п’ятої вона вже написала три електронні листи. Written підтверджує написання до минулої межі; відправлення не названо.",
+                    "b": "Written означає «написала», а не «відправила». Повідомлення підтверджує три написані до п’ятої листи, але не їх відправлення."
+                }
+            },
+            "classification": "new_authored",
+            "graded": true,
+            "learning_function": "Написані три листи не означають відправлені листи.",
+            "change_reason": "Нове смислове завдання,не перейменованийвибір had/V3;ключ випливає з видимого повідомлення.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "meaning"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m90-past-perfect-forms-meaning-2",
+                "label": "<p lang=\"en\">When the course began, I had known Olena for five years.</p><p>Коли почався курс, я вже п’ять років знав Олену. Який часовий зв’язок передано?</p>",
+                "prompt": "A) Я познайомився з Оленою лише після початку курсу.<br>B) На момент початку курсу наше знайомство тривало вже п’ять років; про його завершення не сказано.",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "Had known Olena for five years — уже п’ять років знав Олену до початку курсу. Отже, знайомство не почалося лише після цієї події.",
+                    "b": "When the course began, I had known Olena for five years. — Коли почався курс, я вже п’ять років знав Олену. Past Perfect може описувати стан до минулого орієнтира; завершення знайомства не стверджується."
+                }
+            },
+            "classification": "new_authored",
+            "graded": true,
+            "learning_function": "Стан знайомства до минулої точки,без твердження про завершення.",
+            "change_reason": "Нове смислове завдання,не перейменованийвибір had/V3;ключ випливає з видимого повідомлення.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "meaning"
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\Tenses\\PastPerfect\\PastPerfectNegativesTheorySeeder": [
+        {
+            "old_block_source_index": 5,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "a) They hadn't finished by six that evening. / b) They didn't had finished by six that evening.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "<p>Який варіант правильний? До шостої того вечора завершення ще не було. Обери заперечення Past Perfect, без додаткового did.</p><p lang=\"en\">a) They hadn't finished by six that evening. / b) They didn't had finished by six that evening.</p><p>Того вечора до шостої вони ще не закінчили.</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "They hadn't finished by six that evening. — Того вечора до шостої вони ще не закінчили. Hadn't + finished — потрібна модель; вона не доводить, що вони не починали.",
+                    "b": "Потрібне They hadn't finished by six that evening. — Того вечора до шостої вони ще не закінчили. Didn't не додаємо до допоміжного had."
+                }
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Вибір правильної Past Perfect форми за видимим контекстом.",
+            "change_reason": "Old letter key and both EN alternatives retained; explicit Ukrainian criterion is visible in label, full translation/plainfeedback added; accepted=[unchangedanswer] is data-only validator alignment. No old ID/source_index invented.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "a) She hadn't saw the message before class began. / b) She hadn't seen the message before class began.",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "<p>Який варіант правильний? Обери V3 дієслова see після hadn't. Минулий орієнтир — початок заняття.</p><p lang=\"en\">a) She hadn't saw the message before class began. / b) She hadn't seen the message before class began.</p><p>Вона не бачила повідомлення до початку заняття.</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "Потрібне She hadn't seen the message before class began. — Вона не бачила повідомлення до початку заняття. Saw — V2, а потрібна V3 seen.",
+                    "b": "She hadn't seen the message before class began. — Вона не бачила повідомлення до початку заняття. Seen — правильна V3; про пізніший час речення не повідомляє."
+                }
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Вибір правильної Past Perfect форми за видимим контекстом.",
+            "change_reason": "Old letter key and both EN alternatives retained; explicit Ukrainian criterion is visible in label, full translation/plainfeedback added; accepted=[unchangedanswer] is data-only validator alignment. No old ID/source_index invented.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "old_task": {
+                "before": "the door / before he left / hadn't / he / locked",
+                "after": "→",
+                "answer": "He hadn't locked the door before he left."
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "before": "before / He hadn't / he left. / locked the door",
+                "after": "Він не замкнув двері до того, як пішов. Використай Past Perfect із lock. Почни з He; частину before he left залиш наприкінці. Вручну можна had not або hadn't.",
+                "answer": "He hadn't locked the door before he left.",
+                "accepted": [
+                    "He hadn't locked the door before he left.",
+                    "He had not locked the door before he left."
+                ],
+                "feedback": {
+                    "he hadn't locked the door before he left.": "He hadn't locked the door before he left. — Він не замкнув двері до того, як пішов. Hadn't locked заперечує замикання до моменту виходу.",
+                    "he had not locked the door before he left.": "He had not locked the door before he left. — Він не замкнув двері до того, як пішов. Повна форма had not передає те саме заперечення, що й hadn't."
+                }
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Повне речення: лексика,форма та заданий порядок;manual і tokens — одне завдання.",
+            "change_reason": "Old canonical/participants/polarity/time relation retained. Grouped before-bank composes canonical. Full/contractednegative auxiliary manualalias explicitly added with visiblepermission/plainfeedback; no automaticmatcherclaim.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "full_sentence"
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "old_task": {
+                "before": "found / a solution / the team / by midnight that night / had not",
+                "after": "→",
+                "answer": "The team had not found a solution by midnight that night."
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "before": "a solution / that night. / The team / found / by midnight / had not",
+                "after": "Тієї ночі до опівночі команда ще не знайшла розв’язання. Побудуй Past Perfect із find і a solution. Почни з The team; часову групу by midnight that night постав наприкінці. Вручну можна had not або hadn't.",
+                "answer": "The team had not found a solution by midnight that night.",
+                "accepted": [
+                    "The team had not found a solution by midnight that night.",
+                    "The team hadn't found a solution by midnight that night."
+                ],
+                "feedback": {
+                    "the team had not found a solution by midnight that night.": "The team had not found a solution by midnight that night. — Тієї ночі до опівночі команда ще не знайшла розв’язання. Минула межа — опівніч тієї ночі; про подальший результат не сказано.",
+                    "the team hadn't found a solution by midnight that night.": "The team hadn't found a solution by midnight that night. — Тієї ночі до опівночі команда ще не знайшла розв’язання. Hadn't — дозволений скорочений варіант had not."
+                }
+            },
+            "classification": "retained_refined",
+            "graded": true,
+            "learning_function": "Повне речення: лексика,форма та заданий порядок;manual і tokens — одне завдання.",
+            "change_reason": "Old canonical/participants/polarity/time relation retained. Grouped before-bank composes canonical. Full/contractednegative auxiliary manualalias explicitly added with visiblepermission/plainfeedback; no automaticmatcherclaim.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "full_sentence"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m90-past-perfect-negatives-meaning-1",
+                "label": "<p lang=\"en\">He hadn't finished the report by that Friday.</p><p>До тієї п’ятниці він ще не закінчив звіт. Який висновок достатньо обґрунтований?</p>",
+                "prompt": "A) До тієї п’ятниці він зовсім не починав працювати над звітом.<br>B) До тієї п’ятниці звіт іще не був завершений; про початок роботи й пізніше завершення не сказано.",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "Hadn't finished — «не закінчив», не «не починав». До тієї п’ятниці бракувало завершеного результату; початок роботи з цього не встановлюється.",
+                    "b": "He hadn't finished the report by that Friday. — До тієї п’ятниці він ще не закінчив звіт. Заперечено завершення до минулої межі, без висновку про початок чи пізніший результат."
+                }
+            },
+            "classification": "new_authored",
+            "graded": true,
+            "learning_function": "Не закінчив до п’ятниці не означає не починав.",
+            "change_reason": "Нове смислове завдання,не перейменованийвибір had/V3;ключ випливає з видимого повідомлення.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "meaning"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m90-past-perfect-negatives-meaning-2",
+                "label": "<p lang=\"en\">He was nervous because he hadn't prepared enough.</p><p>Він нервував, бо недостатньо підготувався. Що саме пояснює його стан?</p>",
+                "prompt": "A) До тієї ситуації підготовки було недостатньо; речення не вимагає висновку, що він зовсім не готувався.<br>B) Він узагалі ніколи нічого не готував, зокрема й у подальшому житті.",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "He was nervous because he hadn't prepared enough. — Він нервував, бо недостатньо підготувався. Enough задає достатність підготовки; because прямо називає пояснення нервування.",
+                    "b": "Hadn't prepared enough означає недостатню підготовку до тієї ситуації, а не повну відсутність будь-якої підготовки за все життя. Enough не можна відкинути."
+                }
+            },
+            "classification": "new_authored",
+            "graded": true,
+            "learning_function": "Недостатня підготовка не дорівнює повній відсутності підготовки.",
+            "change_reason": "Нове смислове завдання,не перейменованийвибір had/V3;ключ випливає з видимого повідомлення.",
+            "after_answer_present": true,
+            "after_accepted_present": true,
+            "assessed_role": "meaning"
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\Tenses\\PastPerfect\\PastPerfectQuestionsTheorySeeder": [
+        {
+            "old_block_source_index": 5,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "a) Had she left before you arrived? / b) Did she had left before you arrived?",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "<p>Йдеться про її можливий вихід до твого прибуття в минулому. Обери нейтральне загальне питання; не додавай did до вже наявного had.</p><p lang=\"en\">a) Had she left before you arrived?<br>b) Did she had left before you arrived?</p><p>Вона пішла до того, як ти прибув?</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "Had she left before you arrived? — Вона пішла до того, як ти прибув? Правильно a: допоміжне had стоїть перед she, головне дієслово — left. Питання не встановлює відповіді «так».",
+                    "b": "Правильно a: Had she left before you arrived? — Вона пішла до твого прибуття? У b додано зайве допоміжне did до вже наявного had; не треба змінювати факт чи часовий орієнтир."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "grammar_form",
+            "learning_function": "Нейтральне yes/no: інверсія had без зайвого did; початкове питання не встановлює факту.",
+            "change_reason": "Стару canonical-відповідь, відсутність ID/source_index та місце в групі збережено. Видима українська умова, переклад і простий feedback уточнюють факти й критерій. Explicit accepted=[canonical] додається лише для чинного native-validator; нових синонімів або іншого ключа немає. Для input before перетворено на перемішаний slashbank 1–3 слова, який буквально складає старе повне речення."
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "a) Why had they went home before the concert ended? / b) Why had they gone home before the concert ended?",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "<p>Розмовляємо про минулий концерт. Потрібне питання про причину їхнього виходу додому до його закінчення; обери V3 від go.</p><p lang=\"en\">a) Why had they went home before the concert ended?<br>b) Why had they gone home before the concert ended?</p><p>Чому вони пішли додому до закінчення концерту?</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "Правильно b: Why had they gone home before the concert ended? — Чому вони пішли додому до закінчення концерту? Після had потрібне gone, не V2 went. Конкретної причини запитання не називає.",
+                    "b": "Why had they gone home before the concert ended? — Чому вони пішли додому до закінчення концерту? Правильно b: gone — V3; минулий орієнтир before the concert ended збережено."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "grammar_form",
+            "learning_function": "Wh-question: V3 gone, не V2 went, до закінчення минулого концерту.",
+            "change_reason": "Стару canonical-відповідь, відсутність ID/source_index та місце в групі збережено. Видима українська умова, переклад і простий feedback уточнюють факти й критерій. Explicit accepted=[canonical] додається лише для чинного native-validator; нових синонімів або іншого ключа немає. Для input before перетворено на перемішаний slashbank 1–3 слова, який буквально складає старе повне речення."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m90-past-perfect-questions-meaning-who-subject",
+                "label": "<p>Обговорюють учорашню зустріч і підготовку до її початку. Якої інформації очікує мовець?</p><p lang=\"en\">Who had prepared the report before the meeting began?</p><p>Хто підготував звіт до початку зустрічі?</p><p>a) Треба назвати людину, яка виконала підготовку звіту до початку зустрічі.<br>b) Треба назвати точну тривалість підготовки звіту.</p>",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "Who had prepared the report before the meeting began? — Хто підготував звіт до початку зустрічі? Правильно a: who замінює невідомого виконавця. Питання не називає конкретної людини й не запитує тривалості.",
+                    "b": "Правильно a. Who had prepared the report before the meeting began? — Хто підготував звіт до початку зустрічі? B відповідає іншому типу інформації; про тривалість питали б how long."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "new_authored",
+            "graded": true,
+            "assessed_role": "meaning",
+            "learning_function": "Хто є виконавцем підготовки, а не скільки часу вона тривала.",
+            "change_reason": "Новий змістовний вибір a/b з видимими контекстом, українськими альтернативами та past reference; він не замінює старий form-select або input."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m90-past-perfect-questions-meaning-one-speaker",
+                "label": "<p>Оля одна відповідає вчителю за себе про вчорашній тест. Відомо: вона закінчила повторення до початку тесту. Обери коротку відповідь, яка передає цей факт від її імені.</p><p lang=\"en\">Had you finished revising before the test began?</p><p>Ти закінчила повторення до початку тесту?</p><p>a) Yes, we had. — Так, ми закінчили.<br>b) Yes, I had. — Так, я закінчила.</p>",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "Правильно b: Yes, I had. — Так, я закінчила. Питання Had you finished revising before the test began? означає «Ти закінчила повторення до початку тесту?». Оля відповідає одна за себе; граматичне we у a додає не задану групу.",
+                    "b": "Yes, I had. — Так, я закінчила. Правильно b: заданий факт позитивний, а одна Оля відповідає I на звернене до неї you. Минулий орієнтир — початок учорашнього тесту."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "new_authored",
+            "graded": true,
+            "assessed_role": "meaning",
+            "learning_function": "Одна Оля відповідає I про заданий позитивний минулий факт, не we.",
+            "change_reason": "Новий змістовний вибір a/b з видимими контекстом, українськими альтернативами та past reference; він не замінює старий form-select або input."
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "old_task": {
+                "before": "finished / by noon that day / you / had",
+                "after": "→",
+                "answer": "Had you finished by noon that day?"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "before": "by noon / Had you / that day? / finished",
+                "after": "<p>Запитай, чи співрозмовник закінчив до полудня того минулого дня. Побудуй загальне питання Past Perfect: почни з had, далі звернення до однієї людини, а часову групу залиш наприкінці. Збережи слово finished з банку.</p>",
+                "answer": "Had you finished by noon that day?",
+                "accepted": [
+                    "Had you finished by noon that day?"
+                ],
+                "feedback": {
+                    "had you finished by noon that day?": "Had you finished by noon that day? — Ти закінчив до полудня того дня? Had перед you утворює загальне питання; by noon that day залишається частиною повідомлення. By не встановлює точної години завершення й саме питання не підтверджує, що закінчив."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "full_sentence",
+            "learning_function": "Повне питання Had you ... by noon that day? зі збереженою часовою групою.",
+            "change_reason": "Стару canonical-відповідь, відсутність ID/source_index та місце в групі збережено. Видима українська умова, переклад і простий feedback уточнюють факти й критерій. Explicit accepted=[canonical] додається лише для чинного native-validator; нових синонімів або іншого ключа немає. Для input before перетворено на перемішаний slashbank 1–3 слова, який буквально складає старе повне речення."
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "old_task": {
+                "before": "home / the concert ended / why / gone / before / they / had",
+                "after": "→",
+                "answer": "Why had they gone home before the concert ended?"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "before": "the concert / Why had / ended? / they gone / home before",
+                "after": "<p>Розмовляєте про минулий концерт. Запитай, чому вони пішли додому до його закінчення. Почни з why, далі had і підмет; залиш часову частину про закінчення концерту наприкінці та збережи всі слова банку.</p>",
+                "answer": "Why had they gone home before the concert ended?",
+                "accepted": [
+                    "Why had they gone home before the concert ended?"
+                ],
+                "feedback": {
+                    "why had they gone home before the concert ended?": "Why had they gone home before the concert ended? — Чому вони пішли додому до закінчення концерту? Why запитує причину, had стоїть перед they, gone — V3. Вихід віднесено до часу перед закінченням концерту; конкретної причини запитання не повідомляє."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "full_sentence",
+            "learning_function": "Повне why-питання з gone home і before the concert ended.",
+            "change_reason": "Стару canonical-відповідь, відсутність ID/source_index та місце в групі збережено. Видима українська умова, переклад і простий feedback уточнюють факти й критерій. Explicit accepted=[canonical] додається лише для чинного native-validator; нових синонімів або іншого ключа немає. Для input before перетворено на перемішаний slashbank 1–3 слова, який буквально складає старе повне речення."
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\Tenses\\PastPerfect\\PastPerfectTimeExpressionsTheorySeeder": [
+        {
+            "old_block_source_index": 5,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "a) By the time we arrived, the train had left. / b) By the time we arrived, the train has left.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "<p>Ми згадуємо дві пов'язані події минулого: наше прибуття та від'їзд потяга. Обери речення про від'їзд до нашого прибуття.</p><p lang=\"en\">a) By the time we arrived, the train had left.<br>b) By the time we arrived, the train has left.</p><p>До нашого прибуття потяг уже поїхав.</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "By the time we arrived, the train had left. — До нашого прибуття потяг уже поїхав. Правильно a: had left показує раніший від'їзд відносно минулого arrived.",
+                    "b": "Правильно a: By the time we arrived, the train had left. — До нашого прибуття потяг уже поїхав. У цій заданій минулій перспективі has left у b відносить форму до тепер, а не до нашого тодішнього прибуття."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "grammar_form",
+            "learning_function": "Had left відносно past arrived, не теперішнє has left.",
+            "change_reason": "Стару canonical-відповідь, відсутність ID/source_index та місце в групі збережено. Видима українська умова, переклад і простий feedback уточнюють факти й критерій. Explicit accepted=[canonical] додається лише для чинного native-validator; нових синонімів або іншого ключа немає. Для input before перетворено на перемішаний slashbank 1–3 слова, який буквально складає старе повне речення."
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "a) Until then, I have never seen snow. / b) Until then, I had never seen snow.",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "<p>Оповідач згадує поїздку 2019 року; then означає початок тієї минулої поїздки. Обери речення про відсутність досвіду до цієї точки, не до тепер.</p><p lang=\"en\">a) Until then, I have never seen snow.<br>b) Until then, I had never seen snow.</p><p>До того моменту я жодного разу не бачив снігу.</p>",
+                "prompt": "Який варіант правильний?",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "Правильно b: Until then, I had never seen snow. — До того моменту я жодного разу не бачив снігу. Then уже відсилає до минулої поїздки; have у a не відповідає заданій перспективі до тієї точки.",
+                    "b": "Until then, I had never seen snow. — До того моменту я жодного разу не бачив снігу. Правильно b: had never seen охоплює період до початку названої поїздки; майбутнього досвіду це не визначає."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "grammar_form",
+            "learning_function": "Had never seen до названого then у минулому, не до тепер.",
+            "change_reason": "Стару canonical-відповідь, відсутність ID/source_index та місце в групі збережено. Видима українська умова, переклад і простий feedback уточнюють факти й критерій. Explicit accepted=[canonical] додається лише для чинного native-validator; нових синонімів або іншого ключа немає. Для input before перетворено на перемішаний slashbank 1–3 слова, який буквально складає старе повне речення."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m90-past-perfect-time-meaning-by-deadline",
+                "label": "<p>Згадують учорашню нараду об 11:00. Про звіт Марти відомо лише, що на цю годину він уже був готовий; точного моменту завершення не названо. Яке тлумачення речення правильне?</p><p lang=\"en\">Marta had finished the report by eleven.</p><p>Марта закінчила звіт не пізніше одинадцятої.</p><p>a) Завершення настало не пізніше 11:00; воно могло бути раніше.<br>b) Робота над звітом обов'язково тривала безперервно до рівно 11:00.</p>",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "Marta had finished the report by eleven. — Марта закінчила звіт не пізніше одинадцятої. Правильно a: by задає останню межу завершення, а не безперервне тривання до неї.",
+                    "b": "Правильно a. Marta had finished the report by eleven. — Марта закінчила звіт не пізніше одинадцятої. B додає безперервну тривалість і точний час, яких немає; by та until не можна довільно міняти в цих моделях."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "new_authored",
+            "graded": true,
+            "assessed_role": "meaning",
+            "learning_function": "By eleven — не пізніше межі, не безперервно до точної години.",
+            "change_reason": "Новий змістовний вибір a/b з видимими контекстом, українськими альтернативами та past reference; він не замінює старий form-select або input."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m90-past-perfect-time-meaning-until-reference",
+                "label": "<p>Йдеться про вчорашню розмову о 19:00; then посилається на її початок. Який висновок передає саме це речення, без доданих подій?</p><p lang=\"en\">Until then, we had never heard that story.</p><p>До того моменту ми жодного разу не чули цієї історії.</p><p>a) Ми обов'язково вперше почули історію рівно о 19:00, а потім більше її не чули.<br>b) До початку тієї розмови ми не мали такого досвіду; подальших подій речення не встановлює.</p>",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "Правильно b. Until then, we had never heard that story. — До того моменту ми жодного разу не чули цієї історії. A додає точну першу подію на межі та подальше життя; цього повідомлення немає.",
+                    "b": "Until then, we had never heard that story. — До того моменту ми жодного разу не чули цієї історії. Правильно b: until then обмежує попередній період заданим початком розмови; never не стверджує «ніколи й надалі»."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "new_authored",
+            "graded": true,
+            "assessed_role": "meaning",
+            "learning_function": "Until then/never — відсутність досвіду до заданої точки, без доданого подальшого факту.",
+            "change_reason": "Новий змістовний вибір a/b з видимими контекстом, українськими альтернативами та past reference; він не замінює старий form-select або input."
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "old_task": {
+                "before": "already / before noon that day / left / they / had",
+                "after": "→",
+                "answer": "They had already left before noon that day."
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "before": "before noon / that day. / They had / already left",
+                "after": "<p>Вони вже пішли до полудня того минулого дня. Почни з підмета they, постав already одразу після had, а часову групу залиш наприкінці. Збережи всі подані слова.</p>",
+                "answer": "They had already left before noon that day.",
+                "accepted": [
+                    "They had already left before noon that day."
+                ],
+                "feedback": {
+                    "they had already left before noon that day.": "They had already left before noon that day. — Вони вже пішли до полудня того дня. Already стосується попереднього завершення, before noon that day задає минулу межу. Середню позицію already тут явно задано; інші природні позиції не оголошено загалом помилковими."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "full_sentence",
+            "learning_function": "Before noon that day + already у явно заданій середній позиції.",
+            "change_reason": "Стару canonical-відповідь, відсутність ID/source_index та місце в групі збережено. Видима українська умова, переклад і простий feedback уточнюють факти й критерій. Explicit accepted=[canonical] додається лише для чинного native-validator; нових синонімів або іншого ключа немає. Для input before перетворено на перемішаний slashbank 1–3 слова, який буквально складає старе повне речення."
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "old_task": {
+                "before": "closed / the shop / we arrived / had / by the time",
+                "after": "→",
+                "answer": "By the time we arrived, the shop had closed."
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "before": "had closed. / By the time / the shop / we arrived,",
+                "after": "<p>До нашого прибуття крамниця вже зачинилася. Йдеться про минулі події. Почни з часової частини про наше прибуття з by the time, потім подай головну частину про крамницю; збережи всі слова банку.</p>",
+                "answer": "By the time we arrived, the shop had closed.",
+                "accepted": [
+                    "By the time we arrived, the shop had closed."
+                ],
+                "feedback": {
+                    "by the time we arrived, the shop had closed.": "By the time we arrived, the shop had closed. — До нашого прибуття крамниця вже зачинилася. By the time we arrived називає пізніший орієнтир, had closed — попереднє закриття. Умова наперед задає порядок частин; збережено й прибуття, й закриття."
+                }
+            },
+            "after_answer_present": true,
+            "classification": "retained_refined",
+            "graded": true,
+            "assessed_role": "full_sentence",
+            "learning_function": "By the time we arrived як перша часова частина; shop had closed як попередня подія.",
+            "change_reason": "Стару canonical-відповідь, відсутність ID/source_index та місце в групі збережено. Видима українська умова, переклад і простий feedback уточнюють факти й критерій. Explicit accepted=[canonical] додається лише для чинного native-validator; нових синонімів або іншого ключа немає. Для input before перетворено на перемішаний slashbank 1–3 слова, який буквально складає старе повне речення."
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\FutureForms\\FutureSimple\\FutureSimpleFormsTheorySeeder": [
+        {
+            "old_block_source_index": 5,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "a) She will call later. / b) She will calls later.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "Порівняй дві форми одного повідомлення.<br>a) She will call later. / b) She will calls later.<br>Вона зателефонує пізніше.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "She will call later. — Вона зателефонує пізніше. Після will потрібна базова форма call без -s.",
+                    "b": "Правильно: She will call later. — Вона зателефонує пізніше. Calls після will не вживається; підмет she не змінює базової форми."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "form",
+            "learning_function": "Перевірити незмінену базову форму та заперечення після will",
+            "change_reason": "Oldanswer/identityabsence/positions retained; visibleUAcriteria/translation/feedbackandcanonicalbankrefined. Explicitaccepted conformsdata contract, notproofoldUIwasbroken.",
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "a) I'll help you. / b) I will to help you.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "Порівняй два варіанти пропозиції допомоги.<br>a) I'll help you. / b) I will to help you.<br>Я допоможу тобі.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "I'll help you. — Я допоможу тобі. I'll = I will; після will потрібне help без to. Ця пропозиція не доводить, що її вже прийнято.",
+                    "b": "Правильно: I'll help you. — Я допоможу тобі. Після will не ставимо to; повна форма I will help you теж граматична."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "form",
+            "learning_function": "Перевірити незмінену базову форму та заперечення після will",
+            "change_reason": "Oldanswer/identityabsence/positions retained; visibleUAcriteria/translation/feedbackandcanonicalbankrefined. Explicitaccepted conformsdata contract, notproofoldUIwasbroken.",
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m90-future-simple-forms-meaning-prediction",
+                "label": "It will probably rain later.<br>Ймовірно, пізніше буде дощ.",
+                "prompt": "Який висновок правильний?<br>a) Дощ гарантовано вже почався.<br>b) Мовець вважає дощ пізніше ймовірним, але не гарантує його.<br>c) Мовець обіцяє спричинити дощ.",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "options": [
+                    "a",
+                    "b",
+                    "c"
+                ],
+                "feedback": {
+                    "a": "It will probably rain later. — Ймовірно, пізніше буде дощ. Later стосується майбутнього; речення не повідомляє, що дощ уже почався, і не гарантує прогнозу.",
+                    "b": "It will probably rain later. — Ймовірно, пізніше буде дощ. Це прогноз із probably, а не гарантія події чи повідомлення про теперішній дощ.",
+                    "c": "It will probably rain later. — Ймовірно, пізніше буде дощ. Мовець робить прогноз, а не обіцяє керувати погодою."
+                }
+            },
+            "classification": "new_meaning_control",
+            "graded": true,
+            "assessment_role": "meaning",
+            "learning_function": "Відрізнити прогноз/пропозицію від гарантії/прийняття/виконання",
+            "change_reason": "Додано окрему змістову перевірку зоднимправильнимвисновком, анещеоднеутворенняформи; exactA/B/Cidentifieracceptedonly.",
+            "assessed_role": "meaning"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m90-future-simple-forms-meaning-offer",
+                "label": "Людина бачить у тебе важку сумку й каже:<br>I'll carry that bag for you.<br>Я понесу цю сумку за тебе.",
+                "prompt": "Що повідомлено?<br>a) Людина пропонує допомогу; чи прийнято пропозицію, ще невідомо.<br>b) Ти вже погодився на пропозицію.<br>c) Людина вже донесла сумку.",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "options": [
+                    "a",
+                    "b",
+                    "c"
+                ],
+                "feedback": {
+                    "a": "I'll carry that bag for you. — Я понесу цю сумку за тебе. У заданій ситуації це пропозиція допомоги; відповідь співрозмовника не наведена.",
+                    "b": "I'll carry that bag for you. — Я понесу цю сумку за тебе. Пропозиція не означає, що її прийнято: згоди в умові немає.",
+                    "c": "I'll carry that bag for you. — Я понесу цю сумку за тебе. Це не повідомлення про вже виконане перенесення сумки."
+                }
+            },
+            "classification": "new_meaning_control",
+            "graded": true,
+            "assessment_role": "meaning",
+            "learning_function": "Відрізнити прогноз/пропозицію від гарантії/прийняття/виконання",
+            "change_reason": "Додано окрему змістову перевірку зоднимправильнимвисновком, анещеоднеутворенняформи; exactA/B/Cidentifieracceptedonly.",
+            "assessed_role": "meaning"
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "old_task": {
+                "before": "tomorrow / call / I / you / will",
+                "after": "→",
+                "answer": "I will call you tomorrow."
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "before": "you / tomorrow. / I / will call",
+                "after": "<p>Я зателефоную тобі завтра. Використай call — телефонувати. Почни з I; «тобі» постав після дієслова, tomorrow — наприкінці. Усе речення потрібно ввести. Допускаються повна форма will і скорочення 'll.</p>",
+                "answer": "I will call you tomorrow.",
+                "accepted": [
+                    "I will call you tomorrow.",
+                    "I'll call you tomorrow."
+                ],
+                "feedback": {
+                    "i will call you tomorrow.": "I will call you tomorrow. — Я зателефоную тобі завтра. Збережено I, you і завтра; після will потрібне call, а tomorrow стоїть наприкінці за умовою.",
+                    "i'll call you tomorrow.": "I'll call you tomorrow. — Я зателефоную тобі завтра. I'll є допустимим скороченням I will перед call; порядок слів відповідає умові.",
+                    "i will call you tomorrow": "I will call you tomorrow. — Я зателефоную тобі завтра. Збережено I, you і завтра; після will потрібне call, а tomorrow стоїть наприкінці за умовою.",
+                    "i'll call you tomorrow": "I'll call you tomorrow. — Я зателефоную тобі завтра. I'll є допустимим скороченням I will перед call; порядок слів відповідає умові."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "full_sentence",
+            "learning_function": "Побудувати повне речення за явною українською умовою; manual+tokens одне завдання",
+            "change_reason": "Oldanswer/identityabsence/positions retained; visibleUAcriteria/translation/feedbackandcanonicalbankrefined. Explicitaccepted conformsdata contract, notproofoldUIwasbroken.",
+            "assessed_role": "full_sentence"
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "old_task": {
+                "before": "probably / rain / it / will",
+                "after": "→",
+                "answer": "It will probably rain."
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "before": "rain. / probably / It / will",
+                "after": "<p>Ймовірно, буде дощ. Використай rain — іти про дощ. Почни з It, а probably постав одразу після will і перед основним дієсловом. Допускаються will та 'll. Не додавай later чи tomorrow: їх немає в цьому повідомленні.</p>",
+                "answer": "It will probably rain.",
+                "accepted": [
+                    "It will probably rain.",
+                    "It'll probably rain."
+                ],
+                "feedback": {
+                    "it will probably rain.": "It will probably rain. — Ймовірно, буде дощ. Probably стоїть після will і перед rain за явною умовою; прогноз не є гарантією.",
+                    "it'll probably rain.": "It'll probably rain. — Ймовірно, буде дощ. It'll = It will; probably перед rain і відсутність доданих часових слів відповідають умові.",
+                    "it will probably rain": "It will probably rain. — Ймовірно, буде дощ. Probably стоїть після will і перед rain за явною умовою; прогноз не є гарантією.",
+                    "it'll probably rain": "It'll probably rain. — Ймовірно, буде дощ. It'll = It will; probably перед rain і відсутність доданих часових слів відповідають умові."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "full_sentence",
+            "learning_function": "Побудувати повне речення за явною українською умовою; manual+tokens одне завдання",
+            "change_reason": "Oldanswer/identityabsence/positions retained; visibleUAcriteria/translation/feedbackandcanonicalbankrefined. Explicitaccepted conformsdata contract, notproofoldUIwasbroken.",
+            "assessed_role": "full_sentence"
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\FutureForms\\FutureSimple\\FutureSimpleNegativesTheorySeeder": [
+        {
+            "old_block_source_index": 5,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "a) He won't come. / b) He won't comes.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "Порівняй форми одного повідомлення.<br>a) He won't come. / b) He won't comes.<br>Він не прийде.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "He won't come. — Він не прийде. Після won't потрібна базова форма come, без -s.",
+                    "b": "Правильно: He won't come. — Він не прийде. З he після won't не додаємо -s; причина відсутності в реченні не названа."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "form",
+            "learning_function": "Перевірити незмінену базову форму та заперечення після will",
+            "change_reason": "Oldanswer/identityabsence/positions retained; visibleUAcriteria/translation/feedbackandcanonicalbankrefined. Explicitaccepted conformsdata contract, notproofoldUIwasbroken.",
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "a) We will don't wait. / b) We won't wait.",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "Порівняй два варіанти заперечення.<br>a) We will don't wait. / b) We won't wait.<br>Ми не чекатимемо.",
+                "prompt": "Який варіант правильний?",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "Правильно: We won't wait. — Ми не чекатимемо. Заперечення утворюють will not / won't, а не will don't.",
+                    "b": "We won't wait. — Ми не чекатимемо. Won't = will not; wait лишається базовою формою."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "form",
+            "learning_function": "Перевірити незмінену базову форму та заперечення після will",
+            "change_reason": "Oldanswer/identityabsence/positions retained; visibleUAcriteria/translation/feedbackandcanonicalbankrefined. Explicitaccepted conformsdata contract, notproofoldUIwasbroken.",
+            "assessed_role": "grammar_form"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m90-future-simple-negatives-meaning-scope",
+                "label": "They won't stay here.<br>Вони тут не залишаться. Іншого контексту немає.",
+                "prompt": "Що можна стверджувати лише з цього речення?<br>a) Вони фізично не можуть тут залишитися.<br>b) Повідомлено, що вони тут не залишаться; причина й інше місце не названі.<br>c) Правила забороняють їм тут залишатися.",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "options": [
+                    "a",
+                    "b",
+                    "c"
+                ],
+                "feedback": {
+                    "a": "They won't stay here. — Вони тут не залишаться. Won't саме по собі не встановлює фізичної неможливості; це було б інше значення.",
+                    "b": "They won't stay here. — Вони тут не залишаться. Заперечено stay here, але причини, іншого місця та фактичного результату поки немає.",
+                    "c": "They won't stay here. — Вони тут не залишаться. Речення не називає заборони; won't не дорівнює mustn't."
+                }
+            },
+            "classification": "new_meaning_control",
+            "graded": true,
+            "assessment_role": "meaning",
+            "learning_function": "Відрізнити негативне повідомлення/контекстну відмову від неможливості/заборони",
+            "change_reason": "Додано окрему змістову перевірку зоднимправильнимвисновком, анещеоднеутворенняформи; exactA/B/Cidentifieracceptedonly.",
+            "assessed_role": "meaning"
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": false,
+            "old_accepted_present": false,
+            "after_block_source_index": 5,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m90-future-simple-negatives-meaning-refusal",
+                "label": "Олег може допомогти. Його просять про допомогу, але він каже «ні». Про нього повідомляють:<br>He won't help us.<br>Він не допоможе нам.",
+                "prompt": "Яке значення підтримує саме цей контекст?<br>a) Олег не має змоги допомогти.<br>b) Правила забороняють Олегові допомагати.<br>c) Олег не погоджується допомогти.",
+                "answer": "c",
+                "accepted": [
+                    "c"
+                ],
+                "options": [
+                    "a",
+                    "b",
+                    "c"
+                ],
+                "feedback": {
+                    "a": "He won't help us. — Він не допоможе нам. Умова прямо каже, що Олег може допомогти; тому не можна замінити небажання нездатністю.",
+                    "b": "He won't help us. — Він не допоможе нам. Заборони в умові немає; відповідь «ні» за наявної змоги показує небажання.",
+                    "c": "He won't help us. — Він не допоможе нам. Явні факти «може» та «каже ні» дають значення відмови. Без цього контексту won’t не завжди означало б відмову."
+                }
+            },
+            "classification": "new_meaning_control",
+            "graded": true,
+            "assessment_role": "meaning",
+            "learning_function": "Відрізнити негативне повідомлення/контекстну відмову від неможливості/заборони",
+            "change_reason": "Додано окрему змістову перевірку зоднимправильнимвисновком, анещеоднеутворенняформи; exactA/B/Cidentifieracceptedonly.",
+            "assessed_role": "meaning"
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "old_task": {
+                "before": "She will be late.",
+                "after": "→",
+                "answer": "She won't be late.",
+                "accepted": [
+                    "She won't be late.",
+                    "She will not be late."
+                ]
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": true,
+            "after_block_source_index": 5,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "before": "late. / She / won't be",
+                "after": "<p>Ствердження: She will be late — Вона запізниться. Зміни лише полярність: «Вона не запізниться». Почни з She, збережи be late. Можна використати won't або will not; не додавай точної години чи причини.</p>",
+                "answer": "She won't be late.",
+                "accepted": [
+                    "She won't be late.",
+                    "She will not be late."
+                ],
+                "feedback": {
+                    "she won't be late.": "She won't be late. — Вона не запізниться. Won't be заперечує will be; точний час прибуття з цього не випливає.",
+                    "she will not be late.": "She will not be late. — Вона не запізниться. Повна негативна форма також правильна; основна форма be і зміст late збережені.",
+                    "she won't be late": "She won't be late. — Вона не запізниться. Won't be заперечує will be; точний час прибуття з цього не випливає.",
+                    "she will not be late": "She will not be late. — Вона не запізниться. Повна негативна форма також правильна; основна форма be і зміст late збережені."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "full_sentence",
+            "learning_function": "Побудувати повне речення за явною українською умовою; manual+tokens одне завдання",
+            "change_reason": "Oldanswer/identityabsence/positions retained; visibleUAcriteria/translation/feedbackandcanonicalbankrefined. Explicitaccepted conformsdata contract, notproofoldUIwasbroken.",
+            "assessed_role": "full_sentence"
+        },
+        {
+            "old_block_source_index": 5,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "old_task": {
+                "before": "They will stay here.",
+                "after": "→",
+                "answer": "They won't stay here.",
+                "accepted": [
+                    "They won't stay here.",
+                    "They will not stay here."
+                ]
+            },
+            "old_id_present": false,
+            "old_source_index_present": false,
+            "old_answer_present": true,
+            "old_accepted_present": true,
+            "after_block_source_index": 5,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "before": "here. / won't stay / They",
+                "after": "<p>Ствердження: They will stay here — Вони тут залишаться. Зміни лише полярність: «Вони тут не залишаться». Почни з They, here постав наприкінці; використовуй stay — залишатися. Допускаються won't і will not. Не додавай, де вони будуть натомість.</p>",
+                "answer": "They won't stay here.",
+                "accepted": [
+                    "They won't stay here.",
+                    "They will not stay here."
+                ],
+                "feedback": {
+                    "they won't stay here.": "They won't stay here. — Вони тут не залишаться. Змінено полярність, але збережено They, stay і here; іншого місця не додано.",
+                    "they will not stay here.": "They will not stay here. — Вони тут не залишаться. Will not — правильна повна форма; місце here та дія stay не змінилися.",
+                    "they won't stay here": "They won't stay here. — Вони тут не залишаться. Змінено полярність, але збережено They, stay і here; іншого місця не додано.",
+                    "they will not stay here": "They will not stay here. — Вони тут не залишаться. Will not — правильна повна форма; місце here та дія stay не змінилися."
+                }
+            },
+            "classification": "source_derived_retained_refined",
+            "graded": true,
+            "assessment_role": "full_sentence",
+            "learning_function": "Побудувати повне речення за явною українською умовою; manual+tokens одне завдання",
+            "change_reason": "Oldanswer/identityabsence/positions retained; visibleUAcriteria/translation/feedbackandcanonicalbankrefined. Explicitaccepted conformsdata contract, notproofoldUIwasbroken.",
+            "assessed_role": "full_sentence"
+        }
+    ]
+}

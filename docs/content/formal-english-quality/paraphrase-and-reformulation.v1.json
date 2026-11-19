@@ -1,0 +1,716 @@
+{
+    "schema_version": 1,
+    "topic_key": "paraphrase-and-reformulation",
+    "title": "Paraphrase and Reformulation",
+    "choice_pools": {
+        "aone_first": [
+            "Now",
+            "Later",
+            "Tomorrow",
+            "First",
+            "Always",
+            "Never"
+        ],
+        "aone_second": [
+            "ask her",
+            "help us",
+            "write back",
+            "wait here",
+            "send it",
+            "tell them"
+        ],
+        "aone_third": [
+            "before lunch",
+            "after dinner",
+            "during class",
+            "before work",
+            "at midnight",
+            "on Tuesday"
+        ],
+        "atwo_first": [
+            "We postponed",
+            "They organised",
+            "She cancelled",
+            "He confirmed",
+            "I planned",
+            "You delayed"
+        ],
+        "atwo_second": [
+            "the meeting",
+            "the lesson",
+            "the journey",
+            "the rehearsal",
+            "the interview",
+            "the appointment"
+        ],
+        "atwo_third": [
+            "because it snowed",
+            "although it rained",
+            "before it rained",
+            "when she called",
+            "after he arrived",
+            "while we waited"
+        ],
+        "bone_first": [
+            "He is",
+            "They are",
+            "We were",
+            "You seem",
+            "I am",
+            "She was"
+        ],
+        "bone_second": [
+            "very eager",
+            "quite ready",
+            "not tired",
+            "too busy",
+            "less careful",
+            "rather pleased"
+        ],
+        "bone_third": [
+            "to count",
+            "to post",
+            "to stamp",
+            "to seal",
+            "to weigh",
+            "to open"
+        ],
+        "bone_fourth": [
+            "those parcels",
+            "the receipts",
+            "her letters",
+            "these folders",
+            "our packages",
+            "the forms"
+        ],
+        "btwo_first": [
+            "They ignored",
+            "We repaired",
+            "She noticed",
+            "He inspected",
+            "I described",
+            "You marked"
+        ],
+        "btwo_second": [
+            "the stain",
+            "the dent",
+            "the scratch",
+            "the leak",
+            "the fault",
+            "the gap"
+        ],
+        "btwo_third": [
+            "well before",
+            "even during",
+            "just before",
+            "long before",
+            "soon after",
+            "already during"
+        ],
+        "btwo_fourth": [
+            "the delivery",
+            "the meeting",
+            "the repair",
+            "the journey",
+            "the interview",
+            "the rehearsal"
+        ],
+        "cone_first": [
+            "It did",
+            "This will",
+            "That could",
+            "These do",
+            "We do",
+            "This would"
+        ],
+        "cone_second": [
+            "clearly show",
+            "not prove",
+            "firmly establish",
+            "never suggest",
+            "fully confirm",
+            "directly demonstrate"
+        ],
+        "cone_third": [
+            "that one claim",
+            "that no evidence",
+            "that each proposal",
+            "that every statement",
+            "that both accounts",
+            "that all findings"
+        ],
+        "cone_fourth": [
+            "is convincing",
+            "is relevant",
+            "was supported",
+            "is accurate",
+            "is conclusive",
+            "is reasonable"
+        ],
+        "ctwo_first": [
+            "The proposal",
+            "The estimate",
+            "The assumption",
+            "The warning",
+            "The allegation",
+            "The recommendation"
+        ],
+        "ctwo_second": [
+            "excludes all",
+            "compares both",
+            "supports every",
+            "describes neither",
+            "contradicts only",
+            "questions all"
+        ],
+        "ctwo_third": [
+            "the missing records",
+            "the rejected entries",
+            "the unsigned copies",
+            "the original notes",
+            "the attached files",
+            "the deleted messages"
+        ],
+        "ctwo_fourth": [
+            "rather than each",
+            "including the",
+            "except for one",
+            "as the",
+            "despite the",
+            "because the"
+        ],
+        "ctwo_fifth": [
+            "whole collection",
+            "complete register",
+            "available evidence",
+            "original ledger",
+            "earlier report",
+            "unopened folder"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "Please {a1} your surname in the empty box.",
+            "answer": "write",
+            "options": [
+                "write",
+                "writes",
+                "writing"
+            ],
+            "target": "Please write your surname in the empty box.",
+            "groups": [
+                "Please write",
+                "your surname",
+                "in the",
+                "empty box."
+            ],
+            "uk": "Будь ласка, впиши своє прізвище в порожнє поле.",
+            "hint_uk": "Впиши: назви дію заповнення порожнього поля після ввічливого звертання; приймається також дієслово внесення даних.",
+            "answer_synonyms": [
+                "enter"
+            ]
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "This is a {a1} envelope, not a large one.",
+            "answer": "small",
+            "options": [
+                "small",
+                "long",
+                "heavy"
+            ],
+            "target": "This is a small envelope, not a large one.",
+            "groups": [
+                "This is a",
+                "small envelope,",
+                "not a",
+                "large one."
+            ],
+            "uk": "Це маленький конверт, а не великий.",
+            "hint_uk": "Маленький: назви розмір, протилежний великому; приймаються два природні прикметники.",
+            "answer_synonyms": [
+                "little"
+            ]
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Зателефонуй мені після сніданку, будь ласка.",
+            "target": "Please call me after breakfast.",
+            "groups": [
+                "Please",
+                "call me",
+                "after breakfast."
+            ],
+            "compose_slots": [
+                "Please",
+                "call me",
+                "after breakfast."
+            ],
+            "slot_roles": [
+                "aone_first",
+                "aone_second",
+                "aone_third"
+            ],
+            "uk": "Зателефонуй мені після сніданку, будь ласка.",
+            "hint_uk": "Збережи ввічливе прохання, одержувача дзвінка й час після сніданку; дієслово телефонування має три відповідники.",
+            "display_synonyms": {
+                "call me": [
+                    "phone me",
+                    "telephone me"
+                ]
+            },
+            "accepted_targets": [
+                "Please phone me after breakfast.",
+                "Please telephone me after breakfast."
+            ]
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The guide will {a1} the route before we leave.",
+            "answer": "explain",
+            "options": [
+                "explain",
+                "explains",
+                "explaining"
+            ],
+            "target": "The guide will explain the route before we leave.",
+            "groups": [
+                "The guide",
+                "will explain",
+                "the route",
+                "before we leave."
+            ],
+            "uk": "Екскурсовод пояснить маршрут, перш ніж ми вирушимо.",
+            "hint_uk": "Пояснити: назви дію уточнення маршруту після допоміжного слова майбутнього часу; наведений підмет не повторюй.",
+            "answer_synonyms": [
+                "describe"
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The drawer is {a1}; there is nothing inside.",
+            "answer": "empty",
+            "options": [
+                "empty",
+                "full",
+                "closed"
+            ],
+            "target": "The drawer is empty; there is nothing inside.",
+            "groups": [
+                "The drawer",
+                "is empty;",
+                "there is",
+                "nothing inside."
+            ],
+            "uk": "Шухляда порожня; усередині нічого немає.",
+            "hint_uk": "Порожня: передай відсутність вмісту, а не положення шухляди."
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Вони скасували прогулянку через дощ.",
+            "target": "They cancelled the outing because it rained.",
+            "groups": [
+                "They cancelled",
+                "the outing",
+                "because it rained."
+            ],
+            "compose_slots": [
+                "They cancelled",
+                "the outing",
+                "because it rained."
+            ],
+            "slot_roles": [
+                "atwo_first",
+                "atwo_second",
+                "atwo_third"
+            ],
+            "uk": "Вони скасували прогулянку через дощ.",
+            "hint_uk": "Почни з тих, хто скасував подію; збережи минулий час і дощ як причину. Приймаються обидва нормативні написання дієслова та фразовий відповідник.",
+            "display_synonyms": {
+                "They cancelled": [
+                    "They canceled",
+                    "They called off"
+                ],
+                "the outing": [
+                    "the walk"
+                ]
+            },
+            "accepted_targets": [
+                "They cancelled the walk because it rained.",
+                "They canceled the outing because it rained.",
+                "They canceled the walk because it rained.",
+                "They called off the outing because it rained.",
+                "They called off the walk because it rained."
+            ]
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "It is {a1} to use the side entrance; the front door is sealed.",
+            "answer": "necessary",
+            "options": [
+                "necessary",
+                "unnecessary",
+                "optional"
+            ],
+            "target": "It is necessary to use the side entrance; the front door is sealed.",
+            "groups": [
+                "It is necessary",
+                "to use",
+                "the side entrance;",
+                "the front door",
+                "is sealed."
+            ],
+            "uk": "Потрібно скористатися бічним входом; головні двері опечатано.",
+            "hint_uk": "Необхідно: передай обов’язковість використання бічного входу, а не лише можливість; приймаються два близькі прикметники.",
+            "answer_synonyms": [
+                "essential"
+            ]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The radio worked {a1} the thick walls.",
+            "answer": "despite",
+            "options": [
+                "despite",
+                "because of",
+                "instead of"
+            ],
+            "target": "The radio worked despite the thick walls.",
+            "groups": [
+                "The radio worked",
+                "despite the",
+                "thick walls."
+            ],
+            "uk": "Радіо працювало попри товсті стіни.",
+            "hint_uk": "Попри: збережи поступку, а не причину чи заміну; приймаються короткий і розгорнутий відповідники.",
+            "answer_synonyms": [
+                "in spite of"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Вона надто втомлена, щоб сортувати ці конверти.",
+            "target": "She is too tired to sort these envelopes.",
+            "groups": [
+                "She is",
+                "too tired",
+                "to sort",
+                "these envelopes."
+            ],
+            "compose_slots": [
+                "She is",
+                "too tired",
+                "to sort",
+                "these envelopes."
+            ],
+            "slot_roles": [
+                "bone_first",
+                "bone_second",
+                "bone_third",
+                "bone_fourth"
+            ],
+            "uk": "Вона надто втомлена, щоб сортувати ці конверти.",
+            "hint_uk": "Збережи теперішній стан і неможливість сортування через надмірну втому; не перетворюй повідомлення на відмову."
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The picnic went ahead {a1} the weather was unsettled.",
+            "answer": "although",
+            "options": [
+                "although",
+                "because",
+                "unless"
+            ],
+            "target": "The picnic went ahead although the weather was unsettled.",
+            "groups": [
+                "The picnic",
+                "went ahead",
+                "although the weather",
+                "was unsettled."
+            ],
+            "uk": "Пікнік відбувся, хоча погода була нестійкою.",
+            "hint_uk": "Хоча: приєднай відомий факт як обставину, що не завадила події; приймаються три способи виразити поступку.",
+            "answer_synonyms": [
+                "though",
+                "even though"
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The clerk was {a1} to trace the payment.",
+            "answer": "unable",
+            "options": [
+                "unable",
+                "unwilling",
+                "unlikely"
+            ],
+            "target": "The clerk was unable to trace the payment.",
+            "groups": [
+                "The clerk",
+                "was unable",
+                "to trace",
+                "the payment."
+            ],
+            "uk": "Службовець не зміг відстежити платіж.",
+            "hint_uk": "Не зміг: передай відсутність змоги, а не небажання чи низьку ймовірність; приймається також розгорнута форма.",
+            "answer_synonyms": [
+                "not able"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Лише після огляду ми помітили тріщину.",
+            "target": "We noticed the crack only after the inspection.",
+            "groups": [
+                "We noticed",
+                "the crack",
+                "only after",
+                "the inspection."
+            ],
+            "compose_slots": [
+                "We noticed",
+                "the crack",
+                "only after",
+                "the inspection."
+            ],
+            "slot_roles": [
+                "btwo_first",
+                "btwo_second",
+                "btwo_third",
+                "btwo_fourth"
+            ],
+            "uk": "Лише після огляду ми помітили тріщину.",
+            "hint_uk": "Збережи виявлення тріщини після огляду; не роби огляд причиною самої тріщини. Дієслово виявлення має два природні відповідники.",
+            "display_synonyms": {
+                "We noticed": [
+                    "We spotted"
+                ]
+            },
+            "accepted_targets": [
+                "We spotted the crack only after the inspection."
+            ]
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "This note {a1} the earlier account rather than contradicting it.",
+            "answer": "clarifies",
+            "options": [
+                "clarifies",
+                "contradicts",
+                "withdraws"
+            ],
+            "target": "This note clarifies the earlier account rather than contradicting it.",
+            "groups": [
+                "This note clarifies",
+                "the earlier account",
+                "rather than",
+                "contradicting it."
+            ],
+            "uk": "Ця примітка уточнює попередній виклад, а не суперечить йому.",
+            "hint_uk": "Уточнює: назви пояснювальне доповнення без спростування; приймаються два близькі дієслова.",
+            "answer_synonyms": [
+                "elucidates"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The request was declined {a1} the applicant's age.",
+            "answer": "regardless of",
+            "options": [
+                "regardless of",
+                "because of",
+                "on account of"
+            ],
+            "target": "The request was declined regardless of the applicant's age.",
+            "groups": [
+                "The request",
+                "was declined",
+                "regardless of",
+                "the applicant's age."
+            ],
+            "uk": "Запит відхилили незалежно від віку заявника.",
+            "hint_uk": "Незалежно від: не подавай вік причиною відмови; приймаються два рівнозначні прийменникові вирази.",
+            "answer_synonyms": [
+                "irrespective of"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Це не означає, що кожне заперечення є безпідставним.",
+            "target": "This does not imply that every objection is unfounded.",
+            "groups": [
+                "This does",
+                "not imply",
+                "that every objection",
+                "is unfounded."
+            ],
+            "compose_slots": [
+                "This does",
+                "not imply",
+                "that every objection",
+                "is unfounded."
+            ],
+            "slot_roles": [
+                "cone_first",
+                "cone_second",
+                "cone_third",
+                "cone_fourth"
+            ],
+            "uk": "Це не означає, що кожне заперечення є безпідставним.",
+            "hint_uk": "Збережи заперечення висновку, а не заперечення кожного доводу; не стверджуй, що всі доводи обґрунтовані. Для висновку й безпідставності є близькі відповідники.",
+            "display_synonyms": {
+                "not imply": [
+                    "not mean"
+                ],
+                "is unfounded.": [
+                    "is groundless.",
+                    "is baseless."
+                ]
+            },
+            "accepted_targets": [
+                "This does not imply that every objection is groundless.",
+                "This does not imply that every objection is baseless.",
+                "This does not mean that every objection is unfounded.",
+                "This does not mean that every objection is groundless.",
+                "This does not mean that every objection is baseless."
+            ]
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The figures are {a1} an isolated fluctuation, not a lasting trend.",
+            "answer": "consistent with",
+            "options": [
+                "consistent with",
+                "proof of",
+                "unrelated to"
+            ],
+            "target": "The figures are consistent with an isolated fluctuation, not a lasting trend.",
+            "groups": [
+                "The figures",
+                "are consistent with",
+                "an isolated fluctuation,",
+                "not a",
+                "lasting trend."
+            ],
+            "uk": "Цифри узгоджуються з окремим коливанням, а не зі стійкою тенденцією.",
+            "hint_uk": "Узгоджуються з: передай сумісність з одним поясненням, а не його доведення; приймаються два близькі вирази.",
+            "answer_synonyms": [
+                "compatible with"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The revised wording {a1} the possibility of an oversight without asserting that one occurred.",
+            "answer": "leaves open",
+            "options": [
+                "leaves open",
+                "rules out",
+                "proves"
+            ],
+            "target": "The revised wording leaves open the possibility of an oversight without asserting that one occurred.",
+            "groups": [
+                "The revised wording",
+                "leaves open",
+                "the possibility",
+                "of an oversight",
+                "without asserting",
+                "that one occurred."
+            ],
+            "uk": "Уточнене формулювання допускає можливість недогляду, не стверджуючи, що він стався.",
+            "hint_uk": "Допускає можливість: збережи відкритість пояснення без підтвердження факту; приймається також близьке фразове дієслово.",
+            "answer_synonyms": [
+                "allows for"
+            ]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Висновок стосується лише перевірених записів, а не всього архіву.",
+            "target": "The conclusion concerns only the examined records, not the entire archive.",
+            "groups": [
+                "The conclusion",
+                "concerns only",
+                "the examined records,",
+                "not the",
+                "entire archive."
+            ],
+            "compose_slots": [
+                "The conclusion",
+                "concerns only",
+                "the examined records,",
+                "not the",
+                "entire archive."
+            ],
+            "slot_roles": [
+                "ctwo_first",
+                "ctwo_second",
+                "ctwo_third",
+                "ctwo_fourth",
+                "ctwo_fifth"
+            ],
+            "uk": "Висновок стосується лише перевірених записів, а не всього архіву.",
+            "hint_uk": "Збережи обмеження висновку перевіреною групою записів; не поширюй його на решту архіву. Для відсилання, перевірки й цілого є близькі відповідники.",
+            "display_synonyms": {
+                "concerns only": [
+                    "applies only to"
+                ],
+                "the examined records,": [
+                    "the reviewed records,",
+                    "the checked records,"
+                ],
+                "entire archive.": [
+                    "whole archive."
+                ]
+            },
+            "accepted_targets": [
+                "The conclusion concerns only the examined records, not the whole archive.",
+                "The conclusion concerns only the reviewed records, not the entire archive.",
+                "The conclusion concerns only the reviewed records, not the whole archive.",
+                "The conclusion concerns only the checked records, not the entire archive.",
+                "The conclusion concerns only the checked records, not the whole archive.",
+                "The conclusion applies only to the examined records, not the entire archive.",
+                "The conclusion applies only to the examined records, not the whole archive.",
+                "The conclusion applies only to the reviewed records, not the entire archive.",
+                "The conclusion applies only to the reviewed records, not the whole archive.",
+                "The conclusion applies only to the checked records, not the entire archive.",
+                "The conclusion applies only to the checked records, not the whole archive."
+            ]
+        }
+    ]
+}

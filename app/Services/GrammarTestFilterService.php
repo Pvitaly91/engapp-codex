@@ -21,9 +21,14 @@ class GrammarTestFilterService
 
     public function prepare(array $input): array
     {
+        return $this->prepareData($input, true);
+    }
+
+    private function prepareData(array $input, bool $includeFormMetadata): array
+    {
         $filters = $this->normalize($input);
 
-        $categories = Category::all();
+        $categories = $includeFormMetadata ? Category::all() : null;
         $minDifficulty = 1;
         $maxDifficulty = 10;
         $maxQuestions = 999999;
@@ -57,6 +62,7 @@ class GrammarTestFilterService
             (int) ($filters['theory_page_mixed_questions_per_level'] ?? self::MIXED_ALL_LEVELS_QUESTIONS_PER_LEVEL)
         );
         $mixedAllLevelsInterleaveQuestionTypes = (bool) ($filters['theory_page_mixed_interleave_question_types'] ?? false);
+        $mixedTypeProfile = (string) ($filters['theory_page_mixed_type_profile'] ?? '');
         $isTheoryCategoryPageTest = (bool) ($filters['theory_category_page_test'] ?? false);
         $theoryCategoryQuestionsPerPage = max(1, (int) ($filters['theory_category_questions_per_page'] ?? 4));
         $theoryCategoryPageGroups = is_array($filters['theory_category_page_groups'] ?? null)
@@ -64,16 +70,17 @@ class GrammarTestFilterService
             : [];
 
         $groupBy = ! empty($selectedSources) ? 'source_id' : 'category_id';
-        if (! empty($selectedSeederClasses) || ! empty($selectedTags) || ! empty($selectedAggregatedTags)) {
+        if (($isTheoryCategoryPageTest && $theoryCategoryPageGroups !== [])
+            || ! empty($selectedSeederClasses) || ! empty($selectedTags) || ! empty($selectedAggregatedTags)) {
             $groupBy = null;
             $groups = [null];
         } else {
-            $groups = ! empty($selectedCategories)
-                ? $selectedCategories
-                : $categories->pluck('id')->toArray();
-
             if ($groupBy === 'source_id') {
                 $groups = $selectedSources;
+            } else {
+                $groups = ! empty($selectedCategories)
+                    ? $selectedCategories
+                    : ($categories ?? Category::all())->pluck('id')->toArray();
             }
 
             $groups = array_values($groups);
@@ -124,7 +131,8 @@ class GrammarTestFilterService
                             $selectedSeederClasses,
                             $mixedAllLevelsQuestionsPerLevel,
                             $randomizeFiltered,
-                            $mixedAllLevelsInterleaveQuestionTypes
+                            $mixedAllLevelsInterleaveQuestionTypes,
+                            $mixedTypeProfile
                         );
                     } elseif ($randomizeFiltered && $availableCount > $take) {
                         $selectionQuery->inRandomOrder();
@@ -143,6 +151,10 @@ class GrammarTestFilterService
             $questions = $questions->values();
         } else {
             $questions = $questions->sortBy('id')->values();
+        }
+
+        if (! $includeFormMetadata) {
+            return ['questions' => $questions];
         }
 
         $categoryNames = $questions->pluck('category.name')->filter()->unique()->values();
@@ -316,6 +328,9 @@ class GrammarTestFilterService
                     Arr::get($input, '__meta.theory_page_mixed_interleave_question_types', false)
                 )
             ),
+            'theory_page_mixed_type_profile' => (string) Arr::get(
+                $input, 'theory_page_mixed_type_profile', Arr::get($input, '__meta.theory_page_mixed_type_profile', '')
+            ),
             'theory_category_page_test' => $this->toBool(
                 Arr::get($input, 'theory_category_page_test', Arr::get($input, '__meta.aggregated_theory_category_test', false))
             ),
@@ -335,7 +350,7 @@ class GrammarTestFilterService
 
     public function questionsFromFilters(array $filters): Collection
     {
-        $data = $this->prepare($filters);
+        $data = $this->prepareData($filters, false);
 
         return $data['questions'];
     }
@@ -402,7 +417,8 @@ class GrammarTestFilterService
         array $selectedSeederClasses,
         int $questionsPerLevel,
         bool $randomize,
-        bool $interleaveQuestionTypes = false
+        bool $interleaveQuestionTypes = false,
+        string $typeProfile = ''
     ): Collection {
         if ($questionsPerLevel <= 0 || $candidates->isEmpty()) {
             return collect();
@@ -427,6 +443,21 @@ class GrammarTestFilterService
         $selected = collect();
 
         foreach ($levelOrder as $level) {
+            if (\App\Support\SentenceReorderQuestionFactory::isBalancedQualityProfile($typeProfile)) {
+                // Word Order uses six gaps (three remain gaps, three become
+                // ordering tasks) and three independently authored translations.
+                // Historical passive profiles retain their nine/five selection.
+                $typeCounts = \App\Support\SentenceReorderQuestionFactory::isCompactQualityProfile($typeProfile)
+                    ? \App\Support\SentenceReorderQuestionFactory::compactTypeCounts($typeProfile)
+                    : ['0' => 9, Question::TYPE_COMPOSE_TOKENS => 5];
+                foreach ($typeCounts as $type => $count) {
+                    $pool = $candidates->filter(fn (Question $question): bool => (string) $question->level === $level
+                        && (string) ($question->type ?? '0') === (string) $type);
+                    $pool = $randomize ? $pool->shuffle() : $pool->sortBy('id');
+                    $selected = $selected->merge($pool->take($count)->values());
+                }
+                continue;
+            }
             $levelSelected = collect();
             $queues = [];
 
@@ -566,6 +597,9 @@ class GrammarTestFilterService
         $blankCountTo = $this->intNullable($filters['blank_count_to'] ?? null);
         $randomizeFiltered = $this->toBool($filters['randomize_filtered'] ?? true);
 
+        $typeProfile = $filters['theory_page_mixed_type_profile'] ?? '';
+        $compactProfile = \App\Support\SentenceReorderQuestionFactory::isCompactQualityProfile($typeProfile);
+
         foreach ($pageGroups as $group) {
             $seederClasses = $this->stringArray($group['seeder_classes'] ?? []);
 
@@ -616,7 +650,11 @@ class GrammarTestFilterService
                 $query->orderBy('id');
             }
 
-            $selected = $selected->merge($query->take($questionsPerPage)->get());
+            $selected = $selected->merge($compactProfile
+                ? $this->selectMixedAllLevelsQuestions($query->get(), $levels, $seederClasses,
+                    \App\Support\SentenceReorderQuestionFactory::compactQuestionsPerLevel($typeProfile),
+                    $randomizeFiltered, true, $typeProfile)
+                : $query->take($questionsPerPage)->get());
         }
 
         return ($randomizeFiltered ? $selected->shuffle() : $selected)->values();

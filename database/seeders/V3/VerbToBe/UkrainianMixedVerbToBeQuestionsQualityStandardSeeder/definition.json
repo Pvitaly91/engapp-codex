@@ -1,0 +1,1683 @@
+{
+    "schema_version": 1,
+    "quality_revision": "verb-to-be-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-to-be-quality/questions.v1.json",
+        "sha256": "abd25b155a144f488d6cdce0c26c132b9f3daf2565ff2dd3e70e58fa6cf56bfa"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\VerbToBe\\UkrainianMixedVerbToBeQuestionsQualityStandardSeeder",
+        "uuid_namespace": "verb-to-be-quality-questions-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Verb to Be"
+    },
+    "sources": {
+        "verb_to_be_quality_questions": {
+            "name": "Verb to Be Quality: Питання та короткі відповіді з дієсловом бути"
+        }
+    },
+    "tags": {
+        "verb_to_be_questions": {
+            "name": "Verb to be — questions",
+            "category": "topic"
+        },
+        "am_i_question": {
+            "name": "Am I...? question form",
+            "category": "pattern"
+        },
+        "is_he_she_it_question": {
+            "name": "Is he/she/it...? question form",
+            "category": "pattern"
+        },
+        "are_you_we_they_question": {
+            "name": "Are you/we/they...? question form",
+            "category": "pattern"
+        },
+        "yes_no_short_answer": {
+            "name": "Yes/No short answer with to be",
+            "category": "pattern"
+        },
+        "negative_short_answer": {
+            "name": "Negative short answer (No, … isn't / aren't / 'm not)",
+            "category": "pattern"
+        },
+        "affirmative_short_answer": {
+            "name": "Affirmative short answer (Yes, … am / is / are)",
+            "category": "pattern"
+        },
+        "subject_verb_inversion": {
+            "name": "Subject–verb inversion with be",
+            "category": "structure"
+        },
+        "wh_question_with_be": {
+            "name": "Wh-question with be (where/what/who/how + be)",
+            "category": "pattern"
+        },
+        "be_question_tag": {
+            "name": "Question tag with be (…, isn't it? / aren't you?)",
+            "category": "pattern"
+        },
+        "formal_be_question": {
+            "name": "Formal / polite be-question form",
+            "category": "register"
+        },
+        "be_question_negative": {
+            "name": "Negative question with be (Isn't he...? / Aren't they...?)",
+            "category": "pattern"
+        },
+        "be_question_embedded": {
+            "name": "Embedded / indirect be-question",
+            "category": "structure"
+        },
+        "be_question_rhetorical": {
+            "name": "Rhetorical question with be",
+            "category": "usage"
+        },
+        "be_pronoun_agreement": {
+            "name": "Pronoun–be agreement in questions",
+            "category": "structure"
+        }
+    },
+    "default_tag_keys": [
+        "verb_to_be_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "beq-questions-a1-g01",
+            "author_id": "A1-g01",
+            "question": "{a1} the baby awake?",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Немовля не спить?",
+            "target_text": "Is the baby awake?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Am"
+                    ],
+                    "verb_hint": "Почни звичайне пряме питання з теперішньої форми «бути» для однієї дитини."
+                }
+            },
+            "verb_hint": "Почни звичайне пряме питання з теперішньої форми «бути» для однієї дитини.",
+            "accepted_target_texts": [
+                "Is the baby awake?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "the baby",
+                "awake?"
+            ],
+            "token_groups": [
+                "Is",
+                "the baby",
+                "awake?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "beq-questions-a1-g02",
+            "author_id": "A1-g02",
+            "question": "{a1} the flowers fresh?",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Квіти свіжі?",
+            "target_text": "Are the flowers fresh?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ],
+                    "verb_hint": "На початку прямого питання потрібна форма «бути» для множини."
+                }
+            },
+            "verb_hint": "На початку прямого питання потрібна форма «бути» для множини.",
+            "accepted_target_texts": [
+                "Are the flowers fresh?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are",
+                "the flowers",
+                "fresh?"
+            ],
+            "token_groups": [
+                "Are",
+                "the flowers",
+                "fresh?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "beq-questions-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Are the children cold? — Yes, {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Дітям холодно? — Так.",
+            "target_text": "Are the children cold? — Yes, they are.",
+            "markers": {
+                "a1": {
+                    "answer": "they are",
+                    "options": [
+                        "they are",
+                        "they is",
+                        "are they"
+                    ],
+                    "verb_hint": "Підтвердь у короткій відповіді стан кількох дітей, назвавши їх займенником."
+                }
+            },
+            "verb_hint": "Підтвердь у короткій відповіді стан кількох дітей, назвавши їх займенником.",
+            "accepted_target_texts": [
+                "Are the children cold? — Yes, they are."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are the children",
+                "cold? — Yes,",
+                "they are."
+            ],
+            "token_groups": [
+                "Are the children",
+                "cold? — Yes,",
+                "they are."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "beq-questions-a1-g04",
+            "author_id": "A1-g04",
+            "question": "How old {a1} your brothers?",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Скільки років твоїм братам?",
+            "target_text": "How old are your brothers?",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Зворот про вік уже наведений; узгодь дієслово з кількома людьми."
+                }
+            },
+            "verb_hint": "Зворот про вік уже наведений; узгодь дієслово з кількома людьми.",
+            "accepted_target_texts": [
+                "How old are your brothers?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How old",
+                "are",
+                "your brothers?"
+            ],
+            "token_groups": [
+                "How old",
+                "are",
+                "your brothers?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "beq-questions-a1-g05",
+            "author_id": "A1-g05",
+            "question": "{a1} I in your seat?",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Я сиджу на твоєму місці?",
+            "target_text": "Am I in your seat?",
+            "markers": {
+                "a1": {
+                    "answer": "Am",
+                    "options": [
+                        "Am",
+                        "Is",
+                        "Are"
+                    ],
+                    "verb_hint": "Почни пряме питання мовця про себе з потрібної форми «бути»."
+                }
+            },
+            "verb_hint": "Почни пряме питання мовця про себе з потрібної форми «бути».",
+            "accepted_target_texts": [
+                "Am I in your seat?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Am",
+                "I",
+                "in your seat?"
+            ],
+            "token_groups": [
+                "Am",
+                "I",
+                "in your seat?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "beq-questions-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Who {a1} at the door?",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Хто біля дверей?",
+            "target_text": "Who is at the door?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Питальне слово саме є підметом; у нейтральному питанні обери однину."
+                }
+            },
+            "verb_hint": "Питальне слово саме є підметом; у нейтральному питанні обери однину.",
+            "accepted_target_texts": [
+                "Who is at the door?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "is",
+                "at the door?"
+            ],
+            "token_groups": [
+                "Who",
+                "is",
+                "at the door?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "beq-questions-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Why {a1} the children so quiet?",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Чому діти такі тихі?",
+            "target_text": "Why are the children so quiet?",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Слово причини вже наведене; узгодь питальну зв'язку з дітьми в множині."
+                }
+            },
+            "verb_hint": "Слово причини вже наведене; узгодь питальну зв'язку з дітьми в множині.",
+            "accepted_target_texts": [
+                "Why are the children so quiet?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "are",
+                "the children",
+                "so quiet?"
+            ],
+            "token_groups": [
+                "Why",
+                "are",
+                "the children",
+                "so quiet?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "beq-questions-a2-g02",
+            "author_id": "A2-g02",
+            "question": "{a1} your older brother at university?",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Твій старший брат навчається в університеті?",
+            "target_text": "Is your older brother at university?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Am"
+                    ],
+                    "verb_hint": "Запитай про одну людину, поставивши теперішню форму перед підметом."
+                }
+            },
+            "verb_hint": "Запитай про одну людину, поставивши теперішню форму перед підметом.",
+            "accepted_target_texts": [
+                "Is your older brother at university?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "your older brother",
+                "at university?"
+            ],
+            "token_groups": [
+                "Is",
+                "your older brother",
+                "at university?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "beq-questions-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Is the lift safe? — No, {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Ліфт безпечний? — Ні.",
+            "target_text": "Is the lift safe? — No, it is not.",
+            "markers": {
+                "a1": {
+                    "answer": "it is not",
+                    "options": [
+                        "it is not",
+                        "it are not",
+                        "is it not"
+                    ],
+                    "verb_hint": "Запереч безпеку одного предмета короткою відповіддю із займенником і заперечною теперішньою формою."
+                }
+            },
+            "verb_hint": "Запереч безпеку одного предмета короткою відповіддю із займенником і заперечною теперішньою формою.",
+            "accepted_target_texts": [
+                "Is the lift safe? — No, it is not.",
+                "Is the lift safe? — No, it isn't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "it isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "it isn't"
+                ]
+            },
+            "reorder_groups": [
+                "Is the lift",
+                "safe? — No,",
+                "it is not."
+            ],
+            "token_groups": [
+                "Is the lift",
+                "safe? — No,",
+                "it is not."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "beq-questions-a2-g04",
+            "author_id": "A2-g04",
+            "question": "{a1} these keys yours?",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Ці ключі твої?",
+            "target_text": "Are these keys yours?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ],
+                    "verb_hint": "Потрібна питальна форма теперішнього часу для кількох ключів."
+                }
+            },
+            "verb_hint": "Потрібна питальна форма теперішнього часу для кількох ключів.",
+            "accepted_target_texts": [
+                "Are these keys yours?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are",
+                "these keys",
+                "yours?"
+            ],
+            "token_groups": [
+                "Are",
+                "these keys",
+                "yours?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "beq-questions-a2-g05",
+            "author_id": "A2-g05",
+            "question": "How much {a1} a return ticket?",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Скільки коштує квиток туди й назад?",
+            "target_text": "How much is a return ticket?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Зворот про ціну вже наведений; доповни питання формою для одного квитка."
+                }
+            },
+            "verb_hint": "Зворот про ціну вже наведений; доповни питання формою для одного квитка.",
+            "accepted_target_texts": [
+                "How much is a return ticket?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How much",
+                "is",
+                "a return ticket?"
+            ],
+            "token_groups": [
+                "How much",
+                "is",
+                "a return ticket?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "beq-questions-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Where {a1} the nearest toilets?",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Де найближчі вбиральні?",
+            "target_text": "Where are the nearest toilets?",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Питальне слово місця вже є; узгодь дієслово з множиною приміщень."
+                }
+            },
+            "verb_hint": "Питальне слово місця вже є; узгодь дієслово з множиною приміщень.",
+            "accepted_target_texts": [
+                "Where are the nearest toilets?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Where",
+                "are",
+                "the nearest toilets?"
+            ],
+            "token_groups": [
+                "Where",
+                "are",
+                "the nearest toilets?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "beq-questions-b1-g01",
+            "author_id": "B1-g01",
+            "question": "{a1} the woman by the window your new manager?",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Жінка біля вікна — твоя нова керівниця?",
+            "target_text": "Is the woman by the window your new manager?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Am"
+                    ],
+                    "verb_hint": "Узгодь початкову форму питання з однією жінкою, не з уточненням місця."
+                }
+            },
+            "verb_hint": "Узгодь початкову форму питання з однією жінкою, не з уточненням місця.",
+            "accepted_target_texts": [
+                "Is the woman by the window your new manager?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "the woman",
+                "by the window",
+                "your new manager?"
+            ],
+            "token_groups": [
+                "Is",
+                "the woman",
+                "by the window",
+                "your new manager?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "beq-questions-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Why {a1} the people who live upstairs so upset?",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Чому люди, які живуть нагорі, такі засмучені?",
+            "target_text": "Why are the people who live upstairs so upset?",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Питальне слово вже наведене; головний підмет — люди в множині."
+                }
+            },
+            "verb_hint": "Питальне слово вже наведене; головний підмет — люди в множині.",
+            "accepted_target_texts": [
+                "Why are the people who live upstairs so upset?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "are",
+                "the people",
+                "who live upstairs",
+                "so upset?"
+            ],
+            "token_groups": [
+                "Why",
+                "are",
+                "the people",
+                "who live upstairs",
+                "so upset?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "beq-questions-b1-g03",
+            "author_id": "B1-g03",
+            "question": "What {a1} the main reason for your decision?",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Яка головна причина твого рішення?",
+            "target_text": "What is the main reason for your decision?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Питальне слово не вводь повторно; узгодь зв'язку з однією причиною."
+                }
+            },
+            "verb_hint": "Питальне слово не вводь повторно; узгодь зв'язку з однією причиною.",
+            "accepted_target_texts": [
+                "What is the main reason for your decision?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "is",
+                "the main reason",
+                "for your decision?"
+            ],
+            "token_groups": [
+                "What",
+                "is",
+                "the main reason",
+                "for your decision?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "beq-questions-b1-g04",
+            "author_id": "B1-g04",
+            "question": "Are both of the spare rooms available this weekend? — Yes, {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Обидві вільні кімнати доступні цими вихідними? — Так.",
+            "target_text": "Are both of the spare rooms available this weekend? — Yes, they are.",
+            "markers": {
+                "a1": {
+                    "answer": "they are",
+                    "options": [
+                        "they are",
+                        "they is",
+                        "are they"
+                    ],
+                    "verb_hint": "Підтвердь доступність обох кімнат короткою відповіддю з потрібним займенником."
+                }
+            },
+            "verb_hint": "Підтвердь доступність обох кімнат короткою відповіддю з потрібним займенником.",
+            "accepted_target_texts": [
+                "Are both of the spare rooms available this weekend? — Yes, they are."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are both",
+                "of the spare",
+                "rooms available",
+                "this weekend? —",
+                "Yes, they are."
+            ],
+            "token_groups": [
+                "Are both",
+                "of the spare",
+                "rooms available",
+                "this weekend? —",
+                "Yes, they are."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "beq-questions-b1-g05",
+            "author_id": "B1-g05",
+            "question": "How long {a1} the guided tour of the castle?",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Скільки триває екскурсія замком?",
+            "target_text": "How long is the guided tour of the castle?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Питальний зворот тривалості вже є; підмет називає одну екскурсію."
+                }
+            },
+            "verb_hint": "Питальний зворот тривалості вже є; підмет називає одну екскурсію.",
+            "accepted_target_texts": [
+                "How long is the guided tour of the castle?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How long",
+                "is",
+                "the guided tour",
+                "of the castle?"
+            ],
+            "token_groups": [
+                "How long",
+                "is",
+                "the guided tour",
+                "of the castle?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "beq-questions-b1-g06",
+            "author_id": "B1-g06",
+            "question": "Who {a1} responsible for feeding the animals?",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Хто відповідає за годування тварин?",
+            "target_text": "Who is responsible for feeding the animals?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Питальне слово виконує роль підмета; потрібна нейтральна форма однини."
+                }
+            },
+            "verb_hint": "Питальне слово виконує роль підмета; потрібна нейтральна форма однини.",
+            "accepted_target_texts": [
+                "Who is responsible for feeding the animals?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "is",
+                "responsible for",
+                "feeding the animals?"
+            ],
+            "token_groups": [
+                "Who",
+                "is",
+                "responsible for",
+                "feeding the animals?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "beq-questions-b2-g01",
+            "author_id": "B2-g01",
+            "question": "To what extent {a1} the revised policy effective?",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Наскільки переглянута політика ефективна?",
+            "target_text": "To what extent is the revised policy effective?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Питальний зворот про ступінь уже є; узгодь зв'язку з однією політикою."
+                }
+            },
+            "verb_hint": "Питальний зворот про ступінь уже є; узгодь зв'язку з однією політикою.",
+            "accepted_target_texts": [
+                "To what extent is the revised policy effective?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "To what extent",
+                "is",
+                "the revised policy",
+                "effective?"
+            ],
+            "token_groups": [
+                "To what extent",
+                "is",
+                "the revised policy",
+                "effective?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "beq-questions-b2-g02",
+            "author_id": "B2-g02",
+            "question": "{a1} the terms of the agreement consistent with the law?",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Умови угоди відповідають закону?",
+            "target_text": "Are the terms of the agreement consistent with the law?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ],
+                    "verb_hint": "Постав початкову форму «бути» для кількох умов, не для однієї угоди."
+                }
+            },
+            "verb_hint": "Постав початкову форму «бути» для кількох умов, не для однієї угоди.",
+            "accepted_target_texts": [
+                "Are the terms of the agreement consistent with the law?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are",
+                "the terms",
+                "of the agreement",
+                "consistent with",
+                "the law?"
+            ],
+            "token_groups": [
+                "Are",
+                "the terms",
+                "of the agreement",
+                "consistent with",
+                "the law?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "beq-questions-b2-g03",
+            "author_id": "B2-g03",
+            "question": "Why {a1} one of the proposed solutions impractical?",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Чому одне із запропонованих рішень непрактичне?",
+            "target_text": "Why is one of the proposed solutions impractical?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Узгодь форму з одним рішенням; решта іменної групи не змінює числа."
+                }
+            },
+            "verb_hint": "Узгодь форму з одним рішенням; решта іменної групи не змінює числа.",
+            "accepted_target_texts": [
+                "Why is one of the proposed solutions impractical?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "is",
+                "one of",
+                "the proposed solutions",
+                "impractical?"
+            ],
+            "token_groups": [
+                "Why",
+                "is",
+                "one of",
+                "the proposed solutions",
+                "impractical?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "beq-questions-b2-g04",
+            "author_id": "B2-g04",
+            "question": "How reliable {a1} the estimates on which this budget rests?",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Наскільки надійні оцінки, на яких ґрунтується цей бюджет?",
+            "target_text": "How reliable are the estimates on which this budget rests?",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Питальна характеристика вже наведена; головний підмет має множину."
+                }
+            },
+            "verb_hint": "Питальна характеристика вже наведена; головний підмет має множину.",
+            "accepted_target_texts": [
+                "How reliable are the estimates on which this budget rests?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How reliable",
+                "are",
+                "the estimates",
+                "on which",
+                "this budget rests?"
+            ],
+            "token_groups": [
+                "How reliable",
+                "are",
+                "the estimates",
+                "on which",
+                "this budget rests?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "beq-questions-b2-g05",
+            "author_id": "B2-g05",
+            "question": "Is what you described a breach of the rules? — Yes, {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Те, що ти описав, — порушення правил? — Так.",
+            "target_text": "Is what you described a breach of the rules? — Yes, it is.",
+            "markers": {
+                "a1": {
+                    "answer": "it is",
+                    "options": [
+                        "it is",
+                        "it are",
+                        "is it"
+                    ],
+                    "verb_hint": "Підтвердь попередню оцінку короткою відповіддю; цілий опис заміни займенником однини."
+                }
+            },
+            "verb_hint": "Підтвердь попередню оцінку короткою відповіддю; цілий опис заміни займенником однини.",
+            "accepted_target_texts": [
+                "Is what you described a breach of the rules? — Yes, it is."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is what",
+                "you described",
+                "a breach",
+                "of the rules?",
+                "— Yes,",
+                "it is."
+            ],
+            "token_groups": [
+                "Is what",
+                "you described",
+                "a breach",
+                "of the rules?",
+                "— Yes,",
+                "it is."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "beq-questions-b2-g06",
+            "author_id": "B2-g06",
+            "question": "Which of these explanations {a1} the most convincing?",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Яке із цих пояснень найпереконливіше?",
+            "target_text": "Which of these explanations is the most convincing?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Запит стосується одного пояснення серед кількох; обери форму однини."
+                }
+            },
+            "verb_hint": "Запит стосується одного пояснення серед кількох; обери форму однини.",
+            "accepted_target_texts": [
+                "Which of these explanations is the most convincing?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which of",
+                "these explanations",
+                "is",
+                "the most convincing?"
+            ],
+            "token_groups": [
+                "Which of",
+                "these explanations",
+                "is",
+                "the most convincing?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "beq-questions-c1-g01",
+            "author_id": "C1-g01",
+            "question": "On what grounds {a1} the applicant's eligibility in doubt?",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "На яких підставах придатність заявника ставлять під сумнів?",
+            "target_text": "On what grounds is the applicant's eligibility in doubt?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Питальний прийменниковий зворот уже є; узгодь форму з однією придатністю."
+                }
+            },
+            "verb_hint": "Питальний прийменниковий зворот уже є; узгодь форму з однією придатністю.",
+            "accepted_target_texts": [
+                "On what grounds is the applicant's eligibility in doubt?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "On what grounds",
+                "is",
+                "the applicant's eligibility",
+                "in doubt?"
+            ],
+            "token_groups": [
+                "On what grounds",
+                "is",
+                "the applicant's eligibility",
+                "in doubt?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "beq-questions-c1-g02",
+            "author_id": "C1-g02",
+            "question": "{a1} the assumptions implicit in the model mutually compatible?",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Припущення, неявно закладені в моделі, взаємно сумісні?",
+            "target_text": "Are the assumptions implicit in the model mutually compatible?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ],
+                    "verb_hint": "Постав питальну форму для кількох припущень, не для однієї моделі."
+                }
+            },
+            "verb_hint": "Постав питальну форму для кількох припущень, не для однієї моделі.",
+            "accepted_target_texts": [
+                "Are the assumptions implicit in the model mutually compatible?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are",
+                "the assumptions",
+                "implicit in",
+                "the model",
+                "mutually compatible?"
+            ],
+            "token_groups": [
+                "Are",
+                "the assumptions",
+                "implicit in",
+                "the model",
+                "mutually compatible?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "beq-questions-c1-g03",
+            "author_id": "C1-g03",
+            "question": "How material {a1} the discrepancy between the accounts?",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Наскільки істотна розбіжність між звітами?",
+            "target_text": "How material is the discrepancy between the accounts?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Зворот про істотність уже наведений; головний підмет — одна розбіжність."
+                }
+            },
+            "verb_hint": "Зворот про істотність уже наведений; головний підмет — одна розбіжність.",
+            "accepted_target_texts": [
+                "How material is the discrepancy between the accounts?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How material",
+                "is",
+                "the discrepancy",
+                "between the accounts?"
+            ],
+            "token_groups": [
+                "How material",
+                "is",
+                "the discrepancy",
+                "between the accounts?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "beq-questions-c1-g04",
+            "author_id": "C1-g04",
+            "question": "Are the safeguards in the charter adequate? — No, {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Гарантії в статуті достатні? — Ні.",
+            "target_text": "Are the safeguards in the charter adequate? — No, they are not.",
+            "markers": {
+                "a1": {
+                    "answer": "they are not",
+                    "options": [
+                        "they are not",
+                        "they is not",
+                        "are they not"
+                    ],
+                    "verb_hint": "Запереч достатність кількох гарантій короткою відповіддю з потрібним займенником і теперішньою формою."
+                }
+            },
+            "verb_hint": "Запереч достатність кількох гарантій короткою відповіддю з потрібним займенником і теперішньою формою.",
+            "accepted_target_texts": [
+                "Are the safeguards in the charter adequate? — No, they are not.",
+                "Are the safeguards in the charter adequate? — No, they aren't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "they aren't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "they aren't"
+                ]
+            },
+            "reorder_groups": [
+                "Are the safeguards",
+                "in the charter",
+                "adequate? — No,",
+                "they are not."
+            ],
+            "token_groups": [
+                "Are the safeguards",
+                "in the charter",
+                "adequate? — No,",
+                "they are not."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "beq-questions-c1-g05",
+            "author_id": "C1-g05",
+            "question": "{a1} the fact that no one objected sufficient evidence of consent?",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Той факт, що ніхто не заперечив, — достатній доказ згоди?",
+            "target_text": "Is the fact that no one objected sufficient evidence of consent?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Am"
+                    ],
+                    "verb_hint": "Почни питання з форми для одного факту; залежна частина не змінює узгодження."
+                }
+            },
+            "verb_hint": "Почни питання з форми для одного факту; залежна частина не змінює узгодження.",
+            "accepted_target_texts": [
+                "Is the fact that no one objected sufficient evidence of consent?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "the fact",
+                "that no one",
+                "objected sufficient",
+                "evidence of consent?"
+            ],
+            "token_groups": [
+                "Is",
+                "the fact",
+                "that no one",
+                "objected sufficient",
+                "evidence of consent?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "beq-questions-c1-g06",
+            "author_id": "C1-g06",
+            "question": "Whose responsibility {a1} the failure to disclose that information?",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Хто відповідає за нерозкриття цієї інформації?",
+            "target_text": "Whose responsibility is the failure to disclose that information?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Питальна іменна група вже наведена; узгодь зв'язку з одним випадком нерозкриття."
+                }
+            },
+            "verb_hint": "Питальна іменна група вже наведена; узгодь зв'язку з одним випадком нерозкриття.",
+            "accepted_target_texts": [
+                "Whose responsibility is the failure to disclose that information?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Whose responsibility",
+                "is",
+                "the failure",
+                "to disclose",
+                "that information?"
+            ],
+            "token_groups": [
+                "Whose responsibility",
+                "is",
+                "the failure",
+                "to disclose",
+                "that information?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "beq-questions-c2-g01",
+            "author_id": "C2-g01",
+            "question": "In what sense {a1} the purported exception consistent with the governing principle?",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "У якому сенсі гаданий виняток узгоджується з визначальним принципом?",
+            "target_text": "In what sense is the purported exception consistent with the governing principle?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Питальний зворот про сенс уже є; головний підмет позначає один виняток."
+                }
+            },
+            "verb_hint": "Питальний зворот про сенс уже є; головний підмет позначає один виняток.",
+            "accepted_target_texts": [
+                "In what sense is the purported exception consistent with the governing principle?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "In what sense",
+                "is",
+                "the purported exception",
+                "consistent with",
+                "the governing principle?"
+            ],
+            "token_groups": [
+                "In what sense",
+                "is",
+                "the purported exception",
+                "consistent with",
+                "the governing principle?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "beq-questions-c2-g02",
+            "author_id": "C2-g02",
+            "question": "{a1} the standards by which success is measured themselves beyond scrutiny?",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Чи самі стандарти оцінювання успіху не підлягають перевірці?",
+            "target_text": "Are the standards by which success is measured themselves beyond scrutiny?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ],
+                    "verb_hint": "Почни пряме питання з форми для множини стандартів, не для успіху в залежній частині."
+                }
+            },
+            "verb_hint": "Почни пряме питання з форми для множини стандартів, не для успіху в залежній частині.",
+            "accepted_target_texts": [
+                "Are the standards by which success is measured themselves beyond scrutiny?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are",
+                "the standards",
+                "by which",
+                "success is measured",
+                "themselves beyond scrutiny?"
+            ],
+            "token_groups": [
+                "Are",
+                "the standards",
+                "by which",
+                "success is measured",
+                "themselves beyond scrutiny?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "beq-questions-c2-g03",
+            "author_id": "C2-g03",
+            "question": "How tenable {a1} the distinction once the counterexamples are taken seriously?",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Наскільки переконливе це розрізнення, якщо серйозно поставитися до контрприкладів?",
+            "target_text": "How tenable is the distinction once the counterexamples are taken seriously?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Питальна характеристика вже наведена; узгодь головну зв'язку з одним розрізненням."
+                }
+            },
+            "verb_hint": "Питальна характеристика вже наведена; узгодь головну зв'язку з одним розрізненням.",
+            "accepted_target_texts": [
+                "How tenable is the distinction once the counterexamples are taken seriously?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How tenable",
+                "is",
+                "the distinction",
+                "once the counterexamples",
+                "are taken",
+                "seriously?"
+            ],
+            "token_groups": [
+                "How tenable",
+                "is",
+                "the distinction",
+                "once the counterexamples",
+                "are taken",
+                "seriously?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "beq-questions-c2-g04",
+            "author_id": "C2-g04",
+            "question": "Why {a1} the limits of institutional discretion so resistant to precise definition?",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Чому межі інституційної свободи розсуду так важко визначити точно?",
+            "target_text": "Why are the limits of institutional discretion so resistant to precise definition?",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Головний підмет — межі в множині; не узгоджуй зв'язку з одним абстрактним поняттям."
+                }
+            },
+            "verb_hint": "Головний підмет — межі в множині; не узгоджуй зв'язку з одним абстрактним поняттям.",
+            "accepted_target_texts": [
+                "Why are the limits of institutional discretion so resistant to precise definition?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "are",
+                "the limits",
+                "of institutional discretion",
+                "so resistant",
+                "to precise definition?"
+            ],
+            "token_groups": [
+                "Why",
+                "are",
+                "the limits",
+                "of institutional discretion",
+                "so resistant",
+                "to precise definition?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "beq-questions-c2-g05",
+            "author_id": "C2-g05",
+            "question": "Is the presumption of impartiality defensible? — No, {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Припущення про неупередженість обґрунтоване? — Ні.",
+            "target_text": "Is the presumption of impartiality defensible? — No, it is not.",
+            "markers": {
+                "a1": {
+                    "answer": "it is not",
+                    "options": [
+                        "it is not",
+                        "it are not",
+                        "is it not"
+                    ],
+                    "verb_hint": "Дай коротке заперечення щодо одного припущення, зберігши займенник і теперішню форму."
+                }
+            },
+            "verb_hint": "Дай коротке заперечення щодо одного припущення, зберігши займенник і теперішню форму.",
+            "accepted_target_texts": [
+                "Is the presumption of impartiality defensible? — No, it is not.",
+                "Is the presumption of impartiality defensible? — No, it isn't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "it isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "it isn't"
+                ]
+            },
+            "reorder_groups": [
+                "Is the presumption",
+                "of impartiality",
+                "defensible? — No,",
+                "it is not."
+            ],
+            "token_groups": [
+                "Is the presumption",
+                "of impartiality",
+                "defensible? — No,",
+                "it is not."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "beq-questions-c2-g06",
+            "author_id": "C2-g06",
+            "question": "To whom {a1} the office-holder ultimately accountable for the exercise of this discretion?",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Перед ким зрештою підзвітний посадовець за здійснення цієї свободи розсуду?",
+            "target_text": "To whom is the office-holder ultimately accountable for the exercise of this discretion?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Формальний питальний зворот уже є; узгодь зв'язку з одним посадовцем."
+                }
+            },
+            "verb_hint": "Формальний питальний зворот уже є; узгодь зв'язку з одним посадовцем.",
+            "accepted_target_texts": [
+                "To whom is the office-holder ultimately accountable for the exercise of this discretion?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "To whom",
+                "is",
+                "the office-holder",
+                "ultimately accountable",
+                "for the exercise",
+                "of this discretion?"
+            ],
+            "token_groups": [
+                "To whom",
+                "is",
+                "the office-holder",
+                "ultimately accountable",
+                "for the exercise",
+                "of this discretion?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        }
+    ]
+}

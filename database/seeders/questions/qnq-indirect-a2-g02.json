@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62685,
+        "uuid": "qnq-indirect-a2-g02",
+        "question": "Do you happen to know where {a1} from?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 60,
+        "source_id": 465,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedIndirectQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "the coach leaves",
+                "does the coach",
+                "leaves the coach"
+            ]
+        },
+        "theory_text_block_uuid": "fda25adf-3196-5e76-8fac-7bb0822abbce",
+        "created_at": "2026-10-30T13:53:30.000000Z",
+        "updated_at": "2026-10-30T13:53:30.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 465,
+        "name": "Questions and Negations Quality: Indirect Questions: ввічливі непрямі питання",
+        "created_at": "2026-10-30T13:53:29.000000Z",
+        "updated_at": "2026-10-30T13:53:29.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 678,
+                "name": "Indirect Questions",
+                "category": null,
+                "created_at": "2026-04-23T14:37:11.000000Z",
+                "updated_at": "2026-04-23T14:37:11.000000Z"
+            },
+            "pivot": {
+                "question_id": 62685,
+                "tag_id": 678,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 57618,
+                "option": "the coach leaves",
+                "created_at": "2026-10-30T13:53:30.000000Z",
+                "updated_at": "2026-10-30T13:53:30.000000Z"
+            },
+            "pivot": {
+                "question_id": 62685,
+                "option_id": 57618,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57620,
+                "option": "does the coach",
+                "created_at": "2026-10-30T13:53:30.000000Z",
+                "updated_at": "2026-10-30T13:53:30.000000Z"
+            },
+            "pivot": {
+                "question_id": 62685,
+                "option_id": 57620,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57621,
+                "option": "leaves the coach",
+                "created_at": "2026-10-30T13:53:30.000000Z",
+                "updated_at": "2026-10-30T13:53:30.000000Z"
+            },
+            "pivot": {
+                "question_id": 62685,
+                "option_id": 57621,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332452,
+                "question_id": 62685,
+                "marker": "a1",
+                "option_id": 57618,
+                "created_at": "2026-10-30T13:53:30.000000Z",
+                "updated_at": "2026-10-30T13:53:30.000000Z"
+            },
+            "option": {
+                "id": 57618,
+                "option": "the coach leaves",
+                "created_at": "2026-10-30T13:53:30.000000Z",
+                "updated_at": "2026-10-30T13:53:30.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49786,
+                "question_id": 62685,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 57619,
+                "created_at": "2026-10-30T13:53:30.000000Z",
+                "updated_at": "2026-10-30T13:53:30.000000Z"
+            },
+            "option": {
+                "id": 57619,
+                "option": "Внутрішня частина зберігає прямий порядок; кінцевий прийменник уже наведено.",
+                "created_at": "2026-10-30T13:53:30.000000Z",
+                "updated_at": "2026-10-30T13:53:30.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54700,
+            "question_id": 62685,
+            "text": "Do you happen to know where {a1} from?",
+            "created_at": "2026-10-30T13:53:30.000000Z",
+            "updated_at": "2026-10-30T13:53:30.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

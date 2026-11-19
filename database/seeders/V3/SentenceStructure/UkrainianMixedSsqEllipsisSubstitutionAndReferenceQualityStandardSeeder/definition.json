@@ -1,0 +1,688 @@
+{
+    "schema_version": 1,
+    "quality_revision": "ssq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-structure-quality/ellipsis-substitution-and-reference.v1.json",
+        "sha256": "8b221dff404524886b147c0daa18d459164a4936496f9e2dc3aed6530da5b0b3"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SentenceStructure\\UkrainianMixedSsqEllipsisSubstitutionAndReferenceQualityStandardSeeder",
+        "uuid_namespace": "sentence-structure-quality-ellipsis-substitution-and-reference-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Sentence Structure"
+    },
+    "sources": {
+        "sentence_structure_quality_ellipsis_substitution_and_reference": {
+            "name": "Sentence Structure Quality: Ellipsis, Substitution and Reference"
+        }
+    },
+    "tags": {
+        "ellipsis_substitution_and_reference": {
+            "name": "ellipsis substitution and reference",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "ellipsis": {
+            "name": "ellipsis",
+            "category": "grammar"
+        },
+        "avoid_repetition": {
+            "name": "avoid repetition",
+            "category": "grammar"
+        },
+        "do_so_do_it_do_that": {
+            "name": "do so do it do that",
+            "category": "grammar"
+        },
+        "so_not": {
+            "name": "so not",
+            "category": "grammar"
+        },
+        "one_ones": {
+            "name": "one ones",
+            "category": "grammar"
+        },
+        "such_reference": {
+            "name": "such reference",
+            "category": "grammar"
+        },
+        "former_latter": {
+            "name": "former latter",
+            "category": "grammar"
+        },
+        "this_that_reference": {
+            "name": "this that reference",
+            "category": "grammar"
+        },
+        "reference_clarity": {
+            "name": "reference clarity",
+            "category": "grammar"
+        },
+        "cohesion": {
+            "name": "cohesion",
+            "category": "grammar"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "grammar"
+        },
+        "formal_style": {
+            "name": "formal style",
+            "category": "grammar"
+        }
+    },
+    "default_tag_keys": [
+        "ellipsis_substitution_and_reference"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "ssq-esr-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I am hungry, and Leo is {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Я голодний, і Лео теж.",
+            "target_text": "I am hungry, and Leo is too.",
+            "markers": {
+                "a1": {
+                    "answer": "too",
+                    "options": [
+                        "too",
+                        "either",
+                        "neither"
+                    ],
+                    "verb_hint": "Передай «теж» у стверджувальній частині; дієслово вже наведене."
+                }
+            },
+            "verb_hint": "Передай «теж» у стверджувальній частині; дієслово вже наведене.",
+            "accepted_target_texts": [
+                "I am hungry, and Leo is too.",
+                "I am hungry, and Leo is as well."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "as well"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "as well"
+                ]
+            },
+            "reorder_groups": [
+                "I am hungry,",
+                "and Leo",
+                "is too."
+            ],
+            "token_groups": [
+                "I am hungry,",
+                "and Leo",
+                "is too."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "ssq-esr-a1-g02",
+            "author_id": "A1-g02",
+            "question": "I like carrots, but my brother {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Я люблю моркву, а мій брат — ні.",
+            "target_text": "I like carrots, but my brother does not.",
+            "markers": {
+                "a1": {
+                    "answer": "does not",
+                    "options": [
+                        "does not",
+                        "do not",
+                        "is not"
+                    ],
+                    "verb_hint": "Запереч уподобання брата допоміжною формою; основну дію вдруге не називай."
+                }
+            },
+            "verb_hint": "Запереч уподобання брата допоміжною формою; основну дію вдруге не називай.",
+            "accepted_target_texts": [
+                "I like carrots, but my brother does not.",
+                "I like carrots, but my brother doesn't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "doesn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "doesn't"
+                ]
+            },
+            "reorder_groups": [
+                "I like carrots,",
+                "but my brother",
+                "does not."
+            ],
+            "token_groups": [
+                "I like carrots,",
+                "but my brother",
+                "does not."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "ssq-esr-a2-g01",
+            "author_id": "A2-g01",
+            "question": "I needed a larger suitcase, so I bought {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Мені була потрібна більша валіза, тож я купив таку.",
+            "target_text": "I needed a larger suitcase, so I bought one.",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "them"
+                    ],
+                    "verb_hint": "Назви одну валізу потрібного розміру замінником, не повторюючи її назву."
+                }
+            },
+            "verb_hint": "Назви одну валізу потрібного розміру замінником, не повторюючи її назву.",
+            "accepted_target_texts": [
+                "I needed a larger suitcase, so I bought one."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I needed",
+                "a larger suitcase,",
+                "so I",
+                "bought one."
+            ],
+            "token_groups": [
+                "I needed",
+                "a larger suitcase,",
+                "so I",
+                "bought one."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "ssq-esr-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Our cousins can stay until Friday, but we {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Наші двоюрідні родичі можуть залишитися до п’ятниці, а ми — ні.",
+            "target_text": "Our cousins can stay until Friday, but we cannot.",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "do not",
+                        "are not"
+                    ],
+                    "verb_hint": "Збережи заперечення можливості залишитися; не повторюй саму дію."
+                }
+            },
+            "verb_hint": "Збережи заперечення можливості залишитися; не повторюй саму дію.",
+            "accepted_target_texts": [
+                "Our cousins can stay until Friday, but we cannot.",
+                "Our cousins can stay until Friday, but we can't.",
+                "Our cousins can stay until Friday, but we can not."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "can't",
+                    "can not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "can't",
+                    "can not"
+                ]
+            },
+            "reorder_groups": [
+                "Our cousins",
+                "can stay",
+                "until Friday,",
+                "but we cannot."
+            ],
+            "token_groups": [
+                "Our cousins",
+                "can stay",
+                "until Friday,",
+                "but we cannot."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "ssq-esr-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Has the train left? I think {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Поїзд уже вирушив? Думаю, що так.",
+            "target_text": "Has the train left? I think so.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "that",
+                        "one"
+                    ],
+                    "verb_hint": "Ствердно відсилай до цілої думки про відправлення поїзда, не повторюючи її."
+                }
+            },
+            "verb_hint": "Ствердно відсилай до цілої думки про відправлення поїзда, не повторюючи її.",
+            "accepted_target_texts": [
+                "Has the train left? I think so."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Has the train",
+                "left? I",
+                "think so."
+            ],
+            "token_groups": [
+                "Has the train",
+                "left? I",
+                "think so."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "ssq-esr-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Some guests ordered soup; others {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Деякі гості замовили суп, а інші — салат.",
+            "target_text": "Some guests ordered soup; others salad.",
+            "markers": {
+                "a1": {
+                    "answer": "salad",
+                    "options": [
+                        "salad",
+                        "coffee",
+                        "dessert"
+                    ],
+                    "verb_hint": "Назви салат для інших гостей; уже названу дію замовлення не повторюй."
+                }
+            },
+            "verb_hint": "Назви салат для інших гостей; уже названу дію замовлення не повторюй.",
+            "accepted_target_texts": [
+                "Some guests ordered soup; others salad.",
+                "Some guests ordered soup; others a salad."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "a salad"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "a salad"
+                ]
+            },
+            "reorder_groups": [
+                "Some guests",
+                "ordered soup;",
+                "others salad."
+            ],
+            "token_groups": [
+                "Some guests",
+                "ordered soup;",
+                "others salad."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "ssq-esr-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The editor checked the references, and the interns {a1} too.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Редактор перевірив посилання, і стажери теж.",
+            "target_text": "The editor checked the references, and the interns did too.",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "were",
+                        "had"
+                    ],
+                    "verb_hint": "Одним допоміжним дієсловом повтори перевірку в минулому; самі посилання знову не називай."
+                }
+            },
+            "verb_hint": "Одним допоміжним дієсловом повтори перевірку в минулому; самі посилання знову не називай.",
+            "accepted_target_texts": [
+                "The editor checked the references, and the interns did too."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The editor",
+                "checked the references,",
+                "and the interns",
+                "did too."
+            ],
+            "token_groups": [
+                "The editor",
+                "checked the references,",
+                "and the interns",
+                "did too."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "ssq-esr-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The team chose a compact projector rather than a heavy {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Команда обрала компактний проєктор, а не важкий.",
+            "target_text": "The team chose a compact projector rather than a heavy one.",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "so"
+                    ],
+                    "verb_hint": "Заміни повторну назву одного проєктора після вже наведеного прикметника."
+                }
+            },
+            "verb_hint": "Заміни повторну назву одного проєктора після вже наведеного прикметника.",
+            "accepted_target_texts": [
+                "The team chose a compact projector rather than a heavy one."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The team chose",
+                "a compact projector",
+                "rather than",
+                "a heavy one."
+            ],
+            "token_groups": [
+                "The team chose",
+                "a compact projector",
+                "rather than",
+                "a heavy one."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "ssq-esr-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The committee may revise the timetable, but it has not yet decided whether {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Комітет може переглянути графік, але ще не вирішив, чи робити це.",
+            "target_text": "The committee may revise the timetable, but it has not yet decided whether to.",
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "so",
+                        "that"
+                    ],
+                    "verb_hint": "Залиш інфінітивний маркер, який дозволяє відновити вже названу дію перегляду."
+                }
+            },
+            "verb_hint": "Залиш інфінітивний маркер, який дозволяє відновити вже названу дію перегляду.",
+            "accepted_target_texts": [
+                "The committee may revise the timetable, but it has not yet decided whether to."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The committee",
+                "may revise",
+                "the timetable,",
+                "but it",
+                "has not yet",
+                "decided whether to."
+            ],
+            "token_groups": [
+                "The committee",
+                "may revise",
+                "the timetable,",
+                "but it",
+                "has not yet",
+                "decided whether to."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "ssq-esr-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The keynote speaker addressed funding; the moderator, by contrast, {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Основний доповідач порушив питання фінансування, а модератор, натомість, — етики.",
+            "target_text": "The keynote speaker addressed funding; the moderator, by contrast, ethics.",
+            "markers": {
+                "a1": {
+                    "answer": "ethics",
+                    "options": [
+                        "ethics",
+                        "governance",
+                        "accessibility"
+                    ],
+                    "verb_hint": "Назви етику як тему модератора; дію з першої частини залиш відновлюваною."
+                }
+            },
+            "verb_hint": "Назви етику як тему модератора; дію з першої частини залиш відновлюваною.",
+            "accepted_target_texts": [
+                "The keynote speaker addressed funding; the moderator, by contrast, ethics."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The keynote speaker",
+                "addressed funding;",
+                "the moderator,",
+                "by contrast,",
+                "ethics."
+            ],
+            "token_groups": [
+                "The keynote speaker",
+                "addressed funding;",
+                "the moderator,",
+                "by contrast,",
+                "ethics."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "ssq-esr-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The board was expected to endorse the proposal, but {a1} would have prejudged the review.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Очікували, що рада підтримає пропозицію, але така дія наперед визначила б висновок перегляду.",
+            "target_text": "The board was expected to endorse the proposal, but doing so would have prejudged the review.",
+            "markers": {
+                "a1": {
+                    "answer": "doing so",
+                    "options": [
+                        "doing so",
+                        "do so",
+                        "done so"
+                    ],
+                    "verb_hint": "Назви саму дію підтримки зворотом, що може бути підметом; передай відсилання до попередньої дії."
+                }
+            },
+            "verb_hint": "Назви саму дію підтримки зворотом, що може бути підметом; передай відсилання до попередньої дії.",
+            "accepted_target_texts": [
+                "The board was expected to endorse the proposal, but doing so would have prejudged the review.",
+                "The board was expected to endorse the proposal, but doing that would have prejudged the review.",
+                "The board was expected to endorse the proposal, but doing this would have prejudged the review."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "doing that",
+                    "doing this"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "doing that",
+                    "doing this"
+                ]
+            },
+            "reorder_groups": [
+                "The board",
+                "was expected",
+                "to endorse",
+                "the proposal,",
+                "but doing so",
+                "would have prejudged",
+                "the review."
+            ],
+            "token_groups": [
+                "The board",
+                "was expected",
+                "to endorse",
+                "the proposal,",
+                "but doing so",
+                "would have prejudged",
+                "the review."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "ssq-esr-c2-g02",
+            "author_id": "C2-g02",
+            "question": "We compared a phased withdrawal with an immediate suspension; the {a1} preserved continuity.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Ми порівняли поступовий вихід із негайним призупиненням; перший варіант зберігав безперервність.",
+            "target_text": "We compared a phased withdrawal with an immediate suspension; the former preserved continuity.",
+            "markers": {
+                "a1": {
+                    "answer": "former",
+                    "options": [
+                        "former",
+                        "latter",
+                        "other"
+                    ],
+                    "verb_hint": "Відсилай до першого з двох названих варіантів, не повторюючи його довгу назву."
+                }
+            },
+            "verb_hint": "Відсилай до першого з двох названих варіантів, не повторюючи його довгу назву.",
+            "accepted_target_texts": [
+                "We compared a phased withdrawal with an immediate suspension; the former preserved continuity.",
+                "We compared a phased withdrawal with an immediate suspension; the first preserved continuity."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "first"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "first"
+                ]
+            },
+            "reorder_groups": [
+                "We compared",
+                "a phased withdrawal",
+                "with an immediate",
+                "suspension;",
+                "the former",
+                "preserved continuity."
+            ],
+            "token_groups": [
+                "We compared",
+                "a phased withdrawal",
+                "with an immediate",
+                "suspension;",
+                "the former",
+                "preserved continuity."
+            ],
+            "quality_revision": "ssq-v1"
+        }
+    ]
+}

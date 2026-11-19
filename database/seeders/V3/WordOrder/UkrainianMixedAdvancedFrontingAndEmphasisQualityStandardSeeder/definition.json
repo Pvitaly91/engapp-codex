@@ -1,0 +1,1649 @@
+{
+    "schema_version": 1,
+    "quality_revision": "word-order-v1",
+    "compiled_from": {
+        "path": "docs/content/word-order-quality/fronting-emphasis.v1.json",
+        "sha256": "0bba4677c7a238d4d5d841b2a0500c655568ee2dcc4d6cfeae217c7134cef8b0"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\WordOrder\\UkrainianMixedAdvancedFrontingAndEmphasisQualityStandardSeeder",
+        "uuid_namespace": "word-order-quality-fronting-emphasis-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Word Order"
+    },
+    "sources": {
+        "word_order_quality_fronting_emphasis": {
+            "name": "Word Order Quality: Advanced Fronting and Emphasis"
+        }
+    },
+    "tags": {
+        "fronting_basics": {
+            "name": "fronting basics",
+            "category": "topic"
+        },
+        "fronted_objects_complements": {
+            "name": "fronted objects complements",
+            "category": "topic"
+        },
+        "fronted_adverbials": {
+            "name": "fronted adverbials",
+            "category": "topic"
+        },
+        "locative_inversion": {
+            "name": "locative inversion",
+            "category": "topic"
+        },
+        "negative_fronting": {
+            "name": "negative fronting",
+            "category": "topic"
+        },
+        "cleft_sentences": {
+            "name": "cleft sentences",
+            "category": "topic"
+        },
+        "pseudo_cleft_sentences": {
+            "name": "pseudo cleft sentences",
+            "category": "topic"
+        },
+        "emphatic_do": {
+            "name": "emphatic do",
+            "category": "topic"
+        },
+        "contrastive_focus": {
+            "name": "contrastive focus",
+            "category": "topic"
+        },
+        "natural_word_order": {
+            "name": "natural word order",
+            "category": "topic"
+        },
+        "formal_literary_style": {
+            "name": "formal literary style",
+            "category": "topic"
+        },
+        "avoid_overuse": {
+            "name": "avoid overuse",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "theory_page_advanced_fronting_and_emphasis"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "woq-fronting-emphasis-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Today, {a1} at home.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Сьогодні ми вдома.",
+            "target_text": "Today, we are at home.",
+            "markers": {
+                "a1": {
+                    "answer": "we are",
+                    "options": [
+                        "we are",
+                        "are we",
+                        "we is"
+                    ],
+                    "verb_hint": "Початкова обставина часу не робить речення питанням; збережи порядок підмета й зв’язки."
+                }
+            },
+            "verb_hint": "Початкова обставина часу не робить речення питанням; збережи порядок підмета й зв’язки.",
+            "accepted_target_texts": [
+                "Today, we are at home."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Today,",
+                "we are",
+                "at home."
+            ],
+            "token_groups": [
+                "Today,",
+                "we are",
+                "at home."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "woq-fronting-emphasis-a1-g02",
+            "author_id": "A1-g02",
+            "question": "In the kitchen, {a1} tea.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "На кухні тато готує чай.",
+            "target_text": "In the kitchen, Dad makes tea.",
+            "markers": {
+                "a1": {
+                    "answer": "Dad makes",
+                    "options": [
+                        "Dad makes",
+                        "makes Dad",
+                        "Dad make"
+                    ],
+                    "verb_hint": "Після місця постав виконавця, а потім дієслово звичної дії."
+                }
+            },
+            "verb_hint": "Після місця постав виконавця, а потім дієслово звичної дії.",
+            "accepted_target_texts": [
+                "In the kitchen, Dad makes tea.",
+                "In the kitchen, Dad prepares tea."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Dad prepares"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Dad prepares"
+                ]
+            },
+            "reorder_groups": [
+                "In the kitchen,",
+                "Dad makes",
+                "tea."
+            ],
+            "token_groups": [
+                "In the kitchen,",
+                "Dad makes",
+                "tea."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "woq-fronting-emphasis-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Every Friday, {a1} my aunt.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Щоп’ятниці я відвідую тітку.",
+            "target_text": "Every Friday, I visit my aunt.",
+            "markers": {
+                "a1": {
+                    "answer": "I visit",
+                    "options": [
+                        "I visit",
+                        "visit I",
+                        "do I visit"
+                    ],
+                    "verb_hint": "Після початкової часової обставини потрібне звичайне твердження, не питальна інверсія."
+                }
+            },
+            "verb_hint": "Після початкової часової обставини потрібне звичайне твердження, не питальна інверсія.",
+            "accepted_target_texts": [
+                "Every Friday, I visit my aunt."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Every Friday,",
+                "I visit",
+                "my aunt."
+            ],
+            "token_groups": [
+                "Every Friday,",
+                "I visit",
+                "my aunt."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "woq-fronting-emphasis-a1-g04",
+            "author_id": "A1-g04",
+            "question": "At school, {a1} stories.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "У школі діти читають оповідання.",
+            "target_text": "At school, the children read stories.",
+            "markers": {
+                "a1": {
+                    "answer": "the children read",
+                    "options": [
+                        "the children read",
+                        "read the children",
+                        "the children reads"
+                    ],
+                    "verb_hint": "Початкове місце відділяє обставину від підмета; далі звичайний порядок для множини."
+                }
+            },
+            "verb_hint": "Початкове місце відділяє обставину від підмета; далі звичайний порядок для множини.",
+            "accepted_target_texts": [
+                "At school, the children read stories."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "At school,",
+                "the children",
+                "read stories."
+            ],
+            "token_groups": [
+                "At school,",
+                "the children",
+                "read stories."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "woq-fronting-emphasis-a1-g05",
+            "author_id": "A1-g05",
+            "question": "This morning, {a1} grey.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Сьогодні вранці небо сіре.",
+            "target_text": "This morning, the sky is grey.",
+            "markers": {
+                "a1": {
+                    "answer": "the sky is",
+                    "options": [
+                        "the sky is",
+                        "is the sky",
+                        "the sky are"
+                    ],
+                    "verb_hint": "Обставина вже винесена вперед; перед ознакою постав підмет і зв’язку."
+                }
+            },
+            "verb_hint": "Обставина вже винесена вперед; перед ознакою постав підмет і зв’язку.",
+            "accepted_target_texts": [
+                "This morning, the sky is grey."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This morning,",
+                "the sky is",
+                "grey."
+            ],
+            "token_groups": [
+                "This morning,",
+                "the sky is",
+                "grey."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "woq-fronting-emphasis-a1-g06",
+            "author_id": "A1-g06",
+            "question": "After lunch, {a1} outside.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Після обіду ми граємо надворі.",
+            "target_text": "After lunch, we play outside.",
+            "markers": {
+                "a1": {
+                    "answer": "we play",
+                    "options": [
+                        "we play",
+                        "play we",
+                        "plays we"
+                    ],
+                    "verb_hint": "Початкова обставина лише називає час; допоміжне дієслово для твердження не потрібне."
+                }
+            },
+            "verb_hint": "Початкова обставина лише називає час; допоміжне дієслово для твердження не потрібне.",
+            "accepted_target_texts": [
+                "After lunch, we play outside."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "After lunch,",
+                "we play",
+                "outside."
+            ],
+            "token_groups": [
+                "After lunch,",
+                "we play",
+                "outside."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "woq-fronting-emphasis-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Before work, {a1} bread.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Перед роботою я зазвичай купую хліб.",
+            "target_text": "Before work, I usually buy bread.",
+            "markers": {
+                "a1": {
+                    "answer": "I usually buy",
+                    "options": [
+                        "I usually buy",
+                        "usually buy I",
+                        "I buy usually"
+                    ],
+                    "verb_hint": "Після початкової обставини частотність стоїть між підметом і основним дієсловом."
+                }
+            },
+            "verb_hint": "Після початкової обставини частотність стоїть між підметом і основним дієсловом.",
+            "accepted_target_texts": [
+                "Before work, I usually buy bread.",
+                "Before work, I normally buy bread."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "I normally buy"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "I normally buy"
+                ]
+            },
+            "reorder_groups": [
+                "Before work,",
+                "I usually",
+                "buy bread."
+            ],
+            "token_groups": [
+                "Before work,",
+                "I usually",
+                "buy bread."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "woq-fronting-emphasis-a2-g02",
+            "author_id": "A2-g02",
+            "question": "In the evenings, {a1} French.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Вечорами мій сусід по квартирі вивчає французьку.",
+            "target_text": "In the evenings, my flatmate studies French.",
+            "markers": {
+                "a1": {
+                    "answer": "my flatmate studies",
+                    "options": [
+                        "my flatmate studies",
+                        "studies my flatmate",
+                        "my flatmate study"
+                    ],
+                    "verb_hint": "Після винесеного часу збережи звичайний порядок і форму дієслова для однини."
+                }
+            },
+            "verb_hint": "Після винесеного часу збережи звичайний порядок і форму дієслова для однини.",
+            "accepted_target_texts": [
+                "In the evenings, my flatmate studies French."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "In the evenings,",
+                "my flatmate studies",
+                "French."
+            ],
+            "token_groups": [
+                "In the evenings,",
+                "my flatmate studies",
+                "French."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "woq-fronting-emphasis-a2-g03",
+            "author_id": "A2-g03",
+            "question": "After the match, {a1} tired.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Після матчу вболівальники були втомлені.",
+            "target_text": "After the match, the fans were tired.",
+            "markers": {
+                "a1": {
+                    "answer": "the fans were",
+                    "options": [
+                        "the fans were",
+                        "were the fans",
+                        "the fans was"
+                    ],
+                    "verb_hint": "Це повідомлення про минулий стан, не питання; підмет означає множину."
+                }
+            },
+            "verb_hint": "Це повідомлення про минулий стан, не питання; підмет означає множину.",
+            "accepted_target_texts": [
+                "After the match, the fans were tired."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "After the match,",
+                "the fans were",
+                "tired."
+            ],
+            "token_groups": [
+                "After the match,",
+                "the fans were",
+                "tired."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "woq-fronting-emphasis-a2-g04",
+            "author_id": "A2-g04",
+            "question": "On the top shelf, {a1} spare towels.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "На верхній полиці ми тримаємо запасні рушники.",
+            "target_text": "On the top shelf, we keep spare towels.",
+            "markers": {
+                "a1": {
+                    "answer": "we keep",
+                    "options": [
+                        "we keep",
+                        "keep we",
+                        "do we keep"
+                    ],
+                    "verb_hint": "Місце винесене вперед як тло; виконавець усе одно стоїть перед дієсловом."
+                }
+            },
+            "verb_hint": "Місце винесене вперед як тло; виконавець усе одно стоїть перед дієсловом.",
+            "accepted_target_texts": [
+                "On the top shelf, we keep spare towels."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "On the top",
+                "shelf,",
+                "we keep",
+                "spare towels."
+            ],
+            "token_groups": [
+                "On the top",
+                "shelf,",
+                "we keep",
+                "spare towels."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "woq-fronting-emphasis-a2-g05",
+            "author_id": "A2-g05",
+            "question": "For this recipe, {a1} two eggs.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Для цього рецепта потрібні два яйця.",
+            "target_text": "For this recipe, you need two eggs.",
+            "markers": {
+                "a1": {
+                    "answer": "you need",
+                    "options": [
+                        "you need",
+                        "need you",
+                        "you needs"
+                    ],
+                    "verb_hint": "Початковий зворот задає тему рецепта; далі звичайне твердження про потребу."
+                }
+            },
+            "verb_hint": "Початковий зворот задає тему рецепта; далі звичайне твердження про потребу.",
+            "accepted_target_texts": [
+                "For this recipe, you need two eggs."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "For this recipe,",
+                "you need",
+                "two eggs."
+            ],
+            "token_groups": [
+                "For this recipe,",
+                "you need",
+                "two eggs."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "woq-fronting-emphasis-a2-g06",
+            "author_id": "A2-g06",
+            "question": "During the storm, {a1} with us.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Під час бурі сусіди залишалися в нас.",
+            "target_text": "During the storm, the neighbours stayed with us.",
+            "markers": {
+                "a1": {
+                    "answer": "the neighbours stayed",
+                    "options": [
+                        "the neighbours stayed",
+                        "stayed the neighbours",
+                        "did the neighbours stayed"
+                    ],
+                    "verb_hint": "Після початкової обставини збережи звичайний порядок завершеної минулої події."
+                }
+            },
+            "verb_hint": "Після початкової обставини збережи звичайний порядок завершеної минулої події.",
+            "accepted_target_texts": [
+                "During the storm, the neighbours stayed with us."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "During the storm,",
+                "the neighbours stayed",
+                "with us."
+            ],
+            "token_groups": [
+                "During the storm,",
+                "the neighbours stayed",
+                "with us."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "woq-fronting-emphasis-b1-g01",
+            "author_id": "B1-g01",
+            "question": "After a brief discussion, {a1} a new date.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Після короткого обговорення комітет обрав нову дату.",
+            "target_text": "After a brief discussion, the committee chose a new date.",
+            "markers": {
+                "a1": {
+                    "answer": "the committee chose",
+                    "options": [
+                        "the committee chose",
+                        "chose the committee",
+                        "the committee did chose"
+                    ],
+                    "verb_hint": "Початкова обставина не змінює нейтрального порядку завершеної дії."
+                }
+            },
+            "verb_hint": "Початкова обставина не змінює нейтрального порядку завершеної дії.",
+            "accepted_target_texts": [
+                "After a brief discussion, the committee chose a new date."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "After a brief",
+                "discussion,",
+                "the committee chose",
+                "a new date."
+            ],
+            "token_groups": [
+                "After a brief",
+                "discussion,",
+                "the committee chose",
+                "a new date."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "woq-fronting-emphasis-b1-g02",
+            "author_id": "B1-g02",
+            "question": "As for the tickets, {a1} booked them.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Щодо квитків, то я їх уже забронював.",
+            "target_text": "As for the tickets, I have already booked them.",
+            "markers": {
+                "a1": {
+                    "answer": "I have already",
+                    "options": [
+                        "I have already",
+                        "have I already",
+                        "I already have been"
+                    ],
+                    "verb_hint": "Тема винесена окремо; у головній частині збережи звичайний порядок складеної форми."
+                }
+            },
+            "verb_hint": "Тема винесена окремо; у головній частині збережи звичайний порядок складеної форми.",
+            "accepted_target_texts": [
+                "As for the tickets, I have already booked them."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "As for",
+                "the tickets,",
+                "I have already",
+                "booked them."
+            ],
+            "token_groups": [
+                "As for",
+                "the tickets,",
+                "I have already",
+                "booked them."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "woq-fronting-emphasis-b1-g03",
+            "author_id": "B1-g03",
+            "question": "In the distance, {a1} a lighthouse.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Удалині ми бачили маяк.",
+            "target_text": "In the distance, we could see a lighthouse.",
+            "markers": {
+                "a1": {
+                    "answer": "we could see",
+                    "options": [
+                        "we could see",
+                        "could we see",
+                        "we see could"
+                    ],
+                    "verb_hint": "Звичайне місце на початку не вимагає інверсії модального дієслова."
+                }
+            },
+            "verb_hint": "Звичайне місце на початку не вимагає інверсії модального дієслова.",
+            "accepted_target_texts": [
+                "In the distance, we could see a lighthouse."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "In the distance,",
+                "we could see",
+                "a lighthouse."
+            ],
+            "token_groups": [
+                "In the distance,",
+                "we could see",
+                "a lighthouse."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "woq-fronting-emphasis-b1-g04",
+            "author_id": "B1-g04",
+            "question": "At the end of the corridor, {a1} waiting.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Наприкінці коридору чекав охоронець.",
+            "target_text": "At the end of the corridor, a guard was waiting.",
+            "markers": {
+                "a1": {
+                    "answer": "a guard was",
+                    "options": [
+                        "a guard was",
+                        "was a guard",
+                        "a guard were"
+                    ],
+                    "verb_hint": "Після довгої обставини збережи звичайну тривалу форму; підмет в однині."
+                }
+            },
+            "verb_hint": "Після довгої обставини збережи звичайну тривалу форму; підмет в однині.",
+            "accepted_target_texts": [
+                "At the end of the corridor, a guard was waiting."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "At the end",
+                "of the corridor,",
+                "a guard",
+                "was waiting."
+            ],
+            "token_groups": [
+                "At the end",
+                "of the corridor,",
+                "a guard",
+                "was waiting."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "woq-fronting-emphasis-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Because of the roadworks, {a1} late.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Через дорожні роботи наш автобус прибув із запізненням.",
+            "target_text": "Because of the roadworks, our bus arrived late.",
+            "markers": {
+                "a1": {
+                    "answer": "our bus arrived",
+                    "options": [
+                        "our bus arrived",
+                        "arrived our bus",
+                        "did our bus arrived"
+                    ],
+                    "verb_hint": "Після винесеної причини потрібні підмет і дієслово минулого часу."
+                }
+            },
+            "verb_hint": "Після винесеної причини потрібні підмет і дієслово минулого часу.",
+            "accepted_target_texts": [
+                "Because of the roadworks, our bus arrived late.",
+                "Because of the roadworks, our bus came late."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "our bus came"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "our bus came"
+                ]
+            },
+            "reorder_groups": [
+                "Because of",
+                "the roadworks,",
+                "our bus arrived",
+                "late."
+            ],
+            "token_groups": [
+                "Because of",
+                "the roadworks,",
+                "our bus arrived",
+                "late."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "woq-fronting-emphasis-b1-g06",
+            "author_id": "B1-g06",
+            "question": "For several weeks, {a1} no visitors.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Кілька тижнів художник не мав відвідувачів.",
+            "target_text": "For several weeks, the artist had no visitors.",
+            "markers": {
+                "a1": {
+                    "answer": "the artist had",
+                    "options": [
+                        "the artist had",
+                        "had the artist",
+                        "the artist did had"
+                    ],
+                    "verb_hint": "Тривалість є початковим тлом, а не питанням; збережи порядок розповіді."
+                }
+            },
+            "verb_hint": "Тривалість є початковим тлом, а не питанням; збережи порядок розповіді.",
+            "accepted_target_texts": [
+                "For several weeks, the artist had no visitors."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "For several weeks,",
+                "the artist had",
+                "no visitors."
+            ],
+            "token_groups": [
+                "For several weeks,",
+                "the artist had",
+                "no visitors."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "woq-fronting-emphasis-b2-g01",
+            "author_id": "B2-g01",
+            "question": "That offer, {a1} immediately.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Ту пропозицію ми відхилили відразу.",
+            "target_text": "That offer, we rejected immediately.",
+            "markers": {
+                "a1": {
+                    "answer": "we rejected",
+                    "options": [
+                        "we rejected",
+                        "did we reject",
+                        "rejected we"
+                    ],
+                    "verb_hint": "Додаток винесено для контрасту; у головній частині після нього немає питальної інверсії."
+                }
+            },
+            "verb_hint": "Додаток винесено для контрасту; у головній частині після нього немає питальної інверсії.",
+            "accepted_target_texts": [
+                "That offer, we rejected immediately."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "That offer,",
+                "we rejected",
+                "immediately."
+            ],
+            "token_groups": [
+                "That offer,",
+                "we rejected",
+                "immediately."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "woq-fronting-emphasis-b2-g02",
+            "author_id": "B2-g02",
+            "question": "This point {a1} accept.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Із цим пунктом я можу погодитися.",
+            "target_text": "This point I can accept.",
+            "markers": {
+                "a1": {
+                    "answer": "I can",
+                    "options": [
+                        "I can",
+                        "can I",
+                        "I accept can"
+                    ],
+                    "verb_hint": "Виділений додаток не є негативною обставиною; збережи порядок підмета й модального дієслова."
+                }
+            },
+            "verb_hint": "Виділений додаток не є негативною обставиною; збережи порядок підмета й модального дієслова.",
+            "accepted_target_texts": [
+                "This point I can accept."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This point",
+                "I can",
+                "accept."
+            ],
+            "token_groups": [
+                "This point",
+                "I can",
+                "accept."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "woq-fronting-emphasis-b2-g03",
+            "author_id": "B2-g03",
+            "question": "Into the courtyard {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "На подвір’я зайшов високий незнайомець.",
+            "target_text": "Into the courtyard walked a tall stranger.",
+            "markers": {
+                "a1": {
+                    "answer": "walked a tall stranger",
+                    "options": [
+                        "walked a tall stranger",
+                        "did a tall stranger walked",
+                        "a tall stranger did walked"
+                    ],
+                    "verb_hint": "У цій описовій інверсії після напрямку постав дієслово, потім новий іменниковий підмет."
+                }
+            },
+            "verb_hint": "У цій описовій інверсії після напрямку постав дієслово, потім новий іменниковий підмет.",
+            "accepted_target_texts": [
+                "Into the courtyard walked a tall stranger."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Into the courtyard",
+                "walked",
+                "a tall stranger."
+            ],
+            "token_groups": [
+                "Into the courtyard",
+                "walked",
+                "a tall stranger."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "woq-fronting-emphasis-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The remaining details {a1} tomorrow.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Решту подробиць ми можемо обговорити завтра.",
+            "target_text": "The remaining details we can discuss tomorrow.",
+            "markers": {
+                "a1": {
+                    "answer": "we can discuss",
+                    "options": [
+                        "we can discuss",
+                        "can we discuss",
+                        "we discuss can"
+                    ],
+                    "verb_hint": "Винесена тема не викликає допоміжної інверсії; модальне дієслово стоїть після підмета."
+                }
+            },
+            "verb_hint": "Винесена тема не викликає допоміжної інверсії; модальне дієслово стоїть після підмета.",
+            "accepted_target_texts": [
+                "The remaining details we can discuss tomorrow."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The remaining details",
+                "we can discuss",
+                "tomorrow."
+            ],
+            "token_groups": [
+                "The remaining details",
+                "we can discuss",
+                "tomorrow."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "woq-fronting-emphasis-b2-g05",
+            "author_id": "B2-g05",
+            "question": "On the left {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Ліворуч висить вицвілий портрет.",
+            "target_text": "On the left hangs a faded portrait.",
+            "markers": {
+                "a1": {
+                    "answer": "hangs a faded portrait",
+                    "options": [
+                        "hangs a faded portrait",
+                        "does a faded portrait hangs",
+                        "a faded portrait hang"
+                    ],
+                    "verb_hint": "Використай описову інверсію з іменниковим підметом після дієслова."
+                }
+            },
+            "verb_hint": "Використай описову інверсію з іменниковим підметом після дієслова.",
+            "accepted_target_texts": [
+                "On the left hangs a faded portrait."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "On the left",
+                "hangs",
+                "a faded portrait."
+            ],
+            "token_groups": [
+                "On the left",
+                "hangs",
+                "a faded portrait."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "woq-fronting-emphasis-b2-g06",
+            "author_id": "B2-g06",
+            "question": "This much {a1} willing to admit.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Оце я готовий визнати.",
+            "target_text": "This much I am willing to admit.",
+            "markers": {
+                "a1": {
+                    "answer": "I am",
+                    "options": [
+                        "I am",
+                        "am I",
+                        "I willing am"
+                    ],
+                    "verb_hint": "Початковий додаток задає межу визнання; порядок підмета й зв’язки залишається звичайним."
+                }
+            },
+            "verb_hint": "Початковий додаток задає межу визнання; порядок підмета й зв’язки залишається звичайним.",
+            "accepted_target_texts": [
+                "This much I am willing to admit."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This much",
+                "I am",
+                "willing to admit."
+            ],
+            "token_groups": [
+                "This much",
+                "I am",
+                "willing to admit."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "woq-fronting-emphasis-c1-g01",
+            "author_id": "C1-g01",
+            "question": "More disturbing {a1} of any warning.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Ще тривожнішою була відсутність будь-якого попередження.",
+            "target_text": "More disturbing was the absence of any warning.",
+            "markers": {
+                "a1": {
+                    "answer": "was the absence",
+                    "options": [
+                        "was the absence",
+                        "the absence was",
+                        "did the absence"
+                    ],
+                    "verb_hint": "Винеси оцінку вперед і постав зв’язку перед новим довгим підметом."
+                }
+            },
+            "verb_hint": "Винеси оцінку вперед і постав зв’язку перед новим довгим підметом.",
+            "accepted_target_texts": [
+                "More disturbing was the absence of any warning."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "More disturbing",
+                "was the absence",
+                "of any warning."
+            ],
+            "token_groups": [
+                "More disturbing",
+                "was the absence",
+                "of any warning."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "woq-fronting-emphasis-c1-g02",
+            "author_id": "C1-g02",
+            "question": "To the youngest children, {a1} simple reassurance.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Найменшим дітям ми запропонували прості слова заспокоєння.",
+            "target_text": "To the youngest children, we offered simple reassurance.",
+            "markers": {
+                "a1": {
+                    "answer": "we offered",
+                    "options": [
+                        "we offered",
+                        "did we offer",
+                        "offered we"
+                    ],
+                    "verb_hint": "Винесений адресат задає тему й сам по собі не викликає допоміжної інверсії."
+                }
+            },
+            "verb_hint": "Винесений адресат задає тему й сам по собі не викликає допоміжної інверсії.",
+            "accepted_target_texts": [
+                "To the youngest children, we offered simple reassurance."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "To the youngest",
+                "children,",
+                "we offered",
+                "simple reassurance."
+            ],
+            "token_groups": [
+                "To the youngest",
+                "children,",
+                "we offered",
+                "simple reassurance."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "woq-fronting-emphasis-c1-g03",
+            "author_id": "C1-g03",
+            "question": "Talented as {a1}, she still needs guidance.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Хоч вона й талановита, їй усе ще потрібні настанови.",
+            "target_text": "Talented as she is, she still needs guidance.",
+            "markers": {
+                "a1": {
+                    "answer": "she is",
+                    "options": [
+                        "she is",
+                        "is she",
+                        "she does"
+                    ],
+                    "verb_hint": "У допустовій конструкції після винесеної ознаки підмет передує зв’язці."
+                }
+            },
+            "verb_hint": "У допустовій конструкції після винесеної ознаки підмет передує зв’язці.",
+            "accepted_target_texts": [
+                "Talented as she is, she still needs guidance."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Talented as",
+                "she is,",
+                "she still needs",
+                "guidance."
+            ],
+            "token_groups": [
+                "Talented as",
+                "she is,",
+                "she still needs",
+                "guidance."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "woq-fronting-emphasis-c1-g04",
+            "author_id": "C1-g04",
+            "question": "What happened next {a1} explain.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Того, що сталося далі, я не можу пояснити.",
+            "target_text": "What happened next I cannot explain.",
+            "markers": {
+                "a1": {
+                    "answer": "I cannot",
+                    "options": [
+                        "I cannot",
+                        "cannot I",
+                        "I explain cannot"
+                    ],
+                    "verb_hint": "Увесь початковий підрядний зміст є додатком; після нього збережи звичайний порядок."
+                }
+            },
+            "verb_hint": "Увесь початковий підрядний зміст є додатком; після нього збережи звичайний порядок.",
+            "accepted_target_texts": [
+                "What happened next I cannot explain."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What happened next",
+                "I cannot",
+                "explain."
+            ],
+            "token_groups": [
+                "What happened next",
+                "I cannot",
+                "explain."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "woq-fronting-emphasis-c1-g05",
+            "author_id": "C1-g05",
+            "question": "Seated beside the chairman {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Поруч із головою сидів мовчазний спостерігач.",
+            "target_text": "Seated beside the chairman was a silent observer.",
+            "markers": {
+                "a1": {
+                    "answer": "was a silent observer",
+                    "options": [
+                        "was a silent observer",
+                        "did a silent observer seated",
+                        "a silent observer were"
+                    ],
+                    "verb_hint": "Після винесеного опису розташування постав зв’язку, а потім новий підмет."
+                }
+            },
+            "verb_hint": "Після винесеного опису розташування постав зв’язку, а потім новий підмет.",
+            "accepted_target_texts": [
+                "Seated beside the chairman was a silent observer."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Seated beside",
+                "the chairman",
+                "was",
+                "a silent observer."
+            ],
+            "token_groups": [
+                "Seated beside",
+                "the chairman",
+                "was",
+                "a silent observer."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "woq-fronting-emphasis-c1-g06",
+            "author_id": "C1-g06",
+            "question": "This argument {a1} in the conclusion.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "До цього аргументу я повернуся у висновку.",
+            "target_text": "This argument I will return to in the conclusion.",
+            "markers": {
+                "a1": {
+                    "answer": "I will return to",
+                    "options": [
+                        "I will return to",
+                        "will I return to",
+                        "I return will to"
+                    ],
+                    "verb_hint": "Винеси предмет подальшого обговорення, зберігши прийменник після дієслова та звичайний порядок."
+                }
+            },
+            "verb_hint": "Винеси предмет подальшого обговорення, зберігши прийменник після дієслова та звичайний порядок.",
+            "accepted_target_texts": [
+                "This argument I will return to in the conclusion."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This argument",
+                "I will",
+                "return to",
+                "in the conclusion."
+            ],
+            "token_groups": [
+                "This argument",
+                "I will",
+                "return to",
+                "in the conclusion."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "woq-fronting-emphasis-c2-g01",
+            "author_id": "C2-g01",
+            "question": "Absent from the final report {a1} of the conflict.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "В остаточному звіті не було жодного визнання конфлікту.",
+            "target_text": "Absent from the final report was any acknowledgement of the conflict.",
+            "markers": {
+                "a1": {
+                    "answer": "was any acknowledgement",
+                    "options": [
+                        "was any acknowledgement",
+                        "did any acknowledgement",
+                        "any acknowledgement were"
+                    ],
+                    "verb_hint": "Після винесеної предикативної групи потрібні зв’язка та новий абстрактний підмет."
+                }
+            },
+            "verb_hint": "Після винесеної предикативної групи потрібні зв’язка та новий абстрактний підмет.",
+            "accepted_target_texts": [
+                "Absent from the final report was any acknowledgement of the conflict."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Absent from",
+                "the final report",
+                "was",
+                "any acknowledgement",
+                "of the conflict."
+            ],
+            "token_groups": [
+                "Absent from",
+                "the final report",
+                "was",
+                "any acknowledgement",
+                "of the conflict."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "woq-fronting-emphasis-c2-g02",
+            "author_id": "C2-g02",
+            "question": "That the figures had been adjusted {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Того, що цифри було скориговано, ніхто серйозно не заперечує.",
+            "target_text": "That the figures had been adjusted nobody seriously disputes.",
+            "markers": {
+                "a1": {
+                    "answer": "nobody seriously disputes",
+                    "options": [
+                        "nobody seriously disputes",
+                        "does nobody seriously dispute",
+                        "nobody disputes seriously did"
+                    ],
+                    "verb_hint": "Уся початкова частина є предметом заперечення; після неї збережи ствердний порядок із негативним підметом."
+                }
+            },
+            "verb_hint": "Уся початкова частина є предметом заперечення; після неї збережи ствердний порядок із негативним підметом.",
+            "accepted_target_texts": [
+                "That the figures had been adjusted nobody seriously disputes."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "That the figures",
+                "had been adjusted",
+                "nobody seriously",
+                "disputes."
+            ],
+            "token_groups": [
+                "That the figures",
+                "had been adjusted",
+                "nobody seriously",
+                "disputes."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "woq-fronting-emphasis-c2-g03",
+            "author_id": "C2-g03",
+            "question": "Central to the prosecution's case {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Для позиції обвинувачення ключовим є спірний запис.",
+            "target_text": "Central to the prosecution's case is the disputed recording.",
+            "markers": {
+                "a1": {
+                    "answer": "is the disputed recording",
+                    "options": [
+                        "is the disputed recording",
+                        "does the disputed recording",
+                        "the disputed recording are"
+                    ],
+                    "verb_hint": "Після винесеної оцінки ролі постав зв’язку перед новим підметом в однині."
+                }
+            },
+            "verb_hint": "Після винесеної оцінки ролі постав зв’язку перед новим підметом в однині.",
+            "accepted_target_texts": [
+                "Central to the prosecution's case is the disputed recording."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Central to",
+                "the prosecution's case",
+                "is",
+                "the disputed recording."
+            ],
+            "token_groups": [
+                "Central to",
+                "the prosecution's case",
+                "is",
+                "the disputed recording."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "woq-fronting-emphasis-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The merits of the scheme {a1}; its legality we cannot.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Про переваги схеми ми можемо сперечатися, але про її законність — ні.",
+            "target_text": "The merits of the scheme we may debate; its legality we cannot.",
+            "markers": {
+                "a1": {
+                    "answer": "we may debate",
+                    "options": [
+                        "we may debate",
+                        "may we debate",
+                        "we debate may"
+                    ],
+                    "verb_hint": "Початковий додаток підкреслює контраст, але не змінює звичайного порядку модальної групи."
+                }
+            },
+            "verb_hint": "Початковий додаток підкреслює контраст, але не змінює звичайного порядку модальної групи.",
+            "accepted_target_texts": [
+                "The merits of the scheme we may debate; its legality we cannot."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The merits",
+                "of the scheme",
+                "we may debate;",
+                "its legality",
+                "we cannot."
+            ],
+            "token_groups": [
+                "The merits",
+                "of the scheme",
+                "we may debate;",
+                "its legality",
+                "we cannot."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "woq-fronting-emphasis-c2-g05",
+            "author_id": "C2-g05",
+            "question": "Buried in the supplementary material {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "У додаткових матеріалах ховалося суттєве застереження.",
+            "target_text": "Buried in the supplementary material was a crucial qualification.",
+            "markers": {
+                "a1": {
+                    "answer": "was a crucial qualification",
+                    "options": [
+                        "was a crucial qualification",
+                        "did a crucial qualification buried",
+                        "a crucial qualification were"
+                    ],
+                    "verb_hint": "Винесений дієприкметниковий опис передує зв’язці та новому підмету."
+                }
+            },
+            "verb_hint": "Винесений дієприкметниковий опис передує зв’язці та новому підмету.",
+            "accepted_target_texts": [
+                "Buried in the supplementary material was a crucial qualification."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Buried in",
+                "the supplementary material",
+                "was",
+                "a crucial qualification."
+            ],
+            "token_groups": [
+                "Buried in",
+                "the supplementary material",
+                "was",
+                "a crucial qualification."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "woq-fronting-emphasis-c2-g06",
+            "author_id": "C2-g06",
+            "question": "To the extent that precedent remains relevant, {a1} holds.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_fronting_emphasis",
+            "translation_uk": "Тією мірою, якою прецедент лишається доречним, це розмежування зберігається.",
+            "target_text": "To the extent that precedent remains relevant, the distinction still holds.",
+            "markers": {
+                "a1": {
+                    "answer": "the distinction still",
+                    "options": [
+                        "the distinction still",
+                        "still the distinction does",
+                        "does the distinction still"
+                    ],
+                    "verb_hint": "Початкове обмеження не містить негативного слова, тож головна частина зберігає звичайний порядок."
+                }
+            },
+            "verb_hint": "Початкове обмеження не містить негативного слова, тож головна частина зберігає звичайний порядок.",
+            "accepted_target_texts": [
+                "To the extent that precedent remains relevant, the distinction still holds."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "To the extent",
+                "that precedent",
+                "remains relevant,",
+                "the distinction",
+                "still holds."
+            ],
+            "token_groups": [
+                "To the extent",
+                "that precedent",
+                "remains relevant,",
+                "the distinction",
+                "still holds."
+            ],
+            "quality_revision": "word-order-v1"
+        }
+    ]
+}

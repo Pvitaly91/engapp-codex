@@ -1,0 +1,415 @@
+{
+    "schema_version": 1,
+    "purpose": "Exact neutral legacy/course descriptors; no runtime rows or learner progress.",
+    "bindings": {
+        "reported-statements": [
+            {
+                "uuid": "2d8d9e14-42ab-9e62-3e86-e21ba5bdae53",
+                "filters": {
+                    "mode": "compose_tokens",
+                    "question_type": "4",
+                    "lesson_type": "theory-driven",
+                    "course_slug": "theory-driven",
+                    "lesson_order": 52,
+                    "previous_lesson_slug": "course-td-conditional-alternatives-and-nuance",
+                    "next_lesson_slug": "course-td-reported-commands-and-requests",
+                    "theory_page_slug": "reported-statements",
+                    "theory_category_slug": "reported-speech",
+                    "theory_category_path": "reported-speech",
+                    "completion": {
+                        "rolling_window": 100,
+                        "min_rating": 4.5
+                    },
+                    "interface_locale": "uk",
+                    "study_locale": "uk",
+                    "target_locale": "en",
+                    "topic": "Reported Statements",
+                    "tags": [
+                        "Theory-Driven",
+                        "Reported Speech"
+                    ],
+                    "prompt_generator": {
+                        "source_type": "theory_page",
+                        "theory_page": {
+                            "slug": "reported-statements",
+                            "title": "Reported Statements",
+                            "category_slug_path": "reported-speech"
+                        }
+                    },
+                    "num_questions": 15,
+                    "generated_from_existing_content": true,
+                    "generated_by": "GLZ-PROMPT-0069-THEORY-DRIVEN-COURSE-STABILIZE"
+                },
+                "slug": "course-td-reported-statements"
+            },
+            {
+                "uuid": "polyglot-reported-speech-basi-17d4a4",
+                "filters": {
+                    "mode": "compose_tokens",
+                    "question_type": 4,
+                    "lesson_type": "polyglot",
+                    "payload_version": 2,
+                    "import_format": "gramlyze_v3_polyglot",
+                    "supports_duplicate_tokens": true,
+                    "course_slug": "polyglot-english-a2",
+                    "lesson_order": 12,
+                    "previous_lesson_slug": "polyglot-passive-voice-basics-a2",
+                    "next_lesson_slug": "polyglot-used-to-a2",
+                    "completion": {
+                        "rolling_window": 100,
+                        "min_rating": 4.5
+                    },
+                    "interface_locale": "uk",
+                    "study_locale": "uk",
+                    "target_locale": "en",
+                    "topic": "reported speech basics",
+                    "level": "A2",
+                    "levels": [
+                        "A2"
+                    ],
+                    "tags": [
+                        "Polyglot",
+                        "Compose Tokens",
+                        "Reported Speech Basics",
+                        "A2"
+                    ],
+                    "prompt_generator": {
+                        "source_type": "theory_page",
+                        "theory_page": {
+                            "slug": "reported-statements",
+                            "title": "Reported Statements",
+                            "category_slug_path": "reported-speech",
+                            "page_seeder_class": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechStatementsTheorySeeder",
+                            "url": "https://gramlyze.com/theory/reported-speech/reported-statements"
+                        }
+                    },
+                    "seeder_classes": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotReportedSpeechBasicsLessonSeeder"
+                    ],
+                    "num_questions": 24
+                },
+                "slug": "polyglot-reported-speech-basics-a2"
+            }
+        ],
+        "reported-questions": [
+            {
+                "uuid": "749214b4-4af7-7cb1-e348-1dbada84a9b8",
+                "filters": {
+                    "mode": "compose_tokens",
+                    "question_type": "4",
+                    "lesson_type": "theory-driven",
+                    "course_slug": "theory-driven",
+                    "lesson_order": 54,
+                    "previous_lesson_slug": "course-td-reported-commands-and-requests",
+                    "next_lesson_slug": "course-td-advanced-reported-speech",
+                    "theory_page_slug": "reported-questions",
+                    "theory_category_slug": "reported-speech",
+                    "theory_category_path": "reported-speech",
+                    "completion": {
+                        "rolling_window": 100,
+                        "min_rating": 4.5
+                    },
+                    "interface_locale": "uk",
+                    "study_locale": "uk",
+                    "target_locale": "en",
+                    "topic": "Reported Questions",
+                    "tags": [
+                        "Theory-Driven",
+                        "Reported Speech"
+                    ],
+                    "prompt_generator": {
+                        "source_type": "theory_page",
+                        "theory_page": {
+                            "slug": "reported-questions",
+                            "title": "Reported Questions",
+                            "category_slug_path": "reported-speech"
+                        }
+                    },
+                    "num_questions": 15,
+                    "generated_from_existing_content": true,
+                    "generated_by": "GLZ-PROMPT-0069-THEORY-DRIVEN-COURSE-STABILIZE"
+                },
+                "slug": "course-td-reported-questions"
+            },
+            {
+                "uuid": "polyglot-reported-questions-b-1b6872",
+                "filters": {
+                    "mode": "compose_tokens",
+                    "question_type": 4,
+                    "lesson_type": "polyglot",
+                    "payload_version": 2,
+                    "import_format": "gramlyze_v3_polyglot",
+                    "supports_duplicate_tokens": true,
+                    "course_slug": "polyglot-english-b1",
+                    "lesson_order": 8,
+                    "previous_lesson_slug": "polyglot-passive-voice-with-modals-b1",
+                    "next_lesson_slug": "polyglot-reported-commands-and-requests-b1",
+                    "completion": {
+                        "rolling_window": 100,
+                        "min_rating": 4.5
+                    },
+                    "interface_locale": "uk",
+                    "study_locale": "uk",
+                    "target_locale": "en",
+                    "topic": "reported questions",
+                    "level": "B1",
+                    "levels": [
+                        "B1"
+                    ],
+                    "tags": [
+                        "Polyglot",
+                        "Compose Tokens",
+                        "Reported Questions",
+                        "B1"
+                    ],
+                    "prompt_generator": {
+                        "source_type": "theory_page",
+                        "theory_page": {
+                            "slug": "reported-questions",
+                            "title": "Reported Questions",
+                            "category_slug_path": "reported-speech",
+                            "page_seeder_class": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechQuestionsTheorySeeder",
+                            "url": "https://gramlyze.com/theory/reported-speech/reported-questions"
+                        }
+                    },
+                    "seeder_classes": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotReportedQuestionsLessonSeeder"
+                    ],
+                    "num_questions": 24
+                },
+                "slug": "polyglot-reported-questions-b1"
+            }
+        ],
+        "reported-commands-and-requests": [
+            {
+                "uuid": "e43f6415-e8da-b912-1245-dfc861c14bd6",
+                "filters": {
+                    "mode": "compose_tokens",
+                    "question_type": "4",
+                    "lesson_type": "theory-driven",
+                    "course_slug": "theory-driven",
+                    "lesson_order": 53,
+                    "previous_lesson_slug": "course-td-reported-statements",
+                    "next_lesson_slug": "course-td-reported-questions",
+                    "theory_page_slug": "reported-commands-and-requests",
+                    "theory_category_slug": "reported-speech",
+                    "theory_category_path": "reported-speech",
+                    "completion": {
+                        "rolling_window": 100,
+                        "min_rating": 4.5
+                    },
+                    "interface_locale": "uk",
+                    "study_locale": "uk",
+                    "target_locale": "en",
+                    "topic": "Reported Commands and Requests",
+                    "tags": [
+                        "Theory-Driven",
+                        "Reported Speech"
+                    ],
+                    "prompt_generator": {
+                        "source_type": "theory_page",
+                        "theory_page": {
+                            "slug": "reported-commands-and-requests",
+                            "title": "Reported Commands and Requests",
+                            "category_slug_path": "reported-speech"
+                        }
+                    },
+                    "num_questions": 15,
+                    "generated_from_existing_content": true,
+                    "generated_by": "GLZ-PROMPT-0069-THEORY-DRIVEN-COURSE-STABILIZE"
+                },
+                "slug": "course-td-reported-commands-and-requests"
+            },
+            {
+                "uuid": "polyglot-reported-commands-an-71cc67",
+                "filters": {
+                    "mode": "compose_tokens",
+                    "question_type": 4,
+                    "lesson_type": "polyglot",
+                    "payload_version": 2,
+                    "import_format": "gramlyze_v3_polyglot",
+                    "supports_duplicate_tokens": true,
+                    "course_slug": "polyglot-english-b1",
+                    "lesson_order": 9,
+                    "previous_lesson_slug": "polyglot-reported-questions-b1",
+                    "next_lesson_slug": "polyglot-non-defining-relative-clauses-b1",
+                    "completion": {
+                        "rolling_window": 100,
+                        "min_rating": 4.5
+                    },
+                    "interface_locale": "uk",
+                    "study_locale": "uk",
+                    "target_locale": "en",
+                    "topic": "reported commands and requests",
+                    "level": "B1",
+                    "levels": [
+                        "B1"
+                    ],
+                    "tags": [
+                        "Polyglot",
+                        "Compose Tokens",
+                        "Reported Commands And Requests",
+                        "B1"
+                    ],
+                    "prompt_generator": {
+                        "source_type": "theory_page",
+                        "theory_page": {
+                            "slug": "reported-commands-and-requests",
+                            "title": "Reported Commands and Requests",
+                            "category_slug_path": "reported-speech",
+                            "page_seeder_class": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechCommandsRequestsTheorySeeder",
+                            "url": "https://gramlyze.com/theory/reported-speech/reported-commands-and-requests"
+                        }
+                    },
+                    "seeder_classes": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotReportedCommandsAndRequestsLessonSeeder"
+                    ],
+                    "num_questions": 48
+                },
+                "slug": "polyglot-reported-commands-and-requests-b1"
+            }
+        ],
+        "backshift-of-tenses": [],
+        "time-and-place-changes": [],
+        "say-tell-ask": [],
+        "advanced-reported-speech": [
+            {
+                "uuid": "4657a41d-b386-3e5e-ed2a-2ad8e70ee220",
+                "filters": {
+                    "mode": "compose_tokens",
+                    "question_type": "4",
+                    "lesson_type": "theory-driven",
+                    "course_slug": "theory-driven",
+                    "lesson_order": 55,
+                    "previous_lesson_slug": "course-td-reported-questions",
+                    "next_lesson_slug": "course-td-non-defining-relative-clauses",
+                    "theory_page_slug": "advanced-reported-speech",
+                    "theory_category_slug": "reported-speech",
+                    "theory_category_path": "reported-speech",
+                    "completion": {
+                        "rolling_window": 100,
+                        "min_rating": 4.5
+                    },
+                    "interface_locale": "uk",
+                    "study_locale": "uk",
+                    "target_locale": "en",
+                    "topic": "Advanced Reported Speech",
+                    "tags": [
+                        "Theory-Driven",
+                        "Reported Speech"
+                    ],
+                    "prompt_generator": {
+                        "source_type": "theory_page",
+                        "theory_page": {
+                            "slug": "advanced-reported-speech",
+                            "title": "Advanced Reported Speech",
+                            "category_slug_path": "reported-speech"
+                        }
+                    },
+                    "num_questions": 15,
+                    "generated_from_existing_content": true,
+                    "generated_by": "GLZ-PROMPT-0069-THEORY-DRIVEN-COURSE-STABILIZE"
+                },
+                "slug": "course-td-advanced-reported-speech"
+            },
+            {
+                "uuid": "polyglot-advanced-reported-sp-fbc2ad",
+                "filters": {
+                    "mode": "compose_tokens",
+                    "question_type": 4,
+                    "lesson_type": "polyglot",
+                    "payload_version": 2,
+                    "import_format": "gramlyze_v3_polyglot",
+                    "supports_duplicate_tokens": true,
+                    "course_slug": "polyglot-english-c1",
+                    "lesson_order": 12,
+                    "previous_lesson_slug": "polyglot-subjunctive-and-formal-structures-c1",
+                    "next_lesson_slug": "polyglot-complex-passive-and-causative-c1",
+                    "completion": {
+                        "type": "score",
+                        "minimum_rating_percent": 80,
+                        "minimum_correct": 38
+                    },
+                    "interface_locale": "uk",
+                    "study_locale": "uk",
+                    "target_locale": "en",
+                    "topic": "advanced reported speech",
+                    "level": "C1",
+                    "levels": [
+                        "C1"
+                    ],
+                    "tags": [
+                        "Polyglot",
+                        "Compose Tokens",
+                        "Advanced Reported Speech",
+                        "C1"
+                    ],
+                    "prompt_generator": {
+                        "source_type": "theory_page",
+                        "theory_page": {
+                            "slug": "advanced-reported-speech",
+                            "title": "Advanced Reported Speech",
+                            "category_slug_path": "reported-speech",
+                            "page_seeder_class": "Database\\Seeders\\Page_V3\\ReportedSpeech\\AdvancedReportedSpeechTheorySeeder",
+                            "url": "https://gramlyze.com/theory/reported-speech/advanced-reported-speech"
+                        }
+                    },
+                    "num_questions": 48,
+                    "seeder_classes": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedReportedSpeechC1LessonSeeder"
+                    ]
+                },
+                "slug": "polyglot-advanced-reported-speech-c1"
+            },
+            {
+                "uuid": "polyglot-advanced-reporte-c3477a9846",
+                "filters": {
+                    "mode": "compose_tokens",
+                    "question_type": 4,
+                    "lesson_type": "polyglot",
+                    "payload_version": 2,
+                    "import_format": "gramlyze_v3_polyglot",
+                    "supports_duplicate_tokens": true,
+                    "course_slug": "polyglot-english-b2",
+                    "lesson_order": 6,
+                    "previous_lesson_slug": "polyglot-advanced-passive-voice-b2",
+                    "next_lesson_slug": "polyglot-relative-clauses-with-whose-and-which-b2",
+                    "completion": {
+                        "type": "score",
+                        "minimum_rating_percent": 80,
+                        "minimum_correct": 38
+                    },
+                    "interface_locale": "uk",
+                    "study_locale": "uk",
+                    "target_locale": "en",
+                    "topic": "advanced reported speech",
+                    "level": "B2",
+                    "levels": [
+                        "B2"
+                    ],
+                    "tags": [
+                        "Polyglot",
+                        "Compose Tokens",
+                        "advanced reported speech",
+                        "B2"
+                    ],
+                    "prompt_generator": {
+                        "source_type": "theory_page",
+                        "theory_page": {
+                            "slug": "advanced-reported-speech",
+                            "title": "Advanced Reported Speech",
+                            "category_slug_path": "reported-speech",
+                            "page_seeder_class": "Database\\Seeders\\Page_V3\\ReportedSpeech\\AdvancedReportedSpeechTheorySeeder",
+                            "url": "https://gramlyze.com/theory/reported-speech/advanced-reported-speech"
+                        }
+                    },
+                    "num_questions": 48,
+                    "seeder_classes": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedReportedSpeechB2LessonSeeder"
+                    ]
+                },
+                "slug": "polyglot-advanced-reported-speech-b2"
+            }
+        ]
+    }
+}

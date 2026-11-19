@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60626,
+        "uuid": "bgq-parts-of-speech-a1-g01",
+        "question": "The bag is {a1}.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 12,
+        "source_id": 427,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedPartsOfSpeechQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "heavy",
+                "heavily",
+                "heaviness"
+            ]
+        },
+        "theory_text_block_uuid": "6b17fe3e-1f10-5088-92b6-f1853ad6324d",
+        "created_at": "2026-10-27T15:50:47.000000Z",
+        "updated_at": "2026-10-27T15:50:47.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 427,
+        "name": "Basic Grammar Quality: Частини мови",
+        "created_at": "2026-10-27T15:50:47.000000Z",
+        "updated_at": "2026-10-27T15:50:47.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 86,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60626,
+                "tag_id": 86,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 495,
+                "option": "heavy",
+                "created_at": "2026-04-23T11:41:56.000000Z",
+                "updated_at": "2026-04-23T11:41:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 60626,
+                "option_id": 495,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 16625,
+                "option": "heavily",
+                "created_at": "2026-04-25T22:35:48.000000Z",
+                "updated_at": "2026-04-25T22:35:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 60626,
+                "option_id": 16625,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53106,
+                "option": "heaviness",
+                "created_at": "2026-10-27T15:50:47.000000Z",
+                "updated_at": "2026-10-27T15:50:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 60626,
+                "option_id": 53106,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325681,
+                "question_id": 60626,
+                "marker": "a1",
+                "option_id": 495,
+                "created_at": "2026-10-27T15:50:47.000000Z",
+                "updated_at": "2026-10-27T15:50:47.000000Z"
+            },
+            "option": {
+                "id": 495,
+                "option": "heavy",
+                "created_at": "2026-04-23T11:41:56.000000Z",
+                "updated_at": "2026-04-23T11:41:56.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43015,
+                "question_id": 60626,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53105,
+                "created_at": "2026-10-27T15:50:47.000000Z",
+                "updated_at": "2026-10-27T15:50:47.000000Z"
+            },
+            "option": {
+                "id": 53105,
+                "option": "Потрібний зміст: «Важка». Опиши вагу вже названої сумки прикметником, а не способом дії чи назвою властивості.",
+                "created_at": "2026-10-27T15:50:47.000000Z",
+                "updated_at": "2026-10-27T15:50:47.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52641,
+            "question_id": 60626,
+            "text": "The bag is {a1}.",
+            "created_at": "2026-10-27T15:50:47.000000Z",
+            "updated_at": "2026-10-27T15:50:47.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

@@ -1,0 +1,1281 @@
+{
+    "schema_version": 1,
+    "base_sha": "36753e6bd0bd1f8257908f3b30af9856d21e8e9f",
+    "version": "1.0.0",
+    "status": "frozen",
+    "review": "Main independently read all six lessons/tasks/maps and reviewed agent findings; agent review is not human review. Original new tasks, no publisher exercises copied.",
+    "author_projection_sha256": "a4d571a72828ddd2d7d1c8c4ec12b1fea2b0561652b948ed19c993c97267b85d",
+    "draft_parts_sha256": {
+        "conditionals": "e4ecd70409a625cdb2992ccabcfc038d154979e25a4b5437d240d196f200499b",
+        "relative-clauses-linking-words": "11f09782d43c32b8f92e4a5d6219b2b9b2203955b6223966bcd831f6b50ba7ce",
+        "articles-quantifiers": "5d9b1c55bca9654c5568e5d1d081109d459bc9c22f939a43f4393522fc0c117d",
+        "word-order-emphasis": "97589eea8a82b7bfac731779e2340c2f496ae9a36dad6f072819df3791d14126",
+        "articles-common-mistakes": "1b6f126ab791e4316b59413327cd57405bdccabae572cbf8e09fd125ee3eafbe",
+        "word-order-common-mistakes": "65f97099f6b4c476d42f3d18d21ac1864be177cd53a949dd9b3c75f992f1e61c"
+    },
+    "lesson_reviews": {
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsConditionalsTheorySeeder": {
+            "schema_version": 1,
+            "review_kind": "Agent author/reviewer, not human review",
+            "corrections": [
+                {
+                    "source": "Unless працює як if not без подвійного заперечення; summary може читатися як загальна заборона not.",
+                    "after": "Конкретна пара hurry збережена; basic і detail відрізняють зайве заперечення від потрібного not у самому винятку.",
+                    "reason": "Не всяке if … not взаємозамінне з unless, а наявність not сама по собі не є помилкою.",
+                    "source_urls": [
+                        "https://dictionary.cambridge.org/grammar/british-grammar/unless"
+                    ]
+                },
+                {
+                    "source": "You should leave now. → You had better leave now.",
+                    "after": "Обидві версії отримали явний ризик останнього автобуса й задум попередження; нейтральна порада окремо не визнається автоматично рівнозначною.",
+                    "reason": "Source вже правильно описував силу had better; таблицю узгоджено з цим правилом без мовчазного посилення.",
+                    "source_urls": [
+                        "https://dictionary.cambridge.org/grammar/british-grammar/had-better"
+                    ]
+                },
+                {
+                    "source": "Wish і would rather подані стисло без явного часу в окремих source-парах.",
+                    "after": "Додано last year / tonight; розведено власну/чужу дію та минулий жаль, зі збереженням чотирьох початкових груп.",
+                    "reason": "Форма минулого не дорівнює автоматично минулому часу ситуації.",
+                    "source_urls": [
+                        "https://dictionary.cambridge.org/grammar/british-grammar/would-rather-would-",
+                        "https://learnenglish.britishcouncil.org/comment/190710"
+                    ]
+                }
+            ],
+            "source_practice_inventory": {
+                "selects": 0,
+                "choices": 0,
+                "inputs": 0,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0
+            },
+            "after_practice_inventory": {
+                "selects": 2,
+                "choices": 2,
+                "inputs": 2,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0,
+                "full_sentence_input_indices": [
+                    0,
+                    1
+                ]
+            },
+            "source_loader_boundary": "JsonPageSeeder використовує top-level seeder.class Page_V3. Наявні owner/UUID/embedded metadata/positions/columns/tags і SQL levels зберігаються exact-bound compiler, а не визначаються діапазоном hero.",
+            "acceptance_boundary": "Авторська редакція даних, не HTTP/browser PASS і не самостійний дозвіл SQL. Main виконує незалежний BEFORE, finite projection, preview, exclusive backup, guarded apply та live acceptance.",
+            "sources": [
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/unless",
+                    "access": "direct-http-403; indexed-editorial-body-read",
+                    "verified": "Except if; обмеження механічної заміни if … not; збереження сфери умови. Приклади M81 власні, не скопійовані вправи.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/had-better",
+                    "access": "direct-http-403; indexed-editorial-body-read",
+                    "verified": "Конкретна сильна порада з небажаним наслідком; had better (not) + базова форма без to; відмежування від переваги.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/would-rather-would-",
+                    "access": "direct-http-403; indexed-editorial-body-read",
+                    "verified": "Той самий виконавець: базова форма; інший: past form для теперішнього/майбутнього, Past Perfect для минулого; позиція not.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://learnenglish.britishcouncil.org/comment/190710",
+                    "access": "indexed-editorial-body-read; attempted-canonical-path-tool-error",
+                    "verified": "Основна редакційна секція Wishes: past forms для нереального теперішнього та минулого жалю. Learner comments не є підставою правила; direct body цієї адреси не заявлено.",
+                    "copied_exercises": false
+                }
+            ],
+            "retained_source": "Три hero-функції та всі чотири source-групи unless/wish/would rather/had better; коректне source-застереження про силу поради. Чотири рядки таблиці залишено на тих самих позиціях; явні зміни контексту описані окремо. Чотири correction-функції й summary збережено, абсолютні формулювання звужено до видимого задуму.",
+            "new_author_content": "6 власних graded tasks: 2 форма, 2 зміст, 2 цілі речення з ручним введенням і токенами; 1 змістовний detail; українські переклади й потрібні видимі контексти. Тематичні widget questions обліковуються main окремо; цим файлом банки не змінюються.",
+            "removed_repetition": "Не повторено повний довідник усіх if-conditionals; перевірка умови, часу й сили виконується один раз у відповідному пункті, таблиця дає лише контрольовані пари.",
+            "details_decision": "1 meaningful detail: сфера not у винятку unless; потрібне базове застереження лишається видимим.",
+            "visibility_policy": "practice-set.data.intro та selects[].prompt відсутні: критерії містяться лише в підтриманих select_intro/choice_intro/input_intro, labels та inputs.after. Before в inputs — тільки перемішані групи, не готовий порядок відповіді.",
+            "inferred_identity_fields_not_written": [
+                "Page IDs",
+                "category IDs",
+                "continuing UUIDs",
+                "actual SQL levels",
+                "runtime widget question IDs"
+            ],
+            "metadata_transitions": [
+                {
+                    "source_index": 1,
+                    "before": {
+                        "type": "box",
+                        "column": "left",
+                        "level_present": false,
+                        "heading": "1. Як розпізнати потрібну перебудову"
+                    },
+                    "after": {
+                        "type": "usage-panels",
+                        "column": "left",
+                        "level": null,
+                        "title": "1. Як розпізнати потрібну перебудову"
+                    },
+                    "reason": "HTML box перенесено у чинний structured native component без дизайну; heading переходить до data.title, зовнішній heading очищається за окремою allowlist. Continuing UUID/position/column/підтверджений SQL NULL level збережені."
+                },
+                {
+                    "source_index": 2,
+                    "before": {
+                        "type": "box",
+                        "column": "left",
+                        "level_present": false,
+                        "heading": "2. Основні шаблони трансформації"
+                    },
+                    "after": {
+                        "type": "comparison-table",
+                        "column": "left",
+                        "level": null,
+                        "title": "2. Основні шаблони трансформації"
+                    },
+                    "reason": "HTML box перенесено у чинний structured native component без дизайну; heading переходить до data.title, зовнішній heading очищається за окремою allowlist. Continuing UUID/position/column/підтверджений SQL NULL level збережені."
+                }
+            ],
+            "table_row_map": [
+                {
+                    "source_index": 2,
+                    "row_index": 0,
+                    "source_pair": [
+                        "If you don't hurry, you'll miss the train.",
+                        "Unless you hurry, you'll miss the train."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">If you don’t hurry, you’ll miss the train.</p><p>Якщо ти не поквапишся, то пропустиш поїзд.</p>",
+                        "<p lang=\"en\">Unless you hurry, you’ll miss the train.</p><p>Якщо ти не поквапишся, то пропустиш поїзд.</p>",
+                        "Збережено негативну умову й наслідок. Поспіх є потрібною умовою, але цей рядок не гарантує, що його достатньо, щоб устигнути."
+                    ],
+                    "reason": "Source unless-пара збережена; прибрано blanket-заборону not і не додано зворотного логічного висновку."
+                },
+                {
+                    "source_index": 2,
+                    "row_index": 1,
+                    "source_pair": [
+                        "I regret not studying harder.",
+                        "I wish I had studied harder."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">I regret not studying harder last year.</p><p>Я шкодую, що минулого року не вчився старанніше.</p>",
+                        "<p lang=\"en\">I wish I had studied harder last year.</p><p>Шкода, що минулого року я не вчився старанніше.</p>",
+                        "Обидві версії — теперішній жаль про завершене минуле навчання. Невідомий результат іспиту не додаємо."
+                    ],
+                    "reason": "Додано last year, щоб явно встановити минулу подію жалю й не виводити її лише з regret."
+                },
+                {
+                    "source_index": 2,
+                    "row_index": 2,
+                    "source_pair": [
+                        "I'd prefer you not to call so late.",
+                        "I'd rather you didn't call so late."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">I’d prefer you not to call so late tonight.</p><p>Я волів би, щоб ти не телефонував так пізно сьогодні ввечері.</p>",
+                        "<p lang=\"en\">I’d rather you didn’t call so late tonight.</p><p>Я волів би, щоб ти не телефонував так пізно сьогодні ввечері.</p>",
+                        "Виконавець дзвінка — you; tonight задає майбутнє, хоча didn't має past form. Збережено особисту перевагу, не створено наказ."
+                    ],
+                    "reason": "Source-пара збережена; tonight робить час події явним."
+                },
+                {
+                    "source_index": 2,
+                    "row_index": 3,
+                    "source_pair": [
+                        "You should leave now.",
+                        "You had better leave now."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">You should leave now, or you may miss the last bus.</p><p>Тобі слід піти зараз, інакше ти можеш пропустити останній автобус.</p>",
+                        "<p lang=\"en\">You had better leave now, or you may miss the last bus.</p><p>Тобі краще піти зараз, інакше ти можеш пропустити останній автобус.</p>",
+                        "У цій ситуації мовець саме попереджає про ризик пропустити останній автобус. Had better передає цю задану сильну пораду; сама коротка фраза з should без такого задуму не вимагала б посилення."
+                    ],
+                    "reason": "Критичну source-пару узгоджено з уже правильним source-поясненням сили поради: додано явний ризик і задум попередження, не оголошено should/had better універсальними синонімами."
+                }
+            ]
+        },
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsRelativeClausesLinkingWordsTheorySeeder": {
+            "schema_version": 1,
+            "review_kind": "Agent author/reviewer, not human review",
+            "corrections": [
+                {
+                    "source": "Вибір who / which / where залежить лише від «людина / річ / місце».",
+                    "after": "Уточнено роль у clause: office which we visited проти office where we worked; потрібний підмет і прийменник збережено.",
+                    "reason": "Місце може бути додатком дієслова; where не є автоматичною заміною which.",
+                    "source_urls": [
+                        "https://dictionary.cambridge.org/grammar/british-grammar/relative"
+                    ]
+                },
+                {
+                    "source": "Although he was tired → in spite of being tired без явної перевірки носія стану.",
+                    "after": "Правильну source-пару збережено; у basic названо спільного виконавця, detail і meaning task показують ризик різних виконавців та повну модель the fact that.",
+                    "reason": "Скорочення не повинне переносити Мартину втому на Олену; blanket-заборона clause після despite замінена точним правилом.",
+                    "source_urls": [
+                        "https://dictionary.cambridge.org/us/grammar/british-grammar/in-spite-of-and-despite"
+                    ]
+                },
+                {
+                    "source": "Because she had an exam → because of her exam без часу іспиту.",
+                    "after": "В обох версіях збережено її запланований іспит наступного ранку; full UA-переклади не замінені граматичним коментарем.",
+                    "reason": "Іменникова причина не повинна втрачати власника або часовий зв’язок.",
+                    "source_urls": [
+                        "https://dictionary.cambridge.org/grammar/british-grammar/because-because-of-and-cos-cos-of"
+                    ]
+                },
+                {
+                    "source": "Correction про підміну причини має instruction-only right.",
+                    "after": "Right містить реальну причинну пару ill / stayed home → stayed home because ill; усі версії перекладено.",
+                    "reason": "Учень бачить конкретну правильну модель і той самий логічний зв’язок, а не лише загальну інструкцію.",
+                    "source_urls": [
+                        "https://dictionary.cambridge.org/grammar/british-grammar/because-because-of-and-cos-cos-of"
+                    ]
+                }
+            ],
+            "source_practice_inventory": {
+                "selects": 0,
+                "choices": 0,
+                "inputs": 0,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0
+            },
+            "after_practice_inventory": {
+                "selects": 2,
+                "choices": 2,
+                "inputs": 2,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0,
+                "full_sentence_input_indices": [
+                    0,
+                    1
+                ]
+            },
+            "source_loader_boundary": "JsonPageSeeder використовує top-level seeder.class Page_V3. Наявні owner/UUID/embedded metadata/positions/columns/tags і SQL levels зберігаються exact-bound compiler, а не визначаються діапазоном hero.",
+            "acceptance_boundary": "Авторська редакція даних, не HTTP/browser PASS і не самостійний дозвіл SQL. Main виконує незалежний BEFORE, finite projection, preview, exclusive backup, guarded apply та live acceptance.",
+            "sources": [
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/relative",
+                    "access": "direct-http-403; indexed-editorial-body-read",
+                    "verified": "Which / that, subject/object roles, where як місце та потрібні прийменники; defining/non-defining і збереження референта. Learner comments не використовувалися.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/in-spite-of-and-despite",
+                    "access": "direct-http-403; indexed-editorial-body-read",
+                    "verified": "Noun/-ing після despite/in spite of; повна модель the fact that; відсутність of після despite. Власні actor-contrasts не скопійовані з банку вправ.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/because-because-of-and-cos-cos-of",
+                    "access": "indexed-editorial-body-read",
+                    "verified": "Because як conjunction причини, because of як прийменник; source-власник і конкретний часовий зв’язок перевірені авторською редактурою M81.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/relative-pronouns-relative-clauses",
+                    "access": "indexed-editorial-body-read; search-returned-query-url-variant",
+                    "verified": "Основна секція про підмет/додаток у relative clause, недублювання саме цієї ролі, defining/non-defining. Search показував також comments; правила взято з main explanation, не з learner comments.",
+                    "copied_exercises": false
+                }
+            ],
+            "retained_source": "Три hero-функції, об’єднання двох повідомлень, relative clause, clause → phrase/-ing та чотири логічні зв’язки збережено. Усі чотири source-рядки таблиці залишено в початковому порядку; exam отримав явний час, решта — пояснення правильних умов. Чотири source correction-функції збережено; instruction-only right став реальною причинною моделлю.",
+            "new_author_content": "6 власних graded tasks: 2 форма, 2 зміст, 2 цілі речення з ручним введенням і токенами; 1 змістовний detail; українські переклади й потрібні видимі контексти. Тематичні widget questions обліковуються main окремо; цим файлом банки не змінюються.",
+            "removed_repetition": "Не дублюється повний курс relative clauses чи linking words; кожен пункт перевіряє саме перетворення й збереження учасників/логіки.",
+            "details_decision": "1 meaningful detail: різні носії стану при although → despite; необхідна заборона зміни виконавця лишається в basic.",
+            "visibility_policy": "practice-set.data.intro та selects[].prompt відсутні: критерії містяться лише в підтриманих select_intro/choice_intro/input_intro, labels та inputs.after. Before в inputs — тільки перемішані групи, не готовий порядок відповіді.",
+            "inferred_identity_fields_not_written": [
+                "Page IDs",
+                "category IDs",
+                "continuing UUIDs",
+                "actual SQL levels",
+                "runtime widget question IDs"
+            ],
+            "metadata_transitions": [
+                {
+                    "source_index": 1,
+                    "before": {
+                        "type": "box",
+                        "column": "left",
+                        "level_present": false,
+                        "heading": "1. Як розпізнати потрібну перебудову"
+                    },
+                    "after": {
+                        "type": "usage-panels",
+                        "column": "left",
+                        "level": null,
+                        "title": "1. Як розпізнати потрібну перебудову"
+                    },
+                    "reason": "HTML box перенесено у чинний structured native component без дизайну; heading переходить до data.title, зовнішній heading очищається за окремою allowlist. Continuing UUID/position/column/підтверджений SQL NULL level збережені."
+                },
+                {
+                    "source_index": 2,
+                    "before": {
+                        "type": "box",
+                        "column": "left",
+                        "level_present": false,
+                        "heading": "2. Основні шаблони трансформації"
+                    },
+                    "after": {
+                        "type": "comparison-table",
+                        "column": "left",
+                        "level": null,
+                        "title": "2. Основні шаблони трансформації"
+                    },
+                    "reason": "HTML box перенесено у чинний structured native component без дизайну; heading переходить до data.title, зовнішній heading очищається за окремою allowlist. Continuing UUID/position/column/підтверджений SQL NULL level збережені."
+                }
+            ],
+            "table_row_map": [
+                {
+                    "source_index": 2,
+                    "row_index": 0,
+                    "source_pair": [
+                        "The woman lives next door. She teaches chemistry.",
+                        "The woman who lives next door teaches chemistry."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">The woman lives next door. She teaches chemistry.</p><p>Жінка живе по сусідству. Вона викладає хімію.</p>",
+                        "<p lang=\"en\">The woman who lives next door teaches chemistry.</p><p>Жінка, яка живе по сусідству, викладає хімію.</p>",
+                        "У цьому контексті описуємо, яка саме жінка викладає хімію. Вона ж живе поруч; who є підметом lives, а не заміною іншого виконавця."
+                    ],
+                    "reason": "Source-поєднання збережено з тим самим референтом і defining-задумом; додано обидва UA-переклади."
+                },
+                {
+                    "source_index": 2,
+                    "row_index": 1,
+                    "source_pair": [
+                        "Although he was tired, he finished the report.",
+                        "In spite of being tired, he finished the report."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">Although he was tired, he finished the report.</p><p>Хоча він був втомлений, він закінчив звіт.</p>",
+                        "<p lang=\"en\">In spite of being tired, he finished the report.</p><p>Попри втому, він закінчив звіт.</p>",
+                        "Втомився й закінчив звіт той самий чоловік. Протиставлення й минулий завершений звіт збережені; за різних виконавців це скорочення не підходить."
+                    ],
+                    "reason": "Source-пара не виправляється як помилкова; явним зроблено її правильну умову спільного виконавця."
+                },
+                {
+                    "source_index": 2,
+                    "row_index": 2,
+                    "source_pair": [
+                        "The cafe is near the station. We met there.",
+                        "The cafe where we met is near the station."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">The café is near the station. We met there.</p><p>Кафе розташоване біля вокзалу. Ми зустрілися там.</p>",
+                        "<p lang=\"en\">The café where we met is near the station.</p><p>Кафе, у якому ми зустрілися, розташоване біля вокзалу.</p>",
+                        "У цьому контексті зустріч визначає потрібне кафе. Where замінює місце зустрічі, а не додаток дієслова; we лишається підметом met."
+                    ],
+                    "reason": "Усі source-факти й where-модель збережено; причина вибору where звужена до ролі всередині clause."
+                },
+                {
+                    "source_index": 2,
+                    "row_index": 3,
+                    "source_pair": [
+                        "She went to bed early because she had an exam.",
+                        "She went to bed early because of her exam."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">She went to bed early because she had an exam the next morning.</p><p>Вона рано лягла спати, бо наступного ранку мала іспит.</p>",
+                        "<p lang=\"en\">She went to bed early because of her exam the next morning.</p><p>Вона рано лягла спати через свій іспит наступного ранку.</p>",
+                        "Відомо, що йдеться про її запланований іспит наступного ранку після цього вечора. Власник, майбутній щодо сну час іспиту й причина збережені."
+                    ],
+                    "reason": "Додано the next morning в обидві версії й явний scheduled-контекст; noun phrase не втрачає час або власника іспиту."
+                }
+            ]
+        },
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsArticlesQuantifiersTheorySeeder": {
+            "schema_version": 1,
+            "review_kind": "Agent author/reviewer, not human review",
+            "corrections": [
+                {
+                    "source": "A few / a little означають невелику, але достатню кількість.",
+                    "after": "A few / a little виражають деяку малу кількість; достатність перевіряється за явно заданою потребою. Наведено a few chairs / a little water, яких недостатньо.",
+                    "reason": "Узгоджено з прийнятим M71; достатність не є гарантованим значенням a.",
+                    "source_urls": [
+                        "https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2-grammar/quantifiers-few-a-few-little-a-bit",
+                        "https://dictionary.cambridge.org/uk/grammar/british-grammar/little-"
+                    ]
+                },
+                {
+                    "source": "There aren’t many chairs left. → There are only a few chairs left. / very little → not much.",
+                    "after": "У першій парі є три стільці; у другій — саме дві хвилини за потреби десяти. Форми збережено, але ненульова кількість і ступінь малої кількості названі явно.",
+                    "reason": "Не створює універсальних точних рівностей та не втрачає інтенсивність very little.",
+                    "source_urls": [
+                        "https://dictionary.cambridge.org/uk/grammar/british-grammar/little-"
+                    ]
+                },
+                {
+                    "source": "She gave me some useful advice. → She gave me a useful piece of advice.",
+                    "after": "Додано exactly one suggestion about packing у source та exactly one useful piece of advice about packing у target; basic і meaning task окремо пояснюють невизначену кількість some.",
+                    "reason": "Не можна встановити одну пораду лише з some; giver/recipient/time/topic збережені.",
+                    "source_urls": [
+                        "https://dictionary.cambridge.org/grammar/british-grammar/advice-or-advise"
+                    ]
+                },
+                {
+                    "source": "Артикль за новим/відомим об’єктом без явної перевірки знання слухача.",
+                    "after": "Явно задано ідентифікацію співрозмовником; relative clause і перша згадка не оголошені достатнім алгоритмом вибору артикля.",
+                    "reason": "A / the можуть бути граматичними з різним відсиланням; потрібний контекст, не автоматична заміна.",
+                    "source_urls": [
+                        "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/indefinite-article"
+                    ]
+                }
+            ],
+            "source_practice_inventory": {
+                "selects": 0,
+                "choices": 0,
+                "inputs": 0,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0
+            },
+            "after_practice_inventory": {
+                "selects": 2,
+                "choices": 2,
+                "inputs": 2,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0,
+                "full_sentence_input_indices": [
+                    0,
+                    1
+                ]
+            },
+            "source_loader_boundary": "JsonPageSeeder використовує top-level seeder.class Page_V3. Наявні owner/UUID/embedded metadata/positions/columns/tags і SQL levels зберігаються exact-bound compiler, а не визначаються діапазоном hero.",
+            "acceptance_boundary": "Авторська редакція даних, не HTTP/browser PASS і не самостійний дозвіл SQL. Main виконує незалежний BEFORE, finite projection, preview, exclusive backup, guarded apply та live acceptance.",
+            "sources": [
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2-grammar/quantifiers-few-a-few-little-a-bit",
+                    "access": "direct-editorial-body-read; redirect-from-old-grammar-path",
+                    "verified": "Main explanation: a few/a little як мала наявна кількість, few/very little як мала кількість із частим негативним поглядом; often не перетворено на завжди достатньо. Learner comments і editorial reply не використовувалися як нове правило.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/uk/grammar/british-grammar/little-",
+                    "access": "indexed-editorial-body-read",
+                    "verified": "Few/little і a few/a little: тип іменника й кількісний/оцінний акцент. Ненульова кількість та exact-time facts у M81 — власні явні умови.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/advice-or-advise",
+                    "access": "direct-http-403; indexed-editorial-body-read",
+                    "verified": "Advice незлічуване; окремі поради рахуються через piece/pieces of advice. Some не встановлює exactly one; всі tasks авторські.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/indefinite-article",
+                    "access": "direct-editorial-body-read",
+                    "verified": "Main explanation: a/an з одиничним іменником, коли слухач/читач не знає точно, який референт; defining clause не вимагає автоматично the. Приклади M81 власні.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/quantifiers",
+                    "access": "direct-tool-timeout",
+                    "verified": "Відправний URL запитано, але body не прочитано; предметні висновки спираються на прямо доступну BC few/a few сторінку та Cambridge indexed explanation, а не на недоступну сторінку.",
+                    "copied_exercises": false
+                }
+            ],
+            "retained_source": "Три hero-функції й чотири source bullets збережено: countability, визначник, кількісний акцент і ключові парафрази. Чотири рядки таблиці збережено в тих самих позиціях: not many/only a few; very little/not much; not any/no; advice/partitive. Числовий контекст доданий явно. Чотири correction-функції збережено; few/a few — зміна акценту за задумом, не оголошення іншої кількості неграматичною.",
+            "new_author_content": "6 власних graded tasks: 2 форма, 2 зміст, 2 цілі речення з ручним введенням і токенами; 1 змістовний detail; українські переклади й потрібні видимі контексти. Тематичні widget questions обліковуються main окремо; цим файлом банки не змінюються.",
+            "removed_repetition": "Не дублюються базові довідники M71/Partitives; кожен пункт застосовує правило саме до збереження кількості й відсилання в трансформації.",
+            "details_decision": "1 meaningful detail: some проти точної лічильної одиниці; core-застереження та переклади лишаються visible basic.",
+            "visibility_policy": "practice-set.data.intro та selects[].prompt відсутні: критерії містяться лише в підтриманих select_intro/choice_intro/input_intro, labels та inputs.after. Before в inputs — тільки перемішані групи, не готовий порядок відповіді.",
+            "inferred_identity_fields_not_written": [
+                "Page IDs",
+                "category IDs",
+                "continuing UUIDs",
+                "actual SQL levels",
+                "runtime widget question IDs"
+            ],
+            "metadata_transitions": [
+                {
+                    "source_index": 1,
+                    "before": {
+                        "type": "box",
+                        "column": "left",
+                        "level_present": false,
+                        "heading": "1. Як розпізнати потрібну перебудову"
+                    },
+                    "after": {
+                        "type": "usage-panels",
+                        "column": "left",
+                        "level": null,
+                        "title": "1. Як розпізнати потрібну перебудову"
+                    },
+                    "reason": "HTML box перенесено у чинний structured native component без дизайну; heading переходить до data.title, зовнішній heading очищається за окремою allowlist. Continuing UUID/position/column/підтверджений SQL NULL level збережені."
+                },
+                {
+                    "source_index": 2,
+                    "before": {
+                        "type": "box",
+                        "column": "left",
+                        "level_present": false,
+                        "heading": "2. Основні шаблони трансформації"
+                    },
+                    "after": {
+                        "type": "comparison-table",
+                        "column": "left",
+                        "level": null,
+                        "title": "2. Основні шаблони трансформації"
+                    },
+                    "reason": "HTML box перенесено у чинний structured native component без дизайну; heading переходить до data.title, зовнішній heading очищається за окремою allowlist. Continuing UUID/position/column/підтверджений SQL NULL level збережені."
+                }
+            ],
+            "table_row_map": [
+                {
+                    "source_index": 2,
+                    "row_index": 0,
+                    "source_pair": [
+                        "There aren't many chairs left.",
+                        "There are only a few chairs left."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">There aren’t many chairs left. Only three remain.</p><p>Стільців залишилося небагато. Залишилося лише три.</p>",
+                        "<p lang=\"en\">There are only a few chairs left: three.</p><p>Залишилося лише кілька стільців — три.</p>",
+                        "Для двадцяти запрошених гостей три — мала ненульова кількість. Саме three виключає нуль; голе not many не завжди дає цей факт. Достатність для двадцятьох тут не стверджується."
+                    ],
+                    "reason": "Обидві source-конструкції збережено, але додано три стільці й явний контекст замість універсальної рівності."
+                },
+                {
+                    "source_index": 2,
+                    "row_index": 1,
+                    "source_pair": [
+                        "We have very little time.",
+                        "We don't have much time."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">We have very little time left: just two minutes.</p><p>У нас залишилося зовсім мало часу — лише дві хвилини.</p>",
+                        "<p lang=\"en\">We don’t have much time left: just two minutes.</p><p>У нас залишилося небагато часу — лише дві хвилини.</p>",
+                        "Потрібна справа займає десять хвилин; обидві версії залишають ті самі дві хвилини й брак часу. Very little підсилює малу кількість; нова версія зберігає інтенсивність через just two minutes, не лише через not much."
+                    ],
+                    "reason": "Додано точну тривалість і критерій потреби, щоб не видати втрату very за абсолютно тотожний кількісний акцент."
+                },
+                {
+                    "source_index": 2,
+                    "row_index": 2,
+                    "source_pair": [
+                        "I didn't see any mistakes.",
+                        "I saw no mistakes."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">I didn’t see any mistakes.</p><p>Я не побачив жодних помилок.</p>",
+                        "<p lang=\"en\">I saw no mistakes.</p><p>Я не побачив жодних помилок.</p>",
+                        "Той самий мовець не побачив помилок у тій самій минулій перевірці. Збережено заперечення об’єкта й Past Simple; об’єктивну безпомилковість тексту не додаємо."
+                    ],
+                    "reason": "Правильну source-пару збережено; уточнено межу твердження побачив/існували."
+                },
+                {
+                    "source_index": 2,
+                    "row_index": 3,
+                    "source_pair": [
+                        "She gave me some useful advice.",
+                        "She gave me a useful piece of advice."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">She gave me some useful advice: exactly one suggestion about packing.</p><p>Вона дала мені корисну пораду — рівно одну рекомендацію щодо пакування.</p>",
+                        "<p lang=\"en\">She gave me exactly one useful piece of advice about packing.</p><p>Вона дала мені рівно одну корисну пораду щодо пакування.</p>",
+                        "Доданий контекст прямо встановлює одну рекомендацію й тему пакування. Збережено giver she, адресата me, час gave і кількість; advice саме по собі не стало злічуваним."
+                    ],
+                    "reason": "Критичну source-нееквівалентність some → a piece усунуто явним exactly one в source й target, а не мовчазним додаванням числа."
+                }
+            ]
+        },
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsWordOrderEmphasisTheorySeeder": {
+            "schema_version": 1,
+            "review_kind": "Agent author/reviewer, not human review",
+            "corrections": [
+                {
+                    "source": "Tom broke the printer, not me. → It was Tom who broke the printer.",
+                    "after": "It was Tom who broke the printer, not me. Явний контраст збережено; who/that reviewed aliases.",
+                    "reason": "Виділення Tom не повинно непомітно вилучити прямо задане not me."
+                },
+                {
+                    "source": "I really want to help. → I do want to help.",
+                    "after": "Контекст сумніву задається прямо; source I want to help → I do want to help. Інтенсивність really перевіряється окремим meaning probe.",
+                    "reason": "Різні інформаційні акценти не оголошуються універсально тотожними."
+                },
+                {
+                    "source": "Often do I visit… як безумовно неправильне; do з be як загальна заборона.",
+                    "after": "Для often прямо задано нейтральний регістр без універсальної заборони літературного стилю. Declarative I do am відділено від правильного imperative Do be careful.",
+                    "reason": "Регістр і тип речення обмежують виправлення."
+                },
+                {
+                    "source": "Негативні/обмежувальні початкові вирази без розрізнення only у підметі та обставині.",
+                    "after": "Only Tom не інвертується; only after / not until інвертують головну частину зі збереженням часу.",
+                    "reason": "Сфера only й місце інверсії змінюють зміст."
+                }
+            ],
+            "source_practice_inventory": {
+                "selects": 0,
+                "choices": 0,
+                "inputs": 0,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0
+            },
+            "after_practice_inventory": {
+                "selects": 2,
+                "choices": 2,
+                "inputs": 2,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0,
+                "full_sentence_input_indices": [
+                    0,
+                    1
+                ]
+            },
+            "source_loader_boundary": "JsonPageSeeder використовує точний Page_V3 identity. Source levels не є незалежним SQL proof; compiler зберігає фактичні UUID/index/sort/column/level/tags і reviewed metadata allowlist.",
+            "acceptance_boundary": "Авторська чернетка, не HTTP/browser PASS і не дозвіл на самостійний DB write.",
+            "sources": [
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/inversion-after-negative-adverbials",
+                    "access": "direct-editorial-body-read",
+                    "verified": "Negative fronting, only + time, головна інверсія, auxiliary та Simple do/did. Exercise banks не копіювалися.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://learnenglish.britishcouncil.org/comment/217820",
+                    "access": "indexed-editorial-body-read; direct-open-timeout",
+                    "verified": "Основний видавничий текст сторінки Emphasis: cleft/inversion/auxiliaries: focus, emphatic do та imperative Do be. Learner comments не використані як правило.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/do",
+                    "access": "direct-http-403; indexed-editorial-body-read",
+                    "verified": "Do/does/did із початковою формою, emphatic function, imperative do. Direct body не заявляється.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/inversion",
+                    "access": "direct-http-403",
+                    "verified": "Недоступне direct джерело; саме по собі не є доказом конкретного нового правила.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/only",
+                    "access": "direct-http-403; indexed-editorial-body-read",
+                    "verified": "Only перед subject-group із звичайним порядком (subject focus) відділене від only time-fronting за BC inversion. Direct 403 не названо direct read.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/often",
+                    "access": "indexed-editorial-body-read",
+                    "verified": "Often має front/mid/end позиції, front більш формальна. Це джерело не стверджує blanket заборони всіх літературних інверсій; source correction звужено до нейтрального регістру.",
+                    "copied_exercises": false
+                }
+            ],
+            "retained_source": "Збережені всі три source-напрями, 4 табличні функції й 4 correction-функції; under no circumstances pair з тим самим should/you/press this button. Source nav8 дослівний.",
+            "new_author_content": "2 selects, 2 meaning tasks, 2 full manual/token inputs; UA обох версій, only scope, точний explicit contrast та межа риторичного score.",
+            "details_decision": "Один змістовний detail порівнює обмеження виконавця й часу; основне only-rule лишається видимим.",
+            "inferred_identity_fields_not_written": [
+                "Page IDs",
+                "category IDs",
+                "continuing UUIDs",
+                "actual SQL levels",
+                "runtime widget question IDs"
+            ],
+            "metadata_transitions": [
+                {
+                    "source_index": 1,
+                    "before": {
+                        "type": "box",
+                        "column": "left",
+                        "level_present": false,
+                        "heading": "1. Як розпізнати потрібну перебудову"
+                    },
+                    "after": {
+                        "type": "usage-panels",
+                        "column": "left",
+                        "level": null,
+                        "title": "1. Як розпізнати потрібну перебудову"
+                    },
+                    "reason": "Перехід HTML box у наявний native component; actual metadata перевіряється main, не виводиться з відсутнього source level."
+                },
+                {
+                    "source_index": 2,
+                    "before": {
+                        "type": "box",
+                        "column": "left",
+                        "level_present": false,
+                        "heading": "2. Основні шаблони трансформації"
+                    },
+                    "after": {
+                        "type": "comparison-table",
+                        "column": "left",
+                        "level": null,
+                        "title": "2. Основні шаблони трансформації"
+                    },
+                    "reason": "Перехід HTML box у наявний native component; actual metadata перевіряється main, не виводиться з відсутнього source level."
+                }
+            ],
+            "table_row_map": [
+                {
+                    "source_index": 2,
+                    "row_index": 0,
+                    "source_pair": [
+                        "I had never seen such a confusing task before.",
+                        "Never before had I seen such a confusing task."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">I had never seen such a confusing task before.</p><p>Раніше я ніколи не бачив такого заплутаного завдання.</p>",
+                        "<p lang=\"en\">Never before had I seen such a confusing task.</p><p>Ніколи раніше я не бачив такого заплутаного завдання.</p>",
+                        "Потрібен формальніший акцент на відсутності попереднього досвіду; Past Perfect і виконавець I збережені. Had переноситься перед I, друге had не додається."
+                    ],
+                    "reason": "Потрібен формальніший акцент на відсутності попереднього досвіду; Past Perfect і виконавець I збережені. Had переноситься перед I, друге had не додається."
+                },
+                {
+                    "source_index": 2,
+                    "row_index": 1,
+                    "source_pair": [
+                        "Tom broke the printer, not me.",
+                        "It was Tom who broke the printer."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">Tom broke the printer, not me.</p><p>Принтер зламав Том, а не я.</p>",
+                        "<p lang=\"en\">It was Tom who broke the printer, not me.</p><p>Саме Том зламав принтер, а не я.</p>",
+                        "Виділяємо виконавця Tom; явний контраст not me залишається. That замість who теж можливе. Це зміна інформаційного фокусу, не новий факт."
+                    ],
+                    "reason": "Виділяємо виконавця Tom; явний контраст not me залишається. That замість who теж можливе. Це зміна інформаційного фокусу, не новий факт."
+                },
+                {
+                    "source_index": 2,
+                    "row_index": 2,
+                    "source_pair": [
+                        "I really want to help.",
+                        "I do want to help."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">I want to help.</p><p>Я хочу допомогти.</p>",
+                        "<p lang=\"en\">I do want to help.</p><p>Я таки хочу допомогти.</p>",
+                        "Контекст: співрозмовник помилково вважає, що бажання допомогти немає. Do підтверджує його наявність. Початкове source really want могло означати силу бажання; універсальної рівності really = do немає."
+                    ],
+                    "reason": "Контекст: співрозмовник помилково вважає, що бажання допомогти немає. Do підтверджує його наявність. Початкове source really want могло означати силу бажання; універсальної рівності really = do немає."
+                },
+                {
+                    "source_index": 2,
+                    "row_index": 3,
+                    "source_pair": [
+                        "You should not press this button under any circumstances.",
+                        "Under no circumstances should you press this button."
+                    ],
+                    "after_cells": [
+                        "<p lang=\"en\">You should not press this button under any circumstances.</p><p>Тобі за жодних обставин не слід натискати цю кнопку.</p>",
+                        "<p lang=\"en\">Under no circumstances should you press this button.</p><p>За жодних обставин тобі не слід натискати цю кнопку.</p>",
+                        "Та сама настанова адресату you, та сама кнопка і should. Початкову негативну обставину супроводжує should перед you; ще одне not не додається."
+                    ],
+                    "reason": "Та сама настанова адресату you, та сама кнопка і should. Початкову негативну обставину супроводжує should перед you; ще одне not не додається."
+                }
+            ]
+        },
+        "Database\\Seeders\\Page_V3\\CommonMistakes\\CommonMistakesArticlesTheorySeeder": {
+            "schema_version": 1,
+            "review_kind": "Agent author/reviewer, not human review",
+            "corrections": [
+                {
+                    "source": "A/an для однини «вперше», the після уточнення.",
+                    "after": "Збережено корисні спрощення; додано перевірку означника й ідентифікації для адресата. Перша згадка чи уточнення не є автоматичним алгоритмом.",
+                    "reason": "Не замінювати my/the/this на a і не плутати знання мовця зі спільною ідентифікацією."
+                },
+                {
+                    "source": "Source вже розрізняє general/specific та school activity/building.",
+                    "after": "Різницю збережено; у кожній correction і practice задум задано ДО відповіді. Додано вже правильне concrete-coffee речення.",
+                    "reason": "Не приписувати source відсутність правильних застережень і не привчати міняти кожний артикль."
+                },
+                {
+                    "source": "A/an не пояснено за вимовою.",
+                    "after": "Додано короткий sound check; MBA у task читається по літерах «ем-бі-ей».",
+                    "reason": "Унеможливити неоднозначний вибір за абревіатурою та помилкове правило за першою літерою."
+                }
+            ],
+            "source_practice_inventory": {
+                "selects": 0,
+                "choices": 0,
+                "inputs": 0,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0
+            },
+            "after_practice_inventory": {
+                "selects": 2,
+                "choices": 2,
+                "inputs": 2,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0,
+                "full_sentence_input_indices": [
+                    0,
+                    1
+                ]
+            },
+            "source_loader_boundary": "JsonPageSeeder/Page_V3; автор не виводить actual SQL levels з відсутнього source field. Compiler зберігає незалежно підтверджені metadata.",
+            "acceptance_boundary": "Draft, не HTTP/browser PASS і не DB apply.",
+            "sources": [
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/indefinite-article",
+                    "access": "direct-editorial-body-read; named-team-replies-separately-read",
+                    "verified": "Основний видавничий текст: unidentified singular/group membership; a/an за звуком. Окремо Peter M. 30.09.2025 пояснює indefinite із defining clause, 25.02.2025 — задану letter-name MBA pronunciation; learner comments не правило. Окремо Peter M. 30.10.2021 та 23.11.2024 відділяє school як діяльність/час навчання від визначеної школи; наявне source activity/building розрізнення збережено.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/definite-article",
+                    "access": "direct-editorial-body-read",
+                    "verified": "The коли адресат може визначити референта із ситуації чи попередньої згадки; не механічна функція першої згадки.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/articles",
+                    "access": "direct-http-403; indexed-editorial-body-read",
+                    "verified": "Known referent, first sound for a/an; direct body не заявляється.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/us/dictionary/english/coffee",
+                    "access": "indexed-editorial-dictionary-body-read",
+                    "verified": "Coffee: U напій/речовина та C/U порція; це не загальна заборона a coffee. Вправи не копіюються.",
+                    "copied_exercises": false
+                }
+            ],
+            "retained_source": "Професії, a/an/the/zero, general/specific, school та трикроковий вибір збережені; усі 4 source mistake-функції й 6 navitems retained. Наявні коректні застереження не названі source-помилками.",
+            "new_author_content": "Задум → тип → проблема → мінімальне виправлення → meaning; 6 own tasks, already-correct probe, sound-based MBA condition, UA examples/feedback. Не копія M71.",
+            "details_decision": "Нуль details: короткі необхідні контексти, переклади й застереження залишаються visible basic.",
+            "inferred_identity_fields_not_written": [
+                "Page IDs",
+                "category IDs",
+                "continuing UUIDs",
+                "actual SQL levels",
+                "runtime widget question IDs"
+            ],
+            "metadata_transitions": [
+                {
+                    "source_index": 1,
+                    "before": {
+                        "type": "box",
+                        "column": "left",
+                        "level_present": false,
+                        "heading": "1. Де плутаються найчастіше"
+                    },
+                    "after": {
+                        "type": "usage-panels",
+                        "column": "left",
+                        "level": null,
+                        "title": "1. Де плутаються найчастіше"
+                    },
+                    "reason": "HTML diagnostic steps стають наявними usage panels; фактичні UUID/columns/levels зберігає independent compiler."
+                },
+                {
+                    "source_index": 2,
+                    "before": {
+                        "type": "box",
+                        "column": "left",
+                        "level_present": false,
+                        "heading": "2. Як працює правильний вибір"
+                    },
+                    "after": {
+                        "type": "usage-panels",
+                        "column": "left",
+                        "level": null,
+                        "title": "2. Як перевірити й мінімально виправити"
+                    },
+                    "reason": "HTML diagnostic steps стають наявними usage panels; фактичні UUID/columns/levels зберігає independent compiler."
+                }
+            ],
+            "table_row_map": []
+        },
+        "Database\\Seeders\\Page_V3\\CommonMistakes\\CommonMistakesWordOrderTheorySeeder": {
+            "schema_version": 1,
+            "review_kind": "Agent author/reviewer, not human review",
+            "corrections": [
+                {
+                    "source": "SVO як хто/що робить/з чим; міг читатися як універсальна модель.",
+                    "after": "Збережено SVO для звичайної моделі з додатком; додано стан/неперехідне речення без вимоги нового object.",
+                    "reason": "Не кожен підмет виконує фізичну дію й не кожне дієслово потребує додатка."
+                },
+                {
+                    "source": "Always I forget… / Often-related fronting як помилка без заданого регістру.",
+                    "after": "Прямо задано нейтральне повідомлення й типову середню позицію; source «часто» збережено.",
+                    "reason": "Не перетворити рекомендацію на абсолютну заборону всього fronting."
+                },
+                {
+                    "source": "Питання й заперечення з допоміжним як загальне правило; Simple negatives усі з do.",
+                    "after": "Розділено subject question, be/modal та lexical do-support. Вкладена частина відділена від головного Do you know.",
+                    "reason": "Не додавати do у звичайне be/modal і не прибирати lexical/negative/main-clause do механічно."
+                }
+            ],
+            "source_practice_inventory": {
+                "selects": 0,
+                "choices": 0,
+                "inputs": 0,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0
+            },
+            "after_practice_inventory": {
+                "selects": 2,
+                "choices": 2,
+                "inputs": 2,
+                "graded_rephrase": 0,
+                "ungraded_demos": 0,
+                "full_sentence_input_indices": [
+                    0,
+                    1
+                ]
+            },
+            "source_loader_boundary": "JsonPageSeeder/Page_V3; source omission level не доводить actual SQL NULL. Main compiler зберігає незалежні metadata й reviewed transitions.",
+            "acceptance_boundary": "Draft, не HTTP/browser PASS та не DB apply.",
+            "sources": [
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/question-forms",
+                    "access": "direct-editorial-body-read; indexed-editorial-body-read",
+                    "verified": "Основний видавничий текст: be/auxiliary/modal inversion, Simple do/did, subject questions без інверсії. Вправи не копіювалися.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/questions-negatives",
+                    "access": "direct-editorial-body-read",
+                    "verified": "Розрізнення допоміжних/модальних, ordinary be і lexical do-support у питаннях та запереченнях.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/how-often",
+                    "access": "indexed-editorial-body-read; direct-open-timeout",
+                    "verified": "Frequency adverbials usually before main/after be; «часто» не абсолют. Direct-read цього URL не заявляється.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/where-adverbials-go-sentence",
+                    "access": "direct-editorial-body-read",
+                    "verified": "Adverbials можуть переноситися на початок для акценту; no blanket fronting ban.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://downloads.bbc.co.uk/worldservice/learningenglish/grammarchallenge/pdfs/gc_36_indirect_questions_explanation.pdf",
+                    "access": "indexed-publisher-editorial-explanation-read",
+                    "verified": "Indirect request retains introductory main question, internal subject-verb statement order. Це видавниче пояснення BBC, не third-party exercise bank.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/questions-wh-questions",
+                    "access": "direct-http-403",
+                    "verified": "Direct джерело недоступне, не назване прочитаним. Основне правило перевірене BC question forms.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/adverbs-and-adverb-phrases-position",
+                    "access": "direct-http-403",
+                    "verified": "Direct недоступне; не використане як самостійний доказ.",
+                    "copied_exercises": false
+                },
+                {
+                    "url": "https://dictionary.cambridge.org/grammar/british-grammar/often",
+                    "access": "indexed-editorial-body-read",
+                    "verified": "Видавничий текст допускає front/mid/end, front більш формальне; підтримує діагностичну вимогу нейтрального порядку замість абсолютної заборони fronting.",
+                    "copied_exercises": false
+                }
+            ],
+            "retained_source": "SVO/frequency/direct/embedded/negatives та всі 4 source corrections збережено. Усі EN source приклади й діагностичні функції мають UA; source summary4functions і nav6 retained.",
+            "new_author_content": "6 own diagnostic tasks, два already-correct meaning probes, уточнення subject question/be/modal та boundariesmain/internal. Не копія базових питань M78/M79.",
+            "details_decision": "Нуль details: усі діагностичні умови й потрібні межі видимі одразу.",
+            "inferred_identity_fields_not_written": [
+                "Page IDs",
+                "category IDs",
+                "continuing UUIDs",
+                "actual SQL levels",
+                "runtime widget question IDs"
+            ],
+            "metadata_transitions": [
+                {
+                    "source_index": 1,
+                    "before": {
+                        "type": "box",
+                        "column": "left",
+                        "level_present": false,
+                        "heading": "1. Де плутаються найчастіше"
+                    },
+                    "after": {
+                        "type": "usage-panels",
+                        "column": "left",
+                        "level": null,
+                        "title": "1. Де плутаються найчастіше"
+                    },
+                    "reason": "Source steps зберігаються в наявних native usage panels; independent actual metadata не змінюються."
+                },
+                {
+                    "source_index": 2,
+                    "before": {
+                        "type": "box",
+                        "column": "left",
+                        "level_present": false,
+                        "heading": "2. Як працює правильний шаблон"
+                    },
+                    "after": {
+                        "type": "usage-panels",
+                        "column": "left",
+                        "level": null,
+                        "title": "2. Ланцюжок мінімального виправлення"
+                    },
+                    "reason": "Source steps зберігаються в наявних native usage panels; independent actual metadata не змінюються."
+                }
+            ],
+            "table_row_map": []
+        }
+    },
+    "projection_edits": {
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsConditionalsTheorySeeder": {
+            "technical_block_level": {
+                "draft": "B1",
+                "projected": "B1"
+            },
+            "display_level": {
+                "draft": "B1–B2",
+                "projected": "B1-B2"
+            },
+            "continuing_level_source": "Exact independently captured SQL/source per-slot vector; no range-to-CEFR substitution."
+        },
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsRelativeClausesLinkingWordsTheorySeeder": {
+            "technical_block_level": {
+                "draft": "B1",
+                "projected": "B1"
+            },
+            "display_level": {
+                "draft": "B1–B2",
+                "projected": "B1-B2"
+            },
+            "continuing_level_source": "Exact independently captured SQL/source per-slot vector; no range-to-CEFR substitution."
+        },
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsArticlesQuantifiersTheorySeeder": {
+            "technical_block_level": {
+                "draft": "B1",
+                "projected": "B1"
+            },
+            "display_level": {
+                "draft": "B1–B2",
+                "projected": "B1-B2"
+            },
+            "continuing_level_source": "Exact independently captured SQL/source per-slot vector; no range-to-CEFR substitution."
+        },
+        "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsWordOrderEmphasisTheorySeeder": {
+            "technical_block_level": {
+                "draft": "B2",
+                "projected": "B2"
+            },
+            "display_level": {
+                "draft": "B2–C1",
+                "projected": "B2-C1"
+            },
+            "continuing_level_source": "Exact independently captured SQL/source per-slot vector; no range-to-CEFR substitution."
+        },
+        "Database\\Seeders\\Page_V3\\CommonMistakes\\CommonMistakesArticlesTheorySeeder": {
+            "technical_block_level": {
+                "draft": "A2",
+                "projected": "A2"
+            },
+            "display_level": {
+                "draft": "A2–B1",
+                "projected": "A2-B1"
+            },
+            "continuing_level_source": "Exact independently captured SQL/source per-slot vector; no range-to-CEFR substitution."
+        },
+        "Database\\Seeders\\Page_V3\\CommonMistakes\\CommonMistakesWordOrderTheorySeeder": {
+            "technical_block_level": {
+                "draft": "A2",
+                "projected": "A2"
+            },
+            "display_level": {
+                "draft": "A2–B1",
+                "projected": "A2-B1"
+            },
+            "continuing_level_source": "Exact independently captured SQL/source per-slot vector; no range-to-CEFR substitution."
+        }
+    },
+    "expected_http_metadata": {
+        "schema_version": 1,
+        "purpose": "M81 pre-apply prospective native metadata; not served-page acceptance",
+        "projection_file": "author-projection-v1.json",
+        "projection_sha256": "a4d571a72828ddd2d7d1c8c4ec12b1fea2b0561652b948ed19c993c97267b85d",
+        "independent_before_sha256": "facabc5369230dac0958f2e2277c7cd0e4b0523fb794c041afd46116e095c023",
+        "native_policy_pins": {
+            "app/Support/PageMetadata.php": "1d782d27483bdc0cff63515a1d69153dc908adbf2c3b3eea47bec35f141e0a9e",
+            "app/Http/Middleware/AddStructuredData.php": "ea3774ba90512bfa2bf7cee9277b87a3951e4a43fbd48eeed21ffb83ec2a58ac"
+        },
+        "metadata": [
+            {
+                "identity": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsConditionalsTheorySeeder",
+                "raw_title": "Sentence Transformations — Conditionals",
+                "preserved_h1": "Sentence Transformations — Conditionals",
+                "local_url": "http://gramlyze.loc/theory/sentence-transformations/conditionals",
+                "hero_intro_sha256": "49557f358502e7f9e23aef964d913549a0ffca0ca609790b3f744a8fdd7833aa",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Sentence Transformations — Conditionals",
+                    "title": "Sentence Transformations — Conditionals — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Трансформації речень / Sentence Transformations — Conditionals",
+                    "canonical": "https://gramlyze.com/theory/sentence-transformations/conditionals",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Sentence Transformations — Conditionals — правила | Gramlyze",
+                    "description": "Sentence Transformations — Conditionals. У цих трансформаціях змінюється конструкція, але не задана умова, час жалю, виконавець чи сила поради."
+                },
+                "prospective_learning_resource_description": "У цих трансформаціях змінюється конструкція, але не задана умова, час жалю, виконавець чи сила поради. Спочатку визнач задум, тоді обери unless, wish / if only, would rather або had better."
+            },
+            {
+                "identity": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsRelativeClausesLinkingWordsTheorySeeder",
+                "raw_title": "Sentence Transformations — Relative Clauses / Linking Words",
+                "preserved_h1": "Sentence Transformations — Relative Clauses / Linking Words",
+                "local_url": "http://gramlyze.loc/theory/sentence-transformations/relative-clauses-linking-words",
+                "hero_intro_sha256": "db4328e79cbf364334d5e1f26a92bb15c3e8e3cfa185fde33703d2ce041dbd0a",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Sentence Transformations — Relative Clauses / Linking Words",
+                    "title": "Sentence Transformations — Relative Clauses / Linking Words — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Трансформації речень / Sentence Transformations — Relative Clauses / Linking Words",
+                    "canonical": "https://gramlyze.com/theory/sentence-transformations/relative-clauses-linking-words",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Sentence Transformations — Relative Clauses / Linking Words — правила | Gramlyze",
+                    "description": "Sentence Transformations — Relative Clauses / Linking Words. Перебудовуй зв’язок між повідомленнями, не підмінюючи факти."
+                },
+                "prospective_learning_resource_description": "Перебудовуй зв’язок між повідомленнями, не підмінюючи факти. Визнач, кого описує relative clause, хто виконує кожну дію та чи треба зберегти причину, наслідок, протиставлення або мету."
+            },
+            {
+                "identity": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsArticlesQuantifiersTheorySeeder",
+                "raw_title": "Sentence Transformations — Articles / Quantifiers",
+                "preserved_h1": "Sentence Transformations — Articles / Quantifiers",
+                "local_url": "http://gramlyze.loc/theory/sentence-transformations/articles-quantifiers",
+                "hero_intro_sha256": "fa0d8ee1c8e13c8a1a03b40b95ca3f622ee94ac3a99521d03079e025ce278b64",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Sentence Transformations — Articles / Quantifiers",
+                    "title": "Sentence Transformations — Articles / Quantifiers — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Трансформації речень / Sentence Transformations — Articles / Quantifiers",
+                    "canonical": "https://gramlyze.com/theory/sentence-transformations/articles-quantifiers",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Sentence Transformations — Articles / Quantifiers — правила | Gramlyze",
+                    "description": "Sentence Transformations — Articles / Quantifiers. У цих трансформаціях зберігай тип іменника, конкретного референта та кількість."
+                },
+                "prospective_learning_resource_description": "У цих трансформаціях зберігай тип іменника, конкретного референта та кількість. Граматично правильна нова фраза може змінити факт: some advice саме по собі не означає одну пораду, а a few не гарантує достатності."
+            },
+            {
+                "identity": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsWordOrderEmphasisTheorySeeder",
+                "raw_title": "Sentence Transformations — Word Order / Emphasis",
+                "preserved_h1": "Sentence Transformations — Word Order / Emphasis",
+                "local_url": "http://gramlyze.loc/theory/sentence-transformations/word-order-emphasis",
+                "hero_intro_sha256": "1f916385a5684bf226abe7b5485c363f9768db46fb48b9330e2f4e1fa17a8d64",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Sentence Transformations — Word Order / Emphasis",
+                    "title": "Sentence Transformations — Word Order / Emphasis — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Трансформації речень / Sentence Transformations — Word Order / Emphasis",
+                    "canonical": "https://gramlyze.com/theory/sentence-transformations/word-order-emphasis",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Sentence Transformations — Word Order / Emphasis — правила | Gramlyze",
+                    "description": "Sentence Transformations — Word Order / Emphasis. Спершу назви потрібний акцент, потім перебудуй речення."
+                },
+                "prospective_learning_resource_description": "Спершу назви потрібний акцент, потім перебудуй речення. Факти, учасники, час і заперечення зберігаються; інформаційний фокус змінюється навмисно, а не оголошується повною прагматичною тотожністю."
+            },
+            {
+                "identity": "Database\\Seeders\\Page_V3\\CommonMistakes\\CommonMistakesArticlesTheorySeeder",
+                "raw_title": "Articles: Common Mistakes",
+                "preserved_h1": "Articles: Common Mistakes",
+                "local_url": "http://gramlyze.loc/theory/common-mistakes/articles-common-mistakes",
+                "hero_intro_sha256": "0fde5eec3559a6f041ae41ef869233dfeab38e6ce88df2a1e64362339995936e",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Articles: Common Mistakes",
+                    "title": "Articles: типові помилки — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Типові помилки / Articles: Common Mistakes",
+                    "canonical": "https://gramlyze.com/theory/common-mistakes/articles-common-mistakes",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Articles: типові помилки — правила | Gramlyze",
+                    "description": "Articles: типові помилки. Не змінюй кожен артикль навмання."
+                },
+                "prospective_learning_resource_description": "Не змінюй кожен артикль навмання. Перевір задум → тип іменникової групи → можливу проблему → мінімальне виправлення → зміст. Правильний варіант за іншого контексту не обов’язково передає потрібну думку."
+            },
+            {
+                "identity": "Database\\Seeders\\Page_V3\\CommonMistakes\\CommonMistakesWordOrderTheorySeeder",
+                "raw_title": "Word Order: Common Mistakes",
+                "preserved_h1": "Word Order: Common Mistakes",
+                "local_url": "http://gramlyze.loc/theory/common-mistakes/word-order-common-mistakes",
+                "hero_intro_sha256": "b66f5b1d1eb467e7e0dd28aa80f01991eaa57ed4b8f46e334ae7eb3780e77065",
+                "independent_before_protected": {
+                    "robots_header": "noindex, nofollow, noarchive",
+                    "h1_count": 1,
+                    "h1": "Word Order: Common Mistakes",
+                    "title": "Word Order: типові помилки — правила | Gramlyze",
+                    "breadcrumb": "Головна / Теорія / Типові помилки / Word Order: Common Mistakes",
+                    "canonical": "https://gramlyze.com/theory/common-mistakes/word-order-common-mistakes",
+                    "robots_meta": null
+                },
+                "prospective_page_metadata": {
+                    "title": "Word Order: типові помилки — правила | Gramlyze",
+                    "description": "Word Order: типові помилки. Виправляй конкретний збій, не все речення."
+                },
+                "prospective_learning_resource_description": "Виправляй конкретний збій, не все речення. Спершу визнач тип повідомлення й задум, далі підмет, дієслівний ланцюжок і позицію прислівника. Після зміни перевір, чи не зникли час, заперечення або учасник."
+            }
+        ],
+        "application_bootstrapped": false,
+        "working_env_loaded": false,
+        "db_connections": 0,
+        "db_queries": 0,
+        "db_writes": 0,
+        "http_requests": 0
+    },
+    "real_page_acceptance": {
+        "status": "not_checked_before_freeze",
+        "required_after_guarded_apply": true,
+        "target": "http://gramlyze.loc",
+        "widths": [
+            1440,
+            390,
+            320
+        ],
+        "themes": [
+            "light",
+            "dark"
+        ],
+        "target_states": 36,
+        "full_inputs": 12,
+        "manual_token_size_cases": 48,
+        "widget_questions": 30,
+        "autonomous_html_preview_required": false,
+        "user_screenshots_required": false
+    },
+    "main_language_review": [
+        "A: unless preserves the exact condition without a converse guarantee; wish has an explicit event/reference time; would rather preserves the actor; had better warning force is justified by a visible consequence.",
+        "B: relative pronouns follow clause role, not place naming; reduction preserves the actor; cause/concession/purpose/result and exam ownership/time remain explicit. Both versions of transformation pairs are translated.",
+        "C: countability, identifiable reference and number remain distinct; some advice never implies exactly one unit by itself; a few/a little do not guarantee sufficiency; exact small quantities qualify the reviewed comparisons.",
+        "D: inversion preserves auxiliary/person/tense and the scope of adverbial only; subject-only is separate. Cleft retains the explicit not me contrast; emphatic do confirms a fact, not every sense of intensity. Neutral often order is not a universal literary prohibition; Do be careful remains valid.",
+        "E: diagnostic intent precedes minimal article correction. Sound-based a/an, known referent versus general reference, institutional school and already-correct coffee are explicit, not arbitrary mandatory changes.",
+        "F: neutral word order is scoped, not global; subject questions, embedded questions and the main clause keep their roles. Ordinary be/modal and lexical do-support stay distinct; needed subjects, negative words and adverbs are not removed to make a sentence pass."
+    ],
+    "main_source_access": [
+        {
+            "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/indefinite-article",
+            "access": "Direct primary editorial main body read: singular indefinite reference, sound-based a/an, no indefinite article with ordinary plural/uncount meanings. Named editorial replies are distinguished from learner comments; no exercise copied."
+        },
+        {
+            "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/quantifiers",
+            "access": "Main and author direct fetches of this exact starting URL timed out. It is not claimed read; the distinct accessible few/a few primary URL is recorded separately in the lesson ledger."
+        },
+        {
+            "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+            "access": "Direct primary guidance read for people-first helpful content; not a claim about rankings or indexing."
+        }
+    ],
+    "boundaries": [
+        "36 new own graded tasks:12 form,12 meaning,12 full manual/token inputs; no existing own practice was present in independently captured source or current SQL.",
+        "Six widgets/30 selected existing questions are separate from own tasks. No new question, answer, option, link, progress or standalone membership writes.",
+        "Twelve continuing box type/heading transitions are explicit; UUID/id/order/column/SQL NULL levels remain exact. All six retained levels and right mistakes/summary stay unchanged.",
+        "All four source table functions on each of A-D remain mapped and bilingual; E/F retain diagnostic steps and minimal-correction functions.",
+        "Finite reviewed aliases are not an unrestricted paraphrase grader. Native case/punctuation/formatting and all visual/engine sources remain unchanged.",
+        "Known defective old keys/options and the actual native No formatter defect are excluded from the finite widget five, not rewritten or silently reformatted.",
+        "Meaningful details have finite point owners; essential rules, translations and visible control criteria stay in basic.",
+        "Freeze and isolated/offline probes are not actual browser or working-local acceptance; those remain separate required receipts."
+    ]
+}

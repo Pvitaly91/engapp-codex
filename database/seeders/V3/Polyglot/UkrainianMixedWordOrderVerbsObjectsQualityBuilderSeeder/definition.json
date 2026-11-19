@@ -1,0 +1,4366 @@
+{
+    "schema_version": 1,
+    "quality_revision": "word-order-v1",
+    "compiled_from": {
+        "path": "docs/content/word-order-quality/verbs-objects.v1.json",
+        "sha256": "137061e9c8da619aea4b9b256baea9ea11b570b948dc6185325ece6bb0f5d562"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedWordOrderVerbsObjectsQualityBuilderSeeder",
+        "uuid_namespace": "word-order-quality-verbs-objects-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "word_order_quality_verbs_objects": {
+            "name": "Word Order Quality: Порядок дієслів і додатків"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_word_order_verbs_objects": {
+            "name": "Word Order with Verbs and Objects",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_word_order_verbs_objects"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "woq-verbs-objects-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Я слухаю радіо ввечері.",
+            "level": "A1",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Я слухаю радіо ввечері.",
+            "target_text": "I listen to the radio in the evening.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Збережи прийменник, якого потребує дієслово слухання; час постав після додатка.",
+                    "options": [
+                        "I",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "listen",
+                    "verb_hint": "Збережи прийменник, якого потребує дієслово слухання; час постав після додатка.",
+                    "options": [
+                        "listen",
+                        "opened",
+                        "closed",
+                        "helped"
+                    ]
+                },
+                "a3": {
+                    "answer": "to",
+                    "verb_hint": "Збережи прийменник, якого потребує дієслово слухання; час постав після додатка.",
+                    "options": [
+                        "to",
+                        "during",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи прийменник, якого потребує дієслово слухання; час постав після додатка.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a5": {
+                    "answer": "radio",
+                    "verb_hint": "Збережи прийменник, якого потребує дієслово слухання; час постав після додатка.",
+                    "options": [
+                        "radio",
+                        "bag",
+                        "two",
+                        "now"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Збережи прийменник, якого потребує дієслово слухання; час постав після додатка.",
+                    "options": [
+                        "in",
+                        "of",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Збережи прийменник, якого потребує дієслово слухання; час постав після додатка.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "evening.",
+                    "verb_hint": "Збережи прийменник, якого потребує дієслово слухання; час постав після додатка.",
+                    "options": [
+                        "evening",
+                        "year",
+                        "hour",
+                        "minute"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи прийменник, якого потребує дієслово слухання; час постав після додатка.",
+            "accepted_target_texts": [
+                "I listen to the radio in the evening."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I listen to",
+                "the radio",
+                "in the evening."
+            ],
+            "token_groups": [
+                "I listen to",
+                "the radio",
+                "in the evening."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "I",
+                "listen",
+                "to",
+                "the",
+                "radio",
+                "in",
+                "the",
+                "evening."
+            ],
+            "options": [
+                "I",
+                "Us",
+                "Them",
+                "Myself",
+                "listen",
+                "opened",
+                "closed",
+                "helped",
+                "to",
+                "during",
+                "from",
+                "for",
+                "the",
+                "some",
+                "any",
+                "this",
+                "radio",
+                "bag",
+                "two",
+                "now",
+                "in",
+                "of",
+                "on",
+                "at",
+                "no",
+                "another",
+                "either",
+                "evening",
+                "year",
+                "hour",
+                "minute"
+            ],
+            "source_text_uk": "Я слухаю радіо ввечері.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "listen",
+                    "opened",
+                    "closed",
+                    "helped"
+                ],
+                "a3": [
+                    "to",
+                    "during",
+                    "from",
+                    "for"
+                ],
+                "a4": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a5": [
+                    "radio",
+                    "bag",
+                    "two",
+                    "now"
+                ],
+                "a6": [
+                    "in",
+                    "of",
+                    "on",
+                    "at"
+                ],
+                "a7": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a8": [
+                    "evening",
+                    "year",
+                    "hour",
+                    "minute"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "woq-verbs-objects-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Твоя сумка важить два кілограми.",
+            "level": "A1",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Твоя сумка важить два кілограми.",
+            "target_text": "Your bag weighs two kilograms.",
+            "markers": {
+                "a1": {
+                    "answer": "Your",
+                    "verb_hint": "Після дієслова ваги постав числову міру без зайвого прийменника.",
+                    "options": [
+                        "Your",
+                        "Ours",
+                        "Theirs",
+                        "Whose"
+                    ]
+                },
+                "a2": {
+                    "answer": "bag",
+                    "verb_hint": "Після дієслова ваги постав числову міру без зайвого прийменника.",
+                    "options": [
+                        "bag",
+                        "now",
+                        "radio",
+                        "map"
+                    ]
+                },
+                "a3": {
+                    "answer": "weighs",
+                    "verb_hint": "Після дієслова ваги постав числову міру без зайвого прийменника.",
+                    "options": [
+                        "weighs",
+                        "tickets",
+                        "cups",
+                        "doors"
+                    ]
+                },
+                "a4": {
+                    "answer": "two",
+                    "verb_hint": "Після дієслова ваги постав числову міру без зайвого прийменника.",
+                    "options": [
+                        "two",
+                        "room",
+                        "letter",
+                        "window"
+                    ]
+                },
+                "a5": {
+                    "answer": "kilograms.",
+                    "verb_hint": "Після дієслова ваги постав числову міру без зайвого прийменника.",
+                    "options": [
+                        "kilograms",
+                        "bags",
+                        "books",
+                        "boxes"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслова ваги постав числову міру без зайвого прийменника.",
+            "accepted_target_texts": [
+                "Your bag weighs two kilograms.",
+                "Your bag weighs two kilos."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "kilos."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "kilos."
+                ]
+            },
+            "reorder_groups": [
+                "Your bag",
+                "weighs two kilograms."
+            ],
+            "token_groups": [
+                "Your bag",
+                "weighs two kilograms."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Your",
+                "bag",
+                "weighs",
+                "two",
+                "kilograms."
+            ],
+            "options": [
+                "Your",
+                "Ours",
+                "Theirs",
+                "Whose",
+                "bag",
+                "now",
+                "radio",
+                "map",
+                "weighs",
+                "tickets",
+                "cups",
+                "doors",
+                "two",
+                "room",
+                "letter",
+                "window",
+                "kilograms",
+                "bags",
+                "books",
+                "boxes"
+            ],
+            "source_text_uk": "Твоя сумка важить два кілограми.",
+            "options_by_marker": {
+                "a1": [
+                    "Your",
+                    "Ours",
+                    "Theirs",
+                    "Whose"
+                ],
+                "a2": [
+                    "bag",
+                    "now",
+                    "radio",
+                    "map"
+                ],
+                "a3": [
+                    "weighs",
+                    "tickets",
+                    "cups",
+                    "doors"
+                ],
+                "a4": [
+                    "two",
+                    "room",
+                    "letter",
+                    "window"
+                ],
+                "a5": [
+                    "kilograms",
+                    "bags",
+                    "books",
+                    "boxes"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "woq-verbs-objects-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Ми зараз чекаємо на таксі.",
+            "level": "A1",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Ми зараз чекаємо на таксі.",
+            "target_text": "We are waiting for a taxi now.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Назви дію, що триває зараз; після дієслова очікування потрібен прийменник перед назвою транспорту.",
+                    "options": [
+                        "We",
+                        "It",
+                        "They",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "are",
+                    "verb_hint": "Назви дію, що триває зараз; після дієслова очікування потрібен прийменник перед назвою транспорту.",
+                    "options": [
+                        "are",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a3": {
+                    "answer": "waiting",
+                    "verb_hint": "Назви дію, що триває зараз; після дієслова очікування потрібен прийменник перед назвою транспорту.",
+                    "options": [
+                        "waiting",
+                        "reading",
+                        "writing",
+                        "calling"
+                    ]
+                },
+                "a4": {
+                    "answer": "for",
+                    "verb_hint": "Назви дію, що триває зараз; після дієслова очікування потрібен прийменник перед назвою транспорту.",
+                    "options": [
+                        "for",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a5": {
+                    "answer": "a",
+                    "verb_hint": "Назви дію, що триває зараз; після дієслова очікування потрібен прийменник перед назвою транспорту.",
+                    "options": [
+                        "a",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a6": {
+                    "answer": "taxi",
+                    "verb_hint": "Назви дію, що триває зараз; після дієслова очікування потрібен прийменник перед назвою транспорту.",
+                    "options": [
+                        "taxi",
+                        "train",
+                        "tram",
+                        "van"
+                    ]
+                },
+                "a7": {
+                    "answer": "now.",
+                    "verb_hint": "Назви дію, що триває зараз; після дієслова очікування потрібен прийменник перед назвою транспорту.",
+                    "options": [
+                        "now",
+                        "two",
+                        "radio",
+                        "bag"
+                    ]
+                }
+            },
+            "verb_hint": "Назви дію, що триває зараз; після дієслова очікування потрібен прийменник перед назвою транспорту.",
+            "accepted_target_texts": [
+                "We are waiting for a taxi now.",
+                "We are waiting for a cab now."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "cab"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "cab"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "are waiting",
+                "for a taxi",
+                "now."
+            ],
+            "token_groups": [
+                "We",
+                "are waiting",
+                "for a taxi",
+                "now."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "We",
+                "are",
+                "waiting",
+                "for",
+                "a",
+                "taxi",
+                "now."
+            ],
+            "options": [
+                "We",
+                "It",
+                "They",
+                "Me",
+                "are",
+                "wasn't",
+                "weren't",
+                "am",
+                "waiting",
+                "reading",
+                "writing",
+                "calling",
+                "for",
+                "on",
+                "at",
+                "by",
+                "a",
+                "any",
+                "this",
+                "that",
+                "taxi",
+                "train",
+                "tram",
+                "van",
+                "now",
+                "two",
+                "radio",
+                "bag"
+            ],
+            "source_text_uk": "Ми зараз чекаємо на таксі.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "It",
+                    "They",
+                    "Me"
+                ],
+                "a2": [
+                    "are",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a3": [
+                    "waiting",
+                    "reading",
+                    "writing",
+                    "calling"
+                ],
+                "a4": [
+                    "for",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a5": [
+                    "a",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a6": [
+                    "taxi",
+                    "train",
+                    "tram",
+                    "van"
+                ],
+                "a7": [
+                    "now",
+                    "two",
+                    "radio",
+                    "bag"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "woq-verbs-objects-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Вона надіслала мені фото свого нового офісу.",
+            "level": "A2",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Вона надіслала мені фото свого нового офісу.",
+            "target_text": "She sent me a photo of her new office.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "У моделі з двома додатками спочатку постав одержувача, потім — надісланий предмет.",
+                    "options": [
+                        "She",
+                        "I",
+                        "You",
+                        "He"
+                    ]
+                },
+                "a2": {
+                    "answer": "sent",
+                    "verb_hint": "У моделі з двома додатками спочатку постав одержувача, потім — надісланий предмет.",
+                    "options": [
+                        "sent",
+                        "borrowed",
+                        "bought",
+                        "watched"
+                    ]
+                },
+                "a3": {
+                    "answer": "me",
+                    "verb_hint": "У моделі з двома додатками спочатку постав одержувача, потім — надісланий предмет.",
+                    "options": [
+                        "me",
+                        "him",
+                        "us",
+                        "them"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "У моделі з двома додатками спочатку постав одержувача, потім — надісланий предмет.",
+                    "options": [
+                        "a",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a5": {
+                    "answer": "photo",
+                    "verb_hint": "У моделі з двома додатками спочатку постав одержувача, потім — надісланий предмет.",
+                    "options": [
+                        "photo",
+                        "ladder",
+                        "Dad",
+                        "key"
+                    ]
+                },
+                "a6": {
+                    "answer": "of",
+                    "verb_hint": "У моделі з двома додатками спочатку постав одержувача, потім — надісланий предмет.",
+                    "options": [
+                        "of",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a7": {
+                    "answer": "her",
+                    "verb_hint": "У моделі з двома додатками спочатку постав одержувача, потім — надісланий предмет.",
+                    "options": [
+                        "her",
+                        "hers",
+                        "ours",
+                        "theirs"
+                    ]
+                },
+                "a8": {
+                    "answer": "new",
+                    "verb_hint": "У моделі з двома додатками спочатку постав одержувача, потім — надісланий предмет.",
+                    "options": [
+                        "new",
+                        "warm",
+                        "heavy",
+                        "light"
+                    ]
+                },
+                "a9": {
+                    "answer": "office.",
+                    "verb_hint": "У моделі з двома додатками спочатку постав одержувача, потім — надісланий предмет.",
+                    "options": [
+                        "office",
+                        "table",
+                        "ticket",
+                        "cup"
+                    ]
+                }
+            },
+            "verb_hint": "У моделі з двома додатками спочатку постав одержувача, потім — надісланий предмет.",
+            "accepted_target_texts": [
+                "She sent me a photo of her new office.",
+                "She sent a photo of her new office to me.",
+                "She sent me a picture of her new office."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "picture"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "picture"
+                ]
+            },
+            "reorder_groups": [
+                "She sent me",
+                "a photo",
+                "of her",
+                "new office."
+            ],
+            "token_groups": [
+                "She sent me",
+                "a photo",
+                "of her",
+                "new office."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "She",
+                "sent",
+                "me",
+                "a",
+                "photo",
+                "of",
+                "her",
+                "new",
+                "office."
+            ],
+            "options": [
+                "She",
+                "I",
+                "You",
+                "He",
+                "sent",
+                "borrowed",
+                "bought",
+                "watched",
+                "me",
+                "him",
+                "us",
+                "them",
+                "a",
+                "this",
+                "that",
+                "these",
+                "photo",
+                "ladder",
+                "Dad",
+                "key",
+                "of",
+                "through",
+                "across",
+                "between",
+                "her",
+                "hers",
+                "ours",
+                "theirs",
+                "new",
+                "warm",
+                "heavy",
+                "light",
+                "office",
+                "table",
+                "ticket",
+                "cup"
+            ],
+            "source_text_uk": "Вона надіслала мені фото свого нового офісу.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "I",
+                    "You",
+                    "He"
+                ],
+                "a2": [
+                    "sent",
+                    "borrowed",
+                    "bought",
+                    "watched"
+                ],
+                "a3": [
+                    "me",
+                    "him",
+                    "us",
+                    "them"
+                ],
+                "a4": [
+                    "a",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a5": [
+                    "photo",
+                    "ladder",
+                    "Dad",
+                    "key"
+                ],
+                "a6": [
+                    "of",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a7": [
+                    "her",
+                    "hers",
+                    "ours",
+                    "theirs"
+                ],
+                "a8": [
+                    "new",
+                    "warm",
+                    "heavy",
+                    "light"
+                ],
+                "a9": [
+                    "office",
+                    "table",
+                    "ticket",
+                    "cup"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "woq-verbs-objects-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Ми купили татові теплі рукавички.",
+            "level": "A2",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Ми купили татові теплі рукавички.",
+            "target_text": "We bought Dad some warm gloves.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Після дієслова купівлі назви одержувача без прийменника, а потім — подарунок.",
+                    "options": [
+                        "We",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "bought",
+                    "verb_hint": "Після дієслова купівлі назви одержувача без прийменника, а потім — подарунок.",
+                    "options": [
+                        "bought",
+                        "borrowed",
+                        "sent",
+                        "wanted"
+                    ]
+                },
+                "a3": {
+                    "answer": "Dad",
+                    "verb_hint": "Після дієслова купівлі назви одержувача без прийменника, а потім — подарунок.",
+                    "options": [
+                        "Dad",
+                        "Photo",
+                        "Office",
+                        "Ladder"
+                    ]
+                },
+                "a4": {
+                    "answer": "some",
+                    "verb_hint": "Після дієслова купівлі назви одержувача без прийменника, а потім — подарунок.",
+                    "options": [
+                        "some",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a5": {
+                    "answer": "warm",
+                    "verb_hint": "Після дієслова купівлі назви одержувача без прийменника, а потім — подарунок.",
+                    "options": [
+                        "warm",
+                        "new",
+                        "light",
+                        "clean"
+                    ]
+                },
+                "a6": {
+                    "answer": "gloves.",
+                    "verb_hint": "Після дієслова купівлі назви одержувача без прийменника, а потім — подарунок.",
+                    "options": [
+                        "gloves",
+                        "people",
+                        "men",
+                        "women"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслова купівлі назви одержувача без прийменника, а потім — подарунок.",
+            "accepted_target_texts": [
+                "We bought Dad some warm gloves.",
+                "We bought some warm gloves for Dad."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We bought Dad",
+                "some warm gloves."
+            ],
+            "token_groups": [
+                "We bought Dad",
+                "some warm gloves."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "We",
+                "bought",
+                "Dad",
+                "some",
+                "warm",
+                "gloves."
+            ],
+            "options": [
+                "We",
+                "He",
+                "She",
+                "It",
+                "bought",
+                "borrowed",
+                "sent",
+                "wanted",
+                "Dad",
+                "Photo",
+                "Office",
+                "Ladder",
+                "some",
+                "each",
+                "every",
+                "no",
+                "warm",
+                "new",
+                "light",
+                "clean",
+                "gloves",
+                "people",
+                "men",
+                "women"
+            ],
+            "source_text_uk": "Ми купили татові теплі рукавички.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "bought",
+                    "borrowed",
+                    "sent",
+                    "wanted"
+                ],
+                "a3": [
+                    "Dad",
+                    "Photo",
+                    "Office",
+                    "Ladder"
+                ],
+                "a4": [
+                    "some",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a5": [
+                    "warm",
+                    "new",
+                    "light",
+                    "clean"
+                ],
+                "a6": [
+                    "gloves",
+                    "people",
+                    "men",
+                    "women"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "woq-verbs-objects-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Я позичив цю драбину в сусіда.",
+            "level": "A2",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Я позичив цю драбину в сусіда.",
+            "target_text": "I borrowed this ladder from a neighbour.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Назви річ після дієслова отримання в тимчасове користування, а власника — після прийменника.",
+                    "options": [
+                        "I",
+                        "Yourself",
+                        "Herself",
+                        "Ourselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "borrowed",
+                    "verb_hint": "Назви річ після дієслова отримання в тимчасове користування, а власника — після прийменника.",
+                    "options": [
+                        "borrowed",
+                        "sent",
+                        "bought",
+                        "drove"
+                    ]
+                },
+                "a3": {
+                    "answer": "this",
+                    "verb_hint": "Назви річ після дієслова отримання в тимчасове користування, а власника — після прийменника.",
+                    "options": [
+                        "this",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a4": {
+                    "answer": "ladder",
+                    "verb_hint": "Назви річ після дієслова отримання в тимчасове користування, а власника — після прийменника.",
+                    "options": [
+                        "ladder",
+                        "photo",
+                        "office",
+                        "Dad"
+                    ]
+                },
+                "a5": {
+                    "answer": "from",
+                    "verb_hint": "Назви річ після дієслова отримання в тимчасове користування, а власника — після прийменника.",
+                    "options": [
+                        "from",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Назви річ після дієслова отримання в тимчасове користування, а власника — після прийменника.",
+                    "options": [
+                        "a",
+                        "both",
+                        "an",
+                        "the"
+                    ]
+                },
+                "a7": {
+                    "answer": "neighbour.",
+                    "verb_hint": "Назви річ після дієслова отримання в тимчасове користування, а власника — після прийменника.",
+                    "options": [
+                        "neighbour",
+                        "artist",
+                        "baker",
+                        "driver"
+                    ]
+                }
+            },
+            "verb_hint": "Назви річ після дієслова отримання в тимчасове користування, а власника — після прийменника.",
+            "accepted_target_texts": [
+                "I borrowed this ladder from a neighbour.",
+                "I borrowed this ladder from a neighbor."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "neighbor."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "neighbor."
+                ]
+            },
+            "reorder_groups": [
+                "I borrowed",
+                "this ladder",
+                "from a neighbour."
+            ],
+            "token_groups": [
+                "I borrowed",
+                "this ladder",
+                "from a neighbour."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "I",
+                "borrowed",
+                "this",
+                "ladder",
+                "from",
+                "a",
+                "neighbour."
+            ],
+            "options": [
+                "I",
+                "Yourself",
+                "Herself",
+                "Ourselves",
+                "borrowed",
+                "sent",
+                "bought",
+                "drove",
+                "this",
+                "either",
+                "neither",
+                "all",
+                "ladder",
+                "photo",
+                "office",
+                "Dad",
+                "from",
+                "on",
+                "at",
+                "by",
+                "a",
+                "both",
+                "an",
+                "the",
+                "neighbour",
+                "artist",
+                "baker",
+                "driver"
+            ],
+            "source_text_uk": "Я позичив цю драбину в сусіда.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Yourself",
+                    "Herself",
+                    "Ourselves"
+                ],
+                "a2": [
+                    "borrowed",
+                    "sent",
+                    "bought",
+                    "drove"
+                ],
+                "a3": [
+                    "this",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a4": [
+                    "ladder",
+                    "photo",
+                    "office",
+                    "Dad"
+                ],
+                "a5": [
+                    "from",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a6": [
+                    "a",
+                    "both",
+                    "an",
+                    "the"
+                ],
+                "a7": [
+                    "neighbour",
+                    "artist",
+                    "baker",
+                    "driver"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "woq-verbs-objects-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Я забрав посилку й поклав її на стіл.",
+            "level": "B1",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Я забрав посилку й поклав її на стіл.",
+            "target_text": "I collected the parcel and put it down on the table.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "У другій дії постав займенник між дієсловом і часткою фразового дієслова.",
+                    "options": [
+                        "I",
+                        "Him",
+                        "Us",
+                        "Them"
+                    ]
+                },
+                "a2": {
+                    "answer": "collected",
+                    "verb_hint": "У другій дії постав займенник між дієсловом і часткою фразового дієслова.",
+                    "options": [
+                        "collected",
+                        "asked",
+                        "accused",
+                        "drove"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "У другій дії постав займенник між дієсловом і часткою фразового дієслова.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a4": {
+                    "answer": "parcel",
+                    "verb_hint": "У другій дії постав займенник між дієсловом і часткою фразового дієслова.",
+                    "options": [
+                        "parcel",
+                        "window",
+                        "gate",
+                        "water"
+                    ]
+                },
+                "a5": {
+                    "answer": "and",
+                    "verb_hint": "У другій дії постав займенник між дієсловом і часткою фразового дієслова.",
+                    "options": [
+                        "and",
+                        "if",
+                        "whether",
+                        "but"
+                    ]
+                },
+                "a6": {
+                    "answer": "put",
+                    "verb_hint": "У другій дії постав займенник між дієсловом і часткою фразового дієслова.",
+                    "options": [
+                        "put",
+                        "took",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a7": {
+                    "answer": "it",
+                    "verb_hint": "У другій дії постав займенник між дієсловом і часткою фразового дієслова.",
+                    "options": [
+                        "it",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a8": {
+                    "answer": "down",
+                    "verb_hint": "У другій дії постав займенник між дієсловом і часткою фразового дієслова.",
+                    "options": [
+                        "down",
+                        "door",
+                        "key",
+                        "room"
+                    ]
+                },
+                "a9": {
+                    "answer": "on",
+                    "verb_hint": "У другій дії постав займенник між дієсловом і часткою фразового дієслова.",
+                    "options": [
+                        "on",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "У другій дії постав займенник між дієсловом і часткою фразового дієслова.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a11": {
+                    "answer": "table.",
+                    "verb_hint": "У другій дії постав займенник між дієсловом і часткою фразового дієслова.",
+                    "options": [
+                        "table",
+                        "hungry",
+                        "thirsty",
+                        "clear"
+                    ]
+                }
+            },
+            "verb_hint": "У другій дії постав займенник між дієсловом і часткою фразового дієслова.",
+            "accepted_target_texts": [
+                "I collected the parcel and put it down on the table.",
+                "I picked up the parcel and put it down on the table."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I collected",
+                "the parcel",
+                "and put it",
+                "down on",
+                "the table."
+            ],
+            "token_groups": [
+                "I collected",
+                "the parcel",
+                "and put it",
+                "down on",
+                "the table."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "I",
+                "collected",
+                "the",
+                "parcel",
+                "and",
+                "put",
+                "it",
+                "down",
+                "on",
+                "the",
+                "table."
+            ],
+            "options": [
+                "I",
+                "Him",
+                "Us",
+                "Them",
+                "collected",
+                "asked",
+                "accused",
+                "drove",
+                "the",
+                "this",
+                "that",
+                "these",
+                "parcel",
+                "window",
+                "gate",
+                "water",
+                "and",
+                "if",
+                "whether",
+                "but",
+                "put",
+                "took",
+                "wrote",
+                "rode",
+                "it",
+                "myself",
+                "yourself",
+                "herself",
+                "down",
+                "door",
+                "key",
+                "room",
+                "on",
+                "for",
+                "of",
+                "in",
+                "either",
+                "neither",
+                "all",
+                "table",
+                "hungry",
+                "thirsty",
+                "clear"
+            ],
+            "source_text_uk": "Я забрав посилку й поклав її на стіл.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Him",
+                    "Us",
+                    "Them"
+                ],
+                "a2": [
+                    "collected",
+                    "asked",
+                    "accused",
+                    "drove"
+                ],
+                "a3": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a4": [
+                    "parcel",
+                    "window",
+                    "gate",
+                    "water"
+                ],
+                "a5": [
+                    "and",
+                    "if",
+                    "whether",
+                    "but"
+                ],
+                "a6": [
+                    "put",
+                    "took",
+                    "wrote",
+                    "rode"
+                ],
+                "a7": [
+                    "it",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a8": [
+                    "down",
+                    "door",
+                    "key",
+                    "room"
+                ],
+                "a9": [
+                    "on",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a10": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a11": [
+                    "table",
+                    "hungry",
+                    "thirsty",
+                    "clear"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "woq-verbs-objects-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Вона попросила нас зачинити вікно.",
+            "level": "B1",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Вона попросила нас зачинити вікно.",
+            "target_text": "She asked us to close the window.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Після дієслова прохання постав особу, а потім — інфінітивну дію.",
+                    "options": [
+                        "She",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a2": {
+                    "answer": "asked",
+                    "verb_hint": "Після дієслова прохання постав особу, а потім — інфінітивну дію.",
+                    "options": [
+                        "asked",
+                        "put",
+                        "accused",
+                        "collected"
+                    ]
+                },
+                "a3": {
+                    "answer": "us",
+                    "verb_hint": "Після дієслова прохання постав особу, а потім — інфінітивну дію.",
+                    "options": [
+                        "us",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Після дієслова прохання постав особу, а потім — інфінітивну дію.",
+                    "options": [
+                        "to",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a5": {
+                    "answer": "close",
+                    "verb_hint": "Після дієслова прохання постав особу, а потім — інфінітивну дію.",
+                    "options": [
+                        "close",
+                        "leave",
+                        "meet",
+                        "use"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслова прохання постав особу, а потім — інфінітивну дію.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a7": {
+                    "answer": "window.",
+                    "verb_hint": "Після дієслова прохання постав особу, а потім — інфінітивну дію.",
+                    "options": [
+                        "window",
+                        "gate",
+                        "parcel",
+                        "down"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслова прохання постав особу, а потім — інфінітивну дію.",
+            "accepted_target_texts": [
+                "She asked us to close the window.",
+                "She asked us to shut the window."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "shut"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "shut"
+                ]
+            },
+            "reorder_groups": [
+                "She asked us",
+                "to close",
+                "the window."
+            ],
+            "token_groups": [
+                "She asked us",
+                "to close",
+                "the window."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "She",
+                "asked",
+                "us",
+                "to",
+                "close",
+                "the",
+                "window."
+            ],
+            "options": [
+                "She",
+                "Them",
+                "Myself",
+                "Yourself",
+                "asked",
+                "put",
+                "accused",
+                "collected",
+                "us",
+                "herself",
+                "ourselves",
+                "themselves",
+                "to",
+                "into",
+                "onto",
+                "over",
+                "close",
+                "leave",
+                "meet",
+                "use",
+                "the",
+                "every",
+                "no",
+                "another",
+                "window",
+                "gate",
+                "parcel",
+                "down"
+            ],
+            "source_text_uk": "Вона попросила нас зачинити вікно.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a2": [
+                    "asked",
+                    "put",
+                    "accused",
+                    "collected"
+                ],
+                "a3": [
+                    "us",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a4": [
+                    "to",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a5": [
+                    "close",
+                    "leave",
+                    "meet",
+                    "use"
+                ],
+                "a6": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a7": [
+                    "window",
+                    "gate",
+                    "parcel",
+                    "down"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "woq-verbs-objects-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Вони звинуватили водія в пошкодженні воріт.",
+            "level": "B1",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Вони звинуватили водія в пошкодженні воріт.",
+            "target_text": "They accused the driver of damaging the gate.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Після дієслова звинувачення постав особу, потрібний прийменник і назву дії.",
+                    "options": [
+                        "They",
+                        "Herself",
+                        "Ourselves",
+                        "Themselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "accused",
+                    "verb_hint": "Після дієслова звинувачення постав особу, потрібний прийменник і назву дії.",
+                    "options": [
+                        "accused",
+                        "put",
+                        "asked",
+                        "collected"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслова звинувачення постав особу, потрібний прийменник і назву дії.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a4": {
+                    "answer": "driver",
+                    "verb_hint": "Після дієслова звинувачення постав особу, потрібний прийменник і назву дії.",
+                    "options": [
+                        "driver",
+                        "artist",
+                        "baker",
+                        "neighbour"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Після дієслова звинувачення постав особу, потрібний прийменник і назву дії.",
+                    "options": [
+                        "of",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a6": {
+                    "answer": "damaging",
+                    "verb_hint": "Після дієслова звинувачення постав особу, потрібний прийменник і назву дії.",
+                    "options": [
+                        "damaging",
+                        "taking",
+                        "working",
+                        "playing"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслова звинувачення постав особу, потрібний прийменник і назву дії.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a8": {
+                    "answer": "gate.",
+                    "verb_hint": "Після дієслова звинувачення постав особу, потрібний прийменник і назву дії.",
+                    "options": [
+                        "gate",
+                        "parcel",
+                        "down",
+                        "window"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслова звинувачення постав особу, потрібний прийменник і назву дії.",
+            "accepted_target_texts": [
+                "They accused the driver of damaging the gate."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They accused",
+                "the driver",
+                "of damaging",
+                "the gate."
+            ],
+            "token_groups": [
+                "They accused",
+                "the driver",
+                "of damaging",
+                "the gate."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "They",
+                "accused",
+                "the",
+                "driver",
+                "of",
+                "damaging",
+                "the",
+                "gate."
+            ],
+            "options": [
+                "They",
+                "Herself",
+                "Ourselves",
+                "Themselves",
+                "accused",
+                "put",
+                "asked",
+                "collected",
+                "the",
+                "some",
+                "any",
+                "this",
+                "driver",
+                "artist",
+                "baker",
+                "neighbour",
+                "of",
+                "to",
+                "from",
+                "for",
+                "damaging",
+                "taking",
+                "working",
+                "playing",
+                "that",
+                "these",
+                "those",
+                "gate",
+                "parcel",
+                "down",
+                "window"
+            ],
+            "source_text_uk": "Вони звинуватили водія в пошкодженні воріт.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "Herself",
+                    "Ourselves",
+                    "Themselves"
+                ],
+                "a2": [
+                    "accused",
+                    "put",
+                    "asked",
+                    "collected"
+                ],
+                "a3": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a4": [
+                    "driver",
+                    "artist",
+                    "baker",
+                    "neighbour"
+                ],
+                "a5": [
+                    "of",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a6": [
+                    "damaging",
+                    "taking",
+                    "working",
+                    "playing"
+                ],
+                "a7": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a8": [
+                    "gate",
+                    "parcel",
+                    "down",
+                    "window"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "woq-verbs-objects-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Я вважаю її найнадійнішою людиною в команді.",
+            "level": "B2",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Я вважаю її найнадійнішою людиною в команді.",
+            "target_text": "I consider her the most reliable person in the team.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Після дієслова оцінки постав особу, а потім — іменну групу, яка її характеризує.",
+                    "options": [
+                        "I",
+                        "She",
+                        "It",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "consider",
+                    "verb_hint": "Після дієслова оцінки постав особу, а потім — іменну групу, яка її характеризує.",
+                    "options": [
+                        "consider",
+                        "owner",
+                        "postpone",
+                        "sale"
+                    ]
+                },
+                "a3": {
+                    "answer": "her",
+                    "verb_hint": "Після дієслова оцінки постав особу, а потім — іменну групу, яка її характеризує.",
+                    "options": [
+                        "her",
+                        "ours",
+                        "theirs",
+                        "whose"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслова оцінки постав особу, а потім — іменну групу, яка її характеризує.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a5": {
+                    "answer": "most",
+                    "verb_hint": "Після дієслова оцінки постав особу, а потім — іменну групу, яка її характеризує.",
+                    "options": [
+                        "most",
+                        "distinguish",
+                        "original",
+                        "copy"
+                    ]
+                },
+                "a6": {
+                    "answer": "reliable",
+                    "verb_hint": "Після дієслова оцінки постав особу, а потім — іменну групу, яка її характеризує.",
+                    "options": [
+                        "reliable",
+                        "young",
+                        "cold",
+                        "warm"
+                    ]
+                },
+                "a7": {
+                    "answer": "person",
+                    "verb_hint": "Після дієслова оцінки постав особу, а потім — іменну групу, яка її характеризує.",
+                    "options": [
+                        "person",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a8": {
+                    "answer": "in",
+                    "verb_hint": "Після дієслова оцінки постав особу, а потім — іменну групу, яка її характеризує.",
+                    "options": [
+                        "in",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслова оцінки постав особу, а потім — іменну групу, яка її характеризує.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "each"
+                    ]
+                },
+                "a10": {
+                    "answer": "team.",
+                    "verb_hint": "Після дієслова оцінки постав особу, а потім — іменну групу, яка її характеризує.",
+                    "options": [
+                        "team",
+                        "music",
+                        "food",
+                        "bike"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслова оцінки постав особу, а потім — іменну групу, яка її характеризує.",
+            "accepted_target_texts": [
+                "I consider her the most reliable person in the team.",
+                "I regard her as the most reliable person in the team."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I consider her",
+                "the most reliable",
+                "person in",
+                "the team."
+            ],
+            "token_groups": [
+                "I consider her",
+                "the most reliable",
+                "person in",
+                "the team."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "I",
+                "consider",
+                "her",
+                "the",
+                "most",
+                "reliable",
+                "person",
+                "in",
+                "the",
+                "team."
+            ],
+            "options": [
+                "I",
+                "She",
+                "It",
+                "We",
+                "consider",
+                "owner",
+                "postpone",
+                "sale",
+                "her",
+                "ours",
+                "theirs",
+                "whose",
+                "the",
+                "that",
+                "these",
+                "those",
+                "most",
+                "distinguish",
+                "original",
+                "copy",
+                "reliable",
+                "young",
+                "cold",
+                "warm",
+                "person",
+                "school",
+                "sister",
+                "brother",
+                "in",
+                "by",
+                "with",
+                "without",
+                "any",
+                "this",
+                "each",
+                "team",
+                "music",
+                "food",
+                "bike"
+            ],
+            "source_text_uk": "Я вважаю її найнадійнішою людиною в команді.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "She",
+                    "It",
+                    "We"
+                ],
+                "a2": [
+                    "consider",
+                    "owner",
+                    "postpone",
+                    "sale"
+                ],
+                "a3": [
+                    "her",
+                    "ours",
+                    "theirs",
+                    "whose"
+                ],
+                "a4": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a5": [
+                    "most",
+                    "distinguish",
+                    "original",
+                    "copy"
+                ],
+                "a6": [
+                    "reliable",
+                    "young",
+                    "cold",
+                    "warm"
+                ],
+                "a7": [
+                    "person",
+                    "school",
+                    "sister",
+                    "brother"
+                ],
+                "a8": [
+                    "in",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a9": [
+                    "the",
+                    "any",
+                    "this",
+                    "each"
+                ],
+                "a10": [
+                    "team",
+                    "music",
+                    "food",
+                    "bike"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "woq-verbs-objects-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Вони переконали власника відкласти продаж.",
+            "level": "B2",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Вони переконали власника відкласти продаж.",
+            "target_text": "They persuaded the owner to postpone the sale.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Після дієслова переконування назви особу, а далі — інфінітивну дію.",
+                    "options": [
+                        "They",
+                        "Ourselves",
+                        "Themselves",
+                        "I"
+                    ]
+                },
+                "a2": {
+                    "answer": "persuaded",
+                    "verb_hint": "Після дієслова переконування назви особу, а далі — інфінітивну дію.",
+                    "options": [
+                        "persuaded",
+                        "called",
+                        "walked",
+                        "opened"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслова переконування назви особу, а далі — інфінітивну дію.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a4": {
+                    "answer": "owner",
+                    "verb_hint": "Після дієслова переконування назви особу, а далі — інфінітивну дію.",
+                    "options": [
+                        "owner",
+                        "distinguish",
+                        "original",
+                        "copy"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Після дієслова переконування назви особу, а далі — інфінітивну дію.",
+                    "options": [
+                        "to",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a6": {
+                    "answer": "postpone",
+                    "verb_hint": "Після дієслова переконування назви особу, а далі — інфінітивну дію.",
+                    "options": [
+                        "postpone",
+                        "team",
+                        "consider",
+                        "most"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслова переконування назви особу, а далі — інфінітивну дію.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a8": {
+                    "answer": "sale.",
+                    "verb_hint": "Після дієслова переконування назви особу, а далі — інфінітивну дію.",
+                    "options": [
+                        "sale",
+                        "person",
+                        "box",
+                        "chair"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслова переконування назви особу, а далі — інфінітивну дію.",
+            "accepted_target_texts": [
+                "They persuaded the owner to postpone the sale.",
+                "They convinced the owner to postpone the sale.",
+                "They persuaded the owner to delay the sale."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "convinced"
+                ],
+                "a6": [
+                    "delay"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "convinced"
+                ],
+                "a6": [
+                    "delay"
+                ]
+            },
+            "reorder_groups": [
+                "They persuaded",
+                "the owner",
+                "to postpone",
+                "the sale."
+            ],
+            "token_groups": [
+                "They persuaded",
+                "the owner",
+                "to postpone",
+                "the sale."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "They",
+                "persuaded",
+                "the",
+                "owner",
+                "to",
+                "postpone",
+                "the",
+                "sale."
+            ],
+            "options": [
+                "They",
+                "Ourselves",
+                "Themselves",
+                "I",
+                "persuaded",
+                "called",
+                "walked",
+                "opened",
+                "the",
+                "every",
+                "no",
+                "another",
+                "owner",
+                "distinguish",
+                "original",
+                "copy",
+                "to",
+                "into",
+                "onto",
+                "over",
+                "postpone",
+                "team",
+                "consider",
+                "most",
+                "some",
+                "any",
+                "this",
+                "sale",
+                "person",
+                "box",
+                "chair"
+            ],
+            "source_text_uk": "Вони переконали власника відкласти продаж.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "Ourselves",
+                    "Themselves",
+                    "I"
+                ],
+                "a2": [
+                    "persuaded",
+                    "called",
+                    "walked",
+                    "opened"
+                ],
+                "a3": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a4": [
+                    "owner",
+                    "distinguish",
+                    "original",
+                    "copy"
+                ],
+                "a5": [
+                    "to",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a6": [
+                    "postpone",
+                    "team",
+                    "consider",
+                    "most"
+                ],
+                "a7": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a8": [
+                    "sale",
+                    "person",
+                    "box",
+                    "chair"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "woq-verbs-objects-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Ми не могли відрізнити оригінал від копії.",
+            "level": "B2",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Ми не могли відрізнити оригінал від копії.",
+            "target_text": "We could not distinguish the original from the copy.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Після дієслова розрізнення постав перший об’єкт, потрібний прийменник і другий об’єкт.",
+                    "options": [
+                        "We",
+                        "Yourself",
+                        "Herself",
+                        "Ourselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "could",
+                    "verb_hint": "Після дієслова розрізнення постав перший об’єкт, потрібний прийменник і другий об’єкт.",
+                    "options": [
+                        "could",
+                        "must",
+                        "can't",
+                        "won't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Після дієслова розрізнення постав перший об’єкт, потрібний прийменник і другий об’єкт.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a4": {
+                    "answer": "distinguish",
+                    "verb_hint": "Після дієслова розрізнення постав перший об’єкт, потрібний прийменник і другий об’єкт.",
+                    "options": [
+                        "distinguish",
+                        "postpone",
+                        "sale",
+                        "consider"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслова розрізнення постав перший об’єкт, потрібний прийменник і другий об’єкт.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a6": {
+                    "answer": "original",
+                    "verb_hint": "Після дієслова розрізнення постав перший об’єкт, потрібний прийменник і другий об’єкт.",
+                    "options": [
+                        "original",
+                        "most",
+                        "person",
+                        "team"
+                    ]
+                },
+                "a7": {
+                    "answer": "from",
+                    "verb_hint": "Після дієслова розрізнення постав перший об’єкт, потрібний прийменник і другий об’єкт.",
+                    "options": [
+                        "from",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслова розрізнення постав перший об’єкт, потрібний прийменник і другий об’єкт.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a9": {
+                    "answer": "copy.",
+                    "verb_hint": "Після дієслова розрізнення постав перший об’єкт, потрібний прийменник і другий об’єкт.",
+                    "options": [
+                        "copy",
+                        "owner",
+                        "friend",
+                        "dog"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслова розрізнення постав перший об’єкт, потрібний прийменник і другий об’єкт.",
+            "accepted_target_texts": [
+                "We could not distinguish the original from the copy.",
+                "We couldn't distinguish the original from the copy.",
+                "We could not tell the original from the copy."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "tell"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "tell"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "could not distinguish",
+                "the original",
+                "from the copy."
+            ],
+            "token_groups": [
+                "We",
+                "could not distinguish",
+                "the original",
+                "from the copy."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "We",
+                "could",
+                "not",
+                "distinguish",
+                "the",
+                "original",
+                "from",
+                "the",
+                "copy."
+            ],
+            "options": [
+                "We",
+                "Yourself",
+                "Herself",
+                "Ourselves",
+                "could",
+                "must",
+                "can't",
+                "won't",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "distinguish",
+                "postpone",
+                "sale",
+                "consider",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "original",
+                "most",
+                "person",
+                "team",
+                "from",
+                "onto",
+                "over",
+                "under",
+                "some",
+                "any",
+                "this",
+                "copy",
+                "owner",
+                "friend",
+                "dog"
+            ],
+            "source_text_uk": "Ми не могли відрізнити оригінал від копії.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Yourself",
+                    "Herself",
+                    "Ourselves"
+                ],
+                "a2": [
+                    "could",
+                    "must",
+                    "can't",
+                    "won't"
+                ],
+                "a3": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a4": [
+                    "distinguish",
+                    "postpone",
+                    "sale",
+                    "consider"
+                ],
+                "a5": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a6": [
+                    "original",
+                    "most",
+                    "person",
+                    "team"
+                ],
+                "a7": [
+                    "from",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a8": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a9": [
+                    "copy",
+                    "owner",
+                    "friend",
+                    "dog"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "woq-verbs-objects-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Вона поклала відповідальність за затримку на перевізника.",
+            "level": "C1",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Вона поклала відповідальність за затримку на перевізника.",
+            "target_text": "She placed responsibility for the delay on the carrier.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Після дієслівної групи покладання назви відповідальність, а сторону, що її несе, введи прийменником.",
+                    "options": [
+                        "She",
+                        "Myself",
+                        "Yourself",
+                        "Herself"
+                    ]
+                },
+                "a2": {
+                    "answer": "placed",
+                    "verb_hint": "Після дієслівної групи покладання назви відповідальність, а сторону, що її несе, введи прийменником.",
+                    "options": [
+                        "placed",
+                        "deemed",
+                        "informed",
+                        "needed"
+                    ]
+                },
+                "a3": {
+                    "answer": "responsibility",
+                    "verb_hint": "Після дієслівної групи покладання назви відповідальність, а сторону, що її несе, введи прийменником.",
+                    "options": [
+                        "responsibility",
+                        "procedure",
+                        "commission",
+                        "seek"
+                    ]
+                },
+                "a4": {
+                    "answer": "for",
+                    "verb_hint": "Після дієслівної групи покладання назви відповідальність, а сторону, що її несе, введи прийменником.",
+                    "options": [
+                        "for",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслівної групи покладання назви відповідальність, а сторону, що її несе, введи прийменником.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a6": {
+                    "answer": "delay",
+                    "verb_hint": "Після дієслівної групи покладання назви відповідальність, а сторону, що її несе, введи прийменником.",
+                    "options": [
+                        "delay",
+                        "independent",
+                        "assessment",
+                        "change"
+                    ]
+                },
+                "a7": {
+                    "answer": "on",
+                    "verb_hint": "Після дієслівної групи покладання назви відповідальність, а сторону, що її несе, введи прийменником.",
+                    "options": [
+                        "on",
+                        "under",
+                        "through",
+                        "about"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслівної групи покладання назви відповідальність, а сторону, що її несе, введи прийменником.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a9": {
+                    "answer": "carrier.",
+                    "verb_hint": "Після дієслівної групи покладання назви відповідальність, а сторону, що її несе, введи прийменником.",
+                    "options": [
+                        "carrier",
+                        "table",
+                        "ticket",
+                        "cup"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслівної групи покладання назви відповідальність, а сторону, що її несе, введи прийменником.",
+            "accepted_target_texts": [
+                "She placed responsibility for the delay on the carrier.",
+                "She put responsibility for the delay on the carrier."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "put"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "put"
+                ]
+            },
+            "reorder_groups": [
+                "She placed",
+                "responsibility for",
+                "the delay",
+                "on the carrier."
+            ],
+            "token_groups": [
+                "She placed",
+                "responsibility for",
+                "the delay",
+                "on the carrier."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "She",
+                "placed",
+                "responsibility",
+                "for",
+                "the",
+                "delay",
+                "on",
+                "the",
+                "carrier."
+            ],
+            "options": [
+                "She",
+                "Myself",
+                "Yourself",
+                "Herself",
+                "placed",
+                "deemed",
+                "informed",
+                "needed",
+                "responsibility",
+                "procedure",
+                "commission",
+                "seek",
+                "for",
+                "across",
+                "between",
+                "among",
+                "the",
+                "this",
+                "that",
+                "these",
+                "delay",
+                "independent",
+                "assessment",
+                "change",
+                "on",
+                "under",
+                "through",
+                "about",
+                "an",
+                "some",
+                "any",
+                "carrier",
+                "table",
+                "ticket",
+                "cup"
+            ],
+            "source_text_uk": "Вона поклала відповідальність за затримку на перевізника.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "Myself",
+                    "Yourself",
+                    "Herself"
+                ],
+                "a2": [
+                    "placed",
+                    "deemed",
+                    "informed",
+                    "needed"
+                ],
+                "a3": [
+                    "responsibility",
+                    "procedure",
+                    "commission",
+                    "seek"
+                ],
+                "a4": [
+                    "for",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a5": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a6": [
+                    "delay",
+                    "independent",
+                    "assessment",
+                    "change"
+                ],
+                "a7": [
+                    "on",
+                    "under",
+                    "through",
+                    "about"
+                ],
+                "a8": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a9": [
+                    "carrier",
+                    "table",
+                    "ticket",
+                    "cup"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "woq-verbs-objects-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Комісія визнала за необхідне запросити незалежну оцінку.",
+            "level": "C1",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Комісія визнала за необхідне запросити незалежну оцінку.",
+            "target_text": "The commission deemed it necessary to seek an independent assessment.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток, його характеристику та розгорнутий зміст.",
+                    "options": [
+                        "The",
+                        "A",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "commission",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток, його характеристику та розгорнутий зміст.",
+                    "options": [
+                        "commission",
+                        "change",
+                        "procedure",
+                        "responsibility"
+                    ]
+                },
+                "a3": {
+                    "answer": "deemed",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток, його характеристику та розгорнутий зміст.",
+                    "options": [
+                        "deemed",
+                        "placed",
+                        "informed",
+                        "called"
+                    ]
+                },
+                "a4": {
+                    "answer": "it",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток, його характеристику та розгорнутий зміст.",
+                    "options": [
+                        "it",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                },
+                "a5": {
+                    "answer": "necessary",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток, його характеристику та розгорнутий зміст.",
+                    "options": [
+                        "necessary",
+                        "easy",
+                        "difficult",
+                        "bright"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток, його характеристику та розгорнутий зміст.",
+                    "options": [
+                        "to",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a7": {
+                    "answer": "seek",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток, його характеристику та розгорнутий зміст.",
+                    "options": [
+                        "seek",
+                        "delay",
+                        "carrier",
+                        "brother"
+                    ]
+                },
+                "a8": {
+                    "answer": "an",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток, його характеристику та розгорнутий зміст.",
+                    "options": [
+                        "an",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a9": {
+                    "answer": "independent",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток, його характеристику та розгорнутий зміст.",
+                    "options": [
+                        "independent",
+                        "key",
+                        "room",
+                        "map"
+                    ]
+                },
+                "a10": {
+                    "answer": "assessment.",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток, його характеристику та розгорнутий зміст.",
+                    "options": [
+                        "assessment",
+                        "table",
+                        "ticket",
+                        "cup"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслова оцінки постав формальний додаток, його характеристику та розгорнутий зміст.",
+            "accepted_target_texts": [
+                "The commission deemed it necessary to seek an independent assessment.",
+                "The commission considered it necessary to seek an independent assessment."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "considered"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "considered"
+                ]
+            },
+            "reorder_groups": [
+                "The commission",
+                "deemed it necessary",
+                "to seek",
+                "an independent assessment."
+            ],
+            "token_groups": [
+                "The commission",
+                "deemed it necessary",
+                "to seek",
+                "an independent assessment."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "The",
+                "commission",
+                "deemed",
+                "it",
+                "necessary",
+                "to",
+                "seek",
+                "an",
+                "independent",
+                "assessment."
+            ],
+            "options": [
+                "The",
+                "A",
+                "Some",
+                "Any",
+                "commission",
+                "change",
+                "procedure",
+                "responsibility",
+                "deemed",
+                "placed",
+                "informed",
+                "called",
+                "it",
+                "them",
+                "myself",
+                "yourself",
+                "necessary",
+                "easy",
+                "difficult",
+                "bright",
+                "to",
+                "across",
+                "between",
+                "among",
+                "seek",
+                "delay",
+                "carrier",
+                "brother",
+                "an",
+                "neither",
+                "all",
+                "both",
+                "independent",
+                "key",
+                "room",
+                "map",
+                "assessment",
+                "table",
+                "ticket",
+                "cup"
+            ],
+            "source_text_uk": "Комісія визнала за необхідне запросити незалежну оцінку.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "commission",
+                    "change",
+                    "procedure",
+                    "responsibility"
+                ],
+                "a3": [
+                    "deemed",
+                    "placed",
+                    "informed",
+                    "called"
+                ],
+                "a4": [
+                    "it",
+                    "them",
+                    "myself",
+                    "yourself"
+                ],
+                "a5": [
+                    "necessary",
+                    "easy",
+                    "difficult",
+                    "bright"
+                ],
+                "a6": [
+                    "to",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a7": [
+                    "seek",
+                    "delay",
+                    "carrier",
+                    "brother"
+                ],
+                "a8": [
+                    "an",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a9": [
+                    "independent",
+                    "key",
+                    "room",
+                    "map"
+                ],
+                "a10": [
+                    "assessment",
+                    "table",
+                    "ticket",
+                    "cup"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "woq-verbs-objects-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Ми повідомили всім заявникам про зміну процедури.",
+            "level": "C1",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Ми повідомили всім заявникам про зміну процедури.",
+            "target_text": "We informed all applicants of the change in procedure.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Після дієслова інформування назви одержувачів, а зміст повідомлення введи прийменником.",
+                    "options": [
+                        "We",
+                        "I",
+                        "You",
+                        "He"
+                    ]
+                },
+                "a2": {
+                    "answer": "informed",
+                    "verb_hint": "Після дієслова інформування назви одержувачів, а зміст повідомлення введи прийменником.",
+                    "options": [
+                        "informed",
+                        "deemed",
+                        "placed",
+                        "rode"
+                    ]
+                },
+                "a3": {
+                    "answer": "all",
+                    "verb_hint": "Після дієслова інформування назви одержувачів, а зміст повідомлення введи прийменником.",
+                    "options": [
+                        "all",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a4": {
+                    "answer": "applicants",
+                    "verb_hint": "Після дієслова інформування назви одержувачів, а зміст повідомлення введи прийменником.",
+                    "options": [
+                        "applicants",
+                        "cats",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Після дієслова інформування назви одержувачів, а зміст повідомлення введи прийменником.",
+                    "options": [
+                        "of",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслова інформування назви одержувачів, а зміст повідомлення введи прийменником.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a7": {
+                    "answer": "change",
+                    "verb_hint": "Після дієслова інформування назви одержувачів, а зміст повідомлення введи прийменником.",
+                    "options": [
+                        "change",
+                        "assessment",
+                        "responsibility",
+                        "delay"
+                    ]
+                },
+                "a8": {
+                    "answer": "in",
+                    "verb_hint": "Після дієслова інформування назви одержувачів, а зміст повідомлення введи прийменником.",
+                    "options": [
+                        "in",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a9": {
+                    "answer": "procedure.",
+                    "verb_hint": "Після дієслова інформування назви одержувачів, а зміст повідомлення введи прийменником.",
+                    "options": [
+                        "procedure",
+                        "carrier",
+                        "commission",
+                        "seek"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслова інформування назви одержувачів, а зміст повідомлення введи прийменником.",
+            "accepted_target_texts": [
+                "We informed all applicants of the change in procedure.",
+                "We informed all applicants about the change in procedure.",
+                "We notified all applicants of the change in procedure."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "about"
+                ],
+                "a2": [
+                    "notified"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "about"
+                ],
+                "a2": [
+                    "notified"
+                ]
+            },
+            "reorder_groups": [
+                "We informed",
+                "all applicants",
+                "of the change",
+                "in procedure."
+            ],
+            "token_groups": [
+                "We informed",
+                "all applicants",
+                "of the change",
+                "in procedure."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "We",
+                "informed",
+                "all",
+                "applicants",
+                "of",
+                "the",
+                "change",
+                "in",
+                "procedure."
+            ],
+            "options": [
+                "We",
+                "I",
+                "You",
+                "He",
+                "informed",
+                "deemed",
+                "placed",
+                "rode",
+                "all",
+                "no",
+                "another",
+                "either",
+                "applicants",
+                "cats",
+                "people",
+                "men",
+                "of",
+                "with",
+                "without",
+                "into",
+                "the",
+                "neither",
+                "both",
+                "a",
+                "change",
+                "assessment",
+                "responsibility",
+                "delay",
+                "in",
+                "to",
+                "from",
+                "for",
+                "procedure",
+                "carrier",
+                "commission",
+                "seek"
+            ],
+            "source_text_uk": "Ми повідомили всім заявникам про зміну процедури.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "I",
+                    "You",
+                    "He"
+                ],
+                "a2": [
+                    "informed",
+                    "deemed",
+                    "placed",
+                    "rode"
+                ],
+                "a3": [
+                    "all",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a4": [
+                    "applicants",
+                    "cats",
+                    "people",
+                    "men"
+                ],
+                "a5": [
+                    "of",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a6": [
+                    "the",
+                    "neither",
+                    "both",
+                    "a"
+                ],
+                "a7": [
+                    "change",
+                    "assessment",
+                    "responsibility",
+                    "delay"
+                ],
+                "a8": [
+                    "in",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a9": [
+                    "procedure",
+                    "carrier",
+                    "commission",
+                    "seek"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "woq-verbs-objects-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Ми вважали за належне залишити остаточне рішення тим, хто нестиме відповідальність.",
+            "level": "C2",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Ми вважали за належне залишити остаточне рішення тим, хто нестиме відповідальність.",
+            "target_text": "We thought it appropriate to leave the final decision to those who would bear responsibility.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+                    "options": [
+                        "We",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "thought",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+                    "options": [
+                        "thought",
+                        "deprived",
+                        "attributed",
+                        "worked"
+                    ]
+                },
+                "a3": {
+                    "answer": "it",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+                    "options": [
+                        "it",
+                        "they",
+                        "them",
+                        "myself"
+                    ]
+                },
+                "a4": {
+                    "answer": "appropriate",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+                    "options": [
+                        "appropriate",
+                        "credibility",
+                        "spokesperson",
+                        "dispute"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+                    "options": [
+                        "to",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a6": {
+                    "answer": "leave",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+                    "options": [
+                        "leave",
+                        "open",
+                        "close",
+                        "help"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a8": {
+                    "answer": "final",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+                    "options": [
+                        "final",
+                        "helpful",
+                        "different",
+                        "simple"
+                    ]
+                },
+                "a9": {
+                    "answer": "decision",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+                    "options": [
+                        "decision",
+                        "chance",
+                        "reconciliation",
+                        "success"
+                    ]
+                },
+                "a10": {
+                    "answer": "to",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+                    "options": [
+                        "to",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a11": {
+                    "answer": "those",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+                    "options": [
+                        "those",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a12": {
+                    "answer": "who",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+                    "options": [
+                        "who",
+                        "where",
+                        "when",
+                        "why"
+                    ]
+                },
+                "a13": {
+                    "answer": "would",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+                    "options": [
+                        "would",
+                        "can",
+                        "could",
+                        "will"
+                    ]
+                },
+                "a14": {
+                    "answer": "bear",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+                    "options": [
+                        "bear",
+                        "dog",
+                        "cat",
+                        "bird"
+                    ]
+                },
+                "a15": {
+                    "answer": "responsibility.",
+                    "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+                    "options": [
+                        "responsibility",
+                        "window",
+                        "phone",
+                        "train"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслова оцінки постав формальний додаток та його характеристику; збережи адресата остаточного рішення.",
+            "accepted_target_texts": [
+                "We thought it appropriate to leave the final decision to those who would bear responsibility.",
+                "We considered it appropriate to leave the final decision to those who would bear responsibility."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "considered"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "considered"
+                ]
+            },
+            "reorder_groups": [
+                "We thought",
+                "it appropriate",
+                "to leave",
+                "the final decision",
+                "to those",
+                "who would",
+                "bear responsibility."
+            ],
+            "token_groups": [
+                "We thought",
+                "it appropriate",
+                "to leave",
+                "the final decision",
+                "to those",
+                "who would",
+                "bear responsibility."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "We",
+                "thought",
+                "it",
+                "appropriate",
+                "to",
+                "leave",
+                "the",
+                "final",
+                "decision",
+                "to",
+                "those",
+                "who",
+                "would",
+                "bear",
+                "responsibility."
+            ],
+            "options": [
+                "We",
+                "Me",
+                "Him",
+                "Us",
+                "thought",
+                "deprived",
+                "attributed",
+                "worked",
+                "it",
+                "they",
+                "them",
+                "myself",
+                "appropriate",
+                "credibility",
+                "spokesperson",
+                "dispute",
+                "to",
+                "into",
+                "onto",
+                "over",
+                "leave",
+                "open",
+                "close",
+                "help",
+                "the",
+                "some",
+                "any",
+                "this",
+                "final",
+                "helpful",
+                "different",
+                "simple",
+                "decision",
+                "chance",
+                "reconciliation",
+                "success",
+                "on",
+                "at",
+                "by",
+                "those",
+                "no",
+                "another",
+                "either",
+                "who",
+                "where",
+                "when",
+                "why",
+                "would",
+                "can",
+                "could",
+                "will",
+                "bear",
+                "dog",
+                "cat",
+                "bird",
+                "responsibility",
+                "window",
+                "phone",
+                "train"
+            ],
+            "source_text_uk": "Ми вважали за належне залишити остаточне рішення тим, хто нестиме відповідальність.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "thought",
+                    "deprived",
+                    "attributed",
+                    "worked"
+                ],
+                "a3": [
+                    "it",
+                    "they",
+                    "them",
+                    "myself"
+                ],
+                "a4": [
+                    "appropriate",
+                    "credibility",
+                    "spokesperson",
+                    "dispute"
+                ],
+                "a5": [
+                    "to",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a6": [
+                    "leave",
+                    "open",
+                    "close",
+                    "help"
+                ],
+                "a7": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a8": [
+                    "final",
+                    "helpful",
+                    "different",
+                    "simple"
+                ],
+                "a9": [
+                    "decision",
+                    "chance",
+                    "reconciliation",
+                    "success"
+                ],
+                "a10": [
+                    "to",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a11": [
+                    "those",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a12": [
+                    "who",
+                    "where",
+                    "when",
+                    "why"
+                ],
+                "a13": [
+                    "would",
+                    "can",
+                    "could",
+                    "will"
+                ],
+                "a14": [
+                    "bear",
+                    "dog",
+                    "cat",
+                    "bird"
+                ],
+                "a15": [
+                    "responsibility",
+                    "window",
+                    "phone",
+                    "train"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "woq-verbs-objects-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Суперечка зрештою позбавила обидві сторони будь-яких шансів на примирення.",
+            "level": "C2",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Суперечка зрештою позбавила обидві сторони будь-яких шансів на примирення.",
+            "target_text": "The dispute ultimately deprived both sides of any chance of reconciliation.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Після дієслова позбавлення назви сторони, а втрачену можливість уведи прийменником.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "dispute",
+                    "verb_hint": "Після дієслова позбавлення назви сторони, а втрачену можливість уведи прийменником.",
+                    "options": [
+                        "dispute",
+                        "spokesperson",
+                        "appropriate",
+                        "decision"
+                    ]
+                },
+                "a3": {
+                    "answer": "ultimately",
+                    "verb_hint": "Після дієслова позбавлення назви сторони, а втрачену можливість уведи прийменником.",
+                    "options": [
+                        "ultimately",
+                        "loudly",
+                        "quietly",
+                        "slowly"
+                    ]
+                },
+                "a4": {
+                    "answer": "deprived",
+                    "verb_hint": "Після дієслова позбавлення назви сторони, а втрачену можливість уведи прийменником.",
+                    "options": [
+                        "deprived",
+                        "thought",
+                        "attributed",
+                        "liked"
+                    ]
+                },
+                "a5": {
+                    "answer": "both",
+                    "verb_hint": "Після дієслова позбавлення назви сторони, а втрачену можливість уведи прийменником.",
+                    "options": [
+                        "both",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a6": {
+                    "answer": "sides",
+                    "verb_hint": "Після дієслова позбавлення назви сторони, а втрачену можливість уведи прийменником.",
+                    "options": [
+                        "sides",
+                        "campaign's",
+                        "maps",
+                        "letters"
+                    ]
+                },
+                "a7": {
+                    "answer": "of",
+                    "verb_hint": "Після дієслова позбавлення назви сторони, а втрачену можливість уведи прийменником.",
+                    "options": [
+                        "of",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a8": {
+                    "answer": "any",
+                    "verb_hint": "Після дієслова позбавлення назви сторони, а втрачену можливість уведи прийменником.",
+                    "options": [
+                        "any",
+                        "these",
+                        "those",
+                        "all"
+                    ]
+                },
+                "a9": {
+                    "answer": "chance",
+                    "verb_hint": "Після дієслова позбавлення назви сторони, а втрачену можливість уведи прийменником.",
+                    "options": [
+                        "chance",
+                        "success",
+                        "credibility",
+                        "responsibility"
+                    ]
+                },
+                "a10": {
+                    "answer": "of",
+                    "verb_hint": "Після дієслова позбавлення назви сторони, а втрачену можливість уведи прийменником.",
+                    "options": [
+                        "of",
+                        "from",
+                        "for",
+                        "by"
+                    ]
+                },
+                "a11": {
+                    "answer": "reconciliation.",
+                    "verb_hint": "Після дієслова позбавлення назви сторони, а втрачену можливість уведи прийменником.",
+                    "options": [
+                        "reconciliation",
+                        "phone",
+                        "train",
+                        "bus"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслова позбавлення назви сторони, а втрачену можливість уведи прийменником.",
+            "accepted_target_texts": [
+                "The dispute ultimately deprived both sides of any chance of reconciliation."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dispute",
+                "ultimately deprived",
+                "both sides",
+                "of any chance",
+                "of reconciliation."
+            ],
+            "token_groups": [
+                "The dispute",
+                "ultimately deprived",
+                "both sides",
+                "of any chance",
+                "of reconciliation."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "The",
+                "dispute",
+                "ultimately",
+                "deprived",
+                "both",
+                "sides",
+                "of",
+                "any",
+                "chance",
+                "of",
+                "reconciliation."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "dispute",
+                "spokesperson",
+                "appropriate",
+                "decision",
+                "ultimately",
+                "loudly",
+                "quietly",
+                "slowly",
+                "deprived",
+                "thought",
+                "attributed",
+                "liked",
+                "both",
+                "each",
+                "every",
+                "no",
+                "sides",
+                "campaign's",
+                "maps",
+                "letters",
+                "of",
+                "in",
+                "on",
+                "at",
+                "any",
+                "these",
+                "those",
+                "all",
+                "chance",
+                "success",
+                "credibility",
+                "responsibility",
+                "from",
+                "for",
+                "by",
+                "reconciliation",
+                "phone",
+                "train",
+                "bus"
+            ],
+            "source_text_uk": "Суперечка зрештою позбавила обидві сторони будь-яких шансів на примирення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "dispute",
+                    "spokesperson",
+                    "appropriate",
+                    "decision"
+                ],
+                "a3": [
+                    "ultimately",
+                    "loudly",
+                    "quietly",
+                    "slowly"
+                ],
+                "a4": [
+                    "deprived",
+                    "thought",
+                    "attributed",
+                    "liked"
+                ],
+                "a5": [
+                    "both",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a6": [
+                    "sides",
+                    "campaign's",
+                    "maps",
+                    "letters"
+                ],
+                "a7": [
+                    "of",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a8": [
+                    "any",
+                    "these",
+                    "those",
+                    "all"
+                ],
+                "a9": [
+                    "chance",
+                    "success",
+                    "credibility",
+                    "responsibility"
+                ],
+                "a10": [
+                    "of",
+                    "from",
+                    "for",
+                    "by"
+                ],
+                "a11": [
+                    "reconciliation",
+                    "phone",
+                    "train",
+                    "bus"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "woq-verbs-objects-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Вони приписали успіх кампанії не її повідомленню, а довірі до речника.",
+            "level": "C2",
+            "type": 4,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Вони приписали успіх кампанії не її повідомленню, а довірі до речника.",
+            "target_text": "They attributed the campaign's success not to its message but to the credibility of the spokesperson.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "They",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "attributed",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "attributed",
+                        "thought",
+                        "deprived",
+                        "left"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a4": {
+                    "answer": "campaign's",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "campaign's",
+                        "sides",
+                        "cats",
+                        "people"
+                    ]
+                },
+                "a5": {
+                    "answer": "success",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "success",
+                        "appropriate",
+                        "decision",
+                        "responsibility"
+                    ]
+                },
+                "a6": {
+                    "answer": "not",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "not",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "to",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a8": {
+                    "answer": "its",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "its",
+                        "whose",
+                        "my",
+                        "your"
+                    ]
+                },
+                "a9": {
+                    "answer": "message",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "message",
+                        "report",
+                        "document",
+                        "map"
+                    ]
+                },
+                "a10": {
+                    "answer": "but",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "but",
+                        "or",
+                        "nor",
+                        "so"
+                    ]
+                },
+                "a11": {
+                    "answer": "to",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "to",
+                        "across",
+                        "during",
+                        "from"
+                    ]
+                },
+                "a12": {
+                    "answer": "the",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a13": {
+                    "answer": "credibility",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "credibility",
+                        "dispute",
+                        "chance",
+                        "reconciliation"
+                    ]
+                },
+                "a14": {
+                    "answer": "of",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "of",
+                        "through",
+                        "for",
+                        "in"
+                    ]
+                },
+                "a15": {
+                    "answer": "the",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "that"
+                    ]
+                },
+                "a16": {
+                    "answer": "spokesperson.",
+                    "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+                    "options": [
+                        "spokesperson",
+                        "friend",
+                        "dog",
+                        "cat"
+                    ]
+                }
+            },
+            "verb_hint": "Спочатку назви пояснюваний результат, а дві протиставлені причини введи паралельними прийменниковими групами.",
+            "accepted_target_texts": [
+                "They attributed the campaign's success not to its message but to the credibility of the spokesperson."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They attributed",
+                "the campaign's success",
+                "not to",
+                "its message",
+                "but to",
+                "the credibility",
+                "of the spokesperson."
+            ],
+            "token_groups": [
+                "They attributed",
+                "the campaign's success",
+                "not to",
+                "its message",
+                "but to",
+                "the credibility",
+                "of the spokesperson."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "They",
+                "attributed",
+                "the",
+                "campaign's",
+                "success",
+                "not",
+                "to",
+                "its",
+                "message",
+                "but",
+                "to",
+                "the",
+                "credibility",
+                "of",
+                "the",
+                "spokesperson."
+            ],
+            "options": [
+                "They",
+                "He",
+                "She",
+                "It",
+                "attributed",
+                "thought",
+                "deprived",
+                "left",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "campaign's",
+                "sides",
+                "cats",
+                "people",
+                "success",
+                "appropriate",
+                "decision",
+                "responsibility",
+                "not",
+                "always",
+                "often",
+                "sometimes",
+                "to",
+                "between",
+                "among",
+                "about",
+                "its",
+                "whose",
+                "my",
+                "your",
+                "message",
+                "report",
+                "document",
+                "map",
+                "but",
+                "or",
+                "nor",
+                "so",
+                "across",
+                "during",
+                "from",
+                "some",
+                "any",
+                "this",
+                "credibility",
+                "dispute",
+                "chance",
+                "reconciliation",
+                "of",
+                "through",
+                "for",
+                "in",
+                "a",
+                "an",
+                "that",
+                "spokesperson",
+                "friend",
+                "dog",
+                "cat"
+            ],
+            "source_text_uk": "Вони приписали успіх кампанії не її повідомленню, а довірі до речника.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "attributed",
+                    "thought",
+                    "deprived",
+                    "left"
+                ],
+                "a3": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a4": [
+                    "campaign's",
+                    "sides",
+                    "cats",
+                    "people"
+                ],
+                "a5": [
+                    "success",
+                    "appropriate",
+                    "decision",
+                    "responsibility"
+                ],
+                "a6": [
+                    "not",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a7": [
+                    "to",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a8": [
+                    "its",
+                    "whose",
+                    "my",
+                    "your"
+                ],
+                "a9": [
+                    "message",
+                    "report",
+                    "document",
+                    "map"
+                ],
+                "a10": [
+                    "but",
+                    "or",
+                    "nor",
+                    "so"
+                ],
+                "a11": [
+                    "to",
+                    "across",
+                    "during",
+                    "from"
+                ],
+                "a12": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a13": [
+                    "credibility",
+                    "dispute",
+                    "chance",
+                    "reconciliation"
+                ],
+                "a14": [
+                    "of",
+                    "through",
+                    "for",
+                    "in"
+                ],
+                "a15": [
+                    "the",
+                    "a",
+                    "an",
+                    "that"
+                ],
+                "a16": [
+                    "spokesperson",
+                    "friend",
+                    "dog",
+                    "cat"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

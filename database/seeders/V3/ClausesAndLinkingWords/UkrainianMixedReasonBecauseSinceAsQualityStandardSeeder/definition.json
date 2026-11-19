@@ -1,0 +1,746 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/reason-because-since-as.v1.json",
+        "sha256": "ef0e19ca50aca4524c6ca6f8cc699d3ca284d725b71517963eef096e63c896dc"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\UkrainianMixedReasonBecauseSinceAsQualityStandardSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-reason-because-since-as-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "clauses_linking_words_quality_reason_because_since_as": {
+            "name": "Clauses and Linking Words Quality: Reason: because / since / as"
+        }
+    },
+    "tags": {
+        "clauses_linking_words_reason": {
+            "name": "Reason: because / since / as",
+            "category": "clauses_and_linking_words"
+        },
+        "because_clause": {
+            "name": "Because Clause",
+            "category": "topic"
+        },
+        "since_clause": {
+            "name": "Since Clause",
+            "category": "topic"
+        },
+        "as_clause": {
+            "name": "As Clause",
+            "category": "topic"
+        },
+        "because_of": {
+            "name": "Because Of",
+            "category": "topic"
+        },
+        "due_to_owing_to": {
+            "name": "Due To Owing To",
+            "category": "topic"
+        },
+        "reason_clause_position": {
+            "name": "Reason Clause Position",
+            "category": "topic"
+        },
+        "comma_rules": {
+            "name": "Comma Rules",
+            "category": "topic"
+        },
+        "because_vs_because_of": {
+            "name": "Because Vs Because Of",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "clauses_linking_words_reason"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-reason-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I drink water {a1} I am thirsty.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Я п’ю воду, бо хочу пити.",
+            "target_text": "I drink water because I am thirsty.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "but"
+                    ],
+                    "verb_hint": "Бо хочу пити; пропуск з’єднує дію з її причиною, а не наслідком."
+                }
+            },
+            "verb_hint": "Бо хочу пити; пропуск з’єднує дію з її причиною, а не наслідком.",
+            "accepted_target_texts": [
+                "I drink water because I am thirsty.",
+                "I drink water since I am thirsty.",
+                "I drink water as I am thirsty."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "I drink water",
+                "because",
+                "I am thirsty."
+            ],
+            "token_groups": [
+                "I drink water",
+                "because",
+                "I am thirsty."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "clq-reason-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Nora takes a coat {a1} it is cold.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Нора бере пальто, бо холодно.",
+            "target_text": "Nora takes a coat because it is cold.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "therefore",
+                        "although"
+                    ],
+                    "verb_hint": "Бо холодно; назви причину того, що дівчинка бере пальто."
+                }
+            },
+            "verb_hint": "Бо холодно; назви причину того, що дівчинка бере пальто.",
+            "accepted_target_texts": [
+                "Nora takes a coat because it is cold.",
+                "Nora takes a coat since it is cold.",
+                "Nora takes a coat as it is cold."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "Nora",
+                "takes a coat",
+                "because",
+                "it is cold."
+            ],
+            "token_groups": [
+                "Nora",
+                "takes a coat",
+                "because",
+                "it is cold."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "clq-reason-a2-g01",
+            "author_id": "A2-g01",
+            "question": "We ate indoors {a1} the garden was wet.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Ми їли в приміщенні, бо сад був мокрий.",
+            "target_text": "We ate indoors because the garden was wet.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "because of",
+                        "despite"
+                    ],
+                    "verb_hint": "Бо сад був мокрий; після пропуску наведено цілу частину з підметом і дієсловом."
+                }
+            },
+            "verb_hint": "Бо сад був мокрий; після пропуску наведено цілу частину з підметом і дієсловом.",
+            "accepted_target_texts": [
+                "We ate indoors because the garden was wet.",
+                "We ate indoors since the garden was wet.",
+                "We ate indoors as the garden was wet."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "We ate indoors",
+                "because",
+                "the garden",
+                "was wet."
+            ],
+            "token_groups": [
+                "We ate indoors",
+                "because",
+                "the garden",
+                "was wet."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "clq-reason-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The shop closed early {a1} the owner was ill.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Крамниця зачинилася рано, оскільки власник був хворий.",
+            "target_text": "The shop closed early as the owner was ill.",
+            "markers": {
+                "a1": {
+                    "answer": "as",
+                    "options": [
+                        "as",
+                        "as a result",
+                        "in spite of"
+                    ],
+                    "verb_hint": "Оскільки власник був хворий; потрібен причинний сполучник перед цілою частиною."
+                }
+            },
+            "verb_hint": "Оскільки власник був хворий; потрібен причинний сполучник перед цілою частиною.",
+            "accepted_target_texts": [
+                "The shop closed early as the owner was ill.",
+                "The shop closed early because the owner was ill.",
+                "The shop closed early since the owner was ill."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "because",
+                    "since"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "because",
+                    "since"
+                ]
+            },
+            "reorder_groups": [
+                "The shop",
+                "closed early",
+                "as",
+                "the owner",
+                "was ill."
+            ],
+            "token_groups": [
+                "The shop",
+                "closed early",
+                "as",
+                "the owner",
+                "was ill."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "clq-reason-b1-g01",
+            "author_id": "B1-g01",
+            "question": "{a1} the footbridge was unsafe, the walkers used the road.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Оскільки пішохідний міст був небезпечний, мандрівники пішли дорогою.",
+            "target_text": "Since the footbridge was unsafe, the walkers used the road.",
+            "markers": {
+                "a1": {
+                    "answer": "Since",
+                    "options": [
+                        "Since",
+                        "Despite",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Оскільки міст був небезпечний; початкова частина називає причину вибору дороги."
+                }
+            },
+            "verb_hint": "Оскільки міст був небезпечний; початкова частина називає причину вибору дороги.",
+            "accepted_target_texts": [
+                "Since the footbridge was unsafe, the walkers used the road.",
+                "Because the footbridge was unsafe, the walkers used the road.",
+                "As the footbridge was unsafe, the walkers used the road."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Because",
+                    "As"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Because",
+                    "As"
+                ]
+            },
+            "reorder_groups": [
+                "Since",
+                "the footbridge",
+                "was unsafe,",
+                "the walkers",
+                "used the road."
+            ],
+            "token_groups": [
+                "Since",
+                "the footbridge",
+                "was unsafe,",
+                "the walkers",
+                "used the road."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "clq-reason-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The match was delayed {a1} the pitch had frozen overnight.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Матч відклали, бо за ніч поле замерзло.",
+            "target_text": "The match was delayed because the pitch had frozen overnight.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "owing to",
+                        "however"
+                    ],
+                    "verb_hint": "Бо поле замерзло; перед повною частиною потрібен сполучник причини."
+                }
+            },
+            "verb_hint": "Бо поле замерзло; перед повною частиною потрібен сполучник причини.",
+            "accepted_target_texts": [
+                "The match was delayed because the pitch had frozen overnight.",
+                "The match was delayed since the pitch had frozen overnight.",
+                "The match was delayed as the pitch had frozen overnight."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "The match",
+                "was delayed",
+                "because",
+                "the pitch",
+                "had frozen",
+                "overnight."
+            ],
+            "token_groups": [
+                "The match",
+                "was delayed",
+                "because",
+                "the pitch",
+                "had frozen",
+                "overnight."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "clq-reason-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The panel withheld approval {a1} key measurements could not be reproduced.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Колегія не надала схвалення, бо ключові вимірювання не вдалося відтворити.",
+            "target_text": "The panel withheld approval because key measurements could not be reproduced.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "because of",
+                        "nevertheless"
+                    ],
+                    "verb_hint": "Бо вимірювання не відтворили; причина представлена цілою частиною, а не іменною групою."
+                }
+            },
+            "verb_hint": "Бо вимірювання не відтворили; причина представлена цілою частиною, а не іменною групою.",
+            "accepted_target_texts": [
+                "The panel withheld approval because key measurements could not be reproduced.",
+                "The panel withheld approval since key measurements could not be reproduced.",
+                "The panel withheld approval as key measurements could not be reproduced."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "The panel",
+                "withheld approval",
+                "because",
+                "key measurements",
+                "could not",
+                "be reproduced."
+            ],
+            "token_groups": [
+                "The panel",
+                "withheld approval",
+                "because",
+                "key measurements",
+                "could not",
+                "be reproduced."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "clq-reason-b2-g02",
+            "author_id": "B2-g02",
+            "question": "{a1} no independent witness was available, the account remained uncorroborated.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Оскільки незалежного свідка не було, виклад залишився без підтвердження.",
+            "target_text": "As no independent witness was available, the account remained uncorroborated.",
+            "markers": {
+                "a1": {
+                    "answer": "As",
+                    "options": [
+                        "As",
+                        "Despite",
+                        "Consequently"
+                    ],
+                    "verb_hint": "Оскільки свідка не було; вступна частина обґрунтовує відсутність підтвердження."
+                }
+            },
+            "verb_hint": "Оскільки свідка не було; вступна частина обґрунтовує відсутність підтвердження.",
+            "accepted_target_texts": [
+                "As no independent witness was available, the account remained uncorroborated.",
+                "Because no independent witness was available, the account remained uncorroborated.",
+                "Since no independent witness was available, the account remained uncorroborated."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Because",
+                    "Since"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Because",
+                    "Since"
+                ]
+            },
+            "reorder_groups": [
+                "As",
+                "no independent witness",
+                "was available,",
+                "the account",
+                "remained uncorroborated."
+            ],
+            "token_groups": [
+                "As",
+                "no independent witness",
+                "was available,",
+                "the account",
+                "remained uncorroborated."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "clq-reason-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The inference is premature {a1} the sample excludes transient residents.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Висновок передчасний, оскільки вибірка не охоплює тимчасових мешканців.",
+            "target_text": "The inference is premature because the sample excludes transient residents.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "notwithstanding",
+                        "thereby"
+                    ],
+                    "verb_hint": "Оскільки вибірка виключає частину мешканців; передай підставу оцінки висновку."
+                }
+            },
+            "verb_hint": "Оскільки вибірка виключає частину мешканців; передай підставу оцінки висновку.",
+            "accepted_target_texts": [
+                "The inference is premature because the sample excludes transient residents.",
+                "The inference is premature since the sample excludes transient residents.",
+                "The inference is premature as the sample excludes transient residents."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "The inference",
+                "is premature",
+                "because",
+                "the sample",
+                "excludes",
+                "transient residents."
+            ],
+            "token_groups": [
+                "The inference",
+                "is premature",
+                "because",
+                "the sample",
+                "excludes",
+                "transient residents."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "clq-reason-c1-g02",
+            "author_id": "C1-g02",
+            "question": "{a1} the concession was conditional, it did not settle the wider dispute.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Оскільки поступка була умовною, вона не владнала ширшої суперечки.",
+            "target_text": "Since the concession was conditional, it did not settle the wider dispute.",
+            "markers": {
+                "a1": {
+                    "answer": "Since",
+                    "options": [
+                        "Since",
+                        "Whereas",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Оскільки поступка мала умову; причинний зв’язок уже задано, не підмінюй його простим зіставленням."
+                }
+            },
+            "verb_hint": "Оскільки поступка мала умову; причинний зв’язок уже задано, не підмінюй його простим зіставленням.",
+            "accepted_target_texts": [
+                "Since the concession was conditional, it did not settle the wider dispute.",
+                "Because the concession was conditional, it did not settle the wider dispute.",
+                "As the concession was conditional, it did not settle the wider dispute."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Because",
+                    "As"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Because",
+                    "As"
+                ]
+            },
+            "reorder_groups": [
+                "Since",
+                "the concession",
+                "was conditional,",
+                "it did not",
+                "settle",
+                "the wider dispute."
+            ],
+            "token_groups": [
+                "Since",
+                "the concession",
+                "was conditional,",
+                "it did not",
+                "settle",
+                "the wider dispute."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "clq-reason-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The exception cannot bear that interpretation {a1} its wording expressly limits its scope.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Виняток не допускає такого тлумачення, бо його формулювання прямо обмежує сферу дії.",
+            "target_text": "The exception cannot bear that interpretation because its wording expressly limits its scope.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "irrespective of",
+                        "hence"
+                    ],
+                    "verb_hint": "Бо формулювання встановлює межу; зв’яжи правову оцінку з її текстовою підставою."
+                }
+            },
+            "verb_hint": "Бо формулювання встановлює межу; зв’яжи правову оцінку з її текстовою підставою.",
+            "accepted_target_texts": [
+                "The exception cannot bear that interpretation because its wording expressly limits its scope.",
+                "The exception cannot bear that interpretation since its wording expressly limits its scope.",
+                "The exception cannot bear that interpretation as its wording expressly limits its scope."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "The exception",
+                "cannot bear",
+                "that interpretation",
+                "because",
+                "its wording",
+                "expressly limits",
+                "its scope."
+            ],
+            "token_groups": [
+                "The exception",
+                "cannot bear",
+                "that interpretation",
+                "because",
+                "its wording",
+                "expressly limits",
+                "its scope."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "clq-reason-c2-g02",
+            "author_id": "C2-g02",
+            "question": "{a1} the alleged analogy presupposes the disputed premise, it supplies no independent support.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Оскільки заявлена аналогія передбачає спірну передумову, вона не дає незалежного підтвердження.",
+            "target_text": "As the alleged analogy presupposes the disputed premise, it supplies no independent support.",
+            "markers": {
+                "a1": {
+                    "answer": "As",
+                    "options": [
+                        "As",
+                        "Notwithstanding",
+                        "Thus"
+                    ],
+                    "verb_hint": "Оскільки аналогія вже спирається на спірне; причина пояснює брак незалежного підтвердження."
+                }
+            },
+            "verb_hint": "Оскільки аналогія вже спирається на спірне; причина пояснює брак незалежного підтвердження.",
+            "accepted_target_texts": [
+                "As the alleged analogy presupposes the disputed premise, it supplies no independent support.",
+                "Because the alleged analogy presupposes the disputed premise, it supplies no independent support.",
+                "Since the alleged analogy presupposes the disputed premise, it supplies no independent support."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Because",
+                    "Since"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Because",
+                    "Since"
+                ]
+            },
+            "reorder_groups": [
+                "As",
+                "the alleged analogy",
+                "presupposes",
+                "the disputed premise,",
+                "it supplies",
+                "no independent support."
+            ],
+            "token_groups": [
+                "As",
+                "the alleged analogy",
+                "presupposes",
+                "the disputed premise,",
+                "it supplies",
+                "no independent support."
+            ],
+            "quality_revision": "clq-v1"
+        }
+    ]
+}

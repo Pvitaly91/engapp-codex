@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66357,
+        "uuid": "rsq-saytell-a2-g02",
+        "question": "Mira {a1} her neighbour that the lift was broken.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 62,
+        "source_id": 533,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechSayTellAskQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "said to",
+                "told to",
+                "asked to"
+            ]
+        },
+        "theory_text_block_uuid": "2ab6da7e-79fd-5048-be78-5bee9400128b",
+        "created_at": "2026-11-01T20:05:06.000000Z",
+        "updated_at": "2026-11-01T20:05:06.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 533,
+        "name": "Reported Speech Quality: Say, Tell and Ask",
+        "created_at": "2026-11-01T20:05:06.000000Z",
+        "updated_at": "2026-11-01T20:05:06.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 23857,
+                "option": "said to",
+                "created_at": "2026-05-21T22:54:21.000000Z",
+                "updated_at": "2026-05-21T22:54:21.000000Z"
+            },
+            "pivot": {
+                "question_id": 66357,
+                "option_id": 23857,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 24335,
+                "option": "asked to",
+                "created_at": "2026-05-22T20:17:38.000000Z",
+                "updated_at": "2026-05-22T20:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 66357,
+                "option_id": 24335,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 24336,
+                "option": "told to",
+                "created_at": "2026-05-22T20:17:38.000000Z",
+                "updated_at": "2026-05-22T20:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 66357,
+                "option_id": 24336,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 341316,
+                "question_id": 66357,
+                "marker": "a1",
+                "option_id": 23857,
+                "created_at": "2026-11-01T20:05:06.000000Z",
+                "updated_at": "2026-11-01T20:05:06.000000Z"
+            },
+            "option": {
+                "id": 23857,
+                "option": "said to",
+                "created_at": "2026-05-21T22:54:21.000000Z",
+                "updated_at": "2026-05-21T22:54:21.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58650,
+                "question_id": 66357,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68875,
+                "created_at": "2026-11-01T20:05:06.000000Z",
+                "updated_at": "2026-11-01T20:05:06.000000Z"
+            },
+            "option": {
+                "id": 68875,
+                "option": "Сказала названому адресатові; збережи модель з прийменником.",
+                "created_at": "2026-11-01T20:05:06.000000Z",
+                "updated_at": "2026-11-01T20:05:06.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58372,
+            "question_id": 66357,
+            "text": "Mira {a1} her neighbour that the lift was broken.",
+            "created_at": "2026-11-01T20:05:06.000000Z",
+            "updated_at": "2026-11-01T20:05:06.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

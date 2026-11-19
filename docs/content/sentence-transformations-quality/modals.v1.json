@@ -1,0 +1,786 @@
+{
+    "schema_version": 1,
+    "topic_key": "modals",
+    "title": "Sentence Transformations: Modals",
+    "choice_pools": {
+        "subject": [
+            "He",
+            "She",
+            "I",
+            "You",
+            "The pilot",
+            "Our teacher",
+            "My cousin",
+            "The driver"
+        ],
+        "modal_negative": [
+            "cannot",
+            "may not",
+            "should not",
+            "will not",
+            "could not",
+            "would not",
+            "must not",
+            "might not"
+        ],
+        "base_activity": [
+            "walk",
+            "speak",
+            "sing",
+            "wait",
+            "eat",
+            "play",
+            "leave",
+            "dance"
+        ],
+        "place": [
+            "in the kitchen",
+            "in the garden",
+            "at the station",
+            "near the gate",
+            "by the window",
+            "on the balcony",
+            "under the bridge"
+        ],
+        "polite_auxiliary": [
+            "Can",
+            "Will",
+            "Would",
+            "May",
+            "Should",
+            "Could",
+            "Must",
+            "Might"
+        ],
+        "addressee": [
+            "you",
+            "she",
+            "he",
+            "we",
+            "they",
+            "I",
+            "the porter",
+            "our guide"
+        ],
+        "base_transitive": [
+            "open",
+            "lock",
+            "check",
+            "paint",
+            "clean",
+            "repair",
+            "move",
+            "carry"
+        ],
+        "object": [
+            "the gate",
+            "that box",
+            "this bottle",
+            "my bag",
+            "the parcel",
+            "her window",
+            "a drawer",
+            "those folders"
+        ],
+        "courtesy": [
+            "now",
+            "today",
+            "quietly",
+            "gently",
+            "carefully",
+            "quickly",
+            "please",
+            "again"
+        ],
+        "past_permission": [
+            "was allowed",
+            "was permitted",
+            "was told",
+            "was asked",
+            "was required",
+            "was expected",
+            "was invited"
+        ],
+        "infinitive_activity": [
+            "to stay up",
+            "to go out",
+            "to visit friends",
+            "to play games",
+            "to watch television",
+            "to sit outside",
+            "to return late"
+        ],
+        "adverb": [
+            "late",
+            "early",
+            "quietly",
+            "alone",
+            "outside",
+            "indoors",
+            "together"
+        ],
+        "time": [
+            "on Fridays",
+            "at weekends",
+            "during holidays",
+            "after dinner",
+            "before school",
+            "every evening",
+            "every weekend"
+        ],
+        "childhood_context": [
+            "as a child",
+            "as a teenager",
+            "in my youth",
+            "at primary school",
+            "as a student",
+            "during my childhood",
+            "in those days"
+        ],
+        "modal_perfect": [
+            "should not have",
+            "must not have",
+            "must have",
+            "would have",
+            "may have",
+            "cannot have",
+            "need not have",
+            "should have"
+        ],
+        "past_verb_object": [
+            "called us",
+            "helped me",
+            "told them",
+            "asked him",
+            "shown her",
+            "met them",
+            "warned us"
+        ],
+        "about_phrase": [
+            "about the noise",
+            "about the accident",
+            "about the problem",
+            "about the damage",
+            "about the weather",
+            "about the change"
+        ],
+        "negative_perfect": [
+            "must not have",
+            "should not have",
+            "would not have",
+            "might not have",
+            "may not have",
+            "cannot have",
+            "could never have"
+        ],
+        "achievement": [
+            "found shelter",
+            "obtained permission",
+            "reached safety",
+            "retrieved data",
+            "secured entry",
+            "recovered files",
+            "regained control"
+        ],
+        "preposition": [
+            "with",
+            "despite",
+            "before",
+            "after",
+            "using",
+            "through",
+            "without"
+        ],
+        "key_object": [
+            "the master key",
+            "the access card",
+            "the security badge",
+            "the secret password",
+            "the temporary pass",
+            "the old map",
+            "a valid permit"
+        ],
+        "deadline": [
+            "By noon",
+            "By next week",
+            "By tomorrow",
+            "By midnight",
+            "By next month",
+            "By then",
+            "By that time"
+        ],
+        "institution": [
+            "the jury",
+            "the committee",
+            "our team",
+            "the council",
+            "the board",
+            "the delegates",
+            "the panel"
+        ],
+        "tentative_perfect": [
+            "might well have",
+            "could already have",
+            "may already have",
+            "would already have",
+            "must already have",
+            "should already have",
+            "may well have"
+        ],
+        "participle": [
+            "issued",
+            "recorded",
+            "announced",
+            "discussed",
+            "delivered",
+            "confirmed",
+            "reached"
+        ],
+        "outcome": [
+            "a final conclusion",
+            "a joint statement",
+            "a firm decision",
+            "a written agreement",
+            "a binding resolution",
+            "an interim recommendation",
+            "a unanimous verdict"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "Olena {a1} swim without help.",
+            "target": "Olena can swim without help.",
+            "uk": "Початкове: «Олена вміє плавати самостійно».",
+            "hint_uk": "Початкове: «Олена вміє плавати самостійно». Передай вміння одним модальним дієсловом; підмет і дію вже наведено.",
+            "groups": [
+                "Olena",
+                "can swim",
+                "without help."
+            ],
+            "answer": "can",
+            "options": [
+                "can",
+                "must",
+                "may"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "All riders {a1} a helmet.",
+            "target": "All riders must wear a helmet.",
+            "uk": "Початкове: «Усі велосипедисти зобов’язані носити шолом».",
+            "hint_uk": "Початкове: «Усі велосипедисти зобов’язані носити шолом». Заміни слова про обов’язок модальним дієсловом із дією носити.",
+            "groups": [
+                "All riders",
+                "must wear",
+                "a helmet."
+            ],
+            "answer": "must wear",
+            "options": [
+                "must wear",
+                "can wear",
+                "might wear"
+            ],
+            "answer_synonyms": [
+                "have to wear"
+            ]
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Тобі не можна бігати в класі.",
+            "target": "You must not run in the classroom.",
+            "uk": "Тобі не можна бігати в класі.",
+            "hint_uk": "Почни зі звертання до співрозмовника; передай заборону модальним дієсловом.",
+            "groups": [
+                "You",
+                "must not",
+                "run",
+                "in the classroom."
+            ],
+            "compose_slots": [
+                "You",
+                "must not",
+                "run",
+                "in the classroom."
+            ],
+            "slot_roles": [
+                "subject",
+                "modal_negative",
+                "base_activity",
+                "place"
+            ],
+            "accepted_targets": [
+                "You mustn't run in the classroom."
+            ],
+            "display_synonyms": {
+                "must not": [
+                    "mustn't"
+                ]
+            }
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "It {a1} rain after sunset.",
+            "target": "It may rain after sunset.",
+            "uk": "Початкове: «Можливо, після заходу сонця піде дощ».",
+            "hint_uk": "Початкове: «Можливо, після заходу сонця піде дощ». Заміни слово можливо модальним дієсловом, не посилюй упевненість.",
+            "groups": [
+                "It may rain",
+                "after sunset."
+            ],
+            "answer": "may",
+            "options": [
+                "may",
+                "will",
+                "must"
+            ],
+            "answer_synonyms": [
+                "might",
+                "could"
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "We {a1} tickets in advance.",
+            "target": "We do not have to buy tickets in advance.",
+            "uk": "Початкове: «Нам необов’язково купувати квитки заздалегідь».",
+            "hint_uk": "Початкове: «Нам необов’язково купувати квитки заздалегідь». Передай відсутність необхідності, а не заборону покупки; вжий повну заперечну форму.",
+            "groups": [
+                "We",
+                "do not",
+                "have to buy",
+                "tickets",
+                "in advance."
+            ],
+            "answer": "do not have to buy",
+            "options": [
+                "do not have to buy",
+                "must not buy",
+                "had to buy"
+            ],
+            "answer_synonyms": [
+                "do not need to buy",
+                "need not buy"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Не міг би ти зачинити вікно, будь ласка?",
+            "target": "Could you close the window, please?",
+            "uk": "Не міг би ти зачинити вікно, будь ласка?",
+            "hint_uk": "Постав ввічливе модальне дієслово перед співрозмовником; ввічливе слово залиш наприкінці.",
+            "groups": [
+                "Could",
+                "you",
+                "close",
+                "the window,",
+                "please?"
+            ],
+            "compose_slots": [
+                "Could",
+                "you",
+                "close",
+                "the window,",
+                "please?"
+            ],
+            "slot_roles": [
+                "polite_auxiliary",
+                "addressee",
+                "base_transitive",
+                "object",
+                "courtesy"
+            ],
+            "accepted_targets": [
+                "Would you close the window, please?",
+                "Can you close the window, please?",
+                "Will you close the window, please?",
+                "Might you close the window, please?"
+            ],
+            "display_synonyms": {
+                "Could": [
+                    "Would",
+                    "Can",
+                    "Will",
+                    "Might"
+                ]
+            }
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "Mark {a1} at home; the lights are on.",
+            "target": "Mark must be at home; the lights are on.",
+            "uk": "Початкове: «У Марка горить світло; він, напевно, вдома».",
+            "hint_uk": "Початкове: «У Марка горить світло; він, напевно, вдома». Подай сильний висновок із наявної ознаки; ідеться про теперішнє місце перебування.",
+            "groups": [
+                "Mark must be",
+                "at home;",
+                "the lights",
+                "are on."
+            ],
+            "answer": "must be",
+            "options": [
+                "must be",
+                "might be",
+                "cannot be"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "Yulia {a1} the rusty gate yesterday.",
+            "target": "Yulia was able to open the rusty gate yesterday.",
+            "uk": "Початкове: «Юлі вдалося відчинити іржаві ворота вчора».",
+            "hint_uk": "Початкове: «Юлі вдалося відчинити іржаві ворота вчора». Збережи успішне виконання однієї минулої дії; передай вдалося відчинити.",
+            "groups": [
+                "Yulia",
+                "was able",
+                "to open",
+                "the rusty gate",
+                "yesterday."
+            ],
+            "answer": "was able to open",
+            "options": [
+                "was able to open",
+                "was able open",
+                "is able to open"
+            ],
+            "answer_synonyms": [
+                "managed to open"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "У дитинстві мені дозволяли пізно лягати спати щоп’ятниці.",
+            "target": "I was allowed to stay up late on Fridays as a child.",
+            "uk": "У дитинстві мені дозволяли пізно лягати спати щоп’ятниці.",
+            "hint_uk": "Почни з мовця; передай минулий дозвіл, не власну здібність.",
+            "groups": [
+                "I",
+                "was allowed",
+                "to stay up",
+                "late",
+                "on Fridays",
+                "as a child."
+            ],
+            "compose_slots": [
+                "I",
+                "was allowed",
+                "to stay up",
+                "late",
+                "on Fridays",
+                "as a child."
+            ],
+            "slot_roles": [
+                "subject",
+                "past_permission",
+                "infinitive_activity",
+                "adverb",
+                "time",
+                "childhood_context"
+            ],
+            "accepted_targets": [
+                "I was permitted to stay up late on Fridays as a child.",
+                "I was allowed to stay up late on Fridays during my childhood.",
+                "I was permitted to stay up late on Fridays during my childhood."
+            ],
+            "display_synonyms": {
+                "was allowed": [
+                    "was permitted"
+                ],
+                "as a child.": [
+                    "during my childhood."
+                ]
+            }
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "He {a1} the appointment.",
+            "target": "He must have forgotten the appointment.",
+            "uk": "Початкове: «Він, напевно, забув про зустріч».",
+            "hint_uk": "Початкове: «Він, напевно, забув про зустріч». Перебудуй сильний висновок про попередню подію через складену модальну форму.",
+            "groups": [
+                "He",
+                "must have forgotten",
+                "the appointment."
+            ],
+            "answer": "must have forgotten",
+            "options": [
+                "must have forgotten",
+                "may have forgotten",
+                "must forget"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "Marta {a1} the itinerary; we already had a copy.",
+            "target": "Marta need not have printed the itinerary; we already had a copy.",
+            "uk": "Початкове: «Марта дарма надрукувала маршрут: копія в нас уже була».",
+            "hint_uk": "Початкове: «Марта дарма надрукувала маршрут: копія в нас уже була». Передай не було потреби друкувати; обов’язково збережи факт виконаного зайвого друку в минулому.",
+            "groups": [
+                "Marta",
+                "need not",
+                "have printed",
+                "the itinerary;",
+                "we already had",
+                "a copy."
+            ],
+            "answer": "need not have printed",
+            "options": [
+                "need not have printed",
+                "could not print",
+                "need not print"
+            ],
+            "answer_synonyms": [
+                "needn't have printed"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Тобі слід було попередити нас про затримку.",
+            "target": "You should have warned us about the delay.",
+            "uk": "Тобі слід було попередити нас про затримку.",
+            "hint_uk": "Передай докір за невиконану минулу дію; почни зі звертання до співрозмовника.",
+            "groups": [
+                "You",
+                "should have",
+                "warned us",
+                "about the delay."
+            ],
+            "compose_slots": [
+                "You",
+                "should have",
+                "warned us",
+                "about the delay."
+            ],
+            "slot_roles": [
+                "subject",
+                "modal_perfect",
+                "past_verb_object",
+                "about_phrase"
+            ],
+            "accepted_targets": [
+                "You ought to have warned us about the delay."
+            ],
+            "display_synonyms": {
+                "should have": [
+                    "ought to have"
+                ]
+            }
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "Much as I {a1} to help, I lack the expertise.",
+            "target": "Much as I would like to help, I lack the expertise.",
+            "uk": "Початкове: «Хоч я й хотів би допомогти, мені бракує фахових знань».",
+            "hint_uk": "Початкове: «Хоч я й хотів би допомогти, мені бракує фахових знань». Збережи бажання, обмежене реальною перешкодою; не перетворюй його на дозвіл чи вміння.",
+            "groups": [
+                "Much as I",
+                "would like",
+                "to help,",
+                "I lack",
+                "the expertise."
+            ],
+            "answer": "would like",
+            "options": [
+                "would like",
+                "may like",
+                "can like"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The curator {a1} the appendix to protect the donor.",
+            "target": "The curator may have withheld the appendix to protect the donor.",
+            "uk": "Початкове: «Можливо, куратор приховав додаток, щоб захистити дарувальника».",
+            "hint_uk": "Початкове: «Можливо, куратор приховав додаток, щоб захистити дарувальника». Подай лише припущення про попередню навмисну дію приховати; не роби певного висновку.",
+            "groups": [
+                "The curator",
+                "may have withheld",
+                "the appendix",
+                "to protect",
+                "the donor."
+            ],
+            "answer": "may have withheld",
+            "options": [
+                "may have withheld",
+                "must have withheld",
+                "may withhold"
+            ],
+            "answer_synonyms": [
+                "might have withheld",
+                "could have withheld"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Вона не могла б відновити доступ без резервного коду.",
+            "target": "She could not have regained access without the backup code.",
+            "uk": "Вона не могла б відновити доступ без резервного коду.",
+            "hint_uk": "Почни з неї; передай неможливість відновлення доступу без коду в тій минулій ситуації.",
+            "groups": [
+                "She",
+                "could not have",
+                "regained access",
+                "without",
+                "the backup code."
+            ],
+            "compose_slots": [
+                "She",
+                "could not have",
+                "regained access",
+                "without",
+                "the backup code."
+            ],
+            "slot_roles": [
+                "subject",
+                "negative_perfect",
+                "achievement",
+                "preposition",
+                "key_object"
+            ],
+            "accepted_targets": [
+                "She couldn't have regained access without the backup code.",
+                "She could not have recovered access without the backup code.",
+                "She couldn't have recovered access without the backup code.",
+                "She could not have restored access without the backup code.",
+                "She couldn't have restored access without the backup code."
+            ],
+            "display_synonyms": {
+                "could not have": [
+                    "couldn't have"
+                ],
+                "regained access": [
+                    "recovered access",
+                    "restored access"
+                ]
+            }
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The remedy {a1} the defect, but no trial has confirmed this.",
+            "target": "The remedy should eliminate the defect, but no trial has confirmed this.",
+            "uk": "Початкове: «За теорією, цей засіб мав би усунути дефект, але випробування цього ще не підтвердили».",
+            "hint_uk": "Початкове: «За теорією, цей засіб мав би усунути дефект, але випробування цього ще не підтвердили». Передай обґрунтоване очікування усунення дефекту, не гарантований результат чи обов’язок.",
+            "groups": [
+                "The remedy",
+                "should eliminate",
+                "the defect,",
+                "but no trial",
+                "has confirmed this."
+            ],
+            "answer": "should eliminate",
+            "options": [
+                "should eliminate",
+                "will eliminate",
+                "must eliminate"
+            ],
+            "answer_synonyms": [
+                "ought to eliminate"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "No one {a1} their identity twice, although several volunteers did.",
+            "target": "No one needed to confirm their identity twice, although several volunteers did.",
+            "uk": "Початкове: «Нікому не було потрібно підтверджувати особу двічі, хоча кілька добровольців це зробили».",
+            "hint_uk": "Початкове: «Нікому не було потрібно підтверджувати особу двічі, хоча кілька добровольців це зробили». Збережи відсутність минулої необхідності й окремий факт добровільного виконання; не перетворюй це на заборону.",
+            "groups": [
+                "No one",
+                "needed to confirm",
+                "their identity twice,",
+                "although",
+                "several volunteers did."
+            ],
+            "answer": "needed to confirm",
+            "options": [
+                "needed to confirm",
+                "needs to confirm",
+                "will need to confirm"
+            ],
+            "answer_synonyms": [
+                "had to confirm"
+            ]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "До того моменту комісія цілком могла вже дійти одностайного висновку.",
+            "target": "By then, the panel may well have reached a unanimous verdict.",
+            "uk": "До того моменту комісія цілком могла вже дійти одностайного висновку.",
+            "hint_uk": "Почни з часової межі; збережи обережне припущення про попередній завершений результат, а не певність.",
+            "groups": [
+                "By then,",
+                "the panel",
+                "may well have",
+                "reached",
+                "a unanimous verdict."
+            ],
+            "compose_slots": [
+                "By then,",
+                "the panel",
+                "may well have",
+                "reached",
+                "a unanimous verdict."
+            ],
+            "slot_roles": [
+                "deadline",
+                "institution",
+                "tentative_perfect",
+                "participle",
+                "outcome"
+            ],
+            "accepted_targets": [
+                "By then, the panel might well have reached a unanimous verdict.",
+                "By then, the panel could already have reached a unanimous verdict.",
+                "By then, the panel may already have reached a unanimous verdict."
+            ],
+            "display_synonyms": {
+                "may well have": [
+                    "might well have",
+                    "could already have",
+                    "may already have"
+                ]
+            }
+        }
+    ]
+}
+

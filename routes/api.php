@@ -46,3 +46,4 @@ Route::get('/word-search/{lang?}', [WordSearchController::class, 'search'])
     ->withoutMiddleware(ThrottleRequests::class . ':api')
     ->name('api.words.search');
 
+

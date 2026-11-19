@@ -1,0 +1,1586 @@
+{
+    "schema_version": 1,
+    "quality_revision": "nouns-articles-quantity-v1",
+    "compiled_from": {
+        "path": "docs/content/nouns-articles-quantity-quality/geographical-articles.v1.json",
+        "sha256": "496cda10b6c1b3331b96c686fd50b7c1ef009bbcfbd89841ec2e8cb62d949e78"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\NounsArticlesQuantity\\UkrainianMixedArticlesWithGeographicalNamesQualityStandardSeeder",
+        "uuid_namespace": "nouns-articles-quantity-quality-geographical-articles-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Nouns / Articles / Quantity"
+    },
+    "sources": {
+        "nouns_articles_quantity_quality_geographical_articles": {
+            "name": "Nouns Articles Quantity Quality: Артиклі з географічними назвами: країни, водні об’єкти та регіони"
+        }
+    },
+    "tags": {
+        "articles_with_geographical_names": {
+            "name": "Articles With Geographical Names",
+            "category": "nouns_articles_quantity"
+        },
+        "no_article_countries_cities": {
+            "name": "No Article Countries Cities",
+            "category": "topic"
+        },
+        "the_water_bodies": {
+            "name": "The Water Bodies",
+            "category": "topic"
+        },
+        "the_mountain_ranges": {
+            "name": "The Mountain Ranges",
+            "category": "topic"
+        },
+        "the_island_groups": {
+            "name": "The Island Groups",
+            "category": "topic"
+        },
+        "the_deserts": {
+            "name": "The Deserts",
+            "category": "topic"
+        },
+        "the_country_descriptors": {
+            "name": "The Country Descriptors",
+            "category": "topic"
+        },
+        "zero_single_mountains_lakes": {
+            "name": "Zero Single Mountains Lakes",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "articles_with_geographical_names"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "naqq-geographical-articles-a1-g01",
+            "author_id": "A1-g01",
+            "question": "My aunt lives in {a1} France with her son.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Моя тітка живе у Франції зі своїм сином.",
+            "target_text": "My aunt lives in France with her son.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Звичайна назва цієї країни не потребує артикля; познач його відсутність дефісом."
+                }
+            },
+            "verb_hint": "Звичайна назва цієї країни не потребує артикля; познач його відсутність дефісом.",
+            "accepted_target_texts": [
+                "My aunt lives in France with her son."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My aunt lives",
+                "in France",
+                "with her son."
+            ],
+            "token_groups": [
+                "My aunt lives",
+                "in France",
+                "with her son."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "naqq-geographical-articles-a1-g02",
+            "author_id": "A1-g02",
+            "question": "We are visiting {a1} London this weekend.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Цими вихідними ми відвідаємо Лондон.",
+            "target_text": "We are visiting London this weekend.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Перед назвою міста артикля немає; введи дефіс."
+                }
+            },
+            "verb_hint": "Перед назвою міста артикля немає; введи дефіс.",
+            "accepted_target_texts": [
+                "We are visiting London this weekend."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We are visiting",
+                "London",
+                "this weekend."
+            ],
+            "token_groups": [
+                "We are visiting",
+                "London",
+                "this weekend."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "naqq-geographical-articles-a1-g03",
+            "author_id": "A1-g03",
+            "question": "The Nile is a river in {a1} Africa.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Ніл — річка в Африці.",
+            "target_text": "The Nile is a river in Africa.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Перед назвою континенту артикля немає; введи дефіс."
+                }
+            },
+            "verb_hint": "Перед назвою континенту артикля немає; введи дефіс.",
+            "accepted_target_texts": [
+                "The Nile is a river in Africa."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The Nile is",
+                "a river",
+                "in Africa."
+            ],
+            "token_groups": [
+                "The Nile is",
+                "a river",
+                "in Africa."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "naqq-geographical-articles-a1-g04",
+            "author_id": "A1-g04",
+            "question": "{a1} Thames flows through London.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Темза протікає через Лондон.",
+            "target_text": "The Thames flows through London.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "options": [
+                        "The",
+                        "A",
+                        "An"
+                    ],
+                    "verb_hint": "Перед назвою річки потрібен означений артикль; він стоїть на початку речення."
+                }
+            },
+            "verb_hint": "Перед назвою річки потрібен означений артикль; він стоїть на початку речення.",
+            "accepted_target_texts": [
+                "The Thames flows through London."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The Thames flows",
+                "through London."
+            ],
+            "token_groups": [
+                "The Thames flows",
+                "through London."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "naqq-geographical-articles-a1-g05",
+            "author_id": "A1-g05",
+            "question": "They come from {a1} Japan, but work here.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Вони з Японії, але працюють тут.",
+            "target_text": "They come from Japan, but work here.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Назва цієї країни без означальних додатків уживається без артикля; введи дефіс."
+                }
+            },
+            "verb_hint": "Назва цієї країни без означальних додатків уживається без артикля; введи дефіс.",
+            "accepted_target_texts": [
+                "They come from Japan, but work here."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They come",
+                "from Japan,",
+                "but work here."
+            ],
+            "token_groups": [
+                "They come",
+                "from Japan,",
+                "but work here."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "naqq-geographical-articles-a1-g06",
+            "author_id": "A1-g06",
+            "question": "We can see {a1} sea from our hotel.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "З нашого готелю видно море.",
+            "target_text": "We can see the sea from our hotel.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Це загальна назва конкретного моря біля готелю, не власна назва країни; потрібен означений артикль."
+                }
+            },
+            "verb_hint": "Це загальна назва конкретного моря біля готелю, не власна назва країни; потрібен означений артикль.",
+            "accepted_target_texts": [
+                "We can see the sea from our hotel."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We can see",
+                "the sea",
+                "from our hotel."
+            ],
+            "token_groups": [
+                "We can see",
+                "the sea",
+                "from our hotel."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "naqq-geographical-articles-a2-g01",
+            "author_id": "A2-g01",
+            "question": "They crossed {a1} Atlantic by ship.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Вони перетнули Атлантику кораблем.",
+            "target_text": "They crossed the Atlantic by ship.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Перед назвою океану потрібен означений артикль."
+                }
+            },
+            "verb_hint": "Перед назвою океану потрібен означений артикль.",
+            "accepted_target_texts": [
+                "They crossed the Atlantic by ship."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They crossed",
+                "the Atlantic",
+                "by ship."
+            ],
+            "token_groups": [
+                "They crossed",
+                "the Atlantic",
+                "by ship."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "naqq-geographical-articles-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Our village is near {a1} Lake Victoria.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Наше село розташоване біля озера Вікторія.",
+            "target_text": "Our village is near Lake Victoria.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Власна назва озера після слова на позначення озера вживається без артикля; введи дефіс."
+                }
+            },
+            "verb_hint": "Власна назва озера після слова на позначення озера вживається без артикля; введи дефіс.",
+            "accepted_target_texts": [
+                "Our village is near Lake Victoria."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our village is",
+                "near Lake",
+                "Victoria."
+            ],
+            "token_groups": [
+                "Our village is",
+                "near Lake",
+                "Victoria."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "naqq-geographical-articles-a2-g03",
+            "author_id": "A2-g03",
+            "question": "He wants to climb {a1} Mount Kenya next year.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Наступного року він хоче піднятися на гору Кенія.",
+            "target_text": "He wants to climb Mount Kenya next year.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Перед власною назвою окремої гори зі словом на позначення гори артикль не потрібен; введи дефіс."
+                }
+            },
+            "verb_hint": "Перед власною назвою окремої гори зі словом на позначення гори артикль не потрібен; введи дефіс.",
+            "accepted_target_texts": [
+                "He wants to climb Mount Kenya next year."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He wants",
+                "to climb",
+                "Mount Kenya",
+                "next year."
+            ],
+            "token_groups": [
+                "He wants",
+                "to climb",
+                "Mount Kenya",
+                "next year."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "naqq-geographical-articles-a2-g04",
+            "author_id": "A2-g04",
+            "question": "We spent a week in {a1} Netherlands.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Ми провели тиждень у Нідерландах.",
+            "target_text": "We spent a week in the Netherlands.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Ця усталена назва країни має форму множини й потребує означеного артикля."
+                }
+            },
+            "verb_hint": "Ця усталена назва країни має форму множини й потребує означеного артикля.",
+            "accepted_target_texts": [
+                "We spent a week in the Netherlands."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We spent",
+                "a week",
+                "in the Netherlands."
+            ],
+            "token_groups": [
+                "We spent",
+                "a week",
+                "in the Netherlands."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "naqq-geographical-articles-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The ship entered {a1} Mediterranean Sea at dawn.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "На світанку корабель увійшов у Середземне море.",
+            "target_text": "The ship entered the Mediterranean Sea at dawn.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Власні назви морів уживаються з означеним артиклем."
+                }
+            },
+            "verb_hint": "Власні назви морів уживаються з означеним артиклем.",
+            "accepted_target_texts": [
+                "The ship entered the Mediterranean Sea at dawn."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ship entered",
+                "the Mediterranean Sea",
+                "at dawn."
+            ],
+            "token_groups": [
+                "The ship entered",
+                "the Mediterranean Sea",
+                "at dawn."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "naqq-geographical-articles-a2-g06",
+            "author_id": "A2-g06",
+            "question": "My grandparents live in {a1} South America.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Мої дідусь і бабуся живуть у Південній Америці.",
+            "target_text": "My grandparents live in South America.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Назва континенту з означенням напрямку не потребує артикля; введи дефіс."
+                }
+            },
+            "verb_hint": "Назва континенту з означенням напрямку не потребує артикля; введи дефіс.",
+            "accepted_target_texts": [
+                "My grandparents live in South America."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My grandparents live",
+                "in South",
+                "America."
+            ],
+            "token_groups": [
+                "My grandparents live",
+                "in South",
+                "America."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "naqq-geographical-articles-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The expedition explored {a1} Andes for several months.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Експедиція кілька місяців досліджувала Анди.",
+            "target_text": "The expedition explored the Andes for several months.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Назва гірської системи потребує означеного артикля."
+                }
+            },
+            "verb_hint": "Назва гірської системи потребує означеного артикля.",
+            "accepted_target_texts": [
+                "The expedition explored the Andes for several months."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The expedition explored",
+                "the Andes",
+                "for several months."
+            ],
+            "token_groups": [
+                "The expedition explored",
+                "the Andes",
+                "for several months."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "naqq-geographical-articles-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Her brother works in {a1} United Arab Emirates.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Її брат працює в Об’єднаних Арабських Еміратах.",
+            "target_text": "Her brother works in the United Arab Emirates.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Описова державна назва у множині має означений артикль."
+                }
+            },
+            "verb_hint": "Описова державна назва у множині має означений артикль.",
+            "accepted_target_texts": [
+                "Her brother works in the United Arab Emirates."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Her brother works",
+                "in the United",
+                "Arab Emirates."
+            ],
+            "token_groups": [
+                "Her brother works",
+                "in the United",
+                "Arab Emirates."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "naqq-geographical-articles-b1-g03",
+            "author_id": "B1-g03",
+            "question": "We flew over {a1} Mount Everest on a clear morning.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Ясного ранку ми пролетіли над горою Еверест.",
+            "target_text": "We flew over Mount Everest on a clear morning.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Назва окремої гори зі словом на позначення гори не потребує артикля; введи дефіс."
+                }
+            },
+            "verb_hint": "Назва окремої гори зі словом на позначення гори не потребує артикля; введи дефіс.",
+            "accepted_target_texts": [
+                "We flew over Mount Everest on a clear morning."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We flew over",
+                "Mount Everest",
+                "on a clear",
+                "morning."
+            ],
+            "token_groups": [
+                "We flew over",
+                "Mount Everest",
+                "on a clear",
+                "morning."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "naqq-geographical-articles-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The photographer visited {a1} Canary Islands in winter.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Фотограф відвідав Канарські острови взимку.",
+            "target_text": "The photographer visited the Canary Islands in winter.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Перед назвою групи островів потрібен означений артикль."
+                }
+            },
+            "verb_hint": "Перед назвою групи островів потрібен означений артикль.",
+            "accepted_target_texts": [
+                "The photographer visited the Canary Islands in winter."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The photographer visited",
+                "the Canary Islands",
+                "in winter."
+            ],
+            "token_groups": [
+                "The photographer visited",
+                "the Canary Islands",
+                "in winter."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "naqq-geographical-articles-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The route passes through {a1} Central Europe.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Маршрут проходить через Центральну Європу.",
+            "target_text": "The route passes through Central Europe.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Назва частини континенту з географічним означенням уживається без артикля; введи дефіс."
+                }
+            },
+            "verb_hint": "Назва частини континенту з географічним означенням уживається без артикля; введи дефіс.",
+            "accepted_target_texts": [
+                "The route passes through Central Europe."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The route passes",
+                "through Central",
+                "Europe."
+            ],
+            "token_groups": [
+                "The route passes",
+                "through Central",
+                "Europe."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "naqq-geographical-articles-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The delegation travelled to {a1} United Kingdom for the talks.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Делегація поїхала до Сполученого Королівства на переговори.",
+            "target_text": "The delegation travelled to the United Kingdom for the talks.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Офіційна описова назва зі словом королівство потребує означеного артикля."
+                }
+            },
+            "verb_hint": "Офіційна описова назва зі словом королівство потребує означеного артикля.",
+            "accepted_target_texts": [
+                "The delegation travelled to the United Kingdom for the talks."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The delegation travelled",
+                "to the United",
+                "Kingdom",
+                "for the talks."
+            ],
+            "token_groups": [
+                "The delegation travelled",
+                "to the United",
+                "Kingdom",
+                "for the talks."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "naqq-geographical-articles-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The research station stands on the edge of {a1} Sahara.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Дослідницька станція розташована на краю Сахари.",
+            "target_text": "The research station stands on the edge of the Sahara.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Перед усталеною назвою цієї пустелі потрібен означений артикль."
+                }
+            },
+            "verb_hint": "Перед усталеною назвою цієї пустелі потрібен означений артикль.",
+            "accepted_target_texts": [
+                "The research station stands on the edge of the Sahara."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The research station",
+                "stands",
+                "on the edge",
+                "of the Sahara."
+            ],
+            "token_groups": [
+                "The research station",
+                "stands",
+                "on the edge",
+                "of the Sahara."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "naqq-geographical-articles-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Several participants came from {a1} New Zealand.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Кілька учасників прибули з Нової Зеландії.",
+            "target_text": "Several participants came from New Zealand.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Усталена назва цієї держави, попри прикметник у складі, не потребує артикля; введи дефіс."
+                }
+            },
+            "verb_hint": "Усталена назва цієї держави, попри прикметник у складі, не потребує артикля; введи дефіс.",
+            "accepted_target_texts": [
+                "Several participants came from New Zealand."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Several participants",
+                "came",
+                "from New Zealand."
+            ],
+            "token_groups": [
+                "Several participants",
+                "came",
+                "from New Zealand."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "naqq-geographical-articles-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The railway connects communities across {a1} Middle East.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Залізниця сполучає громади по всьому Близькому Сходу.",
+            "target_text": "The railway connects communities across the Middle East.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Усталена назва цього регіону вживається з означеним артиклем."
+                }
+            },
+            "verb_hint": "Усталена назва цього регіону вживається з означеним артиклем.",
+            "accepted_target_texts": [
+                "The railway connects communities across the Middle East."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The railway connects",
+                "communities across",
+                "the Middle East."
+            ],
+            "token_groups": [
+                "The railway connects",
+                "communities across",
+                "the Middle East."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "naqq-geographical-articles-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The survey covered rural areas of {a1} northern Spain.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Опитування охопило сільські райони північної Іспанії.",
+            "target_text": "The survey covered rural areas of northern Spain.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Прикметник напрямку перед звичайною назвою країни не створює потреби в артиклі; введи дефіс."
+                }
+            },
+            "verb_hint": "Прикметник напрямку перед звичайною назвою країни не створює потреби в артиклі; введи дефіс.",
+            "accepted_target_texts": [
+                "The survey covered rural areas of northern Spain."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The survey covered",
+                "rural areas",
+                "of northern",
+                "Spain."
+            ],
+            "token_groups": [
+                "The survey covered",
+                "rural areas",
+                "of northern",
+                "Spain."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "naqq-geographical-articles-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The team collected samples from {a1} Great Lakes.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Команда зібрала зразки у Великих озерах.",
+            "target_text": "The team collected samples from the Great Lakes.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Назва групи озер у множині вживається з означеним артиклем, на відміну від назви одного озера."
+                }
+            },
+            "verb_hint": "Назва групи озер у множині вживається з означеним артиклем, на відміну від назви одного озера.",
+            "accepted_target_texts": [
+                "The team collected samples from the Great Lakes."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The team collected",
+                "samples from",
+                "the Great Lakes."
+            ],
+            "token_groups": [
+                "The team collected",
+                "samples from",
+                "the Great Lakes."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "naqq-geographical-articles-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The border agreement was signed in {a1} South Korea.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Прикордонну угоду підписали в Південній Кореї.",
+            "target_text": "The border agreement was signed in South Korea.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Звичайна назва цієї країни з географічним означенням не потребує артикля; введи дефіс."
+                }
+            },
+            "verb_hint": "Звичайна назва цієї країни з географічним означенням не потребує артикля; введи дефіс.",
+            "accepted_target_texts": [
+                "The border agreement was signed in South Korea."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The border agreement",
+                "was signed",
+                "in South",
+                "Korea."
+            ],
+            "token_groups": [
+                "The border agreement",
+                "was signed",
+                "in South",
+                "Korea."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "naqq-geographical-articles-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The analysis compares rainfall patterns across {a1} Indian Ocean.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Аналіз порівнює режим опадів у різних частинах Індійського океану.",
+            "target_text": "The analysis compares rainfall patterns across the Indian Ocean.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Назва океану з прикметником зберігає означений артикль."
+                }
+            },
+            "verb_hint": "Назва океану з прикметником зберігає означений артикль.",
+            "accepted_target_texts": [
+                "The analysis compares rainfall patterns across the Indian Ocean."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The analysis compares",
+                "rainfall patterns",
+                "across the Indian",
+                "Ocean."
+            ],
+            "token_groups": [
+                "The analysis compares",
+                "rainfall patterns",
+                "across the Indian",
+                "Ocean."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "naqq-geographical-articles-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The consortium operates research facilities in {a1} Switzerland.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Консорціум керує дослідницькими установами у Швейцарії.",
+            "target_text": "The consortium operates research facilities in Switzerland.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Звичайна власна назва держави не потребує артикля навіть у формальному тексті; введи дефіс."
+                }
+            },
+            "verb_hint": "Звичайна власна назва держави не потребує артикля навіть у формальному тексті; введи дефіс.",
+            "accepted_target_texts": [
+                "The consortium operates research facilities in Switzerland."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The consortium operates",
+                "research facilities",
+                "in Switzerland."
+            ],
+            "token_groups": [
+                "The consortium operates",
+                "research facilities",
+                "in Switzerland."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "naqq-geographical-articles-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The report documents changes in {a1} Arctic over three decades.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Звіт документує зміни в Арктиці протягом трьох десятиліть.",
+            "target_text": "The report documents changes in the Arctic over three decades.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Усталена назва полярного регіону вживається з означеним артиклем."
+                }
+            },
+            "verb_hint": "Усталена назва полярного регіону вживається з означеним артиклем.",
+            "accepted_target_texts": [
+                "The report documents changes in the Arctic over three decades."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The report documents",
+                "changes",
+                "in the Arctic",
+                "over three decades."
+            ],
+            "token_groups": [
+                "The report documents",
+                "changes",
+                "in the Arctic",
+                "over three decades."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "naqq-geographical-articles-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The sediment was retrieved from {a1} Lake Baikal at considerable depth.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Осад дістали з озера Байкал зі значної глибини.",
+            "target_text": "The sediment was retrieved from Lake Baikal at considerable depth.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Назва окремого озера після слова на позначення озера не має артикля; введи дефіс."
+                }
+            },
+            "verb_hint": "Назва окремого озера після слова на позначення озера не має артикля; введи дефіс.",
+            "accepted_target_texts": [
+                "The sediment was retrieved from Lake Baikal at considerable depth."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The sediment was",
+                "retrieved",
+                "from Lake Baikal",
+                "at considerable depth."
+            ],
+            "token_groups": [
+                "The sediment was",
+                "retrieved",
+                "from Lake Baikal",
+                "at considerable depth."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "naqq-geographical-articles-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The agreement covers trade between {a1} European Union and Japan.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Угода охоплює торгівлю між Європейським Союзом та Японією.",
+            "target_text": "The agreement covers trade between the European Union and Japan.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Описова назва політичного об’єднання зі словом союз потребує означеного артикля."
+                }
+            },
+            "verb_hint": "Описова назва політичного об’єднання зі словом союз потребує означеного артикля.",
+            "accepted_target_texts": [
+                "The agreement covers trade between the European Union and Japan."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The agreement covers",
+                "trade between",
+                "the European Union",
+                "and Japan."
+            ],
+            "token_groups": [
+                "The agreement covers",
+                "trade between",
+                "the European Union",
+                "and Japan."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "naqq-geographical-articles-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The monitoring network extends into {a1} Southeast Asia.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Мережа спостереження охоплює також Південно-Східну Азію.",
+            "target_text": "The monitoring network extends into Southeast Asia.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Назва частини континенту з означенням напрямку вживається без артикля; введи дефіс."
+                }
+            },
+            "verb_hint": "Назва частини континенту з означенням напрямку вживається без артикля; введи дефіс.",
+            "accepted_target_texts": [
+                "The monitoring network extends into Southeast Asia."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The monitoring network",
+                "extends",
+                "into Southeast Asia."
+            ],
+            "token_groups": [
+                "The monitoring network",
+                "extends",
+                "into Southeast Asia."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "naqq-geographical-articles-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The submission distinguishes the constitutional arrangements of {a1} Republic of Ireland from those of neighbouring jurisdictions.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "У поданні відмежовано конституційний устрій Республіки Ірландія від устрою сусідніх юрисдикцій.",
+            "target_text": "The submission distinguishes the constitutional arrangements of the Republic of Ireland from those of neighbouring jurisdictions.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Повна описова державна назва зі словом республіка та уточнювальним доповненням має означений артикль."
+                }
+            },
+            "verb_hint": "Повна описова державна назва зі словом республіка та уточнювальним доповненням має означений артикль.",
+            "accepted_target_texts": [
+                "The submission distinguishes the constitutional arrangements of the Republic of Ireland from those of neighbouring jurisdictions."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The submission distinguishes",
+                "the constitutional arrangements",
+                "of the Republic",
+                "of Ireland",
+                "from those",
+                "of neighbouring jurisdictions."
+            ],
+            "token_groups": [
+                "The submission distinguishes",
+                "the constitutional arrangements",
+                "of the Republic",
+                "of Ireland",
+                "from those",
+                "of neighbouring jurisdictions."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "naqq-geographical-articles-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The data were collected in {a1} Papua New Guinea under a bilateral research agreement.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Дані зібрали в Папуа Новій Гвінеї в межах двосторонньої дослідницької угоди.",
+            "target_text": "The data were collected in Papua New Guinea under a bilateral research agreement.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Усталена багатослівна назва цієї держави не потребує артикля; введи дефіс."
+                }
+            },
+            "verb_hint": "Усталена багатослівна назва цієї держави не потребує артикля; введи дефіс.",
+            "accepted_target_texts": [
+                "The data were collected in Papua New Guinea under a bilateral research agreement."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The data were",
+                "collected in",
+                "Papua New Guinea",
+                "under a bilateral",
+                "research agreement."
+            ],
+            "token_groups": [
+                "The data were",
+                "collected in",
+                "Papua New Guinea",
+                "under a bilateral",
+                "research agreement."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "naqq-geographical-articles-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The tribunal's findings were discussed at a symposium in {a1} Hague.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Висновки трибуналу обговорили на симпозіумі в Гаазі.",
+            "target_text": "The tribunal's findings were discussed at a symposium in The Hague.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "options": [
+                        "The",
+                        "A",
+                        "An"
+                    ],
+                    "verb_hint": "Ця усталена власна назва міста є винятком і вживається з означеним артиклем."
+                }
+            },
+            "verb_hint": "Ця усталена власна назва міста є винятком і вживається з означеним артиклем.",
+            "accepted_target_texts": [
+                "The tribunal's findings were discussed at a symposium in The Hague."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The tribunal's findings",
+                "were discussed",
+                "at a symposium",
+                "in The Hague."
+            ],
+            "token_groups": [
+                "The tribunal's findings",
+                "were discussed",
+                "at a symposium",
+                "in The Hague."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "naqq-geographical-articles-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The comparison excludes territories outside {a1} continental Europe.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Порівняння не охоплює території поза континентальною Європою.",
+            "target_text": "The comparison excludes territories outside continental Europe.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Географічний прикметник перед назвою континенту не вимагає артикля; введи дефіс."
+                }
+            },
+            "verb_hint": "Географічний прикметник перед назвою континенту не вимагає артикля; введи дефіс.",
+            "accepted_target_texts": [
+                "The comparison excludes territories outside continental Europe."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The comparison excludes",
+                "territories outside",
+                "continental Europe."
+            ],
+            "token_groups": [
+                "The comparison excludes",
+                "territories outside",
+                "continental Europe."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "naqq-geographical-articles-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The model traces the circulation of pollutants throughout {a1} Southern Ocean.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Модель простежує циркуляцію забруднювачів у всьому Південному океані.",
+            "target_text": "The model traces the circulation of pollutants throughout the Southern Ocean.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Офіційна назва океану вживається з означеним артиклем."
+                }
+            },
+            "verb_hint": "Офіційна назва океану вживається з означеним артиклем.",
+            "accepted_target_texts": [
+                "The model traces the circulation of pollutants throughout the Southern Ocean."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The model traces",
+                "the circulation",
+                "of pollutants throughout",
+                "the Southern Ocean."
+            ],
+            "token_groups": [
+                "The model traces",
+                "the circulation",
+                "of pollutants throughout",
+                "the Southern Ocean."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "naqq-geographical-articles-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The memorandum was endorsed by observers from {a1} Costa Rica.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Меморандум підтримали спостерігачі з Коста-Рики.",
+            "target_text": "The memorandum was endorsed by observers from Costa Rica.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Усталена двослівна власна назва цієї держави не потребує артикля; введи дефіс."
+                }
+            },
+            "verb_hint": "Усталена двослівна власна назва цієї держави не потребує артикля; введи дефіс.",
+            "accepted_target_texts": [
+                "The memorandum was endorsed by observers from Costa Rica."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The memorandum was",
+                "endorsed",
+                "by observers",
+                "from Costa Rica."
+            ],
+            "token_groups": [
+                "The memorandum was",
+                "endorsed",
+                "by observers",
+                "from Costa Rica."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        }
+    ]
+}

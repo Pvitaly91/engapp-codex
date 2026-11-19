@@ -1,0 +1,1371 @@
+{
+    "schema_version": 1,
+    "quality_revision": "stq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-transformations-quality/tenses.v1.json",
+        "sha256": "61805820221ab8ae0942f92d2a02c3702edf0a01456969babfc7c4fd69fae0d9"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedStqTensesQualityBuilderSeeder",
+        "uuid_namespace": "sentence-transformations-quality-tenses-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "sentence_transformations_quality_tenses": {
+            "name": "Sentence Transformations Quality: Sentence Transformations: Tenses"
+        }
+    },
+    "tags": {
+        "sentence_transformations_tenses_all_levels": {
+            "name": "sentence transformations tenses all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "preserve_meaning": {
+            "name": "Preserve Meaning",
+            "category": "topic"
+        },
+        "present_simple_continuous": {
+            "name": "Present Simple Continuous",
+            "category": "topic"
+        },
+        "past_simple_present_perfect": {
+            "name": "Past Simple Present Perfect",
+            "category": "topic"
+        },
+        "past_simple_continuous": {
+            "name": "Past Simple Continuous",
+            "category": "topic"
+        },
+        "future_forms": {
+            "name": "Future Forms",
+            "category": "topic"
+        },
+        "perfect_time_markers": {
+            "name": "Perfect Time Markers",
+            "category": "topic"
+        },
+        "time_markers": {
+            "name": "Time Markers",
+            "category": "topic"
+        },
+        "equivalent_time_expressions": {
+            "name": "Equivalent Time Expressions",
+            "category": "topic"
+        },
+        "keep_core_meaning": {
+            "name": "Keep Core Meaning",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_sentence_transformations_tenses_all_levels": {
+            "name": "Sentence Transformations — Tenses",
+            "category": "sentence_transformations"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stq-tenses-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Я зараз граю на барабані.",
+            "level": "A1",
+            "type": 4,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Я зараз граю на барабані.",
+            "target_text": "I am playing the drum now.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з мовця; передай дію, що триває зараз.",
+                    "options": [
+                        "I",
+                        "Herself",
+                        "Ourselves",
+                        "Themselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "am",
+                    "verb_hint": "Почни з мовця; передай дію, що триває зараз.",
+                    "options": [
+                        "am",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a3": {
+                    "answer": "playing",
+                    "verb_hint": "Почни з мовця; передай дію, що триває зараз.",
+                    "options": [
+                        "playing",
+                        "singing",
+                        "reading",
+                        "working"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з мовця; передай дію, що триває зараз.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a5": {
+                    "answer": "drum",
+                    "verb_hint": "Почни з мовця; передай дію, що триває зараз.",
+                    "options": [
+                        "drum",
+                        "car",
+                        "bag",
+                        "book"
+                    ]
+                },
+                "a6": {
+                    "answer": "now.",
+                    "verb_hint": "Почни з мовця; передай дію, що триває зараз.",
+                    "options": [
+                        "now",
+                        "today",
+                        "yesterday",
+                        "tomorrow"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з мовця; передай дію, що триває зараз.",
+            "accepted_target_texts": [
+                "I am playing the drum now."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I am playing",
+                "the drum",
+                "now."
+            ],
+            "token_groups": [
+                "I am playing",
+                "the drum",
+                "now."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "I",
+                "am",
+                "playing",
+                "the",
+                "drum",
+                "now."
+            ],
+            "options": [
+                "I",
+                "Herself",
+                "Ourselves",
+                "Themselves",
+                "am",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "playing",
+                "singing",
+                "reading",
+                "working",
+                "the",
+                "all",
+                "both",
+                "a",
+                "drum",
+                "car",
+                "bag",
+                "book",
+                "now",
+                "today",
+                "yesterday",
+                "tomorrow"
+            ],
+            "source_text_uk": "Я зараз граю на барабані.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Herself",
+                    "Ourselves",
+                    "Themselves"
+                ],
+                "a2": [
+                    "am",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a3": [
+                    "playing",
+                    "singing",
+                    "reading",
+                    "working"
+                ],
+                "a4": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a5": [
+                    "drum",
+                    "car",
+                    "bag",
+                    "book"
+                ],
+                "a6": [
+                    "now",
+                    "today",
+                    "yesterday",
+                    "tomorrow"
+                ]
+            },
+            "slot_roles": {
+                "a1": "first_person_progressive",
+                "a2": "first_person_progressive",
+                "a3": "first_person_progressive",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "stq-tenses-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Він більше не співає в хорі.",
+            "level": "A2",
+            "type": 4,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Він більше не співає в хорі.",
+            "target_text": "He no longer sings in the choir.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Постав зворот зі значенням «більше не» перед смисловим дієсловом.",
+                    "options": [
+                        "He",
+                        "Him",
+                        "Us",
+                        "Them"
+                    ]
+                },
+                "a2": {
+                    "answer": "no",
+                    "verb_hint": "Постав зворот зі значенням «більше не» перед смисловим дієсловом.",
+                    "options": [
+                        "no",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a3": {
+                    "answer": "longer",
+                    "verb_hint": "Постав зворот зі значенням «більше не» перед смисловим дієсловом.",
+                    "options": [
+                        "longer",
+                        "key",
+                        "room",
+                        "map"
+                    ]
+                },
+                "a4": {
+                    "answer": "sings",
+                    "verb_hint": "Постав зворот зі значенням «більше не» перед смисловим дієсловом.",
+                    "options": [
+                        "sings",
+                        "teaches",
+                        "tickets",
+                        "cups"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Постав зворот зі значенням «більше не» перед смисловим дієсловом.",
+                    "options": [
+                        "in",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Постав зворот зі значенням «більше не» перед смисловим дієсловом.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "another"
+                    ]
+                },
+                "a7": {
+                    "answer": "choir.",
+                    "verb_hint": "Постав зворот зі значенням «більше не» перед смисловим дієсловом.",
+                    "options": [
+                        "choir",
+                        "shop",
+                        "lesson",
+                        "match"
+                    ]
+                }
+            },
+            "verb_hint": "Постав зворот зі значенням «більше не» перед смисловим дієсловом.",
+            "accepted_target_texts": [
+                "He no longer sings in the choir."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He",
+                "no longer sings",
+                "in the choir."
+            ],
+            "token_groups": [
+                "He",
+                "no longer sings",
+                "in the choir."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "He",
+                "no",
+                "longer",
+                "sings",
+                "in",
+                "the",
+                "choir."
+            ],
+            "options": [
+                "He",
+                "Him",
+                "Us",
+                "Them",
+                "no",
+                "any",
+                "this",
+                "that",
+                "longer",
+                "key",
+                "room",
+                "map",
+                "sings",
+                "teaches",
+                "tickets",
+                "cups",
+                "in",
+                "across",
+                "between",
+                "among",
+                "the",
+                "each",
+                "every",
+                "another",
+                "choir",
+                "shop",
+                "lesson",
+                "match"
+            ],
+            "source_text_uk": "Він більше не співає в хорі.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "Him",
+                    "Us",
+                    "Them"
+                ],
+                "a2": [
+                    "no",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a3": [
+                    "longer",
+                    "key",
+                    "room",
+                    "map"
+                ],
+                "a4": [
+                    "sings",
+                    "teaches",
+                    "tickets",
+                    "cups"
+                ],
+                "a5": [
+                    "in",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a6": [
+                    "the",
+                    "each",
+                    "every",
+                    "another"
+                ],
+                "a7": [
+                    "choir",
+                    "shop",
+                    "lesson",
+                    "match"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "present_discontinuative",
+                "a3": "present_discontinuative",
+                "a4": "present_discontinuative",
+                "a5": "closed_prepositional_phrase",
+                "a6": "closed_prepositional_phrase",
+                "a7": "closed_prepositional_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "stq-tenses-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Оркестр грав, коли увійшов диригент.",
+            "level": "B1",
+            "type": 4,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Оркестр грав, коли увійшов диригент.",
+            "target_text": "The orchestra was playing when the conductor came in.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з оркестру; збережи тривання музики в момент входу.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "orchestra",
+                    "verb_hint": "Почни з оркестру; збережи тривання музики в момент входу.",
+                    "options": [
+                        "orchestra",
+                        "bike",
+                        "car",
+                        "bag"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Почни з оркестру; збережи тривання музики в момент входу.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "playing",
+                    "verb_hint": "Почни з оркестру; збережи тривання музики в момент входу.",
+                    "options": [
+                        "playing",
+                        "reading",
+                        "singing",
+                        "listening"
+                    ]
+                },
+                "a5": {
+                    "answer": "when",
+                    "verb_hint": "Почни з оркестру; збережи тривання музики в момент входу.",
+                    "options": [
+                        "when",
+                        "who",
+                        "whom",
+                        "what"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з оркестру; збережи тривання музики в момент входу.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a7": {
+                    "answer": "conductor",
+                    "verb_hint": "Почни з оркестру; збережи тривання музики в момент входу.",
+                    "options": [
+                        "conductor",
+                        "window",
+                        "phone",
+                        "train"
+                    ]
+                },
+                "a8": {
+                    "answer": "came",
+                    "verb_hint": "Почни з оркестру; збережи тривання музики в момент входу.",
+                    "options": [
+                        "came",
+                        "turned",
+                        "stood",
+                        "sat"
+                    ]
+                },
+                "a9": {
+                    "answer": "in.",
+                    "verb_hint": "Почни з оркестру; збережи тривання музики в момент входу.",
+                    "options": [
+                        "in",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з оркестру; збережи тривання музики в момент входу.",
+            "accepted_target_texts": [
+                "The orchestra was playing when the conductor came in.",
+                "The orchestra was playing when the conductor entered."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The orchestra",
+                "was playing",
+                "when",
+                "the conductor",
+                "came in."
+            ],
+            "token_groups": [
+                "The orchestra",
+                "was playing",
+                "when",
+                "the conductor",
+                "came in."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "The",
+                "orchestra",
+                "was",
+                "playing",
+                "when",
+                "the",
+                "conductor",
+                "came",
+                "in."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "orchestra",
+                "bike",
+                "car",
+                "bag",
+                "was",
+                "were",
+                "be",
+                "been",
+                "playing",
+                "reading",
+                "singing",
+                "listening",
+                "when",
+                "who",
+                "whom",
+                "what",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "conductor",
+                "window",
+                "phone",
+                "train",
+                "came",
+                "turned",
+                "stood",
+                "sat",
+                "in",
+                "between",
+                "among",
+                "about"
+            ],
+            "source_text_uk": "Оркестр грав, коли увійшов диригент.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "orchestra",
+                    "bike",
+                    "car",
+                    "bag"
+                ],
+                "a3": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a4": [
+                    "playing",
+                    "reading",
+                    "singing",
+                    "listening"
+                ],
+                "a5": [
+                    "when",
+                    "who",
+                    "whom",
+                    "what"
+                ],
+                "a6": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a7": [
+                    "conductor",
+                    "window",
+                    "phone",
+                    "train"
+                ],
+                "a8": [
+                    "came",
+                    "turned",
+                    "stood",
+                    "sat"
+                ],
+                "a9": [
+                    "in",
+                    "between",
+                    "among",
+                    "about"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun_phrase",
+                "a2": "noun_phrase",
+                "a3": "past_progressive",
+                "a4": "past_progressive",
+                "a5": "conjunction_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "past_verb_phrase",
+                "a9": "past_verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "stq-tenses-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Вони репетирують у вівторок.",
+            "level": "B2",
+            "type": 4,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Вони репетирують у вівторок.",
+            "target_text": "They are rehearsing on Tuesday.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Передай домовлений майбутній план тривалою теперішньою формою; почни з них.",
+                    "options": [
+                        "They",
+                        "It",
+                        "We",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "are",
+                    "verb_hint": "Передай домовлений майбутній план тривалою теперішньою формою; почни з них.",
+                    "options": [
+                        "are",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a3": {
+                    "answer": "rehearsing",
+                    "verb_hint": "Передай домовлений майбутній план тривалою теперішньою формою; почни з них.",
+                    "options": [
+                        "rehearsing",
+                        "listening",
+                        "talking",
+                        "playing"
+                    ]
+                },
+                "a4": {
+                    "answer": "on",
+                    "verb_hint": "Передай домовлений майбутній план тривалою теперішньою формою; почни з них.",
+                    "options": [
+                        "on",
+                        "of",
+                        "in",
+                        "at"
+                    ]
+                },
+                "a5": {
+                    "answer": "Tuesday.",
+                    "verb_hint": "Передай домовлений майбутній план тривалою теперішньою формою; почни з них.",
+                    "options": [
+                        "Tuesday",
+                        "Bus",
+                        "Desk",
+                        "Picture"
+                    ]
+                }
+            },
+            "verb_hint": "Передай домовлений майбутній план тривалою теперішньою формою; почни з них.",
+            "accepted_target_texts": [
+                "They are rehearsing on Tuesday."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They",
+                "are rehearsing",
+                "on Tuesday."
+            ],
+            "token_groups": [
+                "They",
+                "are rehearsing",
+                "on Tuesday."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "They",
+                "are",
+                "rehearsing",
+                "on",
+                "Tuesday."
+            ],
+            "options": [
+                "They",
+                "It",
+                "We",
+                "Me",
+                "are",
+                "were",
+                "be",
+                "been",
+                "rehearsing",
+                "listening",
+                "talking",
+                "playing",
+                "on",
+                "of",
+                "in",
+                "at",
+                "Tuesday",
+                "Bus",
+                "Desk",
+                "Picture"
+            ],
+            "source_text_uk": "Вони репетирують у вівторок.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "It",
+                    "We",
+                    "Me"
+                ],
+                "a2": [
+                    "are",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a3": [
+                    "rehearsing",
+                    "listening",
+                    "talking",
+                    "playing"
+                ],
+                "a4": [
+                    "on",
+                    "of",
+                    "in",
+                    "at"
+                ],
+                "a5": [
+                    "Tuesday",
+                    "Bus",
+                    "Desk",
+                    "Picture"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_non_third_person",
+                "a2": "past_progressive",
+                "a3": "past_progressive",
+                "a4": "closed_prepositional_phrase",
+                "a5": "closed_prepositional_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "stq-tenses-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Вона чекає на рішення з березня.",
+            "level": "C1",
+            "type": 4,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Вона чекає на рішення з березня.",
+            "target_text": "She has been awaiting a decision since March.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Стисни початок та незавершеність в одну тривалу складену форму; почни з неї.",
+                    "options": [
+                        "She",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "has",
+                    "verb_hint": "Стисни початок та незавершеність в одну тривалу складену форму; почни з неї.",
+                    "options": [
+                        "has",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "been",
+                    "verb_hint": "Стисни початок та незавершеність в одну тривалу складену форму; почни з неї.",
+                    "options": [
+                        "been",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "awaiting",
+                    "verb_hint": "Стисни початок та незавершеність в одну тривалу складену форму; почни з неї.",
+                    "options": [
+                        "awaiting",
+                        "choosing",
+                        "finding",
+                        "making"
+                    ]
+                },
+                "a5": {
+                    "answer": "a",
+                    "verb_hint": "Стисни початок та незавершеність в одну тривалу складену форму; почни з неї.",
+                    "options": [
+                        "a",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a6": {
+                    "answer": "decision",
+                    "verb_hint": "Стисни початок та незавершеність в одну тривалу складену форму; почни з неї.",
+                    "options": [
+                        "decision",
+                        "food",
+                        "bike",
+                        "car"
+                    ]
+                },
+                "a7": {
+                    "answer": "since",
+                    "verb_hint": "Стисни початок та незавершеність в одну тривалу складену форму; почни з неї.",
+                    "options": [
+                        "since",
+                        "door",
+                        "key",
+                        "room"
+                    ]
+                },
+                "a8": {
+                    "answer": "March.",
+                    "verb_hint": "Стисни початок та незавершеність в одну тривалу складену форму; почни з неї.",
+                    "options": [
+                        "March",
+                        "Bag",
+                        "Book",
+                        "Box"
+                    ]
+                }
+            },
+            "verb_hint": "Стисни початок та незавершеність в одну тривалу складену форму; почни з неї.",
+            "accepted_target_texts": [
+                "She has been awaiting a decision since March.",
+                "She has been awaiting the decision since March.",
+                "She has been waiting for a decision since March.",
+                "She has been waiting for the decision since March."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "the"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "the"
+                ]
+            },
+            "reorder_groups": [
+                "She",
+                "has been",
+                "awaiting",
+                "a decision",
+                "since March."
+            ],
+            "token_groups": [
+                "She",
+                "has been",
+                "awaiting",
+                "a decision",
+                "since March."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "She",
+                "has",
+                "been",
+                "awaiting",
+                "a",
+                "decision",
+                "since",
+                "March."
+            ],
+            "options": [
+                "She",
+                "They",
+                "Me",
+                "Him",
+                "has",
+                "had",
+                "haven't",
+                "hasn't",
+                "been",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "awaiting",
+                "choosing",
+                "finding",
+                "making",
+                "a",
+                "either",
+                "neither",
+                "all",
+                "decision",
+                "food",
+                "bike",
+                "car",
+                "since",
+                "door",
+                "key",
+                "room",
+                "March",
+                "Bag",
+                "Book",
+                "Box"
+            ],
+            "source_text_uk": "Вона чекає на рішення з березня.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "has",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a3": [
+                    "been",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a4": [
+                    "awaiting",
+                    "choosing",
+                    "finding",
+                    "making"
+                ],
+                "a5": [
+                    "a",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a6": [
+                    "decision",
+                    "food",
+                    "bike",
+                    "car"
+                ],
+                "a7": [
+                    "since",
+                    "door",
+                    "key",
+                    "room"
+                ],
+                "a8": [
+                    "March",
+                    "Bag",
+                    "Book",
+                    "Box"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "perfect_be_auxiliary",
+                "a3": "perfect_be_auxiliary",
+                "a4": "transitive_gerund",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "closed_prepositional_phrase",
+                "a8": "closed_prepositional_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "stq-tenses-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Минуло десять років відтоді, як хор востаннє гастролював за кордоном.",
+            "level": "C2",
+            "type": 4,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Минуло десять років відтоді, як хор востаннє гастролював за кордоном.",
+            "target_text": "It is ten years since the choir last toured abroad.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Почни з безособової часової конструкції; відлічи десять років від останньої гастрольної поїздки.",
+                    "options": [
+                        "It",
+                        "He",
+                        "She",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Почни з безособової часової конструкції; відлічи десять років від останньої гастрольної поїздки.",
+                    "options": [
+                        "is",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a3": {
+                    "answer": "ten",
+                    "verb_hint": "Почни з безособової часової конструкції; відлічи десять років від останньої гастрольної поїздки.",
+                    "options": [
+                        "ten",
+                        "helped",
+                        "watched",
+                        "visited"
+                    ]
+                },
+                "a4": {
+                    "answer": "years",
+                    "verb_hint": "Почни з безособової часової конструкції; відлічи десять років від останньої гастрольної поїздки.",
+                    "options": [
+                        "years",
+                        "windows",
+                        "phones",
+                        "children"
+                    ]
+                },
+                "a5": {
+                    "answer": "since",
+                    "verb_hint": "Почни з безособової часової конструкції; відлічи десять років від останньої гастрольної поїздки.",
+                    "options": [
+                        "since",
+                        "if",
+                        "so",
+                        "although"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з безособової часової конструкції; відлічи десять років від останньої гастрольної поїздки.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "choir",
+                    "verb_hint": "Почни з безособової часової конструкції; відлічи десять років від останньої гастрольної поїздки.",
+                    "options": [
+                        "choir",
+                        "table",
+                        "ticket",
+                        "cup"
+                    ]
+                },
+                "a8": {
+                    "answer": "last",
+                    "verb_hint": "Почни з безособової часової конструкції; відлічи десять років від останньої гастрольної поїздки.",
+                    "options": [
+                        "last",
+                        "teacher",
+                        "school",
+                        "sister"
+                    ]
+                },
+                "a9": {
+                    "answer": "toured",
+                    "verb_hint": "Почни з безособової часової конструкції; відлічи десять років від останньої гастрольної поїздки.",
+                    "options": [
+                        "toured",
+                        "called",
+                        "walked",
+                        "opened"
+                    ]
+                },
+                "a10": {
+                    "answer": "abroad.",
+                    "verb_hint": "Почни з безособової часової конструкції; відлічи десять років від останньої гастрольної поїздки.",
+                    "options": [
+                        "abroad",
+                        "today",
+                        "yesterday",
+                        "tomorrow"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з безособової часової конструкції; відлічи десять років від останньої гастрольної поїздки.",
+            "accepted_target_texts": [
+                "It is ten years since the choir last toured abroad.",
+                "It has been ten years since the choir last toured abroad."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "ten years",
+                "since",
+                "the choir",
+                "last toured",
+                "abroad."
+            ],
+            "token_groups": [
+                "It is",
+                "ten years",
+                "since",
+                "the choir",
+                "last toured",
+                "abroad."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "It",
+                "is",
+                "ten",
+                "years",
+                "since",
+                "the",
+                "choir",
+                "last",
+                "toured",
+                "abroad."
+            ],
+            "options": [
+                "It",
+                "He",
+                "She",
+                "We",
+                "is",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "ten",
+                "helped",
+                "watched",
+                "visited",
+                "years",
+                "windows",
+                "phones",
+                "children",
+                "since",
+                "if",
+                "so",
+                "although",
+                "the",
+                "some",
+                "any",
+                "this",
+                "choir",
+                "table",
+                "ticket",
+                "cup",
+                "last",
+                "teacher",
+                "school",
+                "sister",
+                "toured",
+                "called",
+                "walked",
+                "opened",
+                "abroad",
+                "today",
+                "yesterday",
+                "tomorrow"
+            ],
+            "source_text_uk": "Минуло десять років відтоді, як хор востаннє гастролював за кордоном.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "He",
+                    "She",
+                    "We"
+                ],
+                "a2": [
+                    "is",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a3": [
+                    "ten",
+                    "helped",
+                    "watched",
+                    "visited"
+                ],
+                "a4": [
+                    "years",
+                    "windows",
+                    "phones",
+                    "children"
+                ],
+                "a5": [
+                    "since",
+                    "if",
+                    "so",
+                    "although"
+                ],
+                "a6": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "choir",
+                    "table",
+                    "ticket",
+                    "cup"
+                ],
+                "a8": [
+                    "last",
+                    "teacher",
+                    "school",
+                    "sister"
+                ],
+                "a9": [
+                    "toured",
+                    "called",
+                    "walked",
+                    "opened"
+                ],
+                "a10": [
+                    "abroad",
+                    "today",
+                    "yesterday",
+                    "tomorrow"
+                ]
+            },
+            "slot_roles": {
+                "a1": "cleft_subject_aux",
+                "a2": "cleft_subject_aux",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "conjunction_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "past_verb_phrase",
+                "a9": "past_verb_phrase",
+                "a10": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

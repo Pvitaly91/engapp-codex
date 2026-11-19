@@ -1,0 +1,624 @@
+{
+    "schema_version": 1,
+    "topic_key": "tenses",
+    "title": "Sentence Transformations: Tenses",
+    "choice_pools": {
+        "first_person_progressive": [
+            "I am playing",
+            "I am reading",
+            "I am working",
+            "I am waiting",
+            "I am writing",
+            "I am learning",
+            "I am helping",
+            "I am singing"
+        ],
+        "noun_phrase": [
+            "a red cup",
+            "the blue box",
+            "her new hat",
+            "some old books",
+            "my little dog",
+            "a small room",
+            "the front door",
+            "a green chair",
+            "his warm coat",
+            "their garden"
+        ],
+        "adverbial_phrase": [
+            "today",
+            "yesterday",
+            "tomorrow",
+            "every day",
+            "each week",
+            "at night",
+            "after lunch",
+            "before school",
+            "very slowly",
+            "quite often"
+        ],
+        "subject_singular": [
+            "he",
+            "she",
+            "my brother",
+            "my sister",
+            "our teacher",
+            "the driver",
+            "a child",
+            "the woman",
+            "her father",
+            "his mother"
+        ],
+        "present_discontinuative": [
+            "no longer works",
+            "no longer waits",
+            "no longer plays",
+            "no longer reads",
+            "no longer lives",
+            "no longer walks",
+            "no longer sings",
+            "no longer teaches"
+        ],
+        "closed_prepositional_phrase": [
+            "in the garden",
+            "on the desk",
+            "near the shop",
+            "under the bed",
+            "after the lesson",
+            "before the match",
+            "with my friend",
+            "at the station"
+        ],
+        "past_progressive": [
+            "was playing",
+            "were playing",
+            "was working",
+            "were waiting",
+            "was reading",
+            "were singing",
+            "was listening",
+            "were talking"
+        ],
+        "conjunction_phrase": [
+            "and",
+            "but",
+            "because",
+            "although",
+            "while",
+            "when",
+            "if",
+            "unless",
+            "so",
+            "since"
+        ],
+        "past_verb_phrase": [
+            "sat down",
+            "fell asleep",
+            "turned around",
+            "stood still",
+            "coughed",
+            "bowed",
+            "laughed",
+            "smiled"
+        ],
+        "subject_non_third_person": [
+            "I",
+            "you",
+            "we",
+            "they",
+            "the children",
+            "our neighbours",
+            "my parents",
+            "these students",
+            "those workers",
+            "both sisters"
+        ],
+        "perfect_be_auxiliary": [
+            "has been",
+            "have been",
+            "had been",
+            "will be",
+            "was",
+            "were",
+            "is",
+            "are"
+        ],
+        "transitive_gerund": [
+            "checking",
+            "reading",
+            "writing",
+            "choosing",
+            "finding",
+            "making",
+            "carrying",
+            "using"
+        ],
+        "cleft_subject_aux": [
+            "It was",
+            "It is",
+            "That was",
+            "This was",
+            "What was",
+            "There was",
+            "It seems",
+            "It became"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "Danylo {a1} at home now.",
+            "target": "Danylo is not at home now.",
+            "uk": "Початкове: «Данило зараз не вдома».",
+            "hint_uk": "Початкове: «Данило зараз не вдома». Передай заперечення повною формою, не змінюючи часу.",
+            "groups": [
+                "Danylo",
+                "is not",
+                "at home now."
+            ],
+            "answer": "is not",
+            "options": [
+                "is not",
+                "does not",
+                "not is"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "Hanna {a1}.",
+            "target": "Hanna is still singing.",
+            "uk": "Початкове: «Ганна співала раніше й усе ще співає зараз».",
+            "hint_uk": "Початкове: «Ганна співала раніше й усе ще співає зараз». Стисни опис у тривалу теперішню форму зі значенням досі.",
+            "groups": [
+                "Hanna",
+                "is still singing."
+            ],
+            "answer": "is still singing",
+            "options": [
+                "is still singing",
+                "still sings",
+                "was still singing"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Я зараз граю на барабані.",
+            "target": "I am playing the drum now.",
+            "uk": "Я зараз граю на барабані.",
+            "hint_uk": "Почни з мовця; передай дію, що триває зараз.",
+            "groups": [
+                "I am playing",
+                "the drum",
+                "now."
+            ],
+            "compose_slots": [
+                "I am playing",
+                "the drum",
+                "now."
+            ],
+            "slot_roles": [
+                "first_person_progressive",
+                "noun_phrase",
+                "adverbial_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "We {a1} the finale.",
+            "target": "We have already rehearsed the finale.",
+            "uk": "Початкове: «Ми відрепетирували фінал; ця робота вже виконана».",
+            "hint_uk": "Початкове: «Ми відрепетирували фінал; ця робота вже виконана». Передай завершену дію з результатом донині та збережи значення вже.",
+            "groups": [
+                "We",
+                "have already rehearsed",
+                "the finale."
+            ],
+            "answer": "have already rehearsed",
+            "options": [
+                "have already rehearsed",
+                "had already rehearsed",
+                "have already rehearsing"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "I {a1} for two days.",
+            "target": "I have not performed for two days.",
+            "uk": "Початкове: «Мій останній виступ був два дні тому; відтоді виступів не було».",
+            "hint_uk": "Початкове: «Мій останній виступ був два дні тому; відтоді виступів не було». Перебудуй через заперечення дії протягом періоду донині.",
+            "groups": [
+                "I",
+                "have not performed",
+                "for two days."
+            ],
+            "answer": "have not performed",
+            "options": [
+                "have not performed",
+                "had not performed",
+                "do not perform"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Він більше не співає в хорі.",
+            "target": "He no longer sings in the choir.",
+            "uk": "Він більше не співає в хорі.",
+            "hint_uk": "Постав зворот зі значенням «більше не» перед смисловим дієсловом.",
+            "groups": [
+                "He",
+                "no longer sings",
+                "in the choir."
+            ],
+            "compose_slots": [
+                "He",
+                "no longer sings",
+                "in the choir."
+            ],
+            "slot_roles": [
+                "subject_singular",
+                "present_discontinuative",
+                "closed_prepositional_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "Lesia {a1} in Vienna since 2018.",
+            "target": "Lesia has lived in Vienna since 2018.",
+            "uk": "Початкове: «Леся почала жити у Відні у 2018 році й досі живе там».",
+            "hint_uk": "Початкове: «Леся почала жити у Відні у 2018 році й досі живе там». Об’єднай початок і тривання проживання в одну форму донині.",
+            "groups": [
+                "Lesia has lived",
+                "in Vienna",
+                "since 2018."
+            ],
+            "answer": "has lived",
+            "options": [
+                "has lived",
+                "had lived",
+                "lives"
+            ],
+            "answer_synonyms": [
+                "has been living"
+            ]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "We {a1} the hall before the director arrived.",
+            "target": "We had left the hall before the director arrived.",
+            "uk": "Початкове: «Ми вийшли із зали, а керівник прибув пізніше».",
+            "hint_uk": "Початкове: «Ми вийшли із зали, а керівник прибув пізніше». Перебудуй, позначивши вихід як попередню минулу дію.",
+            "groups": [
+                "We had left",
+                "the hall",
+                "before the",
+                "director arrived."
+            ],
+            "answer": "had left",
+            "options": [
+                "had left",
+                "have left",
+                "had leave"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Оркестр грав, коли увійшов диригент.",
+            "target": "The orchestra was playing when the conductor came in.",
+            "uk": "Оркестр грав, коли увійшов диригент.",
+            "hint_uk": "Почни з оркестру; збережи тривання музики в момент входу.",
+            "groups": [
+                "The orchestra",
+                "was playing",
+                "when",
+                "the conductor",
+                "came in."
+            ],
+            "compose_slots": [
+                "The orchestra",
+                "was playing",
+                "when",
+                "the conductor",
+                "came in."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "past_progressive",
+                "conjunction_phrase",
+                "noun_phrase",
+                "past_verb_phrase"
+            ],
+            "accepted_targets": [
+                "The orchestra was playing when the conductor entered."
+            ],
+            "display_synonyms": {
+                "came in.": [
+                    "entered."
+                ]
+            }
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "She {a1} this opera since 2016.",
+            "target": "She has not seen this opera since 2016.",
+            "uk": "Початкове: «Востаннє вона бачила цю оперу у 2016 році; відтоді не бачила».",
+            "hint_uk": "Початкове: «Востаннє вона бачила цю оперу у 2016 році; відтоді не бачила». Перебудуй через заперечення досвіду від заданої дати донині.",
+            "groups": [
+                "She",
+                "has not seen",
+                "this opera",
+                "since 2016."
+            ],
+            "answer": "has not seen",
+            "options": [
+                "has not seen",
+                "had not seen",
+                "did not see"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The editor {a1} the libretto for three hours.",
+            "target": "The editor has been checking the libretto for three hours.",
+            "uk": "Початкове: «Редактор почав перевіряти лібрето три години тому й досі продовжує».",
+            "hint_uk": "Початкове: «Редактор почав перевіряти лібрето три години тому й досі продовжує». Стисни обидві частини в тривалу дію з періодом донині.",
+            "groups": [
+                "The editor",
+                "has been checking",
+                "the libretto",
+                "for three hours."
+            ],
+            "answer": "has been checking",
+            "options": [
+                "has been checking",
+                "had been checking",
+                "has checking"
+            ],
+            "answer_synonyms": [
+                "has been reviewing",
+                "has been examining"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Вони репетирують у вівторок.",
+            "target": "They are rehearsing on Tuesday.",
+            "uk": "Вони репетирують у вівторок.",
+            "hint_uk": "Передай домовлений майбутній план тривалою теперішньою формою; почни з них.",
+            "groups": [
+                "They",
+                "are rehearsing",
+                "on Tuesday."
+            ],
+            "compose_slots": [
+                "They",
+                "are rehearsing",
+                "on Tuesday."
+            ],
+            "slot_roles": [
+                "subject_non_third_person",
+                "past_progressive",
+                "closed_prepositional_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "Never {a1} heard such a balanced ensemble.",
+            "target": "Never have the reviewers heard such a balanced ensemble.",
+            "uk": "Початкове: «Оглядачі ще ніколи не чули такого злагодженого ансамблю».",
+            "hint_uk": "Початкове: «Оглядачі ще ніколи не чули такого злагодженого ансамблю». Почни зі значення ніколи й побудуй інверсію досвіду донині.",
+            "groups": [
+                "Never",
+                "have the reviewers",
+                "heard such a",
+                "balanced ensemble."
+            ],
+            "answer": "have the reviewers",
+            "options": [
+                "have the reviewers",
+                "the reviewers have",
+                "did the reviewers"
+            ],
+            "answer_synonyms": [
+                "have the critics"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "Only after Maya {a1} the inventory did the shortage become apparent.",
+            "target": "Only after Maya had completed the inventory did the shortage become apparent.",
+            "uk": "Початкове: «Лише після завершення Маєю інвентаризації нестача стала очевидною».",
+            "hint_uk": "Початкове: «Лише після завершення Маєю інвентаризації нестача стала очевидною». Збережи обмежувальний акцент і познач інвентаризацію як попередню минулу дію.",
+            "groups": [
+                "Only after Maya",
+                "had completed",
+                "the inventory",
+                "did the shortage",
+                "become apparent."
+            ],
+            "answer": "had completed",
+            "options": [
+                "had completed",
+                "has completed",
+                "had complete"
+            ],
+            "answer_synonyms": [
+                "had finished"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Вона чекає на рішення з березня.",
+            "target": "She has been awaiting a decision since March.",
+            "uk": "Вона чекає на рішення з березня.",
+            "hint_uk": "Стисни початок та незавершеність в одну тривалу складену форму; почни з неї.",
+            "groups": [
+                "She",
+                "has been",
+                "awaiting",
+                "a decision",
+                "since March."
+            ],
+            "compose_slots": [
+                "She",
+                "has been",
+                "awaiting",
+                "a decision",
+                "since March."
+            ],
+            "slot_roles": [
+                "subject_singular",
+                "perfect_be_auxiliary",
+                "transitive_gerund",
+                "noun_phrase",
+                "closed_prepositional_phrase"
+            ],
+            "accepted_targets": [
+                "She has been awaiting the decision since March.",
+                "She has been waiting for a decision since March.",
+                "She has been waiting for the decision since March."
+            ],
+            "display_synonyms": {
+                "awaiting": [
+                    "waiting for"
+                ],
+                "a decision": [
+                    "the decision"
+                ]
+            }
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "By the time the archive closed, we {a1} scores for three hours.",
+            "target": "By the time the archive closed, we had been digitising scores for three hours.",
+            "uk": "Початкове: «Коли архів зачинився, ми вже три години оцифровували партитури».",
+            "hint_uk": "Початкове: «Коли архів зачинився, ми вже три години оцифровували партитури». Перебудуй через тривалість до іншого минулого моменту, не заявляючи про подальше продовження.",
+            "groups": [
+                "By the time",
+                "the archive closed,",
+                "we",
+                "had been digitising",
+                "scores",
+                "for three hours."
+            ],
+            "answer": "had been digitising",
+            "options": [
+                "had been digitising",
+                "have been digitising",
+                "had digitising"
+            ],
+            "answer_synonyms": [
+                "had been digitizing"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "By the time performances resume, we {a1} the running order.",
+            "target": "By the time performances resume, we will have learned the running order.",
+            "uk": "Початкове: «До поновлення показів ми вже вивчимо порядок номерів».",
+            "hint_uk": "Початкове: «До поновлення показів ми вже вивчимо порядок номерів». Перебудуй через завершеність навчання на визначений майбутній момент.",
+            "groups": [
+                "By the time",
+                "performances resume,",
+                "we",
+                "will have learned",
+                "the running order."
+            ],
+            "answer": "will have learned",
+            "options": [
+                "will have learned",
+                "will learn",
+                "will have learn"
+            ],
+            "answer_synonyms": [
+                "will have learnt"
+            ]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Минуло десять років відтоді, як хор востаннє гастролював за кордоном.",
+            "target": "It is ten years since the choir last toured abroad.",
+            "uk": "Минуло десять років відтоді, як хор востаннє гастролював за кордоном.",
+            "hint_uk": "Почни з безособової часової конструкції; відлічи десять років від останньої гастрольної поїздки.",
+            "groups": [
+                "It is",
+                "ten years",
+                "since",
+                "the choir",
+                "last toured",
+                "abroad."
+            ],
+            "compose_slots": [
+                "It is",
+                "ten years",
+                "since",
+                "the choir",
+                "last toured",
+                "abroad."
+            ],
+            "slot_roles": [
+                "cleft_subject_aux",
+                "noun_phrase",
+                "conjunction_phrase",
+                "noun_phrase",
+                "past_verb_phrase",
+                "adverbial_phrase"
+            ],
+            "accepted_targets": [
+                "It has been ten years since the choir last toured abroad."
+            ],
+            "display_synonyms": {
+                "It is": [
+                    "It has been"
+                ]
+            }
+        }
+    ]
+}

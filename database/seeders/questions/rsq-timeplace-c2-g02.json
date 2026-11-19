@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66327,
+        "uuid": "rsq-timeplace-c2-g02",
+        "question": "The plenipotentiary said that the instrument would enter into force {a1}.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 62,
+        "source_id": 532,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechTimePlaceChangesQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "the following January",
+                "the preceding January",
+                "that January"
+            ]
+        },
+        "theory_text_block_uuid": "74bcc2b8-fbaa-5065-8932-37743234726a",
+        "created_at": "2026-11-01T20:05:02.000000Z",
+        "updated_at": "2026-11-01T20:05:02.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 532,
+        "name": "Reported Speech Quality: Time and Place Changes",
+        "created_at": "2026-11-01T20:05:00.000000Z",
+        "updated_at": "2026-11-01T20:05:00.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 68763,
+                "option": "the following January",
+                "created_at": "2026-11-01T20:05:02.000000Z",
+                "updated_at": "2026-11-01T20:05:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 66327,
+                "option_id": 68763,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68765,
+                "option": "the preceding January",
+                "created_at": "2026-11-01T20:05:02.000000Z",
+                "updated_at": "2026-11-01T20:05:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 66327,
+                "option_id": 68765,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68766,
+                "option": "that January",
+                "created_at": "2026-11-01T20:05:02.000000Z",
+                "updated_at": "2026-11-01T20:05:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 66327,
+                "option_id": 68766,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 341231,
+                "question_id": 66327,
+                "marker": "a1",
+                "option_id": 68763,
+                "created_at": "2026-11-01T20:05:02.000000Z",
+                "updated_at": "2026-11-01T20:05:02.000000Z"
+            },
+            "option": {
+                "id": 68763,
+                "option": "the following January",
+                "created_at": "2026-11-01T20:05:02.000000Z",
+                "updated_at": "2026-11-01T20:05:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58565,
+                "question_id": 66327,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68764,
+                "created_at": "2026-11-01T20:05:02.000000Z",
+                "updated_at": "2026-11-01T20:05:02.000000Z"
+            },
+            "option": {
+                "id": 68764,
+                "option": "Січень відраховуємо вперед від його минулої репліки, а не від нинішньої дати.",
+                "created_at": "2026-11-01T20:05:02.000000Z",
+                "updated_at": "2026-11-01T20:05:02.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58342,
+            "question_id": 66327,
+            "text": "The plenipotentiary said that the instrument would enter into force {a1}.",
+            "created_at": "2026-11-01T20:05:02.000000Z",
+            "updated_at": "2026-11-01T20:05:02.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

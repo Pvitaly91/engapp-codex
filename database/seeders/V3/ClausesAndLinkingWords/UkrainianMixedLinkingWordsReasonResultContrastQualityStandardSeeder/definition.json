@@ -1,0 +1,703 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/linking-words-reason-result-contrast.v1.json",
+        "sha256": "7b5e8a958e19d9dab0cb17fcca68eaa5a406a956b5ff4f4ab44a75ad375ab40f"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\UkrainianMixedLinkingWordsReasonResultContrastQualityStandardSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-linking-words-reason-result-contrast-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "clauses_linking_words_quality_linking_words_reason_result_contrast": {
+            "name": "Clauses and Linking Words Quality: Linking Words for Reason, Result and Contrast"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-reasonresult-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The milk is warm {a1} the bottle stood in the sun.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words_reason_result_contrast",
+            "translation_uk": "Молоко тепле, бо пляшка стояла на сонці.",
+            "target_text": "The milk is warm because the bottle stood in the sun.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "but",
+                        "so"
+                    ],
+                    "verb_hint": "Назви причину нагрівання молока, а не наслідок чи протиставлення."
+                }
+            },
+            "verb_hint": "Назви причину нагрівання молока, а не наслідок чи протиставлення.",
+            "accepted_target_texts": [
+                "The milk is warm because the bottle stood in the sun.",
+                "The milk is warm since the bottle stood in the sun.",
+                "The milk is warm as the bottle stood in the sun."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "The milk",
+                "is warm",
+                "because",
+                "the bottle",
+                "stood in",
+                "the sun."
+            ],
+            "token_groups": [
+                "The milk",
+                "is warm",
+                "because",
+                "the bottle",
+                "stood in",
+                "the sun."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "clq-reasonresult-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The shoe is new, {a1} the lace is broken.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words_reason_result_contrast",
+            "translation_uk": "Черевик новий, але шнурок порваний.",
+            "target_text": "The shoe is new, but the lace is broken.",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Протистав новизну взуття й стан його деталі."
+                }
+            },
+            "verb_hint": "Протистав новизну взуття й стан його деталі.",
+            "accepted_target_texts": [
+                "The shoe is new, but the lace is broken."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The shoe",
+                "is new,",
+                "but",
+                "the lace",
+                "is broken."
+            ],
+            "token_groups": [
+                "The shoe",
+                "is new,",
+                "but",
+                "the lace",
+                "is broken."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "clq-reasonresult-a2-g01",
+            "author_id": "A2-g01",
+            "question": "We ate in the garden {a1} the dining room was being painted.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words_reason_result_contrast",
+            "translation_uk": "Ми їли в саду, оскільки їдальню фарбували.",
+            "target_text": "We ate in the garden since the dining room was being painted.",
+            "markers": {
+                "a1": {
+                    "answer": "since",
+                    "options": [
+                        "since",
+                        "although",
+                        "unless"
+                    ],
+                    "verb_hint": "Фарбування пояснює вибір місця; після пропуску повна частина."
+                }
+            },
+            "verb_hint": "Фарбування пояснює вибір місця; після пропуску повна частина.",
+            "accepted_target_texts": [
+                "We ate in the garden since the dining room was being painted.",
+                "We ate in the garden because the dining room was being painted.",
+                "We ate in the garden as the dining room was being painted."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "because",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "because",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "We ate",
+                "in the garden",
+                "since",
+                "the dining room",
+                "was being painted."
+            ],
+            "token_groups": [
+                "We ate",
+                "in the garden",
+                "since",
+                "the dining room",
+                "was being painted."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "clq-reasonresult-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The ladder was short; {a1}, it reached the lower branch.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words_reason_result_contrast",
+            "translation_uk": "Драбина була коротка; однак вона діставала до нижньої гілки.",
+            "target_text": "The ladder was short; however, it reached the lower branch.",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "therefore",
+                        "for example"
+                    ],
+                    "verb_hint": "Протистав коротку довжину фактичному результату вставною зв’язкою."
+                }
+            },
+            "verb_hint": "Протистав коротку довжину фактичному результату вставною зв’язкою.",
+            "accepted_target_texts": [
+                "The ladder was short; however, it reached the lower branch.",
+                "The ladder was short; nevertheless, it reached the lower branch.",
+                "The ladder was short; nonetheless, it reached the lower branch."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "nevertheless",
+                    "nonetheless"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "nevertheless",
+                    "nonetheless"
+                ]
+            },
+            "reorder_groups": [
+                "The ladder",
+                "was short;",
+                "however,",
+                "it reached",
+                "the lower branch."
+            ],
+            "token_groups": [
+                "The ladder",
+                "was short;",
+                "however,",
+                "it reached",
+                "the lower branch."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "clq-reasonresult-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The footbridge was unsafe; {a1}, access was restricted.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words_reason_result_contrast",
+            "translation_uk": "Пішохідний місток був небезпечний; тому доступ обмежили.",
+            "target_text": "The footbridge was unsafe; therefore, access was restricted.",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "nevertheless",
+                        "by contrast"
+                    ],
+                    "verb_hint": "Подай обмеження доступу як наслідок небезпеки."
+                }
+            },
+            "verb_hint": "Подай обмеження доступу як наслідок небезпеки.",
+            "accepted_target_texts": [
+                "The footbridge was unsafe; therefore, access was restricted.",
+                "The footbridge was unsafe; consequently, access was restricted.",
+                "The footbridge was unsafe; accordingly, access was restricted.",
+                "The footbridge was unsafe; as a result, access was restricted."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "consequently",
+                    "accordingly",
+                    "as a result"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "consequently",
+                    "accordingly",
+                    "as a result"
+                ]
+            },
+            "reorder_groups": [
+                "The footbridge",
+                "was unsafe;",
+                "therefore,",
+                "access was restricted."
+            ],
+            "token_groups": [
+                "The footbridge",
+                "was unsafe;",
+                "therefore,",
+                "access was restricted."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "clq-reasonresult-b1-g02",
+            "author_id": "B1-g02",
+            "question": "{a1} the thick mist, the lookout could see little.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words_reason_result_contrast",
+            "translation_uk": "Через густий туман спостерігач майже нічого не бачив.",
+            "target_text": "Because of the thick mist, the lookout could see little.",
+            "markers": {
+                "a1": {
+                    "answer": "Because of",
+                    "options": [
+                        "Because of",
+                        "Because",
+                        "Although"
+                    ],
+                    "verb_hint": "Причина виражена іменниковою групою, не підметом із дієсловом."
+                }
+            },
+            "verb_hint": "Причина виражена іменниковою групою, не підметом із дієсловом.",
+            "accepted_target_texts": [
+                "Because of the thick mist, the lookout could see little.",
+                "Due to the thick mist, the lookout could see little.",
+                "Owing to the thick mist, the lookout could see little."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Due to",
+                    "Owing to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Due to",
+                    "Owing to"
+                ]
+            },
+            "reorder_groups": [
+                "Because of",
+                "the thick mist,",
+                "the lookout",
+                "could see little."
+            ],
+            "token_groups": [
+                "Because of",
+                "the thick mist,",
+                "the lookout",
+                "could see little."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "clq-reasonresult-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The west wing remained accessible {a1} extensive repairs elsewhere.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words_reason_result_contrast",
+            "translation_uk": "Західне крило залишалося доступним попри масштабний ремонт в інших частинах.",
+            "target_text": "The west wing remained accessible despite extensive repairs elsewhere.",
+            "markers": {
+                "a1": {
+                    "answer": "despite",
+                    "options": [
+                        "despite",
+                        "although",
+                        "because"
+                    ],
+                    "verb_hint": "Перед іменниковою групою потрібна допустова прийменникова зв’язка."
+                }
+            },
+            "verb_hint": "Перед іменниковою групою потрібна допустова прийменникова зв’язка.",
+            "accepted_target_texts": [
+                "The west wing remained accessible despite extensive repairs elsewhere.",
+                "The west wing remained accessible in spite of extensive repairs elsewhere.",
+                "The west wing remained accessible notwithstanding extensive repairs elsewhere."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "in spite of",
+                    "notwithstanding"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "in spite of",
+                    "notwithstanding"
+                ]
+            },
+            "reorder_groups": [
+                "The west wing",
+                "remained accessible",
+                "despite",
+                "extensive repairs",
+                "elsewhere."
+            ],
+            "token_groups": [
+                "The west wing",
+                "remained accessible",
+                "despite",
+                "extensive repairs",
+                "elsewhere."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "clq-reasonresult-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The figures were rounded; {a1}, small discrepancies appeared in the totals.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words_reason_result_contrast",
+            "translation_uk": "Числа округлили; унаслідок цього в підсумках з’явилися невеликі розбіжності.",
+            "target_text": "The figures were rounded; as a result, small discrepancies appeared in the totals.",
+            "markers": {
+                "a1": {
+                    "answer": "as a result",
+                    "options": [
+                        "as a result",
+                        "on the contrary",
+                        "nevertheless"
+                    ],
+                    "verb_hint": "Покажи, що розбіжності виникли через округлення."
+                }
+            },
+            "verb_hint": "Покажи, що розбіжності виникли через округлення.",
+            "accepted_target_texts": [
+                "The figures were rounded; as a result, small discrepancies appeared in the totals.",
+                "The figures were rounded; consequently, small discrepancies appeared in the totals.",
+                "The figures were rounded; therefore, small discrepancies appeared in the totals.",
+                "The figures were rounded; accordingly, small discrepancies appeared in the totals."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "consequently",
+                    "therefore",
+                    "accordingly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "consequently",
+                    "therefore",
+                    "accordingly"
+                ]
+            },
+            "reorder_groups": [
+                "The figures",
+                "were rounded;",
+                "as a result,",
+                "small discrepancies",
+                "appeared in",
+                "the totals."
+            ],
+            "token_groups": [
+                "The figures",
+                "were rounded;",
+                "as a result,",
+                "small discrepancies",
+                "appeared in",
+                "the totals."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "clq-reasonresult-c1-g01",
+            "author_id": "C1-g01",
+            "question": "{a1} the evidence is indirect, caution remains warranted.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words_reason_result_contrast",
+            "translation_uk": "Оскільки докази непрямі, обережність залишається виправданою.",
+            "target_text": "Inasmuch as the evidence is indirect, caution remains warranted.",
+            "markers": {
+                "a1": {
+                    "answer": "Inasmuch as",
+                    "options": [
+                        "Inasmuch as",
+                        "Notwithstanding",
+                        "Despite"
+                    ],
+                    "verb_hint": "Формально назви причину обережності через вже наведену повну частину."
+                }
+            },
+            "verb_hint": "Формально назви причину обережності через вже наведену повну частину.",
+            "accepted_target_texts": [
+                "Inasmuch as the evidence is indirect, caution remains warranted.",
+                "Since the evidence is indirect, caution remains warranted.",
+                "Because the evidence is indirect, caution remains warranted.",
+                "As the evidence is indirect, caution remains warranted."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Since",
+                    "Because",
+                    "As"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Since",
+                    "Because",
+                    "As"
+                ]
+            },
+            "reorder_groups": [
+                "Inasmuch as",
+                "the evidence",
+                "is indirect,",
+                "caution remains warranted."
+            ],
+            "token_groups": [
+                "Inasmuch as",
+                "the evidence",
+                "is indirect,",
+                "caution remains warranted."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "clq-reasonresult-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The recommendation is sound in principle; {a1}, implementation poses practical difficulties.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words_reason_result_contrast",
+            "translation_uk": "Рекомендація обґрунтована в принципі; попри це впровадження спричиняє практичні труднощі.",
+            "target_text": "The recommendation is sound in principle; even so, implementation poses practical difficulties.",
+            "markers": {
+                "a1": {
+                    "answer": "even so",
+                    "options": [
+                        "even so",
+                        "as a result",
+                        "in other words"
+                    ],
+                    "verb_hint": "Визнай загальну слушність і протистав їй труднощі реалізації."
+                }
+            },
+            "verb_hint": "Визнай загальну слушність і протистав їй труднощі реалізації.",
+            "accepted_target_texts": [
+                "The recommendation is sound in principle; even so, implementation poses practical difficulties.",
+                "The recommendation is sound in principle; nevertheless, implementation poses practical difficulties.",
+                "The recommendation is sound in principle; nonetheless, implementation poses practical difficulties.",
+                "The recommendation is sound in principle; however, implementation poses practical difficulties."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "nevertheless",
+                    "nonetheless",
+                    "however"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "nevertheless",
+                    "nonetheless",
+                    "however"
+                ]
+            },
+            "reorder_groups": [
+                "The recommendation",
+                "is sound",
+                "in principle;",
+                "even so,",
+                "implementation poses",
+                "practical difficulties."
+            ],
+            "token_groups": [
+                "The recommendation",
+                "is sound",
+                "in principle;",
+                "even so,",
+                "implementation poses",
+                "practical difficulties."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "clq-reasonresult-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The limitation is material; {a1}, an unqualified endorsement would be premature.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words_reason_result_contrast",
+            "translation_uk": "Обмеження істотне; отже, беззастережне схвалення було б передчасним.",
+            "target_text": "The limitation is material; hence, an unqualified endorsement would be premature.",
+            "markers": {
+                "a1": {
+                    "answer": "hence",
+                    "options": [
+                        "hence",
+                        "nonetheless",
+                        "conversely"
+                    ],
+                    "verb_hint": "Висновок про передчасність випливає зі значущості обмеження."
+                }
+            },
+            "verb_hint": "Висновок про передчасність випливає зі значущості обмеження.",
+            "accepted_target_texts": [
+                "The limitation is material; hence, an unqualified endorsement would be premature.",
+                "The limitation is material; therefore, an unqualified endorsement would be premature.",
+                "The limitation is material; consequently, an unqualified endorsement would be premature.",
+                "The limitation is material; accordingly, an unqualified endorsement would be premature."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "therefore",
+                    "consequently",
+                    "accordingly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "therefore",
+                    "consequently",
+                    "accordingly"
+                ]
+            },
+            "reorder_groups": [
+                "The limitation",
+                "is material;",
+                "hence,",
+                "an unqualified endorsement",
+                "would be premature."
+            ],
+            "token_groups": [
+                "The limitation",
+                "is material;",
+                "hence,",
+                "an unqualified endorsement",
+                "would be premature."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "clq-reasonresult-c2-g02",
+            "author_id": "C2-g02",
+            "question": "{a1} its apparent precision, the model conceals substantial uncertainty.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words_reason_result_contrast",
+            "translation_uk": "Попри всю позірну точність, модель приховує значну невизначеність.",
+            "target_text": "For all its apparent precision, the model conceals substantial uncertainty.",
+            "markers": {
+                "a1": {
+                    "answer": "For all",
+                    "options": [
+                        "For all",
+                        "Although",
+                        "Because"
+                    ],
+                    "verb_hint": "Перед присвійною іменниковою групою вкажи поступку, а не причину."
+                }
+            },
+            "verb_hint": "Перед присвійною іменниковою групою вкажи поступку, а не причину.",
+            "accepted_target_texts": [
+                "For all its apparent precision, the model conceals substantial uncertainty.",
+                "Despite its apparent precision, the model conceals substantial uncertainty.",
+                "Notwithstanding its apparent precision, the model conceals substantial uncertainty.",
+                "In spite of its apparent precision, the model conceals substantial uncertainty."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Despite",
+                    "Notwithstanding",
+                    "In spite of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Despite",
+                    "Notwithstanding",
+                    "In spite of"
+                ]
+            },
+            "reorder_groups": [
+                "For all",
+                "its apparent precision,",
+                "the model",
+                "conceals substantial uncertainty."
+            ],
+            "token_groups": [
+                "For all",
+                "its apparent precision,",
+                "the model",
+                "conceals substantial uncertainty."
+            ],
+            "quality_revision": "clq-v1"
+        }
+    ]
+}

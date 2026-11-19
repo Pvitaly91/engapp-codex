@@ -1,0 +1,333 @@
+# M74 — Editorial / component / task map
+
+Agent review за первинними видавничими матеріалами; не human approval.
+
+35 graded own tasks: 20 corrected-retained + 1 semantic transfer у тій самій позиції + 14 new. Два demos не оцінюються. Окремо15 існуючих тематичних widget questions.
+
+28 continuing structured slots, один appended practice. Types/columns/order/levels/UUID/navigation labels збережені; SQL NULL не підмінений навчальним A2/A1.
+
+## Database\Seeders\Page_V3\NounsArticlesQuantity\NounsArticlesQuantityAnotherOtherTheOtherTheorySeeder
+
+### Редакційні рішення
+
+{"kind":"source-derived-preserved-and-qualified","old":"hero.rules[0]; usage.sections[0]: another — ще один або інший; sandwich/method/hour examples","after":"hero.rules[0]; usage.sections[0..1]: additional and replacement readings separated with explicit context; standalone another added","reason":"The source contrast is useful, but a request with another does not entail receiving or consuming both items. Existing sandwich and hour examples retained verbatim; Let us try another method retained EN with more exact inclusive UK translation.","sources":["cambridge-other-grammar","cambridge-another-dictionary","bc-determiners"]}
+
+{"kind":"correction-of-overgeneralisation","old":"hero.rules[1]; forms.items[1]; usage.sections[1]; summary.items[1]: other only plural/mass without singular qualification","after":"hero.rules[1]; forms.items[2]; usage.sections[2]; summary.items[1]: determiner + other + singular, with my/any/one models","reason":"Other with singular count nouns is not globally prohibited; another determiner may license it. Source plural/mass model retained, not called wholly wrong.","sources":["cambridge-other-grammar","cambridge-other-dictionary"]}
+
+{"kind":"correction-of-overgeneralisation","old":"forms.items[2]; usage.sections[2]; summary.items[2]: the other described only as second/last one","after":"forms.items[3..4]; usage.sections[3..4]: known remaining singular from three boxes and plural remainder from five books; standalone the other retained","reason":"Determinate remaining referent is not limited to one second item from a two-item group; the other books names a plural remainder.","sources":["cambridge-other-grammar","cambridge-other-dictionary"]}
+
+{"kind":"explicit-error-correction","old":"usage.sections[2].note: other ones crossed out after blanket instruction to use others/the others without a noun","after":"forms.items[4..5]; usage.sections[4]; input5: another/the other singular omission, others/the others plural omission, and valid other ones alternatives","reason":"The crossed-out construction is grammatical. A shorter alternative is not the sole correct one. Named British Council editorial reply confirms other ones and others; Cambridge dictionary includes the other ones.","sources":["cambridge-other-one-dictionary","bc-other-ones-editorial"]}
+
+{"kind":"correction-preserving-quantity","old":"mistakes.items[0]: another books → other books / another book without context","after":"mistakes.items[0]: several books explicitly intended; other books correction; note explains why singular another book changes the requested quantity","reason":"Both corrected fragments may be grammatical, but they do not preserve the same number. Numeric another two books is separately licensed, not a blanket permission for another books.","sources":["cambridge-other-grammar","cambridge-another-dictionary"]}
+
+{"kind":"new-authored-addition","old":"No explicit numeral model; coffee example lacked serving explanation; questions present but negative contrast absent","after":"forms.items[6]; usage.sections[0,5,6]: another + quantity; counted coffee serving; questions, not another, no other with distinct meanings","reason":"Completes the B1 model without changing M70 serving-use or creating sections on reciprocal/every-other structures.","sources":["cambridge-another-dictionary","cambridge-coffee-dictionary","bc-count-substances","cambridge-other-dictionary"]}
+
+{"kind":"source-derived-preserved-and-disambiguated","old":"Some students passed, but the others failed; Some are ready; the others are late; other students/information and key/shoe examples","after":"Known group explicit in the others teaching and task4; non-exhaustive others example introduced. Other students/information, two-key contrast and shoe correction retained with UK translations; repetitive unconstrained some/the others fragments consolidated into one transparent group model.","reason":"The original the others sentence is possible, but the known group was implicit. Editorial clarification is not a claim that every original sentence was ungrammatical.","sources":["cambridge-other-grammar","bc-determiners"]}
+
+{"kind":"metadata-and-navigation-preserved","old":"Six source slots with B1 teaching; mistakes/summary right; footer no level and eight explicit URLs","after":"Same six continuing slot types/order/columns/levels and unchanged eight navigation records. One additional practice remains a separate conditional proposal.","reason":"Content edits do not authorize moving right-column blocks or changing navigation design or SQL metadata.","sources":[]}
+
+### Карта tasks
+
+Graded selects[0] — new; ID before/after: [null,"m74-another-form-additional-ticket"]; manual/tokens: false
+
+Graded selects[1] — new; ID before/after: [null,"m74-another-form-known-books"]; manual/tokens: false
+
+Graded choices[0] — new; ID before/after: [null,"m74-another-meaning-replacement-coffee"]; manual/tokens: false
+
+Graded choices[1] — new; ID before/after: [null,"m74-another-meaning-known-remainder"]; manual/tokens: false
+
+Graded inputs[0] — new; ID before/after: [null,"m74-another-sentence-others-ones"]; manual/tokens: true
+
+Graded inputs[1] — new; ID before/after: [null,"m74-another-sentence-other-chairs"]; manual/tokens: true
+
+### Basic / detail
+
+{"id":"another-additional","placement":"visible-basic","field":"usage.sections[0]","reason":"Core additional reading, serving boundary, translation and short context note are needed before practice."}
+
+{"id":"another-alternative","placement":"visible-basic","field":"usage.sections[1]","reason":"Replacement versus addition is a central lesson distinction, not optional enrichment."}
+
+{"id":"another-standalone","placement":"visible-basic","field":"forms.items[4]; usage.sections[1]","reason":"Standalone singular is necessary to prevent the source blanket noun-omission rule."}
+
+{"id":"other-singular-determiner","placement":"visible-basic","field":"forms.items[2]; usage.sections[2]","reason":"My/any/one other + singular is a required qualification of the main form rule."}
+
+{"id":"other-before-noun","placement":"visible-basic","field":"usage.sections[2]; mistakes.items[3]","reason":"No -s before an overt noun is needed for the visible model and form task."}
+
+{"id":"known-remainder","placement":"visible-basic","field":"usage.sections[3]","reason":"Singular and plural determinate remainders are the core contrast; no two-only restriction."}
+
+{"id":"non-exhaustive-others","placement":"visible-basic","field":"usage.sections[4]","reason":"Some … others is not necessarily exhaustive; the actual group facts belong beside the example."}
+
+{"id":"other-ones","placement":"visible-basic","field":"forms.items[5]; usage.sections[4]","reason":"Removing the false prohibition and accepting a correct alternative must not require a disclosure."}
+
+{"id":"another-quantity","placement":"visible-basic","field":"forms.items[6]; usage.sections[5]","reason":"Short finite quantity qualification corrects a singular-only overgeneralisation; it is not a standalone long detail."}
+
+{"id":"negative-meaning","placement":"visible-basic","field":"usage.sections[6]","reason":"Questions and negative contrast are concise required usage examples, not hidden teaching."}
+
+{"id":"quantity-correction","placement":"visible-basic","field":"mistakes.items[0]","reason":"The intended number must stay visible with its correction."}
+
+{"id":"out-of-scope-fixed-patterns","placement":"visible-basic","field":"usage.sections[6].note","reason":"Short scope signpost is not meaningful disclosure material; no separate reciprocal/every-other chapter is authored."}
+
+### Первинні джерела й спосіб доступу
+
+{"id":"cambridge-other-grammar","title":"Other, others, the other or another? — Cambridge English Grammar Today","url":"https://dictionary.cambridge.org/uk/grammar/british-grammar/other-others-the-other-or-another","also_attempted_url":"https://dictionary.cambridge.org/grammar/british-grammar/other-others-the-other-or-another","access":"Direct open returned 403 for both recorded URLs. Domain-restricted search returned publisher-indexed editorial body, including determiner/pronoun sections, other with an extra determiner before singular, definite plural remainder, another additional/alternative, and typical errors.","used_for":"Core form distinctions, determiner+other+singular, noun omission, remaining plural, no -s before noun.","boundary":"Its short singular-only simplification for another is qualified using the dictionary's explicit extra-quantity sense, not treated as banning another+numeral."}
+
+{"id":"cambridge-another-dictionary","title":"Another — Cambridge Dictionary","url":"https://dictionary.cambridge.org/us/dictionary/english/another","also_attempted_url":"https://dictionary.cambridge.org/dictionary/english/another","access":"Direct opens returned 403. Domain-restricted search returned publisher-indexed dictionary body with additional and different senses plus extra-amount/number example.","used_for":"Two another readings; counted extra amount such as another fifteen minutes; pronoun use.","boundary":"New lesson examples are authored; indexed editorial dictionary definition, not corpus snippets, is the evidence."}
+
+{"id":"cambridge-other-one-dictionary","title":"The other one — Cambridge Dictionary","url":"https://dictionary.cambridge.org/us/dictionary/english/other-one","access":"Direct open returned 403. Domain-restricted search returned publisher-indexed dictionary body with pair-or-group definition and explicit the other ones example.","used_for":"The other one/the other ones are valid; a group need not contain exactly two items.","boundary":"Specific bare other ones is additionally supported by the named British Council editorial reply below; neither source licenses any arbitrary uncountable use of ones."}
+
+{"id":"cambridge-other-dictionary","title":"Other — Cambridge Dictionary","url":"https://dictionary.cambridge.org/us/dictionary/english/other","access":"Publisher-indexed dictionary body from domain-restricted search; direct body not claimed.","used_for":"Additional/different and remaining-set senses; one other, no other and question contexts.","boundary":"Not based on external translation aggregators or user-submitted corpus entries. My/any/one models are authored applications of the editorial determiner rule."}
+
+{"id":"cambridge-coffee-dictionary","title":"Coffee — Cambridge Dictionary","url":"https://dictionary.cambridge.org/dictionary/english/coffee","access":"Direct open returned 403. Domain-restricted search returned publisher-indexed dictionary editorial drink sense marked countable or uncountable, including a cup-serving explanation.","used_for":"Another coffee can count a portion of the drink; preserves M70 serving-use.","boundary":"Only dictionary sense used; corpus section not used as rule evidence."}
+
+{"id":"bc-determiners","title":"Specific and general determiners — British Council LearnEnglish","url":"https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/specific-general-determiners","access":"Direct editorial body available; specific/general sections read. Exercises and learner comments not used.","used_for":"Listener-identifiable versus general reference and additional another.","boundary":"The page's simplified other-as-plural phrasing is not repeated as a universal ban on singular determiner+other or standalone singular uses."}
+
+{"id":"bc-other-ones-editorial","title":"British Council LearnEnglish editorial reply by Peter M., 18 May 2023","url":"https://learnenglish.britishcouncil.org/comment/188362","parent_url":"https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/specific-general-determiners","access":"Direct body and comment permalink available. Read specifically the identified LearnEnglish Team reply, not the preceding learner question as authority.","used_for":"Reply explicitly accepts other ones and others in reference to restaurants and confirms the known-remainder reading of the other restaurants.","boundary":"This is an editorial reply attached to an article, not silently reported as the article's main grammar body or a human review of this draft."}
+
+{"id":"bc-count-substances","title":"Common problems with count and uncount nouns — British Council LearnEnglish","url":"https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/common-problems-count-uncount-nouns","access":"Direct editorial body read, Substances as count or uncount nouns section; explicitly explains coffee as a cup serving. Exercises and learner comments not used.","used_for":"Serving use of a coffee without a blanket countability prohibition.","boundary":"Does not make every substance automatically countable in every context."}
+
+## Database\Seeders\Page_V3\PronounsDemonstratives\PronounsDemonstrativesPronounsTheorySeeder
+
+### Редакційні рішення
+
+{"source":"page.subtitle + hero","status":"corrected_and_added","before":"Займенники лише замінюють іменники; hero обіцяє всі правила й змішує self-функції.","after":"Карта учасника/ролі з I/you та погодним it; обмежена обіцянка огляду.","reason":"Початкове спрощення корисне, але не повний опис; H1 first strong Pronouns збережений.","sources":["C2","B1"]}
+
+{"source":"block1 forms-grid","status":"source_derived_compacted","before":"Шість карток типів.","after":"Шість карток функцій: ті самі групи, взаємні згадані разом із короткою картою відносних.","reason":"Зберегти корисну карту, не розгорнути дев’ять спеціалізованих уроків."}
+
+{"source":"block2 sections0..2","status":"corrected_and_compacted","before":"Підмет = хто виконує дію; 7+7 прикладів; таблиця повторює всі пари; purple usage.","after":"Роль/стан/питання, повна карта пар одним полем, два потрібні приклади на пункт; weather it і коротке singular they; usage blue.","reason":"Прибрано повтор однотипних прикладів без втрати форм; не зменшено шрифт; purple→blue exact author mapping only.","sources":["B1","C2"]}
+
+{"source":"block3 sections0..2","status":"corrected_and_added","before":"Завжди перед іменником; my/mine; it's лише it is; ремарки всередині EN.","after":"При іменниковій групі з my new bag; his/her/hers; its/is/has у повних прикладах; коментарі поза EN.","reason":"Розділити функцію й переклад, показати межу contraction has; повторні приклади скорочено.","sources":["C5","C6"]}
+
+{"source":"block4 sections0..2","status":"corrected_and_relocated","before":"They did it themselves у same-subject-object; emphatic = без допомоги; I taught English оголошено помилкою.","after":"Те саме речення перенесено до emphatic; by myself розрізняємо за контекстом; teaching English визнане граматичним іншим задумом.","reason":"Зберегти корисні речення без хибної класифікації; purple forms usage→blue.","sources":["C3"]}
+
+{"source":"block5 sections0..1","status":"source_derived_with_boundary","before":"This/that лише близько/далеко; переклад містить пояснювальні дужки.","after":"Явна просторова сцена, число, самостійне this проти this bag; відстань не єдиний контекст.","reason":"Самі короткі пояснення лишаються visible basic; дублікати знято.","sources":["C8"]}
+
+{"source":"block6 sections0..2","status":"corrected_and_compacted","before":"Indefinite/relative/reciprocal; жорстка кількість людей each other vs one another.","after":"Усі три групи збережено коротко; обидві reciprocal форми для 2+; перехід до окремих уроків.","reason":"Нормативна варіантність, не переписування accepted Relative уроків; purple indefinite usage→blue.","sources":["C7","B2"]}
+
+{"source":"block7 comparison-table","status":"source_derived","before":"5 рядків із основними формами.","after":"Ті самі 5 навчальних рядків, функції підписані українською; формула й коментар окремо.","reason":"Таблицю не замінено usage-картками; довгий self-рядок має лишитися штатною локально прокручуваною таблицею."}
+
+{"source":"block8 mistakes-grid","status":"corrected","before":"4 difficulties; I taught English перекреслено як missing-self error; right із span.","after":"Ті самі 4 функції з exact right/wrong EN/UK полями та поясненнями; граматичний teaching контраст не названо універсальною помилкою.","reason":"Не додавати класи в payload; передача компоненту й finite source transformation — main."}
+
+{"source":"block9 summary-list","status":"source_derived_reorganized","before":"8 повторних пунктів списків форм.","after":"6 коротких кроків: учасник→роль→форма→число→повне речення→межі.","reason":"Форми вже є в таблиці; самостійний алгоритм без дублювання великих списків."}
+
+{"source":"block10 practice-set","status":"retained_corrected_transferred_new","before":"4select+3shortinput+2rephrase+demo.","after":"4select+3shortinput+2rephrase (1 semantic transferred)+2newmeaning+2newsentence+demo.","reason":"Ті самі9gradedfunctions/indices й IDabsence; 4new tasks, не заміна практики; actual unchanged-engine verification головним агентом."}
+
+{"source":"block11 navigation-chips","status":"source_derived_exact_labels","before":"9labels/current, URLs absent.","after":"Exact9labels/current unchanged; URLs fills main only after resolver/GET.","reason":"Не вигадувати destinations і не залишити #."}
+
+{"source":"block4 sections0 example context","status":"clarified_v2","before":"Help yourselves. — Пригощайтеся без указаного контексту.","after":"Перед прикладом указано, що господар пропонує їжу кільком гостям.","reason":"Точний український переклад імператива потребує цього значення help yourselves."}
+
+{"source":"block10 feedback maps","status":"corrected_after_actual_factory_probe","before":"Normalized-only author feedback keys; correct grade but generic feedback for punctuation-bearing answers.","after":"Retained normalized keys plus finite exact literal trim-lower option/canonical/alias keys.","reason":"Actual feedbackText uses raw trim-lower lookup, unlike grader.normalize. No feedbackText or normalizer edits."}
+
+### Карта tasks
+
+Graded selects[0] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded selects[1] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded selects[2] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded selects[3] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded choices[0] — new; ID before/after: [null,"m74-overview-meaning-reflexive"]; manual/tokens: false
+
+Graded choices[1] — new; ID before/after: [null,"m74-overview-meaning-reciprocal"]; manual/tokens: false
+
+Graded inputs[0] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded inputs[1] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded inputs[2] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded inputs[3] — new; ID before/after: [null,"m74-overview-sentence-ownership"]; manual/tokens: true
+
+Graded inputs[4] — new; ID before/after: [null,"m74-overview-sentence-reciprocal"]; manual/tokens: true
+
+Demo rephrase[0] — ungraded-demo-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded rephrase[1] — semantic-transfer-same-position; ID before/after: [null,null]; manual/tokens: false
+
+Graded rephrase[2] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+### Basic / detail
+
+{"block_key":"overview-2","point_index":0,"label":"Підмет: про кого або про що повідомляємо","decision":"visible_basic","reason":"Коротке правило, його переклади й обмеження потрібні для самодостатнього огляду; окремого поглиблення тут немає."}
+
+{"block_key":"overview-2","point_index":1,"label":"Додаток: кого стосується дія або прийменник","decision":"visible_basic","reason":"Коротке правило, його переклади й обмеження потрібні для самодостатнього огляду; окремого поглиблення тут немає."}
+
+{"block_key":"overview-2","point_index":2,"label":"Повна карта форм і погодне it","decision":"visible_basic","reason":"Коротке правило, його переклади й обмеження потрібні для самодостатнього огляду; окремого поглиблення тут немає."}
+
+{"block_key":"overview-3","point_index":0,"label":"Possessive Adjectives — при іменниковій групі","decision":"visible_basic","reason":"Коротке правило, його переклади й обмеження потрібні для самодостатнього огляду; окремого поглиблення тут немає."}
+
+{"block_key":"overview-3","point_index":1,"label":"Possessive Pronouns — без повторення іменника","decision":"visible_basic","reason":"Коротке правило, його переклади й обмеження потрібні для самодостатнього огляду; окремого поглиблення тут немає."}
+
+{"block_key":"overview-3","point_index":2,"label":"Its та it’s: власник або скорочення","decision":"visible_basic","reason":"Коротке правило, його переклади й обмеження потрібні для самодостатнього огляду; окремого поглиблення тут немає."}
+
+{"block_key":"overview-4","point_index":0,"label":"Форми на -self та -selves","decision":"visible_basic","reason":"Коротке правило, його переклади й обмеження потрібні для самодостатнього огляду; окремого поглиблення тут немає."}
+
+{"block_key":"overview-4","point_index":1,"label":"Дія повертається на того самого учасника","decision":"visible_basic","reason":"Коротке правило, його переклади й обмеження потрібні для самодостатнього огляду; окремого поглиблення тут немає."}
+
+{"block_key":"overview-4","point_index":2,"label":"Підсилення та by: дивись на зміст","decision":"visible_basic","reason":"Коротке правило, його переклади й обмеження потрібні для самодостатнього огляду; окремого поглиблення тут немає."}
+
+{"block_key":"overview-5","point_index":0,"label":"This / that: один предмет","decision":"visible_basic","reason":"Коротке правило, його переклади й обмеження потрібні для самодостатнього огляду; окремого поглиблення тут немає."}
+
+{"block_key":"overview-5","point_index":1,"label":"These / those: кілька предметів","decision":"visible_basic","reason":"Коротке правило, його переклади й обмеження потрібні для самодостатнього огляду; окремого поглиблення тут немає."}
+
+{"block_key":"overview-6","point_index":0,"label":"Indefinite Pronouns — неозначені","decision":"visible_basic","reason":"Коротке правило, його переклади й обмеження потрібні для самодостатнього огляду; окремого поглиблення тут немає."}
+
+{"block_key":"overview-6","point_index":1,"label":"Relative Pronouns — відносні","decision":"visible_basic","reason":"Коротке правило, його переклади й обмеження потрібні для самодостатнього огляду; окремого поглиблення тут немає."}
+
+{"block_key":"overview-6","point_index":2,"label":"Reciprocal Pronouns — взаємні","decision":"visible_basic","reason":"Коротке правило, його переклади й обмеження потрібні для самодостатнього огляду; окремого поглиблення тут немає."}
+
+{"block_key":"overview-8","point_index":0,"label":"Підмет у нейтральному письмі","decision":"visible_basic","reason":"Заданий задум, корекція та пояснення зміни належать одному видимому пункту, не окремому disclosure."}
+
+{"block_key":"overview-8","point_index":1,"label":"Власник або скорочення","decision":"visible_basic","reason":"Заданий задум, корекція та пояснення зміни належать одному видимому пункту, не окремому disclosure."}
+
+{"block_key":"overview-8","point_index":2,"label":"Різний задум, не завжди помилка","decision":"visible_basic","reason":"Заданий задум, корекція та пояснення зміни належать одному видимому пункту, не окремому disclosure."}
+
+{"block_key":"overview-8","point_index":3,"label":"При іменнику чи самостійно","decision":"visible_basic","reason":"Заданий задум, корекція та пояснення зміни належать одному видимому пункту, не окремому disclosure."}
+
+### Первинні джерела й спосіб доступу
+
+{"id":"C1","url":"https://dictionary.cambridge.org/grammar/british-grammar/pronouns-personal-i-me-you-him-it-they-etc","access":"web.open direct","result":"403 Forbidden","boundary":"No direct body obtained; do not cite this attempted URL as successfully read."}
+
+{"id":"C2","url":"https://dictionary.cambridge.org/us/grammar/british-grammar/pronouns-personal-i-me-you-he-him-etc","access":"publisher-indexed body returned by web.search_query","result":"Full relevant editorial sections returned","verified_question":"Subject/object role, speaker/addressee, singular they and dummy weather it.","boundary":"Publisher indexed article body, not direct reading and not copied exercise; original examples authored separately."}
+
+{"id":"B1","url":"https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/personal-pronouns","access":"web.open + web.find","result":"Direct editorial body obtained","verified_question":"Subject/object paradigm, pronoun subject in English, weather it.","boundary":"Used article body beginning, not learner comments/editorial replies or exercises."}
+
+{"id":"C3","url":"https://dictionary.cambridge.org/grammar/british-grammar/reflexive","access":"web.open direct then publisher-indexed body via search","result":"Direct403; relevant indexed editorial body obtained","verified_question":"Same subject/object versus emphasis; by + reflexive alone/without help; everyday actions do not require self.","boundary":"Direct failure explicitly separate from indexed body success; no publisher exercises copied."}
+
+{"id":"C4","url":"https://dictionary.cambridge.org/us/grammar/british-grammar/word-choice-its-or-it-s","access":"web.open direct","result":"403 Forbidden","boundary":"No direct body; alternative article C5 actually supplies its/is/has verification."}
+
+{"id":"C5","url":"https://dictionary.cambridge.org/grammar/british-grammar/its-or-its","access":"publisher-indexed body via web.search_query; attempted direct web.open","result":"Indexed editorial body obtained; direct403","verified_question":"It's = it is or it has; its is possessive determiner, not free-standing in basic model.","boundary":"No claim that the initial requested URL redirected; each request recorded separately."}
+
+{"id":"C6","url":"https://dictionary.cambridge.org/uk/grammar/british-grammar/pronouns-possessive-my-mine-your-yours-","access":"publisher-indexed body via web.search_query","result":"Relevant editorial body obtained","verified_question":"Possessive determiners before noun phrases; pronouns independently; his same form, her/hers distinct.","boundary":"The -s contraction simplification in this article does not override explicit it has in C5; its own exception kept outside basic."}
+
+{"id":"C7","url":"https://dictionary.cambridge.org/grammar/british-grammar/each-other-one-another","access":"web.open direct then publisher-indexed article excerpt via search","result":"Direct403; publisher-indexed statement obtained","verified_question":"Reciprocal forms refer to a group of two or more people.","boundary":"Only indexed publisher excerpt supports the group-size clarification; no fabricated direct read."}
+
+{"id":"B2","url":"https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/reciprocal-pronouns","access":"web.open direct twice; publisher-indexed excerpt via search","result":"Direct400 timeout twice; publisher-indexed editorial excerpt obtained","verified_question":"Each other and one another used when two or more people do the same thing.","boundary":"Learner comments and editorial replies not used to establish the rule."}
+
+{"id":"C8","url":"https://dictionary.cambridge.org/grammar/british-grammar/this-that-these-and-those","access":"publisher-indexed editorial excerpt via search","result":"Relevant excerpt obtained","verified_question":"Demonstratives can be determiners and pronouns; distance is not their only use.","boundary":"Article excerpt, not direct body; detailed special uses deliberately outside overview."}
+
+## Database\Seeders\Page_V3\PronounsDemonstratives\PronounsDemonstrativesPersonalObjectPronounsTheorySeeder
+
+### Редакційні рішення
+
+{"source":"hero/forms/subject usage/algorithm/summary positional claims","kind":"correction","after":"Role first, states included, questions with auxiliary followed by subject explained at every relevant stage.","why":"A surface after-a-verb rule misclassifies she in Does she know him?; the subject is not necessarily an active doer.","sources":["bc-personal-editorial","bc-question-forms-editorial"]}
+
+{"source":"subject/object names","kind":"preserved-and-clarified","after":"Two forms of personal pronouns, all seven pairs retained, you/it identity retained.","why":"Avoids describing unrelated word categories; full map remains A1.","sources":["bc-personal-editorial","cambridge-personal-indexed"]}
+
+{"source":"You are welcome here. → Ви тут завжди раді.","kind":"translation-correction","after":"Вам тут раді.","why":"Changes joy of addressee to welcome offered to addressee and removes unsupported always; context explicitly addresses multiple guests."}
+
+{"source":"He masculine/she feminine/it animals","kind":"boundary-correction","after":"Established personal referents, no name/profession/UA-object-gender inference; it for things and dummy weather separately; he/she possible for a known animal.","why":"English personal reference does not copy Ukrainian grammatical gender.","sources":["bc-personal-editorial","cambridge-gender-indexed"]}
+
+{"source":"We/They group contrast","kind":"preserved-with-addition","after":"Speaker-inclusive we retained; concise singular they with are/have added in visible basic.","why":"They is not limited to several people.","sources":["bc-personal-editorial","cambridge-personal-indexed"]}
+
+{"source":"I like him plus Ukrainian question heuristic","kind":"clarification","after":"I like them. — Вони мені подобаються. Explicitly analyzes English roles, not Ukrainian case.","why":"Natural translation can change construction while English I remains subject."}
+
+{"source":"She is thinking about her.","kind":"referent-clarification","after":"Two explicitly different women; same sentence and translation retained, own meaning task tests preserved participants.","why":"Does not silently replace the object with herself or assume the nearest name determines reference.","sources":["cambridge-reflexive-indexed"]}
+
+{"source":"All short answers use object; not I; It's I formal rule","kind":"correction","after":"Me! standalone versus I did/Yes,I am with verb; It's me normal, It is I very formal not required answer.","why":"Short answer is not one syntactic type; preserves source informal replies but removes a false absolute.","sources":["cambridge-personal-indexed","bc-personal-editorial"]}
+
+{"source":"Me and John went... mistake","kind":"register-bound-correction","after":"Neutral standard subject John and I; separate object John and me and with/for + coordinated me.","why":"No universal after-and I rule; informal usage is acknowledged without turning it into the selected correction model.","sources":["cambridge-personal-indexed","bc-personal-editorial"]}
+
+{"source":"I lowercase visible mistake","kind":"preserved-visible-teaching","after":"Rule and original spelling contrast retained; explicit statement that own word input score is not strict case proof.","why":"There is no graded I/i source correction in this lesson; no fictitious transfer is counted."}
+
+{"source":"Usage colors personal-2/sections[2] and personal-3/sections[2]","kind":"finite-native-content-mapping","after":"purple→blue and purple→emerald respectively; mistake I item purple→slate.","why":"Only supported semantic usage colors used; no global CSS/renderer rule or redesign."}
+
+{"source":"Repeated declarative source examples","kind":"removed-redundancy-not-error","after":"You are smart, I am a student in theory, We go to school together, They live in London, duplicated algorithm bad-form annotations omitted or covered in retained practice/clear examples.","why":"Keeps compact A1 basic; these ordinary source sentences are not called ungrammatical. I work/She speaks/They play and all learning functions remain."}
+
+{"source":"UA annotations inside EN and analysis instead of translations","kind":"field-repair","after":"English examples contain English only; genuine UK sentence translation is separate; role analysis remains in description/note.","why":"An arrow role label is not a translation of a sentence."}
+
+{"source":"Practice broad shared options","kind":"source-contract-finding-pending-main-before-ui","after":"Local two-form options plus explicit referents, canonical/accepted/plain feedback.","why":"Source JSON alone is not asserted to prove an actual BEFORE UI defect; main must capture actual factory/DOM behavior."}
+
+{"source":"All ten structured slots and navigation","kind":"preserved","after":"Types/order/columns/existing_source_index unchanged; no level key introduced; nine navigation labels/current flags byte-exact; main resolves hrefs.","why":"No identity, plain subtitle H1, schema/category or metadata transition is assumed."}
+
+### Карта tasks
+
+Graded selects[0] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded selects[1] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded selects[2] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded selects[3] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded selects[4] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded choices[0] — new; ID before/after: [null,"m74-personal-meaning-help-direction"]; manual/tokens: false
+
+Graded choices[1] — new; ID before/after: [null,"m74-personal-meaning-two-women"]; manual/tokens: false
+
+Graded inputs[0] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded inputs[1] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded inputs[2] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded inputs[3] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded inputs[4] — new; ID before/after: [null,"m74-personal-sentence-question-roles"]; manual/tokens: true
+
+Graded inputs[5] — new; ID before/after: [null,"m74-personal-sentence-coordinated-negative"]; manual/tokens: true
+
+Demo rephrase[0] — ungraded-demo-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded rephrase[1] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded rephrase[2] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+Graded rephrase[3] — corrected-retained; ID before/after: [null,null]; manual/tokens: false
+
+### Basic / detail
+
+{"block":"personal-0","point":"rules[0..2]","decision":"visible_basic","placement":"visible-basic","reason":"Дія/стан, додаток і question exception потрібні для першого правильного вибору; не ховаємо основне правило."}
+
+{"block":"personal-1","point":"items[0..1]","decision":"visible_basic","placement":"visible-basic","reason":"Дві форми й переклади — базова карта A1."}
+
+{"block":"personal-2","point":"sections[0..4]","decision":"visible_basic","placement":"visible-basic","reason":"Короткі пояснення референтів, you, I, тварин і singular they безпосередньо обмежують приклади; окремого поглиблення немає."}
+
+{"block":"personal-3","point":"sections[0..3]","decision":"visible_basic","placement":"visible-basic","reason":"Наказ, прийменник, перекладацька межа й Me!/I did потрібні для застосування; приклади та переклади не є самостійними details."}
+
+{"block":"personal-4","point":"rows[0..6]","decision":"visible_basic","placement":"visible-basic","reason":"Повна таблиця семи пар є обов’язковою видимою опорою."}
+
+{"block":"personal-5","point":"sections[0..2]","decision":"visible_basic","placement":"visible-basic","reason":"Алгоритм і питання з be/do/does не можна заховати, лишивши positional heuristic як основне правило."}
+
+{"block":"personal-6","point":"items[0..5]","decision":"visible_basic","placement":"visible-basic","reason":"Виправлення, переклад і коротка причина зберігаються разом у native mistake item."}
+
+{"block":"personal-7","point":"items[0..8]","decision":"visible_basic","placement":"visible-basic","reason":"Короткий підсумок не є окремим змістовним поглибленням."}
+
+### Первинні джерела й спосіб доступу
+
+{"id":"bc-personal-editorial","url":"https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/personal-pronouns","access":"direct-editorial-main-body","checked":"Seven subject/object pairs; subject states, imperative exception, objects/prepositions, unknown-gender they/them and conversational identification with it. Read editorial lines 7–135 only for rules; learner comments and editorial replies below are not substituted for main-body evidence.","copied_exercises":false}
+
+{"id":"cambridge-personal-indexed","url":"https://dictionary.cambridge.org/uk/grammar/british-grammar/pronouns-personal","access":"publisher-indexed-main-body; direct-URL fetch returned 403","checked":"Seven forms, Me versus I did short replies, It's me normal versus very formal It is I, speaker/listener references, informal coordinated me contrasted with standard I. Source's own position simplification is bounded by the separate BC question-forms reference.","direct_attempts":[{"url":"https://dictionary.cambridge.org/grammar/british-grammar/pronouns-personal-i-me-you-him-it-they-etc","result":"tool fetch 403"},{"url":"https://dictionary.cambridge.org/uk/grammar/british-grammar/pronouns-personal","result":"tool fetch 403"}],"copied_exercises":false}
+
+{"id":"bc-question-forms-editorial","url":"https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/question-forms","access":"direct-editorial-main-body-and-publisher-indexed-body","checked":"Questions place be/auxiliary before the subject; do/does for ordinary present-simple verbs; subject remains subject after the auxiliary. Only A1 examples authored here; no publisher exercise bank copied."}
+
+{"id":"cambridge-gender-indexed","url":"https://dictionary.cambridge.org/grammar/british-grammar/gender","access":"publisher-indexed-editorial-main-body; direct fetch 403","checked":"English noun gender does not mechanically mirror grammatical-gender systems; it used for animals not personally known. Known-animal he/she allowance retained with an explicit established referent, not imposed from a name."}
+
+{"id":"cambridge-reflexive-indexed","url":"https://dictionary.cambridge.org/grammar/british-grammar/reflexive","access":"publisher-indexed-editorial-main-body","checked":"Distinguishes her referring to another person from herself referring to same person. Only this needed boundary is used; a full reflexive lesson is not inserted."}
+
+{"id":"cambridge-he-animal-indexed","url":"https://dictionary.cambridge.org/us/dictionary/english/he","access":"publisher-indexed-dictionary-editorial-definition","checked":"A1 pronoun definition explicitly includes a previously mentioned male animal; supports known-animal he instead of a universal it-only restriction. Corpus/example snippets are not the sole basis."}
+
+{"id":"cambridge-she-animal-indexed","url":"https://dictionary.cambridge.org/us/dictionary/english/she","access":"publisher-indexed-dictionary-editorial-definition","checked":"A1 pronoun definition explicitly includes a previously mentioned female animal; supports known-animal she. No independent direct fetch success is claimed."}
+
+### Збережені source observations
+
+[{"id":"bc-personal-editorial","url":"https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/personal-pronouns","access":"direct-editorial-main-body","checked":"Seven subject/object pairs; subject states, imperative exception, objects/prepositions, unknown-gender they/them and conversational identification with it. Read editorial lines 7–135 only for rules; learner comments and editorial replies below are not substituted for main-body evidence.","copied_exercises":false},{"id":"cambridge-personal-indexed","url":"https://dictionary.cambridge.org/uk/grammar/british-grammar/pronouns-personal","access":"publisher-indexed-main-body; direct-URL fetch returned 403","checked":"Seven forms, Me versus I did short replies, It's me normal versus very formal It is I, speaker/listener references, informal coordinated me contrasted with standard I. Source's own position simplification is bounded by the separate BC question-forms reference.","direct_attempts":[{"url":"https://dictionary.cambridge.org/grammar/british-grammar/pronouns-personal-i-me-you-him-it-they-etc","result":"tool fetch 403"},{"url":"https://dictionary.cambridge.org/uk/grammar/british-grammar/pronouns-personal","result":"tool fetch 403"}],"copied_exercises":false},{"id":"bc-question-forms-editorial","url":"https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/question-forms","access":"direct-editorial-main-body-and-publisher-indexed-body","checked":"Questions place be/auxiliary before the subject; do/does for ordinary present-simple verbs; subject remains subject after the auxiliary. Only A1 examples authored here; no publisher exercise bank copied."},{"id":"cambridge-gender-indexed","url":"https://dictionary.cambridge.org/grammar/british-grammar/gender","access":"publisher-indexed-editorial-main-body; direct fetch 403","checked":"English noun gender does not mechanically mirror grammatical-gender systems; it used for animals not personally known. Known-animal he/she allowance retained with an explicit established referent, not imposed from a name."},{"id":"cambridge-reflexive-indexed","url":"https://dictionary.cambridge.org/grammar/british-grammar/reflexive","access":"publisher-indexed-editorial-main-body","checked":"Distinguishes her referring to another person from herself referring to same person. Only this needed boundary is used; a full reflexive lesson is not inserted."},{"id":"cambridge-he-animal-indexed","url":"https://dictionary.cambridge.org/us/dictionary/english/he","access":"publisher-indexed-dictionary-editorial-definition","checked":"A1 pronoun definition explicitly includes a previously mentioned male animal; supports known-animal he instead of a universal it-only restriction. Corpus/example snippets are not the sole basis."},{"id":"cambridge-she-animal-indexed","url":"https://dictionary.cambridge.org/us/dictionary/english/she","access":"publisher-indexed-dictionary-editorial-definition","checked":"A1 pronoun definition explicitly includes a previously mentioned female animal; supports known-animal she. No independent direct fetch success is claimed."}]
+
+## Main SEO source verification
+
+{"id":"google-helpful-content-main","url":"https://developers.google.com/search/docs/fundamentals/creating-helpful-content","access":"Direct publisher body successfully read by main agent; source confirmation supplied during independent package review.","verified_question":"Useful, complete, original people-first teaching content; no word quota or promise of indexing/ranking.","boundary":"Primary editorial guidance, not learner comments, search-performance evidence or external human approval. No indexing promise follows from local apply.","applies_to":"All three M74 lessons."}
+
+## Межа normalizer та feedback
+
+{"grader_case":"I/i and This/this are accepted-insensitive; display remains standard and no strict case claim is made.","old_apostrophe":"Its a beautiful day. and It’s a beautiful day. normalize to the same key in the unchanged factory.","semantic_transfer":"Overview rephrase[1] now accepts only the distinct nonempty UK semantic values речення Б / Б; wrong А and old English stimuli do not pass.","feedback":"Actual feedbackText uses literal trim-lower keys; finite author maps include those plus normalization keys as needed.","engine_changes":false}
+
+## Незалежний main editorial / static review
+
+Усі три повні навчальні редакції прочитано main-agent; це агентна перевірка, не human approval.
+
+Незмінений actual native factory: PASS для35 own tasks /36 visible options /39 accepted values /6 manual +6 token paths. Перевірено15 native correct та selected strings і точність українських перекладів; це не live browser interaction.
+
+Статично переглянуто15 native form cards: найдовший нерозривний token має не більш як9 символів. Штатні компоненти та стилі незмінні. Це не доказ геометрії браузера.
+
+До публікації browser320 не перевірено: file-прев’ю заблоковане протокольною політикою браузера; обхід не застосовували. Реальна HTTP320 browser acceptance — окремий крок після local apply, не pre-freeze visual PASS.

@@ -1,0 +1,1605 @@
+{
+    "schema_version": 1,
+    "quality_revision": "word-order-v1",
+    "compiled_from": {
+        "path": "docs/content/word-order-quality/questions-negatives.v1.json",
+        "sha256": "022c780f5c65fa6f91693544f88809598c03df78af6eb2a2e2be49663c64ceb6"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\WordOrder\\UkrainianMixedWordOrderQuestionsNegativesQualityStandardSeeder",
+        "uuid_namespace": "word-order-quality-questions-negatives-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Word Order"
+    },
+    "sources": {
+        "word_order_quality_questions_negatives": {
+            "name": "Word Order Quality: Порядок слів у питаннях і запереченнях"
+        }
+    },
+    "tags": {
+        "auxiliary_verbs": {
+            "name": "Auxiliary Verbs",
+            "category": "topic"
+        },
+        "do_does_did": {
+            "name": "Do/Does/Did",
+            "category": "topic"
+        },
+        "wh_questions": {
+            "name": "Wh-Questions",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "auxiliary_verbs"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "woq-questions-negatives-a1-g01",
+            "author_id": "A1-g01",
+            "question": "{a1} your sister at home?",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Твоя сестра вдома?",
+            "target_text": "Is your sister at home?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Are"
+                    ],
+                    "verb_hint": "У питанні про місцеперебування постав дієслово зв’язку перед уже названим підметом."
+                }
+            },
+            "verb_hint": "У питанні про місцеперебування постав дієслово зв’язку перед уже названим підметом.",
+            "accepted_target_texts": [
+                "Is your sister at home?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is your sister",
+                "at home?"
+            ],
+            "token_groups": [
+                "Is your sister",
+                "at home?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "woq-questions-negatives-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Where {a1}?",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Де ти живеш?",
+            "target_text": "Where do you live?",
+            "markers": {
+                "a1": {
+                    "answer": "do you live",
+                    "options": [
+                        "do you live",
+                        "you do live",
+                        "live do you"
+                    ],
+                    "verb_hint": "Після названого питального слова постав допоміжне дієслово, підмет і основне дієслово."
+                }
+            },
+            "verb_hint": "Після названого питального слова постав допоміжне дієслово, підмет і основне дієслово.",
+            "accepted_target_texts": [
+                "Where do you live?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Where",
+                "do you live?"
+            ],
+            "token_groups": [
+                "Where",
+                "do you live?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "woq-questions-negatives-a1-g03",
+            "author_id": "A1-g03",
+            "question": "They {a1} meat.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Вони не їдять м’яса.",
+            "target_text": "They do not eat meat.",
+            "markers": {
+                "a1": {
+                    "answer": "do not eat",
+                    "options": [
+                        "do not eat",
+                        "not do eat",
+                        "do eat not"
+                    ],
+                    "verb_hint": "Заперечення простого теперішнього часу потребує допоміжного дієслова перед заперечною часткою."
+                }
+            },
+            "verb_hint": "Заперечення простого теперішнього часу потребує допоміжного дієслова перед заперечною часткою.",
+            "accepted_target_texts": [
+                "They do not eat meat."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They",
+                "do not eat",
+                "meat."
+            ],
+            "token_groups": [
+                "They",
+                "do not eat",
+                "meat."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "woq-questions-negatives-a1-g04",
+            "author_id": "A1-g04",
+            "question": "What time {a1}?",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "О котрій годині відчиняється магазин?",
+            "target_text": "What time does the shop open?",
+            "markers": {
+                "a1": {
+                    "answer": "does the shop open",
+                    "options": [
+                        "does the shop open",
+                        "the shop does open",
+                        "does open the shop"
+                    ],
+                    "verb_hint": "Час уже запитується на початку; далі потрібні допоміжне дієслово, підмет і початкова форма дії."
+                }
+            },
+            "verb_hint": "Час уже запитується на початку; далі потрібні допоміжне дієслово, підмет і початкова форма дії.",
+            "accepted_target_texts": [
+                "What time does the shop open?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What time",
+                "does the shop",
+                "open?"
+            ],
+            "token_groups": [
+                "What time",
+                "does the shop",
+                "open?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "woq-questions-negatives-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Who {a1} this classroom?",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Хто прибирає цей клас?",
+            "target_text": "Who cleans this classroom?",
+            "markers": {
+                "a1": {
+                    "answer": "cleans",
+                    "options": [
+                        "cleans",
+                        "does clean",
+                        "clean"
+                    ],
+                    "verb_hint": "Запитання стосується самого виконавця; у нейтральному питанні не додавай зайвого допоміжного дієслова."
+                }
+            },
+            "verb_hint": "Запитання стосується самого виконавця; у нейтральному питанні не додавай зайвого допоміжного дієслова.",
+            "accepted_target_texts": [
+                "Who cleans this classroom?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "cleans this classroom?"
+            ],
+            "token_groups": [
+                "Who",
+                "cleans this classroom?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "woq-questions-negatives-a1-g06",
+            "author_id": "A1-g06",
+            "question": "I {a1} tired.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Я не втомлений.",
+            "target_text": "I am not tired.",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "not am",
+                        "do not"
+                    ],
+                    "verb_hint": "У запереченні зі зв’язкою заперечна частка стоїть після неї."
+                }
+            },
+            "verb_hint": "У запереченні зі зв’язкою заперечна частка стоїть після неї.",
+            "accepted_target_texts": [
+                "I am not tired."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "am not tired."
+            ],
+            "token_groups": [
+                "I",
+                "am not tired."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "woq-questions-negatives-a2-g01",
+            "author_id": "A2-g01",
+            "question": "When {a1} the parcel?",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Коли ти отримав посилку?",
+            "target_text": "When did you receive the parcel?",
+            "markers": {
+                "a1": {
+                    "answer": "did you receive",
+                    "options": [
+                        "did you receive",
+                        "you did receive",
+                        "did receive you"
+                    ],
+                    "verb_hint": "Питальне слово вже наведене; далі постав допоміжне дієслово минулого часу перед підметом."
+                }
+            },
+            "verb_hint": "Питальне слово вже наведене; далі постав допоміжне дієслово минулого часу перед підметом.",
+            "accepted_target_texts": [
+                "When did you receive the parcel?",
+                "When did you get the parcel?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "did you get"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "did you get"
+                ]
+            },
+            "reorder_groups": [
+                "When",
+                "did you receive",
+                "the parcel?"
+            ],
+            "token_groups": [
+                "When",
+                "did you receive",
+                "the parcel?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "woq-questions-negatives-a2-g02",
+            "author_id": "A2-g02",
+            "question": "She {a1} to the meeting yesterday.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Вона не прийшла на зустріч учора.",
+            "target_text": "She did not come to the meeting yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "did not come",
+                    "options": [
+                        "did not come",
+                        "not did come",
+                        "did not came"
+                    ],
+                    "verb_hint": "Після допоміжного дієслова минулого часу та заперечної частки потрібна початкова форма дії."
+                }
+            },
+            "verb_hint": "Після допоміжного дієслова минулого часу та заперечної частки потрібна початкова форма дії.",
+            "accepted_target_texts": [
+                "She did not come to the meeting yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She",
+                "did not come",
+                "to the meeting",
+                "yesterday."
+            ],
+            "token_groups": [
+                "She",
+                "did not come",
+                "to the meeting",
+                "yesterday."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "woq-questions-negatives-a2-g03",
+            "author_id": "A2-g03",
+            "question": "How many guests {a1}?",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Скільки гостей прибуло?",
+            "target_text": "How many guests have arrived?",
+            "markers": {
+                "a1": {
+                    "answer": "have arrived",
+                    "options": [
+                        "have arrived",
+                        "have they arrived",
+                        "has arrived"
+                    ],
+                    "verb_hint": "Питальна група вже є підметом; не додавай ще одного займенника й узгодь присудок із множиною."
+                }
+            },
+            "verb_hint": "Питальна група вже є підметом; не додавай ще одного займенника й узгодь присудок із множиною.",
+            "accepted_target_texts": [
+                "How many guests have arrived?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How many guests",
+                "have arrived?"
+            ],
+            "token_groups": [
+                "How many guests",
+                "have arrived?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "woq-questions-negatives-a2-g04",
+            "author_id": "A2-g04",
+            "question": "{a1} you been waiting?",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Як довго ти чекаєш?",
+            "target_text": "How long have you been waiting?",
+            "markers": {
+                "a1": {
+                    "answer": "How long have",
+                    "options": [
+                        "How long have",
+                        "How have long",
+                        "How long you have"
+                    ],
+                    "verb_hint": "Спочатку постав питальну групу про тривалість, потім допоміжне дієслово перед наведеним підметом."
+                }
+            },
+            "verb_hint": "Спочатку постав питальну групу про тривалість, потім допоміжне дієслово перед наведеним підметом.",
+            "accepted_target_texts": [
+                "How long have you been waiting?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How long have",
+                "you been waiting?"
+            ],
+            "token_groups": [
+                "How long have",
+                "you been waiting?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "woq-questions-negatives-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The printer {a1} properly.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Принтер не працює належним чином зараз.",
+            "target_text": "The printer is not working properly.",
+            "markers": {
+                "a1": {
+                    "answer": "is not working",
+                    "options": [
+                        "is not working",
+                        "not is working",
+                        "does not working"
+                    ],
+                    "verb_hint": "Для тривалої дії зараз постав заперечну частку між допоміжним та основним дієсловами."
+                }
+            },
+            "verb_hint": "Для тривалої дії зараз постав заперечну частку між допоміжним та основним дієсловами.",
+            "accepted_target_texts": [
+                "The printer is not working properly."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The printer",
+                "is not working",
+                "properly."
+            ],
+            "token_groups": [
+                "The printer",
+                "is not working",
+                "properly."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "woq-questions-negatives-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Which bus {a1} to the airport?",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Який автобус їде до аеропорту?",
+            "target_text": "Which bus goes to the airport?",
+            "markers": {
+                "a1": {
+                    "answer": "goes",
+                    "options": [
+                        "goes",
+                        "does go",
+                        "go"
+                    ],
+                    "verb_hint": "Питальна група сама називає підмет; у нейтральному питанні дієслово стоїть одразу після неї."
+                }
+            },
+            "verb_hint": "Питальна група сама називає підмет; у нейтральному питанні дієслово стоїть одразу після неї.",
+            "accepted_target_texts": [
+                "Which bus goes to the airport?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which bus",
+                "goes to",
+                "the airport?"
+            ],
+            "token_groups": [
+                "Which bus",
+                "goes to",
+                "the airport?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "woq-questions-negatives-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Could you tell me where {a1}?",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Чи не могли б ви сказати, де найближча аптека?",
+            "target_text": "Could you tell me where the nearest pharmacy is?",
+            "markers": {
+                "a1": {
+                    "answer": "the nearest pharmacy is",
+                    "options": [
+                        "the nearest pharmacy is",
+                        "is the nearest pharmacy",
+                        "does the nearest pharmacy be"
+                    ],
+                    "verb_hint": "У непрямому питанні після названого питального слова потрібен стверджувальний порядок слів."
+                }
+            },
+            "verb_hint": "У непрямому питанні після названого питального слова потрібен стверджувальний порядок слів.",
+            "accepted_target_texts": [
+                "Could you tell me where the nearest pharmacy is?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you tell",
+                "me where",
+                "the nearest pharmacy",
+                "is?"
+            ],
+            "token_groups": [
+                "Could you tell",
+                "me where",
+                "the nearest pharmacy",
+                "is?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "woq-questions-negatives-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Do you know what time {a1}?",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Ти знаєш, о котрій починається лекція?",
+            "target_text": "Do you know what time the lecture starts?",
+            "markers": {
+                "a1": {
+                    "answer": "the lecture starts",
+                    "options": [
+                        "the lecture starts",
+                        "does the lecture start",
+                        "starts the lecture"
+                    ],
+                    "verb_hint": "У вкладеному питанні не вводь друге допоміжне дієслово; підмет передує присудку."
+                }
+            },
+            "verb_hint": "У вкладеному питанні не вводь друге допоміжне дієслово; підмет передує присудку.",
+            "accepted_target_texts": [
+                "Do you know what time the lecture starts?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do you know",
+                "what time",
+                "the lecture starts?"
+            ],
+            "token_groups": [
+                "Do you know",
+                "what time",
+                "the lecture starts?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "woq-questions-negatives-b1-g03",
+            "author_id": "B1-g03",
+            "question": "I {a1} this button does.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Я не знаю, що робить ця кнопка.",
+            "target_text": "I do not know what this button does.",
+            "markers": {
+                "a1": {
+                    "answer": "do not know what",
+                    "options": [
+                        "do not know what",
+                        "do know not what",
+                        "do not what know"
+                    ],
+                    "verb_hint": "Заперечення належить головному дієслову знання, а питальне слово вводить підрядну частину."
+                }
+            },
+            "verb_hint": "Заперечення належить головному дієслову знання, а питальне слово вводить підрядну частину.",
+            "accepted_target_texts": [
+                "I do not know what this button does."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "do not know",
+                "what this button",
+                "does."
+            ],
+            "token_groups": [
+                "I",
+                "do not know",
+                "what this button",
+                "does."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "woq-questions-negatives-b1-g04",
+            "author_id": "B1-g04",
+            "question": "Who {a1} the last slice of cake?",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Хто з’їв останній шматок торта?",
+            "target_text": "Who has eaten the last slice of cake?",
+            "markers": {
+                "a1": {
+                    "answer": "has eaten",
+                    "options": [
+                        "has eaten",
+                        "has he eaten",
+                        "have eaten"
+                    ],
+                    "verb_hint": "Запитується виконавець дії; не дублюй підмет займенником."
+                }
+            },
+            "verb_hint": "Запитується виконавець дії; не дублюй підмет займенником.",
+            "accepted_target_texts": [
+                "Who has eaten the last slice of cake?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "has eaten",
+                "the last slice",
+                "of cake?"
+            ],
+            "token_groups": [
+                "Who",
+                "has eaten",
+                "the last slice",
+                "of cake?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "woq-questions-negatives-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Why {a1} before the office closed?",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Чому ніхто не зателефонував до закриття офісу?",
+            "target_text": "Why did nobody call before the office closed?",
+            "markers": {
+                "a1": {
+                    "answer": "did nobody call",
+                    "options": [
+                        "did nobody call",
+                        "nobody did call",
+                        "did not nobody call"
+                    ],
+                    "verb_hint": "Після питального слова допоміжне дієслово стоїть перед заперечним підметом; додаткове заперечення не потрібне."
+                }
+            },
+            "verb_hint": "Після питального слова допоміжне дієслово стоїть перед заперечним підметом; додаткове заперечення не потрібне.",
+            "accepted_target_texts": [
+                "Why did nobody call before the office closed?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "did nobody call",
+                "before the office",
+                "closed?"
+            ],
+            "token_groups": [
+                "Why",
+                "did nobody call",
+                "before the office",
+                "closed?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "woq-questions-negatives-b1-g06",
+            "author_id": "B1-g06",
+            "question": "I wonder whether {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Цікаво, чи відповів керівник.",
+            "target_text": "I wonder whether the manager has replied.",
+            "markers": {
+                "a1": {
+                    "answer": "the manager has replied",
+                    "options": [
+                        "the manager has replied",
+                        "has the manager replied",
+                        "the manager replied has"
+                    ],
+                    "verb_hint": "Сполучник вводить непряме питання: спочатку потрібен підмет, потім допоміжне й основне дієслова."
+                }
+            },
+            "verb_hint": "Сполучник вводить непряме питання: спочатку потрібен підмет, потім допоміжне й основне дієслова.",
+            "accepted_target_texts": [
+                "I wonder whether the manager has replied.",
+                "I wonder whether the manager has answered."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the manager has answered"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the manager has answered"
+                ]
+            },
+            "reorder_groups": [
+                "I wonder whether",
+                "the manager",
+                "has replied."
+            ],
+            "token_groups": [
+                "I wonder whether",
+                "the manager",
+                "has replied."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "woq-questions-negatives-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The inspector asked how {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Інспектор запитав, як почалася пожежа.",
+            "target_text": "The inspector asked how the fire had started.",
+            "markers": {
+                "a1": {
+                    "answer": "the fire had started",
+                    "options": [
+                        "the fire had started",
+                        "had the fire started",
+                        "the fire started had"
+                    ],
+                    "verb_hint": "У непрямому питанні збережи підмет перед допоміжним дієсловом і передай попередню подію."
+                }
+            },
+            "verb_hint": "У непрямому питанні збережи підмет перед допоміжним дієсловом і передай попередню подію.",
+            "accepted_target_texts": [
+                "The inspector asked how the fire had started."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inspector asked",
+                "how the fire",
+                "had started."
+            ],
+            "token_groups": [
+                "The inspector asked",
+                "how the fire",
+                "had started."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "woq-questions-negatives-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Which of the two proposals {a1} more likely to succeed?",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Яку з двох пропозицій вважають більш імовірною для успіху?",
+            "target_text": "Which of the two proposals is considered more likely to succeed?",
+            "markers": {
+                "a1": {
+                    "answer": "is considered",
+                    "options": [
+                        "is considered",
+                        "does consider",
+                        "are considered"
+                    ],
+                    "verb_hint": "Питальна група є підметом пасивної конструкції; узгодь присудок з одниною."
+                }
+            },
+            "verb_hint": "Питальна група є підметом пасивної конструкції; узгодь присудок з одниною.",
+            "accepted_target_texts": [
+                "Which of the two proposals is considered more likely to succeed?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which of",
+                "the two proposals",
+                "is considered",
+                "more likely",
+                "to succeed?"
+            ],
+            "token_groups": [
+                "Which of",
+                "the two proposals",
+                "is considered",
+                "more likely",
+                "to succeed?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "woq-questions-negatives-b2-g03",
+            "author_id": "B2-g03",
+            "question": "We were unsure to whom {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Ми не були певні, кому слід адресувати скаргу.",
+            "target_text": "We were unsure to whom the complaint should be addressed.",
+            "markers": {
+                "a1": {
+                    "answer": "the complaint should be addressed",
+                    "options": [
+                        "the complaint should be addressed",
+                        "should the complaint be addressed",
+                        "the complaint addressed should be"
+                    ],
+                    "verb_hint": "Формальний прийменник уже винесений до питального слова; у підрядній частині потрібен стверджувальний порядок пасиву."
+                }
+            },
+            "verb_hint": "Формальний прийменник уже винесений до питального слова; у підрядній частині потрібен стверджувальний порядок пасиву.",
+            "accepted_target_texts": [
+                "We were unsure to whom the complaint should be addressed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We were unsure",
+                "to whom",
+                "the complaint",
+                "should be addressed."
+            ],
+            "token_groups": [
+                "We were unsure",
+                "to whom",
+                "the complaint",
+                "should be addressed."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "woq-questions-negatives-b2-g04",
+            "author_id": "B2-g04",
+            "question": "{a1} the application?",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Чому ніхто не розглянув заявку?",
+            "target_text": "Why has nobody reviewed the application?",
+            "markers": {
+                "a1": {
+                    "answer": "Why has nobody reviewed",
+                    "options": [
+                        "Why has nobody reviewed",
+                        "Why nobody has reviewed",
+                        "Why has not nobody reviewed"
+                    ],
+                    "verb_hint": "Після питального слова постав допоміжне дієслово перед заперечним підметом, не додаючи другого заперечення."
+                }
+            },
+            "verb_hint": "Після питального слова постав допоміжне дієслово перед заперечним підметом, не додаючи другого заперечення.",
+            "accepted_target_texts": [
+                "Why has nobody reviewed the application?",
+                "Why has nobody considered the application?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Why has nobody considered"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Why has nobody considered"
+                ]
+            },
+            "reorder_groups": [
+                "Why has nobody",
+                "reviewed the application?"
+            ],
+            "token_groups": [
+                "Why has nobody",
+                "reviewed the application?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "woq-questions-negatives-b2-g05",
+            "author_id": "B2-g05",
+            "question": "I {a1} the figures are accurate.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Я не думаю, що ці цифри точні.",
+            "target_text": "I do not think the figures are accurate.",
+            "markers": {
+                "a1": {
+                    "answer": "do not think",
+                    "options": [
+                        "do not think",
+                        "think not do",
+                        "do think not"
+                    ],
+                    "verb_hint": "У нейтральному твердженні заперечення стосується головного дієслова думки й стоїть перед ним."
+                }
+            },
+            "verb_hint": "У нейтральному твердженні заперечення стосується головного дієслова думки й стоїть перед ним.",
+            "accepted_target_texts": [
+                "I do not think the figures are accurate."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "do not think",
+                "the figures",
+                "are accurate."
+            ],
+            "token_groups": [
+                "I",
+                "do not think",
+                "the figures",
+                "are accurate."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "woq-questions-negatives-b2-g06",
+            "author_id": "B2-g06",
+            "question": "Can anyone explain what {a1}?",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Хтось може пояснити, що пішло не так?",
+            "target_text": "Can anyone explain what has gone wrong?",
+            "markers": {
+                "a1": {
+                    "answer": "has gone wrong",
+                    "options": [
+                        "has gone wrong",
+                        "has it gone wrong",
+                        "have gone wrong"
+                    ],
+                    "verb_hint": "У вкладеному питанні саме питальне слово виконує роль підмета; зайвий займенник не потрібний."
+                }
+            },
+            "verb_hint": "У вкладеному питанні саме питальне слово виконує роль підмета; зайвий займенник не потрібний.",
+            "accepted_target_texts": [
+                "Can anyone explain what has gone wrong?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Can anyone explain",
+                "what has",
+                "gone wrong?"
+            ],
+            "token_groups": [
+                "Can anyone explain",
+                "what has",
+                "gone wrong?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "woq-questions-negatives-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The report leaves unanswered the question of why {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Звіт не дає відповіді на питання, чому запобіжні механізми не спрацювали.",
+            "target_text": "The report leaves unanswered the question of why the safeguards had failed.",
+            "markers": {
+                "a1": {
+                    "answer": "the safeguards had failed",
+                    "options": [
+                        "the safeguards had failed",
+                        "had the safeguards failed",
+                        "the safeguards failed had"
+                    ],
+                    "verb_hint": "Навіть після довгої вступної групи непряме питання має стверджувальний порядок слів."
+                }
+            },
+            "verb_hint": "Навіть після довгої вступної групи непряме питання має стверджувальний порядок слів.",
+            "accepted_target_texts": [
+                "The report leaves unanswered the question of why the safeguards had failed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The report",
+                "leaves unanswered",
+                "the question",
+                "of why",
+                "the safeguards",
+                "had failed."
+            ],
+            "token_groups": [
+                "The report",
+                "leaves unanswered",
+                "the question",
+                "of why",
+                "the safeguards",
+                "had failed."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "woq-questions-negatives-c1-g02",
+            "author_id": "C1-g02",
+            "question": "Who, among those present, {a1} responsibility for the decision?",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Хто з присутніх готовий узяти відповідальність за рішення?",
+            "target_text": "Who, among those present, is prepared to accept responsibility for the decision?",
+            "markers": {
+                "a1": {
+                    "answer": "is prepared to accept",
+                    "options": [
+                        "is prepared to accept",
+                        "are prepared to accept",
+                        "does prepared to accept"
+                    ],
+                    "verb_hint": "Вставна група не змінює ролі питального підмета; після неї потрібна зв’язка з одниною."
+                }
+            },
+            "verb_hint": "Вставна група не змінює ролі питального підмета; після неї потрібна зв’язка з одниною.",
+            "accepted_target_texts": [
+                "Who, among those present, is prepared to accept responsibility for the decision?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who,",
+                "among those present,",
+                "is prepared",
+                "to accept responsibility",
+                "for the decision?"
+            ],
+            "token_groups": [
+                "Who,",
+                "among those present,",
+                "is prepared",
+                "to accept responsibility",
+                "for the decision?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "woq-questions-negatives-c1-g03",
+            "author_id": "C1-g03",
+            "question": "We need to establish to what extent {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Нам потрібно встановити, якою мірою результати можна узагальнити.",
+            "target_text": "We need to establish to what extent the results can be generalised.",
+            "markers": {
+                "a1": {
+                    "answer": "the results can be generalised",
+                    "options": [
+                        "the results can be generalised",
+                        "can the results be generalised",
+                        "the results generalised can be"
+                    ],
+                    "verb_hint": "Питальна група вводить вкладену частину, де підмет стоїть перед модальним пасивним присудком."
+                }
+            },
+            "verb_hint": "Питальна група вводить вкладену частину, де підмет стоїть перед модальним пасивним присудком.",
+            "accepted_target_texts": [
+                "We need to establish to what extent the results can be generalised."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We need",
+                "to establish",
+                "to what extent",
+                "the results",
+                "can be generalised."
+            ],
+            "token_groups": [
+                "We need",
+                "to establish",
+                "to what extent",
+                "the results",
+                "can be generalised."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "woq-questions-negatives-c1-g04",
+            "author_id": "C1-g04",
+            "question": "{a1} without consulting the board?",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Чому політику мали змінити без консультації з радою?",
+            "target_text": "Why should the policy have been changed without consulting the board?",
+            "markers": {
+                "a1": {
+                    "answer": "Why should the policy have been changed",
+                    "options": [
+                        "Why should the policy have been changed",
+                        "Why the policy should have been changed",
+                        "Why should have been the policy changed"
+                    ],
+                    "verb_hint": "У прямому питанні перше допоміжне дієслово стоїть перед підметом, а решта ланцюжка — після нього."
+                }
+            },
+            "verb_hint": "У прямому питанні перше допоміжне дієслово стоїть перед підметом, а решта ланцюжка — після нього.",
+            "accepted_target_texts": [
+                "Why should the policy have been changed without consulting the board?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why should",
+                "the policy",
+                "have been changed",
+                "without consulting",
+                "the board?"
+            ],
+            "token_groups": [
+                "Why should",
+                "the policy",
+                "have been changed",
+                "without consulting",
+                "the board?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "woq-questions-negatives-c1-g05",
+            "author_id": "C1-g05",
+            "question": "There is no reason to assume that {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Немає підстав припускати, що кожне заперечення відкликано.",
+            "target_text": "There is no reason to assume that every objection has been withdrawn.",
+            "markers": {
+                "a1": {
+                    "answer": "every objection has been withdrawn",
+                    "options": [
+                        "every objection has been withdrawn",
+                        "has every objection been withdrawn",
+                        "every objection withdrawn has been"
+                    ],
+                    "verb_hint": "Після сполучника потрібне звичайне твердження, а не порядок прямого питання."
+                }
+            },
+            "verb_hint": "Після сполучника потрібне звичайне твердження, а не порядок прямого питання.",
+            "accepted_target_texts": [
+                "There is no reason to assume that every objection has been withdrawn."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "no reason",
+                "to assume",
+                "that every objection",
+                "has been withdrawn."
+            ],
+            "token_groups": [
+                "There is",
+                "no reason",
+                "to assume",
+                "that every objection",
+                "has been withdrawn."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "woq-questions-negatives-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The chair asked which witnesses {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Голова запитав, яких свідків ще належить заслухати.",
+            "target_text": "The chair asked which witnesses had yet to be heard.",
+            "markers": {
+                "a1": {
+                    "answer": "had yet to be heard",
+                    "options": [
+                        "had yet to be heard",
+                        "had they yet to be heard",
+                        "has yet to be heard"
+                    ],
+                    "verb_hint": "Питальна іменна група є підметом; не повторюй її займенником і збережи пасивну конструкцію."
+                }
+            },
+            "verb_hint": "Питальна іменна група є підметом; не повторюй її займенником і збережи пасивну конструкцію.",
+            "accepted_target_texts": [
+                "The chair asked which witnesses had yet to be heard."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The chair asked",
+                "which witnesses",
+                "had yet",
+                "to be heard."
+            ],
+            "token_groups": [
+                "The chair asked",
+                "which witnesses",
+                "had yet",
+                "to be heard."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "woq-questions-negatives-c2-g01",
+            "author_id": "C2-g01",
+            "question": "What, if anything, {a1} from the earlier ruling?",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Що взагалі можна обґрунтовано вивести з попереднього рішення?",
+            "target_text": "What, if anything, can legitimately be inferred from the earlier ruling?",
+            "markers": {
+                "a1": {
+                    "answer": "can legitimately be inferred",
+                    "options": [
+                        "can legitimately be inferred",
+                        "can be legitimately it inferred",
+                        "does legitimately be inferred"
+                    ],
+                    "verb_hint": "Питальне слово вже є підметом; вставка не дозволяє додавати ще один займенник до пасивної конструкції."
+                }
+            },
+            "verb_hint": "Питальне слово вже є підметом; вставка не дозволяє додавати ще один займенник до пасивної конструкції.",
+            "accepted_target_texts": [
+                "What, if anything, can legitimately be inferred from the earlier ruling?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What,",
+                "if anything,",
+                "can legitimately",
+                "be inferred",
+                "from the",
+                "earlier ruling?"
+            ],
+            "token_groups": [
+                "What,",
+                "if anything,",
+                "can legitimately",
+                "be inferred",
+                "from the",
+                "earlier ruling?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "woq-questions-negatives-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The inquiry concerns not whether the action was legal but why {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Розслідування стосується не того, чи дія була законною, а того, чому її вважали необхідною.",
+            "target_text": "The inquiry concerns not whether the action was legal but why it was considered necessary.",
+            "markers": {
+                "a1": {
+                    "answer": "it was considered necessary",
+                    "options": [
+                        "it was considered necessary",
+                        "was it considered necessary",
+                        "it considered was necessary"
+                    ],
+                    "verb_hint": "Обидві зіставлені частини є непрямими питаннями; у другій теж потрібен стверджувальний порядок."
+                }
+            },
+            "verb_hint": "Обидві зіставлені частини є непрямими питаннями; у другій теж потрібен стверджувальний порядок.",
+            "accepted_target_texts": [
+                "The inquiry concerns not whether the action was legal but why it was considered necessary."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inquiry concerns",
+                "not whether",
+                "the action",
+                "was legal",
+                "but why",
+                "it was considered",
+                "necessary."
+            ],
+            "token_groups": [
+                "The inquiry concerns",
+                "not whether",
+                "the action",
+                "was legal",
+                "but why",
+                "it was considered",
+                "necessary."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "woq-questions-negatives-c2-g03",
+            "author_id": "C2-g03",
+            "question": "{a1} before the discrepancy became public?",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Як могло статися, що ніхто не помітив розбіжності до її розголосу?",
+            "target_text": "How could nobody have noticed before the discrepancy became public?",
+            "markers": {
+                "a1": {
+                    "answer": "How could nobody have noticed",
+                    "options": [
+                        "How could nobody have noticed",
+                        "How nobody could have noticed",
+                        "How could not nobody have noticed"
+                    ],
+                    "verb_hint": "Після питального слова постав модальне дієслово перед заперечним підметом, а перфектний інфінітив — після нього."
+                }
+            },
+            "verb_hint": "Після питального слова постав модальне дієслово перед заперечним підметом, а перфектний інфінітив — після нього.",
+            "accepted_target_texts": [
+                "How could nobody have noticed before the discrepancy became public?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How could nobody",
+                "have noticed",
+                "before the discrepancy",
+                "became public?"
+            ],
+            "token_groups": [
+                "How could nobody",
+                "have noticed",
+                "before the discrepancy",
+                "became public?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "woq-questions-negatives-c2-g04",
+            "author_id": "C2-g04",
+            "question": "We have yet to determine in whose interests {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Нам ще належить визначити, в чиїх інтересах розробили цю домовленість.",
+            "target_text": "We have yet to determine in whose interests the arrangement was devised.",
+            "markers": {
+                "a1": {
+                    "answer": "the arrangement was devised",
+                    "options": [
+                        "the arrangement was devised",
+                        "was the arrangement devised",
+                        "the arrangement devised was"
+                    ],
+                    "verb_hint": "Після формальної питальної групи з прийменником збережи підмет перед пасивним присудком."
+                }
+            },
+            "verb_hint": "Після формальної питальної групи з прийменником збережи підмет перед пасивним присудком.",
+            "accepted_target_texts": [
+                "We have yet to determine in whose interests the arrangement was devised."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We have yet",
+                "to determine",
+                "in whose interests",
+                "the arrangement",
+                "was devised."
+            ],
+            "token_groups": [
+                "We have yet",
+                "to determine",
+                "in whose interests",
+                "the arrangement",
+                "was devised."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "woq-questions-negatives-c2-g05",
+            "author_id": "C2-g05",
+            "question": "Which, of all the assumptions listed, {a1} scrutiny?",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Яке з усіх перелічених припущень витримує найретельнішу перевірку?",
+            "target_text": "Which, of all the assumptions listed, withstands the closest scrutiny?",
+            "markers": {
+                "a1": {
+                    "answer": "withstands the closest",
+                    "options": [
+                        "withstands the closest",
+                        "does withstands the closest",
+                        "withstand the closest"
+                    ],
+                    "verb_hint": "Питальне слово замінює одиничний підмет; після вставки потрібен узгоджений присудок без зайвого допоміжного слова."
+                }
+            },
+            "verb_hint": "Питальне слово замінює одиничний підмет; після вставки потрібен узгоджений присудок без зайвого допоміжного слова.",
+            "accepted_target_texts": [
+                "Which, of all the assumptions listed, withstands the closest scrutiny?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which,",
+                "of all",
+                "the assumptions listed,",
+                "withstands the closest",
+                "scrutiny?"
+            ],
+            "token_groups": [
+                "Which,",
+                "of all",
+                "the assumptions listed,",
+                "withstands the closest",
+                "scrutiny?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "woq-questions-negatives-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The reviewers were not told how little {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Рецензентам не повідомили, як мало насправді було перевірено.",
+            "target_text": "The reviewers were not told how little had actually been verified.",
+            "markers": {
+                "a1": {
+                    "answer": "had actually been verified",
+                    "options": [
+                        "had actually been verified",
+                        "had it actually been verified",
+                        "actually had it been verified"
+                    ],
+                    "verb_hint": "Питальна група сама є підметом вкладеної пасивної частини; не дублюй її займенником."
+                }
+            },
+            "verb_hint": "Питальна група сама є підметом вкладеної пасивної частини; не дублюй її займенником.",
+            "accepted_target_texts": [
+                "The reviewers were not told how little had actually been verified."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The reviewers",
+                "were not told",
+                "how little",
+                "had actually",
+                "been verified."
+            ],
+            "token_groups": [
+                "The reviewers",
+                "were not told",
+                "how little",
+                "had actually",
+                "been verified."
+            ],
+            "quality_revision": "word-order-v1"
+        }
+    ]
+}

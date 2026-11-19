@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 65059,
+        "uuid": "mvq-need-a1-g06",
+        "question": "The cook needs to {a1} the rice.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 56,
+        "source_id": 509,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ModalVerbs\\UkrainianMixedNeedNeedntDontHaveToQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "wash",
+                "washes",
+                "to wash"
+            ]
+        },
+        "theory_text_block_uuid": "65c2633a-28b1-5a77-af07-3af13e4157b6",
+        "created_at": "2026-10-31T18:13:18.000000Z",
+        "updated_at": "2026-10-31T18:13:18.000000Z"
+    },
+    "category": {
+        "id": 56,
+        "name": "Modal Verbs",
+        "created_at": "2026-05-17T22:31:01.000000Z",
+        "updated_at": "2026-05-17T22:31:01.000000Z"
+    },
+    "source": {
+        "id": 509,
+        "name": "Modal Verbs Quality: Потреба, відсутність потреби та виконання дії",
+        "created_at": "2026-10-31T18:13:18.000000Z",
+        "updated_at": "2026-10-31T18:13:18.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 2254,
+                "name": "Need / Needn't / Don't have to",
+                "category": "modal-verbs",
+                "created_at": "2026-05-17T22:31:41.000000Z",
+                "updated_at": "2026-05-17T22:31:41.000000Z"
+            },
+            "pivot": {
+                "question_id": 65059,
+                "tag_id": 2254,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 420,
+                "option": "wash",
+                "created_at": "2026-04-23T11:40:40.000000Z",
+                "updated_at": "2026-04-23T11:40:40.000000Z"
+            },
+            "pivot": {
+                "question_id": 65059,
+                "option_id": 420,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2543,
+                "option": "washes",
+                "created_at": "2026-04-23T14:18:09.000000Z",
+                "updated_at": "2026-04-23T14:18:09.000000Z"
+            },
+            "pivot": {
+                "question_id": 65059,
+                "option_id": 2543,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53526,
+                "option": "To wash",
+                "created_at": "2026-10-27T15:51:05.000000Z",
+                "updated_at": "2026-10-27T15:51:05.000000Z"
+            },
+            "pivot": {
+                "question_id": 65059,
+                "option_id": 53526,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 337754,
+                "question_id": 65059,
+                "marker": "a1",
+                "option_id": 420,
+                "created_at": "2026-10-31T18:13:18.000000Z",
+                "updated_at": "2026-10-31T18:13:18.000000Z"
+            },
+            "option": {
+                "id": 420,
+                "option": "wash",
+                "created_at": "2026-04-23T11:40:40.000000Z",
+                "updated_at": "2026-04-23T11:40:40.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 55088,
+                "question_id": 65059,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 64736,
+                "created_at": "2026-10-31T18:13:18.000000Z",
+                "updated_at": "2026-10-31T18:13:18.000000Z"
+            },
+            "option": {
+                "id": 64736,
+                "option": "Після готової конструкції вживи початкову форму «мити».",
+                "created_at": "2026-10-31T18:13:18.000000Z",
+                "updated_at": "2026-10-31T18:13:18.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 57074,
+            "question_id": 65059,
+            "text": "The cook needs to {a1} the rice.",
+            "created_at": "2026-10-31T18:13:18.000000Z",
+            "updated_at": "2026-10-31T18:13:18.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

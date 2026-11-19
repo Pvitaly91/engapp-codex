@@ -1,6 +1,13 @@
 <?php
 
 return [
+    'section' => [
+        'contents' => 'Зміст уроку',
+        'more' => 'Докладніше',
+        'less' => 'Згорнути',
+        'no_js' => 'Без JavaScript відкрий деталі за допомогою назви розділу:',
+    ],
+
     'practice' => [
         'select_title' => 'Обери правильне слово',
         'select_placeholder' => '— обери —',

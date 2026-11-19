@@ -1,0 +1,1615 @@
+{
+    "schema_version": 1,
+    "quality_revision": "word-order-v1",
+    "compiled_from": {
+        "path": "docs/content/word-order-quality/adverbs-adverbials.v1.json",
+        "sha256": "9885759cdb4850edb2a85862d59a57c683dba6731fce1cc3729fe2e5fb94d8e9"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\WordOrder\\UkrainianMixedWordOrderAdverbsAdverbialsQualityStandardSeeder",
+        "uuid_namespace": "word-order-quality-adverbs-adverbials-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Word Order"
+    },
+    "sources": {
+        "word_order_quality_adverbs_adverbials": {
+            "name": "Word Order Quality: Порядок прислівників та обставин"
+        }
+    },
+    "tags": {
+        "adverbials": {
+            "name": "Adverbials",
+            "category": "topic"
+        },
+        "manner": {
+            "name": "Manner",
+            "category": "topic"
+        },
+        "place": {
+            "name": "Place",
+            "category": "topic"
+        },
+        "time": {
+            "name": "Time",
+            "category": "topic"
+        },
+        "frequency": {
+            "name": "Frequency",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "adverbials"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "woq-adverbs-adverbials-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Eva {a1} breakfast at seven.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Ева зазвичай снідає о сьомій.",
+            "target_text": "Eva usually eats breakfast at seven.",
+            "markers": {
+                "a1": {
+                    "answer": "usually eats",
+                    "options": [
+                        "usually eats",
+                        "eats usually",
+                        "usually eat"
+                    ],
+                    "verb_hint": "Обставину звичної частоти постав перед основним дієсловом; передай значення «зазвичай»."
+                }
+            },
+            "verb_hint": "Обставину звичної частоти постав перед основним дієсловом; передай значення «зазвичай».",
+            "accepted_target_texts": [
+                "Eva usually eats breakfast at seven."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Eva",
+                "usually eats breakfast",
+                "at seven."
+            ],
+            "token_groups": [
+                "Eva",
+                "usually eats breakfast",
+                "at seven."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "woq-adverbs-adverbials-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The library {a1} quiet.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "У бібліотеці завжди тихо.",
+            "target_text": "The library is always quiet.",
+            "markers": {
+                "a1": {
+                    "answer": "is always",
+                    "options": [
+                        "is always",
+                        "always quiet is",
+                        "always are"
+                    ],
+                    "verb_hint": "Передай постійність стану: прислівник частоти стоїть після дієслова зв’язки."
+                }
+            },
+            "verb_hint": "Передай постійність стану: прислівник частоти стоїть після дієслова зв’язки.",
+            "accepted_target_texts": [
+                "The library is always quiet."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The library",
+                "is always quiet."
+            ],
+            "token_groups": [
+                "The library",
+                "is always quiet."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "woq-adverbs-adverbials-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Please {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Будь ласка, говори повільно.",
+            "target_text": "Please speak slowly.",
+            "markers": {
+                "a1": {
+                    "answer": "speak slowly",
+                    "options": [
+                        "speak slowly",
+                        "slowly speak you",
+                        "speak slow"
+                    ],
+                    "verb_hint": "Назви спосіб мовлення після дієслова; потрібен прислівник, а не прикметник."
+                }
+            },
+            "verb_hint": "Назви спосіб мовлення після дієслова; потрібен прислівник, а не прикметник.",
+            "accepted_target_texts": [
+                "Please speak slowly."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please",
+                "speak slowly."
+            ],
+            "token_groups": [
+                "Please",
+                "speak slowly."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "woq-adverbs-adverbials-a1-g04",
+            "author_id": "A1-g04",
+            "question": "My uncle {a1} on Sundays.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Мій дядько ніколи не працює по неділях.",
+            "target_text": "My uncle never works on Sundays.",
+            "markers": {
+                "a1": {
+                    "answer": "never works",
+                    "options": [
+                        "never works",
+                        "works never",
+                        "never work"
+                    ],
+                    "verb_hint": "Передай значення «ніколи» перед основним дієсловом, не додаючи окремого заперечення."
+                }
+            },
+            "verb_hint": "Передай значення «ніколи» перед основним дієсловом, не додаючи окремого заперечення.",
+            "accepted_target_texts": [
+                "My uncle never works on Sundays."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My uncle",
+                "never works",
+                "on Sundays."
+            ],
+            "token_groups": [
+                "My uncle",
+                "never works",
+                "on Sundays."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "woq-adverbs-adverbials-a1-g05",
+            "author_id": "A1-g05",
+            "question": "We {a1} after school.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Після школи ми граємо надворі.",
+            "target_text": "We play outside after school.",
+            "markers": {
+                "a1": {
+                    "answer": "play outside",
+                    "options": [
+                        "play outside",
+                        "outside play we",
+                        "play out of"
+                    ],
+                    "verb_hint": "Постав обставину місця після дії, а наведену обставину часу залиш наприкінці."
+                }
+            },
+            "verb_hint": "Постав обставину місця після дії, а наведену обставину часу залиш наприкінці.",
+            "accepted_target_texts": [
+                "We play outside after school."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "play outside",
+                "after school."
+            ],
+            "token_groups": [
+                "We",
+                "play outside",
+                "after school."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "woq-adverbs-adverbials-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The soup {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Суп дуже гарячий.",
+            "target_text": "The soup is very hot.",
+            "markers": {
+                "a1": {
+                    "answer": "is very hot",
+                    "options": [
+                        "is very hot",
+                        "very is hot",
+                        "is hot very"
+                    ],
+                    "verb_hint": "Підсилювальний прислівник стоїть безпосередньо перед ознакою, яку посилює."
+                }
+            },
+            "verb_hint": "Підсилювальний прислівник стоїть безпосередньо перед ознакою, яку посилює.",
+            "accepted_target_texts": [
+                "The soup is very hot."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The soup",
+                "is very hot."
+            ],
+            "token_groups": [
+                "The soup",
+                "is very hot."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "woq-adverbs-adverbials-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The passengers {a1} outside.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Пасажири досі чекають надворі.",
+            "target_text": "The passengers are still waiting outside.",
+            "markers": {
+                "a1": {
+                    "answer": "are still waiting",
+                    "options": [
+                        "are still waiting",
+                        "still waiting are",
+                        "are waiting still they"
+                    ],
+                    "verb_hint": "Передай значення «досі» між допоміжним і основним дієсловами."
+                }
+            },
+            "verb_hint": "Передай значення «досі» між допоміжним і основним дієсловами.",
+            "accepted_target_texts": [
+                "The passengers are still waiting outside."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The passengers",
+                "are still waiting",
+                "outside."
+            ],
+            "token_groups": [
+                "The passengers",
+                "are still waiting",
+                "outside."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "woq-adverbs-adverbials-a2-g02",
+            "author_id": "A2-g02",
+            "question": "I {a1} my keys.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Я вже знайшов свої ключі.",
+            "target_text": "I have already found my keys.",
+            "markers": {
+                "a1": {
+                    "answer": "have already found",
+                    "options": [
+                        "have already found",
+                        "already have found I",
+                        "have found already my"
+                    ],
+                    "verb_hint": "У нейтральному порядку прислівник завершеності стоїть між допоміжним та основним дієсловами."
+                }
+            },
+            "verb_hint": "У нейтральному порядку прислівник завершеності стоїть між допоміжним та основним дієсловами.",
+            "accepted_target_texts": [
+                "I have already found my keys."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "have already found",
+                "my keys."
+            ],
+            "token_groups": [
+                "I",
+                "have already found",
+                "my keys."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "woq-adverbs-adverbials-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Nora {a1} for the interview.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Нора прийшла на співбесіду рано.",
+            "target_text": "Nora arrived early for the interview.",
+            "markers": {
+                "a1": {
+                    "answer": "arrived early",
+                    "options": [
+                        "arrived early",
+                        "early was arrived",
+                        "arrived earlily"
+                    ],
+                    "verb_hint": "Передай час прибуття прислівником після дієслова; не утворюй неіснуючої форми."
+                }
+            },
+            "verb_hint": "Передай час прибуття прислівником після дієслова; не утворюй неіснуючої форми.",
+            "accepted_target_texts": [
+                "Nora arrived early for the interview.",
+                "Nora came early for the interview."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "came early"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "came early"
+                ]
+            },
+            "reorder_groups": [
+                "Nora",
+                "arrived early",
+                "for the interview."
+            ],
+            "token_groups": [
+                "Nora",
+                "arrived early",
+                "for the interview."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "woq-adverbs-adverbials-a2-g04",
+            "author_id": "A2-g04",
+            "question": "We {a1} yesterday.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Ми зустрілися в кафе вчора.",
+            "target_text": "We met at the café yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "met at the café",
+                    "options": [
+                        "met at the café",
+                        "at met the café",
+                        "met café at the"
+                    ],
+                    "verb_hint": "У нейтральному повідомленні місце зустрічі стоїть після дієслова й перед наведеним часом."
+                }
+            },
+            "verb_hint": "У нейтральному повідомленні місце зустрічі стоїть після дієслова й перед наведеним часом.",
+            "accepted_target_texts": [
+                "We met at the café yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "met at",
+                "the café",
+                "yesterday."
+            ],
+            "token_groups": [
+                "We",
+                "met at",
+                "the café",
+                "yesterday."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "woq-adverbs-adverbials-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The box {a1} to carry.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Коробка надто важка, щоб її нести.",
+            "target_text": "The box is too heavy to carry.",
+            "markers": {
+                "a1": {
+                    "answer": "is too heavy",
+                    "options": [
+                        "is too heavy",
+                        "too is heavy",
+                        "is heavy too"
+                    ],
+                    "verb_hint": "Передай надмірний ступінь ознаки: прислівник має стояти перед прикметником."
+                }
+            },
+            "verb_hint": "Передай надмірний ступінь ознаки: прислівник має стояти перед прикметником.",
+            "accepted_target_texts": [
+                "The box is too heavy to carry."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The box",
+                "is too heavy",
+                "to carry."
+            ],
+            "token_groups": [
+                "The box",
+                "is too heavy",
+                "to carry."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "woq-adverbs-adverbials-a2-g06",
+            "author_id": "A2-g06",
+            "question": "He {a1} in his new room.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Тепер він може вчитися у своїй новій кімнаті.",
+            "target_text": "He can now study in his new room.",
+            "markers": {
+                "a1": {
+                    "answer": "can now study",
+                    "options": [
+                        "can now study",
+                        "now can study he",
+                        "can study now he"
+                    ],
+                    "verb_hint": "У нейтральному порядку обставина «тепер» стоїть після модального й перед основним дієсловом."
+                }
+            },
+            "verb_hint": "У нейтральному порядку обставина «тепер» стоїть після модального й перед основним дієсловом.",
+            "accepted_target_texts": [
+                "He can now study in his new room."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He",
+                "can now study",
+                "in his",
+                "new room."
+            ],
+            "token_groups": [
+                "He",
+                "can now study",
+                "in his",
+                "new room."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "woq-adverbs-adverbials-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The technician {a1} the cable before switching on the power.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Технік ретельно перевірив кабель перед увімкненням живлення.",
+            "target_text": "The technician carefully checked the cable before switching on the power.",
+            "markers": {
+                "a1": {
+                    "answer": "carefully checked",
+                    "options": [
+                        "carefully checked",
+                        "checked carefully of",
+                        "careful checked"
+                    ],
+                    "verb_hint": "Передай спосіб перевірки прислівником перед дієсловом; не розривай зв’язок із прямим додатком."
+                }
+            },
+            "verb_hint": "Передай спосіб перевірки прислівником перед дієсловом; не розривай зв’язок із прямим додатком.",
+            "accepted_target_texts": [
+                "The technician carefully checked the cable before switching on the power."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The technician",
+                "carefully checked",
+                "the cable",
+                "before switching on",
+                "the power."
+            ],
+            "token_groups": [
+                "The technician",
+                "carefully checked",
+                "the cable",
+                "before switching on",
+                "the power."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "woq-adverbs-adverbials-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Our flight {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Наш рейс, імовірно, затримали.",
+            "target_text": "Our flight has probably been delayed.",
+            "markers": {
+                "a1": {
+                    "answer": "has probably been delayed",
+                    "options": [
+                        "has probably been delayed",
+                        "probably has delayed been",
+                        "has been delayed probably it"
+                    ],
+                    "verb_hint": "Прислівник імовірності постав після першого допоміжного дієслова в пасивній формі."
+                }
+            },
+            "verb_hint": "Прислівник імовірності постав після першого допоміжного дієслова в пасивній формі.",
+            "accepted_target_texts": [
+                "Our flight has probably been delayed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our flight",
+                "has probably",
+                "been delayed."
+            ],
+            "token_groups": [
+                "Our flight",
+                "has probably",
+                "been delayed."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "woq-adverbs-adverbials-b1-g03",
+            "author_id": "B1-g03",
+            "question": "They {a1} the building when the alarm sounded.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Вони майже вийшли з будівлі, коли пролунав сигнал тривоги.",
+            "target_text": "They had almost left the building when the alarm sounded.",
+            "markers": {
+                "a1": {
+                    "answer": "had almost left",
+                    "options": [
+                        "had almost left",
+                        "almost had left they",
+                        "had left almost the"
+                    ],
+                    "verb_hint": "Прислівник незавершеної близькості до результату постав перед основним дієсловом."
+                }
+            },
+            "verb_hint": "Прислівник незавершеної близькості до результату постав перед основним дієсловом.",
+            "accepted_target_texts": [
+                "They had almost left the building when the alarm sounded."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They",
+                "had almost left",
+                "the building",
+                "when the alarm",
+                "sounded."
+            ],
+            "token_groups": [
+                "They",
+                "had almost left",
+                "the building",
+                "when the alarm",
+                "sounded."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "woq-adverbs-adverbials-b1-g04",
+            "author_id": "B1-g04",
+            "question": "I {a1} agree with that conclusion.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Я не цілком погоджуюся з цим висновком.",
+            "target_text": "I do not entirely agree with that conclusion.",
+            "markers": {
+                "a1": {
+                    "answer": "do not entirely",
+                    "options": [
+                        "do not entirely",
+                        "entirely do not I",
+                        "do entirely not"
+                    ],
+                    "verb_hint": "Передай часткову, а не повну незгоду: прислівник ступеня стоїть після заперечної частки."
+                }
+            },
+            "verb_hint": "Передай часткову, а не повну незгоду: прислівник ступеня стоїть після заперечної частки.",
+            "accepted_target_texts": [
+                "I do not entirely agree with that conclusion."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "do not entirely",
+                "agree with",
+                "that conclusion."
+            ],
+            "token_groups": [
+                "I",
+                "do not entirely",
+                "agree with",
+                "that conclusion."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "woq-adverbs-adverbials-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The team {a1} this season.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Цього сезону команда виступила напрочуд добре.",
+            "target_text": "The team has performed remarkably well this season.",
+            "markers": {
+                "a1": {
+                    "answer": "has performed remarkably well",
+                    "options": [
+                        "has performed remarkably well",
+                        "remarkably has performed good",
+                        "has remarkably well performed it"
+                    ],
+                    "verb_hint": "Після дії постав характеристику її якості; підсилення має стояти перед прислівником якості."
+                }
+            },
+            "verb_hint": "Після дії постав характеристику її якості; підсилення має стояти перед прислівником якості.",
+            "accepted_target_texts": [
+                "The team has performed remarkably well this season."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The team",
+                "has performed",
+                "remarkably well",
+                "this season."
+            ],
+            "token_groups": [
+                "The team",
+                "has performed",
+                "remarkably well",
+                "this season."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "woq-adverbs-adverbials-b1-g06",
+            "author_id": "B1-g06",
+            "question": "We {a1} after moving to the coast.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Після переїзду до узбережжя ми ходимо в походи набагато частіше.",
+            "target_text": "We go hiking far more often after moving to the coast.",
+            "markers": {
+                "a1": {
+                    "answer": "go hiking far more often",
+                    "options": [
+                        "go hiking far more often",
+                        "go far often more hiking",
+                        "far more go hiking often"
+                    ],
+                    "verb_hint": "Дієслівну групу залиш разом, а наприкінці постав підсилену порівняльну обставину частоти."
+                }
+            },
+            "verb_hint": "Дієслівну групу залиш разом, а наприкінці постав підсилену порівняльну обставину частоти.",
+            "accepted_target_texts": [
+                "We go hiking far more often after moving to the coast."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "go hiking",
+                "far more often",
+                "after moving",
+                "to the coast."
+            ],
+            "token_groups": [
+                "We",
+                "go hiking",
+                "far more often",
+                "after moving",
+                "to the coast."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "woq-adverbs-adverbials-b2-g01",
+            "author_id": "B2-g01",
+            "question": "{a1} received the revised timetable.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Лише керівники отримали виправлений розклад.",
+            "target_text": "Only the supervisors received the revised timetable.",
+            "markers": {
+                "a1": {
+                    "answer": "Only the supervisors",
+                    "options": [
+                        "Only the supervisors",
+                        "The supervisors only had",
+                        "Only had the supervisors"
+                    ],
+                    "verb_hint": "Обмеження стосується саме групи одержувачів, тому постав його безпосередньо перед підметом."
+                }
+            },
+            "verb_hint": "Обмеження стосується саме групи одержувачів, тому постав його безпосередньо перед підметом.",
+            "accepted_target_texts": [
+                "Only the supervisors received the revised timetable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Only the supervisors",
+                "received the",
+                "revised timetable."
+            ],
+            "token_groups": [
+                "Only the supervisors",
+                "received the",
+                "revised timetable."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "woq-adverbs-adverbials-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The researchers {a1} the possibility of contamination.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Дослідники, очевидно, не врахували можливості забруднення.",
+            "target_text": "The researchers had apparently overlooked the possibility of contamination.",
+            "markers": {
+                "a1": {
+                    "answer": "had apparently overlooked",
+                    "options": [
+                        "had apparently overlooked",
+                        "apparently overlooked had",
+                        "had overlooked apparently the"
+                    ],
+                    "verb_hint": "Прислівник оцінки достовірності постав між допоміжним та основним дієсловами."
+                }
+            },
+            "verb_hint": "Прислівник оцінки достовірності постав між допоміжним та основним дієсловами.",
+            "accepted_target_texts": [
+                "The researchers had apparently overlooked the possibility of contamination."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The researchers",
+                "had apparently overlooked",
+                "the possibility",
+                "of contamination."
+            ],
+            "token_groups": [
+                "The researchers",
+                "had apparently overlooked",
+                "the possibility",
+                "of contamination."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "woq-adverbs-adverbials-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The room {a1} for a private discussion.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "У кімнаті було досить тихо для приватної розмови.",
+            "target_text": "The room was sufficiently quiet for a private discussion.",
+            "markers": {
+                "a1": {
+                    "answer": "was sufficiently quiet",
+                    "options": [
+                        "was sufficiently quiet",
+                        "sufficiently was quiet",
+                        "was quiet sufficiently"
+                    ],
+                    "verb_hint": "Прислівник достатнього ступеня передує прикметнику; не перенос його після ознаки."
+                }
+            },
+            "verb_hint": "Прислівник достатнього ступеня передує прикметнику; не перенос його після ознаки.",
+            "accepted_target_texts": [
+                "The room was sufficiently quiet for a private discussion.",
+                "The room was quiet enough for a private discussion."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was quiet enough"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was quiet enough"
+                ]
+            },
+            "reorder_groups": [
+                "The room",
+                "was sufficiently quiet",
+                "for a",
+                "private discussion."
+            ],
+            "token_groups": [
+                "The room",
+                "was sufficiently quiet",
+                "for a",
+                "private discussion."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "woq-adverbs-adverbials-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The witness {a1} to distinguish between the two voices.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Свідок насправді не міг розрізнити ці два голоси.",
+            "target_text": "The witness was not really able to distinguish between the two voices.",
+            "markers": {
+                "a1": {
+                    "answer": "was not really able",
+                    "options": [
+                        "was not really able",
+                        "really not was able",
+                        "was able really not"
+                    ],
+                    "verb_hint": "Оцінка реальної можливості стоїть усередині заперечного присудка, перед характеристикою здатності."
+                }
+            },
+            "verb_hint": "Оцінка реальної можливості стоїть усередині заперечного присудка, перед характеристикою здатності.",
+            "accepted_target_texts": [
+                "The witness was not really able to distinguish between the two voices."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The witness",
+                "was not",
+                "really able",
+                "to distinguish between",
+                "the two voices."
+            ],
+            "token_groups": [
+                "The witness",
+                "was not",
+                "really able",
+                "to distinguish between",
+                "the two voices."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "woq-adverbs-adverbials-b2-g05",
+            "author_id": "B2-g05",
+            "question": "Even after the repairs, the engine {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Навіть після ремонту двигун продовжував працювати доволі шумно.",
+            "target_text": "Even after the repairs, the engine continued to run rather noisily.",
+            "markers": {
+                "a1": {
+                    "answer": "continued to run rather noisily",
+                    "options": [
+                        "continued to run rather noisily",
+                        "continued rather to run noisy",
+                        "to run continued rather noisily"
+                    ],
+                    "verb_hint": "Збережи інфінітивну дієслівну групу, а пом’якшену оцінку способу дії постав після неї."
+                }
+            },
+            "verb_hint": "Збережи інфінітивну дієслівну групу, а пом’якшену оцінку способу дії постав після неї.",
+            "accepted_target_texts": [
+                "Even after the repairs, the engine continued to run rather noisily."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Even after",
+                "the repairs,",
+                "the engine",
+                "continued to run",
+                "rather noisily."
+            ],
+            "token_groups": [
+                "Even after",
+                "the repairs,",
+                "the engine",
+                "continued to run",
+                "rather noisily."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "woq-adverbs-adverbials-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The invitation {a1} to former participants.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Запрошення надіслали виключно колишнім учасникам.",
+            "target_text": "The invitation was sent exclusively to former participants.",
+            "markers": {
+                "a1": {
+                    "answer": "was sent exclusively",
+                    "options": [
+                        "was sent exclusively",
+                        "exclusively sent was",
+                        "was exclusively it sent"
+                    ],
+                    "verb_hint": "Обмеження стосується одержувачів, тому постав прислівник перед уже наведеною прийменниковою групою."
+                }
+            },
+            "verb_hint": "Обмеження стосується одержувачів, тому постав прислівник перед уже наведеною прийменниковою групою.",
+            "accepted_target_texts": [
+                "The invitation was sent exclusively to former participants."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The invitation",
+                "was sent exclusively",
+                "to former participants."
+            ],
+            "token_groups": [
+                "The invitation",
+                "was sent exclusively",
+                "to former participants."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "woq-adverbs-adverbials-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The distinction {a1} in practice.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "На практиці ця відмінність аж ніяк не очевидна.",
+            "target_text": "The distinction is by no means clear in practice.",
+            "markers": {
+                "a1": {
+                    "answer": "is by no means clear",
+                    "options": [
+                        "is by no means clear",
+                        "by no means is clear it",
+                        "is clear by no means it"
+                    ],
+                    "verb_hint": "Постав багатослівне заперечне підсилення після зв’язки й перед прикметником."
+                }
+            },
+            "verb_hint": "Постав багатослівне заперечне підсилення після зв’язки й перед прикметником.",
+            "accepted_target_texts": [
+                "The distinction is by no means clear in practice."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The distinction",
+                "is by",
+                "no means clear",
+                "in practice."
+            ],
+            "token_groups": [
+                "The distinction",
+                "is by",
+                "no means clear",
+                "in practice."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "woq-adverbs-adverbials-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The files {a1} before being released.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Перед оприлюдненням усі файли пройшли незалежну перевірку.",
+            "target_text": "The files had all been independently reviewed before being released.",
+            "markers": {
+                "a1": {
+                    "answer": "had all been independently reviewed",
+                    "options": [
+                        "had all been independently reviewed",
+                        "all had reviewed independently been",
+                        "had been independently all reviewed they"
+                    ],
+                    "verb_hint": "Кількісне охоплення постав після першого допоміжного дієслова, а спосіб перевірки — перед основним."
+                }
+            },
+            "verb_hint": "Кількісне охоплення постав після першого допоміжного дієслова, а спосіб перевірки — перед основним.",
+            "accepted_target_texts": [
+                "The files had all been independently reviewed before being released."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The files",
+                "had all been",
+                "independently reviewed",
+                "before being released."
+            ],
+            "token_groups": [
+                "The files",
+                "had all been",
+                "independently reviewed",
+                "before being released."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "woq-adverbs-adverbials-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The speaker {a1} the underlying assumption.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Промовець не стільки відкинув, скільки уточнив основне припущення.",
+            "target_text": "The speaker did not so much reject as qualify the underlying assumption.",
+            "markers": {
+                "a1": {
+                    "answer": "did not so much reject as qualify",
+                    "options": [
+                        "did not so much reject as qualify",
+                        "did so much not reject as qualify",
+                        "not so much did reject as qualify"
+                    ],
+                    "verb_hint": "Заперечна частка передує зіставленню двох дій; збережи симетричну конструкцію."
+                }
+            },
+            "verb_hint": "Заперечна частка передує зіставленню двох дій; збережи симетричну конструкцію.",
+            "accepted_target_texts": [
+                "The speaker did not so much reject as qualify the underlying assumption."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The speaker",
+                "did not",
+                "so much reject",
+                "as qualify",
+                "the underlying assumption."
+            ],
+            "token_groups": [
+                "The speaker",
+                "did not",
+                "so much reject",
+                "as qualify",
+                "the underlying assumption."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "woq-adverbs-adverbials-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The proposal {a1} significant opposition.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Пропозиція, цілком імовірно, зустріне значний опір.",
+            "target_text": "The proposal will in all likelihood encounter significant opposition.",
+            "markers": {
+                "a1": {
+                    "answer": "will in all likelihood encounter",
+                    "options": [
+                        "will in all likelihood encounter",
+                        "in all likelihood encounter will",
+                        "will encounter in likelihood all"
+                    ],
+                    "verb_hint": "Багатослівну оцінку ймовірності розташуй між допоміжним та основним дієсловами."
+                }
+            },
+            "verb_hint": "Багатослівну оцінку ймовірності розташуй між допоміжним та основним дієсловами.",
+            "accepted_target_texts": [
+                "The proposal will in all likelihood encounter significant opposition."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The proposal",
+                "will",
+                "in all likelihood",
+                "encounter",
+                "significant opposition."
+            ],
+            "token_groups": [
+                "The proposal",
+                "will",
+                "in all likelihood",
+                "encounter",
+                "significant opposition."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "woq-adverbs-adverbials-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The authors {a1} distinguished correlation from causation.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Автори не завжди належно розрізняли кореляцію та причинність.",
+            "target_text": "The authors have not always adequately distinguished correlation from causation.",
+            "markers": {
+                "a1": {
+                    "answer": "have not always adequately",
+                    "options": [
+                        "have not always adequately",
+                        "not always have adequate",
+                        "have always not adequately they"
+                    ],
+                    "verb_hint": "Заперечення стосується не кожного випадку: спочатку заперечна частка, далі частота й оцінка якості."
+                }
+            },
+            "verb_hint": "Заперечення стосується не кожного випадку: спочатку заперечна частка, далі частота й оцінка якості.",
+            "accepted_target_texts": [
+                "The authors have not always adequately distinguished correlation from causation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The authors",
+                "have not",
+                "always adequately",
+                "distinguished correlation",
+                "from causation."
+            ],
+            "token_groups": [
+                "The authors",
+                "have not",
+                "always adequately",
+                "distinguished correlation",
+                "from causation."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "woq-adverbs-adverbials-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The settlement {a1} the dispute permanently.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Угода мало посприяла остаточному врегулюванню суперечки.",
+            "target_text": "The settlement did little to resolve the dispute permanently.",
+            "markers": {
+                "a1": {
+                    "answer": "did little to resolve",
+                    "options": [
+                        "did little to resolve",
+                        "little did to resolve",
+                        "did to little resolve"
+                    ],
+                    "verb_hint": "У звичайному твердженні міра результату стоїть після дієслова й перед інфінітивом."
+                }
+            },
+            "verb_hint": "У звичайному твердженні міра результату стоїть після дієслова й перед інфінітивом.",
+            "accepted_target_texts": [
+                "The settlement did little to resolve the dispute permanently.",
+                "The settlement did little to settle the dispute permanently."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "did little to settle"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "did little to settle"
+                ]
+            },
+            "reorder_groups": [
+                "The settlement",
+                "did little",
+                "to resolve",
+                "the dispute permanently."
+            ],
+            "token_groups": [
+                "The settlement",
+                "did little",
+                "to resolve",
+                "the dispute permanently."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "woq-adverbs-adverbials-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The allegation {a1} by the available evidence.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Наявні докази навіть віддалено не підтверджують цього звинувачення.",
+            "target_text": "The allegation is not remotely substantiated by the available evidence.",
+            "markers": {
+                "a1": {
+                    "answer": "is not remotely substantiated",
+                    "options": [
+                        "is not remotely substantiated",
+                        "remotely not is substantiated",
+                        "is substantiated not remotely it"
+                    ],
+                    "verb_hint": "Заперечне підсилення постав перед пасивною характеристикою, зберігши звичайний порядок твердження."
+                }
+            },
+            "verb_hint": "Заперечне підсилення постав перед пасивною характеристикою, зберігши звичайний порядок твердження.",
+            "accepted_target_texts": [
+                "The allegation is not remotely substantiated by the available evidence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The allegation",
+                "is not",
+                "remotely substantiated",
+                "by the",
+                "available evidence."
+            ],
+            "token_groups": [
+                "The allegation",
+                "is not",
+                "remotely substantiated",
+                "by the",
+                "available evidence."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "woq-adverbs-adverbials-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The two interpretations {a1} interchangeable.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Ці два тлумачення взаємозамінні лише на поверховому рівні.",
+            "target_text": "The two interpretations are only superficially interchangeable.",
+            "markers": {
+                "a1": {
+                    "answer": "are only superficially",
+                    "options": [
+                        "are only superficially",
+                        "only are superficially they",
+                        "are superficially only they"
+                    ],
+                    "verb_hint": "Обмеження стосується характеру подібності, а не кількості тлумачень; постав його після зв’язки."
+                }
+            },
+            "verb_hint": "Обмеження стосується характеру подібності, а не кількості тлумачень; постав його після зв’язки.",
+            "accepted_target_texts": [
+                "The two interpretations are only superficially interchangeable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The two interpretations",
+                "are only superficially",
+                "interchangeable."
+            ],
+            "token_groups": [
+                "The two interpretations",
+                "are only superficially",
+                "interchangeable."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "woq-adverbs-adverbials-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The change {a1} a departure from established practice.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Ця зміна становить навряд чи щось більше, ніж відступ від усталеної практики.",
+            "target_text": "The change constitutes scarcely more than a departure from established practice.",
+            "markers": {
+                "a1": {
+                    "answer": "constitutes scarcely more than",
+                    "options": [
+                        "constitutes scarcely more than",
+                        "scarcely constitutes than more",
+                        "constitutes more scarcely that"
+                    ],
+                    "verb_hint": "Збережи цілісну обмежувальну порівняльну групу перед назвою того, з чим зіставляється зміна."
+                }
+            },
+            "verb_hint": "Збережи цілісну обмежувальну порівняльну групу перед назвою того, з чим зіставляється зміна.",
+            "accepted_target_texts": [
+                "The change constitutes scarcely more than a departure from established practice."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The change",
+                "constitutes scarcely",
+                "more than",
+                "a departure",
+                "from established practice."
+            ],
+            "token_groups": [
+                "The change",
+                "constitutes scarcely",
+                "more than",
+                "a departure",
+                "from established practice."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "woq-adverbs-adverbials-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The committee {a1} the implications.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Комітет ще навіть не почав оцінювати наслідки.",
+            "target_text": "The committee had not even begun to assess the implications.",
+            "markers": {
+                "a1": {
+                    "answer": "had not even begun to assess",
+                    "options": [
+                        "had not even begun to assess",
+                        "even had begun not to assess",
+                        "had begun not even assess to"
+                    ],
+                    "verb_hint": "Постав підсилювальний прислівник після заперечної частки й перед початком основної дії."
+                }
+            },
+            "verb_hint": "Постав підсилювальний прислівник після заперечної частки й перед початком основної дії.",
+            "accepted_target_texts": [
+                "The committee had not even begun to assess the implications."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The committee",
+                "had not even",
+                "begun to assess",
+                "the implications."
+            ],
+            "token_groups": [
+                "The committee",
+                "had not even",
+                "begun to assess",
+                "the implications."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "woq-adverbs-adverbials-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The arrangement {a1} temporary.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Ця домовленість фактично є тимчасовою.",
+            "target_text": "The arrangement is, to all intents and purposes, temporary.",
+            "markers": {
+                "a1": {
+                    "answer": "is, to all intents and purposes,",
+                    "options": [
+                        "is, to all intents and purposes,",
+                        "to all intents is and purposes",
+                        "is to all purposes and intents it"
+                    ],
+                    "verb_hint": "Вставну оцінку фактичного стану розмісти між зв’язкою та характеристикою, зберігши усталений порядок слів у ній."
+                }
+            },
+            "verb_hint": "Вставну оцінку фактичного стану розмісти між зв’язкою та характеристикою, зберігши усталений порядок слів у ній.",
+            "accepted_target_texts": [
+                "The arrangement is, to all intents and purposes, temporary."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The arrangement",
+                "is, to all",
+                "intents and purposes,",
+                "temporary."
+            ],
+            "token_groups": [
+                "The arrangement",
+                "is, to all",
+                "intents and purposes,",
+                "temporary."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "woq-adverbs-adverbials-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The response {a1} the concern.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_adverbs_adverbials",
+            "translation_uk": "Відповідь майже напевно мала посилити занепокоєння.",
+            "target_text": "The response was all but certain to intensify the concern.",
+            "markers": {
+                "a1": {
+                    "answer": "was all but certain to intensify",
+                    "options": [
+                        "was all but certain to intensify",
+                        "all but was to certain intensify",
+                        "was certain all to but intensify"
+                    ],
+                    "verb_hint": "Усталена обставина майже повного ступеня передує прикметнику впевненості, а не основній дії."
+                }
+            },
+            "verb_hint": "Усталена обставина майже повного ступеня передує прикметнику впевненості, а не основній дії.",
+            "accepted_target_texts": [
+                "The response was all but certain to intensify the concern."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The response",
+                "was all but",
+                "certain to intensify",
+                "the concern."
+            ],
+            "token_groups": [
+                "The response",
+                "was all but",
+                "certain to intensify",
+                "the concern."
+            ],
+            "quality_revision": "word-order-v1"
+        }
+    ]
+}

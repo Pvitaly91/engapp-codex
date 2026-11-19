@@ -1,0 +1,1873 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mrq-v1",
+    "compiled_from": {
+        "path": "docs/content/mixed-revision-quality/b1-mixed-revision.v1.json",
+        "sha256": "82301189d02eaf6b09b4cc93d601c720e7c8a270c803732119dfbe58f954b27e"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedMrqB1MixedRevisionQualityBuilderSeeder",
+        "uuid_namespace": "mixed-revision-quality-b1-mixed-revision-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Mixed Revision"
+    },
+    "sources": {
+        "mixed_revision_quality_b1_mixed_revision": {
+            "name": "Mixed Revision Quality: B1 Mixed Revision"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mrq-b1-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Я годую чорного кота щоранку.",
+            "level": "A1",
+            "type": 4,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Я годую чорного кота щоранку.",
+            "target_text": "I feed the black cat every morning.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з мовця, назви звичну дію годування та чорного кота; повторюваний час постав наприкінці.",
+                    "options": [
+                        "I",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "feed",
+                    "verb_hint": "Почни з мовця, назви звичну дію годування та чорного кота; повторюваний час постав наприкінці.",
+                    "options": [
+                        "feed",
+                        "took",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з мовця, назви звичну дію годування та чорного кота; повторюваний час постав наприкінці.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a4": {
+                    "answer": "black",
+                    "verb_hint": "Почни з мовця, назви звичну дію годування та чорного кота; повторюваний час постав наприкінці.",
+                    "options": [
+                        "black",
+                        "silver",
+                        "golden",
+                        "brown"
+                    ]
+                },
+                "a5": {
+                    "answer": "cat",
+                    "verb_hint": "Почни з мовця, назви звичну дію годування та чорного кота; повторюваний час постав наприкінці.",
+                    "options": [
+                        "cat",
+                        "cow",
+                        "rabbit",
+                        "lion"
+                    ]
+                },
+                "a6": {
+                    "answer": "every",
+                    "verb_hint": "Почни з мовця, назви звичну дію годування та чорного кота; повторюваний час постав наприкінці.",
+                    "options": [
+                        "every",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a7": {
+                    "answer": "morning.",
+                    "verb_hint": "Почни з мовця, назви звичну дію годування та чорного кота; повторюваний час постав наприкінці.",
+                    "options": [
+                        "morning",
+                        "year",
+                        "hour",
+                        "minute"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з мовця, назви звичну дію годування та чорного кота; повторюваний час постав наприкінці.",
+            "accepted_target_texts": [
+                "I feed the black cat every morning.",
+                "I feed the black cat each morning."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "each"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "each"
+                ]
+            },
+            "reorder_groups": [
+                "I",
+                "feed",
+                "the black cat",
+                "every morning."
+            ],
+            "token_groups": [
+                "I",
+                "feed",
+                "the black cat",
+                "every morning."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "I",
+                "feed",
+                "the",
+                "black",
+                "cat",
+                "every",
+                "morning."
+            ],
+            "options": [
+                "I",
+                "You",
+                "He",
+                "She",
+                "feed",
+                "took",
+                "wrote",
+                "rode",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "black",
+                "silver",
+                "golden",
+                "brown",
+                "cat",
+                "cow",
+                "rabbit",
+                "lion",
+                "every",
+                "this",
+                "that",
+                "these",
+                "morning",
+                "year",
+                "hour",
+                "minute"
+            ],
+            "source_text_uk": "Я годую чорного кота щоранку.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a2": [
+                    "feed",
+                    "took",
+                    "wrote",
+                    "rode"
+                ],
+                "a3": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a4": [
+                    "black",
+                    "silver",
+                    "golden",
+                    "brown"
+                ],
+                "a5": [
+                    "cat",
+                    "cow",
+                    "rabbit",
+                    "lion"
+                ],
+                "a6": [
+                    "every",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a7": [
+                    "morning",
+                    "year",
+                    "hour",
+                    "minute"
+                ]
+            },
+            "slot_roles": {
+                "a1": "personal_subject",
+                "a2": "animal_care_action",
+                "a3": "animal_object",
+                "a4": "animal_object",
+                "a5": "animal_object",
+                "a6": "routine_time",
+                "a7": "routine_time"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "mrq-b1-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Назар збирається віднести пораненого птаха до ветеринара.",
+            "level": "A2",
+            "type": 4,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Назар збирається віднести пораненого птаха до ветеринара.",
+            "target_text": "Nazar is going to take the injured bird to a vet.",
+            "markers": {
+                "a1": {
+                    "answer": "Nazar",
+                    "verb_hint": "Почни з Назара; заплановану дію передай конструкцією наміру, назви пораненого птаха та місце призначення.",
+                    "options": [
+                        "Nazar",
+                        "Danylo",
+                        "Sofiia",
+                        "Oksana"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Почни з Назара; заплановану дію передай конструкцією наміру, назви пораненого птаха та місце призначення.",
+                    "options": [
+                        "is",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "going",
+                    "verb_hint": "Почни з Назара; заплановану дію передай конструкцією наміру, назви пораненого птаха та місце призначення.",
+                    "options": [
+                        "going",
+                        "hoping",
+                        "trying",
+                        "waiting"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Почни з Назара; заплановану дію передай конструкцією наміру, назви пораненого птаха та місце призначення.",
+                    "options": [
+                        "to",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a5": {
+                    "answer": "take",
+                    "verb_hint": "Почни з Назара; заплановану дію передай конструкцією наміру, назви пораненого птаха та місце призначення.",
+                    "options": [
+                        "take",
+                        "see",
+                        "leave",
+                        "find"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з Назара; заплановану дію передай конструкцією наміру, назви пораненого птаха та місце призначення.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a7": {
+                    "answer": "injured",
+                    "verb_hint": "Почни з Назара; заплановану дію передай конструкцією наміру, назви пораненого птаха та місце призначення.",
+                    "options": [
+                        "injured",
+                        "frightened",
+                        "tired",
+                        "lost"
+                    ]
+                },
+                "a8": {
+                    "answer": "bird",
+                    "verb_hint": "Почни з Назара; заплановану дію передай конструкцією наміру, назви пораненого птаха та місце призначення.",
+                    "options": [
+                        "bird",
+                        "tiger",
+                        "bear",
+                        "monkey"
+                    ]
+                },
+                "a9": {
+                    "answer": "to",
+                    "verb_hint": "Почни з Назара; заплановану дію передай конструкцією наміру, назви пораненого птаха та місце призначення.",
+                    "options": [
+                        "to",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a10": {
+                    "answer": "a",
+                    "verb_hint": "Почни з Назара; заплановану дію передай конструкцією наміру, назви пораненого птаха та місце призначення.",
+                    "options": [
+                        "a",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a11": {
+                    "answer": "vet.",
+                    "verb_hint": "Почни з Назара; заплановану дію передай конструкцією наміру, назви пораненого птаха та місце призначення.",
+                    "options": [
+                        "vet",
+                        "neighbour",
+                        "van",
+                        "shelter"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з Назара; заплановану дію передай конструкцією наміру, назви пораненого птаха та місце призначення.",
+            "accepted_target_texts": [
+                "Nazar is going to take the injured bird to a vet.",
+                "Nazar is going to take the wounded bird to a vet.",
+                "Nazar is going to take the injured bird to a veterinarian.",
+                "Nazar is going to take the wounded bird to a veterinarian.",
+                "Nazar is going to carry the injured bird to a vet.",
+                "Nazar is going to carry the wounded bird to a vet.",
+                "Nazar is going to carry the injured bird to a veterinarian.",
+                "Nazar is going to carry the wounded bird to a veterinarian.",
+                "Nazar is planning to take the injured bird to a vet.",
+                "Nazar is planning to take the wounded bird to a vet.",
+                "Nazar is planning to take the injured bird to a veterinarian.",
+                "Nazar is planning to take the wounded bird to a veterinarian.",
+                "Nazar is planning to carry the injured bird to a vet.",
+                "Nazar is planning to carry the wounded bird to a vet.",
+                "Nazar is planning to carry the injured bird to a veterinarian.",
+                "Nazar is planning to carry the wounded bird to a veterinarian."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "wounded"
+                ],
+                "a11": [
+                    "veterinarian."
+                ],
+                "a5": [
+                    "carry"
+                ],
+                "a3": [
+                    "planning"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "wounded"
+                ],
+                "a11": [
+                    "veterinarian."
+                ],
+                "a5": [
+                    "carry"
+                ],
+                "a3": [
+                    "planning"
+                ]
+            },
+            "reorder_groups": [
+                "Nazar is",
+                "going to take",
+                "the injured bird",
+                "to a vet."
+            ],
+            "token_groups": [
+                "Nazar is",
+                "going to take",
+                "the injured bird",
+                "to a vet."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Nazar",
+                "is",
+                "going",
+                "to",
+                "take",
+                "the",
+                "injured",
+                "bird",
+                "to",
+                "a",
+                "vet."
+            ],
+            "options": [
+                "Nazar",
+                "Danylo",
+                "Sofiia",
+                "Oksana",
+                "is",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "going",
+                "hoping",
+                "trying",
+                "waiting",
+                "to",
+                "without",
+                "into",
+                "onto",
+                "take",
+                "see",
+                "leave",
+                "find",
+                "the",
+                "this",
+                "that",
+                "these",
+                "injured",
+                "frightened",
+                "tired",
+                "lost",
+                "bird",
+                "tiger",
+                "bear",
+                "monkey",
+                "through",
+                "across",
+                "between",
+                "a",
+                "those",
+                "each",
+                "every",
+                "vet",
+                "neighbour",
+                "van",
+                "shelter"
+            ],
+            "source_text_uk": "Назар збирається віднести пораненого птаха до ветеринара.",
+            "options_by_marker": {
+                "a1": [
+                    "Nazar",
+                    "Danylo",
+                    "Sofiia",
+                    "Oksana"
+                ],
+                "a2": [
+                    "is",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a3": [
+                    "going",
+                    "hoping",
+                    "trying",
+                    "waiting"
+                ],
+                "a4": [
+                    "to",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a5": [
+                    "take",
+                    "see",
+                    "leave",
+                    "find"
+                ],
+                "a6": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a7": [
+                    "injured",
+                    "frightened",
+                    "tired",
+                    "lost"
+                ],
+                "a8": [
+                    "bird",
+                    "tiger",
+                    "bear",
+                    "monkey"
+                ],
+                "a9": [
+                    "to",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a10": [
+                    "a",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a11": [
+                    "vet",
+                    "neighbour",
+                    "van",
+                    "shelter"
+                ]
+            },
+            "slot_roles": {
+                "a1": "named_subject",
+                "a2": "named_subject",
+                "a3": "planned_carrying",
+                "a4": "planned_carrying",
+                "a5": "planned_carrying",
+                "a6": "injured_animal",
+                "a7": "injured_animal",
+                "a8": "injured_animal",
+                "a9": "animal_destination",
+                "a10": "animal_destination",
+                "a11": "animal_destination"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "mrq-b1-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Поранена лисиця відпочиває тут із вівторка.",
+            "level": "B1",
+            "type": 4,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Поранена лисиця відпочиває тут із вівторка.",
+            "target_text": "The injured fox has been resting here since Tuesday.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай процес, що почався у вівторок і триває зараз, перфектною тривалою формою; збережи місце та початок тривалості.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "injured",
+                    "verb_hint": "Передай процес, що почався у вівторок і триває зараз, перфектною тривалою формою; збережи місце та початок тривалості.",
+                    "options": [
+                        "injured",
+                        "rescued",
+                        "tired",
+                        "frightened"
+                    ]
+                },
+                "a3": {
+                    "answer": "fox",
+                    "verb_hint": "Передай процес, що почався у вівторок і триває зараз, перфектною тривалою формою; збережи місце та початок тривалості.",
+                    "options": [
+                        "fox",
+                        "pony",
+                        "badger",
+                        "horse"
+                    ]
+                },
+                "a4": {
+                    "answer": "has",
+                    "verb_hint": "Передай процес, що почався у вівторок і триває зараз, перфектною тривалою формою; збережи місце та початок тривалості.",
+                    "options": [
+                        "has",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Передай процес, що почався у вівторок і триває зараз, перфектною тривалою формою; збережи місце та початок тривалості.",
+                    "options": [
+                        "been",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a6": {
+                    "answer": "resting",
+                    "verb_hint": "Передай процес, що почався у вівторок і триває зараз, перфектною тривалою формою; збережи місце та початок тривалості.",
+                    "options": [
+                        "resting",
+                        "walking",
+                        "drinking",
+                        "recovering"
+                    ]
+                },
+                "a7": {
+                    "answer": "here",
+                    "verb_hint": "Передай процес, що почався у вівторок і триває зараз, перфектною тривалою формою; збережи місце та початок тривалості.",
+                    "options": [
+                        "here",
+                        "outside",
+                        "there",
+                        "nearby"
+                    ]
+                },
+                "a8": {
+                    "answer": "since",
+                    "verb_hint": "Передай процес, що почався у вівторок і триває зараз, перфектною тривалою формою; збережи місце та початок тривалості.",
+                    "options": [
+                        "since",
+                        "cup",
+                        "door",
+                        "key"
+                    ]
+                },
+                "a9": {
+                    "answer": "Tuesday.",
+                    "verb_hint": "Передай процес, що почався у вівторок і триває зараз, перфектною тривалою формою; збережи місце та початок тривалості.",
+                    "options": [
+                        "Tuesday",
+                        "Yesterday",
+                        "Sunday",
+                        "April"
+                    ]
+                }
+            },
+            "verb_hint": "Передай процес, що почався у вівторок і триває зараз, перфектною тривалою формою; збережи місце та початок тривалості.",
+            "accepted_target_texts": [
+                "The injured fox has been resting here since Tuesday.",
+                "The wounded fox has been resting here since Tuesday."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "wounded"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "wounded"
+                ]
+            },
+            "reorder_groups": [
+                "The injured fox",
+                "has been resting",
+                "here since Tuesday."
+            ],
+            "token_groups": [
+                "The injured fox",
+                "has been resting",
+                "here since Tuesday."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "The",
+                "injured",
+                "fox",
+                "has",
+                "been",
+                "resting",
+                "here",
+                "since",
+                "Tuesday."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "injured",
+                "rescued",
+                "tired",
+                "frightened",
+                "fox",
+                "pony",
+                "badger",
+                "horse",
+                "has",
+                "hasn't",
+                "hadn't",
+                "do",
+                "been",
+                "am",
+                "is",
+                "are",
+                "resting",
+                "walking",
+                "drinking",
+                "recovering",
+                "here",
+                "outside",
+                "there",
+                "nearby",
+                "since",
+                "cup",
+                "door",
+                "key",
+                "Tuesday",
+                "Yesterday",
+                "Sunday",
+                "April"
+            ],
+            "source_text_uk": "Поранена лисиця відпочиває тут із вівторка.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "injured",
+                    "rescued",
+                    "tired",
+                    "frightened"
+                ],
+                "a3": [
+                    "fox",
+                    "pony",
+                    "badger",
+                    "horse"
+                ],
+                "a4": [
+                    "has",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a5": [
+                    "been",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a6": [
+                    "resting",
+                    "walking",
+                    "drinking",
+                    "recovering"
+                ],
+                "a7": [
+                    "here",
+                    "outside",
+                    "there",
+                    "nearby"
+                ],
+                "a8": [
+                    "since",
+                    "cup",
+                    "door",
+                    "key"
+                ],
+                "a9": [
+                    "Tuesday",
+                    "Yesterday",
+                    "Sunday",
+                    "April"
+                ]
+            },
+            "slot_roles": {
+                "a1": "recovering_animal",
+                "a2": "recovering_animal",
+                "a3": "recovering_animal",
+                "a4": "continuous_recovery",
+                "a5": "continuous_recovery",
+                "a6": "continuous_recovery",
+                "a7": "proper_noun",
+                "a8": "proper_noun",
+                "a9": "proper_noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "mrq-b1-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Туристам слід було взяти мапу замість того, щоб покладатися на свої телефони.",
+            "level": "B2",
+            "type": 4,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Туристам слід було взяти мапу замість того, щоб покладатися на свої телефони.",
+            "target_text": "The hikers should have taken a map instead of relying on their phones.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай критичну оцінку нездійсненої минулої дії модальною перфектною групою; збережи протиставлення мапи й телефонів.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "hikers",
+                    "verb_hint": "Передай критичну оцінку нездійсненої минулої дії модальною перфектною групою; збережи протиставлення мапи й телефонів.",
+                    "options": [
+                        "hikers",
+                        "climbers",
+                        "walkers",
+                        "tourists"
+                    ]
+                },
+                "a3": {
+                    "answer": "should",
+                    "verb_hint": "Передай критичну оцінку нездійсненої минулої дії модальною перфектною групою; збережи протиставлення мапи й телефонів.",
+                    "options": [
+                        "should",
+                        "would",
+                        "shall",
+                        "may"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Передай критичну оцінку нездійсненої минулої дії модальною перфектною групою; збережи протиставлення мапи й телефонів.",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "haven't"
+                    ]
+                },
+                "a5": {
+                    "answer": "taken",
+                    "verb_hint": "Передай критичну оцінку нездійсненої минулої дії модальною перфектною групою; збережи протиставлення мапи й телефонів.",
+                    "options": [
+                        "taken",
+                        "carried",
+                        "borrowed",
+                        "packed"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Передай критичну оцінку нездійсненої минулої дії модальною перфектною групою; збережи протиставлення мапи й телефонів.",
+                    "options": [
+                        "a",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a7": {
+                    "answer": "map",
+                    "verb_hint": "Передай критичну оцінку нездійсненої минулої дії модальною перфектною групою; збережи протиставлення мапи й телефонів.",
+                    "options": [
+                        "map",
+                        "poster",
+                        "book",
+                        "letter"
+                    ]
+                },
+                "a8": {
+                    "answer": "instead",
+                    "verb_hint": "Передай критичну оцінку нездійсненої минулої дії модальною перфектною групою; збережи протиставлення мапи й телефонів.",
+                    "options": [
+                        "instead",
+                        "rather",
+                        "bread",
+                        "milk"
+                    ]
+                },
+                "a9": {
+                    "answer": "of",
+                    "verb_hint": "Передай критичну оцінку нездійсненої минулої дії модальною перфектною групою; збережи протиставлення мапи й телефонів.",
+                    "options": [
+                        "of",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a10": {
+                    "answer": "relying",
+                    "verb_hint": "Передай критичну оцінку нездійсненої минулої дії модальною перфектною групою; збережи протиставлення мапи й телефонів.",
+                    "options": [
+                        "relying",
+                        "calling",
+                        "concentrating",
+                        "depending"
+                    ]
+                },
+                "a11": {
+                    "answer": "on",
+                    "verb_hint": "Передай критичну оцінку нездійсненої минулої дії модальною перфектною групою; збережи протиставлення мапи й телефонів.",
+                    "options": [
+                        "on",
+                        "onto",
+                        "over",
+                        "between"
+                    ]
+                },
+                "a12": {
+                    "answer": "their",
+                    "verb_hint": "Передай критичну оцінку нездійсненої минулої дії модальною перфектною групою; збережи протиставлення мапи й телефонів.",
+                    "options": [
+                        "their",
+                        "its",
+                        "our",
+                        "mine"
+                    ]
+                },
+                "a13": {
+                    "answer": "phones.",
+                    "verb_hint": "Передай критичну оцінку нездійсненої минулої дії модальною перфектною групою; збережи протиставлення мапи й телефонів.",
+                    "options": [
+                        "phones",
+                        "radios",
+                        "batteries",
+                        "books"
+                    ]
+                }
+            },
+            "verb_hint": "Передай критичну оцінку нездійсненої минулої дії модальною перфектною групою; збережи протиставлення мапи й телефонів.",
+            "accepted_target_texts": [
+                "The hikers should have taken a map instead of relying on their phones.",
+                "The hikers ought to have taken a map instead of relying on their phones.",
+                "The hikers should have taken a map instead of relying on their mobiles.",
+                "The hikers ought to have taken a map instead of relying on their mobiles."
+            ],
+            "answer_synonyms": {
+                "a13": [
+                    "mobiles."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a13": [
+                    "mobiles."
+                ]
+            },
+            "reorder_groups": [
+                "The hikers",
+                "should have taken",
+                "a map",
+                "instead of relying",
+                "on their phones."
+            ],
+            "token_groups": [
+                "The hikers",
+                "should have taken",
+                "a map",
+                "instead of relying",
+                "on their phones."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "The",
+                "hikers",
+                "should",
+                "have",
+                "taken",
+                "a",
+                "map",
+                "instead",
+                "of",
+                "relying",
+                "on",
+                "their",
+                "phones."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "hikers",
+                "climbers",
+                "walkers",
+                "tourists",
+                "should",
+                "would",
+                "shall",
+                "may",
+                "have",
+                "has",
+                "had",
+                "haven't",
+                "taken",
+                "carried",
+                "borrowed",
+                "packed",
+                "a",
+                "each",
+                "every",
+                "no",
+                "map",
+                "poster",
+                "book",
+                "letter",
+                "instead",
+                "rather",
+                "bread",
+                "milk",
+                "of",
+                "under",
+                "through",
+                "across",
+                "relying",
+                "calling",
+                "concentrating",
+                "depending",
+                "on",
+                "onto",
+                "over",
+                "between",
+                "their",
+                "its",
+                "our",
+                "mine",
+                "phones",
+                "radios",
+                "batteries",
+                "books"
+            ],
+            "source_text_uk": "Туристам слід було взяти мапу замість того, щоб покладатися на свої телефони.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "hikers",
+                    "climbers",
+                    "walkers",
+                    "tourists"
+                ],
+                "a3": [
+                    "should",
+                    "would",
+                    "shall",
+                    "may"
+                ],
+                "a4": [
+                    "have",
+                    "has",
+                    "had",
+                    "haven't"
+                ],
+                "a5": [
+                    "taken",
+                    "carried",
+                    "borrowed",
+                    "packed"
+                ],
+                "a6": [
+                    "a",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a7": [
+                    "map",
+                    "poster",
+                    "book",
+                    "letter"
+                ],
+                "a8": [
+                    "instead",
+                    "rather",
+                    "bread",
+                    "milk"
+                ],
+                "a9": [
+                    "of",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a10": [
+                    "relying",
+                    "calling",
+                    "concentrating",
+                    "depending"
+                ],
+                "a11": [
+                    "on",
+                    "onto",
+                    "over",
+                    "between"
+                ],
+                "a12": [
+                    "their",
+                    "its",
+                    "our",
+                    "mine"
+                ],
+                "a13": [
+                    "phones",
+                    "radios",
+                    "batteries",
+                    "books"
+                ]
+            },
+            "slot_roles": {
+                "a1": "hiking_subject",
+                "a2": "hiking_subject",
+                "a3": "past_advice",
+                "a4": "past_advice",
+                "a5": "past_advice",
+                "a6": "navigation_object",
+                "a7": "navigation_object",
+                "a8": "contrasting_activity",
+                "a9": "contrasting_activity",
+                "a10": "contrasting_activity",
+                "a11": "personal_technology",
+                "a12": "personal_technology",
+                "a13": "personal_technology"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "mrq-b1-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Польові зразки через хибне маркування неможливо було співвіднести з місцями їх відбору.",
+            "level": "C1",
+            "type": 4,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Польові зразки через хибне маркування неможливо було співвіднести з місцями їх відбору.",
+            "target_text": "The field samples, having been mislabelled, could not be matched to their locations.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни зі зразків; причину передай пасивним зворотом про вже зроблену помилку, а головною частиною — неможливість співвіднесення.",
+                    "options": [
+                        "The",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "field",
+                    "verb_hint": "Почни зі зразків; причину передай пасивним зворотом про вже зроблену помилку, а головною частиною — неможливість співвіднесення.",
+                    "options": [
+                        "field",
+                        "water",
+                        "rock",
+                        "plant"
+                    ]
+                },
+                "a3": {
+                    "answer": "samples,",
+                    "verb_hint": "Почни зі зразків; причину передай пасивним зворотом про вже зроблену помилку, а головною частиною — неможливість співвіднесення.",
+                    "options": [
+                        "samples",
+                        "fragments",
+                        "shells",
+                        "insects"
+                    ]
+                },
+                "a4": {
+                    "answer": "having",
+                    "verb_hint": "Почни зі зразків; причину передай пасивним зворотом про вже зроблену помилку, а головною частиною — неможливість співвіднесення.",
+                    "options": [
+                        "having",
+                        "closing",
+                        "helping",
+                        "waiting"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Почни зі зразків; причину передай пасивним зворотом про вже зроблену помилку, а головною частиною — неможливість співвіднесення.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "mislabelled,",
+                    "verb_hint": "Почни зі зразків; причину передай пасивним зворотом про вже зроблену помилку, а головною частиною — неможливість співвіднесення.",
+                    "options": [
+                        "mislabelled",
+                        "measured",
+                        "contaminated",
+                        "damaged"
+                    ]
+                },
+                "a7": {
+                    "answer": "could",
+                    "verb_hint": "Почни зі зразків; причину передай пасивним зворотом про вже зроблену помилку, а головною частиною — неможливість співвіднесення.",
+                    "options": [
+                        "could",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a8": {
+                    "answer": "not",
+                    "verb_hint": "Почни зі зразків; причину передай пасивним зворотом про вже зроблену помилку, а головною частиною — неможливість співвіднесення.",
+                    "options": [
+                        "not",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a9": {
+                    "answer": "be",
+                    "verb_hint": "Почни зі зразків; причину передай пасивним зворотом про вже зроблену помилку, а головною частиною — неможливість співвіднесення.",
+                    "options": [
+                        "be",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a10": {
+                    "answer": "matched",
+                    "verb_hint": "Почни зі зразків; причину передай пасивним зворотом про вже зроблену помилку, а головною частиною — неможливість співвіднесення.",
+                    "options": [
+                        "matched",
+                        "counted",
+                        "compared",
+                        "returned"
+                    ]
+                },
+                "a11": {
+                    "answer": "to",
+                    "verb_hint": "Почни зі зразків; причину передай пасивним зворотом про вже зроблену помилку, а головною частиною — неможливість співвіднесення.",
+                    "options": [
+                        "to",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a12": {
+                    "answer": "their",
+                    "verb_hint": "Почни зі зразків; причину передай пасивним зворотом про вже зроблену помилку, а головною частиною — неможливість співвіднесення.",
+                    "options": [
+                        "their",
+                        "our",
+                        "mine",
+                        "yours"
+                    ]
+                },
+                "a13": {
+                    "answer": "locations.",
+                    "verb_hint": "Почни зі зразків; причину передай пасивним зворотом про вже зроблену помилку, а головною частиною — неможливість співвіднесення.",
+                    "options": [
+                        "locations",
+                        "researchers",
+                        "specimens",
+                        "figures"
+                    ]
+                }
+            },
+            "verb_hint": "Почни зі зразків; причину передай пасивним зворотом про вже зроблену помилку, а головною частиною — неможливість співвіднесення.",
+            "accepted_target_texts": [
+                "The field samples, having been mislabelled, could not be matched to their locations.",
+                "The field samples, having been mislabeled, could not be matched to their locations.",
+                "The field samples, having been mislabelled, couldn't be matched to their locations.",
+                "The field samples, having been mislabelled, could not be matched to their sites.",
+                "The field samples, having been mislabeled, couldn't be matched to their locations.",
+                "The field samples, having been mislabeled, could not be matched to their sites.",
+                "The field samples, having been mislabelled, couldn't be matched to their sites.",
+                "The field samples, having been mislabeled, couldn't be matched to their sites."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "mislabeled,"
+                ],
+                "a13": [
+                    "sites."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "mislabeled,"
+                ],
+                "a13": [
+                    "sites."
+                ]
+            },
+            "reorder_groups": [
+                "The field samples,",
+                "having been mislabelled,",
+                "could not",
+                "be matched",
+                "to their locations."
+            ],
+            "token_groups": [
+                "The field samples,",
+                "having been mislabelled,",
+                "could not",
+                "be matched",
+                "to their locations."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "The",
+                "field",
+                "samples,",
+                "having",
+                "been",
+                "mislabelled,",
+                "could",
+                "not",
+                "be",
+                "matched",
+                "to",
+                "their",
+                "locations."
+            ],
+            "options": [
+                "The",
+                "This",
+                "That",
+                "These",
+                "field",
+                "water",
+                "rock",
+                "plant",
+                "samples",
+                "fragments",
+                "shells",
+                "insects",
+                "having",
+                "closing",
+                "helping",
+                "waiting",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "mislabelled",
+                "measured",
+                "contaminated",
+                "damaged",
+                "could",
+                "shouldn't",
+                "cannot",
+                "can",
+                "not",
+                "always",
+                "often",
+                "sometimes",
+                "be",
+                "wasn't",
+                "weren't",
+                "am",
+                "matched",
+                "counted",
+                "compared",
+                "returned",
+                "to",
+                "over",
+                "under",
+                "through",
+                "their",
+                "our",
+                "mine",
+                "yours",
+                "locations",
+                "researchers",
+                "specimens",
+                "figures"
+            ],
+            "source_text_uk": "Польові зразки через хибне маркування неможливо було співвіднести з місцями їх відбору.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "field",
+                    "water",
+                    "rock",
+                    "plant"
+                ],
+                "a3": [
+                    "samples",
+                    "fragments",
+                    "shells",
+                    "insects"
+                ],
+                "a4": [
+                    "having",
+                    "closing",
+                    "helping",
+                    "waiting"
+                ],
+                "a5": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a6": [
+                    "mislabelled",
+                    "measured",
+                    "contaminated",
+                    "damaged"
+                ],
+                "a7": [
+                    "could",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a8": [
+                    "not",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a9": [
+                    "be",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a10": [
+                    "matched",
+                    "counted",
+                    "compared",
+                    "returned"
+                ],
+                "a11": [
+                    "to",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a12": [
+                    "their",
+                    "our",
+                    "mine",
+                    "yours"
+                ],
+                "a13": [
+                    "locations",
+                    "researchers",
+                    "specimens",
+                    "figures"
+                ]
+            },
+            "slot_roles": {
+                "a1": "research_samples",
+                "a2": "research_samples",
+                "a3": "research_samples",
+                "a4": "perfect_passive_participle",
+                "a5": "perfect_passive_participle",
+                "a6": "perfect_passive_participle",
+                "a7": "negative_past_possibility",
+                "a8": "negative_past_possibility",
+                "a9": "sample_process",
+                "a10": "sample_process",
+                "a11": "sample_relation",
+                "a12": "sample_relation",
+                "a13": "sample_relation"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "mrq-b1-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Лише відкинувши вимірювання, що істотно відхилялися, команда могла отримати настільки чітку кореляцію.",
+            "level": "C2",
+            "type": 4,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Лише відкинувши вимірювання, що істотно відхилялися, команда могла отримати настільки чітку кореляцію.",
+            "target_text": "Only by excluding the outlying measurements could the team obtain so clear a correlation.",
+            "markers": {
+                "a1": {
+                    "answer": "Only",
+                    "verb_hint": "Винеси обмеження способу на початок; допоміжне дієслово можливості постав перед командою та збережи особливий порядок підсилення ознаки перед іменником.",
+                    "options": [
+                        "Only",
+                        "Also",
+                        "Usually",
+                        "Rarely"
+                    ]
+                },
+                "a2": {
+                    "answer": "by",
+                    "verb_hint": "Винеси обмеження способу на початок; допоміжне дієслово можливості постав перед командою та збережи особливий порядок підсилення ознаки перед іменником.",
+                    "options": [
+                        "by",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a3": {
+                    "answer": "excluding",
+                    "verb_hint": "Винеси обмеження способу на початок; допоміжне дієслово можливості постав перед командою та збережи особливий порядок підсилення ознаки перед іменником.",
+                    "options": [
+                        "excluding",
+                        "revising",
+                        "correcting",
+                        "checking"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Винеси обмеження способу на початок; допоміжне дієслово можливості постав перед командою та збережи особливий порядок підсилення ознаки перед іменником.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "outlying",
+                    "verb_hint": "Винеси обмеження способу на початок; допоміжне дієслово можливості постав перед командою та збережи особливий порядок підсилення ознаки перед іменником.",
+                    "options": [
+                        "outlying",
+                        "conflicting",
+                        "missing",
+                        "writing"
+                    ]
+                },
+                "a6": {
+                    "answer": "measurements",
+                    "verb_hint": "Винеси обмеження способу на початок; допоміжне дієслово можливості постав перед командою та збережи особливий порядок підсилення ознаки перед іменником.",
+                    "options": [
+                        "measurements",
+                        "figures",
+                        "estimates",
+                        "records"
+                    ]
+                },
+                "a7": {
+                    "answer": "could",
+                    "verb_hint": "Винеси обмеження способу на початок; допоміжне дієслово можливості постав перед командою та збережи особливий порядок підсилення ознаки перед іменником.",
+                    "options": [
+                        "could",
+                        "can",
+                        "will",
+                        "would"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Винеси обмеження способу на початок; допоміжне дієслово можливості постав перед командою та збережи особливий порядок підсилення ознаки перед іменником.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a9": {
+                    "answer": "team",
+                    "verb_hint": "Винеси обмеження способу на початок; допоміжне дієслово можливості постав перед командою та збережи особливий порядок підсилення ознаки перед іменником.",
+                    "options": [
+                        "team",
+                        "analyst",
+                        "supervisor",
+                        "committee"
+                    ]
+                },
+                "a10": {
+                    "answer": "obtain",
+                    "verb_hint": "Винеси обмеження способу на початок; допоміжне дієслово можливості постав перед командою та збережи особливий порядок підсилення ознаки перед іменником.",
+                    "options": [
+                        "obtain",
+                        "demonstrate",
+                        "identify",
+                        "present"
+                    ]
+                },
+                "a11": {
+                    "answer": "so",
+                    "verb_hint": "Винеси обмеження способу на початок; допоміжне дієслово можливості постав перед командою та збережи особливий порядок підсилення ознаки перед іменником.",
+                    "options": [
+                        "so",
+                        "if",
+                        "whether",
+                        "and"
+                    ]
+                },
+                "a12": {
+                    "answer": "clear",
+                    "verb_hint": "Винеси обмеження способу на початок; допоміжне дієслово можливості постав перед командою та збережи особливий порядок підсилення ознаки перед іменником.",
+                    "options": [
+                        "clear",
+                        "easy",
+                        "difficult",
+                        "bright"
+                    ]
+                },
+                "a13": {
+                    "answer": "a",
+                    "verb_hint": "Винеси обмеження способу на початок; допоміжне дієслово можливості постав перед командою та збережи особливий порядок підсилення ознаки перед іменником.",
+                    "options": [
+                        "a",
+                        "both",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a14": {
+                    "answer": "correlation.",
+                    "verb_hint": "Винеси обмеження способу на початок; допоміжне дієслово можливості постав перед командою та збережи особливий порядок підсилення ознаки перед іменником.",
+                    "options": [
+                        "correlation",
+                        "pattern",
+                        "distinction",
+                        "relationship"
+                    ]
+                }
+            },
+            "verb_hint": "Винеси обмеження способу на початок; допоміжне дієслово можливості постав перед командою та збережи особливий порядок підсилення ознаки перед іменником.",
+            "accepted_target_texts": [
+                "Only by excluding the outlying measurements could the team obtain so clear a correlation.",
+                "Only by disregarding the outlying measurements could the team obtain so clear a correlation.",
+                "Only by excluding the outlying measurements could the team produce so clear a correlation.",
+                "Only by disregarding the outlying measurements could the team produce so clear a correlation."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "disregarding"
+                ],
+                "a10": [
+                    "produce"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "disregarding"
+                ],
+                "a10": [
+                    "produce"
+                ]
+            },
+            "reorder_groups": [
+                "Only by excluding",
+                "the outlying measurements",
+                "could the team",
+                "obtain so clear",
+                "a correlation."
+            ],
+            "token_groups": [
+                "Only by excluding",
+                "the outlying measurements",
+                "could the team",
+                "obtain so clear",
+                "a correlation."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Only",
+                "by",
+                "excluding",
+                "the",
+                "outlying",
+                "measurements",
+                "could",
+                "the",
+                "team",
+                "obtain",
+                "so",
+                "clear",
+                "a",
+                "correlation."
+            ],
+            "options": [
+                "Only",
+                "Also",
+                "Usually",
+                "Rarely",
+                "by",
+                "onto",
+                "over",
+                "under",
+                "excluding",
+                "revising",
+                "correcting",
+                "checking",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "outlying",
+                "conflicting",
+                "missing",
+                "writing",
+                "measurements",
+                "figures",
+                "estimates",
+                "records",
+                "could",
+                "can",
+                "will",
+                "would",
+                "an",
+                "some",
+                "any",
+                "team",
+                "analyst",
+                "supervisor",
+                "committee",
+                "obtain",
+                "demonstrate",
+                "identify",
+                "present",
+                "so",
+                "if",
+                "whether",
+                "and",
+                "clear",
+                "easy",
+                "difficult",
+                "bright",
+                "a",
+                "both",
+                "this",
+                "that",
+                "correlation",
+                "pattern",
+                "distinction",
+                "relationship"
+            ],
+            "source_text_uk": "Лише відкинувши вимірювання, що істотно відхилялися, команда могла отримати настільки чітку кореляцію.",
+            "options_by_marker": {
+                "a1": [
+                    "Only",
+                    "Also",
+                    "Usually",
+                    "Rarely"
+                ],
+                "a2": [
+                    "by",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a3": [
+                    "excluding",
+                    "revising",
+                    "correcting",
+                    "checking"
+                ],
+                "a4": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "outlying",
+                    "conflicting",
+                    "missing",
+                    "writing"
+                ],
+                "a6": [
+                    "measurements",
+                    "figures",
+                    "estimates",
+                    "records"
+                ],
+                "a7": [
+                    "could",
+                    "can",
+                    "will",
+                    "would"
+                ],
+                "a8": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a9": [
+                    "team",
+                    "analyst",
+                    "supervisor",
+                    "committee"
+                ],
+                "a10": [
+                    "obtain",
+                    "demonstrate",
+                    "identify",
+                    "present"
+                ],
+                "a11": [
+                    "so",
+                    "if",
+                    "whether",
+                    "and"
+                ],
+                "a12": [
+                    "clear",
+                    "easy",
+                    "difficult",
+                    "bright"
+                ],
+                "a13": [
+                    "a",
+                    "both",
+                    "this",
+                    "that"
+                ],
+                "a14": [
+                    "correlation",
+                    "pattern",
+                    "distinction",
+                    "relationship"
+                ]
+            },
+            "slot_roles": {
+                "a1": "restrictive_method",
+                "a2": "restrictive_method",
+                "a3": "restrictive_method",
+                "a4": "data_object",
+                "a5": "data_object",
+                "a6": "data_object",
+                "a7": "inverted_research_subject",
+                "a8": "inverted_research_subject",
+                "a9": "inverted_research_subject",
+                "a10": "degree_predicate",
+                "a11": "degree_predicate",
+                "a12": "degree_predicate",
+                "a13": "statistical_outcome",
+                "a14": "statistical_outcome"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

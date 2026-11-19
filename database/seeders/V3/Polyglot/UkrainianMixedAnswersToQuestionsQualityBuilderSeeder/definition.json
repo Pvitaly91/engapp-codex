@@ -1,0 +1,2233 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/answers.v1.json",
+        "sha256": "45497344a35015f7a89a6d74a00b07cdb4816bc7a40898dedada46a3b6a215af"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedAnswersToQuestionsQualityBuilderSeeder",
+        "uuid_namespace": "questions-negations-quality-answers-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "questions_negations_quality_answers": {
+            "name": "Questions and Negations Quality: Answers to Questions"
+        }
+    },
+    "tags": {
+        "polyglot_answers_to_questions": {
+            "name": "Answers to Questions",
+            "category": "questions_negations"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "short_answers": {
+            "name": "Short Answers",
+            "category": "topic"
+        },
+        "yes_no_short_answers": {
+            "name": "Yes No Short Answers",
+            "category": "topic"
+        },
+        "to_be_answers": {
+            "name": "To Be Answers",
+            "category": "topic"
+        },
+        "do_does_did_answers": {
+            "name": "Do Does Did Answers",
+            "category": "topic"
+        },
+        "modal_answers": {
+            "name": "Modal Answers",
+            "category": "topic"
+        },
+        "perfect_auxiliary_answers": {
+            "name": "Perfect Auxiliary Answers",
+            "category": "topic"
+        },
+        "full_answers": {
+            "name": "Full Answers",
+            "category": "topic"
+        },
+        "avoid_repetition": {
+            "name": "Avoid Repetition",
+            "category": "topic"
+        },
+        "wh_question_answers": {
+            "name": "Wh Question Answers",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_answers_to_questions",
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-answers-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Так, я вмію.",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Так, я вмію.",
+            "target_text": "Yes, I can.",
+            "markers": {
+                "a1": {
+                    "answer": "Yes,",
+                    "verb_hint": "Коротка відповідь на запитання «Ти вмієш малювати?» Стверди власне вміння; не повторюй повне запитання й основне дієслово.",
+                    "options": [
+                        "Yes",
+                        "Bikes",
+                        "Cars",
+                        "Bags"
+                    ]
+                },
+                "a2": {
+                    "answer": "I",
+                    "verb_hint": "Коротка відповідь на запитання «Ти вмієш малювати?» Стверди власне вміння; не повторюй повне запитання й основне дієслово.",
+                    "options": [
+                        "I",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a3": {
+                    "answer": "can.",
+                    "verb_hint": "Коротка відповідь на запитання «Ти вмієш малювати?» Стверди власне вміння; не повторюй повне запитання й основне дієслово.",
+                    "options": [
+                        "can",
+                        "will",
+                        "would",
+                        "shall"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Ти вмієш малювати?» Стверди власне вміння; не повторюй повне запитання й основне дієслово.",
+            "accepted_target_texts": [
+                "Yes, I can."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Yes,",
+                "I can."
+            ],
+            "token_groups": [
+                "Yes,",
+                "I can."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Yes,",
+                "I",
+                "can."
+            ],
+            "options": [
+                "Yes",
+                "Bikes",
+                "Cars",
+                "Bags",
+                "I",
+                "Us",
+                "Them",
+                "Myself",
+                "can",
+                "will",
+                "would",
+                "shall"
+            ],
+            "source_text_uk": "Так, я вмію.",
+            "options_by_marker": {
+                "a1": [
+                    "Yes",
+                    "Bikes",
+                    "Cars",
+                    "Bags"
+                ],
+                "a2": [
+                    "I",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a3": [
+                    "can",
+                    "will",
+                    "would",
+                    "shall"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "short_answer",
+                "a3": "short_answer"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-answers-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Так, вони вдома.",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Так, вони вдома.",
+            "target_text": "Yes, they are.",
+            "markers": {
+                "a1": {
+                    "answer": "Yes,",
+                    "verb_hint": "Коротка відповідь на запитання «Вони вдома?» Стверди стан кількох людей короткою відповіддю.",
+                    "options": [
+                        "Yes",
+                        "Phones",
+                        "Children",
+                        "Teachers"
+                    ]
+                },
+                "a2": {
+                    "answer": "they",
+                    "verb_hint": "Коротка відповідь на запитання «Вони вдома?» Стверди стан кількох людей короткою відповіддю.",
+                    "options": [
+                        "they",
+                        "she",
+                        "it",
+                        "we"
+                    ]
+                },
+                "a3": {
+                    "answer": "are.",
+                    "verb_hint": "Коротка відповідь на запитання «Вони вдома?» Стверди стан кількох людей короткою відповіддю.",
+                    "options": [
+                        "are",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Вони вдома?» Стверди стан кількох людей короткою відповіддю.",
+            "accepted_target_texts": [
+                "Yes, they are."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Yes,",
+                "they are."
+            ],
+            "token_groups": [
+                "Yes,",
+                "they are."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Yes,",
+                "they",
+                "are."
+            ],
+            "options": [
+                "Yes",
+                "Phones",
+                "Children",
+                "Teachers",
+                "they",
+                "she",
+                "it",
+                "we",
+                "are",
+                "was",
+                "were",
+                "be"
+            ],
+            "source_text_uk": "Так, вони вдома.",
+            "options_by_marker": {
+                "a1": [
+                    "Yes",
+                    "Phones",
+                    "Children",
+                    "Teachers"
+                ],
+                "a2": [
+                    "they",
+                    "she",
+                    "it",
+                    "we"
+                ],
+                "a3": [
+                    "are",
+                    "was",
+                    "were",
+                    "be"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "short_answer",
+                "a3": "short_answer"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-answers-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Ні, він не любить.",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Ні, він не любить.",
+            "target_text": "No, he does not.",
+            "markers": {
+                "a1": {
+                    "answer": "No,",
+                    "verb_hint": "Коротка відповідь на запитання «Він любить сир?» Запереч звичне уподобання однієї людини; основне дієслово повторювати не потрібно.",
+                    "options": [
+                        "No",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "he",
+                    "verb_hint": "Коротка відповідь на запитання «Він любить сир?» Запереч звичне уподобання однієї людини; основне дієслово повторювати не потрібно.",
+                    "options": [
+                        "he",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a3": {
+                    "answer": "does",
+                    "verb_hint": "Коротка відповідь на запитання «Він любить сир?» Запереч звичне уподобання однієї людини; основне дієслово повторювати не потрібно.",
+                    "options": [
+                        "does",
+                        "hadn't",
+                        "do",
+                        "did"
+                    ]
+                },
+                "a4": {
+                    "answer": "not.",
+                    "verb_hint": "Коротка відповідь на запитання «Він любить сир?» Запереч звичне уподобання однієї людини; основне дієслово повторювати не потрібно.",
+                    "options": [
+                        "not",
+                        "almost",
+                        "never",
+                        "always"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Він любить сир?» Запереч звичне уподобання однієї людини; основне дієслово повторювати не потрібно.",
+            "accepted_target_texts": [
+                "No, he does not.",
+                "No, he doesn't."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "No,",
+                "he",
+                "does not."
+            ],
+            "token_groups": [
+                "No,",
+                "he",
+                "does not."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "No,",
+                "he",
+                "does",
+                "not."
+            ],
+            "options": [
+                "No",
+                "These",
+                "Those",
+                "Each",
+                "he",
+                "myself",
+                "yourself",
+                "herself",
+                "does",
+                "hadn't",
+                "do",
+                "did",
+                "not",
+                "almost",
+                "never",
+                "always"
+            ],
+            "source_text_uk": "Ні, він не любить.",
+            "options_by_marker": {
+                "a1": [
+                    "No",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "he",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a3": [
+                    "does",
+                    "hadn't",
+                    "do",
+                    "did"
+                ],
+                "a4": [
+                    "not",
+                    "almost",
+                    "never",
+                    "always"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "negative_phrase",
+                "a4": "negative_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-answers-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Так, вона була.",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Так, вона була.",
+            "target_text": "Yes, she was.",
+            "markers": {
+                "a1": {
+                    "answer": "Yes,",
+                    "verb_hint": "Коротка відповідь на запитання «Вона була на кухні?» Дай стверджувальну відповідь про минулий стан однієї жінки.",
+                    "options": [
+                        "Yes",
+                        "Doors",
+                        "Keys",
+                        "Rooms"
+                    ]
+                },
+                "a2": {
+                    "answer": "she",
+                    "verb_hint": "Коротка відповідь на запитання «Вона була на кухні?» Дай стверджувальну відповідь про минулий стан однієї жінки.",
+                    "options": [
+                        "she",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a3": {
+                    "answer": "was.",
+                    "verb_hint": "Коротка відповідь на запитання «Вона була на кухні?» Дай стверджувальну відповідь про минулий стан однієї жінки.",
+                    "options": [
+                        "was",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Вона була на кухні?» Дай стверджувальну відповідь про минулий стан однієї жінки.",
+            "accepted_target_texts": [
+                "Yes, she was."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Yes,",
+                "she",
+                "was."
+            ],
+            "token_groups": [
+                "Yes,",
+                "she",
+                "was."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Yes,",
+                "she",
+                "was."
+            ],
+            "options": [
+                "Yes",
+                "Doors",
+                "Keys",
+                "Rooms",
+                "she",
+                "myself",
+                "yourself",
+                "herself",
+                "was",
+                "aren't",
+                "wasn't",
+                "weren't"
+            ],
+            "source_text_uk": "Так, вона була.",
+            "options_by_marker": {
+                "a1": [
+                    "Yes",
+                    "Doors",
+                    "Keys",
+                    "Rooms"
+                ],
+                "a2": [
+                    "she",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a3": [
+                    "was",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "auxiliary"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-answers-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Ні, ми не бачили.",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Ні, ми не бачили.",
+            "target_text": "No, we did not.",
+            "markers": {
+                "a1": {
+                    "answer": "No,",
+                    "verb_hint": "Коротка відповідь на запитання «Ви бачили комету?» Запереч завершену минулу подію; не повторюй основне дієслово.",
+                    "options": [
+                        "No",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "we",
+                    "verb_hint": "Коротка відповідь на запитання «Ви бачили комету?» Запереч завершену минулу подію; не повторюй основне дієслово.",
+                    "options": [
+                        "we",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a3": {
+                    "answer": "did",
+                    "verb_hint": "Коротка відповідь на запитання «Ви бачили комету?» Запереч завершену минулу подію; не повторюй основне дієслово.",
+                    "options": [
+                        "did",
+                        "does",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "not.",
+                    "verb_hint": "Коротка відповідь на запитання «Ви бачили комету?» Запереч завершену минулу подію; не повторюй основне дієслово.",
+                    "options": [
+                        "not",
+                        "just",
+                        "also",
+                        "usually"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Ви бачили комету?» Запереч завершену минулу подію; не повторюй основне дієслово.",
+            "accepted_target_texts": [
+                "No, we did not.",
+                "No, we didn't."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "No,",
+                "we",
+                "did not."
+            ],
+            "token_groups": [
+                "No,",
+                "we",
+                "did not."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "No,",
+                "we",
+                "did",
+                "not."
+            ],
+            "options": [
+                "No",
+                "Either",
+                "Neither",
+                "All",
+                "we",
+                "herself",
+                "ourselves",
+                "themselves",
+                "did",
+                "does",
+                "don't",
+                "doesn't",
+                "not",
+                "just",
+                "also",
+                "usually"
+            ],
+            "source_text_uk": "Ні, ми не бачили.",
+            "options_by_marker": {
+                "a1": [
+                    "No",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "we",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a3": [
+                    "did",
+                    "does",
+                    "don't",
+                    "doesn't"
+                ],
+                "a4": [
+                    "not",
+                    "just",
+                    "also",
+                    "usually"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "negative_phrase",
+                "a4": "negative_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-answers-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Так, вони повернуться.",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Так, вони повернуться.",
+            "target_text": "Yes, they will.",
+            "markers": {
+                "a1": {
+                    "answer": "Yes,",
+                    "verb_hint": "Коротка відповідь на запитання «Вони повернуться до обіду?» Коротко стверди майбутню дію кількох людей.",
+                    "options": [
+                        "Yes",
+                        "Cups",
+                        "Doors",
+                        "Keys"
+                    ]
+                },
+                "a2": {
+                    "answer": "they",
+                    "verb_hint": "Коротка відповідь на запитання «Вони повернуться до обіду?» Коротко стверди майбутню дію кількох людей.",
+                    "options": [
+                        "they",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a3": {
+                    "answer": "will.",
+                    "verb_hint": "Коротка відповідь на запитання «Вони повернуться до обіду?» Коротко стверди майбутню дію кількох людей.",
+                    "options": [
+                        "will",
+                        "may",
+                        "might",
+                        "must"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Вони повернуться до обіду?» Коротко стверди майбутню дію кількох людей.",
+            "accepted_target_texts": [
+                "Yes, they will."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Yes,",
+                "they",
+                "will."
+            ],
+            "token_groups": [
+                "Yes,",
+                "they",
+                "will."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Yes,",
+                "they",
+                "will."
+            ],
+            "options": [
+                "Yes",
+                "Cups",
+                "Doors",
+                "Keys",
+                "they",
+                "herself",
+                "ourselves",
+                "themselves",
+                "will",
+                "may",
+                "might",
+                "must"
+            ],
+            "source_text_uk": "Так, вони повернуться.",
+            "options_by_marker": {
+                "a1": [
+                    "Yes",
+                    "Cups",
+                    "Doors",
+                    "Keys"
+                ],
+                "a2": [
+                    "they",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a3": [
+                    "will",
+                    "may",
+                    "might",
+                    "must"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "auxiliary"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-answers-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Так, ти можеш.",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Так, ти можеш.",
+            "target_text": "Yes, you may.",
+            "markers": {
+                "a1": {
+                    "answer": "Yes,",
+                    "verb_hint": "Коротка відповідь на запитання «Чи можу я тут зачекати?» Дозволь співрозмовнику дію; відповідь має змінити особу питання.",
+                    "options": [
+                        "Yes",
+                        "Maps",
+                        "Letters",
+                        "Windows"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Коротка відповідь на запитання «Чи можу я тут зачекати?» Дозволь співрозмовнику дію; відповідь має змінити особу питання.",
+                    "options": [
+                        "you",
+                        "it",
+                        "we",
+                        "they"
+                    ]
+                },
+                "a3": {
+                    "answer": "may.",
+                    "verb_hint": "Коротка відповідь на запитання «Чи можу я тут зачекати?» Дозволь співрозмовнику дію; відповідь має змінити особу питання.",
+                    "options": [
+                        "may",
+                        "wouldn't",
+                        "shouldn't",
+                        "cannot"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Чи можу я тут зачекати?» Дозволь співрозмовнику дію; відповідь має змінити особу питання.",
+            "accepted_target_texts": [
+                "Yes, you may."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Yes,",
+                "you",
+                "may."
+            ],
+            "token_groups": [
+                "Yes,",
+                "you",
+                "may."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Yes,",
+                "you",
+                "may."
+            ],
+            "options": [
+                "Yes",
+                "Maps",
+                "Letters",
+                "Windows",
+                "you",
+                "it",
+                "we",
+                "they",
+                "may",
+                "wouldn't",
+                "shouldn't",
+                "cannot"
+            ],
+            "source_text_uk": "Так, ти можеш.",
+            "options_by_marker": {
+                "a1": [
+                    "Yes",
+                    "Maps",
+                    "Letters",
+                    "Windows"
+                ],
+                "a2": [
+                    "you",
+                    "it",
+                    "we",
+                    "they"
+                ],
+                "a3": [
+                    "may",
+                    "wouldn't",
+                    "shouldn't",
+                    "cannot"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "auxiliary"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-answers-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Так, ми вже заплатили.",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Так, ми вже заплатили.",
+            "target_text": "Yes, we have.",
+            "markers": {
+                "a1": {
+                    "answer": "Yes,",
+                    "verb_hint": "Коротка відповідь на запитання «Ви вже заплатили?» Коротко стверди результат власної групи до теперішнього моменту.",
+                    "options": [
+                        "Yes",
+                        "Children",
+                        "Teachers",
+                        "Schools"
+                    ]
+                },
+                "a2": {
+                    "answer": "we",
+                    "verb_hint": "Коротка відповідь на запитання «Ви вже заплатили?» Коротко стверди результат власної групи до теперішнього моменту.",
+                    "options": [
+                        "we",
+                        "I",
+                        "you",
+                        "he"
+                    ]
+                },
+                "a3": {
+                    "answer": "have.",
+                    "verb_hint": "Коротка відповідь на запитання «Ви вже заплатили?» Коротко стверди результат власної групи до теперішнього моменту.",
+                    "options": [
+                        "have",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Ви вже заплатили?» Коротко стверди результат власної групи до теперішнього моменту.",
+            "accepted_target_texts": [
+                "Yes, we have."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Yes,",
+                "we",
+                "have."
+            ],
+            "token_groups": [
+                "Yes,",
+                "we",
+                "have."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Yes,",
+                "we",
+                "have."
+            ],
+            "options": [
+                "Yes",
+                "Children",
+                "Teachers",
+                "Schools",
+                "we",
+                "I",
+                "you",
+                "he",
+                "have",
+                "had",
+                "haven't",
+                "hasn't"
+            ],
+            "source_text_uk": "Так, ми вже заплатили.",
+            "options_by_marker": {
+                "a1": [
+                    "Yes",
+                    "Children",
+                    "Teachers",
+                    "Schools"
+                ],
+                "a2": [
+                    "we",
+                    "I",
+                    "you",
+                    "he"
+                ],
+                "a3": [
+                    "have",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "auxiliary"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-answers-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Ні, він не взяв би.",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Ні, він не взяв би.",
+            "target_text": "No, he would not.",
+            "markers": {
+                "a1": {
+                    "answer": "No,",
+                    "verb_hint": "Коротка відповідь на запитання «Він узяв би на себе цей ризик?» Запереч гіпотетичну готовність іншої людини без повторення основного дієслова.",
+                    "options": [
+                        "No",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "he",
+                    "verb_hint": "Коротка відповідь на запитання «Він узяв би на себе цей ризик?» Запереч гіпотетичну готовність іншої людини без повторення основного дієслова.",
+                    "options": [
+                        "he",
+                        "ourselves",
+                        "themselves",
+                        "I"
+                    ]
+                },
+                "a3": {
+                    "answer": "would",
+                    "verb_hint": "Коротка відповідь на запитання «Він узяв би на себе цей ризик?» Запереч гіпотетичну готовність іншої людини без повторення основного дієслова.",
+                    "options": [
+                        "would",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a4": {
+                    "answer": "not.",
+                    "verb_hint": "Коротка відповідь на запитання «Він узяв би на себе цей ризик?» Запереч гіпотетичну готовність іншої людини без повторення основного дієслова.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Він узяв би на себе цей ризик?» Запереч гіпотетичну готовність іншої людини без повторення основного дієслова.",
+            "accepted_target_texts": [
+                "No, he would not.",
+                "No, he wouldn't."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "No,",
+                "he",
+                "would not."
+            ],
+            "token_groups": [
+                "No,",
+                "he",
+                "would not."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "No,",
+                "he",
+                "would",
+                "not."
+            ],
+            "options": [
+                "No",
+                "Another",
+                "Either",
+                "Neither",
+                "he",
+                "ourselves",
+                "themselves",
+                "I",
+                "would",
+                "cannot",
+                "can",
+                "could",
+                "not",
+                "never",
+                "always",
+                "often"
+            ],
+            "source_text_uk": "Ні, він не взяв би.",
+            "options_by_marker": {
+                "a1": [
+                    "No",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "he",
+                    "ourselves",
+                    "themselves",
+                    "I"
+                ],
+                "a3": [
+                    "would",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a4": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "negative_phrase",
+                "a4": "negative_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-answers-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Ні, він не отримав.",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Ні, він не отримав.",
+            "target_text": "No, he did not.",
+            "markers": {
+                "a1": {
+                    "answer": "No,",
+                    "verb_hint": "Коротка відповідь на запитання «Він не отримав листа?» В англійській відповіді підтвердь відсутність минулої дії, а не форму запитання.",
+                    "options": [
+                        "No",
+                        "A",
+                        "An",
+                        "The"
+                    ]
+                },
+                "a2": {
+                    "answer": "he",
+                    "verb_hint": "Коротка відповідь на запитання «Він не отримав листа?» В англійській відповіді підтвердь відсутність минулої дії, а не форму запитання.",
+                    "options": [
+                        "he",
+                        "she",
+                        "it",
+                        "we"
+                    ]
+                },
+                "a3": {
+                    "answer": "did",
+                    "verb_hint": "Коротка відповідь на запитання «Він не отримав листа?» В англійській відповіді підтвердь відсутність минулої дії, а не форму запитання.",
+                    "options": [
+                        "did",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "not.",
+                    "verb_hint": "Коротка відповідь на запитання «Він не отримав листа?» В англійській відповіді підтвердь відсутність минулої дії, а не форму запитання.",
+                    "options": [
+                        "not",
+                        "usually",
+                        "rarely",
+                        "only"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Він не отримав листа?» В англійській відповіді підтвердь відсутність минулої дії, а не форму запитання.",
+            "accepted_target_texts": [
+                "No, he did not.",
+                "No, he didn't."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "No,",
+                "he",
+                "did not."
+            ],
+            "token_groups": [
+                "No,",
+                "he",
+                "did not."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "No,",
+                "he",
+                "did",
+                "not."
+            ],
+            "options": [
+                "No",
+                "A",
+                "An",
+                "The",
+                "he",
+                "she",
+                "it",
+                "we",
+                "did",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "not",
+                "usually",
+                "rarely",
+                "only"
+            ],
+            "source_text_uk": "Ні, він не отримав.",
+            "options_by_marker": {
+                "a1": [
+                    "No",
+                    "A",
+                    "An",
+                    "The"
+                ],
+                "a2": [
+                    "he",
+                    "she",
+                    "it",
+                    "we"
+                ],
+                "a3": [
+                    "did",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a4": [
+                    "not",
+                    "usually",
+                    "rarely",
+                    "only"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "negative_phrase",
+                "a4": "negative_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-answers-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Так, вони заперечують.",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Так, вони заперечують.",
+            "target_text": "Yes, they do.",
+            "markers": {
+                "a1": {
+                    "answer": "Yes,",
+                    "verb_hint": "Коротка відповідь на запитання «Вони не заперечують?» Відповідь має стверджувати реальну дію, попри заперечну форму питання.",
+                    "options": [
+                        "Yes",
+                        "Cats",
+                        "People",
+                        "Men"
+                    ]
+                },
+                "a2": {
+                    "answer": "they",
+                    "verb_hint": "Коротка відповідь на запитання «Вони не заперечують?» Відповідь має стверджувати реальну дію, попри заперечну форму питання.",
+                    "options": [
+                        "they",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a3": {
+                    "answer": "do.",
+                    "verb_hint": "Коротка відповідь на запитання «Вони не заперечують?» Відповідь має стверджувати реальну дію, попри заперечну форму питання.",
+                    "options": [
+                        "do",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Вони не заперечують?» Відповідь має стверджувати реальну дію, попри заперечну форму питання.",
+            "accepted_target_texts": [
+                "Yes, they do."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Yes,",
+                "they",
+                "do."
+            ],
+            "token_groups": [
+                "Yes,",
+                "they",
+                "do."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Yes,",
+                "they",
+                "do."
+            ],
+            "options": [
+                "Yes",
+                "Cats",
+                "People",
+                "Men",
+                "they",
+                "herself",
+                "ourselves",
+                "themselves",
+                "do",
+                "does",
+                "did",
+                "don't"
+            ],
+            "source_text_uk": "Так, вони заперечують.",
+            "options_by_marker": {
+                "a1": [
+                    "Yes",
+                    "Cats",
+                    "People",
+                    "Men"
+                ],
+                "a2": [
+                    "they",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a3": [
+                    "do",
+                    "does",
+                    "did",
+                    "don't"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "auxiliary"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-answers-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Ні, тобі заборонено.",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Ні, тобі заборонено.",
+            "target_text": "No, you must not.",
+            "markers": {
+                "a1": {
+                    "answer": "No,",
+                    "verb_hint": "Коротка відповідь на запитання «Чи можу я розголошувати ці відомості?» Відповідь співрозмовнику має виражати пряму заборону, а не необов’язковість.",
+                    "options": [
+                        "No",
+                        "The",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Коротка відповідь на запитання «Чи можу я розголошувати ці відомості?» Відповідь співрозмовнику має виражати пряму заборону, а не необов’язковість.",
+                    "options": [
+                        "you",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                },
+                "a3": {
+                    "answer": "must",
+                    "verb_hint": "Коротка відповідь на запитання «Чи можу я розголошувати ці відомості?» Відповідь співрозмовнику має виражати пряму заборону, а не необов’язковість.",
+                    "options": [
+                        "must",
+                        "will",
+                        "would",
+                        "shall"
+                    ]
+                },
+                "a4": {
+                    "answer": "not.",
+                    "verb_hint": "Коротка відповідь на запитання «Чи можу я розголошувати ці відомості?» Відповідь співрозмовнику має виражати пряму заборону, а не необов’язковість.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Чи можу я розголошувати ці відомості?» Відповідь співрозмовнику має виражати пряму заборону, а не необов’язковість.",
+            "accepted_target_texts": [
+                "No, you must not.",
+                "No, you mustn't."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "No,",
+                "you",
+                "must not."
+            ],
+            "token_groups": [
+                "No,",
+                "you",
+                "must not."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "No,",
+                "you",
+                "must",
+                "not."
+            ],
+            "options": [
+                "No",
+                "The",
+                "Some",
+                "Any",
+                "you",
+                "them",
+                "myself",
+                "yourself",
+                "must",
+                "will",
+                "would",
+                "shall",
+                "not",
+                "never",
+                "always",
+                "often"
+            ],
+            "source_text_uk": "Ні, тобі заборонено.",
+            "options_by_marker": {
+                "a1": [
+                    "No",
+                    "The",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "you",
+                    "them",
+                    "myself",
+                    "yourself"
+                ],
+                "a3": [
+                    "must",
+                    "will",
+                    "would",
+                    "shall"
+                ],
+                "a4": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "negative_phrase",
+                "a4": "negative_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-answers-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Ні, він не погодиться.",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Ні, він не погодиться.",
+            "target_text": "No, he will not.",
+            "markers": {
+                "a1": {
+                    "answer": "No,",
+                    "verb_hint": "Коротка відповідь на запитання «Він навряд чи погодиться, чи не так?» Відповідай про реальний прогноз, а не механічно повторюй стверджувальний хвостик питання.",
+                    "options": [
+                        "No",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "he",
+                    "verb_hint": "Коротка відповідь на запитання «Він навряд чи погодиться, чи не так?» Відповідай про реальний прогноз, а не механічно повторюй стверджувальний хвостик питання.",
+                    "options": [
+                        "he",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                },
+                "a3": {
+                    "answer": "will",
+                    "verb_hint": "Коротка відповідь на запитання «Він навряд чи погодиться, чи не так?» Відповідай про реальний прогноз, а не механічно повторюй стверджувальний хвостик питання.",
+                    "options": [
+                        "will",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a4": {
+                    "answer": "not.",
+                    "verb_hint": "Коротка відповідь на запитання «Він навряд чи погодиться, чи не так?» Відповідай про реальний прогноз, а не механічно повторюй стверджувальний хвостик питання.",
+                    "options": [
+                        "not",
+                        "only",
+                        "even",
+                        "almost"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Він навряд чи погодиться, чи не так?» Відповідай про реальний прогноз, а не механічно повторюй стверджувальний хвостик питання.",
+            "accepted_target_texts": [
+                "No, he will not.",
+                "No, he won't."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "No,",
+                "he",
+                "will not."
+            ],
+            "token_groups": [
+                "No,",
+                "he",
+                "will not."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "No,",
+                "he",
+                "will",
+                "not."
+            ],
+            "options": [
+                "No",
+                "Neither",
+                "All",
+                "Both",
+                "he",
+                "them",
+                "myself",
+                "yourself",
+                "will",
+                "shall",
+                "should",
+                "may",
+                "not",
+                "only",
+                "even",
+                "almost"
+            ],
+            "source_text_uk": "Ні, він не погодиться.",
+            "options_by_marker": {
+                "a1": [
+                    "No",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "he",
+                    "them",
+                    "myself",
+                    "yourself"
+                ],
+                "a3": [
+                    "will",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a4": [
+                    "not",
+                    "only",
+                    "even",
+                    "almost"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "negative_phrase",
+                "a4": "negative_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-answers-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Так, вона заперечила б.",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Так, вона заперечила б.",
+            "target_text": "Yes, she would.",
+            "markers": {
+                "a1": {
+                    "answer": "Yes,",
+                    "verb_hint": "Коротка відповідь на запитання «Якби умови змінилися, вона б заперечила?» Коротко стверди нереальний наслідок для однієї жінки.",
+                    "options": [
+                        "Yes",
+                        "Doors",
+                        "Keys",
+                        "Rooms"
+                    ]
+                },
+                "a2": {
+                    "answer": "she",
+                    "verb_hint": "Коротка відповідь на запитання «Якби умови змінилися, вона б заперечила?» Коротко стверди нереальний наслідок для однієї жінки.",
+                    "options": [
+                        "she",
+                        "him",
+                        "us",
+                        "them"
+                    ]
+                },
+                "a3": {
+                    "answer": "would.",
+                    "verb_hint": "Коротка відповідь на запитання «Якби умови змінилися, вона б заперечила?» Коротко стверди нереальний наслідок для однієї жінки.",
+                    "options": [
+                        "would",
+                        "may",
+                        "might",
+                        "must"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Якби умови змінилися, вона б заперечила?» Коротко стверди нереальний наслідок для однієї жінки.",
+            "accepted_target_texts": [
+                "Yes, she would."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Yes,",
+                "she",
+                "would."
+            ],
+            "token_groups": [
+                "Yes,",
+                "she",
+                "would."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Yes,",
+                "she",
+                "would."
+            ],
+            "options": [
+                "Yes",
+                "Doors",
+                "Keys",
+                "Rooms",
+                "she",
+                "him",
+                "us",
+                "them",
+                "would",
+                "may",
+                "might",
+                "must"
+            ],
+            "source_text_uk": "Так, вона заперечила б.",
+            "options_by_marker": {
+                "a1": [
+                    "Yes",
+                    "Doors",
+                    "Keys",
+                    "Rooms"
+                ],
+                "a2": [
+                    "she",
+                    "him",
+                    "us",
+                    "them"
+                ],
+                "a3": [
+                    "would",
+                    "may",
+                    "might",
+                    "must"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "auxiliary"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-answers-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Ні, вам не потрібно.",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Ні, вам не потрібно.",
+            "target_text": "No, you do not need to.",
+            "markers": {
+                "a1": {
+                    "answer": "No,",
+                    "verb_hint": "Коротка відповідь на запитання «Чи потрібно нам подавати нову заяву?» Відповідь має зняти необхідність; збережи конструкцію зі звичайним дієсловом потреби.",
+                    "options": [
+                        "No",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Коротка відповідь на запитання «Чи потрібно нам подавати нову заяву?» Відповідь має зняти необхідність; збережи конструкцію зі звичайним дієсловом потреби.",
+                    "options": [
+                        "you",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a3": {
+                    "answer": "do",
+                    "verb_hint": "Коротка відповідь на запитання «Чи потрібно нам подавати нову заяву?» Відповідь має зняти необхідність; збережи конструкцію зі звичайним дієсловом потреби.",
+                    "options": [
+                        "do",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Коротка відповідь на запитання «Чи потрібно нам подавати нову заяву?» Відповідь має зняти необхідність; збережи конструкцію зі звичайним дієсловом потреби.",
+                    "options": [
+                        "not",
+                        "also",
+                        "usually",
+                        "rarely"
+                    ]
+                },
+                "a5": {
+                    "answer": "need",
+                    "verb_hint": "Коротка відповідь на запитання «Чи потрібно нам подавати нову заяву?» Відповідь має зняти необхідність; збережи конструкцію зі звичайним дієсловом потреби.",
+                    "options": [
+                        "need",
+                        "gave",
+                        "made",
+                        "left"
+                    ]
+                },
+                "a6": {
+                    "answer": "to.",
+                    "verb_hint": "Коротка відповідь на запитання «Чи потрібно нам подавати нову заяву?» Відповідь має зняти необхідність; збережи конструкцію зі звичайним дієсловом потреби.",
+                    "options": [
+                        "to",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Чи потрібно нам подавати нову заяву?» Відповідь має зняти необхідність; збережи конструкцію зі звичайним дієсловом потреби.",
+            "accepted_target_texts": [
+                "No, you do not need to.",
+                "No, you don't need to."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "No,",
+                "you",
+                "do not",
+                "need to."
+            ],
+            "token_groups": [
+                "No,",
+                "you",
+                "do not",
+                "need to."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "No,",
+                "you",
+                "do",
+                "not",
+                "need",
+                "to."
+            ],
+            "options": [
+                "No",
+                "This",
+                "That",
+                "These",
+                "you",
+                "they",
+                "me",
+                "him",
+                "do",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "not",
+                "also",
+                "usually",
+                "rarely",
+                "need",
+                "gave",
+                "made",
+                "left",
+                "to",
+                "with",
+                "without",
+                "into"
+            ],
+            "source_text_uk": "Ні, вам не потрібно.",
+            "options_by_marker": {
+                "a1": [
+                    "No",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "you",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a3": [
+                    "do",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a4": [
+                    "not",
+                    "also",
+                    "usually",
+                    "rarely"
+                ],
+                "a5": [
+                    "need",
+                    "gave",
+                    "made",
+                    "left"
+                ],
+                "a6": [
+                    "to",
+                    "with",
+                    "without",
+                    "into"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "negative_phrase",
+                "a4": "negative_phrase",
+                "a5": "verb",
+                "a6": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-answers-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Ні, не можна.",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Ні, не можна.",
+            "target_text": "No, it cannot.",
+            "markers": {
+                "a1": {
+                    "answer": "No,",
+                    "verb_hint": "Коротка відповідь на запитання «Чи можна вважати цю презумпцію остаточною?» Відповідь заперечує допустимість такої оцінки без повторення всього присудка.",
+                    "options": [
+                        "No",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "it",
+                    "verb_hint": "Коротка відповідь на запитання «Чи можна вважати цю презумпцію остаточною?» Відповідь заперечує допустимість такої оцінки без повторення всього присудка.",
+                    "options": [
+                        "it",
+                        "yourself",
+                        "herself",
+                        "ourselves"
+                    ]
+                },
+                "a3": {
+                    "answer": "cannot.",
+                    "verb_hint": "Коротка відповідь на запитання «Чи можна вважати цю презумпцію остаточною?» Відповідь заперечує допустимість такої оцінки без повторення всього присудка.",
+                    "options": [
+                        "cannot",
+                        "will",
+                        "would",
+                        "shall"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Чи можна вважати цю презумпцію остаточною?» Відповідь заперечує допустимість такої оцінки без повторення всього присудка.",
+            "accepted_target_texts": [
+                "No, it cannot.",
+                "No, it can't."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "can't."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "can't."
+                ]
+            },
+            "reorder_groups": [
+                "No,",
+                "it",
+                "cannot."
+            ],
+            "token_groups": [
+                "No,",
+                "it",
+                "cannot."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "No,",
+                "it",
+                "cannot."
+            ],
+            "options": [
+                "No",
+                "This",
+                "That",
+                "These",
+                "it",
+                "yourself",
+                "herself",
+                "ourselves",
+                "cannot",
+                "will",
+                "would",
+                "shall"
+            ],
+            "source_text_uk": "Ні, не можна.",
+            "options_by_marker": {
+                "a1": [
+                    "No",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "it",
+                    "yourself",
+                    "herself",
+                    "ourselves"
+                ],
+                "a3": [
+                    "cannot",
+                    "will",
+                    "would",
+                    "shall"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "negative_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-answers-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Так, вони могли б.",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Так, вони могли б.",
+            "target_text": "Yes, they could.",
+            "markers": {
+                "a1": {
+                    "answer": "Yes,",
+                    "verb_hint": "Коротка відповідь на запитання «Вони могли б інакше витлумачити застереження?» Коротко підтвердь гіпотетичну можливість іншого тлумачення.",
+                    "options": [
+                        "Yes",
+                        "Children",
+                        "Teachers",
+                        "Schools"
+                    ]
+                },
+                "a2": {
+                    "answer": "they",
+                    "verb_hint": "Коротка відповідь на запитання «Вони могли б інакше витлумачити застереження?» Коротко підтвердь гіпотетичну можливість іншого тлумачення.",
+                    "options": [
+                        "they",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a3": {
+                    "answer": "could.",
+                    "verb_hint": "Коротка відповідь на запитання «Вони могли б інакше витлумачити застереження?» Коротко підтвердь гіпотетичну можливість іншого тлумачення.",
+                    "options": [
+                        "could",
+                        "will",
+                        "would",
+                        "shall"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Вони могли б інакше витлумачити застереження?» Коротко підтвердь гіпотетичну можливість іншого тлумачення.",
+            "accepted_target_texts": [
+                "Yes, they could."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Yes,",
+                "they",
+                "could."
+            ],
+            "token_groups": [
+                "Yes,",
+                "they",
+                "could."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Yes,",
+                "they",
+                "could."
+            ],
+            "options": [
+                "Yes",
+                "Children",
+                "Teachers",
+                "Schools",
+                "they",
+                "myself",
+                "yourself",
+                "herself",
+                "could",
+                "will",
+                "would",
+                "shall"
+            ],
+            "source_text_uk": "Так, вони могли б.",
+            "options_by_marker": {
+                "a1": [
+                    "Yes",
+                    "Children",
+                    "Teachers",
+                    "Schools"
+                ],
+                "a2": [
+                    "they",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a3": [
+                    "could",
+                    "will",
+                    "would",
+                    "shall"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "auxiliary"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-answers-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Так, він був би іншим.",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Так, він був би іншим.",
+            "target_text": "Yes, it would.",
+            "markers": {
+                "a1": {
+                    "answer": "Yes,",
+                    "verb_hint": "Коротка відповідь на запитання «Висновок не був би іншим?» Попри заперечну форму питання стверди протилежний гіпотетичний результат.",
+                    "options": [
+                        "Yes",
+                        "Chairs",
+                        "Tables",
+                        "Tickets"
+                    ]
+                },
+                "a2": {
+                    "answer": "it",
+                    "verb_hint": "Коротка відповідь на запитання «Висновок не був би іншим?» Попри заперечну форму питання стверди протилежний гіпотетичний результат.",
+                    "options": [
+                        "it",
+                        "we",
+                        "they",
+                        "me"
+                    ]
+                },
+                "a3": {
+                    "answer": "would.",
+                    "verb_hint": "Коротка відповідь на запитання «Висновок не був би іншим?» Попри заперечну форму питання стверди протилежний гіпотетичний результат.",
+                    "options": [
+                        "would",
+                        "may",
+                        "might",
+                        "must"
+                    ]
+                }
+            },
+            "verb_hint": "Коротка відповідь на запитання «Висновок не був би іншим?» Попри заперечну форму питання стверди протилежний гіпотетичний результат.",
+            "accepted_target_texts": [
+                "Yes, it would."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Yes,",
+                "it",
+                "would."
+            ],
+            "token_groups": [
+                "Yes,",
+                "it",
+                "would."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Yes,",
+                "it",
+                "would."
+            ],
+            "options": [
+                "Yes",
+                "Chairs",
+                "Tables",
+                "Tickets",
+                "it",
+                "we",
+                "they",
+                "me",
+                "would",
+                "may",
+                "might",
+                "must"
+            ],
+            "source_text_uk": "Так, він був би іншим.",
+            "options_by_marker": {
+                "a1": [
+                    "Yes",
+                    "Chairs",
+                    "Tables",
+                    "Tickets"
+                ],
+                "a2": [
+                    "it",
+                    "we",
+                    "they",
+                    "me"
+                ],
+                "a3": [
+                    "would",
+                    "may",
+                    "might",
+                    "must"
+                ]
+            },
+            "slot_roles": {
+                "a1": "affirmative",
+                "a2": "pronoun",
+                "a3": "auxiliary"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

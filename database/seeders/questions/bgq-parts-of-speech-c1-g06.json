@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60655,
+        "uuid": "bgq-parts-of-speech-c1-g06",
+        "question": "The findings were qualified {a1} in the final report.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 12,
+        "source_id": 427,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedPartsOfSpeechQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "appropriately",
+                "appropriate",
+                "appropriateness"
+            ]
+        },
+        "theory_text_block_uuid": "6b17fe3e-1f10-5088-92b6-f1853ad6324d",
+        "created_at": "2026-10-27T15:50:48.000000Z",
+        "updated_at": "2026-10-27T15:50:48.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 427,
+        "name": "Basic Grammar Quality: Частини мови",
+        "created_at": "2026-10-27T15:50:47.000000Z",
+        "updated_at": "2026-10-27T15:50:47.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 86,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60655,
+                "tag_id": 86,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 2869,
+                "option": "appropriate",
+                "created_at": "2026-04-23T14:18:39.000000Z",
+                "updated_at": "2026-04-23T14:18:39.000000Z"
+            },
+            "pivot": {
+                "question_id": 60655,
+                "option_id": 2869,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53157,
+                "option": "appropriately",
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 60655,
+                "option_id": 53157,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53159,
+                "option": "appropriateness",
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 60655,
+                "option_id": 53159,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325710,
+                "question_id": 60655,
+                "marker": "a1",
+                "option_id": 53157,
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            },
+            "option": {
+                "id": 53157,
+                "option": "appropriately",
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43044,
+                "question_id": 60655,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53158,
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            },
+            "option": {
+                "id": 53158,
+                "option": "Потрібний зміст: «Належним чином». Опиши доречний спосіб внесення застережень прислівником.",
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52670,
+            "question_id": 60655,
+            "text": "The findings were qualified {a1} in the final report.",
+            "created_at": "2026-10-27T15:50:49.000000Z",
+            "updated_at": "2026-10-27T15:50:49.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

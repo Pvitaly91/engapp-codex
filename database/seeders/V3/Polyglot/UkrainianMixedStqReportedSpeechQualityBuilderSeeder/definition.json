@@ -1,0 +1,1548 @@
+{
+    "schema_version": 1,
+    "quality_revision": "stq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-transformations-quality/reported-speech.v1.json",
+        "sha256": "2dda25437f01014252cddc6a98bbbfe3d5facd61fe1a7d18a78e69be328980a4"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedStqReportedSpeechQualityBuilderSeeder",
+        "uuid_namespace": "sentence-transformations-quality-reported-speech-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "sentence_transformations_quality_reported_speech": {
+            "name": "Sentence Transformations Quality: Sentence Transformations: Reported Speech"
+        }
+    },
+    "tags": {
+        "sentence_transformations_reported_speech_all_levels": {
+            "name": "sentence transformations reported speech all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "direct_statement_reported": {
+            "name": "Direct Statement Reported",
+            "category": "topic"
+        },
+        "direct_question_reported": {
+            "name": "Direct Question Reported",
+            "category": "topic"
+        },
+        "command_request_reported": {
+            "name": "Command Request Reported",
+            "category": "topic"
+        },
+        "backshift": {
+            "name": "Backshift",
+            "category": "topic"
+        },
+        "pronoun_changes": {
+            "name": "Pronoun Changes",
+            "category": "topic"
+        },
+        "time_place_changes": {
+            "name": "Time Place Changes",
+            "category": "topic"
+        },
+        "said_told_asked": {
+            "name": "Said Told Asked",
+            "category": "topic"
+        },
+        "no_direct_question_order": {
+            "name": "No Direct Question Order",
+            "category": "topic"
+        },
+        "object_infinitive": {
+            "name": "Object Infinitive",
+            "category": "topic"
+        },
+        "preserve_meaning": {
+            "name": "Preserve Meaning",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_sentence_transformations_reported_speech_all_levels": {
+            "name": "Sentence Transformations — Reported Speech",
+            "category": "sentence_transformations"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stq-reported-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Павло каже, що йому подобається цей суп.",
+            "level": "A1",
+            "type": 4,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Павло каже, що йому подобається цей суп.",
+            "target_text": "Pavlo says that he likes this soup.",
+            "markers": {
+                "a1": {
+                    "answer": "Pavlo",
+                    "verb_hint": "Передай непрямою мовою; той самий суп і теперішній час зберігаються.",
+                    "options": [
+                        "Pavlo",
+                        "Ivan",
+                        "Lida",
+                        "Nazar"
+                    ]
+                },
+                "a2": {
+                    "answer": "says",
+                    "verb_hint": "Передай непрямою мовою; той самий суп і теперішній час зберігаються.",
+                    "options": [
+                        "says",
+                        "knows",
+                        "rides",
+                        "drives"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Передай непрямою мовою; той самий суп і теперішній час зберігаються.",
+                    "options": [
+                        "that",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a4": {
+                    "answer": "he",
+                    "verb_hint": "Передай непрямою мовою; той самий суп і теперішній час зберігаються.",
+                    "options": [
+                        "he",
+                        "it",
+                        "we",
+                        "they"
+                    ]
+                },
+                "a5": {
+                    "answer": "likes",
+                    "verb_hint": "Передай непрямою мовою; той самий суп і теперішній час зберігаються.",
+                    "options": [
+                        "likes",
+                        "wants",
+                        "needs",
+                        "tells"
+                    ]
+                },
+                "a6": {
+                    "answer": "this",
+                    "verb_hint": "Передай непрямою мовою; той самий суп і теперішній час зберігаються.",
+                    "options": [
+                        "this",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a7": {
+                    "answer": "soup.",
+                    "verb_hint": "Передай непрямою мовою; той самий суп і теперішній час зберігаються.",
+                    "options": [
+                        "soup",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                }
+            },
+            "verb_hint": "Передай непрямою мовою; той самий суп і теперішній час зберігаються.",
+            "accepted_target_texts": [
+                "Pavlo says that he likes this soup.",
+                "Pavlo says he likes this soup."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Pavlo",
+                "says that",
+                "he likes",
+                "this soup."
+            ],
+            "token_groups": [
+                "Pavlo",
+                "says that",
+                "he likes",
+                "this soup."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "Pavlo",
+                "says",
+                "that",
+                "he",
+                "likes",
+                "this",
+                "soup."
+            ],
+            "options": [
+                "Pavlo",
+                "Ivan",
+                "Lida",
+                "Nazar",
+                "says",
+                "knows",
+                "rides",
+                "drives",
+                "that",
+                "these",
+                "those",
+                "each",
+                "he",
+                "it",
+                "we",
+                "they",
+                "likes",
+                "wants",
+                "needs",
+                "tells",
+                "this",
+                "all",
+                "both",
+                "a",
+                "soup",
+                "school",
+                "sister",
+                "brother"
+            ],
+            "source_text_uk": "Павло каже, що йому подобається цей суп.",
+            "options_by_marker": {
+                "a1": [
+                    "Pavlo",
+                    "Ivan",
+                    "Lida",
+                    "Nazar"
+                ],
+                "a2": [
+                    "says",
+                    "knows",
+                    "rides",
+                    "drives"
+                ],
+                "a3": [
+                    "that",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a4": [
+                    "he",
+                    "it",
+                    "we",
+                    "they"
+                ],
+                "a5": [
+                    "likes",
+                    "wants",
+                    "needs",
+                    "tells"
+                ],
+                "a6": [
+                    "this",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a7": [
+                    "soup",
+                    "school",
+                    "sister",
+                    "brother"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "reporting_present_phrase",
+                "a3": "reporting_present_phrase",
+                "a4": "personal_transitive_clause",
+                "a5": "personal_transitive_clause",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "stq-reported-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Марк сказав нам не шуміти.",
+            "level": "A2",
+            "type": 4,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Марк сказав нам не шуміти.",
+            "target_text": "Mark told us not to make noise.",
+            "markers": {
+                "a1": {
+                    "answer": "Mark",
+                    "verb_hint": "Передай негативну вказівку через додаток та інфінітив, збережи адресатів.",
+                    "options": [
+                        "Mark",
+                        "Olia",
+                        "Oleh",
+                        "Danylo"
+                    ]
+                },
+                "a2": {
+                    "answer": "told",
+                    "verb_hint": "Передай негативну вказівку через додаток та інфінітив, збережи адресатів.",
+                    "options": [
+                        "told",
+                        "asked",
+                        "warned",
+                        "reminded"
+                    ]
+                },
+                "a3": {
+                    "answer": "us",
+                    "verb_hint": "Передай негативну вказівку через додаток та інфінітив, збережи адресатів.",
+                    "options": [
+                        "us",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Передай негативну вказівку через додаток та інфінітив, збережи адресатів.",
+                    "options": [
+                        "not",
+                        "almost",
+                        "never",
+                        "always"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Передай негативну вказівку через додаток та інфінітив, збережи адресатів.",
+                    "options": [
+                        "to",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a6": {
+                    "answer": "make",
+                    "verb_hint": "Передай негативну вказівку через додаток та інфінітив, збережи адресатів.",
+                    "options": [
+                        "make",
+                        "take",
+                        "use",
+                        "call"
+                    ]
+                },
+                "a7": {
+                    "answer": "noise.",
+                    "verb_hint": "Передай негативну вказівку через додаток та інфінітив, збережи адресатів.",
+                    "options": [
+                        "noise",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                }
+            },
+            "verb_hint": "Передай негативну вказівку через додаток та інфінітив, збережи адресатів.",
+            "accepted_target_texts": [
+                "Mark told us not to make noise."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Mark",
+                "told us",
+                "not to make",
+                "noise."
+            ],
+            "token_groups": [
+                "Mark",
+                "told us",
+                "not to make",
+                "noise."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "Mark",
+                "told",
+                "us",
+                "not",
+                "to",
+                "make",
+                "noise."
+            ],
+            "options": [
+                "Mark",
+                "Olia",
+                "Oleh",
+                "Danylo",
+                "told",
+                "asked",
+                "warned",
+                "reminded",
+                "us",
+                "myself",
+                "yourself",
+                "herself",
+                "not",
+                "almost",
+                "never",
+                "always",
+                "to",
+                "by",
+                "with",
+                "without",
+                "make",
+                "take",
+                "use",
+                "call",
+                "noise",
+                "school",
+                "sister",
+                "brother"
+            ],
+            "source_text_uk": "Марк сказав нам не шуміти.",
+            "options_by_marker": {
+                "a1": [
+                    "Mark",
+                    "Olia",
+                    "Oleh",
+                    "Danylo"
+                ],
+                "a2": [
+                    "told",
+                    "asked",
+                    "warned",
+                    "reminded"
+                ],
+                "a3": [
+                    "us",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a4": [
+                    "not",
+                    "almost",
+                    "never",
+                    "always"
+                ],
+                "a5": [
+                    "to",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a6": [
+                    "make",
+                    "take",
+                    "use",
+                    "call"
+                ],
+                "a7": [
+                    "noise",
+                    "school",
+                    "sister",
+                    "brother"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "past_reporting_object",
+                "a3": "past_reporting_object",
+                "a4": "negative_infinitive_prefix",
+                "a5": "negative_infinitive_prefix",
+                "a6": "negative_infinitive_prefix",
+                "a7": "bare_noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "stq-reported-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Марта сказала, що закінчила ескіз.",
+            "level": "B1",
+            "type": 4,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Марта сказала, що закінчила ескіз.",
+            "target_text": "Marta said that she had finished the sketch.",
+            "markers": {
+                "a1": {
+                    "answer": "Marta",
+                    "verb_hint": "Перекажи її слова й виразно познач завершення ескізу до минулого повідомлення.",
+                    "options": [
+                        "Marta",
+                        "Alex",
+                        "Olena",
+                        "Mark"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Перекажи її слова й виразно познач завершення ескізу до минулого повідомлення.",
+                    "options": [
+                        "said",
+                        "wrote",
+                        "claimed",
+                        "thought"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Перекажи її слова й виразно познач завершення ескізу до минулого повідомлення.",
+                    "options": [
+                        "that",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a4": {
+                    "answer": "she",
+                    "verb_hint": "Перекажи її слова й виразно познач завершення ескізу до минулого повідомлення.",
+                    "options": [
+                        "she",
+                        "me",
+                        "him",
+                        "us"
+                    ]
+                },
+                "a5": {
+                    "answer": "had",
+                    "verb_hint": "Перекажи її слова й виразно познач завершення ескізу до минулого повідомлення.",
+                    "options": [
+                        "had",
+                        "have",
+                        "has",
+                        "haven't"
+                    ]
+                },
+                "a6": {
+                    "answer": "finished",
+                    "verb_hint": "Перекажи її слова й виразно познач завершення ескізу до минулого повідомлення.",
+                    "options": [
+                        "finished",
+                        "written",
+                        "found",
+                        "kept"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Перекажи її слова й виразно познач завершення ескізу до минулого повідомлення.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a8": {
+                    "answer": "sketch.",
+                    "verb_hint": "Перекажи її слова й виразно познач завершення ескізу до минулого повідомлення.",
+                    "options": [
+                        "sketch",
+                        "bag",
+                        "book",
+                        "box"
+                    ]
+                }
+            },
+            "verb_hint": "Перекажи її слова й виразно познач завершення ескізу до минулого повідомлення.",
+            "accepted_target_texts": [
+                "Marta said that she had finished the sketch.",
+                "Marta said that she had completed the sketch.",
+                "Marta said she had finished the sketch.",
+                "Marta said she had completed the sketch."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "completed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "completed"
+                ]
+            },
+            "reorder_groups": [
+                "Marta",
+                "said that",
+                "she",
+                "had finished",
+                "the sketch."
+            ],
+            "token_groups": [
+                "Marta",
+                "said that",
+                "she",
+                "had finished",
+                "the sketch."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "Marta",
+                "said",
+                "that",
+                "she",
+                "had",
+                "finished",
+                "the",
+                "sketch."
+            ],
+            "options": [
+                "Marta",
+                "Alex",
+                "Olena",
+                "Mark",
+                "said",
+                "wrote",
+                "claimed",
+                "thought",
+                "that",
+                "some",
+                "any",
+                "this",
+                "she",
+                "me",
+                "him",
+                "us",
+                "had",
+                "have",
+                "has",
+                "haven't",
+                "finished",
+                "written",
+                "found",
+                "kept",
+                "the",
+                "these",
+                "those",
+                "each",
+                "sketch",
+                "bag",
+                "book",
+                "box"
+            ],
+            "source_text_uk": "Марта сказала, що закінчила ескіз.",
+            "options_by_marker": {
+                "a1": [
+                    "Marta",
+                    "Alex",
+                    "Olena",
+                    "Mark"
+                ],
+                "a2": [
+                    "said",
+                    "wrote",
+                    "claimed",
+                    "thought"
+                ],
+                "a3": [
+                    "that",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a4": [
+                    "she",
+                    "me",
+                    "him",
+                    "us"
+                ],
+                "a5": [
+                    "had",
+                    "have",
+                    "has",
+                    "haven't"
+                ],
+                "a6": [
+                    "finished",
+                    "written",
+                    "found",
+                    "kept"
+                ],
+                "a7": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a8": [
+                    "sketch",
+                    "bag",
+                    "book",
+                    "box"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "past_reporting_phrase",
+                "a3": "past_reporting_phrase",
+                "a4": "subject_singular",
+                "a5": "past_perfect_predicate",
+                "a6": "past_perfect_predicate",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "stq-reported-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Скільки коштує цей токарний верстат?",
+            "level": "B2",
+            "type": 4,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Скільки коштує цей токарний верстат?",
+            "target_text": "How much does this lathe cost?",
+            "markers": {
+                "a1": {
+                    "answer": "How",
+                    "verb_hint": "Запитай лише про ціну; після питальної групи потрібні допоміжне дієслово й підмет.",
+                    "options": [
+                        "How",
+                        "When",
+                        "Why",
+                        "Whoever"
+                    ]
+                },
+                "a2": {
+                    "answer": "much",
+                    "verb_hint": "Запитай лише про ціну; після питальної групи потрібні допоміжне дієслово й підмет.",
+                    "options": [
+                        "much",
+                        "table",
+                        "ticket",
+                        "cup"
+                    ]
+                },
+                "a3": {
+                    "answer": "does",
+                    "verb_hint": "Запитай лише про ціну; після питальної групи потрібні допоміжне дієслово й підмет.",
+                    "options": [
+                        "does",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "this",
+                    "verb_hint": "Запитай лише про ціну; після питальної групи потрібні допоміжне дієслово й підмет.",
+                    "options": [
+                        "this",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a5": {
+                    "answer": "lathe",
+                    "verb_hint": "Запитай лише про ціну; після питальної групи потрібні допоміжне дієслово й підмет.",
+                    "options": [
+                        "lathe",
+                        "cat",
+                        "person",
+                        "water"
+                    ]
+                },
+                "a6": {
+                    "answer": "cost?",
+                    "verb_hint": "Запитай лише про ціну; після питальної групи потрібні допоміжне дієслово й підмет.",
+                    "options": [
+                        "cost",
+                        "close",
+                        "help",
+                        "work"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай лише про ціну; після питальної групи потрібні допоміжне дієслово й підмет.",
+            "accepted_target_texts": [
+                "How much does this lathe cost?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How much",
+                "does",
+                "this lathe",
+                "cost?"
+            ],
+            "token_groups": [
+                "How much",
+                "does",
+                "this lathe",
+                "cost?"
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "How",
+                "much",
+                "does",
+                "this",
+                "lathe",
+                "cost?"
+            ],
+            "options": [
+                "How",
+                "When",
+                "Why",
+                "Whoever",
+                "much",
+                "table",
+                "ticket",
+                "cup",
+                "does",
+                "don't",
+                "doesn't",
+                "didn't",
+                "this",
+                "that",
+                "these",
+                "those",
+                "lathe",
+                "cat",
+                "person",
+                "water",
+                "cost",
+                "close",
+                "help",
+                "work"
+            ],
+            "source_text_uk": "Скільки коштує цей токарний верстат?",
+            "options_by_marker": {
+                "a1": [
+                    "How",
+                    "When",
+                    "Why",
+                    "Whoever"
+                ],
+                "a2": [
+                    "much",
+                    "table",
+                    "ticket",
+                    "cup"
+                ],
+                "a3": [
+                    "does",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a4": [
+                    "this",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a5": [
+                    "lathe",
+                    "cat",
+                    "person",
+                    "water"
+                ],
+                "a6": [
+                    "cost",
+                    "close",
+                    "help",
+                    "work"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_phrase",
+                "a2": "question_phrase",
+                "a3": "auxiliary_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "base_verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "stq-reported-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Наш ментор запропонував, щоб ми порівняли обидві версії.",
+            "level": "C1",
+            "type": 4,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Наш ментор запропонував, щоб ми порівняли обидві версії.",
+            "target_text": "Our mentor suggested that we compare both versions.",
+            "markers": {
+                "a1": {
+                    "answer": "Our",
+                    "verb_hint": "Передай пропозицію для нашої спільної групи, не перетворюючи її на факт виконання.",
+                    "options": [
+                        "Our",
+                        "Their",
+                        "Mine",
+                        "Yours"
+                    ]
+                },
+                "a2": {
+                    "answer": "mentor",
+                    "verb_hint": "Передай пропозицію для нашої спільної групи, не перетворюючи її на факт виконання.",
+                    "options": [
+                        "mentor",
+                        "window",
+                        "phone",
+                        "train"
+                    ]
+                },
+                "a3": {
+                    "answer": "suggested",
+                    "verb_hint": "Передай пропозицію для нашої спільної групи, не перетворюючи її на факт виконання.",
+                    "options": [
+                        "suggested",
+                        "requested",
+                        "discovered",
+                        "insisted"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Передай пропозицію для нашої спільної групи, не перетворюючи її на факт виконання.",
+                    "options": [
+                        "that",
+                        "neither",
+                        "all",
+                        "a"
+                    ]
+                },
+                "a5": {
+                    "answer": "we",
+                    "verb_hint": "Передай пропозицію для нашої спільної групи, не перетворюючи її на факт виконання.",
+                    "options": [
+                        "we",
+                        "you",
+                        "he",
+                        "she"
+                    ]
+                },
+                "a6": {
+                    "answer": "compare",
+                    "verb_hint": "Передай пропозицію для нашої спільної групи, не перетворюючи її на факт виконання.",
+                    "options": [
+                        "compare",
+                        "choose",
+                        "carry",
+                        "check"
+                    ]
+                },
+                "a7": {
+                    "answer": "both",
+                    "verb_hint": "Передай пропозицію для нашої спільної групи, не перетворюючи її на факт виконання.",
+                    "options": [
+                        "both",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a8": {
+                    "answer": "versions.",
+                    "verb_hint": "Передай пропозицію для нашої спільної групи, не перетворюючи її на факт виконання.",
+                    "options": [
+                        "versions",
+                        "cats",
+                        "people",
+                        "men"
+                    ]
+                }
+            },
+            "verb_hint": "Передай пропозицію для нашої спільної групи, не перетворюючи її на факт виконання.",
+            "accepted_target_texts": [
+                "Our mentor suggested that we compare both versions.",
+                "Our mentor suggested that we should compare both versions.",
+                "Our mentor suggested we compare both versions.",
+                "Our mentor suggested we should compare both versions.",
+                "Our mentor proposed that we compare both versions.",
+                "Our mentor proposed that we should compare both versions.",
+                "Our mentor proposed we compare both versions.",
+                "Our mentor proposed we should compare both versions."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "we"
+                ],
+                "a5": [
+                    "should"
+                ],
+                "a3": [
+                    "proposed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "we"
+                ],
+                "a5": [
+                    "should"
+                ],
+                "a3": [
+                    "proposed"
+                ]
+            },
+            "reorder_groups": [
+                "Our mentor",
+                "suggested that",
+                "we compare",
+                "both versions."
+            ],
+            "token_groups": [
+                "Our mentor",
+                "suggested that",
+                "we compare",
+                "both versions."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "Our",
+                "mentor",
+                "suggested",
+                "that",
+                "we",
+                "compare",
+                "both",
+                "versions."
+            ],
+            "options": [
+                "Our",
+                "Their",
+                "Mine",
+                "Yours",
+                "mentor",
+                "window",
+                "phone",
+                "train",
+                "suggested",
+                "requested",
+                "discovered",
+                "insisted",
+                "that",
+                "neither",
+                "all",
+                "a",
+                "we",
+                "you",
+                "he",
+                "she",
+                "compare",
+                "choose",
+                "carry",
+                "check",
+                "both",
+                "these",
+                "those",
+                "each",
+                "versions",
+                "cats",
+                "people",
+                "men"
+            ],
+            "source_text_uk": "Наш ментор запропонував, щоб ми порівняли обидві версії.",
+            "options_by_marker": {
+                "a1": [
+                    "Our",
+                    "Their",
+                    "Mine",
+                    "Yours"
+                ],
+                "a2": [
+                    "mentor",
+                    "window",
+                    "phone",
+                    "train"
+                ],
+                "a3": [
+                    "suggested",
+                    "requested",
+                    "discovered",
+                    "insisted"
+                ],
+                "a4": [
+                    "that",
+                    "neither",
+                    "all",
+                    "a"
+                ],
+                "a5": [
+                    "we",
+                    "you",
+                    "he",
+                    "she"
+                ],
+                "a6": [
+                    "compare",
+                    "choose",
+                    "carry",
+                    "check"
+                ],
+                "a7": [
+                    "both",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a8": [
+                    "versions",
+                    "cats",
+                    "people",
+                    "men"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun_phrase",
+                "a2": "noun_phrase",
+                "a3": "proposal_phrase",
+                "a4": "proposal_phrase",
+                "a5": "plural_transitive_clause",
+                "a6": "plural_transitive_clause",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "stq-reported-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Павло сказав слідчому, що вийшов би, якби почув сигнал.",
+            "level": "C2",
+            "type": 4,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Павло сказав слідчому, що вийшов би, якби почув сигнал.",
+            "target_text": "Pavlo told the investigator that he would have left if he had heard the signal.",
+            "markers": {
+                "a1": {
+                    "answer": "Pavlo",
+                    "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+                    "options": [
+                        "Pavlo",
+                        "Danylo",
+                        "Ivan",
+                        "Sofiia"
+                    ]
+                },
+                "a2": {
+                    "answer": "told",
+                    "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+                    "options": [
+                        "told",
+                        "helped",
+                        "waited",
+                        "watched"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a4": {
+                    "answer": "investigator",
+                    "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+                    "options": [
+                        "investigator",
+                        "driver",
+                        "doctor",
+                        "guide"
+                    ]
+                },
+                "a5": {
+                    "answer": "that",
+                    "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+                    "options": [
+                        "that",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a6": {
+                    "answer": "he",
+                    "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+                    "options": [
+                        "he",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a7": {
+                    "answer": "would",
+                    "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+                    "options": [
+                        "would",
+                        "will",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a8": {
+                    "answer": "have",
+                    "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+                    "options": [
+                        "have",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a9": {
+                    "answer": "left",
+                    "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+                    "options": [
+                        "left",
+                        "stopped",
+                        "listened",
+                        "stayed"
+                    ]
+                },
+                "a10": {
+                    "answer": "if",
+                    "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+                    "options": [
+                        "if",
+                        "because",
+                        "although",
+                        "though"
+                    ]
+                },
+                "a11": {
+                    "answer": "he",
+                    "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+                    "options": [
+                        "he",
+                        "us",
+                        "them",
+                        "myself"
+                    ]
+                },
+                "a12": {
+                    "answer": "had",
+                    "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+                    "options": [
+                        "had",
+                        "has",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a13": {
+                    "answer": "heard",
+                    "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+                    "options": [
+                        "heard",
+                        "opened",
+                        "closed",
+                        "written"
+                    ]
+                },
+                "a14": {
+                    "answer": "the",
+                    "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+                    "options": [
+                        "the",
+                        "this",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a15": {
+                    "answer": "signal.",
+                    "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+                    "options": [
+                        "signal",
+                        "cat",
+                        "person",
+                        "water"
+                    ]
+                }
+            },
+            "verb_hint": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+            "accepted_target_texts": [
+                "Pavlo told the investigator that he would have left if he had heard the signal.",
+                "Pavlo told the investigator that he would have departed if he had heard the signal.",
+                "Pavlo told the investigator he would have left if he had heard the signal.",
+                "Pavlo told the investigator he would have departed if he had heard the signal."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "departed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "departed"
+                ]
+            },
+            "reorder_groups": [
+                "Pavlo",
+                "told the investigator",
+                "that he",
+                "would have left",
+                "if he",
+                "had heard",
+                "the signal."
+            ],
+            "token_groups": [
+                "Pavlo",
+                "told the investigator",
+                "that he",
+                "would have left",
+                "if he",
+                "had heard",
+                "the signal."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "Pavlo",
+                "told",
+                "the",
+                "investigator",
+                "that",
+                "he",
+                "would",
+                "have",
+                "left",
+                "if",
+                "he",
+                "had",
+                "heard",
+                "the",
+                "signal."
+            ],
+            "options": [
+                "Pavlo",
+                "Danylo",
+                "Ivan",
+                "Sofiia",
+                "told",
+                "helped",
+                "waited",
+                "watched",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "investigator",
+                "driver",
+                "doctor",
+                "guide",
+                "that",
+                "these",
+                "those",
+                "each",
+                "he",
+                "they",
+                "me",
+                "him",
+                "would",
+                "will",
+                "shall",
+                "should",
+                "have",
+                "don't",
+                "doesn't",
+                "didn't",
+                "left",
+                "stopped",
+                "listened",
+                "stayed",
+                "if",
+                "because",
+                "although",
+                "though",
+                "us",
+                "them",
+                "myself",
+                "had",
+                "has",
+                "haven't",
+                "hasn't",
+                "heard",
+                "opened",
+                "closed",
+                "written",
+                "this",
+                "every",
+                "no",
+                "signal",
+                "cat",
+                "person",
+                "water"
+            ],
+            "source_text_uk": "Павло сказав слідчому, що вийшов би, якби почув сигнал.",
+            "options_by_marker": {
+                "a1": [
+                    "Pavlo",
+                    "Danylo",
+                    "Ivan",
+                    "Sofiia"
+                ],
+                "a2": [
+                    "told",
+                    "helped",
+                    "waited",
+                    "watched"
+                ],
+                "a3": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a4": [
+                    "investigator",
+                    "driver",
+                    "doctor",
+                    "guide"
+                ],
+                "a5": [
+                    "that",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a6": [
+                    "he",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a7": [
+                    "would",
+                    "will",
+                    "shall",
+                    "should"
+                ],
+                "a8": [
+                    "have",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a9": [
+                    "left",
+                    "stopped",
+                    "listened",
+                    "stayed"
+                ],
+                "a10": [
+                    "if",
+                    "because",
+                    "although",
+                    "though"
+                ],
+                "a11": [
+                    "he",
+                    "us",
+                    "them",
+                    "myself"
+                ],
+                "a12": [
+                    "had",
+                    "has",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a13": [
+                    "heard",
+                    "opened",
+                    "closed",
+                    "written"
+                ],
+                "a14": [
+                    "the",
+                    "this",
+                    "every",
+                    "no"
+                ],
+                "a15": [
+                    "signal",
+                    "cat",
+                    "person",
+                    "water"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "reporting_indirect_object",
+                "a3": "reporting_indirect_object",
+                "a4": "reporting_indirect_object",
+                "a5": "subordinator_subject_phrase",
+                "a6": "subordinator_subject_phrase",
+                "a7": "modal_perfect_predicate",
+                "a8": "modal_perfect_predicate",
+                "a9": "modal_perfect_predicate",
+                "a10": "conditional_subject_phrase",
+                "a11": "conditional_subject_phrase",
+                "a12": "past_perfect_predicate",
+                "a13": "past_perfect_predicate",
+                "a14": "noun_phrase",
+                "a15": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62644,
+        "uuid": "qnq-embedded-b2-g03",
+        "question": "The inquiry revealed why {a1} been disabled.",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 60,
+        "source_id": 464,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedEmbeddedQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "the alarm had",
+                "had the alarm",
+                "did the alarm"
+            ]
+        },
+        "theory_text_block_uuid": "77089cfd-6312-5b1f-b8ee-07b324d3a0d1",
+        "created_at": "2026-10-30T13:53:21.000000Z",
+        "updated_at": "2026-10-30T13:53:21.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 464,
+        "name": "Questions and Negations Quality: Embedded Questions: питання всередині речення",
+        "created_at": "2026-10-30T13:53:18.000000Z",
+        "updated_at": "2026-10-30T13:53:18.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 675,
+                "name": "Embedded Questions",
+                "category": null,
+                "created_at": "2026-04-23T14:37:09.000000Z",
+                "updated_at": "2026-04-23T14:37:09.000000Z"
+            },
+            "pivot": {
+                "question_id": 62644,
+                "tag_id": 675,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 57430,
+                "option": "the alarm had",
+                "created_at": "2026-10-30T13:53:21.000000Z",
+                "updated_at": "2026-10-30T13:53:21.000000Z"
+            },
+            "pivot": {
+                "question_id": 62644,
+                "option_id": 57430,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57432,
+                "option": "had the alarm",
+                "created_at": "2026-10-30T13:53:21.000000Z",
+                "updated_at": "2026-10-30T13:53:21.000000Z"
+            },
+            "pivot": {
+                "question_id": 62644,
+                "option_id": 57432,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57433,
+                "option": "did the alarm",
+                "created_at": "2026-10-30T13:53:21.000000Z",
+                "updated_at": "2026-10-30T13:53:21.000000Z"
+            },
+            "pivot": {
+                "question_id": 62644,
+                "option_id": 57433,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332363,
+                "question_id": 62644,
+                "marker": "a1",
+                "option_id": 57430,
+                "created_at": "2026-10-30T13:53:21.000000Z",
+                "updated_at": "2026-10-30T13:53:21.000000Z"
+            },
+            "option": {
+                "id": 57430,
+                "option": "the alarm had",
+                "created_at": "2026-10-30T13:53:21.000000Z",
+                "updated_at": "2026-10-30T13:53:21.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49697,
+                "question_id": 62644,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 57431,
+                "created_at": "2026-10-30T13:53:21.000000Z",
+                "updated_at": "2026-10-30T13:53:21.000000Z"
+            },
+            "option": {
+                "id": 57431,
+                "option": "Підмет стоїть перед допоміжним дієсловом минулого доконаного пасиву.",
+                "created_at": "2026-10-30T13:53:21.000000Z",
+                "updated_at": "2026-10-30T13:53:21.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54659,
+            "question_id": 62644,
+            "text": "The inquiry revealed why {a1} been disabled.",
+            "created_at": "2026-10-30T13:53:21.000000Z",
+            "updated_at": "2026-10-30T13:53:21.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

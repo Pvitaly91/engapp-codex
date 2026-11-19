@@ -1,0 +1,1212 @@
+{
+    "schema_version": 1,
+    "package": "mixed-revision-native-practice-supplement",
+    "status": "frozen",
+    "source": {
+        "path": "docs/content/mixed-revision-practice-source.v1.json",
+        "sha256": "c67cb1c9e82f42e9b305785049740c80d08750c835260568109ac001bacb6f9a"
+    },
+    "targets": [
+        {
+            "topic": "a1-mixed-revision",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarA1MixedRevisionTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/mixed-revision/a1-mixed-revision",
+            "definition": "database/seeders/Page_V3/BasicGrammar/BasicGrammarA1MixedRevisionTheorySeeder/definition.json",
+            "definition_sha256": "d74de17551f51153c581918d7161c6d2286ebeccd294da33819571d0a85cdefa",
+            "release": "database/content-patches/m82-common-mistakes-level-revision.v1.0.2.json",
+            "release_sha256": "cc3744501c2f5b4852dcbb064a84339a3db13142fa5ac61b270380a1ac2ee2fa",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarA1MixedRevisionTheorySeeder",
+                "locale": "uk",
+                "uuid": "ec7677fb-0c8f-54a6-aaa4-594c9d5af925",
+                "sort_order": 5,
+                "page_id": 325,
+                "page_category_id": 59,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "A1",
+                "css_class": null,
+                "body_sha256": "4f2922a426008b8cfec0dce96cfbf20a6c1fb572b13c697b1de363cd63327be0"
+            },
+            "design": {
+                "package": "m82-native-v1",
+                "identity": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarA1MixedRevisionTheorySeeder",
+                "locale": "uk",
+                "uuid": "ec7677fb-0c8f-54a6-aaa4-594c9d5af925",
+                "source_index": 4,
+                "body_sha256": "4f2922a426008b8cfec0dce96cfbf20a6c1fb572b13c697b1de363cd63327be0",
+                "component": "practice-set"
+            },
+            "source_index": 4,
+            "before_data_sha256": "4f2922a426008b8cfec0dce96cfbf20a6c1fb572b13c697b1de363cd63327be0",
+            "after_data_sha256": "72b2a7e7c0466b59807beecf74f3d7e3cfad8d1610afd3ba6ebe6fdebb140788",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "Yesterday,",
+                        "we went",
+                        "to the park."
+                    ],
+                    "condition_uk": "Учора ми пішли до парку.",
+                    "hint_uk": "Почни з учорашнього дня; далі назви нас, минулу дію та напрямок."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "I will buy",
+                        "some apples",
+                        "tomorrow."
+                    ],
+                    "condition_uk": "Я куплю трохи яблук завтра.",
+                    "hint_uk": "Це рішення в момент мовлення; почни з мовця, назви невизначену кількість і постав час наприкінці."
+                }
+            ],
+            "added": [
+                {
+                    "id": "mrq-native-a1-mixed-revision-gap-1",
+                    "kind": "gap",
+                    "condition": "Our small fridge {a1} empty.",
+                    "answer": "is",
+                    "accepted": [
+                        "is"
+                    ],
+                    "hint_uk": "Зараз немає продуктів: додай форму дієслова-зв’язки для однини.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 2
+                },
+                {
+                    "id": "mrq-native-a1-mixed-revision-gap-2",
+                    "kind": "gap",
+                    "condition": "{a1} your grandparents keep hens?",
+                    "answer": "Do",
+                    "accepted": [
+                        "Do"
+                    ],
+                    "hint_uk": "Запитай про звичку тримати курей; потрібне лише допоміжне дієслово теперішнього часу.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 3
+                },
+                {
+                    "id": "mrq-native-a1-mixed-revision-translate-1",
+                    "kind": "translation",
+                    "condition": "Мій білий кролик зазвичай спить під лавкою.",
+                    "answer": "My white rabbit usually sleeps under the bench.",
+                    "accepted": [
+                        "My white rabbit usually sleeps under the bench.",
+                        "My white rabbit normally sleeps under the bench.",
+                        "My white rabbit generally sleeps under the bench.",
+                        "My white rabbit usually sleeps beneath the bench.",
+                        "My white rabbit normally sleeps beneath the bench.",
+                        "My white rabbit generally sleeps beneath the bench."
+                    ],
+                    "hint_uk": "Почни з мого білого кролика; передай звичку спати та місце під лавкою.",
+                    "ordered_groups": [
+                        "My white rabbit",
+                        "usually sleeps",
+                        "under the bench."
+                    ],
+                    "shuffled_groups": [
+                        "usually sleeps",
+                        "My white rabbit",
+                        "under the bench."
+                    ],
+                    "token_labels": {
+                        "usually sleeps": "usually sleeps (normally sleeps / generally sleeps)",
+                        "under the bench.": "under the bench. (beneath the bench.)"
+                    },
+                    "index": 4
+                },
+                {
+                    "id": "mrq-native-a1-mixed-revision-translate-2",
+                    "kind": "translation",
+                    "condition": "У нашої сусідки є два сірі кошенята.",
+                    "answer": "Our neighbour has two grey kittens.",
+                    "accepted": [
+                        "Our neighbour has two grey kittens.",
+                        "Our neighbor has two grey kittens.",
+                        "Our neighbour has two gray kittens.",
+                        "Our neighbor has two gray kittens.",
+                        "Our neighbour has got two grey kittens.",
+                        "Our neighbor has got two grey kittens.",
+                        "Our neighbour has got two gray kittens.",
+                        "Our neighbor has got two gray kittens."
+                    ],
+                    "hint_uk": "Почни з нашої сусідки й назви володіння, точну кількість та колір; обидва нормативні написання приймаються.",
+                    "ordered_groups": [
+                        "Our neighbour",
+                        "has two",
+                        "grey kittens."
+                    ],
+                    "shuffled_groups": [
+                        "Our neighbour",
+                        "grey kittens.",
+                        "has two"
+                    ],
+                    "token_labels": {
+                        "Our neighbour": "Our neighbour (Our neighbor)",
+                        "grey kittens.": "grey kittens. (gray kittens.)"
+                    },
+                    "index": 5
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": {
+                    "I will buy": "I will buy (I'll buy)"
+                },
+                "4": {
+                    "usually sleeps": "usually sleeps (normally sleeps / generally sleeps)",
+                    "under the bench.": "under the bench. (beneath the bench.)"
+                },
+                "5": {
+                    "Our neighbour": "Our neighbour (Our neighbor)",
+                    "grey kittens.": "grey kittens. (gray kittens.)"
+                }
+            }
+        },
+        {
+            "topic": "a2-mixed-revision",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarA2MixedRevisionTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/mixed-revision/a2-mixed-revision",
+            "definition": "database/seeders/Page_V3/BasicGrammar/BasicGrammarA2MixedRevisionTheorySeeder/definition.json",
+            "definition_sha256": "f3b69c5796c45ce619d36bb11371c8f6a87e55d0b020d2f8c8345f42bdb311c4",
+            "release": "database/content-patches/m82-common-mistakes-level-revision.v1.0.2.json",
+            "release_sha256": "cc3744501c2f5b4852dcbb064a84339a3db13142fa5ac61b270380a1ac2ee2fa",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarA2MixedRevisionTheorySeeder",
+                "locale": "uk",
+                "uuid": "9f354ea4-6a23-5b9c-a6e9-95d7584bae52",
+                "sort_order": 5,
+                "page_id": 326,
+                "page_category_id": 59,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "A2",
+                "css_class": null,
+                "body_sha256": "c8fc9a713994a454a1b6331408f7c8f5cc552059730d9e0c3a769271b73a744b"
+            },
+            "design": {
+                "package": "m82-native-v1",
+                "identity": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarA2MixedRevisionTheorySeeder",
+                "locale": "uk",
+                "uuid": "9f354ea4-6a23-5b9c-a6e9-95d7584bae52",
+                "source_index": 4,
+                "body_sha256": "c8fc9a713994a454a1b6331408f7c8f5cc552059730d9e0c3a769271b73a744b",
+                "component": "practice-set"
+            },
+            "source_index": 4,
+            "before_data_sha256": "c8fc9a713994a454a1b6331408f7c8f5cc552059730d9e0c3a769271b73a744b",
+            "after_data_sha256": "982cdd9ef7c7efbb4ac1161f7da4054b0517d016d406c8f1c5d1b210ba58387d",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "Olia said",
+                        "that",
+                        "she was tired."
+                    ],
+                    "condition_uk": "Учора Оля сказала: «Я втомлена». Передай сьогодні її тодішній стан непрямою мовою.",
+                    "hint_uk": "Назви Олю на початку; її займенник першої особи заміни формою третьої особи. Сполучник можна пропустити."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "The windows",
+                        "are cleaned",
+                        "by Ivan",
+                        "every Friday."
+                    ],
+                    "condition_uk": "Вікна миє Іван щоп’ятниці. Передай це пасивною конструкцією.",
+                    "hint_uk": "Почни з вікон; назви виконавця й збережи регулярність. Час можна поставити перед виконавцем або після нього."
+                }
+            ],
+            "added": [
+                {
+                    "id": "mrq-native-a2-mixed-revision-gap-1",
+                    "kind": "gap",
+                    "condition": "Olena {a1} the old windmill twice.",
+                    "answer": "has visited",
+                    "accepted": [
+                        "has visited"
+                    ],
+                    "hint_uk": "Відвідала двічі донині: уведи допоміжну форму та дієслово відвідання в доконаному часі.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 2
+                },
+                {
+                    "id": "mrq-native-a2-mixed-revision-gap-2",
+                    "kind": "gap",
+                    "condition": "If it snows, we {a1} the picnic indoors.",
+                    "answer": "will have",
+                    "accepted": [
+                        "will have",
+                        "will hold"
+                    ],
+                    "hint_uk": "Влаштуємо пікнік у приміщенні за цієї майбутньої умови: уведи всю майбутню дієслівну частину.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 3
+                },
+                {
+                    "id": "mrq-native-a2-mixed-revision-translate-1",
+                    "kind": "translation",
+                    "condition": "Наш старий папуга взагалі не говорив учора.",
+                    "answer": "Our old parrot did not speak at all yesterday.",
+                    "accepted": [
+                        "Our old parrot did not speak at all yesterday.",
+                        "Our old parrot did not talk at all yesterday.",
+                        "Our old parrot did not speak yesterday at all.",
+                        "Our old parrot did not talk yesterday at all."
+                    ],
+                    "hint_uk": "Назви папугу, повністю запереч минулу дію й збережи підсилення та вчорашній час.",
+                    "ordered_groups": [
+                        "Our old parrot",
+                        "did not speak",
+                        "at all yesterday."
+                    ],
+                    "shuffled_groups": [
+                        "did not speak",
+                        "Our old parrot",
+                        "at all yesterday."
+                    ],
+                    "token_labels": {
+                        "did not speak": "did not speak (did not talk)",
+                        "at all yesterday.": "at all yesterday. (yesterday at all.)"
+                    },
+                    "index": 4
+                },
+                {
+                    "id": "mrq-native-a2-mixed-revision-translate-2",
+                    "kind": "translation",
+                    "condition": "Ми збираємося прикрасити цей коридор у неділю.",
+                    "answer": "We are going to decorate this corridor on Sunday.",
+                    "accepted": [
+                        "We are going to decorate this corridor on Sunday.",
+                        "We are going to decorate this hallway on Sunday."
+                    ],
+                    "hint_uk": "Передай вже наявний намір через конструкцію запланованої дії; час постав наприкінці.",
+                    "ordered_groups": [
+                        "We are",
+                        "going to decorate",
+                        "this corridor",
+                        "on Sunday."
+                    ],
+                    "shuffled_groups": [
+                        "this corridor",
+                        "We are",
+                        "on Sunday.",
+                        "going to decorate"
+                    ],
+                    "token_labels": {
+                        "this corridor": "this corridor (this hallway)"
+                    },
+                    "index": 5
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": [],
+                "4": {
+                    "did not speak": "did not speak (did not talk)",
+                    "at all yesterday.": "at all yesterday. (yesterday at all.)"
+                },
+                "5": {
+                    "this corridor": "this corridor (this hallway)"
+                }
+            }
+        },
+        {
+            "topic": "b1-mixed-revision",
+            "mode": "authored",
+            "identity": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarB1MixedRevisionTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/mixed-revision/b1-mixed-revision",
+            "definition": "database/seeders/Page_V3/BasicGrammar/BasicGrammarB1MixedRevisionTheorySeeder/definition.json",
+            "definition_sha256": "65e9b8a8146e3c656ceab268f12376e1db296ef74638e1af41777e78ca9e4c5a",
+            "release": "database/content-patches/m40-m24-tenses-b1.v1.json",
+            "release_sha256": "3b0734505576ff7628cd767c15f61c17aa9df59aa5e7726cddd44d1e1155ec9f",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarB1MixedRevisionTheorySeeder",
+                "locale": "uk",
+                "uuid": "adc75853-9bf7-5a31-bdd5-d0eed953d93e",
+                "sort_order": 7,
+                "page_id": 327,
+                "page_category_id": 59,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "B1",
+                "css_class": null,
+                "body_sha256": "bd4bad13905782026e1c21311fb9bd88dff60542fe0656880a195fdcbed51392"
+            },
+            "design": {
+                "source_index": 6,
+                "uuid": "adc75853-9bf7-5a31-bdd5-d0eed953d93e",
+                "sort_order": 7,
+                "body_sha256": "bd4bad13905782026e1c21311fb9bd88dff60542fe0656880a195fdcbed51392",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 6,
+            "before_data_sha256": "bd4bad13905782026e1c21311fb9bd88dff60542fe0656880a195fdcbed51392",
+            "after_data_sha256": "f0e45bc7d2ca3d5877d7a2d6083ed8e54fd2ad752c5b97d47f27299ea0d02405",
+            "input_updates": [
+                {
+                    "index": 2,
+                    "part": 0,
+                    "id": "m40-b3-question",
+                    "hint_uk": "Це минуле непряме запитання; почни з Міли, збережи мовця як адресата та зміни порядок на розповідний.",
+                    "ordered_groups": [
+                        "Mila asked me",
+                        "if I was",
+                        "ready."
+                    ]
+                },
+                {
+                    "index": 2,
+                    "part": 1,
+                    "id": "m40-b3-instruction",
+                    "hint_uk": "Передай минулу заборонну вказівку мовцеві інфінітивною конструкцією із запереченням.",
+                    "ordered_groups": [
+                        "She told me",
+                        "not to open",
+                        "the parcel."
+                    ]
+                },
+                {
+                    "index": 3,
+                    "part": 0,
+                    "id": "m40-b4-passive",
+                    "hint_uk": "Почни з коробок; збережи модальну необхідність і названих волонтерів як виконавців.",
+                    "ordered_groups": [
+                        "The boxes",
+                        "must be labelled",
+                        "by the volunteers."
+                    ]
+                },
+                {
+                    "index": 3,
+                    "part": 1,
+                    "id": "m40-b4-causative",
+                    "hint_uk": "Мовець організував ремонт велосипеда вчора; не стверджуй, що він сам ремонтував.",
+                    "ordered_groups": [
+                        "I had",
+                        "my bicycle",
+                        "repaired yesterday."
+                    ]
+                },
+                {
+                    "index": 4,
+                    "part": 0,
+                    "id": "m40-b5-relative",
+                    "hint_uk": "Ім’я вже визначає особу; додай неозначальну відносну частину й збережи згоду допомогти.",
+                    "ordered_groups": [
+                        "Marta,",
+                        "who lives nearby,",
+                        "agreed to help."
+                    ]
+                },
+                {
+                    "index": 4,
+                    "part": 1,
+                    "id": "m40-b5-although",
+                    "hint_uk": "Почни з поступової обставини пізнього часу й збережи факт продовження.",
+                    "ordered_groups": [
+                        "Although",
+                        "it was late,",
+                        "we continued."
+                    ]
+                },
+                {
+                    "index": 5,
+                    "part": 0,
+                    "id": "m40-b6-wish",
+                    "hint_uk": "Мовець шкодує про теперішній розмір столу; передай бажану, а не фактичну ситуацію.",
+                    "ordered_groups": [
+                        "I wish I",
+                        "had",
+                        "a bigger desk."
+                    ]
+                },
+                {
+                    "index": 5,
+                    "part": 1,
+                    "id": "m40-b6-conditional",
+                    "hint_uk": "Почни з невиконаної минулої умови й збережи нереалізований наслідок із автобусом.",
+                    "ordered_groups": [
+                        "If we",
+                        "had left earlier,",
+                        "we",
+                        "would have caught",
+                        "the bus."
+                    ]
+                },
+                {
+                    "index": 5,
+                    "part": 2,
+                    "id": "m40-b6-might",
+                    "hint_uk": "Передай лише можливе теперішнє місце Лени, не певне знання про нього.",
+                    "ordered_groups": [
+                        "Lena",
+                        "might be",
+                        "in",
+                        "the reading room."
+                    ]
+                }
+            ],
+            "added": [
+                {
+                    "id": "mrq-native-b1-mixed-revision-gap-1",
+                    "kind": "gap",
+                    "condition": "The cracked bowl {a1} by a specialist last Friday.",
+                    "answer": "was restored",
+                    "accepted": [
+                        "was restored",
+                        "was repaired"
+                    ],
+                    "hint_uk": "Відреставрували минулої п’ятниці: уведи всю минулу пасивну форму відновлення.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 6,
+                    "part": 0
+                },
+                {
+                    "id": "mrq-native-b1-mixed-revision-gap-2",
+                    "kind": "gap",
+                    "condition": "The beekeeper asked whether the bees {a1} enough food.",
+                    "answer": "had",
+                    "accepted": [
+                        "had"
+                    ],
+                    "hint_uk": "Мали достатньо їжі в той момент: після непрямого запитання встав лише минулу форму володіння.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 6,
+                    "part": 1
+                },
+                {
+                    "id": "mrq-native-b1-mixed-revision-translate-1",
+                    "kind": "translation",
+                    "condition": "Нам не дозволили підходити до краю скелі.",
+                    "answer": "We were not allowed to approach the edge of the cliff.",
+                    "accepted": [
+                        "We were not allowed to approach the edge of the cliff.",
+                        "We were not permitted to approach the edge of the cliff.",
+                        "We were not allowed to go near the edge of the cliff.",
+                        "We were not permitted to go near the edge of the cliff."
+                    ],
+                    "hint_uk": "Почни з нас; передай минулу відсутність дозволу пасивом і назви край скелі.",
+                    "ordered_groups": [
+                        "We were not",
+                        "allowed to approach",
+                        "the edge",
+                        "of the cliff."
+                    ],
+                    "shuffled_groups": [
+                        "allowed to approach",
+                        "We were not",
+                        "of the cliff.",
+                        "the edge"
+                    ],
+                    "token_labels": {
+                        "allowed to approach": "allowed to approach (permitted to approach / allowed to go near / permitted to go near)"
+                    },
+                    "index": 7,
+                    "part": 0
+                },
+                {
+                    "id": "mrq-native-b1-mixed-revision-translate-2",
+                    "kind": "translation",
+                    "condition": "Якби в мене була майстерня, я виготовляв би дерев’яні іграшки.",
+                    "answer": "If I had a workshop, I would make wooden toys.",
+                    "accepted": [
+                        "If I had a workshop, I would make wooden toys.",
+                        "If I had a workshop, I would craft wooden toys.",
+                        "If I had a workshop, I would produce wooden toys."
+                    ],
+                    "hint_uk": "Це уявна теперішня можливість, не минулий факт; почни з умови.",
+                    "ordered_groups": [
+                        "If I had",
+                        "a workshop,",
+                        "I would make",
+                        "wooden toys."
+                    ],
+                    "shuffled_groups": [
+                        "a workshop,",
+                        "wooden toys.",
+                        "If I had",
+                        "I would make"
+                    ],
+                    "token_labels": {
+                        "I would make": "I would make (I would craft / I would produce)"
+                    },
+                    "index": 7,
+                    "part": 1
+                }
+            ],
+            "input_token_labels": []
+        },
+        {
+            "topic": "b2-mixed-revision",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\BasicGrammar\\B2MixedRevisionTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/mixed-revision/b2-mixed-revision",
+            "definition": "database/seeders/Page_V3/BasicGrammar/B2MixedRevisionTheorySeeder/definition.json",
+            "definition_sha256": "204cda6952925f73620e22d10eae63b6eabb0d61ae068aece9088911756e7d1f",
+            "release": "database/content-patches/m83-b2-revision-basic-grammar.v1.0.1.json",
+            "release_sha256": "d0ca64f24cd6c1767e331aaeda258ba778e9eac49c6accc55a23237b89478e7c",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\B2MixedRevisionTheorySeeder",
+                "locale": "uk",
+                "uuid": "55b36c25-f62f-50b2-972e-726abc14b70e",
+                "sort_order": 6,
+                "page_id": 328,
+                "page_category_id": 59,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "B2",
+                "css_class": null,
+                "body_sha256": "39133e063ed58117b38b2a202791ce12402302bab54b2168f71c7e1eec8319a6"
+            },
+            "design": {
+                "package": "m83-native-v1",
+                "identity": "Database\\Seeders\\Page_V3\\BasicGrammar\\B2MixedRevisionTheorySeeder",
+                "locale": "uk",
+                "uuid": "55b36c25-f62f-50b2-972e-726abc14b70e",
+                "source_index": 5,
+                "body_sha256": "39133e063ed58117b38b2a202791ce12402302bab54b2168f71c7e1eec8319a6",
+                "component": "practice-set"
+            },
+            "source_index": 5,
+            "before_data_sha256": "39133e063ed58117b38b2a202791ce12402302bab54b2168f71c7e1eec8319a6",
+            "after_data_sha256": "afc5d24b20cbf6bc1841bf6c852ddc893990baeb040ec240ffba462b9d81a285",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "Ivan said",
+                        "that",
+                        "he was tired."
+                    ],
+                    "condition_uk": "Учора Іван сказав: «Я втомлений». Передай сьогодні його тодішній стан непрямою мовою.",
+                    "hint_uk": "Назви Івана на початку; не повідомляй окремо про його стан зараз. Сполучник можна пропустити."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "The implementation",
+                        "of the plan,",
+                        "which we approved,",
+                        "will take time."
+                    ],
+                    "condition_uk": "Виконання плану, який ми схвалили, потребуватиме часу.",
+                    "hint_uk": "Почни з іменникової назви виконання; план уже визначений, а підрядна частина лише додає відомості."
+                }
+            ],
+            "added": [
+                {
+                    "id": "mrq-native-b2-mixed-revision-gap-1",
+                    "kind": "gap",
+                    "condition": "The choir would have sounded clearer if the microphones {a1} correctly.",
+                    "answer": "had been positioned",
+                    "accepted": [
+                        "had been positioned",
+                        "had been placed"
+                    ],
+                    "hint_uk": "Покажи невиконану попередню умову минулого пасивною доконаною формою розміщення.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 2
+                },
+                {
+                    "id": "mrq-native-b2-mixed-revision-gap-2",
+                    "kind": "gap",
+                    "condition": "Not only {a1} the records, but she also corrected the index.",
+                    "answer": "did Marta check",
+                    "accepted": [
+                        "did Marta check"
+                    ],
+                    "hint_uk": "Після початкового обмежувального звороту назви Марту між минулим допоміжним дієсловом і початковою формою перевірки.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 3
+                },
+                {
+                    "id": "mrq-native-b2-mixed-revision-translate-1",
+                    "kind": "translation",
+                    "condition": "Якби ж ми перевірили акустику до концерту.",
+                    "answer": "If only we had checked the acoustics before the concert.",
+                    "accepted": [
+                        "If only we had checked the acoustics before the concert.",
+                        "I wish we had checked the acoustics before the concert."
+                    ],
+                    "hint_uk": "Передай жаль про невиконану минулу перевірку; не перетворюй його на реальний майбутній план.",
+                    "ordered_groups": [
+                        "If only",
+                        "we had checked",
+                        "the acoustics",
+                        "before the concert."
+                    ],
+                    "shuffled_groups": [
+                        "the acoustics",
+                        "If only",
+                        "we had checked",
+                        "before the concert."
+                    ],
+                    "token_labels": {
+                        "If only": "If only (I wish)"
+                    },
+                    "index": 4
+                },
+                {
+                    "id": "mrq-native-b2-mixed-revision-translate-2",
+                    "kind": "translation",
+                    "condition": "Архіваріус попросив мене не скріплювати оригінали степлером.",
+                    "answer": "The archivist asked me not to staple the originals.",
+                    "accepted": [
+                        "The archivist asked me not to staple the originals.",
+                        "The archivist requested me not to staple the originals."
+                    ],
+                    "hint_uk": "Почни з архіваріуса; збережи мовця як адресата прохання та заперечення самої дії.",
+                    "ordered_groups": [
+                        "The archivist",
+                        "asked me",
+                        "not to staple",
+                        "the originals."
+                    ],
+                    "shuffled_groups": [
+                        "The archivist",
+                        "the originals.",
+                        "asked me",
+                        "not to staple"
+                    ],
+                    "token_labels": {
+                        "asked me": "asked me (requested me)"
+                    },
+                    "index": 5
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": [],
+                "4": {
+                    "If only": "If only (I wish)"
+                },
+                "5": {
+                    "asked me": "asked me (requested me)"
+                }
+            }
+        },
+        {
+            "topic": "c1-mixed-revision",
+            "mode": "authored",
+            "identity": "Database\\Seeders\\Page_V3\\BasicGrammar\\C1MixedRevisionTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/mixed-revision/c1-mixed-revision",
+            "definition": "database/seeders/Page_V3/BasicGrammar/C1MixedRevisionTheorySeeder/definition.json",
+            "definition_sha256": "50bf2e0d488935e2befaa91be82126cce1a9cbb556e456f65eb7d46477484fa9",
+            "release": "database/content-patches/m39-practice-ui.v1.json",
+            "release_sha256": "a155e4d53a37ced5bffd7a427305748a68c9eb6f8c8ee33c6b2b0d6e0d589e5f",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\C1MixedRevisionTheorySeeder",
+                "locale": "uk",
+                "uuid": "d9fc328c-c456-5b0f-a19f-2b6f95c2920b",
+                "sort_order": 8,
+                "page_id": 329,
+                "page_category_id": 59,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C1",
+                "css_class": null,
+                "body_sha256": "7dc1f2759230d68b8e20cfb1d110f258492414c4f6d828416f6651dfbe07d9d1"
+            },
+            "design": {
+                "source_index": 7,
+                "uuid": "d9fc328c-c456-5b0f-a19f-2b6f95c2920b",
+                "sort_order": 8,
+                "body_sha256": "7dc1f2759230d68b8e20cfb1d110f258492414c4f6d828416f6651dfbe07d9d1",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 7,
+            "before_data_sha256": "7dc1f2759230d68b8e20cfb1d110f258492414c4f6d828416f6651dfbe07d9d1",
+            "after_data_sha256": "7072b7be25110f454d2a81f68fe0d7cd704436187e5787cd11969dbe1ff89e8e",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "part": 0,
+                    "id": "c1-1-answer",
+                    "hint_uk": "Минула умова не виконалася; наслідок стосується можливості відновлення саме зараз.",
+                    "ordered_groups": [
+                        "If",
+                        "our technician",
+                        "had saved",
+                        "the settings,",
+                        "we",
+                        "would be able",
+                        "to restore",
+                        "them now."
+                    ]
+                },
+                {
+                    "index": 1,
+                    "part": 0,
+                    "id": "c1-2-answer",
+                    "hint_uk": "Почни з обмеження часу; після всієї обставини потрібна інверсія головної пасивної частини.",
+                    "ordered_groups": [
+                        "Only after",
+                        "the supervisor",
+                        "had approved",
+                        "the labels",
+                        "were",
+                        "the boxes",
+                        "dispatched."
+                    ]
+                },
+                {
+                    "index": 2,
+                    "part": 0,
+                    "id": "c1-3-answer",
+                    "hint_uk": "Передай припущення, не власне доведений факт; відкриття сталося раніше за повідомлення.",
+                    "ordered_groups": [
+                        "The envelope",
+                        "is believed",
+                        "to have been",
+                        "opened",
+                        "before delivery."
+                    ]
+                },
+                {
+                    "index": 3,
+                    "part": 0,
+                    "id": "c1-4-answer",
+                    "hint_uk": "Саме завершення курсу відбирає двох гідів; збережи означальну частину та теперішнє проведення екскурсії.",
+                    "ordered_groups": [
+                        "The two guides",
+                        "who",
+                        "have completed",
+                        "the course",
+                        "are leading",
+                        "the tour."
+                    ]
+                },
+                {
+                    "index": 4,
+                    "part": 0,
+                    "id": "c1-5-answer",
+                    "hint_uk": "Збережи лише можливість учорашнього надсилання й окремий факт неперевіреної скриньки.",
+                    "ordered_groups": [
+                        "Leila",
+                        "may have sent",
+                        "the draft",
+                        "yesterday,",
+                        "but",
+                        "we",
+                        "have not checked",
+                        "the mailbox."
+                    ]
+                },
+                {
+                    "index": 5,
+                    "part": 0,
+                    "id": "c1-6-answer",
+                    "hint_uk": "Збережи три повідомлення: учора перевірили дати; описи ще не перевірено; остаточний файл ввічливо просять до п’ятниці.",
+                    "ordered_groups": [
+                        "The dates",
+                        "in the catalogue",
+                        "were checked",
+                        "yesterday.",
+                        "The descriptions",
+                        "have not yet",
+                        "been checked.",
+                        "Could you",
+                        "send",
+                        "the final file",
+                        "by Friday?"
+                    ]
+                }
+            ],
+            "added": [
+                {
+                    "id": "mrq-native-c1-mixed-revision-gap-1",
+                    "kind": "gap",
+                    "condition": "Only when the audit had ended {a1} the seal had been broken.",
+                    "answer": "did we discover",
+                    "accepted": [
+                        "did we discover",
+                        "did we find out",
+                        "did we realise",
+                        "did we realize",
+                        "did we learn"
+                    ],
+                    "hint_uk": "У головній частині інвертуй минулий допоміжний елемент і займенник «ми», потім передай «виявили» або «дізналися».",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 6,
+                    "part": 0
+                },
+                {
+                    "id": "mrq-native-c1-mixed-revision-gap-2",
+                    "kind": "gap",
+                    "condition": "The sealed ballot boxes are believed {a1} before the observers arrived.",
+                    "answer": "to have been tampered with",
+                    "accepted": [
+                        "to have been tampered with"
+                    ],
+                    "hint_uk": "Припущення стосується вже здійсненого стороннього втручання в урни; потрібен доконаний пасивний інфінітив із прийменниковим завершенням.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 6,
+                    "part": 1
+                },
+                {
+                    "id": "mrq-native-c1-mixed-revision-translate-1",
+                    "kind": "translation",
+                    "condition": "Якби не вчорашня затримка, наш висновок зараз був би іншим.",
+                    "answer": "Had it not been for yesterday’s delay, our conclusion would be different now.",
+                    "accepted": [
+                        "Had it not been for yesterday’s delay, our conclusion would be different now.",
+                        "But for yesterday’s delay, our conclusion would be different now.",
+                        "Without yesterday’s delay, our conclusion would be different now."
+                    ],
+                    "hint_uk": "Почни з нереалізованої минулої умови; наслідок стосується теперішнього висновку. Нормативні іменникові конструкції умови також приймаються.",
+                    "ordered_groups": [
+                        "Had it not",
+                        "been for",
+                        "yesterday’s delay,",
+                        "our conclusion",
+                        "would be different",
+                        "now."
+                    ],
+                    "shuffled_groups": [
+                        "been for",
+                        "yesterday’s delay,",
+                        "Had it not",
+                        "our conclusion",
+                        "now.",
+                        "would be different"
+                    ],
+                    "token_labels": [],
+                    "index": 7,
+                    "part": 0
+                },
+                {
+                    "id": "mrq-native-c1-mixed-revision-translate-2",
+                    "kind": "translation",
+                    "condition": "Комітет наполіг, щоб незалежний експерт оцінив докази.",
+                    "answer": "The committee insisted that an independent expert assess the evidence.",
+                    "accepted": [
+                        "The committee insisted that an independent expert assess the evidence.",
+                        "The committee insisted that an independent expert evaluate the evidence.",
+                        "The committee insisted that an independent expert should assess the evidence.",
+                        "The committee insisted that an independent expert should evaluate the evidence.",
+                        "The committee insisted an independent expert assess the evidence.",
+                        "The committee insisted an independent expert evaluate the evidence.",
+                        "The committee insisted an independent expert should assess the evidence.",
+                        "The committee insisted an independent expert should evaluate the evidence."
+                    ],
+                    "hint_uk": "Передай вимогу, а не твердження про вже зроблену оцінку; обидві нормативні моделі вимоги приймаються.",
+                    "ordered_groups": [
+                        "The committee",
+                        "insisted that",
+                        "an independent expert",
+                        "assess",
+                        "the evidence."
+                    ],
+                    "shuffled_groups": [
+                        "the evidence.",
+                        "an independent expert",
+                        "The committee",
+                        "assess",
+                        "insisted that"
+                    ],
+                    "token_labels": {
+                        "assess": "assess (evaluate / should evaluate)"
+                    },
+                    "index": 7,
+                    "part": 1
+                }
+            ],
+            "input_token_labels": []
+        },
+        {
+            "topic": "c2-mixed-revision",
+            "mode": "authored",
+            "identity": "Database\\Seeders\\Page_V3\\BasicGrammar\\C2MixedRevisionTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/mixed-revision/c2-mixed-revision",
+            "definition": "database/seeders/Page_V3/BasicGrammar/C2MixedRevisionTheorySeeder/definition.json",
+            "definition_sha256": "d9cef5d7ec61ed221447666e3176ab577c6c5db587432c752a836bec3f7eaa76",
+            "release": "database/content-patches/m39-practice-ui.v1.json",
+            "release_sha256": "a155e4d53a37ced5bffd7a427305748a68c9eb6f8c8ee33c6b2b0d6e0d589e5f",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\C2MixedRevisionTheorySeeder",
+                "locale": "uk",
+                "uuid": "34b073ba-31c4-5a52-a582-5678a07b0a9d",
+                "sort_order": 8,
+                "page_id": 330,
+                "page_category_id": 59,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C2",
+                "css_class": null,
+                "body_sha256": "a440c5ddc8d6ecc624bedb09e284ffa1cf673c5de8e28e2d141b10df2c38c3a8"
+            },
+            "design": {
+                "source_index": 7,
+                "uuid": "34b073ba-31c4-5a52-a582-5678a07b0a9d",
+                "sort_order": 8,
+                "body_sha256": "a440c5ddc8d6ecc624bedb09e284ffa1cf673c5de8e28e2d141b10df2c38c3a8",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 7,
+            "before_data_sha256": "a440c5ddc8d6ecc624bedb09e284ffa1cf673c5de8e28e2d141b10df2c38c3a8",
+            "after_data_sha256": "cd24eeca6014e36b6b87d77edd7fbf3327ba6eaaa649664f881cdf2a2ce4235e",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "part": 0,
+                    "id": "c2-1-answer",
+                    "hint_uk": "Почни з інвертованої заперечної минулої умови; можливість застрягти не є твердженням про те, що це сталося.",
+                    "ordered_groups": [
+                        "Had",
+                        "the guide",
+                        "not brought",
+                        "a spare lamp,",
+                        "we",
+                        "could have been",
+                        "stranded underground."
+                    ]
+                },
+                {
+                    "index": 1,
+                    "part": 0,
+                    "id": "c2-2-answer",
+                    "hint_uk": "Збережи пасивне повідомлення про припущення та попередність переміщення портретів.",
+                    "ordered_groups": [
+                        "The portraits",
+                        "are thought",
+                        "to have been",
+                        "moved",
+                        "before",
+                        "the gallery closed."
+                    ]
+                },
+                {
+                    "index": 2,
+                    "part": 0,
+                    "id": "c2-3-a",
+                    "hint_uk": "Непотрібний друк відбувся; передай зайвість уже виконаної дії доконаною модальною формою.",
+                    "ordered_groups": [
+                        "Marta",
+                        "needn’t have",
+                        "printed",
+                        "a second timetable."
+                    ]
+                },
+                {
+                    "index": 3,
+                    "part": 1,
+                    "id": "c2-4-scope",
+                    "hint_uk": "Українською назви саме відсутню кількісну інформацію; не приписуй точного числа.",
+                    "ordered_groups": [
+                        "Не встановлено",
+                        "точного числа",
+                        "непридатних і придатних."
+                    ]
+                },
+                {
+                    "index": 4,
+                    "part": 0,
+                    "id": "c2-5-answer",
+                    "hint_uk": "Збережи повноту списку людей, два записи без телефонів і однозначне посилання саме на ці записи.",
+                    "ordered_groups": [
+                        "The register",
+                        "includes every member.",
+                        "However,",
+                        "two entries",
+                        "have no",
+                        "phone number.",
+                        "These incomplete entries",
+                        "need to be",
+                        "updated."
+                    ]
+                },
+                {
+                    "index": 5,
+                    "part": 0,
+                    "id": "c2-6-answer",
+                    "hint_uk": "Збережи учасника, перший зразок, понеділок, успіх у приміщенні; другий зразок не перевіряли, зовнішнє випробування не проводили.",
+                    "ordered_groups": [
+                        "Anika’s indoor test",
+                        "of",
+                        "the first prototype",
+                        "on Monday",
+                        "was successful.",
+                        "The second prototype",
+                        "has not been",
+                        "tested.",
+                        "According to Anika,",
+                        "the first prototype",
+                        "may also work",
+                        "outdoors,",
+                        "but",
+                        "no outdoor test",
+                        "has taken place."
+                    ]
+                }
+            ],
+            "added": [
+                {
+                    "id": "mrq-native-c2-mixed-revision-gap-1",
+                    "kind": "gap",
+                    "condition": "Had the liquidity reserve been disclosed, the board {a1} the emergency sale.",
+                    "answer": "might not have authorised",
+                    "accepted": [
+                        "might not have authorised",
+                        "might not have authorized"
+                    ],
+                    "hint_uk": "Передай лише можливість, що рада не дала б дозволу за іншої минулої умови; не стверджуй певного наслідку. Обидва нормативні написання приймаються.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 6,
+                    "part": 0
+                },
+                {
+                    "id": "mrq-native-c2-mixed-revision-gap-2",
+                    "kind": "gap",
+                    "condition": "The inference remains provisional, there {a1} no independent replication.",
+                    "answer": "having been",
+                    "accepted": [
+                        "having been"
+                    ],
+                    "hint_uk": "Подай попередню відсутність незалежного відтворення як причину через доконаний абсолютний зворот; наведений формальний підмет не повторюй.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 6,
+                    "part": 1
+                },
+                {
+                    "id": "mrq-native-c2-mixed-revision-translate-1",
+                    "kind": "translation",
+                    "condition": "Дані, якби їх оприлюднили раніше, могли б змінити трактування свідчень.",
+                    "answer": "The data, had they been released earlier, might have changed the interpretation of the testimony.",
+                    "accepted": [
+                        "The data, had they been released earlier, might have changed the interpretation of the testimony.",
+                        "The data, had they been released earlier, could have changed the interpretation of the testimony.",
+                        "The data, had they been released sooner, might have changed the interpretation of the testimony.",
+                        "The data, had they been released sooner, could have changed the interpretation of the testimony.",
+                        "The data, had they been disclosed earlier, might have changed the interpretation of the testimony.",
+                        "The data, had they been disclosed earlier, could have changed the interpretation of the testimony.",
+                        "The data, had they been disclosed sooner, might have changed the interpretation of the testimony.",
+                        "The data, had they been disclosed sooner, could have changed the interpretation of the testimony.",
+                        "The data, had they been published earlier, might have changed the interpretation of the testimony.",
+                        "The data, had they been published earlier, could have changed the interpretation of the testimony.",
+                        "The data, had they been published sooner, might have changed the interpretation of the testimony.",
+                        "The data, had they been published sooner, could have changed the interpretation of the testimony."
+                    ],
+                    "hint_uk": "Йдеться про усні свідчення, а не будь-які докази. Збережи вставну інверсію нереалізованої минулої умови та лише можливий наслідок.",
+                    "ordered_groups": [
+                        "The data,",
+                        "had they been",
+                        "released earlier,",
+                        "might have changed",
+                        "the interpretation",
+                        "of the testimony."
+                    ],
+                    "shuffled_groups": [
+                        "The data,",
+                        "had they been",
+                        "of the testimony.",
+                        "the interpretation",
+                        "released earlier,",
+                        "might have changed"
+                    ],
+                    "token_labels": {
+                        "might have changed": "might have changed (could have changed)",
+                        "released earlier,": "released earlier, (released sooner, / disclosed earlier, / disclosed sooner, / published earlier, / published sooner,)"
+                    },
+                    "index": 7,
+                    "part": 0
+                },
+                {
+                    "id": "mrq-native-c2-mixed-revision-translate-2",
+                    "kind": "translation",
+                    "condition": "Не можна виключити, що зміна облікової політики вплинула на зіставність цих цифр.",
+                    "answer": "It cannot be ruled out that the change in accounting policy has affected the comparability of these figures.",
+                    "accepted": [
+                        "It cannot be ruled out that the change in accounting policy has affected the comparability of these figures.",
+                        "It cannot be ruled out that the change in accounting policy affected the comparability of these figures.",
+                        "It cannot be ruled out that changing the accounting policy has affected the comparability of these figures.",
+                        "It cannot be ruled out that changing the accounting policy affected the comparability of these figures.",
+                        "It cannot be excluded that the change in accounting policy has affected the comparability of these figures.",
+                        "It cannot be excluded that the change in accounting policy affected the comparability of these figures.",
+                        "It cannot be excluded that changing the accounting policy has affected the comparability of these figures.",
+                        "It cannot be excluded that changing the accounting policy affected the comparability of these figures."
+                    ],
+                    "hint_uk": "Збережи обережну безособову оцінку; не подавай вплив як доведений факт. Минулий час і доконаний час із теперішньою актуальністю приймаються.",
+                    "ordered_groups": [
+                        "It cannot be",
+                        "ruled out that",
+                        "the change",
+                        "in accounting policy",
+                        "has affected",
+                        "the comparability",
+                        "of these figures."
+                    ],
+                    "shuffled_groups": [
+                        "in accounting policy",
+                        "of these figures.",
+                        "ruled out that",
+                        "the change",
+                        "has affected",
+                        "It cannot be",
+                        "the comparability"
+                    ],
+                    "token_labels": {
+                        "ruled out that": "ruled out that (excluded that)"
+                    },
+                    "index": 7,
+                    "part": 1
+                }
+            ],
+            "input_token_labels": []
+        }
+    ]
+}

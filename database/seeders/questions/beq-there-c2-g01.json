@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60602,
+        "uuid": "beq-there-c2-g01",
+        "question": "There {a1} a case to be made for treating silence as acquiescence in this context.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 12,
+        "source_id": 426,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\VerbToBe\\UkrainianMixedThereIsThereAreQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "is",
+                "are",
+                "am"
+            ]
+        },
+        "theory_text_block_uuid": "a18fa134-bb61-5a9e-b38b-6b36b0110d4a",
+        "created_at": "2026-10-27T13:05:36.000000Z",
+        "updated_at": "2026-10-27T13:05:36.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 426,
+        "name": "Verb to Be Quality: Наявність: конструкції з початковим формальним підметом",
+        "created_at": "2026-10-27T13:05:33.000000Z",
+        "updated_at": "2026-10-27T13:05:33.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 101,
+                "name": "There is / There are constructions",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60602,
+                "tag_id": 101,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 96,
+                "option": "am",
+                "created_at": "2026-04-23T11:40:01.000000Z",
+                "updated_at": "2026-04-23T11:40:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 60602,
+                "option_id": 96,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 101,
+                "option": "are",
+                "created_at": "2026-04-23T11:40:01.000000Z",
+                "updated_at": "2026-04-23T11:40:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 60602,
+                "option_id": 101,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 107,
+                "option": "is",
+                "created_at": "2026-04-23T11:40:01.000000Z",
+                "updated_at": "2026-04-23T11:40:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 60602,
+                "option_id": 107,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325500,
+                "question_id": 60602,
+                "marker": "a1",
+                "option_id": 107,
+                "created_at": "2026-10-27T13:05:36.000000Z",
+                "updated_at": "2026-10-27T13:05:36.000000Z"
+            },
+            "option": {
+                "id": 107,
+                "option": "is",
+                "created_at": "2026-04-23T11:40:01.000000Z",
+                "updated_at": "2026-04-23T11:40:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 42834,
+                "question_id": 60602,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53065,
+                "created_at": "2026-10-27T13:05:36.000000Z",
+                "updated_at": "2026-10-27T13:05:36.000000Z"
+            },
+            "option": {
+                "id": 53065,
+                "option": "Передай наявність одного можливого аргументу, не стверджуючи безумовної істинності тлумачення.",
+                "created_at": "2026-10-27T13:05:36.000000Z",
+                "updated_at": "2026-10-27T13:05:36.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52617,
+            "question_id": 60602,
+            "text": "There {a1} a case to be made for treating silence as acquiescence in this context.",
+            "created_at": "2026-10-27T13:05:36.000000Z",
+            "updated_at": "2026-10-27T13:05:36.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

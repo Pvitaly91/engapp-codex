@@ -2,13 +2,24 @@
 
 namespace Tests\Feature\Theory;
 
-use App\Models\PageCategory;
-use Illuminate\Support\Js;
+use Illuminate\Support\Facades\File;
 use Tests\Support\TheoryRouteMatrix;
 
 class TheoryCategorySmokeTest extends SeededTheoryTestCase
 {
     public function test_every_top_level_theory_category_page_renders_in_all_locales(): void
+    {
+        $menuPath = storage_path('framework/testing/theory-menu-smoke-'.bin2hex(random_bytes(8)));
+        config(['app.url' => 'http://gramlyze.loc', 'theory-menu.path' => $menuPath]);
+        $this->artisan('theory:menu-build')->assertSuccessful();
+        try {
+            $this->checkCategoryMatrix();
+        } finally {
+            File::deleteDirectory($menuPath);
+        }
+    }
+
+    private function checkCategoryMatrix(): void
     {
         foreach (TheoryRouteMatrix::categorySmokeCases() as $case) {
             app()->setLocale($case['locale']);
@@ -25,23 +36,15 @@ class TheoryCategorySmokeTest extends SeededTheoryTestCase
             $categoryPath = $case['category_slug'];
             if ($case['representative_category_slug'] !== null) {
                 // The current content contract nests Future Simple under Future Forms.
-                // M3 loads the child tree on demand; keep checking learner reachability
-                // from the rendered loader through its actual response and lesson card.
-                $parentId = PageCategory::query()->where('slug', $case['category_slug'])->value('id');
-                // Follow the URL policy actually used by the rendered loader, as the
-                // original matrix also does for its canonical (unprefixed) links.
-                $navigationUrl = localized_route('theory.navigation')
-                    .'?'.http_build_query(['variant' => 'desktop', 'category' => $parentId]);
-                $this->assertSame('gramlyze.loc', parse_url($navigationUrl, PHP_URL_HOST));
-                $this->assertStringContainsString('data-theory-desktop-navigation-loader', $html);
-                $this->assertStringContainsString(Js::from($navigationUrl)->toHtml(), $html);
-                $navigation = $this->get($navigationUrl)->assertOk()->getContent();
+                // Both canonical links must now be reachable in the initial SSR tree.
+                $this->assertMatchesRegularExpression('/<div\b[^>]*\sdata-theory-menu-fragment="desktop"/', $html);
+                $this->assertStringNotContainsString('data-theory-desktop-navigation-loader', $html);
                 $childPath = TheoryRouteMatrix::localizedPath('uk', $case['representative_category_slug']);
-                $this->assertStringContainsString($childPath, $navigation);
+                $this->assertStringContainsString($childPath, $html);
                 $categoryPath .= '/'.$case['representative_category_slug'];
                 $this->assertStringContainsString(
                     TheoryRouteMatrix::localizedPath('uk', $categoryPath, $case['representative_page_slug']),
-                    $navigation
+                    $html
                 );
                 $html = $this->get(TheoryRouteMatrix::localizedPath($case['locale'], $case['representative_category_slug']))
                     ->assertOk()->getContent();

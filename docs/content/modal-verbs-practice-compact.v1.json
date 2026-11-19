@@ -1,0 +1,1908 @@
+{
+    "schema_version": 1,
+    "source": {
+        "path": "docs/content/modal-verbs-practice-source.v1.json",
+        "sha256": "81d6d561010772e71c89f6fb2e50ec5c2d34b8098b8a29313282f662afb95809"
+    },
+    "targets": [
+        {
+            "topic": "modal-perfect-and-deduction",
+            "projection_family": "modal-verbs-practice-compact-v1",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/modal-perfect-and-deduction",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalPerfectAndDeductionTheorySeeder",
+                "locale": "uk",
+                "uuid": "740894aa-8d2e-58f9-9099-8377ba315210",
+                "sort_order": 8,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C1",
+                "css_class": null,
+                "body_sha256": "5f89f070a0c4be6f126740d8a481503d75d69561dced07bdf36670fc8132cca3"
+            },
+            "after_data_sha256": "5f89f070a0c4be6f126740d8a481503d75d69561dced07bdf36670fc8132cca3",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_index": 1,
+                        "instruction_uk": "Обери точний опис відомих фактів і висновку.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Коробка відкрита, пломба розірвана."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Someone must have opened the box."
+                            }
+                        ],
+                        "option_labels": [
+                            "Коробка відкрита, пломба розірвана; упевнений висновок не є доказом. Особа, час і причина невідомі.",
+                            "Відкриття незалежно доведене; особа, час і причина відомі.",
+                            "Стан коробки лише припускають, але особа вже відома."
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "options",
+                            "author_explanation"
+                        ],
+                        "source_item_sha256": "bbea439a6b69cb1a4c0b15a83b91cde75c1639d2ee0e9b50845d5acd2ce6ac75"
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 4,
+                        "instruction_uk": "Порівняй значення should have й обери правильне твердження.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "а) You should have labelled the folders; now we can’t tell them apart."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Підписів немає."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "б) The parcel should have arrived by now; the usual journey takes one day."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Відстеження ще не перевіряли."
+                            }
+                        ],
+                        "option_labels": [
+                            "а) Критика невиконаної дії; б) очікування, прибуття не перевірене. У б) можливе й ought to have arrived.",
+                            "Обидві дії точно не виконано; посилка точно не прибула.",
+                            "Папки підписано; прибуття посилки незалежно підтверджено."
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "options",
+                            "author_explanation"
+                        ],
+                        "source_item_sha256": "ee38149767c3d1202b84aa93b4b93fac877e547a4a725321f7fb29edda3a2f41"
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_index": 3,
+                        "instruction_uk": "Обери, що відомо про поїздку в кожному випадку.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "а) Ravi could have taken the earlier bus; we haven’t heard from him."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "б) Ravi could have taken the earlier bus, but he chose to walk."
+                            }
+                        ],
+                        "option_labels": {
+                            "a": "а) Результат невідомий (можливі й may/might have taken); б) можливістю не скористалися.",
+                            "b": "Could have в обох випадках завжди означає, що Раві не їхав автобусом."
+                        },
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "prompt",
+                            "author_explanation"
+                        ],
+                        "source_item_sha256": "ca9a416c12826b3684062b03c9da74d5e0597cb761c3b10a3d1326a26e35b2f0"
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 5,
+                        "instruction_uk": "Обери виправлений набір, не змінюючи заданих значень.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Послідовно: можливе пояснення; упевнений висновок; відкидання можливості."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "She might of left the note. He must have went home. They don’t can have seen the rehearsal."
+                            }
+                        ],
+                        "option_labels": {
+                            "a": "She might have left the note. He must have gone home. They can’t have seen the rehearsal.",
+                            "b": "She might of left the note. He must have went home. They don’t can have seen the rehearsal."
+                        },
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "prompt",
+                            "author_explanation"
+                        ],
+                        "source_item_sha256": "bfa468a089c7fefa30781769e17358af0e03b7643233e9737688b60c5cf57ff1"
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_index": 2,
+                        "instruction_uk": "Склади два висновки за заданими моделями, не перетворюючи їх на перевірені факти.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "а) Лише Нора мала ключ; тепер двері відімкнені."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "а) must have + unlock"
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "б) Елі весь ранок був в іншому місті. Відкинь його особисту присутність у студії о дев’ятій."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "б) can’t have + be"
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "author_explanation"
+                        ],
+                        "source_item_sha256": "e5f0f6db2aafeba59b0cd088ec8adac8a2586e6d907313ed6defae1c9ef736d2"
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 6,
+                        "instruction_uk": "Збережи спостереження, а скасування подай лише як можливе пояснення.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "The studio was dark yesterday, so the rehearsal definitely didn’t take place."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Відомо лише, що вчора в студії було темно; скасування не підтверджене."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "may / might / could have + been cancelled"
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "author_explanation"
+                        ],
+                        "source_item_sha256": "df4620c225c34ab7e94f4717e132398baa36d98f3fe4da19b27a1f7ac8d3449b"
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "modal-modal-perfect-and-deduction-selects-1",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери форму або відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-modal-perfect-and-deduction-choices-1",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Визнач значення",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-modal-perfect-and-deduction-inputs-1",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Використай слова банку: введи відповідь вручну або натискай на токени."
+                }
+            ]
+        },
+        {
+            "topic": "subtle-modal-meanings",
+            "projection_family": "modal-verbs-practice-compact-v1",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/subtle-modal-meanings",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\ModalVerbs\\SubtleModalMeaningsTheorySeeder",
+                "locale": "uk",
+                "uuid": "11a0a022-fe6a-520b-9aaf-14dc69182fb7",
+                "sort_order": 8,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C2",
+                "css_class": null,
+                "body_sha256": "c4d78bf52a5b6ff8ebb4cf1a166aa1d3d83234e97adc07fbe406f640b70f5b9d"
+            },
+            "after_data_sha256": "c4d78bf52a5b6ff8ebb4cf1a166aa1d3d83234e97adc07fbe406f640b70f5b9d",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_index": 1,
+                        "instruction_uk": "Обери значення обох реплік і врахуй, чи відбулася репетиція.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "а) The missing cable may well explain the silent speaker."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "б) The hall is still closed; we might as well rehearse in the courtyard."
+                            }
+                        ],
+                        "option_labels": [
+                            "а) Правдоподібне пояснення; б) пропозиція за відсутності кращого варіанта. Функції різні; факт репетиції невідомий.",
+                            "а) Причину доведено; б) репетиція вже відбулася.",
+                            "Функція однакова; різниться тільки ступінь упевненості."
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "options",
+                            "author_explanation"
+                        ],
+                        "source_item_sha256": "5b0d9676707107397cbcd4500758f20e8e23e0c69599a3e40dcd495885166415"
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 4,
+                        "instruction_uk": "Обери, що відомо про потребу, виконання дії та заборону.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "а) I didn’t need to print the map, so I didn’t."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "б) I didn’t need to print the map, but I did, for convenience."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "в) I didn’t need to print the map."
+                            }
+                        ],
+                        "option_labels": [
+                            "Потреби не було: а) не друкували, б) друкували, в) невідомо. Заборони й суперечності немає; докір не обов’язковий.",
+                            "Друк заборонено; в усіх трьох випадках карту не друкували.",
+                            "Карту друкували в усіх випадках; варіант б) суперечливий."
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "options",
+                            "author_explanation"
+                        ],
+                        "source_item_sha256": "a79b9a38d13cba89945d3e5ada6ce627e6562ef14d7305cd9a281ff553fdea10"
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_index": 2,
+                        "instruction_uk": "Обери значення just саме в цьому контексті.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "До завершення відбору мало часу; шанси невеликі, але ненульові."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Our sketch might just make the final selection."
+                            }
+                        ],
+                        "option_labels": {
+                            "a": "Саме тут — мала, але реальна можливість; не «щойно» і не гарантія.",
+                            "b": "«Щойно»: ескіз уже відібрано, успіх гарантований."
+                        },
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "prompt",
+                            "author_explanation"
+                        ],
+                        "source_item_sha256": "6c35bc905d87a77c0dfe3b0fc3124975a081d33d31911434b607952bd467f0db"
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 5,
+                        "instruction_uk": "Обери, у якому випадку перетворення зберігає відомі факти.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "Omar didn’t need to book another room. → needn’t have"
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "а) Відомо лише це речення. б) Додатково відомо: Омар таки забронював кімнату."
+                            }
+                        ],
+                        "option_labels": {
+                            "a": "Лише б): Omar needn’t have booked another room; у а) виконання невідоме.",
+                            "b": "Уже а): didn’t need to саме доводить бронювання."
+                        },
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "prompt",
+                            "author_explanation"
+                        ],
+                        "source_item_sha256": "bed5f2e6f30b8a110ec0338e885758ac562c692fb71a2ba47c6b840fc29fdad2"
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_index": 3,
+                        "instruction_uk": "Склади три поради про перевірку списку до друку за заданими моделями.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "а) Обережна пропозиція; б) пропозиція оцінити користь; в) застереження з підставою."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "а) You might want to …; б) It may be worth …; в) You would be wise to …"
+                            },
+                            {
+                                "lang": "en",
+                                "text": "check the participant list before printing"
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Підстава для третьої поради: у попередній копії двічі стояло одне ім’я."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "author_explanation"
+                        ],
+                        "source_item_sha256": "1afaf6d55f0cee82c6f64f534b24927fefc00a30606ea50b94804cf03ee1276e"
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 6,
+                        "instruction_uk": "Відредагуй три нотатки за фактами й заданими моделями.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Учора Іра надрукувала два плакати; одного було досить. Причину сьогоднішньої затримки не з’ясовано: скріпок лише може бракувати."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Перевірка шафи — порада на зараз, не наказ."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Ira didn’t print the extra poster yesterday. Missing clips definitely explain today’s delay. It may be worth to check the cupboard."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "needn’t have; could well; worth"
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "author_explanation"
+                        ],
+                        "source_item_sha256": "cd1d55c45acfe2ad17ee3c6c31ec29d7fd289e278d521efaf06a2e5afa4fe074"
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "modal-subtle-modal-meanings-selects-1",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери форму або відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-subtle-modal-meanings-choices-1",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Визнач значення",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-subtle-modal-meanings-inputs-1",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Використай слова банку: введи відповідь вручну або натискай на токени."
+                }
+            ]
+        },
+        {
+            "topic": "must-have-to",
+            "projection_family": "modal-verbs-practice-compact-v1",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/must-have-to",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsMustHaveToTheorySeeder",
+                "locale": "uk",
+                "uuid": "31c78cb5-ba10-5400-a510-4edaaf10c979",
+                "sort_order": 7,
+                "page_id": 75,
+                "page_category_id": 15,
+                "type": "practice-set",
+                "column": "right",
+                "heading": null,
+                "level": "A2",
+                "css_class": null,
+                "body_sha256": "5b9b7037af49ff129381f5e816402d355390d85f62ffcc72a39eb0827a109859"
+            },
+            "after_data_sha256": "5b9b7037af49ff129381f5e816402d355390d85f62ffcc72a39eb0827a109859",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_index": 1,
+                        "instruction_uk": "Доповни теперішнє ствердження саме з have to.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "На виставці Міла повинна носити бейдж."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Mila ___ wear a badge at the exhibition."
+                            }
+                        ],
+                        "source_item_sha256": "aa1a93131792beccd2197e804bc57f8a3978b43706c82d0342e98d538ded80dd",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 2,
+                        "instruction_uk": "Доповни конструкцію: will уже наведено.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Наступного місяця нам доведеться користуватися іншим входом."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Next month, we will ___ use another entrance."
+                            }
+                        ],
+                        "source_item_sha256": "fc297249ad54ea8101147679a7da197c5c77d0778731f3ebe002efee697c7e6d",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_index": 3,
+                        "instruction_uk": "Обери речення, яке передає заборону.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "За правилом галереї відвідувачам заборонено торкатися картин."
+                            }
+                        ],
+                        "source_item_sha256": "5d67c2aa1639a0921bcf8091e9f6340b7211fd6c1a63d129cda2310bd3ba2bd6",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 4,
+                        "instruction_uk": "Відповідай «ні», не забороняючи залишатися.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Вечірня зустріч необов’язкова; залишитися дозволено."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Must I stay for the evening meeting?"
+                            }
+                        ],
+                        "source_item_sha256": "b00a4fd704ef5372066a1e65f5be9d058db284964bcc564c05b208a8a62df077",
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt",
+                            "options"
+                        ]
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_index": 5,
+                        "instruction_uk": "Побудуй заперечення з have to.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Завтра Лені не обов’язково друкувати квитки."
+                            }
+                        ],
+                        "source_item_sha256": "ca51767bc3b75a54b06c8553c2bcc8ac0785e96539e907dac7c546e1a6af9759",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 6,
+                        "instruction_uk": "Постав запитання з have to.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Нам потрібно забронювати кімнату?"
+                            }
+                        ],
+                        "source_item_sha256": "f57f98477d79bcb340fa97cc9e4096f9fddec3c27ea66c4accd0427547b82670",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "modal-must-have-to-selects-1",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери форму або відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-must-have-to-choices-1",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Визнач значення",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-must-have-to-inputs-1",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Використай слова банку: введи відповідь вручну або натискай на токени."
+                }
+            ]
+        },
+        {
+            "topic": "should-ought-to",
+            "projection_family": "modal-verbs-practice-compact-v1",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/should-ought-to",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsShouldOughtToTheorySeeder",
+                "locale": "uk",
+                "uuid": "e413f80f-d784-594f-9bed-e66ec32f33cf",
+                "sort_order": 7,
+                "page_id": 79,
+                "page_category_id": 15,
+                "type": "practice-set",
+                "column": "right",
+                "heading": null,
+                "level": "A2",
+                "css_class": null,
+                "body_sha256": "ed870782929038fcfd7dcf48f0c1a11363bcfcfcaea99c85870b17043792f80b"
+            },
+            "after_data_sha256": "ed870782929038fcfd7dcf48f0c1a11363bcfcfcaea99c85870b17043792f80b",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_index": 1,
+                        "instruction_uk": "Доповни форму після should; reserve — забронювати.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Левко шукає місце для зустрічі; я раджу забронювати стіл."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Levko should ___ a table."
+                            }
+                        ],
+                        "source_item_sha256": "f1e8eec6f45dcfc869fa93b9ec549d59d1808d599dceb0235a961627a046f67d",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 2,
+                        "instruction_uk": "Доповни стверджувальну конструкцію ought to.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Ти хочеш уточнити дату події; я раджу перевірити повідомлення."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "You ought ___ check the message."
+                            }
+                        ],
+                        "source_item_sha256": "6dfb301f8d59677793eb0e7c26ee66b8a308bdfec7f3ca1fa3f6cdd3140f730e",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_index": 3,
+                        "instruction_uk": "Визнач значення репліки.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Посилка вже в місцевому відділенні, але її ще не привезли."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "The parcel ought to arrive tomorrow."
+                            }
+                        ],
+                        "source_item_sha256": "0c54e4e9a77f1d2435bf48167969be7a01d1d1a089e65dd09ccb3a1a5c14051e",
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 4,
+                        "instruction_uk": "Обери пораду, не обов’язок чи заборону.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Ніна чекає новин. Я лише раджу тобі зателефонувати; два варіанти поради рівнозначні."
+                            }
+                        ],
+                        "source_item_sha256": "8546f329ac59871848c2b87ddd44154669c7a5c75379b485c97b2580338945de",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_index": 5,
+                        "instruction_uk": "Побудуй пораду з ought to у запереченні.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Нам не слід залишати квитки вдома."
+                            }
+                        ],
+                        "source_item_sha256": "211b79fe32456677f534a31592a1bb7b3a6077efe3b33df688742940a552cbc6",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 6,
+                        "instruction_uk": "Постав запитання з should.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Чи варто нам поїхати автобусом до станції?"
+                            }
+                        ],
+                        "source_item_sha256": "2e40d85a24a38dee8867736049119fa0ee8219f380e1f9cccf27d1fd859b26ff",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "modal-should-ought-to-selects-1",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери форму або відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-should-ought-to-choices-1",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Визнач значення",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-should-ought-to-inputs-1",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Використай слова банку: введи відповідь вручну або натискай на токени."
+                }
+            ]
+        },
+        {
+            "topic": "need-neednt-dont-have-to",
+            "projection_family": "modal-verbs-practice-compact-v1",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/need-neednt-dont-have-to",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsNeedNeedntDontHaveToTheorySeeder",
+                "locale": "uk",
+                "uuid": "99bf6a7c-b493-5e4a-b66b-9b3ac8be3c65",
+                "sort_order": 7,
+                "page_id": 76,
+                "page_category_id": 15,
+                "type": "practice-set",
+                "column": "right",
+                "heading": null,
+                "level": "A2",
+                "css_class": null,
+                "body_sha256": "2bf3a31a33f26c751e8b73f7776dee8a2007bcd3a9497a7f4f6f0cc4c1924511"
+            },
+            "after_data_sha256": "2bf3a31a33f26c751e8b73f7776dee8a2007bcd3a9497a7f4f6f0cc4c1924511",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_index": 1,
+                        "instruction_uk": "Використай звичайне need to в теперішньому ствердженні.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Для підтвердження участі у виставці Тарасові потрібно надіслати листа."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Taras ___ send an email."
+                            }
+                        ],
+                        "source_item_sha256": "60ef7064b3f89660525540cd6f01261a8baedafc72c7d10f775f4488c1e7b037",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 2,
+                        "instruction_uk": "Доповни форму після needn't; wait — чекати.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Копія готова: чекати не потрібно, хоча залишатися дозволено."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "You needn't ___ for another copy."
+                            }
+                        ],
+                        "source_item_sha256": "56fd451efb77e2babe8d57f927823a8eb0d36cea308275d8648a95693e970bbf",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_index": 3,
+                        "instruction_uk": "Визнач значення: необов’язковість чи заборона?",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "На зустрічі води достатньо; приносити свою дозволено."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "You don't have to bring water."
+                            }
+                        ],
+                        "source_item_sha256": "078f02c0ba53b2f16e6dfe147af40a76a1b715d6ba6b5253f3d5773b094461d0",
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 4,
+                        "instruction_uk": "Визнач, чи надрукувала людина карту.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Спирайся на прямо названий факт."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "I didn't need to print the map, but I did anyway."
+                            }
+                        ],
+                        "source_item_sha256": "9c560650790cb655a8c3cb1e555db1830b68feb87f75d95e3c4a69ab69bbec7d",
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt",
+                            "options"
+                        ]
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_index": 5,
+                        "instruction_uk": "Побудуй речення з модальним needn't.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Нам не потрібно приносити обід завтра: його забезпечить організатор."
+                            }
+                        ],
+                        "source_item_sha256": "f1bd516f41a1539d40aeb40c4b2fe929ce9f89fa81f4727ba8db5b681164702d",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 6,
+                        "instruction_uk": "Постав запитання зі звичайним need to.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Чи потрібно Мілі принести парасолю?"
+                            }
+                        ],
+                        "source_item_sha256": "a1214ea9ebd77ad3e872a679713de23132bb01852c003ef1c985fc1a7f2fe5fb",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "modal-need-neednt-dont-have-to-selects-1",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери форму або відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-need-neednt-dont-have-to-choices-1",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Визнач значення",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-need-neednt-dont-have-to-inputs-1",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Використай слова банку: введи відповідь вручну або натискай на токени."
+                }
+            ]
+        },
+        {
+            "topic": "modals-of-deduction",
+            "projection_family": "modal-verbs-practice-compact-v1",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/modals-of-deduction",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsDeductionTheorySeeder",
+                "locale": "uk",
+                "uuid": "c2778ee4-2823-51f7-a4d6-ef838ec63e7e",
+                "sort_order": 7,
+                "page_id": 73,
+                "page_category_id": 15,
+                "type": "practice-set",
+                "column": "right",
+                "heading": null,
+                "level": "B1",
+                "css_class": null,
+                "body_sha256": "1004cff8421aca52940d8f6951acf290fa3908606c428cb136f937c21573247e"
+            },
+            "after_data_sha256": "1004cff8421aca52940d8f6951acf290fa3908606c428cb136f937c21573247e",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_index": 1,
+                        "instruction_uk": "Побудуй сильний теперішній висновок саме з must.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Нора, напевно, знає маршрут."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Nora ___ the route."
+                            }
+                        ],
+                        "source_item_sha256": "5099c63aa4ef95d10f1901cbe50810943e2a953b8c6d72b28b8085cc8086758d",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 2,
+                        "instruction_uk": "Передай припущення про процес зараз саме з might.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Можливо, вони зараз працюють нагорі."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "They ___ upstairs now."
+                            }
+                        ],
+                        "source_item_sha256": "6089fd823252b1b3b7b616a599160a4675191f0674930e347af91b2333d7da74",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_index": 3,
+                        "instruction_uk": "Визнач значення припущення.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Розкладу гіда ще не перевірили."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "The guide may not be available today."
+                            }
+                        ],
+                        "source_item_sha256": "b08742767831bb46472b862ac55d7aab506aaa14a1400c88ae7d6a3613d9e7be",
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 4,
+                        "instruction_uk": "Визнач намір другого речення.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Ми зараз бачимо й чуємо Лео в прямому відеозв’язку."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Leo is speaking to us live. He can't be asleep."
+                            }
+                        ],
+                        "source_item_sha256": "2afc2127365a912889499fcf6ad5537b639b4ce039a8c42215493ee980dc1c7c",
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt",
+                            "options"
+                        ]
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_index": 5,
+                        "instruction_uk": "Використай might + be + V-ing; почни з They.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Можливо, вони чекають надворі."
+                            }
+                        ],
+                        "source_item_sha256": "f960594338449a6d362639fa6fa3d838a2822901ec959c7879d793c16e39cb44",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 6,
+                        "instruction_uk": "Відкинь версію з can't; почни з This code.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Код точно має три цифри. Не може бути, щоб цей код мав чотири цифри."
+                            }
+                        ],
+                        "source_item_sha256": "7d726cb3bc16a2762e518b024511b2b39c3ccd603d05a26f6c93f7f5c981fed9",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "modal-modals-of-deduction-selects-1",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери форму або відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-modals-of-deduction-choices-1",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Визнач значення",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-modals-of-deduction-inputs-1",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Використай слова банку: введи відповідь вручну або натискай на токени."
+                }
+            ]
+        },
+        {
+            "topic": "past-modals",
+            "projection_family": "modal-verbs-practice-compact-v1",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/past-modals",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsPastModalsTheorySeeder",
+                "locale": "uk",
+                "uuid": "4cf1b00e-853b-540b-b8f9-f6b734396835",
+                "sort_order": 7,
+                "page_id": 77,
+                "page_category_id": 15,
+                "type": "practice-set",
+                "column": "right",
+                "heading": null,
+                "level": "B1",
+                "css_class": null,
+                "body_sha256": "6719e1f3083266f9ee307a06f92f0ebd7ccf6e7cfcf4a5a7e03ab02814aba1a2"
+            },
+            "after_data_sha256": "6719e1f3083266f9ee307a06f92f0ebd7ccf6e7cfcf4a5a7e03ab02814aba1a2",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_index": 1,
+                        "instruction_uk": "Побудуй сильний висновок про минуле саме з must have.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Власник, напевно, відчинив магазин учора."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "The owner ___ the shop yesterday."
+                            }
+                        ],
+                        "source_item_sha256": "cba8069ec0bbd7a293907d3ca8bf3e56bb532258a197c487d55b6d18924476a9",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 2,
+                        "instruction_uk": "Доповни shouldn't have: дієслово delete — видаляти.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Я видалила потрібний файл і тепер оцінюю цей вибір як помилку."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "I shouldn't have ___ the file."
+                            }
+                        ],
+                        "source_item_sha256": "a3dadc301d353bd6982442f316492d33d57f6295527b3bada5116050bd663991",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_index": 3,
+                        "instruction_uk": "Визнач значення could have у цьому контексті.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Пором був доступний Олегові; врахуй його фактичний вибір."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Oleh could have taken the ferry, but he chose the train."
+                            }
+                        ],
+                        "source_item_sha256": "9a336b04c1d44937568be01aa0b43d152b5af37be300d85777fc8e2e2756a268",
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 4,
+                        "instruction_uk": "Визнач значення should have: результат ще не перевіряли.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Завантаження запустили десять хвилин тому; зазвичай воно триває дві хвилини."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "The download should have finished by now. I haven't checked the laptop."
+                            }
+                        ],
+                        "source_item_sha256": "95e1f0042e4dea626c1d9b1f87093bdd563922462910d24c061a7c2dbb39ed97",
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt",
+                            "options"
+                        ]
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_index": 5,
+                        "instruction_uk": "Склади висновок з can't have; почни з Alex.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Повідомлення вперше написали сьогодні, ранішої версії не було. Не може бути, щоб Алекс прочитав його вчора."
+                            }
+                        ],
+                        "source_item_sha256": "20eddcab5e69e8de9b523b4dde89f6f4731003e4b6c204e99707c5e0df3af335",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 6,
+                        "instruction_uk": "Оціни минулий вибір з should not have; почни з Iryna.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Ірина розповіла таємницю всупереч домовленості. Їй не слід було розповідати таємницю."
+                            }
+                        ],
+                        "source_item_sha256": "9d92b50b8f9e2262ca82af710880d724a8147eb8e276e1434de9b196d266f693",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "modal-past-modals-selects-1",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери форму або відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-past-modals-choices-1",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Визнач значення",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-past-modals-inputs-1",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Використай слова банку: введи відповідь вручну або натискай на токени."
+                }
+            ]
+        },
+        {
+            "topic": "requests-offers-suggestions",
+            "projection_family": "modal-verbs-practice-compact-v1",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/requests-offers-suggestions",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsRequestsOffersSuggestionsTheorySeeder",
+                "locale": "uk",
+                "uuid": "fdf42bf5-7527-5c6e-9995-dbbb654471e9",
+                "sort_order": 7,
+                "page_id": 78,
+                "page_category_id": 15,
+                "type": "practice-set",
+                "column": "right",
+                "heading": null,
+                "level": "A2",
+                "css_class": null,
+                "body_sha256": "42d13ae115dfb63e1f801fa6251eac078d961d75cb3ee9f58a154678278ff530"
+            },
+            "after_data_sha256": "42d13ae115dfb63e1f801fa6251eac078d961d75cb3ee9f58a154678278ff530",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_index": 1,
+                        "instruction_uk": "Доповни прохання Could you.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Олена просить Тараса зараз допомогти з коробкою."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Could you ___ me with this box?"
+                            }
+                        ],
+                        "source_item_sha256": "a4077ad03f38cd9b530e80190e64c5faa6a81df1c23fbf2f93df9b431fbc1990",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 2,
+                        "instruction_uk": "Доповни запрошення Would you like.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Оля запрошує Іру піти з нею."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Would you like ___ with me?"
+                            }
+                        ],
+                        "source_item_sha256": "b18e17ede4d86c3368df642255d14f02f416fedba822fc7462a786a75ff678d3",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_index": 3,
+                        "instruction_uk": "Марта звертається до колеги. Хто пропонує друкувати?",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "Would you like me to print the tickets?"
+                            }
+                        ],
+                        "source_item_sha256": "622848e81815e46901b3d333fb4a1fa772524a3349f1710915e93dc072602eb9",
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 4,
+                        "instruction_uk": "Визнач намір Олега.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Олег і друг планують зустріч; попередньої невдалої зустрічі не було."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Why don't we meet at six?"
+                            }
+                        ],
+                        "source_item_sha256": "f31af51a2775853bd098701059d857d46ed834b2db29a33f4ea339a1cee107f4",
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt",
+                            "options"
+                        ]
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_index": 5,
+                        "instruction_uk": "Попроси співрозмовника; почни з Would you.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Не зачиниш хвіртку, будь ласка?"
+                            }
+                        ],
+                        "source_item_sha256": "153d342561e4b4ed88627331a204ddf715b2f7c44c833ec04ec8df342b85c4cc",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 6,
+                        "instruction_uk": "Запропонуй спільний план із Let's not або Let us not.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Давай не залишатимемо сумки тут."
+                            }
+                        ],
+                        "source_item_sha256": "3f7414261176656d4269beee06715b5b3001579e02f12375f8ebc7ecacd3c859",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "modal-requests-offers-suggestions-selects-1",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери форму або відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-requests-offers-suggestions-choices-1",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Визнач значення",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-requests-offers-suggestions-inputs-1",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Використай слова банку: введи відповідь вручну або натискай на токени."
+                }
+            ]
+        },
+        {
+            "topic": "can-could",
+            "projection_family": "modal-verbs-practice-compact-v1",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/can-could",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsCanCouldTheorySeeder",
+                "locale": "uk",
+                "uuid": "240cf788-b9ba-547d-8b31-1672a489235a",
+                "sort_order": 8,
+                "page_id": 72,
+                "page_category_id": 15,
+                "type": "practice-set",
+                "column": "right",
+                "heading": null,
+                "level": "A1",
+                "css_class": null,
+                "body_sha256": "758047950be364b46e2c95cc876317a78e61145544789dd6835f9dbb43c97c35"
+            },
+            "after_data_sha256": "21418c659ce57ea149320e7ed4afe2fdb5936ea76ecc02f449fd93021a32a59c",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_index": 1,
+                        "instruction_uk": "Доповни речення про теперішнє вміння.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Ліна добре плаває."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Lina ___ swim well."
+                            }
+                        ],
+                        "source_item_sha256": "e7d6db95aee6130b5a32cf2c961d5287212a073a726585f9ffde4b71b39b01f0",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 2,
+                        "instruction_uk": "Обери минулу форму здатності.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Йдеться про вміння Бена у вісім років, не зараз."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "At eight, Ben ___ read short books."
+                            }
+                        ],
+                        "source_item_sha256": "8732a594e65818ed2ddce8d7a21ec4c0595dcf1eb7430e012d08814e8639b6ca",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_index": 3,
+                        "instruction_uk": "Запитай дозволу самому відчинити вікно.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Відчиняти маєш ти, не вчитель."
+                            }
+                        ],
+                        "source_item_sha256": "fae3f85132a8d72822bb06688c8149b841b85d556d6106ad2935aae9afe1eedd",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 4,
+                        "instruction_uk": "Попроси друга зателефонувати після заняття.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Дзвонити має друг, не ти."
+                            }
+                        ],
+                        "source_item_sha256": "34efc79f720a9e4c43ed14c32f05e72e6d0ff9c11fc11fc0b1331b5dbff2c541",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 2,
+                        "source_index": 5,
+                        "instruction_uk": "Обери повідомлення про можливу зустріч.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Іра знає, що завтра о п’ятій буде вільна й зможе зустрітися."
+                            }
+                        ],
+                        "source_item_sha256": "e18a6207439eafd6a626de1cdf4a953448ddff46801dd3f1c55d80de72d8f796",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 3,
+                        "source_index": 6,
+                        "instruction_uk": "Обери повідомлення про завершений успіх.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Учора ти полагодив несправний принтер; тепер він друкує."
+                            }
+                        ],
+                        "source_item_sha256": "f14717b8cc60cf32b9058edd7233886ca71883db6c12c47917ca955bfb815b1c",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_index": 7,
+                        "instruction_uk": "Побудуй речення про теперішню нездатність.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Мій маленький брат ще не вміє ходити."
+                            }
+                        ],
+                        "source_item_sha256": "9523e996bb65243df70c2f20e48dc05383bedd621ad0c0e38cb3d8c1e58e5ad7",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 8,
+                        "instruction_uk": "Попроси сусіда передати сіль.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Не міг би ти передати мені сіль? Передавати має сусід."
+                            }
+                        ],
+                        "source_item_sha256": "635bda1464401f9d189ff81d9c42080a94403ea1c377f587be1062b3e8f945d0",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "modal-can-could-selects-1",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери форму або відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-can-could-choices-1",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Визнач значення",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-can-could-choices-2",
+                    "kind": "choices",
+                    "indices": [
+                        2,
+                        3
+                    ],
+                    "title": "Визнач значення",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-can-could-inputs-1",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Використай слова банку: введи відповідь вручну або натискай на токени."
+                }
+            ]
+        },
+        {
+            "topic": "may-might",
+            "projection_family": "modal-verbs-practice-compact-v1",
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/may-might",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsMayMightTheorySeeder",
+                "locale": "uk",
+                "uuid": "83055bed-7a20-579c-9bac-6824d4df325e",
+                "sort_order": 7,
+                "page_id": 74,
+                "page_category_id": 15,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "A2",
+                "css_class": null,
+                "body_sha256": "e52e7b0bd020619fdf749b6d40ca1712367205db5087e89f0159cc43adf34399"
+            },
+            "after_data_sha256": "54076278512ba570ba759047cae177279efb78dbb20162f0f3575acc8aa70536",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_index": 1,
+                        "instruction_uk": "Передай можливість, а не певний факт.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Планів Лесі на завтра не знаємо; різниці у впевненості не задано."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Lesia ___ visit us tomorrow."
+                            }
+                        ],
+                        "source_item_sha256": "69f5a67affe9e66ce0ce29f77e11e065129c63417185881cc95ab8ae47c8a66f",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 2,
+                        "instruction_uk": "Доповни форму після might; дієслово arrive — приїхати.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Можливо, він приїде до обіду."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "He might ___ before lunch."
+                            }
+                        ],
+                        "source_item_sha256": "eedb1ce227e8f1cf35966194c89dc88e4ee034a4977069c21e05d5ab8f52cdf7",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 2,
+                        "source_index": 3,
+                        "instruction_uk": "Обери форму для наведеного порядку слів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Марка ще немає на зустрічі; припускаємо, що він запізнюється."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Mark ___ late."
+                            }
+                        ],
+                        "source_item_sha256": "e12cfc0213d33386c6b96e7eb33a0a4e8a1f257055d2534217f4902d002369d4",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 3,
+                        "source_index": 4,
+                        "instruction_uk": "Передай можливість того, що магазин буде зачинений.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Завтрашнього графіка ще не знаємо."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "The shop ___ open tomorrow."
+                            }
+                        ],
+                        "source_item_sha256": "d74398fd6bfe3bbe3475c367403a275b5024ff71ea8bb86f750cceabe36ffbe1",
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_index": 5,
+                        "instruction_uk": "Бібліотекар пояснює правило. Визнач значення.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Ці книжки читають лише в залі."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "You may not take these books home."
+                            }
+                        ],
+                        "option_labels": {
+                            "a": "Вам не дозволено брати ці книжки додому.",
+                            "b": "Можливо, ви не візьмете ці книжки додому."
+                        },
+                        "source_item_sha256": "556e98b142f5b2b53a5529af56457be610bcfc5aa86bb04a3ea193fa61d0ac27",
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 6,
+                        "instruction_uk": "Запитай дозволу самому відчинити вікно.",
+                        "stimuli": [],
+                        "option_labels": {
+                            "a": "May you open the window?",
+                            "b": "May I open the window?"
+                        },
+                        "source_item_sha256": "15bb1d5bfc4357be1e2bdc6496e55376cca8daa55b0ff9a5f17a8bf796518a08",
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt"
+                        ]
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_index": 7,
+                        "instruction_uk": "Склади припущення, не перетворюючи його на факт.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Ключі, можливо, на кухні. Ми ще не знаємо, де вони."
+                            }
+                        ],
+                        "source_item_sha256": "b01fd56eb4430a4a0a2f4a9f11aa9befdc47636fbe813be81b99f81bb207dce8",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_index": 8,
+                        "instruction_uk": "Запитай дозволу для всієї вашої групи.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Можна нам зробити тут одне фото? Фотографуватимете ви самі."
+                            }
+                        ],
+                        "source_item_sha256": "1ee214209af385899df553f07fa0e2fd306b49d71ffb35dcdb30bbaefb0731c0",
+                        "deferred_source_fields": [
+                            "after"
+                        ]
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "modal-may-might-selects-1",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери форму або відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-may-might-selects-2",
+                    "kind": "selects",
+                    "indices": [
+                        2,
+                        3
+                    ],
+                    "title": "Обери форму або відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-may-might-choices-1",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Визнач значення",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "modal-may-might-inputs-1",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Використай слова банку: введи відповідь вручну або натискай на токени."
+                }
+            ]
+        }
+    ]
+}

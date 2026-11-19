@@ -1,0 +1,1809 @@
+{
+    "schema_version": 1,
+    "quality_revision": "aaq-v1",
+    "compiled_from": {
+        "path": "docs/content/adjectives-adverbs-quality/adverbs.v1.json",
+        "sha256": "806b74ea9951397c5f58f7cbad58607a6fe168cd669ed051f50c8d3a3fba4539"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Adjectives\\UkrainianMixedAdjectivesVsAdverbsQualityStandardSeeder",
+        "uuid_namespace": "adjectives-adverbs-quality-adverbs-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Adjectives and Adverbs"
+    },
+    "sources": {
+        "adjectives_adverbs_quality_adverbs": {
+            "name": "Adjectives and Adverbs Quality: Прикметники та прислівники: ознака і спосіб дії"
+        }
+    },
+    "tags": {
+        "category_topic": {
+            "name": "Adjectives and adverbs usage",
+            "category": "topic"
+        },
+        "page_topic": {
+            "name": "Adjectives vs Adverbs",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "category_topic",
+        "page_topic"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "aaq-adverbs-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The soup smells {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Суп приємно пахне.",
+            "target_text": "The soup smells good.",
+            "markers": {
+                "a1": {
+                    "answer": "good",
+                    "options": [
+                        "good",
+                        "well",
+                        "better"
+                    ],
+                    "verb_hint": "Приємний запах: після дієслова сприйняття назвіть ознаку, а не спосіб дії."
+                }
+            },
+            "verb_hint": "Приємний запах: після дієслова сприйняття назвіть ознаку, а не спосіб дії.",
+            "accepted_target_texts": [
+                "The soup smells good.",
+                "The soup smells nice."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "nice"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "nice"
+                ]
+            },
+            "reorder_groups": [
+                "The soup",
+                "smells",
+                "good."
+            ],
+            "token_groups": [
+                "The soup",
+                "smells",
+                "good."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "aaq-adverbs-a1-g02",
+            "author_id": "A1-g02",
+            "question": "She sings {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Вона гарно співає.",
+            "target_text": "She sings beautifully.",
+            "markers": {
+                "a1": {
+                    "answer": "beautifully",
+                    "options": [
+                        "beautifully",
+                        "beautiful",
+                        "beauty"
+                    ],
+                    "verb_hint": "Гарно, приємно для слухача: опишіть спосіб співу прислівником."
+                }
+            },
+            "verb_hint": "Гарно, приємно для слухача: опишіть спосіб співу прислівником.",
+            "accepted_target_texts": [
+                "She sings beautifully.",
+                "She sings nicely."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "nicely"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "nicely"
+                ]
+            },
+            "reorder_groups": [
+                "She",
+                "sings",
+                "beautifully."
+            ],
+            "token_groups": [
+                "She",
+                "sings",
+                "beautifully."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "aaq-adverbs-a1-g03",
+            "author_id": "A1-g03",
+            "question": "The children were very {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Діти були дуже тихі.",
+            "target_text": "The children were very quiet.",
+            "markers": {
+                "a1": {
+                    "answer": "quiet",
+                    "options": [
+                        "quiet",
+                        "quietly",
+                        "quietness"
+                    ],
+                    "verb_hint": "Тихі, без шуму: потрібна ознака після дієслова стану, не опис дії."
+                }
+            },
+            "verb_hint": "Тихі, без шуму: потрібна ознака після дієслова стану, не опис дії.",
+            "accepted_target_texts": [
+                "The children were very quiet.",
+                "The children were very silent."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "silent"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "silent"
+                ]
+            },
+            "reorder_groups": [
+                "The children",
+                "were very",
+                "quiet."
+            ],
+            "token_groups": [
+                "The children",
+                "were very",
+                "quiet."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "aaq-adverbs-a1-g04",
+            "author_id": "A1-g04",
+            "question": "He answered the teacher {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Він відповів учителю ввічливо.",
+            "target_text": "He answered the teacher politely.",
+            "markers": {
+                "a1": {
+                    "answer": "politely",
+                    "options": [
+                        "politely",
+                        "polite",
+                        "politeness"
+                    ],
+                    "verb_hint": "Ввічливо, чемно: слово описує те, як пролунала відповідь."
+                }
+            },
+            "verb_hint": "Ввічливо, чемно: слово описує те, як пролунала відповідь.",
+            "accepted_target_texts": [
+                "He answered the teacher politely.",
+                "He answered the teacher courteously."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "courteously"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "courteously"
+                ]
+            },
+            "reorder_groups": [
+                "He answered",
+                "the teacher",
+                "politely."
+            ],
+            "token_groups": [
+                "He answered",
+                "the teacher",
+                "politely."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "aaq-adverbs-a1-g05",
+            "author_id": "A1-g05",
+            "question": "This coffee tastes {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Ця кава має міцний смак.",
+            "target_text": "This coffee tastes strong.",
+            "markers": {
+                "a1": {
+                    "answer": "strong",
+                    "options": [
+                        "strong",
+                        "strongly",
+                        "strength"
+                    ],
+                    "verb_hint": "Міцний, насичений смак: прикметник називає властивість кави після дієслова сприйняття."
+                }
+            },
+            "verb_hint": "Міцний, насичений смак: прикметник називає властивість кави після дієслова сприйняття.",
+            "accepted_target_texts": [
+                "This coffee tastes strong.",
+                "This coffee tastes intense."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "intense"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "intense"
+                ]
+            },
+            "reorder_groups": [
+                "This coffee",
+                "tastes",
+                "strong."
+            ],
+            "token_groups": [
+                "This coffee",
+                "tastes",
+                "strong."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "aaq-adverbs-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The train moved {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Поїзд рухався повільно.",
+            "target_text": "The train moved slowly.",
+            "markers": {
+                "a1": {
+                    "answer": "slowly",
+                    "options": [
+                        "slowly",
+                        "slowness",
+                        "slowest"
+                    ],
+                    "verb_hint": "Повільно, у неквапливому темпі: потрібен опис руху, не назва властивості."
+                }
+            },
+            "verb_hint": "Повільно, у неквапливому темпі: потрібен опис руху, не назва властивості.",
+            "accepted_target_texts": [
+                "The train moved slowly.",
+                "The train moved at low speed."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "at low speed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "at low speed"
+                ]
+            },
+            "reorder_groups": [
+                "The train",
+                "moved",
+                "slowly."
+            ],
+            "token_groups": [
+                "The train",
+                "moved",
+                "slowly."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "aaq-adverbs-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Please drive more {a1} tonight.",
+            "level": "A2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Будь ласка, сьогодні ввечері їдь обережніше.",
+            "target_text": "Please drive more carefully tonight.",
+            "markers": {
+                "a1": {
+                    "answer": "carefully",
+                    "options": [
+                        "carefully",
+                        "careful",
+                        "care"
+                    ],
+                    "verb_hint": "Обережніше, з більшою увагою до небезпеки: після вже поданого слова порівняння введіть прислівник."
+                }
+            },
+            "verb_hint": "Обережніше, з більшою увагою до небезпеки: після вже поданого слова порівняння введіть прислівник.",
+            "accepted_target_texts": [
+                "Please drive more carefully tonight.",
+                "Please drive more cautiously tonight."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "cautiously"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "cautiously"
+                ]
+            },
+            "reorder_groups": [
+                "Please drive",
+                "more carefully",
+                "tonight."
+            ],
+            "token_groups": [
+                "Please drive",
+                "more carefully",
+                "tonight."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "aaq-adverbs-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The children stayed {a1} during the film.",
+            "level": "A2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Діти залишалися тихими протягом фільму.",
+            "target_text": "The children stayed quiet during the film.",
+            "markers": {
+                "a1": {
+                    "answer": "quiet",
+                    "options": [
+                        "quiet",
+                        "quietly",
+                        "quietness"
+                    ],
+                    "verb_hint": "Залишалися тихими, не розмовляли: прикметник після дієслова збереження стану."
+                }
+            },
+            "verb_hint": "Залишалися тихими, не розмовляли: прикметник після дієслова збереження стану.",
+            "accepted_target_texts": [
+                "The children stayed quiet during the film.",
+                "The children stayed silent during the film."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "silent"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "silent"
+                ]
+            },
+            "reorder_groups": [
+                "The children",
+                "stayed quiet",
+                "during the film."
+            ],
+            "token_groups": [
+                "The children",
+                "stayed quiet",
+                "during the film."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "aaq-adverbs-a2-g03",
+            "author_id": "A2-g03",
+            "question": "She smiled {a1} when she saw us.",
+            "level": "A2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Вона радісно усміхнулася, коли побачила нас.",
+            "target_text": "She smiled happily when she saw us.",
+            "markers": {
+                "a1": {
+                    "answer": "happily",
+                    "options": [
+                        "happily",
+                        "happy",
+                        "happiness"
+                    ],
+                    "verb_hint": "Радісно, весело: слово пояснює, як саме людина усміхнулася, побачивши знайомих."
+                }
+            },
+            "verb_hint": "Радісно, весело: слово пояснює, як саме людина усміхнулася, побачивши знайомих.",
+            "accepted_target_texts": [
+                "She smiled happily when she saw us.",
+                "She smiled cheerfully when she saw us."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "cheerfully"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "cheerfully"
+                ]
+            },
+            "reorder_groups": [
+                "She smiled",
+                "happily",
+                "when she",
+                "saw us."
+            ],
+            "token_groups": [
+                "She smiled",
+                "happily",
+                "when she",
+                "saw us."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "aaq-adverbs-a2-g04",
+            "author_id": "A2-g04",
+            "question": "This exercise is {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Ця вправа легка.",
+            "target_text": "This exercise is easy.",
+            "markers": {
+                "a1": {
+                    "answer": "easy",
+                    "options": [
+                        "easy",
+                        "easily",
+                        "ease"
+                    ],
+                    "verb_hint": "Легка, нескладна вправа: назвіть її ознаку прикметником після дієслова стану."
+                }
+            },
+            "verb_hint": "Легка, нескладна вправа: назвіть її ознаку прикметником після дієслова стану.",
+            "accepted_target_texts": [
+                "This exercise is easy.",
+                "This exercise is simple."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "simple"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "simple"
+                ]
+            },
+            "reorder_groups": [
+                "This exercise",
+                "is",
+                "easy."
+            ],
+            "token_groups": [
+                "This exercise",
+                "is",
+                "easy."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "aaq-adverbs-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Your idea sounds {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Твоя ідея здається хорошою.",
+            "target_text": "Your idea sounds good.",
+            "markers": {
+                "a1": {
+                    "answer": "good",
+                    "options": [
+                        "good",
+                        "well",
+                        "goodness"
+                    ],
+                    "verb_hint": "Хороша, вдала ідея: оцініть її прикметником після дієслова враження."
+                }
+            },
+            "verb_hint": "Хороша, вдала ідея: оцініть її прикметником після дієслова враження.",
+            "accepted_target_texts": [
+                "Your idea sounds good.",
+                "Your idea sounds great."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "great"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "great"
+                ]
+            },
+            "reorder_groups": [
+                "Your idea",
+                "sounds",
+                "good."
+            ],
+            "token_groups": [
+                "Your idea",
+                "sounds",
+                "good."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "aaq-adverbs-a2-g06",
+            "author_id": "A2-g06",
+            "question": "I have been very {a1} lately.",
+            "level": "A2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Останнім часом я був дуже зайнятий.",
+            "target_text": "I have been very busy lately.",
+            "markers": {
+                "a1": {
+                    "answer": "busy",
+                    "options": [
+                        "busy",
+                        "busily",
+                        "busyness"
+                    ],
+                    "verb_hint": "Зайнятий справами останнім часом: після вже поданих допоміжних слів потрібен прикметник стану."
+                }
+            },
+            "verb_hint": "Зайнятий справами останнім часом: після вже поданих допоміжних слів потрібен прикметник стану.",
+            "accepted_target_texts": [
+                "I have been very busy lately.",
+                "I have been very occupied lately."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "occupied"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "occupied"
+                ]
+            },
+            "reorder_groups": [
+                "I have been",
+                "very busy",
+                "lately."
+            ],
+            "token_groups": [
+                "I have been",
+                "very busy",
+                "lately."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "aaq-adverbs-b1-g01",
+            "author_id": "B1-g01",
+            "question": "She looked {a1} at the map and then turned left.",
+            "level": "B1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Вона ненадовго глянула на карту, а потім повернула ліворуч.",
+            "target_text": "She looked briefly at the map and then turned left.",
+            "markers": {
+                "a1": {
+                    "answer": "briefly",
+                    "options": [
+                        "briefly",
+                        "brief",
+                        "brevity"
+                    ],
+                    "verb_hint": "Ненадовго, на мить: опишіть тривалість погляду на карту, не властивість людини."
+                }
+            },
+            "verb_hint": "Ненадовго, на мить: опишіть тривалість погляду на карту, не властивість людини.",
+            "accepted_target_texts": [
+                "She looked briefly at the map and then turned left.",
+                "She looked for a moment at the map and then turned left."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "for a moment"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "for a moment"
+                ]
+            },
+            "reorder_groups": [
+                "She looked",
+                "briefly",
+                "at the map",
+                "and then",
+                "turned left."
+            ],
+            "token_groups": [
+                "She looked",
+                "briefly",
+                "at the map",
+                "and then",
+                "turned left."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "aaq-adverbs-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The explanation was surprisingly {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Пояснення було напрочуд зрозумілим.",
+            "target_text": "The explanation was surprisingly clear.",
+            "markers": {
+                "a1": {
+                    "answer": "clear",
+                    "options": [
+                        "clear",
+                        "clearly",
+                        "clarity"
+                    ],
+                    "verb_hint": "Зрозуміле, ясне пояснення: прислівник несподіваного ступеня вже наведено, введіть прикметник."
+                }
+            },
+            "verb_hint": "Зрозуміле, ясне пояснення: прислівник несподіваного ступеня вже наведено, введіть прикметник.",
+            "accepted_target_texts": [
+                "The explanation was surprisingly clear.",
+                "The explanation was surprisingly understandable."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "understandable"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "understandable"
+                ]
+            },
+            "reorder_groups": [
+                "The explanation",
+                "was surprisingly",
+                "clear."
+            ],
+            "token_groups": [
+                "The explanation",
+                "was surprisingly",
+                "clear."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "aaq-adverbs-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The scientist is {a1} regarded in her field.",
+            "level": "B1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Науковицю високо цінують у її галузі.",
+            "target_text": "The scientist is highly regarded in her field.",
+            "markers": {
+                "a1": {
+                    "answer": "highly",
+                    "options": [
+                        "highly",
+                        "high",
+                        "height"
+                    ],
+                    "verb_hint": "Високо цінують, добре про неї думають: прислівник ступеня поваги, не фізична висота."
+                }
+            },
+            "verb_hint": "Високо цінують, добре про неї думають: прислівник ступеня поваги, не фізична висота.",
+            "accepted_target_texts": [
+                "The scientist is highly regarded in her field.",
+                "The scientist is well regarded in her field."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "well"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "well"
+                ]
+            },
+            "reorder_groups": [
+                "The scientist",
+                "is highly regarded",
+                "in her field."
+            ],
+            "token_groups": [
+                "The scientist",
+                "is highly regarded",
+                "in her field."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "aaq-adverbs-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The committee remained {a1} calm during the debate.",
+            "level": "B1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Під час дебатів комітет залишався незвично спокійним.",
+            "target_text": "The committee remained remarkably calm during the debate.",
+            "markers": {
+                "a1": {
+                    "answer": "remarkably",
+                    "options": [
+                        "remarkably",
+                        "remarkable",
+                        "remark"
+                    ],
+                    "verb_hint": "Незвично, напрочуд спокійний стан: пропуск підсилює прикметник спокою, а не називає окрему ознаку."
+                }
+            },
+            "verb_hint": "Незвично, напрочуд спокійний стан: пропуск підсилює прикметник спокою, а не називає окрему ознаку.",
+            "accepted_target_texts": [
+                "The committee remained remarkably calm during the debate.",
+                "The committee remained unusually calm during the debate."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "unusually"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "unusually"
+                ]
+            },
+            "reorder_groups": [
+                "The committee",
+                "remained remarkably calm",
+                "during the debate."
+            ],
+            "token_groups": [
+                "The committee",
+                "remained remarkably calm",
+                "during the debate."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "aaq-adverbs-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Her answer was {a1} different from mine.",
+            "level": "B1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Її відповідь цілком відрізнялася від моєї.",
+            "target_text": "Her answer was completely different from mine.",
+            "markers": {
+                "a1": {
+                    "answer": "completely",
+                    "options": [
+                        "completely",
+                        "complete",
+                        "completion"
+                    ],
+                    "verb_hint": "Цілком, повністю інша відповідь: потрібен прислівник повного ступеня відмінності."
+                }
+            },
+            "verb_hint": "Цілком, повністю інша відповідь: потрібен прислівник повного ступеня відмінності.",
+            "accepted_target_texts": [
+                "Her answer was completely different from mine.",
+                "Her answer was entirely different from mine.",
+                "Her answer was totally different from mine."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "entirely",
+                    "totally"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "entirely",
+                    "totally"
+                ]
+            },
+            "reorder_groups": [
+                "Her answer",
+                "was completely different",
+                "from mine."
+            ],
+            "token_groups": [
+                "Her answer",
+                "was completely different",
+                "from mine."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "aaq-adverbs-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The patient felt {a1} after the long journey.",
+            "level": "B1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Після довгої подорожі пацієнт почувався слабким.",
+            "target_text": "The patient felt weak after the long journey.",
+            "markers": {
+                "a1": {
+                    "answer": "weak",
+                    "options": [
+                        "weak",
+                        "weakly",
+                        "weakness"
+                    ],
+                    "verb_hint": "Слабкий, знесилений стан після подорожі: прикметник після дієслова самопочуття."
+                }
+            },
+            "verb_hint": "Слабкий, знесилений стан після подорожі: прикметник після дієслова самопочуття.",
+            "accepted_target_texts": [
+                "The patient felt weak after the long journey.",
+                "The patient felt feeble after the long journey."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "feeble"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "feeble"
+                ]
+            },
+            "reorder_groups": [
+                "The patient",
+                "felt weak",
+                "after the",
+                "long journey."
+            ],
+            "token_groups": [
+                "The patient",
+                "felt weak",
+                "after the",
+                "long journey."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "aaq-adverbs-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The witness sounded {a1} unconvinced by the explanation.",
+            "level": "B2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Здавалося, свідка справді не переконало це пояснення.",
+            "target_text": "The witness sounded genuinely unconvinced by the explanation.",
+            "markers": {
+                "a1": {
+                    "answer": "genuinely",
+                    "options": [
+                        "genuinely",
+                        "genuine",
+                        "genuineness"
+                    ],
+                    "verb_hint": "Справді, дійсно не переконаний: прислівник підкреслює автентичність сумніву свідка."
+                }
+            },
+            "verb_hint": "Справді, дійсно не переконаний: прислівник підкреслює автентичність сумніву свідка.",
+            "accepted_target_texts": [
+                "The witness sounded genuinely unconvinced by the explanation.",
+                "The witness sounded truly unconvinced by the explanation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "truly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "truly"
+                ]
+            },
+            "reorder_groups": [
+                "The witness",
+                "sounded genuinely unconvinced",
+                "by the explanation."
+            ],
+            "token_groups": [
+                "The witness",
+                "sounded genuinely unconvinced",
+                "by the explanation."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "aaq-adverbs-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The machine is {a1} quiet for its size.",
+            "level": "B2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Як на свій розмір, машина винятково тиха.",
+            "target_text": "The machine is exceptionally quiet for its size.",
+            "markers": {
+                "a1": {
+                    "answer": "exceptionally",
+                    "options": [
+                        "exceptionally",
+                        "exceptional",
+                        "exception"
+                    ],
+                    "verb_hint": "Винятково, незвично тиха робота машини: прислівник дуже високого ступеня перед ознакою."
+                }
+            },
+            "verb_hint": "Винятково, незвично тиха робота машини: прислівник дуже високого ступеня перед ознакою.",
+            "accepted_target_texts": [
+                "The machine is exceptionally quiet for its size.",
+                "The machine is unusually quiet for its size.",
+                "The machine is remarkably quiet for its size."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "unusually",
+                    "remarkably"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "unusually",
+                    "remarkably"
+                ]
+            },
+            "reorder_groups": [
+                "The machine",
+                "is exceptionally quiet",
+                "for its size."
+            ],
+            "token_groups": [
+                "The machine",
+                "is exceptionally quiet",
+                "for its size."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "aaq-adverbs-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The speaker argued {a1} enough to win the room.",
+            "level": "B2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Промовець аргументував достатньо переконливо, щоб завоювати аудиторію.",
+            "target_text": "The speaker argued persuasively enough to win the room.",
+            "markers": {
+                "a1": {
+                    "answer": "persuasively",
+                    "options": [
+                        "persuasively",
+                        "persuasive",
+                        "persuasion"
+                    ],
+                    "verb_hint": "Переконливо: пропуск описує спосіб аргументації, достатній для підтримки аудиторії."
+                }
+            },
+            "verb_hint": "Переконливо: пропуск описує спосіб аргументації, достатній для підтримки аудиторії.",
+            "accepted_target_texts": [
+                "The speaker argued persuasively enough to win the room.",
+                "The speaker argued convincingly enough to win the room."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "convincingly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "convincingly"
+                ]
+            },
+            "reorder_groups": [
+                "The speaker",
+                "argued persuasively enough",
+                "to win",
+                "the room."
+            ],
+            "token_groups": [
+                "The speaker",
+                "argued persuasively enough",
+                "to win",
+                "the room."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "aaq-adverbs-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The proposal seems politically {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Пропозиція здається політично ризикованою.",
+            "target_text": "The proposal seems politically risky.",
+            "markers": {
+                "a1": {
+                    "answer": "risky",
+                    "options": [
+                        "risky",
+                        "riskily",
+                        "risk"
+                    ],
+                    "verb_hint": "Ризикована, небезпечна з політичного погляду пропозиція: прикметник після вже наведеного прислівника."
+                }
+            },
+            "verb_hint": "Ризикована, небезпечна з політичного погляду пропозиція: прикметник після вже наведеного прислівника.",
+            "accepted_target_texts": [
+                "The proposal seems politically risky.",
+                "The proposal seems politically hazardous."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "hazardous"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "hazardous"
+                ]
+            },
+            "reorder_groups": [
+                "The proposal",
+                "seems politically",
+                "risky."
+            ],
+            "token_groups": [
+                "The proposal",
+                "seems politically",
+                "risky."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "aaq-adverbs-b2-g05",
+            "author_id": "B2-g05",
+            "question": "She reacted {a1} when the schedule changed.",
+            "level": "B2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Вона спокійно відреагувала на зміну розкладу.",
+            "target_text": "She reacted calmly when the schedule changed.",
+            "markers": {
+                "a1": {
+                    "answer": "calmly",
+                    "options": [
+                        "calmly",
+                        "calm",
+                        "calmness"
+                    ],
+                    "verb_hint": "Спокійно, зберігаючи самовладання: прислівник способу реакції на зміну планів."
+                }
+            },
+            "verb_hint": "Спокійно, зберігаючи самовладання: прислівник способу реакції на зміну планів.",
+            "accepted_target_texts": [
+                "She reacted calmly when the schedule changed.",
+                "She reacted composedly when the schedule changed."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "composedly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "composedly"
+                ]
+            },
+            "reorder_groups": [
+                "She reacted",
+                "calmly",
+                "when the schedule",
+                "changed."
+            ],
+            "token_groups": [
+                "She reacted",
+                "calmly",
+                "when the schedule",
+                "changed."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "aaq-adverbs-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The corridor was {a1} lit and hard to navigate.",
+            "level": "B2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Коридор був погано освітлений, тому ним було важко пройти.",
+            "target_text": "The corridor was poorly lit and hard to navigate.",
+            "markers": {
+                "a1": {
+                    "answer": "poorly",
+                    "options": [
+                        "poorly",
+                        "poor",
+                        "poverty"
+                    ],
+                    "verb_hint": "Погано, тьмяно освітлений коридор: прислівник уточнює якість освітлення."
+                }
+            },
+            "verb_hint": "Погано, тьмяно освітлений коридор: прислівник уточнює якість освітлення.",
+            "accepted_target_texts": [
+                "The corridor was poorly lit and hard to navigate.",
+                "The corridor was badly lit and hard to navigate.",
+                "The corridor was dimly lit and hard to navigate."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "badly",
+                    "dimly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "badly",
+                    "dimly"
+                ]
+            },
+            "reorder_groups": [
+                "The corridor",
+                "was poorly lit",
+                "and hard",
+                "to navigate."
+            ],
+            "token_groups": [
+                "The corridor",
+                "was poorly lit",
+                "and hard",
+                "to navigate."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "aaq-adverbs-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The plan appears economically {a1} but ethically doubtful.",
+            "level": "C1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "План виглядає економічно обґрунтованим, але етично сумнівним.",
+            "target_text": "The plan appears economically sound but ethically doubtful.",
+            "markers": {
+                "a1": {
+                    "answer": "sound",
+                    "options": [
+                        "sound",
+                        "soundly",
+                        "soundness"
+                    ],
+                    "verb_hint": "Економічно обґрунтований, життєздатний план: прикметник після дієслова враження й уже наведеного прислівника."
+                }
+            },
+            "verb_hint": "Економічно обґрунтований, життєздатний план: прикметник після дієслова враження й уже наведеного прислівника.",
+            "accepted_target_texts": [
+                "The plan appears economically sound but ethically doubtful.",
+                "The plan appears economically viable but ethically doubtful."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "viable"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "viable"
+                ]
+            },
+            "reorder_groups": [
+                "The plan",
+                "appears economically sound",
+                "but ethically doubtful."
+            ],
+            "token_groups": [
+                "The plan",
+                "appears economically sound",
+                "but ethically doubtful."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "aaq-adverbs-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The diplomats responded {a1} to the provocation.",
+            "level": "C1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Дипломати обережно відреагували на провокацію.",
+            "target_text": "The diplomats responded cautiously to the provocation.",
+            "markers": {
+                "a1": {
+                    "answer": "cautiously",
+                    "options": [
+                        "cautiously",
+                        "cautious",
+                        "caution"
+                    ],
+                    "verb_hint": "Обережно, обачно відреагували на провокацію: прислівник способу дипломатичної відповіді."
+                }
+            },
+            "verb_hint": "Обережно, обачно відреагували на провокацію: прислівник способу дипломатичної відповіді.",
+            "accepted_target_texts": [
+                "The diplomats responded cautiously to the provocation.",
+                "The diplomats responded carefully to the provocation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "carefully"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "carefully"
+                ]
+            },
+            "reorder_groups": [
+                "The diplomats",
+                "responded cautiously",
+                "to the provocation."
+            ],
+            "token_groups": [
+                "The diplomats",
+                "responded cautiously",
+                "to the provocation."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "aaq-adverbs-c1-g03",
+            "author_id": "C1-g03",
+            "question": "His reasoning is internally {a1} but factually weak.",
+            "level": "C1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Його міркування внутрішньо послідовні, але слабкі з погляду фактів.",
+            "target_text": "His reasoning is internally consistent but factually weak.",
+            "markers": {
+                "a1": {
+                    "answer": "consistent",
+                    "options": [
+                        "consistent",
+                        "consistently",
+                        "consistency"
+                    ],
+                    "verb_hint": "Внутрішньо послідовне, логічно узгоджене міркування: прикметник, що протиставляється фактичній слабкості."
+                }
+            },
+            "verb_hint": "Внутрішньо послідовне, логічно узгоджене міркування: прикметник, що протиставляється фактичній слабкості.",
+            "accepted_target_texts": [
+                "His reasoning is internally consistent but factually weak.",
+                "His reasoning is internally coherent but factually weak."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "coherent"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "coherent"
+                ]
+            },
+            "reorder_groups": [
+                "His reasoning",
+                "is internally consistent",
+                "but factually weak."
+            ],
+            "token_groups": [
+                "His reasoning",
+                "is internally consistent",
+                "but factually weak."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "aaq-adverbs-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The author writes {a1} without sounding arrogant.",
+            "level": "C1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Автор пише впевнено, але не звучить зарозуміло.",
+            "target_text": "The author writes confidently without sounding arrogant.",
+            "markers": {
+                "a1": {
+                    "answer": "confidently",
+                    "options": [
+                        "confidently",
+                        "confident",
+                        "confidence"
+                    ],
+                    "verb_hint": "Впевнено, із певністю: прислівник способу письма, який не означає зарозумілість."
+                }
+            },
+            "verb_hint": "Впевнено, із певністю: прислівник способу письма, який не означає зарозумілість.",
+            "accepted_target_texts": [
+                "The author writes confidently without sounding arrogant.",
+                "The author writes assuredly without sounding arrogant."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "assuredly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "assuredly"
+                ]
+            },
+            "reorder_groups": [
+                "The author",
+                "writes confidently",
+                "without sounding arrogant."
+            ],
+            "token_groups": [
+                "The author",
+                "writes confidently",
+                "without sounding arrogant."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "aaq-adverbs-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The findings seem statistically {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Результати здаються статистично значущими.",
+            "target_text": "The findings seem statistically significant.",
+            "markers": {
+                "a1": {
+                    "answer": "significant",
+                    "options": [
+                        "significant",
+                        "significantly",
+                        "significance"
+                    ],
+                    "verb_hint": "Статистично значущі, змістовні результати: прикметник після вже наведеного прислівника, не опис способу дії."
+                }
+            },
+            "verb_hint": "Статистично значущі, змістовні результати: прикметник після вже наведеного прислівника, не опис способу дії.",
+            "accepted_target_texts": [
+                "The findings seem statistically significant.",
+                "The findings seem statistically meaningful."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "meaningful"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "meaningful"
+                ]
+            },
+            "reorder_groups": [
+                "The findings",
+                "seem statistically",
+                "significant."
+            ],
+            "token_groups": [
+                "The findings",
+                "seem statistically",
+                "significant."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "aaq-adverbs-c1-g06",
+            "author_id": "C1-g06",
+            "question": "She looked momentarily {a1} and then recovered.",
+            "level": "C1",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "На мить вона здалася невпевненою, але потім опанувала себе.",
+            "target_text": "She looked momentarily uncertain and then recovered.",
+            "markers": {
+                "a1": {
+                    "answer": "uncertain",
+                    "options": [
+                        "uncertain",
+                        "uncertainly",
+                        "uncertainty"
+                    ],
+                    "verb_hint": "На мить невпевнена, непевна: дієслово зовнішнього враження вимагає прикметника стану."
+                }
+            },
+            "verb_hint": "На мить невпевнена, непевна: дієслово зовнішнього враження вимагає прикметника стану.",
+            "accepted_target_texts": [
+                "She looked momentarily uncertain and then recovered.",
+                "She looked momentarily unsure and then recovered."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "unsure"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "unsure"
+                ]
+            },
+            "reorder_groups": [
+                "She looked",
+                "momentarily uncertain",
+                "and then recovered."
+            ],
+            "token_groups": [
+                "She looked",
+                "momentarily uncertain",
+                "and then recovered."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "aaq-adverbs-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The chairman responded diplomatically yet unmistakably {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Голова відповів дипломатично, але безсумнівно твердо.",
+            "target_text": "The chairman responded diplomatically yet unmistakably firmly.",
+            "markers": {
+                "a1": {
+                    "answer": "firmly",
+                    "options": [
+                        "firmly",
+                        "firm",
+                        "firmness"
+                    ],
+                    "verb_hint": "Твердо, рішуче відповів попри дипломатичність: прислівник способу відповіді паралельний першому прислівнику."
+                }
+            },
+            "verb_hint": "Твердо, рішуче відповів попри дипломатичність: прислівник способу відповіді паралельний першому прислівнику.",
+            "accepted_target_texts": [
+                "The chairman responded diplomatically yet unmistakably firmly.",
+                "The chairman responded diplomatically yet unmistakably resolutely."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "resolutely"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "resolutely"
+                ]
+            },
+            "reorder_groups": [
+                "The chairman",
+                "responded diplomatically",
+                "yet unmistakably firmly."
+            ],
+            "token_groups": [
+                "The chairman",
+                "responded diplomatically",
+                "yet unmistakably firmly."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "aaq-adverbs-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The manuscript is stylistically {a1} but conceptually thin.",
+            "level": "C2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Рукопис стилістично витончений, але концептуально слабкий.",
+            "target_text": "The manuscript is stylistically elegant but conceptually thin.",
+            "markers": {
+                "a1": {
+                    "answer": "elegant",
+                    "options": [
+                        "elegant",
+                        "elegantly",
+                        "elegance"
+                    ],
+                    "verb_hint": "Стилістично витончений, вишуканий рукопис: прикметник протиставлено концептуальній слабкості."
+                }
+            },
+            "verb_hint": "Стилістично витончений, вишуканий рукопис: прикметник протиставлено концептуальній слабкості.",
+            "accepted_target_texts": [
+                "The manuscript is stylistically elegant but conceptually thin.",
+                "The manuscript is stylistically graceful but conceptually thin."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "graceful"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "graceful"
+                ]
+            },
+            "reorder_groups": [
+                "The manuscript",
+                "is stylistically elegant",
+                "but conceptually thin."
+            ],
+            "token_groups": [
+                "The manuscript",
+                "is stylistically elegant",
+                "but conceptually thin."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "aaq-adverbs-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The counsel spoke {a1} enough to avoid committing to detail.",
+            "level": "C2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Юрист говорив достатньо невизначено, щоб не зобов’язуватися уточнювати деталі.",
+            "target_text": "The counsel spoke vaguely enough to avoid committing to detail.",
+            "markers": {
+                "a1": {
+                    "answer": "vaguely",
+                    "options": [
+                        "vaguely",
+                        "vague",
+                        "vagueness"
+                    ],
+                    "verb_hint": "Невизначено, неточно: прислівник способу висловлення, що дозволяє уникнути конкретних зобов’язань."
+                }
+            },
+            "verb_hint": "Невизначено, неточно: прислівник способу висловлення, що дозволяє уникнути конкретних зобов’язань.",
+            "accepted_target_texts": [
+                "The counsel spoke vaguely enough to avoid committing to detail.",
+                "The counsel spoke imprecisely enough to avoid committing to detail."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "imprecisely"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "imprecisely"
+                ]
+            },
+            "reorder_groups": [
+                "The counsel",
+                "spoke vaguely enough",
+                "to avoid committing",
+                "to detail."
+            ],
+            "token_groups": [
+                "The counsel",
+                "spoke vaguely enough",
+                "to avoid committing",
+                "to detail."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "aaq-adverbs-c2-g04",
+            "author_id": "C2-g04",
+            "question": "Her objection seemed superficially {a1} but collapsed under scrutiny.",
+            "level": "C2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "На поверхні її заперечення здавалося правдоподібним, але не витримало перевірки.",
+            "target_text": "Her objection seemed superficially plausible but collapsed under scrutiny.",
+            "markers": {
+                "a1": {
+                    "answer": "plausible",
+                    "options": [
+                        "plausible",
+                        "plausibly",
+                        "plausibility"
+                    ],
+                    "verb_hint": "На перший погляд правдоподібне, вірогідне заперечення: прикметник після дієслова враження."
+                }
+            },
+            "verb_hint": "На перший погляд правдоподібне, вірогідне заперечення: прикметник після дієслова враження.",
+            "accepted_target_texts": [
+                "Her objection seemed superficially plausible but collapsed under scrutiny.",
+                "Her objection seemed superficially credible but collapsed under scrutiny."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "credible"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "credible"
+                ]
+            },
+            "reorder_groups": [
+                "Her objection",
+                "seemed superficially plausible",
+                "but collapsed",
+                "under scrutiny."
+            ],
+            "token_groups": [
+                "Her objection",
+                "seemed superficially plausible",
+                "but collapsed",
+                "under scrutiny."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "aaq-adverbs-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The data were presented {a1}, which undermined the report.",
+            "level": "C2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Дані подали недбало, що підірвало довіру до звіту.",
+            "target_text": "The data were presented carelessly, which undermined the report.",
+            "markers": {
+                "a1": {
+                    "answer": "carelessly",
+                    "options": [
+                        "carelessly",
+                        "careless",
+                        "carelessness"
+                    ],
+                    "verb_hint": "Недбало, неохайно подані дані: прислівник способу представлення, який пояснює втрату довіри."
+                }
+            },
+            "verb_hint": "Недбало, неохайно подані дані: прислівник способу представлення, який пояснює втрату довіри.",
+            "accepted_target_texts": [
+                "The data were presented carelessly, which undermined the report.",
+                "The data were presented sloppily, which undermined the report."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "sloppily"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "sloppily"
+                ]
+            },
+            "reorder_groups": [
+                "The data",
+                "were presented carelessly,",
+                "which undermined",
+                "the report."
+            ],
+            "token_groups": [
+                "The data",
+                "were presented carelessly,",
+                "which undermined",
+                "the report."
+            ],
+            "quality_revision": "aaq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "aaq-adverbs-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The ambassador remained outwardly {a1} throughout the exchange.",
+            "level": "C2",
+            "type": 0,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Посол зовні зберігав спокій протягом усієї розмови.",
+            "target_text": "The ambassador remained outwardly composed throughout the exchange.",
+            "markers": {
+                "a1": {
+                    "answer": "composed",
+                    "options": [
+                        "composed",
+                        "composedly",
+                        "composure"
+                    ],
+                    "verb_hint": "Зовні спокійний, зібраний посол: прикметник збереженого стану, а не прислівник способу дії."
+                }
+            },
+            "verb_hint": "Зовні спокійний, зібраний посол: прикметник збереженого стану, а не прислівник способу дії.",
+            "accepted_target_texts": [
+                "The ambassador remained outwardly composed throughout the exchange.",
+                "The ambassador remained outwardly calm throughout the exchange.",
+                "The ambassador remained outwardly collected throughout the exchange."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "calm",
+                    "collected"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "calm",
+                    "collected"
+                ]
+            },
+            "reorder_groups": [
+                "The ambassador",
+                "remained outwardly composed",
+                "throughout the exchange."
+            ],
+            "token_groups": [
+                "The ambassador",
+                "remained outwardly composed",
+                "throughout the exchange."
+            ],
+            "quality_revision": "aaq-v1"
+        }
+    ]
+}

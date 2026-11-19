@@ -1,0 +1,620 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mrq-v1",
+    "compiled_from": {
+        "path": "docs/content/mixed-revision-quality/a1-mixed-revision.v1.json",
+        "sha256": "a179a8761d7eb2dc33353d8458eb2ca8e5f9fd6b06acf77ea8c9aa453085960f"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\MixedRevision\\UkrainianMixedMrqA1MixedRevisionQualityStandardSeeder",
+        "uuid_namespace": "mixed-revision-quality-a1-mixed-revision-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Mixed Revision"
+    },
+    "sources": {
+        "mixed_revision_quality_a1_mixed_revision": {
+            "name": "Mixed Revision Quality: A1 Mixed Revision"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mrq-a1-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Look! Two fish {a1} near the glass.",
+            "level": "A1",
+            "type": 0,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Поглянь! Дві рибки зараз плавають біля скла.",
+            "target_text": "Look! Two fish are swimming near the glass.",
+            "markers": {
+                "a1": {
+                    "answer": "are swimming",
+                    "options": [
+                        "are swimming",
+                        "swim",
+                        "is swimming"
+                    ],
+                    "verb_hint": "Передай дію «плавають» саме зараз; перед формою із закінченням -інг потрібне допоміжне дієслово для множини."
+                }
+            },
+            "verb_hint": "Передай дію «плавають» саме зараз; перед формою із закінченням -інг потрібне допоміжне дієслово для множини.",
+            "accepted_target_texts": [
+                "Look! Two fish are swimming near the glass."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Look!",
+                "Two fish",
+                "are swimming",
+                "near the glass."
+            ],
+            "token_groups": [
+                "Look!",
+                "Two fish",
+                "are swimming",
+                "near the glass."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "mrq-a1-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The yellow ruler is {a1} the notebook and the lamp.",
+            "level": "A1",
+            "type": 0,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Жовта лінійка лежить між зошитом і лампою.",
+            "target_text": "The yellow ruler is between the notebook and the lamp.",
+            "markers": {
+                "a1": {
+                    "answer": "between",
+                    "options": [
+                        "between",
+                        "under",
+                        "behind"
+                    ],
+                    "verb_hint": "Назви положення «між» двома вже названими предметами; введи лише прийменник."
+                }
+            },
+            "verb_hint": "Назви положення «між» двома вже названими предметами; введи лише прийменник.",
+            "accepted_target_texts": [
+                "The yellow ruler is between the notebook and the lamp."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The yellow ruler",
+                "is between",
+                "the notebook",
+                "and the lamp."
+            ],
+            "token_groups": [
+                "The yellow ruler",
+                "is between",
+                "the notebook",
+                "and the lamp."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "mrq-a1-a2-g01",
+            "author_id": "A2-g01",
+            "question": "We {a1} the waterfall last spring.",
+            "level": "A2",
+            "type": 0,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Минулої весни ми відвідали водоспад.",
+            "target_text": "We visited the waterfall last spring.",
+            "markers": {
+                "a1": {
+                    "answer": "visited",
+                    "options": [
+                        "visited",
+                        "visit",
+                        "have visited"
+                    ],
+                    "verb_hint": "Передай завершену дію «відвідали» в минулому; час уже названо, тому не додавай його до відповіді."
+                }
+            },
+            "verb_hint": "Передай завершену дію «відвідали» в минулому; час уже названо, тому не додавай його до відповіді.",
+            "accepted_target_texts": [
+                "We visited the waterfall last spring.",
+                "We went to the waterfall last spring."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "went to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "went to"
+                ]
+            },
+            "reorder_groups": [
+                "We visited",
+                "the waterfall",
+                "last spring."
+            ],
+            "token_groups": [
+                "We visited",
+                "the waterfall",
+                "last spring."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "mrq-a1-a2-g02",
+            "author_id": "A2-g02",
+            "question": "This wooden spoon is {a1} than the metal one.",
+            "level": "A2",
+            "type": 0,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Ця дерев'яна ложка легша за металеву.",
+            "target_text": "This wooden spoon is lighter than the metal one.",
+            "markers": {
+                "a1": {
+                    "answer": "lighter",
+                    "options": [
+                        "lighter",
+                        "lightest",
+                        "more light"
+                    ],
+                    "verb_hint": "Передай «легша» порівняльним ступенем; порівнюємо дві ложки, а не вибираємо найлегшу з усіх."
+                }
+            },
+            "verb_hint": "Передай «легша» порівняльним ступенем; порівнюємо дві ложки, а не вибираємо найлегшу з усіх.",
+            "accepted_target_texts": [
+                "This wooden spoon is lighter than the metal one."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This wooden spoon",
+                "is lighter",
+                "than",
+                "the metal one."
+            ],
+            "token_groups": [
+                "This wooden spoon",
+                "is lighter",
+                "than",
+                "the metal one."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "mrq-a1-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The gardener asked where {a1} the spare pots.",
+            "level": "B1",
+            "type": 0,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Садівник запитав, де я поставив запасні горщики.",
+            "target_text": "The gardener asked where I had put the spare pots.",
+            "markers": {
+                "a1": {
+                    "answer": "I had put",
+                    "options": [
+                        "I had put",
+                        "had I put",
+                        "I have put"
+                    ],
+                    "verb_hint": "У непрямому питанні передай «я поставив» як дію перед запитанням садівника; порядок слів розповідний, питальне слово вже наведено."
+                }
+            },
+            "verb_hint": "У непрямому питанні передай «я поставив» як дію перед запитанням садівника; порядок слів розповідний, питальне слово вже наведено.",
+            "accepted_target_texts": [
+                "The gardener asked where I had put the spare pots.",
+                "The gardener asked where I had placed the spare pots."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "I had placed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "I had placed"
+                ]
+            },
+            "reorder_groups": [
+                "The gardener asked",
+                "where",
+                "I had put",
+                "the spare pots."
+            ],
+            "token_groups": [
+                "The gardener asked",
+                "where",
+                "I had put",
+                "the spare pots."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "mrq-a1-b1-g02",
+            "author_id": "B1-g02",
+            "question": "You {a1} the seedlings if the night is cold.",
+            "level": "B1",
+            "type": 0,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Варто накрити розсаду, якщо ніч буде холодною.",
+            "target_text": "You should cover the seedlings if the night is cold.",
+            "markers": {
+                "a1": {
+                    "answer": "should cover",
+                    "options": [
+                        "should cover",
+                        "should to cover",
+                        "should covering"
+                    ],
+                    "verb_hint": "Передай пораду «варто накрити»; після модального дієслова потрібна початкова форма дії без додаткової частки."
+                }
+            },
+            "verb_hint": "Передай пораду «варто накрити»; після модального дієслова потрібна початкова форма дії без додаткової частки.",
+            "accepted_target_texts": [
+                "You should cover the seedlings if the night is cold.",
+                "You ought to cover the seedlings if the night is cold."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to cover"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to cover"
+                ]
+            },
+            "reorder_groups": [
+                "You should cover",
+                "the seedlings",
+                "if the night",
+                "is cold."
+            ],
+            "token_groups": [
+                "You should cover",
+                "the seedlings",
+                "if the night",
+                "is cold."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "mrq-a1-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The visitors {a1} outside for an hour before the guide unlocked the gate.",
+            "level": "B2",
+            "type": 0,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Відвідувачі чекали надворі вже годину, перш ніж екскурсовод відімкнув ворота.",
+            "target_text": "The visitors had been waiting outside for an hour before the guide unlocked the gate.",
+            "markers": {
+                "a1": {
+                    "answer": "had been waiting",
+                    "options": [
+                        "had been waiting",
+                        "have been waiting",
+                        "had waiting"
+                    ],
+                    "verb_hint": "Передай тривалий процес «чекали» до іншої минулої дії; потрібна повна перфектна тривала форма, а не лише її перше слово."
+                }
+            },
+            "verb_hint": "Передай тривалий процес «чекали» до іншої минулої дії; потрібна повна перфектна тривала форма, а не лише її перше слово.",
+            "accepted_target_texts": [
+                "The visitors had been waiting outside for an hour before the guide unlocked the gate."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The visitors",
+                "had been waiting",
+                "outside",
+                "for an hour",
+                "before the guide",
+                "unlocked the gate."
+            ],
+            "token_groups": [
+                "The visitors",
+                "had been waiting",
+                "outside",
+                "for an hour",
+                "before the guide",
+                "unlocked the gate."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "mrq-a1-b2-g02",
+            "author_id": "B2-g02",
+            "question": "I wish I {a1} the curator's warning yesterday.",
+            "level": "B2",
+            "type": 0,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Шкодую, що вчора не прислухався до попередження куратора.",
+            "target_text": "I wish I had heeded the curator's warning yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "had heeded",
+                    "options": [
+                        "had heeded",
+                        "have heeded",
+                        "would heed"
+                    ],
+                    "verb_hint": "Передай нереалізоване минуле «прислухався до» перфектною минулою формою після висловлення жалю; підмет уже наведено."
+                }
+            },
+            "verb_hint": "Передай нереалізоване минуле «прислухався до» перфектною минулою формою після висловлення жалю; підмет уже наведено.",
+            "accepted_target_texts": [
+                "I wish I had heeded the curator's warning yesterday.",
+                "I wish I had listened to the curator's warning yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had listened to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had listened to"
+                ]
+            },
+            "reorder_groups": [
+                "I wish I",
+                "had heeded",
+                "the curator's warning",
+                "yesterday."
+            ],
+            "token_groups": [
+                "I wish I",
+                "had heeded",
+                "the curator's warning",
+                "yesterday."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "mrq-a1-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The glasshouse is thought {a1} during the storm.",
+            "level": "C1",
+            "type": 0,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Вважають, що оранжерею пошкодило під час бурі.",
+            "target_text": "The glasshouse is thought to have been damaged during the storm.",
+            "markers": {
+                "a1": {
+                    "answer": "to have been damaged",
+                    "options": [
+                        "to have been damaged",
+                        "to have damaged",
+                        "to be damaging"
+                    ],
+                    "verb_hint": "Після пасивного повідомлення передай попереднє пошкодження оранжереї перфектним інфінітивом."
+                }
+            },
+            "verb_hint": "Після пасивного повідомлення передай попереднє пошкодження оранжереї перфектним інфінітивом.",
+            "accepted_target_texts": [
+                "The glasshouse is thought to have been damaged during the storm.",
+                "The glasshouse is thought to have sustained damage during the storm."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to have sustained damage"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to have sustained damage"
+                ]
+            },
+            "reorder_groups": [
+                "The glasshouse",
+                "is thought",
+                "to have been",
+                "damaged",
+                "during the storm."
+            ],
+            "token_groups": [
+                "The glasshouse",
+                "is thought",
+                "to have been",
+                "damaged",
+                "during the storm."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "mrq-a1-c1-g02",
+            "author_id": "C1-g02",
+            "question": "Hardly {a1} the gallery when the fire alarm sounded.",
+            "level": "C1",
+            "type": 0,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Ми ледь увійшли до галереї, як пролунала пожежна сигналізація.",
+            "target_text": "Hardly had we entered the gallery when the fire alarm sounded.",
+            "markers": {
+                "a1": {
+                    "answer": "had we entered",
+                    "options": [
+                        "had we entered",
+                        "we had entered",
+                        "have we entered"
+                    ],
+                    "verb_hint": "Після вже наведеного обмежувального прислівника передай «ми увійшли» з інверсією та попередністю в минулому."
+                }
+            },
+            "verb_hint": "Після вже наведеного обмежувального прислівника передай «ми увійшли» з інверсією та попередністю в минулому.",
+            "accepted_target_texts": [
+                "Hardly had we entered the gallery when the fire alarm sounded.",
+                "Hardly had we gone into the gallery when the fire alarm sounded."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had we gone into"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had we gone into"
+                ]
+            },
+            "reorder_groups": [
+                "Hardly",
+                "had we entered",
+                "the gallery",
+                "when",
+                "the fire alarm",
+                "sounded."
+            ],
+            "token_groups": [
+                "Hardly",
+                "had we entered",
+                "the gallery",
+                "when",
+                "the fire alarm",
+                "sounded."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "mrq-a1-c2-g01",
+            "author_id": "C2-g01",
+            "question": "Had it not {a1} the conservator's intervention, the pigment would have faded.",
+            "level": "C2",
+            "type": 0,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Якби не втручання реставратора, пігмент би вицвів.",
+            "target_text": "Had it not been for the conservator's intervention, the pigment would have faded.",
+            "markers": {
+                "a1": {
+                    "answer": "been for",
+                    "options": [
+                        "been for",
+                        "being for",
+                        "was for"
+                    ],
+                    "verb_hint": "Доповни інверсійну умову зі значенням «якби не»; початкове допоміжне дієслово й заперечення вже наведено."
+                }
+            },
+            "verb_hint": "Доповни інверсійну умову зі значенням «якби не»; початкове допоміжне дієслово й заперечення вже наведено.",
+            "accepted_target_texts": [
+                "Had it not been for the conservator's intervention, the pigment would have faded."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Had it not",
+                "been for",
+                "the conservator's intervention,",
+                "the pigment would",
+                "have faded."
+            ],
+            "token_groups": [
+                "Had it not",
+                "been for",
+                "the conservator's intervention,",
+                "the pigment would",
+                "have faded."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "mrq-a1-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The collectors' insistence that the sketches {a1} under controlled humidity proved decisive.",
+            "level": "C2",
+            "type": 0,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Наполеглива вимога колекціонерів зберігати ескізи за контрольованої вологості виявилася вирішальною.",
+            "target_text": "The collectors' insistence that the sketches be stored under controlled humidity proved decisive.",
+            "markers": {
+                "a1": {
+                    "answer": "be stored",
+                    "options": [
+                        "be stored",
+                        "are storing",
+                        "have stored"
+                    ],
+                    "verb_hint": "Після іменника вимоги передай пасивне «зберігали» формою наказового змісту в підрядній частині, а не повідомленням про вже здійснену дію."
+                }
+            },
+            "verb_hint": "Після іменника вимоги передай пасивне «зберігали» формою наказового змісту в підрядній частині, а не повідомленням про вже здійснену дію.",
+            "accepted_target_texts": [
+                "The collectors' insistence that the sketches be stored under controlled humidity proved decisive.",
+                "The collectors' insistence that the sketches be kept under controlled humidity proved decisive.",
+                "The collectors' insistence that the sketches should be stored under controlled humidity proved decisive.",
+                "The collectors' insistence that the sketches should be kept under controlled humidity proved decisive."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be kept",
+                    "should be stored",
+                    "should be kept"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be kept",
+                    "should be stored",
+                    "should be kept"
+                ]
+            },
+            "reorder_groups": [
+                "The collectors' insistence",
+                "that the sketches",
+                "be stored",
+                "under controlled humidity",
+                "proved decisive."
+            ],
+            "token_groups": [
+                "The collectors' insistence",
+                "that the sketches",
+                "be stored",
+                "under controlled humidity",
+                "proved decisive."
+            ],
+            "quality_revision": "mrq-v1"
+        }
+    ]
+}

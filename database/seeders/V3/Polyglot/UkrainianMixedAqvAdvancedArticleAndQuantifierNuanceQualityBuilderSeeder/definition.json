@@ -1,0 +1,1362 @@
+{
+    "schema_version": 1,
+    "quality_revision": "aqv-v1",
+    "compiled_from": {
+        "path": "docs/content/articles-quantifiers-quality/advanced-article-and-quantifier-nuance.v1.json",
+        "sha256": "d283ab0b3e3e622d005eea4c4d75a7ac4334a5175c1b77b30ae76e35e6ef160a"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedAqvAdvancedArticleAndQuantifierNuanceQualityBuilderSeeder",
+        "uuid_namespace": "articles-quantifiers-quality-advanced-article-and-quantifier-nuance-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "articles_quantifiers_quality_advanced_article_and_quantifier_nuance": {
+            "name": "Articles and Quantifiers Quality: Advanced Article and Quantifier Nuance"
+        }
+    },
+    "tags": {
+        "aqn_topic": {
+            "name": "advanced article and quantifier nuance",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "advanced_article_choice": {
+            "name": "advanced article choice",
+            "category": "articles-and-quantifiers"
+        },
+        "definite_indefinite_reference": {
+            "name": "definite vs indefinite reference",
+            "category": "articles-and-quantifiers"
+        },
+        "zero_article": {
+            "name": "zero article",
+            "category": "articles-and-quantifiers"
+        },
+        "generic_reference": {
+            "name": "generic reference",
+            "category": "articles-and-quantifiers"
+        },
+        "institutions_places": {
+            "name": "article choice with institutions and places",
+            "category": "articles-and-quantifiers"
+        },
+        "specific_general": {
+            "name": "specific vs general meaning",
+            "category": "articles-and-quantifiers"
+        },
+        "countable_uncountable_nuance": {
+            "name": "countable and uncountable nuance",
+            "category": "articles-and-quantifiers"
+        },
+        "few_a_few": {
+            "name": "few and a few",
+            "category": "articles-and-quantifiers"
+        },
+        "little_a_little": {
+            "name": "little and a little",
+            "category": "articles-and-quantifiers"
+        },
+        "most_the_most": {
+            "name": "most and the most",
+            "category": "articles-and-quantifiers"
+        },
+        "all_whole_every": {
+            "name": "all whole and every",
+            "category": "articles-and-quantifiers"
+        },
+        "some_any_no": {
+            "name": "some any and no",
+            "category": "articles-and-quantifiers"
+        },
+        "either_neither": {
+            "name": "either and neither",
+            "category": "articles-and-quantifiers"
+        },
+        "formal_quantity_expressions": {
+            "name": "formal quantity expressions",
+            "category": "articles-and-quantifiers"
+        },
+        "fewer_less": {
+            "name": "fewer and less",
+            "category": "articles-and-quantifiers"
+        },
+        "amount_number": {
+            "name": "amount and number",
+            "category": "articles-and-quantifiers"
+        },
+        "translation_traps": {
+            "name": "avoiding direct translation traps",
+            "category": "articles-and-quantifiers"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "articles-and-quantifiers"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "aqn_topic"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "aqv-aqn-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Медсестра стоїть біля воріт.",
+            "level": "A1",
+            "type": 4,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "Медсестра стоїть біля воріт.",
+            "target_text": "A nurse is standing at the gate.",
+            "markers": {
+                "a1": {
+                    "answer": "A",
+                    "verb_hint": "Почни з однієї ще не названої медсестри; передай, що вона зараз стоїть біля воріт.",
+                    "options": [
+                        "A",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "nurse",
+                    "verb_hint": "Почни з однієї ще не названої медсестри; передай, що вона зараз стоїть біля воріт.",
+                    "options": [
+                        "nurse",
+                        "neighbour",
+                        "worker",
+                        "visitor"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Почни з однієї ще не названої медсестри; передай, що вона зараз стоїть біля воріт.",
+                    "options": [
+                        "is",
+                        "am",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a4": {
+                    "answer": "standing",
+                    "verb_hint": "Почни з однієї ще не названої медсестри; передай, що вона зараз стоїть біля воріт.",
+                    "options": [
+                        "standing",
+                        "sitting",
+                        "running",
+                        "walking"
+                    ]
+                },
+                "a5": {
+                    "answer": "at",
+                    "verb_hint": "Почни з однієї ще не названої медсестри; передай, що вона зараз стоїть біля воріт.",
+                    "options": [
+                        "at",
+                        "during",
+                        "to",
+                        "from"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з однієї ще не названої медсестри; передай, що вона зараз стоїть біля воріт.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a7": {
+                    "answer": "gate.",
+                    "verb_hint": "Почни з однієї ще не названої медсестри; передай, що вона зараз стоїть біля воріт.",
+                    "options": [
+                        "gate",
+                        "yard",
+                        "bridge",
+                        "shop"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з однієї ще не названої медсестри; передай, що вона зараз стоїть біля воріт.",
+            "accepted_target_texts": [
+                "A nurse is standing at the gate."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A nurse",
+                "is standing",
+                "at the gate."
+            ],
+            "token_groups": [
+                "A nurse",
+                "is standing",
+                "at the gate."
+            ],
+            "quality_revision": "aqv-v1",
+            "tokens_correct": [
+                "A",
+                "nurse",
+                "is",
+                "standing",
+                "at",
+                "the",
+                "gate."
+            ],
+            "options": [
+                "A",
+                "Another",
+                "Either",
+                "Neither",
+                "nurse",
+                "neighbour",
+                "worker",
+                "visitor",
+                "is",
+                "am",
+                "are",
+                "was",
+                "standing",
+                "sitting",
+                "running",
+                "walking",
+                "at",
+                "during",
+                "to",
+                "from",
+                "the",
+                "all",
+                "both",
+                "an",
+                "gate",
+                "yard",
+                "bridge",
+                "shop"
+            ],
+            "source_text_uk": "Медсестра стоїть біля воріт.",
+            "options_by_marker": {
+                "a1": [
+                    "A",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "nurse",
+                    "neighbour",
+                    "worker",
+                    "visitor"
+                ],
+                "a3": [
+                    "is",
+                    "am",
+                    "are",
+                    "was"
+                ],
+                "a4": [
+                    "standing",
+                    "sitting",
+                    "running",
+                    "walking"
+                ],
+                "a5": [
+                    "at",
+                    "during",
+                    "to",
+                    "from"
+                ],
+                "a6": [
+                    "the",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a7": [
+                    "gate",
+                    "yard",
+                    "bridge",
+                    "shop"
+                ]
+            },
+            "slot_roles": {
+                "a1": "aone_subject",
+                "a2": "aone_subject",
+                "a3": "aone_verb",
+                "a4": "aone_verb",
+                "a5": "aone_object",
+                "a6": "aone_object",
+                "a7": "aone_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "aqv-aqn-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Я купив буханець хліба.",
+            "level": "A2",
+            "type": 4,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "Я купив буханець хліба.",
+            "target_text": "I bought a loaf of bread.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Збережи минулий час і одну цілу хлібину; дієслово купівлі має два прийнятні відповідники.",
+                    "options": [
+                        "I",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "bought",
+                    "verb_hint": "Збережи минулий час і одну цілу хлібину; дієслово купівлі має два прийнятні відповідники.",
+                    "options": [
+                        "bought",
+                        "drove",
+                        "gave",
+                        "made"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Збережи минулий час і одну цілу хлібину; дієслово купівлі має два прийнятні відповідники.",
+                    "options": [
+                        "a",
+                        "the",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a4": {
+                    "answer": "loaf",
+                    "verb_hint": "Збережи минулий час і одну цілу хлібину; дієслово купівлі має два прийнятні відповідники.",
+                    "options": [
+                        "loaf",
+                        "bottle",
+                        "bar",
+                        "jar"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Збережи минулий час і одну цілу хлібину; дієслово купівлі має два прийнятні відповідники.",
+                    "options": [
+                        "of",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a6": {
+                    "answer": "bread.",
+                    "verb_hint": "Збережи минулий час і одну цілу хлібину; дієслово купівлі має два прийнятні відповідники.",
+                    "options": [
+                        "bread",
+                        "coffee",
+                        "tea",
+                        "juice"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи минулий час і одну цілу хлібину; дієслово купівлі має два прийнятні відповідники.",
+            "accepted_target_texts": [
+                "I bought a loaf of bread.",
+                "I purchased a loaf of bread."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "purchased"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "purchased"
+                ]
+            },
+            "reorder_groups": [
+                "I",
+                "bought",
+                "a loaf",
+                "of bread."
+            ],
+            "token_groups": [
+                "I",
+                "bought",
+                "a loaf",
+                "of bread."
+            ],
+            "quality_revision": "aqv-v1",
+            "tokens_correct": [
+                "I",
+                "bought",
+                "a",
+                "loaf",
+                "of",
+                "bread."
+            ],
+            "options": [
+                "I",
+                "They",
+                "Me",
+                "Him",
+                "bought",
+                "drove",
+                "gave",
+                "made",
+                "a",
+                "the",
+                "some",
+                "any",
+                "loaf",
+                "bottle",
+                "bar",
+                "jar",
+                "of",
+                "to",
+                "from",
+                "for",
+                "bread",
+                "coffee",
+                "tea",
+                "juice"
+            ],
+            "source_text_uk": "Я купив буханець хліба.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "bought",
+                    "drove",
+                    "gave",
+                    "made"
+                ],
+                "a3": [
+                    "a",
+                    "the",
+                    "some",
+                    "any"
+                ],
+                "a4": [
+                    "loaf",
+                    "bottle",
+                    "bar",
+                    "jar"
+                ],
+                "a5": [
+                    "of",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a6": [
+                    "bread",
+                    "coffee",
+                    "tea",
+                    "juice"
+                ]
+            },
+            "slot_roles": {
+                "a1": "atwo_subject",
+                "a2": "atwo_verb",
+                "a3": "atwo_object",
+                "a4": "atwo_object",
+                "a5": "atwo_context",
+                "a6": "atwo_context"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "aqv-aqn-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Порада, яку ти мені дав, була корисною.",
+            "level": "B1",
+            "type": 4,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "Порада, яку ти мені дав, була корисною.",
+            "target_text": "The advice you gave me was useful.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з конкретної поради; збережи того, хто її дав, і минулу оцінку користі. Корисність можна передати двома прикметниками.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "advice",
+                    "verb_hint": "Почни з конкретної поради; збережи того, хто її дав, і минулу оцінку користі. Корисність можна передати двома прикметниками.",
+                    "options": [
+                        "advice",
+                        "message",
+                        "invitation",
+                        "answer"
+                    ]
+                },
+                "a3": {
+                    "answer": "you",
+                    "verb_hint": "Почни з конкретної поради; збережи того, хто її дав, і минулу оцінку користі. Корисність можна передати двома прикметниками.",
+                    "options": [
+                        "you",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a4": {
+                    "answer": "gave",
+                    "verb_hint": "Почни з конкретної поради; збережи того, хто її дав, і минулу оцінку користі. Корисність можна передати двома прикметниками.",
+                    "options": [
+                        "gave",
+                        "told",
+                        "sent",
+                        "brought"
+                    ]
+                },
+                "a5": {
+                    "answer": "me",
+                    "verb_hint": "Почни з конкретної поради; збережи того, хто її дав, і минулу оцінку користі. Корисність можна передати двома прикметниками.",
+                    "options": [
+                        "me",
+                        "he",
+                        "she",
+                        "it"
+                    ]
+                },
+                "a6": {
+                    "answer": "was",
+                    "verb_hint": "Почни з конкретної поради; збережи того, хто її дав, і минулу оцінку користі. Корисність можна передати двома прикметниками.",
+                    "options": [
+                        "was",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a7": {
+                    "answer": "useful.",
+                    "verb_hint": "Почни з конкретної поради; збережи того, хто її дав, і минулу оцінку користі. Корисність можна передати двома прикметниками.",
+                    "options": [
+                        "useful",
+                        "unnecessary",
+                        "new",
+                        "old"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з конкретної поради; збережи того, хто її дав, і минулу оцінку користі. Корисність можна передати двома прикметниками.",
+            "accepted_target_texts": [
+                "The advice you gave me was useful.",
+                "The advice you gave me was helpful."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "helpful."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "helpful."
+                ]
+            },
+            "reorder_groups": [
+                "The advice",
+                "you gave me",
+                "was useful."
+            ],
+            "token_groups": [
+                "The advice",
+                "you gave me",
+                "was useful."
+            ],
+            "quality_revision": "aqv-v1",
+            "tokens_correct": [
+                "The",
+                "advice",
+                "you",
+                "gave",
+                "me",
+                "was",
+                "useful."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "advice",
+                "message",
+                "invitation",
+                "answer",
+                "you",
+                "herself",
+                "ourselves",
+                "themselves",
+                "gave",
+                "told",
+                "sent",
+                "brought",
+                "me",
+                "he",
+                "she",
+                "it",
+                "was",
+                "am",
+                "is",
+                "are",
+                "useful",
+                "unnecessary",
+                "new",
+                "old"
+            ],
+            "source_text_uk": "Порада, яку ти мені дав, була корисною.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "advice",
+                    "message",
+                    "invitation",
+                    "answer"
+                ],
+                "a3": [
+                    "you",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a4": [
+                    "gave",
+                    "told",
+                    "sent",
+                    "brought"
+                ],
+                "a5": [
+                    "me",
+                    "he",
+                    "she",
+                    "it"
+                ],
+                "a6": [
+                    "was",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a7": [
+                    "useful",
+                    "unnecessary",
+                    "new",
+                    "old"
+                ]
+            },
+            "slot_roles": {
+                "a1": "bone_subject",
+                "a2": "bone_subject",
+                "a3": "bone_verb",
+                "a4": "bone_verb",
+                "a5": "bone_verb",
+                "a6": "bone_object",
+                "a7": "bone_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "aqv-aqn-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Ми отримали кілька скарг на шум.",
+            "level": "B2",
+            "type": 4,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "Ми отримали кілька скарг на шум.",
+            "target_text": "We received several complaints about the noise.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з нас як одержувачів; назви кілька скарг без точного числа та збережи їхню причину. Отримання й кількість мають по два природні відповідники.",
+                    "options": [
+                        "We",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "received",
+                    "verb_hint": "Почни з нас як одержувачів; назви кілька скарг без точного числа та збережи їхню причину. Отримання й кількість мають по два природні відповідники.",
+                    "options": [
+                        "received",
+                        "discussed",
+                        "rejected",
+                        "submitted"
+                    ]
+                },
+                "a3": {
+                    "answer": "several",
+                    "verb_hint": "Почни з нас як одержувачів; назви кілька скарг без точного числа та збережи їхню причину. Отримання й кількість мають по два природні відповідники.",
+                    "options": [
+                        "several",
+                        "three",
+                        "some",
+                        "many"
+                    ]
+                },
+                "a4": {
+                    "answer": "complaints",
+                    "verb_hint": "Почни з нас як одержувачів; назви кілька скарг без точного числа та збережи їхню причину. Отримання й кількість мають по два природні відповідники.",
+                    "options": [
+                        "complaints",
+                        "enquiries",
+                        "suggestions",
+                        "recommendations"
+                    ]
+                },
+                "a5": {
+                    "answer": "about",
+                    "verb_hint": "Почни з нас як одержувачів; назви кілька скарг без точного числа та збережи їхню причину. Отримання й кількість мають по два природні відповідники.",
+                    "options": [
+                        "about",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з нас як одержувачів; назви кілька скарг без точного числа та збережи їхню причину. Отримання й кількість мають по два природні відповідники.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a7": {
+                    "answer": "noise.",
+                    "verb_hint": "Почни з нас як одержувачів; назви кілька скарг без точного числа та збережи їхню причину. Отримання й кількість мають по два природні відповідники.",
+                    "options": [
+                        "noise",
+                        "weather",
+                        "price",
+                        "delay"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з нас як одержувачів; назви кілька скарг без точного числа та збережи їхню причину. Отримання й кількість мають по два природні відповідники.",
+            "accepted_target_texts": [
+                "We received several complaints about the noise.",
+                "We got several complaints about the noise.",
+                "We received a few complaints about the noise.",
+                "We got a few complaints about the noise."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "got"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "got"
+                ]
+            },
+            "reorder_groups": [
+                "We received",
+                "several complaints",
+                "about the noise."
+            ],
+            "token_groups": [
+                "We received",
+                "several complaints",
+                "about the noise."
+            ],
+            "quality_revision": "aqv-v1",
+            "tokens_correct": [
+                "We",
+                "received",
+                "several",
+                "complaints",
+                "about",
+                "the",
+                "noise."
+            ],
+            "options": [
+                "We",
+                "Us",
+                "Them",
+                "Myself",
+                "received",
+                "discussed",
+                "rejected",
+                "submitted",
+                "several",
+                "three",
+                "some",
+                "many",
+                "complaints",
+                "enquiries",
+                "suggestions",
+                "recommendations",
+                "about",
+                "onto",
+                "over",
+                "under",
+                "the",
+                "no",
+                "another",
+                "either",
+                "noise",
+                "weather",
+                "price",
+                "delay"
+            ],
+            "source_text_uk": "Ми отримали кілька скарг на шум.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "received",
+                    "discussed",
+                    "rejected",
+                    "submitted"
+                ],
+                "a3": [
+                    "several",
+                    "three",
+                    "some",
+                    "many"
+                ],
+                "a4": [
+                    "complaints",
+                    "enquiries",
+                    "suggestions",
+                    "recommendations"
+                ],
+                "a5": [
+                    "about",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a6": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a7": [
+                    "noise",
+                    "weather",
+                    "price",
+                    "delay"
+                ]
+            },
+            "slot_roles": {
+                "a1": "btwo_subject",
+                "a2": "btwo_subject",
+                "a3": "btwo_verb",
+                "a4": "btwo_verb",
+                "a5": "btwo_object",
+                "a6": "btwo_object",
+                "a7": "btwo_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "aqv-aqn-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Значна частина обладнання залишається невикористаною.",
+            "level": "C1",
+            "type": 4,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "Значна частина обладнання залишається невикористаною.",
+            "target_text": "Much of the equipment remains unused.",
+            "markers": {
+                "a1": {
+                    "answer": "Much",
+                    "verb_hint": "Збережи значний обсяг, конкретне обладнання та його невикористаний стан; обладнання допускає два відповідники.",
+                    "options": [
+                        "Much",
+                        "Most",
+                        "None",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "of",
+                    "verb_hint": "Збережи значний обсяг, конкретне обладнання та його невикористаний стан; обладнання допускає два відповідники.",
+                    "options": [
+                        "of",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Збережи значний обсяг, конкретне обладнання та його невикористаний стан; обладнання допускає два відповідники.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a4": {
+                    "answer": "equipment",
+                    "verb_hint": "Збережи значний обсяг, конкретне обладнання та його невикористаний стан; обладнання допускає два відповідники.",
+                    "options": [
+                        "equipment",
+                        "software",
+                        "furniture",
+                        "machinery"
+                    ]
+                },
+                "a5": {
+                    "answer": "remains",
+                    "verb_hint": "Збережи значний обсяг, конкретне обладнання та його невикористаний стан; обладнання допускає два відповідники.",
+                    "options": [
+                        "remains",
+                        "phones",
+                        "children",
+                        "teachers"
+                    ]
+                },
+                "a6": {
+                    "answer": "unused.",
+                    "verb_hint": "Збережи значний обсяг, конкретне обладнання та його невикористаний стан; обладнання допускає два відповідники.",
+                    "options": [
+                        "unused",
+                        "damaged",
+                        "left",
+                        "said"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи значний обсяг, конкретне обладнання та його невикористаний стан; обладнання допускає два відповідники.",
+            "accepted_target_texts": [
+                "Much of the equipment remains unused.",
+                "Much of the apparatus remains unused.",
+                "Much of the equipment is still unused.",
+                "Much of the apparatus is still unused."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "apparatus"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "apparatus"
+                ]
+            },
+            "reorder_groups": [
+                "Much of",
+                "the equipment",
+                "remains unused."
+            ],
+            "token_groups": [
+                "Much of",
+                "the equipment",
+                "remains unused."
+            ],
+            "quality_revision": "aqv-v1",
+            "tokens_correct": [
+                "Much",
+                "of",
+                "the",
+                "equipment",
+                "remains",
+                "unused."
+            ],
+            "options": [
+                "Much",
+                "Most",
+                "None",
+                "Some",
+                "of",
+                "in",
+                "on",
+                "at",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "equipment",
+                "software",
+                "furniture",
+                "machinery",
+                "remains",
+                "phones",
+                "children",
+                "teachers",
+                "unused",
+                "damaged",
+                "left",
+                "said"
+            ],
+            "source_text_uk": "Значна частина обладнання залишається невикористаною.",
+            "options_by_marker": {
+                "a1": [
+                    "Much",
+                    "Most",
+                    "None",
+                    "Some"
+                ],
+                "a2": [
+                    "of",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a3": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a4": [
+                    "equipment",
+                    "software",
+                    "furniture",
+                    "machinery"
+                ],
+                "a5": [
+                    "remains",
+                    "phones",
+                    "children",
+                    "teachers"
+                ],
+                "a6": [
+                    "unused",
+                    "damaged",
+                    "left",
+                    "said"
+                ]
+            },
+            "slot_roles": {
+                "a1": "cone_subject",
+                "a2": "cone_subject",
+                "a3": "cone_verb",
+                "a4": "cone_verb",
+                "a5": "cone_object",
+                "a6": "cone_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "aqv-aqn-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Не всі зовні незначні відхилення є нешкідливими.",
+            "level": "C2",
+            "type": 4,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "Не всі зовні незначні відхилення є нешкідливими.",
+            "target_text": "Not all of the seemingly minor deviations are harmless.",
+            "markers": {
+                "a1": {
+                    "answer": "Not",
+                    "verb_hint": "Збережи часткове, а не повне заперечення, зовнішню незначність і оцінку нешкідливості; остання допускає два прикметники.",
+                    "options": [
+                        "Not",
+                        "Just",
+                        "Also",
+                        "Usually"
+                    ]
+                },
+                "a2": {
+                    "answer": "all",
+                    "verb_hint": "Збережи часткове, а не повне заперечення, зовнішню незначність і оцінку нешкідливості; остання допускає два прикметники.",
+                    "options": [
+                        "all",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Збережи часткове, а не повне заперечення, зовнішню незначність і оцінку нешкідливості; остання допускає два прикметники.",
+                    "options": [
+                        "of",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи часткове, а не повне заперечення, зовнішню незначність і оцінку нешкідливості; остання допускає два прикметники.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a5": {
+                    "answer": "seemingly",
+                    "verb_hint": "Збережи часткове, а не повне заперечення, зовнішню незначність і оцінку нешкідливості; остання допускає два прикметники.",
+                    "options": [
+                        "seemingly",
+                        "potentially",
+                        "initially",
+                        "evidently"
+                    ]
+                },
+                "a6": {
+                    "answer": "minor",
+                    "verb_hint": "Збережи часткове, а не повне заперечення, зовнішню незначність і оцінку нешкідливості; остання допускає два прикметники.",
+                    "options": [
+                        "minor",
+                        "major",
+                        "structural",
+                        "fundamental"
+                    ]
+                },
+                "a7": {
+                    "answer": "deviations",
+                    "verb_hint": "Збережи часткове, а не повне заперечення, зовнішню незначність і оцінку нешкідливості; остання допускає два прикметники.",
+                    "options": [
+                        "deviations",
+                        "differences",
+                        "omissions",
+                        "changes"
+                    ]
+                },
+                "a8": {
+                    "answer": "are",
+                    "verb_hint": "Збережи часткове, а не повне заперечення, зовнішню незначність і оцінку нешкідливості; остання допускає два прикметники.",
+                    "options": [
+                        "are",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a9": {
+                    "answer": "harmless.",
+                    "verb_hint": "Збережи часткове, а не повне заперечення, зовнішню незначність і оцінку нешкідливості; остання допускає два прикметники.",
+                    "options": [
+                        "harmless",
+                        "reversible",
+                        "intentional",
+                        "inevitable"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи часткове, а не повне заперечення, зовнішню незначність і оцінку нешкідливості; остання допускає два прикметники.",
+            "accepted_target_texts": [
+                "Not all of the seemingly minor deviations are harmless.",
+                "Not all of the seemingly minor deviations are innocuous."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "innocuous."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "innocuous."
+                ]
+            },
+            "reorder_groups": [
+                "Not all",
+                "of the seemingly",
+                "minor deviations",
+                "are harmless."
+            ],
+            "token_groups": [
+                "Not all",
+                "of the seemingly",
+                "minor deviations",
+                "are harmless."
+            ],
+            "quality_revision": "aqv-v1",
+            "tokens_correct": [
+                "Not",
+                "all",
+                "of",
+                "the",
+                "seemingly",
+                "minor",
+                "deviations",
+                "are",
+                "harmless."
+            ],
+            "options": [
+                "Not",
+                "Just",
+                "Also",
+                "Usually",
+                "all",
+                "an",
+                "some",
+                "any",
+                "of",
+                "between",
+                "among",
+                "about",
+                "the",
+                "this",
+                "that",
+                "these",
+                "seemingly",
+                "potentially",
+                "initially",
+                "evidently",
+                "minor",
+                "major",
+                "structural",
+                "fundamental",
+                "deviations",
+                "differences",
+                "omissions",
+                "changes",
+                "are",
+                "was",
+                "were",
+                "be",
+                "harmless",
+                "reversible",
+                "intentional",
+                "inevitable"
+            ],
+            "source_text_uk": "Не всі зовні незначні відхилення є нешкідливими.",
+            "options_by_marker": {
+                "a1": [
+                    "Not",
+                    "Just",
+                    "Also",
+                    "Usually"
+                ],
+                "a2": [
+                    "all",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a3": [
+                    "of",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a4": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a5": [
+                    "seemingly",
+                    "potentially",
+                    "initially",
+                    "evidently"
+                ],
+                "a6": [
+                    "minor",
+                    "major",
+                    "structural",
+                    "fundamental"
+                ],
+                "a7": [
+                    "deviations",
+                    "differences",
+                    "omissions",
+                    "changes"
+                ],
+                "a8": [
+                    "are",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a9": [
+                    "harmless",
+                    "reversible",
+                    "intentional",
+                    "inevitable"
+                ]
+            },
+            "slot_roles": {
+                "a1": "ctwo_subject",
+                "a2": "ctwo_subject",
+                "a3": "ctwo_verb",
+                "a4": "ctwo_verb",
+                "a5": "ctwo_verb",
+                "a6": "ctwo_object",
+                "a7": "ctwo_object",
+                "a8": "ctwo_context",
+                "a9": "ctwo_context"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

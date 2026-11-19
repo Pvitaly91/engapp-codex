@@ -9,6 +9,7 @@ use App\Models\SavedGrammarTest;
 use App\Models\Test;
 use App\Support\SentenceBuilderBranding;
 use App\Support\VirtualTestRegistry;
+use App\Support\FinitePracticeQualityCatalogs;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
@@ -192,6 +193,15 @@ class SavedTestResolver
         if (is_string($rawFilters)) {
             $decoded = json_decode($rawFilters, true);
             $rawFilters = is_array($decoded) ? $decoded : [];
+        }
+
+        $projectedFilters = FinitePracticeQualityCatalogs::filtersForLocale(
+            (string) $saved->uuid, is_array($rawFilters) ? $rawFilters : [], app()->getLocale()
+        );
+        if ($projectedFilters !== $rawFilters) {
+            $saved = clone $saved;
+            $saved->filters = $projectedFilters;
+            $rawFilters = $projectedFilters;
         }
 
         $isFilterBased = is_array($rawFilters)

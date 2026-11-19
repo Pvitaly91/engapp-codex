@@ -1,0 +1,4216 @@
+{
+    "schema_version": 1,
+    "quality_revision": "nouns-articles-quantity-v1",
+    "compiled_from": {
+        "path": "docs/content/nouns-articles-quantity-quality/articles.v1.json",
+        "sha256": "6b17a6853635579e6eb9ae7bf8d675ab3d143b301c8e0c15d61d103e99913477"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedArticlesAAnTheQualityBuilderSeeder",
+        "uuid_namespace": "nouns-articles-quantity-quality-articles-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "nouns_articles_quantity_quality_articles": {
+            "name": "Nouns Articles Quantity Quality: Артиклі: неозначена згадка, вимова та точна референція"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_articles_a_an_the": {
+            "name": "Articles A An The",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "a_consonant_sound": {
+            "name": "A Consonant Sound",
+            "category": "topic"
+        },
+        "an_vowel_sound": {
+            "name": "An Vowel Sound",
+            "category": "topic"
+        },
+        "the_specific": {
+            "name": "The Specific",
+            "category": "topic"
+        },
+        "first_mention": {
+            "name": "First Mention",
+            "category": "topic"
+        },
+        "second_mention": {
+            "name": "Second Mention",
+            "category": "topic"
+        },
+        "singular_countable_article": {
+            "name": "Singular Countable Article",
+            "category": "topic"
+        },
+        "unique_objects": {
+            "name": "Unique Objects",
+            "category": "topic"
+        },
+        "sound_not_spelling": {
+            "name": "Sound Not Spelling",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "naqq-articles-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Під моїм стільцем ховається кролик.",
+            "level": "A1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Під моїм стільцем ховається кролик.",
+            "target_text": "A rabbit is hiding under my chair.",
+            "markers": {
+                "a1": {
+                    "answer": "A",
+                    "verb_hint": "Почни з назви одного кролика, якого згадують уперше; далі повідом про схованку.",
+                    "options": [
+                        "A",
+                        "Both",
+                        "An",
+                        "The"
+                    ]
+                },
+                "a2": {
+                    "answer": "rabbit",
+                    "verb_hint": "Почни з назви одного кролика, якого згадують уперше; далі повідом про схованку.",
+                    "options": [
+                        "rabbit",
+                        "bird",
+                        "horse",
+                        "cow"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Почни з назви одного кролика, якого згадують уперше; далі повідом про схованку.",
+                    "options": [
+                        "is",
+                        "weren't",
+                        "am",
+                        "are"
+                    ]
+                },
+                "a4": {
+                    "answer": "hiding",
+                    "verb_hint": "Почни з назви одного кролика, якого згадують уперше; далі повідом про схованку.",
+                    "options": [
+                        "hiding",
+                        "buying",
+                        "giving",
+                        "making"
+                    ]
+                },
+                "a5": {
+                    "answer": "under",
+                    "verb_hint": "Почни з назви одного кролика, якого згадують уперше; далі повідом про схованку.",
+                    "options": [
+                        "under",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a6": {
+                    "answer": "my",
+                    "verb_hint": "Почни з назви одного кролика, якого згадують уперше; далі повідом про схованку.",
+                    "options": [
+                        "my",
+                        "our",
+                        "their",
+                        "mine"
+                    ]
+                },
+                "a7": {
+                    "answer": "chair.",
+                    "verb_hint": "Почни з назви одного кролика, якого згадують уперше; далі повідом про схованку.",
+                    "options": [
+                        "chair",
+                        "tonight",
+                        "envelope",
+                        "moon"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з назви одного кролика, якого згадують уперше; далі повідом про схованку.",
+            "accepted_target_texts": [
+                "A rabbit is hiding under my chair."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A rabbit",
+                "is hiding",
+                "under my chair."
+            ],
+            "token_groups": [
+                "A rabbit",
+                "is hiding",
+                "under my chair."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "A",
+                "rabbit",
+                "is",
+                "hiding",
+                "under",
+                "my",
+                "chair."
+            ],
+            "options": [
+                "A",
+                "Both",
+                "An",
+                "The",
+                "rabbit",
+                "bird",
+                "horse",
+                "cow",
+                "is",
+                "weren't",
+                "am",
+                "are",
+                "hiding",
+                "buying",
+                "giving",
+                "making",
+                "under",
+                "in",
+                "on",
+                "at",
+                "my",
+                "our",
+                "their",
+                "mine",
+                "chair",
+                "tonight",
+                "envelope",
+                "moon"
+            ],
+            "source_text_uk": "Під моїм стільцем ховається кролик.",
+            "options_by_marker": {
+                "a1": [
+                    "A",
+                    "Both",
+                    "An",
+                    "The"
+                ],
+                "a2": [
+                    "rabbit",
+                    "bird",
+                    "horse",
+                    "cow"
+                ],
+                "a3": [
+                    "is",
+                    "weren't",
+                    "am",
+                    "are"
+                ],
+                "a4": [
+                    "hiding",
+                    "buying",
+                    "giving",
+                    "making"
+                ],
+                "a5": [
+                    "under",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a6": [
+                    "my",
+                    "our",
+                    "their",
+                    "mine"
+                ],
+                "a7": [
+                    "chair",
+                    "tonight",
+                    "envelope",
+                    "moon"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "naqq-articles-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Мені потрібен конверт для цієї листівки.",
+            "level": "A1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Мені потрібен конверт для цієї листівки.",
+            "target_text": "I need an envelope for this card.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Потрібен один будь-який конверт; перед назвою з голосним звуком обери неозначений артикль.",
+                    "options": [
+                        "I",
+                        "We",
+                        "They",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "need",
+                    "verb_hint": "Потрібен один будь-який конверт; перед назвою з голосним звуком обери неозначений артикль.",
+                    "options": [
+                        "need",
+                        "opened",
+                        "closed",
+                        "helped"
+                    ]
+                },
+                "a3": {
+                    "answer": "an",
+                    "verb_hint": "Потрібен один будь-який конверт; перед назвою з голосним звуком обери неозначений артикль.",
+                    "options": [
+                        "an",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a4": {
+                    "answer": "envelope",
+                    "verb_hint": "Потрібен один будь-який конверт; перед назвою з голосним звуком обери неозначений артикль.",
+                    "options": [
+                        "envelope",
+                        "tonight",
+                        "chair",
+                        "moon"
+                    ]
+                },
+                "a5": {
+                    "answer": "for",
+                    "verb_hint": "Потрібен один будь-який конверт; перед назвою з голосним звуком обери неозначений артикль.",
+                    "options": [
+                        "for",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a6": {
+                    "answer": "this",
+                    "verb_hint": "Потрібен один будь-який конверт; перед назвою з голосним звуком обери неозначений артикль.",
+                    "options": [
+                        "this",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a7": {
+                    "answer": "card.",
+                    "verb_hint": "Потрібен один будь-який конверт; перед назвою з голосним звуком обери неозначений артикль.",
+                    "options": [
+                        "card",
+                        "map",
+                        "notebook",
+                        "folder"
+                    ]
+                }
+            },
+            "verb_hint": "Потрібен один будь-який конверт; перед назвою з голосним звуком обери неозначений артикль.",
+            "accepted_target_texts": [
+                "I need an envelope for this card."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I need",
+                "an envelope",
+                "for this card."
+            ],
+            "token_groups": [
+                "I need",
+                "an envelope",
+                "for this card."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "I",
+                "need",
+                "an",
+                "envelope",
+                "for",
+                "this",
+                "card."
+            ],
+            "options": [
+                "I",
+                "We",
+                "They",
+                "Me",
+                "need",
+                "opened",
+                "closed",
+                "helped",
+                "an",
+                "no",
+                "another",
+                "either",
+                "envelope",
+                "tonight",
+                "chair",
+                "moon",
+                "for",
+                "on",
+                "at",
+                "by",
+                "this",
+                "all",
+                "both",
+                "a",
+                "card",
+                "map",
+                "notebook",
+                "folder"
+            ],
+            "source_text_uk": "Мені потрібен конверт для цієї листівки.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "We",
+                    "They",
+                    "Me"
+                ],
+                "a2": [
+                    "need",
+                    "opened",
+                    "closed",
+                    "helped"
+                ],
+                "a3": [
+                    "an",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a4": [
+                    "envelope",
+                    "tonight",
+                    "chair",
+                    "moon"
+                ],
+                "a5": [
+                    "for",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a6": [
+                    "this",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a7": [
+                    "card",
+                    "map",
+                    "notebook",
+                    "folder"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "naqq-articles-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Сьогодні вночі місяць яскравий.",
+            "level": "A1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Сьогодні вночі місяць яскравий.",
+            "target_text": "The moon is bright tonight.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з місяця як єдиного небесного тіла в цьому контексті; артикль означений.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "moon",
+                    "verb_hint": "Почни з місяця як єдиного небесного тіла в цьому контексті; артикль означений.",
+                    "options": [
+                        "moon",
+                        "chair",
+                        "envelope",
+                        "bike"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Почни з місяця як єдиного небесного тіла в цьому контексті; артикль означений.",
+                    "options": [
+                        "is",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a4": {
+                    "answer": "bright",
+                    "verb_hint": "Почни з місяця як єдиного небесного тіла в цьому контексті; артикль означений.",
+                    "options": [
+                        "bright",
+                        "hungry",
+                        "thirsty",
+                        "clear"
+                    ]
+                },
+                "a5": {
+                    "answer": "tonight.",
+                    "verb_hint": "Почни з місяця як єдиного небесного тіла в цьому контексті; артикль означений.",
+                    "options": [
+                        "tonight",
+                        "car",
+                        "bag",
+                        "book"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з місяця як єдиного небесного тіла в цьому контексті; артикль означений.",
+            "accepted_target_texts": [
+                "The moon is bright tonight."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The moon",
+                "is bright",
+                "tonight."
+            ],
+            "token_groups": [
+                "The moon",
+                "is bright",
+                "tonight."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "moon",
+                "is",
+                "bright",
+                "tonight."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "moon",
+                "chair",
+                "envelope",
+                "bike",
+                "is",
+                "wasn't",
+                "weren't",
+                "am",
+                "bright",
+                "hungry",
+                "thirsty",
+                "clear",
+                "tonight",
+                "car",
+                "bag",
+                "book"
+            ],
+            "source_text_uk": "Сьогодні вночі місяць яскравий.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "moon",
+                    "chair",
+                    "envelope",
+                    "bike"
+                ],
+                "a3": [
+                    "is",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a4": [
+                    "bright",
+                    "hungry",
+                    "thirsty",
+                    "clear"
+                ],
+                "a5": [
+                    "tonight",
+                    "car",
+                    "bag",
+                    "book"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "naqq-articles-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Ми побачили цуценя. Воно пішло за нами додому.",
+            "level": "A2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Ми побачили цуценя. Воно пішло за нами додому.",
+            "target_text": "We saw a puppy. The puppy followed us home.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "У першому реченні цуценя нове для слухача, у другому — вже відоме; двічі назви його іменником.",
+                    "options": [
+                        "We",
+                        "Themselves",
+                        "I",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "saw",
+                    "verb_hint": "У першому реченні цуценя нове для слухача, у другому — вже відоме; двічі назви його іменником.",
+                    "options": [
+                        "saw",
+                        "sent",
+                        "found",
+                        "brought"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "У першому реченні цуценя нове для слухача, у другому — вже відоме; двічі назви його іменником.",
+                    "options": [
+                        "a",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a4": {
+                    "answer": "puppy.",
+                    "verb_hint": "У першому реченні цуценя нове для слухача, у другому — вже відоме; двічі назви його іменником.",
+                    "options": [
+                        "puppy",
+                        "postcard",
+                        "nearest",
+                        "shop"
+                    ]
+                },
+                "a5": {
+                    "answer": "The",
+                    "verb_hint": "У першому реченні цуценя нове для слухача, у другому — вже відоме; двічі назви його іменником.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a6": {
+                    "answer": "puppy",
+                    "verb_hint": "У першому реченні цуценя нове для слухача, у другому — вже відоме; двічі назви його іменником.",
+                    "options": [
+                        "puppy",
+                        "nine",
+                        "teacher",
+                        "school"
+                    ]
+                },
+                "a7": {
+                    "answer": "followed",
+                    "verb_hint": "У першому реченні цуценя нове для слухача, у другому — вже відоме; двічі назви його іменником.",
+                    "options": [
+                        "followed",
+                        "watched",
+                        "visited",
+                        "cooked"
+                    ]
+                },
+                "a8": {
+                    "answer": "us",
+                    "verb_hint": "У першому реченні цуценя нове для слухача, у другому — вже відоме; двічі назви його іменником.",
+                    "options": [
+                        "us",
+                        "he",
+                        "she",
+                        "it"
+                    ]
+                },
+                "a9": {
+                    "answer": "home.",
+                    "verb_hint": "У першому реченні цуценя нове для слухача, у другому — вже відоме; двічі назви його іменником.",
+                    "options": [
+                        "home",
+                        "phone",
+                        "train",
+                        "bus"
+                    ]
+                }
+            },
+            "verb_hint": "У першому реченні цуценя нове для слухача, у другому — вже відоме; двічі назви його іменником.",
+            "accepted_target_texts": [
+                "We saw a puppy. The puppy followed us home."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We saw",
+                "a puppy.",
+                "The puppy",
+                "followed us home."
+            ],
+            "token_groups": [
+                "We saw",
+                "a puppy.",
+                "The puppy",
+                "followed us home."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "We",
+                "saw",
+                "a",
+                "puppy.",
+                "The",
+                "puppy",
+                "followed",
+                "us",
+                "home."
+            ],
+            "options": [
+                "We",
+                "Themselves",
+                "I",
+                "You",
+                "saw",
+                "sent",
+                "found",
+                "brought",
+                "a",
+                "some",
+                "any",
+                "this",
+                "puppy",
+                "postcard",
+                "nearest",
+                "shop",
+                "The",
+                "That",
+                "These",
+                "Those",
+                "nine",
+                "teacher",
+                "school",
+                "followed",
+                "watched",
+                "visited",
+                "cooked",
+                "us",
+                "he",
+                "she",
+                "it",
+                "home",
+                "phone",
+                "train",
+                "bus"
+            ],
+            "source_text_uk": "Ми побачили цуценя. Воно пішло за нами додому.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Themselves",
+                    "I",
+                    "You"
+                ],
+                "a2": [
+                    "saw",
+                    "sent",
+                    "found",
+                    "brought"
+                ],
+                "a3": [
+                    "a",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a4": [
+                    "puppy",
+                    "postcard",
+                    "nearest",
+                    "shop"
+                ],
+                "a5": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a6": [
+                    "puppy",
+                    "nine",
+                    "teacher",
+                    "school"
+                ],
+                "a7": [
+                    "followed",
+                    "watched",
+                    "visited",
+                    "cooked"
+                ],
+                "a8": [
+                    "us",
+                    "he",
+                    "she",
+                    "it"
+                ],
+                "a9": [
+                    "home",
+                    "phone",
+                    "train",
+                    "bus"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "naqq-articles-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Давній друг надіслав мені листівку.",
+            "level": "A2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Давній друг надіслав мені листівку.",
+            "target_text": "An old friend sent me a postcard.",
+            "markers": {
+                "a1": {
+                    "answer": "An",
+                    "verb_hint": "Почни з одного давнього друга; прикметник перед назвою друга починається з голосного звука.",
+                    "options": [
+                        "An",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "old",
+                    "verb_hint": "Почни з одного давнього друга; прикметник перед назвою друга починається з голосного звука.",
+                    "options": [
+                        "old",
+                        "bright",
+                        "dark",
+                        "heavy"
+                    ]
+                },
+                "a3": {
+                    "answer": "friend",
+                    "verb_hint": "Почни з одного давнього друга; прикметник перед назвою друга починається з голосного звука.",
+                    "options": [
+                        "friend",
+                        "manager",
+                        "student",
+                        "doctor"
+                    ]
+                },
+                "a4": {
+                    "answer": "sent",
+                    "verb_hint": "Почни з одного давнього друга; прикметник перед назвою друга починається з голосного звука.",
+                    "options": [
+                        "sent",
+                        "saw",
+                        "followed",
+                        "walked"
+                    ]
+                },
+                "a5": {
+                    "answer": "me",
+                    "verb_hint": "Почни з одного давнього друга; прикметник перед назвою друга починається з голосного звука.",
+                    "options": [
+                        "me",
+                        "themselves",
+                        "I",
+                        "you"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Почни з одного давнього друга; прикметник перед назвою друга починається з голосного звука.",
+                    "options": [
+                        "a",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "postcard.",
+                    "verb_hint": "Почни з одного давнього друга; прикметник перед назвою друга починається з голосного звука.",
+                    "options": [
+                        "postcard",
+                        "nearest",
+                        "shop",
+                        "nine"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з одного давнього друга; прикметник перед назвою друга починається з голосного звука.",
+            "accepted_target_texts": [
+                "An old friend sent me a postcard."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "An old friend",
+                "sent me",
+                "a postcard."
+            ],
+            "token_groups": [
+                "An old friend",
+                "sent me",
+                "a postcard."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "An",
+                "old",
+                "friend",
+                "sent",
+                "me",
+                "a",
+                "postcard."
+            ],
+            "options": [
+                "An",
+                "This",
+                "That",
+                "These",
+                "old",
+                "bright",
+                "dark",
+                "heavy",
+                "friend",
+                "manager",
+                "student",
+                "doctor",
+                "sent",
+                "saw",
+                "followed",
+                "walked",
+                "me",
+                "themselves",
+                "I",
+                "you",
+                "a",
+                "those",
+                "each",
+                "every",
+                "postcard",
+                "nearest",
+                "shop",
+                "nine"
+            ],
+            "source_text_uk": "Давній друг надіслав мені листівку.",
+            "options_by_marker": {
+                "a1": [
+                    "An",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "old",
+                    "bright",
+                    "dark",
+                    "heavy"
+                ],
+                "a3": [
+                    "friend",
+                    "manager",
+                    "student",
+                    "doctor"
+                ],
+                "a4": [
+                    "sent",
+                    "saw",
+                    "followed",
+                    "walked"
+                ],
+                "a5": [
+                    "me",
+                    "themselves",
+                    "I",
+                    "you"
+                ],
+                "a6": [
+                    "a",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "postcard",
+                    "nearest",
+                    "shop",
+                    "nine"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "naqq-articles-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Найближчий магазин зачиняється о дев’ятій.",
+            "level": "A2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Найближчий магазин зачиняється о дев’ятій.",
+            "target_text": "The nearest shop closes at nine.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Найвищий ступінь визначає конкретний магазин; почни з назви цього магазину.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "nearest",
+                    "verb_hint": "Найвищий ступінь визначає конкретний магазин; почни з назви цього магазину.",
+                    "options": [
+                        "nearest",
+                        "postcard",
+                        "puppy",
+                        "home"
+                    ]
+                },
+                "a3": {
+                    "answer": "shop",
+                    "verb_hint": "Найвищий ступінь визначає конкретний магазин; почни з назви цього магазину.",
+                    "options": [
+                        "shop",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a4": {
+                    "answer": "closes",
+                    "verb_hint": "Найвищий ступінь визначає конкретний магазин; почни з назви цього магазину.",
+                    "options": [
+                        "closes",
+                        "finds",
+                        "brings",
+                        "takes"
+                    ]
+                },
+                "a5": {
+                    "answer": "at",
+                    "verb_hint": "Найвищий ступінь визначає конкретний магазин; почни з назви цього магазину.",
+                    "options": [
+                        "at",
+                        "on",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a6": {
+                    "answer": "nine.",
+                    "verb_hint": "Найвищий ступінь визначає конкретний магазин; почни з назви цього магазину.",
+                    "options": [
+                        "nine",
+                        "room",
+                        "map",
+                        "letter"
+                    ]
+                }
+            },
+            "verb_hint": "Найвищий ступінь визначає конкретний магазин; почни з назви цього магазину.",
+            "accepted_target_texts": [
+                "The nearest shop closes at nine."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The nearest shop",
+                "closes",
+                "at nine."
+            ],
+            "token_groups": [
+                "The nearest shop",
+                "closes",
+                "at nine."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "nearest",
+                "shop",
+                "closes",
+                "at",
+                "nine."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "nearest",
+                "postcard",
+                "puppy",
+                "home",
+                "shop",
+                "school",
+                "sister",
+                "brother",
+                "closes",
+                "finds",
+                "brings",
+                "takes",
+                "at",
+                "on",
+                "by",
+                "with",
+                "nine",
+                "room",
+                "map",
+                "letter"
+            ],
+            "source_text_uk": "Найближчий магазин зачиняється о дев’ятій.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "nearest",
+                    "postcard",
+                    "puppy",
+                    "home"
+                ],
+                "a3": [
+                    "shop",
+                    "school",
+                    "sister",
+                    "brother"
+                ],
+                "a4": [
+                    "closes",
+                    "finds",
+                    "brings",
+                    "takes"
+                ],
+                "a5": [
+                    "at",
+                    "on",
+                    "by",
+                    "with"
+                ],
+                "a6": [
+                    "nine",
+                    "room",
+                    "map",
+                    "letter"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "naqq-articles-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Чесна відповідь краща за хитре виправдання.",
+            "level": "B1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Чесна відповідь краща за хитре виправдання.",
+            "target_text": "An honest reply is better than a clever excuse.",
+            "markers": {
+                "a1": {
+                    "answer": "An",
+                    "verb_hint": "Порівняй одну типову чесну відповідь з одним виправданням; перед першим прикметником врахуй невимовну початкову літеру.",
+                    "options": [
+                        "An",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "honest",
+                    "verb_hint": "Порівняй одну типову чесну відповідь з одним виправданням; перед першим прикметником врахуй невимовну початкову літеру.",
+                    "options": [
+                        "honest",
+                        "balcony",
+                        "key",
+                        "jacket"
+                    ]
+                },
+                "a3": {
+                    "answer": "reply",
+                    "verb_hint": "Порівняй одну типову чесну відповідь з одним виправданням; перед першим прикметником врахуй невимовну початкову літеру.",
+                    "options": [
+                        "reply",
+                        "quietly",
+                        "slowly",
+                        "quickly"
+                    ]
+                },
+                "a4": {
+                    "answer": "is",
+                    "verb_hint": "Порівняй одну типову чесну відповідь з одним виправданням; перед першим прикметником врахуй невимовну початкову літеру.",
+                    "options": [
+                        "is",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "better",
+                    "verb_hint": "Порівняй одну типову чесну відповідь з одним виправданням; перед першим прикметником врахуй невимовну початкову літеру.",
+                    "options": [
+                        "better",
+                        "pocket",
+                        "room",
+                        "bus"
+                    ]
+                },
+                "a6": {
+                    "answer": "than",
+                    "verb_hint": "Порівняй одну типову чесну відповідь з одним виправданням; перед першим прикметником врахуй невимовну початкову літеру.",
+                    "options": [
+                        "than",
+                        "table",
+                        "ticket",
+                        "cup"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Порівняй одну типову чесну відповідь з одним виправданням; перед першим прикметником врахуй невимовну початкову літеру.",
+                    "options": [
+                        "a",
+                        "both",
+                        "the",
+                        "some"
+                    ]
+                },
+                "a8": {
+                    "answer": "clever",
+                    "verb_hint": "Порівняй одну типову чесну відповідь з одним виправданням; перед першим прикметником врахуй невимовну початкову літеру.",
+                    "options": [
+                        "clever",
+                        "door",
+                        "map",
+                        "letter"
+                    ]
+                },
+                "a9": {
+                    "answer": "excuse.",
+                    "verb_hint": "Порівняй одну типову чесну відповідь з одним виправданням; перед першим прикметником врахуй невимовну початкову літеру.",
+                    "options": [
+                        "excuse",
+                        "bread",
+                        "milk",
+                        "music"
+                    ]
+                }
+            },
+            "verb_hint": "Порівняй одну типову чесну відповідь з одним виправданням; перед першим прикметником врахуй невимовну початкову літеру.",
+            "accepted_target_texts": [
+                "An honest reply is better than a clever excuse."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "An honest reply",
+                "is better than",
+                "a clever excuse."
+            ],
+            "token_groups": [
+                "An honest reply",
+                "is better than",
+                "a clever excuse."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "An",
+                "honest",
+                "reply",
+                "is",
+                "better",
+                "than",
+                "a",
+                "clever",
+                "excuse."
+            ],
+            "options": [
+                "An",
+                "That",
+                "These",
+                "Those",
+                "honest",
+                "balcony",
+                "key",
+                "jacket",
+                "reply",
+                "quietly",
+                "slowly",
+                "quickly",
+                "is",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "better",
+                "pocket",
+                "room",
+                "bus",
+                "than",
+                "table",
+                "ticket",
+                "cup",
+                "a",
+                "both",
+                "the",
+                "some",
+                "clever",
+                "door",
+                "map",
+                "letter",
+                "excuse",
+                "bread",
+                "milk",
+                "music"
+            ],
+            "source_text_uk": "Чесна відповідь краща за хитре виправдання.",
+            "options_by_marker": {
+                "a1": [
+                    "An",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "honest",
+                    "balcony",
+                    "key",
+                    "jacket"
+                ],
+                "a3": [
+                    "reply",
+                    "quietly",
+                    "slowly",
+                    "quickly"
+                ],
+                "a4": [
+                    "is",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a5": [
+                    "better",
+                    "pocket",
+                    "room",
+                    "bus"
+                ],
+                "a6": [
+                    "than",
+                    "table",
+                    "ticket",
+                    "cup"
+                ],
+                "a7": [
+                    "a",
+                    "both",
+                    "the",
+                    "some"
+                ],
+                "a8": [
+                    "clever",
+                    "door",
+                    "map",
+                    "letter"
+                ],
+                "a9": [
+                    "excuse",
+                    "bread",
+                    "milk",
+                    "music"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "naqq-articles-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Єдиний ключ лежить у кишені моєї куртки.",
+            "level": "B1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Єдиний ключ лежить у кишені моєї куртки.",
+            "target_text": "The only key is in my jacket pocket.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Слово зі значенням єдиний визначає ключ; потрібен означений артикль.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "only",
+                    "verb_hint": "Слово зі значенням єдиний визначає ключ; потрібен означений артикль.",
+                    "options": [
+                        "only",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a3": {
+                    "answer": "key",
+                    "verb_hint": "Слово зі значенням єдиний визначає ключ; потрібен означений артикль.",
+                    "options": [
+                        "key",
+                        "honest",
+                        "better",
+                        "than"
+                    ]
+                },
+                "a4": {
+                    "answer": "is",
+                    "verb_hint": "Слово зі значенням єдиний визначає ключ; потрібен означений артикль.",
+                    "options": [
+                        "is",
+                        "weren't",
+                        "am",
+                        "are"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Слово зі значенням єдиний визначає ключ; потрібен означений артикль.",
+                    "options": [
+                        "in",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a6": {
+                    "answer": "my",
+                    "verb_hint": "Слово зі значенням єдиний визначає ключ; потрібен означений артикль.",
+                    "options": [
+                        "my",
+                        "hers",
+                        "ours",
+                        "theirs"
+                    ]
+                },
+                "a7": {
+                    "answer": "jacket",
+                    "verb_hint": "Слово зі значенням єдиний визначає ключ; потрібен означений артикль.",
+                    "options": [
+                        "jacket",
+                        "balcony",
+                        "clever",
+                        "excuse"
+                    ]
+                },
+                "a8": {
+                    "answer": "pocket.",
+                    "verb_hint": "Слово зі значенням єдиний визначає ключ; потрібен означений артикль.",
+                    "options": [
+                        "pocket",
+                        "room",
+                        "door",
+                        "map"
+                    ]
+                }
+            },
+            "verb_hint": "Слово зі значенням єдиний визначає ключ; потрібен означений артикль.",
+            "accepted_target_texts": [
+                "The only key is in my jacket pocket."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The only key",
+                "is in",
+                "my jacket pocket."
+            ],
+            "token_groups": [
+                "The only key",
+                "is in",
+                "my jacket pocket."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "only",
+                "key",
+                "is",
+                "in",
+                "my",
+                "jacket",
+                "pocket."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "only",
+                "always",
+                "often",
+                "sometimes",
+                "key",
+                "honest",
+                "better",
+                "than",
+                "is",
+                "weren't",
+                "am",
+                "are",
+                "in",
+                "over",
+                "under",
+                "through",
+                "my",
+                "hers",
+                "ours",
+                "theirs",
+                "jacket",
+                "balcony",
+                "clever",
+                "excuse",
+                "pocket",
+                "room",
+                "door",
+                "map"
+            ],
+            "source_text_uk": "Єдиний ключ лежить у кишені моєї куртки.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "only",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a3": [
+                    "key",
+                    "honest",
+                    "better",
+                    "than"
+                ],
+                "a4": [
+                    "is",
+                    "weren't",
+                    "am",
+                    "are"
+                ],
+                "a5": [
+                    "in",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a6": [
+                    "my",
+                    "hers",
+                    "ours",
+                    "theirs"
+                ],
+                "a7": [
+                    "jacket",
+                    "balcony",
+                    "clever",
+                    "excuse"
+                ],
+                "a8": [
+                    "pocket",
+                    "room",
+                    "door",
+                    "map"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "naqq-articles-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Ми забронювали кімнату з балконом.",
+            "level": "B1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Ми забронювали кімнату з балконом.",
+            "target_text": "We booked a room with a balcony.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "І кімнату, і балкон згадуємо вперше як окремі предмети; не роби їх означеними.",
+                    "options": [
+                        "We",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "booked",
+                    "verb_hint": "І кімнату, і балкон згадуємо вперше як окремі предмети; не роби їх означеними.",
+                    "options": [
+                        "booked",
+                        "drove",
+                        "gave",
+                        "made"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "І кімнату, і балкон згадуємо вперше як окремі предмети; не роби їх означеними.",
+                    "options": [
+                        "a",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a4": {
+                    "answer": "room",
+                    "verb_hint": "І кімнату, і балкон згадуємо вперше як окремі предмети; не роби їх означеними.",
+                    "options": [
+                        "room",
+                        "clever",
+                        "excuse",
+                        "key"
+                    ]
+                },
+                "a5": {
+                    "answer": "with",
+                    "verb_hint": "І кімнату, і балкон згадуємо вперше як окремі предмети; не роби їх означеними.",
+                    "options": [
+                        "with",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "І кімнату, і балкон згадуємо вперше як окремі предмети; не роби їх означеними.",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "some"
+                    ]
+                },
+                "a7": {
+                    "answer": "balcony.",
+                    "verb_hint": "І кімнату, і балкон згадуємо вперше як окремі предмети; не роби їх означеними.",
+                    "options": [
+                        "balcony",
+                        "jacket",
+                        "pocket",
+                        "honest"
+                    ]
+                }
+            },
+            "verb_hint": "І кімнату, і балкон згадуємо вперше як окремі предмети; не роби їх означеними.",
+            "accepted_target_texts": [
+                "We booked a room with a balcony."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We booked",
+                "a room",
+                "with a balcony."
+            ],
+            "token_groups": [
+                "We booked",
+                "a room",
+                "with a balcony."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "We",
+                "booked",
+                "a",
+                "room",
+                "with",
+                "a",
+                "balcony."
+            ],
+            "options": [
+                "We",
+                "They",
+                "Me",
+                "Him",
+                "booked",
+                "drove",
+                "gave",
+                "made",
+                "a",
+                "these",
+                "those",
+                "each",
+                "room",
+                "clever",
+                "excuse",
+                "key",
+                "with",
+                "between",
+                "among",
+                "about",
+                "an",
+                "the",
+                "some",
+                "balcony",
+                "jacket",
+                "pocket",
+                "honest"
+            ],
+            "source_text_uk": "Ми забронювали кімнату з балконом.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "booked",
+                    "drove",
+                    "gave",
+                    "made"
+                ],
+                "a3": [
+                    "a",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a4": [
+                    "room",
+                    "clever",
+                    "excuse",
+                    "key"
+                ],
+                "a5": [
+                    "with",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a6": [
+                    "a",
+                    "an",
+                    "the",
+                    "some"
+                ],
+                "a7": [
+                    "balcony",
+                    "jacket",
+                    "pocket",
+                    "honest"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "naqq-articles-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Пояснення, яке нам дали, залишило кілька запитань без відповіді.",
+            "level": "B2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Пояснення, яке нам дали, залишило кілька запитань без відповіді.",
+            "target_text": "The explanation we were given left several questions unanswered.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з конкретного пояснення, визначеного наступною частиною речення.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "explanation",
+                    "verb_hint": "Почни з конкретного пояснення, визначеного наступною частиною речення.",
+                    "options": [
+                        "explanation",
+                        "compromise",
+                        "after",
+                        "lengthy"
+                    ]
+                },
+                "a3": {
+                    "answer": "we",
+                    "verb_hint": "Почни з конкретного пояснення, визначеного наступною частиною речення.",
+                    "options": [
+                        "we",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a4": {
+                    "answer": "were",
+                    "verb_hint": "Почни з конкретного пояснення, визначеного наступною частиною речення.",
+                    "options": [
+                        "were",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a5": {
+                    "answer": "given",
+                    "verb_hint": "Почни з конкретного пояснення, визначеного наступною частиною речення.",
+                    "options": [
+                        "given",
+                        "called",
+                        "opened",
+                        "closed"
+                    ]
+                },
+                "a6": {
+                    "answer": "left",
+                    "verb_hint": "Почни з конкретного пояснення, визначеного наступною частиною речення.",
+                    "options": [
+                        "left",
+                        "reached",
+                        "saw",
+                        "needed"
+                    ]
+                },
+                "a7": {
+                    "answer": "several",
+                    "verb_hint": "Почни з конкретного пояснення, визначеного наступною частиною речення.",
+                    "options": [
+                        "several",
+                        "discussion",
+                        "honour",
+                        "introduce"
+                    ]
+                },
+                "a8": {
+                    "answer": "questions",
+                    "verb_hint": "Почни з конкретного пояснення, визначеного наступною частиною речення.",
+                    "options": [
+                        "questions",
+                        "dogs",
+                        "cats",
+                        "people"
+                    ]
+                },
+                "a9": {
+                    "answer": "unanswered.",
+                    "verb_hint": "Почни з конкретного пояснення, визначеного наступною частиною речення.",
+                    "options": [
+                        "unanswered",
+                        "brought",
+                        "took",
+                        "wrote"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з конкретного пояснення, визначеного наступною частиною речення.",
+            "accepted_target_texts": [
+                "The explanation we were given left several questions unanswered."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The explanation",
+                "we were given",
+                "left several questions",
+                "unanswered."
+            ],
+            "token_groups": [
+                "The explanation",
+                "we were given",
+                "left several questions",
+                "unanswered."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "explanation",
+                "we",
+                "were",
+                "given",
+                "left",
+                "several",
+                "questions",
+                "unanswered."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "explanation",
+                "compromise",
+                "after",
+                "lengthy",
+                "we",
+                "herself",
+                "ourselves",
+                "themselves",
+                "were",
+                "be",
+                "been",
+                "being",
+                "given",
+                "called",
+                "opened",
+                "closed",
+                "left",
+                "reached",
+                "saw",
+                "needed",
+                "several",
+                "discussion",
+                "honour",
+                "introduce",
+                "questions",
+                "dogs",
+                "cats",
+                "people",
+                "unanswered",
+                "brought",
+                "took",
+                "wrote"
+            ],
+            "source_text_uk": "Пояснення, яке нам дали, залишило кілька запитань без відповіді.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "explanation",
+                    "compromise",
+                    "after",
+                    "lengthy"
+                ],
+                "a3": [
+                    "we",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a4": [
+                    "were",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a5": [
+                    "given",
+                    "called",
+                    "opened",
+                    "closed"
+                ],
+                "a6": [
+                    "left",
+                    "reached",
+                    "saw",
+                    "needed"
+                ],
+                "a7": [
+                    "several",
+                    "discussion",
+                    "honour",
+                    "introduce"
+                ],
+                "a8": [
+                    "questions",
+                    "dogs",
+                    "cats",
+                    "people"
+                ],
+                "a9": [
+                    "unanswered",
+                    "brought",
+                    "took",
+                    "wrote"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "naqq-articles-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Для мене було честю представити запрошеного доповідача.",
+            "level": "B2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Для мене було честю представити запрошеного доповідача.",
+            "target_text": "It was an honour to introduce the guest speaker.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Назви подію окремою честю; перед цим іменником початкова приголосна не вимовляється.",
+                    "options": [
+                        "It",
+                        "Themselves",
+                        "I",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Назви подію окремою честю; перед цим іменником початкова приголосна не вимовляється.",
+                    "options": [
+                        "was",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a3": {
+                    "answer": "an",
+                    "verb_hint": "Назви подію окремою честю; перед цим іменником початкова приголосна не вимовляється.",
+                    "options": [
+                        "an",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a4": {
+                    "answer": "honour",
+                    "verb_hint": "Назви подію окремою честю; перед цим іменником початкова приголосна не вимовляється.",
+                    "options": [
+                        "honour",
+                        "several",
+                        "compromise",
+                        "after"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Назви подію окремою честю; перед цим іменником початкова приголосна не вимовляється.",
+                    "options": [
+                        "to",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a6": {
+                    "answer": "introduce",
+                    "verb_hint": "Назви подію окремою честю; перед цим іменником початкова приголосна не вимовляється.",
+                    "options": [
+                        "introduce",
+                        "discussion",
+                        "explanation",
+                        "lengthy"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Назви подію окремою честю; перед цим іменником початкова приголосна не вимовляється.",
+                    "options": [
+                        "the",
+                        "these",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a8": {
+                    "answer": "guest",
+                    "verb_hint": "Назви подію окремою честю; перед цим іменником початкова приголосна не вимовляється.",
+                    "options": [
+                        "guest",
+                        "sister",
+                        "brother",
+                        "friend"
+                    ]
+                },
+                "a9": {
+                    "answer": "speaker.",
+                    "verb_hint": "Назви подію окремою честю; перед цим іменником початкова приголосна не вимовляється.",
+                    "options": [
+                        "speaker",
+                        "door",
+                        "key",
+                        "room"
+                    ]
+                }
+            },
+            "verb_hint": "Назви подію окремою честю; перед цим іменником початкова приголосна не вимовляється.",
+            "accepted_target_texts": [
+                "It was an honour to introduce the guest speaker.",
+                "It was an honor to introduce the guest speaker."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "honor"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "honor"
+                ]
+            },
+            "reorder_groups": [
+                "It was",
+                "an honour",
+                "to introduce",
+                "the guest speaker."
+            ],
+            "token_groups": [
+                "It was",
+                "an honour",
+                "to introduce",
+                "the guest speaker."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "It",
+                "was",
+                "an",
+                "honour",
+                "to",
+                "introduce",
+                "the",
+                "guest",
+                "speaker."
+            ],
+            "options": [
+                "It",
+                "Themselves",
+                "I",
+                "You",
+                "was",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "an",
+                "those",
+                "each",
+                "every",
+                "honour",
+                "several",
+                "compromise",
+                "after",
+                "to",
+                "on",
+                "at",
+                "by",
+                "introduce",
+                "discussion",
+                "explanation",
+                "lengthy",
+                "the",
+                "these",
+                "no",
+                "another",
+                "guest",
+                "sister",
+                "brother",
+                "friend",
+                "speaker",
+                "door",
+                "key",
+                "room"
+            ],
+            "source_text_uk": "Для мене було честю представити запрошеного доповідача.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "Themselves",
+                    "I",
+                    "You"
+                ],
+                "a2": [
+                    "was",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a3": [
+                    "an",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a4": [
+                    "honour",
+                    "several",
+                    "compromise",
+                    "after"
+                ],
+                "a5": [
+                    "to",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a6": [
+                    "introduce",
+                    "discussion",
+                    "explanation",
+                    "lengthy"
+                ],
+                "a7": [
+                    "the",
+                    "these",
+                    "no",
+                    "another"
+                ],
+                "a8": [
+                    "guest",
+                    "sister",
+                    "brother",
+                    "friend"
+                ],
+                "a9": [
+                    "speaker",
+                    "door",
+                    "key",
+                    "room"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "naqq-articles-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Після тривалого обговорення вони досягли компромісу.",
+            "level": "B2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Після тривалого обговорення вони досягли компромісу.",
+            "target_text": "They reached a compromise after a lengthy discussion.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Повідом про один досягнутий компроміс та одне тривале обговорення; обидві згадки неозначені.",
+                    "options": [
+                        "They",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "reached",
+                    "verb_hint": "Повідом про один досягнутий компроміс та одне тривале обговорення; обидві згадки неозначені.",
+                    "options": [
+                        "reached",
+                        "left",
+                        "unanswered",
+                        "found"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Повідом про один досягнутий компроміс та одне тривале обговорення; обидві згадки неозначені.",
+                    "options": [
+                        "a",
+                        "both",
+                        "an",
+                        "the"
+                    ]
+                },
+                "a4": {
+                    "answer": "compromise",
+                    "verb_hint": "Повідом про один досягнутий компроміс та одне тривале обговорення; обидві згадки неозначені.",
+                    "options": [
+                        "compromise",
+                        "explanation",
+                        "several",
+                        "honour"
+                    ]
+                },
+                "a5": {
+                    "answer": "after",
+                    "verb_hint": "Повідом про один досягнутий компроміс та одне тривале обговорення; обидві згадки неозначені.",
+                    "options": [
+                        "after",
+                        "introduce",
+                        "guest",
+                        "speaker"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Повідом про один досягнутий компроміс та одне тривале обговорення; обидві згадки неозначені.",
+                    "options": [
+                        "a",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "lengthy",
+                    "verb_hint": "Повідом про один досягнутий компроміс та одне тривале обговорення; обидві згадки неозначені.",
+                    "options": [
+                        "lengthy",
+                        "food",
+                        "bike",
+                        "car"
+                    ]
+                },
+                "a8": {
+                    "answer": "discussion.",
+                    "verb_hint": "Повідом про один досягнутий компроміс та одне тривале обговорення; обидві згадки неозначені.",
+                    "options": [
+                        "discussion",
+                        "friend",
+                        "dog",
+                        "cat"
+                    ]
+                }
+            },
+            "verb_hint": "Повідом про один досягнутий компроміс та одне тривале обговорення; обидві згадки неозначені.",
+            "accepted_target_texts": [
+                "They reached a compromise after a lengthy discussion.",
+                "They reached a compromise after a lengthy debate.",
+                "They reached a compromise after a long discussion.",
+                "They reached a compromise after a long debate."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "debate."
+                ],
+                "a7": [
+                    "long"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "debate."
+                ],
+                "a7": [
+                    "long"
+                ]
+            },
+            "reorder_groups": [
+                "They reached",
+                "a compromise",
+                "after a lengthy",
+                "discussion."
+            ],
+            "token_groups": [
+                "They reached",
+                "a compromise",
+                "after a lengthy",
+                "discussion."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "They",
+                "reached",
+                "a",
+                "compromise",
+                "after",
+                "a",
+                "lengthy",
+                "discussion."
+            ],
+            "options": [
+                "They",
+                "You",
+                "He",
+                "She",
+                "reached",
+                "left",
+                "unanswered",
+                "found",
+                "a",
+                "both",
+                "an",
+                "the",
+                "compromise",
+                "explanation",
+                "several",
+                "honour",
+                "after",
+                "introduce",
+                "guest",
+                "speaker",
+                "some",
+                "any",
+                "this",
+                "lengthy",
+                "food",
+                "bike",
+                "car",
+                "discussion",
+                "friend",
+                "dog",
+                "cat"
+            ],
+            "source_text_uk": "Після тривалого обговорення вони досягли компромісу.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a2": [
+                    "reached",
+                    "left",
+                    "unanswered",
+                    "found"
+                ],
+                "a3": [
+                    "a",
+                    "both",
+                    "an",
+                    "the"
+                ],
+                "a4": [
+                    "compromise",
+                    "explanation",
+                    "several",
+                    "honour"
+                ],
+                "a5": [
+                    "after",
+                    "introduce",
+                    "guest",
+                    "speaker"
+                ],
+                "a6": [
+                    "a",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "lengthy",
+                    "food",
+                    "bike",
+                    "car"
+                ],
+                "a8": [
+                    "discussion",
+                    "friend",
+                    "dog",
+                    "cat"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "naqq-articles-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Перспектива ще однієї затримки занепокоїла інвесторів.",
+            "level": "C1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Перспектива ще однієї затримки занепокоїла інвесторів.",
+            "target_text": "The prospect of another delay made the investors uneasy.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Назви конкретну перспективу, уточнену наступним доповненням; почни саме з неї.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "prospect",
+                    "verb_hint": "Назви конкретну перспективу, уточнену наступним доповненням; почни саме з неї.",
+                    "options": [
+                        "prospect",
+                        "future",
+                        "objection",
+                        "issue"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Назви конкретну перспективу, уточнену наступним доповненням; почни саме з неї.",
+                    "options": [
+                        "of",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a4": {
+                    "answer": "another",
+                    "verb_hint": "Назви конкретну перспективу, уточнену наступним доповненням; почни саме з неї.",
+                    "options": [
+                        "another",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "delay",
+                    "verb_hint": "Назви конкретну перспективу, уточнену наступним доповненням; почни саме з неї.",
+                    "options": [
+                        "delay",
+                        "original",
+                        "proposal",
+                        "agreement"
+                    ]
+                },
+                "a6": {
+                    "answer": "made",
+                    "verb_hint": "Назви конкретну перспективу, уточнену наступним доповненням; почни саме з неї.",
+                    "options": [
+                        "made",
+                        "raised",
+                        "wanted",
+                        "worked"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Назви конкретну перспективу, уточнену наступним доповненням; почни саме з неї.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a8": {
+                    "answer": "investors",
+                    "verb_hint": "Назви конкретну перспективу, уточнену наступним доповненням; почни саме з неї.",
+                    "options": [
+                        "investors",
+                        "provides",
+                        "disputes",
+                        "phones"
+                    ]
+                },
+                "a9": {
+                    "answer": "uneasy.",
+                    "verb_hint": "Назви конкретну перспективу, уточнену наступним доповненням; почни саме з неї.",
+                    "options": [
+                        "uneasy",
+                        "framework",
+                        "ticket",
+                        "cup"
+                    ]
+                }
+            },
+            "verb_hint": "Назви конкретну перспективу, уточнену наступним доповненням; почни саме з неї.",
+            "accepted_target_texts": [
+                "The prospect of another delay made the investors uneasy."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The prospect",
+                "of another delay",
+                "made the investors",
+                "uneasy."
+            ],
+            "token_groups": [
+                "The prospect",
+                "of another delay",
+                "made the investors",
+                "uneasy."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "prospect",
+                "of",
+                "another",
+                "delay",
+                "made",
+                "the",
+                "investors",
+                "uneasy."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "prospect",
+                "future",
+                "objection",
+                "issue",
+                "of",
+                "with",
+                "without",
+                "into",
+                "another",
+                "both",
+                "a",
+                "an",
+                "delay",
+                "original",
+                "proposal",
+                "agreement",
+                "made",
+                "raised",
+                "wanted",
+                "worked",
+                "the",
+                "that",
+                "these",
+                "those",
+                "investors",
+                "provides",
+                "disputes",
+                "phones",
+                "uneasy",
+                "framework",
+                "ticket",
+                "cup"
+            ],
+            "source_text_uk": "Перспектива ще однієї затримки занепокоїла інвесторів.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "prospect",
+                    "future",
+                    "objection",
+                    "issue"
+                ],
+                "a3": [
+                    "of",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a4": [
+                    "another",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a5": [
+                    "delay",
+                    "original",
+                    "proposal",
+                    "agreement"
+                ],
+                "a6": [
+                    "made",
+                    "raised",
+                    "wanted",
+                    "worked"
+                ],
+                "a7": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a8": [
+                    "investors",
+                    "provides",
+                    "disputes",
+                    "phones"
+                ],
+                "a9": [
+                    "uneasy",
+                    "framework",
+                    "ticket",
+                    "cup"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "naqq-articles-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Її заперечення порушило питання, якого початкова пропозиція не врахувала.",
+            "level": "C1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Її заперечення порушило питання, якого початкова пропозиція не врахувала.",
+            "target_text": "Her objection raised an issue that the original proposal had overlooked.",
+            "markers": {
+                "a1": {
+                    "answer": "Her",
+                    "verb_hint": "Питання вводиться вперше, хоча має уточнювальну частину; потрібен неозначений артикль перед голосним звуком.",
+                    "options": [
+                        "Her",
+                        "Its",
+                        "Our",
+                        "Their"
+                    ]
+                },
+                "a2": {
+                    "answer": "objection",
+                    "verb_hint": "Питання вводиться вперше, хоча має уточнювальну частину; потрібен неозначений артикль перед голосним звуком.",
+                    "options": [
+                        "objection",
+                        "delay",
+                        "uneasy",
+                        "agreement"
+                    ]
+                },
+                "a3": {
+                    "answer": "raised",
+                    "verb_hint": "Питання вводиться вперше, хоча має уточнювальну частину; потрібен неозначений артикль перед голосним звуком.",
+                    "options": [
+                        "raised",
+                        "made",
+                        "cooked",
+                        "found"
+                    ]
+                },
+                "a4": {
+                    "answer": "an",
+                    "verb_hint": "Питання вводиться вперше, хоча має уточнювальну частину; потрібен неозначений артикль перед голосним звуком.",
+                    "options": [
+                        "an",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "issue",
+                    "verb_hint": "Питання вводиться вперше, хоча має уточнювальну частину; потрібен неозначений артикль перед голосним звуком.",
+                    "options": [
+                        "issue",
+                        "framework",
+                        "future",
+                        "prospect"
+                    ]
+                },
+                "a6": {
+                    "answer": "that",
+                    "verb_hint": "Питання вводиться вперше, хоча має уточнювальну частину; потрібен неозначений артикль перед голосним звуком.",
+                    "options": [
+                        "that",
+                        "both",
+                        "a",
+                        "some"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Питання вводиться вперше, хоча має уточнювальну частину; потрібен неозначений артикль перед голосним звуком.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "these"
+                    ]
+                },
+                "a8": {
+                    "answer": "original",
+                    "verb_hint": "Питання вводиться вперше, хоча має уточнювальну частину; потрібен неозначений артикль перед голосним звуком.",
+                    "options": [
+                        "original",
+                        "ticket",
+                        "cup",
+                        "door"
+                    ]
+                },
+                "a9": {
+                    "answer": "proposal",
+                    "verb_hint": "Питання вводиться вперше, хоча має уточнювальну частину; потрібен неозначений артикль перед голосним звуком.",
+                    "options": [
+                        "proposal",
+                        "picture",
+                        "child",
+                        "teacher"
+                    ]
+                },
+                "a10": {
+                    "answer": "had",
+                    "verb_hint": "Питання вводиться вперше, хоча має уточнювальну частину; потрібен неозначений артикль перед голосним звуком.",
+                    "options": [
+                        "had",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a11": {
+                    "answer": "overlooked.",
+                    "verb_hint": "Питання вводиться вперше, хоча має уточнювальну частину; потрібен неозначений артикль перед голосним звуком.",
+                    "options": [
+                        "overlooked",
+                        "closed",
+                        "helped",
+                        "watched"
+                    ]
+                }
+            },
+            "verb_hint": "Питання вводиться вперше, хоча має уточнювальну частину; потрібен неозначений артикль перед голосним звуком.",
+            "accepted_target_texts": [
+                "Her objection raised an issue that the original proposal had overlooked."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Her objection raised",
+                "an issue",
+                "that the original",
+                "proposal had overlooked."
+            ],
+            "token_groups": [
+                "Her objection raised",
+                "an issue",
+                "that the original",
+                "proposal had overlooked."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Her",
+                "objection",
+                "raised",
+                "an",
+                "issue",
+                "that",
+                "the",
+                "original",
+                "proposal",
+                "had",
+                "overlooked."
+            ],
+            "options": [
+                "Her",
+                "Its",
+                "Our",
+                "Their",
+                "objection",
+                "delay",
+                "uneasy",
+                "agreement",
+                "raised",
+                "made",
+                "cooked",
+                "found",
+                "an",
+                "either",
+                "neither",
+                "all",
+                "issue",
+                "framework",
+                "future",
+                "prospect",
+                "that",
+                "both",
+                "a",
+                "some",
+                "the",
+                "any",
+                "this",
+                "these",
+                "original",
+                "ticket",
+                "cup",
+                "door",
+                "proposal",
+                "picture",
+                "child",
+                "teacher",
+                "had",
+                "did",
+                "don't",
+                "doesn't",
+                "overlooked",
+                "closed",
+                "helped",
+                "watched"
+            ],
+            "source_text_uk": "Її заперечення порушило питання, якого початкова пропозиція не врахувала.",
+            "options_by_marker": {
+                "a1": [
+                    "Her",
+                    "Its",
+                    "Our",
+                    "Their"
+                ],
+                "a2": [
+                    "objection",
+                    "delay",
+                    "uneasy",
+                    "agreement"
+                ],
+                "a3": [
+                    "raised",
+                    "made",
+                    "cooked",
+                    "found"
+                ],
+                "a4": [
+                    "an",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "issue",
+                    "framework",
+                    "future",
+                    "prospect"
+                ],
+                "a6": [
+                    "that",
+                    "both",
+                    "a",
+                    "some"
+                ],
+                "a7": [
+                    "the",
+                    "any",
+                    "this",
+                    "these"
+                ],
+                "a8": [
+                    "original",
+                    "ticket",
+                    "cup",
+                    "door"
+                ],
+                "a9": [
+                    "proposal",
+                    "picture",
+                    "child",
+                    "teacher"
+                ],
+                "a10": [
+                    "had",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a11": [
+                    "overlooked",
+                    "closed",
+                    "helped",
+                    "watched"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "naqq-articles-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Угода створює основу для врегулювання майбутніх спорів.",
+            "level": "C1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Угода створює основу для врегулювання майбутніх спорів.",
+            "target_text": "The agreement provides a framework for resolving future disputes.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Угода відома сторонам; основу для дій називаємо вперше як одну можливу модель.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "agreement",
+                    "verb_hint": "Угода відома сторонам; основу для дій називаємо вперше як одну можливу модель.",
+                    "options": [
+                        "agreement",
+                        "prospect",
+                        "delay",
+                        "uneasy"
+                    ]
+                },
+                "a3": {
+                    "answer": "provides",
+                    "verb_hint": "Угода відома сторонам; основу для дій називаємо вперше як одну можливу модель.",
+                    "options": [
+                        "provides",
+                        "investors",
+                        "schools",
+                        "friends"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Угода відома сторонам; основу для дій називаємо вперше як одну можливу модель.",
+                    "options": [
+                        "a",
+                        "neither",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a5": {
+                    "answer": "framework",
+                    "verb_hint": "Угода відома сторонам; основу для дій називаємо вперше як одну можливу модель.",
+                    "options": [
+                        "framework",
+                        "objection",
+                        "issue",
+                        "original"
+                    ]
+                },
+                "a6": {
+                    "answer": "for",
+                    "verb_hint": "Угода відома сторонам; основу для дій називаємо вперше як одну можливу модель.",
+                    "options": [
+                        "for",
+                        "from",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a7": {
+                    "answer": "resolving",
+                    "verb_hint": "Угода відома сторонам; основу для дій називаємо вперше як одну можливу модель.",
+                    "options": [
+                        "resolving",
+                        "going",
+                        "taking",
+                        "working"
+                    ]
+                },
+                "a8": {
+                    "answer": "future",
+                    "verb_hint": "Угода відома сторонам; основу для дій називаємо вперше як одну можливу модель.",
+                    "options": [
+                        "future",
+                        "proposal",
+                        "key",
+                        "room"
+                    ]
+                },
+                "a9": {
+                    "answer": "disputes.",
+                    "verb_hint": "Угода відома сторонам; основу для дій називаємо вперше як одну можливу модель.",
+                    "options": [
+                        "disputes",
+                        "men",
+                        "women",
+                        "bikes"
+                    ]
+                }
+            },
+            "verb_hint": "Угода відома сторонам; основу для дій називаємо вперше як одну можливу модель.",
+            "accepted_target_texts": [
+                "The agreement provides a framework for resolving future disputes.",
+                "The agreement provides a structure for resolving future disputes.",
+                "The agreement provides a basis for resolving future disputes.",
+                "The agreement offers a framework for resolving future disputes.",
+                "The agreement offers a structure for resolving future disputes.",
+                "The agreement offers a basis for resolving future disputes.",
+                "The agreement creates a framework for resolving future disputes.",
+                "The agreement creates a structure for resolving future disputes.",
+                "The agreement creates a basis for resolving future disputes."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "structure",
+                    "basis"
+                ],
+                "a3": [
+                    "offers",
+                    "creates"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "structure",
+                    "basis"
+                ],
+                "a3": [
+                    "offers",
+                    "creates"
+                ]
+            },
+            "reorder_groups": [
+                "The agreement provides",
+                "a framework",
+                "for resolving",
+                "future disputes."
+            ],
+            "token_groups": [
+                "The agreement provides",
+                "a framework",
+                "for resolving",
+                "future disputes."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "agreement",
+                "provides",
+                "a",
+                "framework",
+                "for",
+                "resolving",
+                "future",
+                "disputes."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "An",
+                "agreement",
+                "prospect",
+                "delay",
+                "uneasy",
+                "provides",
+                "investors",
+                "schools",
+                "friends",
+                "a",
+                "neither",
+                "some",
+                "any",
+                "framework",
+                "objection",
+                "issue",
+                "original",
+                "for",
+                "from",
+                "of",
+                "in",
+                "resolving",
+                "going",
+                "taking",
+                "working",
+                "future",
+                "proposal",
+                "key",
+                "room",
+                "disputes",
+                "men",
+                "women",
+                "bikes"
+            ],
+            "source_text_uk": "Угода створює основу для врегулювання майбутніх спорів.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "An"
+                ],
+                "a2": [
+                    "agreement",
+                    "prospect",
+                    "delay",
+                    "uneasy"
+                ],
+                "a3": [
+                    "provides",
+                    "investors",
+                    "schools",
+                    "friends"
+                ],
+                "a4": [
+                    "a",
+                    "neither",
+                    "some",
+                    "any"
+                ],
+                "a5": [
+                    "framework",
+                    "objection",
+                    "issue",
+                    "original"
+                ],
+                "a6": [
+                    "for",
+                    "from",
+                    "of",
+                    "in"
+                ],
+                "a7": [
+                    "resolving",
+                    "going",
+                    "taking",
+                    "working"
+                ],
+                "a8": [
+                    "future",
+                    "proposal",
+                    "key",
+                    "room"
+                ],
+                "a9": [
+                    "disputes",
+                    "men",
+                    "women",
+                    "bikes"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "naqq-articles-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Різниця між процедурною справедливістю та справедливістю по суті лежить в основі всього аргументу.",
+            "level": "C2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Різниця між процедурною справедливістю та справедливістю по суті лежить в основі всього аргументу.",
+            "target_text": "The distinction between procedural fairness and substantive justice underpins the entire argument.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з конкретної різниці, визначеної двома названими поняттями; завершення теж означене.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "distinction",
+                    "verb_hint": "Почни з конкретної різниці, визначеної двома названими поняттями; завершення теж означене.",
+                    "options": [
+                        "distinction",
+                        "apparent",
+                        "conceal",
+                        "fundamental"
+                    ]
+                },
+                "a3": {
+                    "answer": "between",
+                    "verb_hint": "Почни з конкретної різниці, визначеної двома названими поняттями; завершення теж означене.",
+                    "options": [
+                        "between",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a4": {
+                    "answer": "procedural",
+                    "verb_hint": "Почни з конкретної різниці, визначеної двома названими поняттями; завершення теж означене.",
+                    "options": [
+                        "procedural",
+                        "omission",
+                        "breach",
+                        "duty"
+                    ]
+                },
+                "a5": {
+                    "answer": "fairness",
+                    "verb_hint": "Почни з конкретної різниці, визначеної двома названими поняттями; завершення теж означене.",
+                    "options": [
+                        "fairness",
+                        "disagreement",
+                        "committee",
+                        "disclose"
+                    ]
+                },
+                "a6": {
+                    "answer": "and",
+                    "verb_hint": "Почни з конкретної різниці, визначеної двома названими поняттями; завершення теж означене.",
+                    "options": [
+                        "and",
+                        "whereas",
+                        "while",
+                        "if"
+                    ]
+                },
+                "a7": {
+                    "answer": "substantive",
+                    "verb_hint": "Почни з конкретної різниці, визначеної двома названими поняттями; завершення теж означене.",
+                    "options": [
+                        "substantive",
+                        "helpful",
+                        "different",
+                        "simple"
+                    ]
+                },
+                "a8": {
+                    "answer": "justice",
+                    "verb_hint": "Почни з конкретної різниці, визначеної двома названими поняттями; завершення теж означене.",
+                    "options": [
+                        "justice",
+                        "material",
+                        "information",
+                        "key"
+                    ]
+                },
+                "a9": {
+                    "answer": "underpins",
+                    "verb_hint": "Почни з конкретної різниці, визначеної двома названими поняттями; завершення теж означене.",
+                    "options": [
+                        "underpins",
+                        "consensus",
+                        "principles",
+                        "as"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Почни з конкретної різниці, визначеної двома названими поняттями; завершення теж означене.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a11": {
+                    "answer": "entire",
+                    "verb_hint": "Почни з конкретної різниці, визначеної двома названими поняттями; завершення теж означене.",
+                    "options": [
+                        "entire",
+                        "chair",
+                        "table",
+                        "ticket"
+                    ]
+                },
+                "a12": {
+                    "answer": "argument.",
+                    "verb_hint": "Почни з конкретної різниці, визначеної двома названими поняттями; завершення теж означене.",
+                    "options": [
+                        "argument",
+                        "bike",
+                        "car",
+                        "bag"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з конкретної різниці, визначеної двома названими поняттями; завершення теж означене.",
+            "accepted_target_texts": [
+                "The distinction between procedural fairness and substantive justice underpins the entire argument.",
+                "The difference between procedural fairness and substantive justice underpins the entire argument."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "difference"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "difference"
+                ]
+            },
+            "reorder_groups": [
+                "The distinction",
+                "between procedural fairness",
+                "and substantive justice",
+                "underpins",
+                "the entire argument."
+            ],
+            "token_groups": [
+                "The distinction",
+                "between procedural fairness",
+                "and substantive justice",
+                "underpins",
+                "the entire argument."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "distinction",
+                "between",
+                "procedural",
+                "fairness",
+                "and",
+                "substantive",
+                "justice",
+                "underpins",
+                "the",
+                "entire",
+                "argument."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "distinction",
+                "apparent",
+                "conceal",
+                "fundamental",
+                "between",
+                "among",
+                "about",
+                "during",
+                "procedural",
+                "omission",
+                "breach",
+                "duty",
+                "fairness",
+                "disagreement",
+                "committee",
+                "disclose",
+                "and",
+                "whereas",
+                "while",
+                "if",
+                "substantive",
+                "helpful",
+                "different",
+                "simple",
+                "justice",
+                "material",
+                "information",
+                "key",
+                "underpins",
+                "consensus",
+                "principles",
+                "as",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "entire",
+                "chair",
+                "table",
+                "ticket",
+                "argument",
+                "bike",
+                "car",
+                "bag"
+            ],
+            "source_text_uk": "Різниця між процедурною справедливістю та справедливістю по суті лежить в основі всього аргументу.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "distinction",
+                    "apparent",
+                    "conceal",
+                    "fundamental"
+                ],
+                "a3": [
+                    "between",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a4": [
+                    "procedural",
+                    "omission",
+                    "breach",
+                    "duty"
+                ],
+                "a5": [
+                    "fairness",
+                    "disagreement",
+                    "committee",
+                    "disclose"
+                ],
+                "a6": [
+                    "and",
+                    "whereas",
+                    "while",
+                    "if"
+                ],
+                "a7": [
+                    "substantive",
+                    "helpful",
+                    "different",
+                    "simple"
+                ],
+                "a8": [
+                    "justice",
+                    "material",
+                    "information",
+                    "key"
+                ],
+                "a9": [
+                    "underpins",
+                    "consensus",
+                    "principles",
+                    "as"
+                ],
+                "a10": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a11": [
+                    "entire",
+                    "chair",
+                    "table",
+                    "ticket"
+                ],
+                "a12": [
+                    "argument",
+                    "bike",
+                    "car",
+                    "bag"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "naqq-articles-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Уявна згода може приховувати принципову розбіжність щодо основоположних засад.",
+            "level": "C2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Уявна згода може приховувати принципову розбіжність щодо основоположних засад.",
+            "target_text": "An apparent consensus can conceal a fundamental disagreement about the underlying principles.",
+            "markers": {
+                "a1": {
+                    "answer": "An",
+                    "verb_hint": "Два абстрактні поняття представлені як окремі прояви; артиклі неозначені, перед першим прикметником голосний звук.",
+                    "options": [
+                        "An",
+                        "All",
+                        "Both",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "apparent",
+                    "verb_hint": "Два абстрактні поняття представлені як окремі прояви; артиклі неозначені, перед першим прикметником голосний звук.",
+                    "options": [
+                        "apparent",
+                        "information",
+                        "distinction",
+                        "procedural"
+                    ]
+                },
+                "a3": {
+                    "answer": "consensus",
+                    "verb_hint": "Два абстрактні поняття представлені як окремі прояви; артиклі неозначені, перед першим прикметником голосний звук.",
+                    "options": [
+                        "consensus",
+                        "as",
+                        "underpins",
+                        "friends"
+                    ]
+                },
+                "a4": {
+                    "answer": "can",
+                    "verb_hint": "Два абстрактні поняття представлені як окремі прояви; артиклі неозначені, перед першим прикметником голосний звук.",
+                    "options": [
+                        "can",
+                        "couldn't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "conceal",
+                    "verb_hint": "Два абстрактні поняття представлені як окремі прояви; артиклі неозначені, перед першим прикметником голосний звук.",
+                    "options": [
+                        "conceal",
+                        "committee",
+                        "omission",
+                        "breach"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Два абстрактні поняття представлені як окремі прояви; артиклі неозначені, перед першим прикметником голосний звук.",
+                    "options": [
+                        "a",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a7": {
+                    "answer": "fundamental",
+                    "verb_hint": "Два абстрактні поняття представлені як окремі прояви; артиклі неозначені, перед першим прикметником голосний звук.",
+                    "options": [
+                        "fundamental",
+                        "duty",
+                        "disclose",
+                        "material"
+                    ]
+                },
+                "a8": {
+                    "answer": "disagreement",
+                    "verb_hint": "Два абстрактні поняття представлені як окремі прояви; артиклі неозначені, перед першим прикметником голосний звук.",
+                    "options": [
+                        "disagreement",
+                        "justice",
+                        "entire",
+                        "argument"
+                    ]
+                },
+                "a9": {
+                    "answer": "about",
+                    "verb_hint": "Два абстрактні поняття представлені як окремі прояви; артиклі неозначені, перед першим прикметником голосний звук.",
+                    "options": [
+                        "about",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Два абстрактні поняття представлені як окремі прояви; артиклі неозначені, перед першим прикметником голосний звук.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a11": {
+                    "answer": "underlying",
+                    "verb_hint": "Два абстрактні поняття представлені як окремі прояви; артиклі неозначені, перед першим прикметником голосний звук.",
+                    "options": [
+                        "underlying",
+                        "making",
+                        "going",
+                        "taking"
+                    ]
+                },
+                "a12": {
+                    "answer": "principles.",
+                    "verb_hint": "Два абстрактні поняття представлені як окремі прояви; артиклі неозначені, перед першим прикметником голосний звук.",
+                    "options": [
+                        "principles",
+                        "women",
+                        "bikes",
+                        "cars"
+                    ]
+                }
+            },
+            "verb_hint": "Два абстрактні поняття представлені як окремі прояви; артиклі неозначені, перед першим прикметником голосний звук.",
+            "accepted_target_texts": [
+                "An apparent consensus can conceal a fundamental disagreement about the underlying principles."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "An apparent consensus",
+                "can conceal",
+                "a fundamental disagreement",
+                "about the underlying",
+                "principles."
+            ],
+            "token_groups": [
+                "An apparent consensus",
+                "can conceal",
+                "a fundamental disagreement",
+                "about the underlying",
+                "principles."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "An",
+                "apparent",
+                "consensus",
+                "can",
+                "conceal",
+                "a",
+                "fundamental",
+                "disagreement",
+                "about",
+                "the",
+                "underlying",
+                "principles."
+            ],
+            "options": [
+                "An",
+                "All",
+                "Both",
+                "Some",
+                "apparent",
+                "information",
+                "distinction",
+                "procedural",
+                "consensus",
+                "as",
+                "underpins",
+                "friends",
+                "can",
+                "couldn't",
+                "won't",
+                "wouldn't",
+                "conceal",
+                "committee",
+                "omission",
+                "breach",
+                "a",
+                "any",
+                "this",
+                "that",
+                "fundamental",
+                "duty",
+                "disclose",
+                "material",
+                "disagreement",
+                "justice",
+                "entire",
+                "argument",
+                "about",
+                "under",
+                "through",
+                "across",
+                "the",
+                "these",
+                "those",
+                "each",
+                "underlying",
+                "making",
+                "going",
+                "taking",
+                "principles",
+                "women",
+                "bikes",
+                "cars"
+            ],
+            "source_text_uk": "Уявна згода може приховувати принципову розбіжність щодо основоположних засад.",
+            "options_by_marker": {
+                "a1": [
+                    "An",
+                    "All",
+                    "Both",
+                    "Some"
+                ],
+                "a2": [
+                    "apparent",
+                    "information",
+                    "distinction",
+                    "procedural"
+                ],
+                "a3": [
+                    "consensus",
+                    "as",
+                    "underpins",
+                    "friends"
+                ],
+                "a4": [
+                    "can",
+                    "couldn't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a5": [
+                    "conceal",
+                    "committee",
+                    "omission",
+                    "breach"
+                ],
+                "a6": [
+                    "a",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a7": [
+                    "fundamental",
+                    "duty",
+                    "disclose",
+                    "material"
+                ],
+                "a8": [
+                    "disagreement",
+                    "justice",
+                    "entire",
+                    "argument"
+                ],
+                "a9": [
+                    "about",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a10": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a11": [
+                    "underlying",
+                    "making",
+                    "going",
+                    "taking"
+                ],
+                "a12": [
+                    "principles",
+                    "women",
+                    "bikes",
+                    "cars"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "naqq-articles-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Комітет розцінив це упущення як порушення обов’язку розкривати суттєву інформацію.",
+            "level": "C2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Комітет розцінив це упущення як порушення обов’язку розкривати суттєву інформацію.",
+            "target_text": "The committee treated the omission as a breach of the duty to disclose material information.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "committee",
+                    "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+                    "options": [
+                        "committee",
+                        "distinction",
+                        "procedural",
+                        "fairness"
+                    ]
+                },
+                "a3": {
+                    "answer": "treated",
+                    "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+                    "options": [
+                        "treated",
+                        "met",
+                        "went",
+                        "saw"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "omission",
+                    "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+                    "options": [
+                        "omission",
+                        "justice",
+                        "entire",
+                        "argument"
+                    ]
+                },
+                "a6": {
+                    "answer": "as",
+                    "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+                    "options": [
+                        "as",
+                        "underpins",
+                        "consensus",
+                        "principles"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+                    "options": [
+                        "a",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a8": {
+                    "answer": "breach",
+                    "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+                    "options": [
+                        "breach",
+                        "apparent",
+                        "conceal",
+                        "fundamental"
+                    ]
+                },
+                "a9": {
+                    "answer": "of",
+                    "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+                    "options": [
+                        "of",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+                    "options": [
+                        "the",
+                        "both",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a11": {
+                    "answer": "duty",
+                    "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+                    "options": [
+                        "duty",
+                        "disagreement",
+                        "person",
+                        "water"
+                    ]
+                },
+                "a12": {
+                    "answer": "to",
+                    "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+                    "options": [
+                        "to",
+                        "from",
+                        "for",
+                        "in"
+                    ]
+                },
+                "a13": {
+                    "answer": "disclose",
+                    "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+                    "options": [
+                        "disclose",
+                        "food",
+                        "bike",
+                        "car"
+                    ]
+                },
+                "a14": {
+                    "answer": "material",
+                    "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+                    "options": [
+                        "material",
+                        "bag",
+                        "book",
+                        "box"
+                    ]
+                },
+                "a15": {
+                    "answer": "information.",
+                    "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+                    "options": [
+                        "information",
+                        "teacher",
+                        "school",
+                        "sister"
+                    ]
+                }
+            },
+            "verb_hint": "Комітет і упущення визначені контекстом; порушення класифікується як один окремий випадок.",
+            "accepted_target_texts": [
+                "The committee treated the omission as a breach of the duty to disclose material information."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The committee treated",
+                "the omission",
+                "as a breach",
+                "of the duty",
+                "to disclose",
+                "material information."
+            ],
+            "token_groups": [
+                "The committee treated",
+                "the omission",
+                "as a breach",
+                "of the duty",
+                "to disclose",
+                "material information."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "committee",
+                "treated",
+                "the",
+                "omission",
+                "as",
+                "a",
+                "breach",
+                "of",
+                "the",
+                "duty",
+                "to",
+                "disclose",
+                "material",
+                "information."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "committee",
+                "distinction",
+                "procedural",
+                "fairness",
+                "treated",
+                "met",
+                "went",
+                "saw",
+                "the",
+                "every",
+                "no",
+                "another",
+                "omission",
+                "justice",
+                "entire",
+                "argument",
+                "as",
+                "underpins",
+                "consensus",
+                "principles",
+                "a",
+                "either",
+                "neither",
+                "all",
+                "breach",
+                "apparent",
+                "conceal",
+                "fundamental",
+                "of",
+                "by",
+                "with",
+                "without",
+                "both",
+                "an",
+                "some",
+                "duty",
+                "disagreement",
+                "person",
+                "water",
+                "to",
+                "from",
+                "for",
+                "in",
+                "disclose",
+                "food",
+                "bike",
+                "car",
+                "material",
+                "bag",
+                "book",
+                "box",
+                "information",
+                "teacher",
+                "school",
+                "sister"
+            ],
+            "source_text_uk": "Комітет розцінив це упущення як порушення обов’язку розкривати суттєву інформацію.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "committee",
+                    "distinction",
+                    "procedural",
+                    "fairness"
+                ],
+                "a3": [
+                    "treated",
+                    "met",
+                    "went",
+                    "saw"
+                ],
+                "a4": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "omission",
+                    "justice",
+                    "entire",
+                    "argument"
+                ],
+                "a6": [
+                    "as",
+                    "underpins",
+                    "consensus",
+                    "principles"
+                ],
+                "a7": [
+                    "a",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a8": [
+                    "breach",
+                    "apparent",
+                    "conceal",
+                    "fundamental"
+                ],
+                "a9": [
+                    "of",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a10": [
+                    "the",
+                    "both",
+                    "an",
+                    "some"
+                ],
+                "a11": [
+                    "duty",
+                    "disagreement",
+                    "person",
+                    "water"
+                ],
+                "a12": [
+                    "to",
+                    "from",
+                    "for",
+                    "in"
+                ],
+                "a13": [
+                    "disclose",
+                    "food",
+                    "bike",
+                    "car"
+                ],
+                "a14": [
+                    "material",
+                    "bag",
+                    "book",
+                    "box"
+                ],
+                "a15": [
+                    "information",
+                    "teacher",
+                    "school",
+                    "sister"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

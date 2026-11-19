@@ -1,0 +1,642 @@
+{
+    "schema_version": 1,
+    "quality_revision": "cmq-v1",
+    "compiled_from": {
+        "path": "docs/content/common-mistakes-quality/articles-common-mistakes.v1.json",
+        "sha256": "da7a1fb15595ff0d73b80a2287ffb582b9b371a840292cd6736ff9cf5e2a8c2c"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\CommonMistakes\\UkrainianMixedCmqArticlesQualityStandardSeeder",
+        "uuid_namespace": "common-mistakes-quality-articles-common-mistakes-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Common Mistakes"
+    },
+    "sources": {
+        "common_mistakes_quality_articles_common_mistakes": {
+            "name": "Common Mistakes Quality: Articles: Common Mistakes"
+        }
+    },
+    "tags": {
+        "common_mistakes_articles_common_mistakes_all_levels": {
+            "name": "common mistakes articles common mistakes all levels",
+            "category": "common_mistakes"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "a_an": {
+            "name": "A An",
+            "category": "topic"
+        },
+        "an_vowel_sound": {
+            "name": "An Vowel Sound",
+            "category": "topic"
+        },
+        "the_specific": {
+            "name": "The Specific",
+            "category": "topic"
+        },
+        "zero_general_plural": {
+            "name": "Zero General Plural",
+            "category": "topic"
+        },
+        "zero_uncountable": {
+            "name": "Zero Uncountable",
+            "category": "topic"
+        },
+        "first_second_mention": {
+            "name": "First Second Mention",
+            "category": "topic"
+        },
+        "generic_reference": {
+            "name": "Generic Reference",
+            "category": "topic"
+        },
+        "jobs_roles": {
+            "name": "Jobs Roles",
+            "category": "topic"
+        },
+        "geographical_names": {
+            "name": "Geographical Names",
+            "category": "topic"
+        },
+        "fixed_expressions": {
+            "name": "Fixed Expressions",
+            "category": "topic"
+        },
+        "overusing_the": {
+            "name": "Overusing The",
+            "category": "topic"
+        },
+        "missing_article": {
+            "name": "Missing Article",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cmq-articles-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Oleh needs {a1} empty box for his toys.",
+            "level": "A1",
+            "type": 0,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Олегові потрібна якась порожня коробка для іграшок.",
+            "target_text": "Oleh needs an empty box for his toys.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Уперше називаємо одну невизначену річ; наступне слово починається з голосного звука."
+                }
+            },
+            "verb_hint": "Уперше називаємо одну невизначену річ; наступне слово починається з голосного звука.",
+            "accepted_target_texts": [
+                "Oleh needs an empty box for his toys."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Oleh needs",
+                "an empty box",
+                "for his toys."
+            ],
+            "token_groups": [
+                "Oleh needs",
+                "an empty box",
+                "for his toys."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "cmq-articles-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Nina wears {a1} yellow scarf today.",
+            "level": "A1",
+            "type": 0,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Сьогодні на Ніні жовтий шарф.",
+            "target_text": "Nina wears a yellow scarf today.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Називаємо один шарф, про який раніше не йшлося; потрібен неозначений артикль."
+                }
+            },
+            "verb_hint": "Називаємо один шарф, про який раніше не йшлося; потрібен неозначений артикль.",
+            "accepted_target_texts": [
+                "Nina wears a yellow scarf today."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nina wears",
+                "a yellow scarf",
+                "today."
+            ],
+            "token_groups": [
+                "Nina wears",
+                "a yellow scarf",
+                "today."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "cmq-articles-a2-g01",
+            "author_id": "A2-g01",
+            "question": "We waited for {a1} hour outside the gallery.",
+            "level": "A2",
+            "type": 0,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Ми чекали годину надворі біля галереї.",
+            "target_text": "We waited for an hour outside the gallery.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Одна година; на вибір артикля впливає перший звук, а не перша літера."
+                }
+            },
+            "verb_hint": "Одна година; на вибір артикля впливає перший звук, а не перша літера.",
+            "accepted_target_texts": [
+                "We waited for an hour outside the gallery."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We waited",
+                "for an hour",
+                "outside the gallery."
+            ],
+            "token_groups": [
+                "We waited",
+                "for an hour",
+                "outside the gallery."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "cmq-articles-a2-g02",
+            "author_id": "A2-g02",
+            "question": "We found a wallet. {a1} wallet contained two photos.",
+            "level": "A2",
+            "type": 0,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Ми знайшли гаманець. У цьому гаманці були дві фотографії.",
+            "target_text": "We found a wallet. The wallet contained two photos.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "options": [
+                        "The",
+                        "A",
+                        "An"
+                    ],
+                    "verb_hint": "Тепер ідеться про той самий уже згаданий гаманець."
+                }
+            },
+            "verb_hint": "Тепер ідеться про той самий уже згаданий гаманець.",
+            "accepted_target_texts": [
+                "We found a wallet. The wallet contained two photos."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We found",
+                "a wallet.",
+                "The wallet",
+                "contained",
+                "two photos."
+            ],
+            "token_groups": [
+                "We found",
+                "a wallet.",
+                "The wallet",
+                "contained",
+                "two photos."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "cmq-articles-b1-g01",
+            "author_id": "B1-g01",
+            "question": "My cousin studies at {a1} university in Lviv.",
+            "level": "B1",
+            "type": 0,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Мій двоюрідний брат навчається в одному з університетів Львова.",
+            "target_text": "My cousin studies at a university in Lviv.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Назва закладу не уточнена; перший звук у слові про університет — приголосний."
+                }
+            },
+            "verb_hint": "Назва закладу не уточнена; перший звук у слові про університет — приголосний.",
+            "accepted_target_texts": [
+                "My cousin studies at a university in Lviv."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My cousin",
+                "studies at",
+                "a university",
+                "in Lviv."
+            ],
+            "token_groups": [
+                "My cousin",
+                "studies at",
+                "a university",
+                "in Lviv."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "cmq-articles-b1-g02",
+            "author_id": "B1-g02",
+            "question": "This is {a1} most practical route to the campsite.",
+            "level": "B1",
+            "type": 0,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Це найпрактичніший маршрут до кемпінгу.",
+            "target_text": "This is the most practical route to the campsite.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Перед найвищим ступенем прикметника потрібен означений артикль."
+                }
+            },
+            "verb_hint": "Перед найвищим ступенем прикметника потрібен означений артикль.",
+            "accepted_target_texts": [
+                "This is the most practical route to the campsite."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This is",
+                "the most",
+                "practical route",
+                "to the campsite."
+            ],
+            "token_groups": [
+                "This is",
+                "the most",
+                "practical route",
+                "to the campsite."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "cmq-articles-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The charity provides shelter for {a1} homeless.",
+            "level": "B2",
+            "type": 0,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Благодійна організація надає прихисток бездомним.",
+            "target_text": "The charity provides shelter for the homeless.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Познач групу людей за ознакою: потрібен артикль перед прикметником."
+                }
+            },
+            "verb_hint": "Познач групу людей за ознакою: потрібен артикль перед прикметником.",
+            "accepted_target_texts": [
+                "The charity provides shelter for the homeless."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The charity",
+                "provides shelter",
+                "for the homeless."
+            ],
+            "token_groups": [
+                "The charity",
+                "provides shelter",
+                "for the homeless."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "cmq-articles-b2-g02",
+            "author_id": "B2-g02",
+            "question": "This species is native to {a1} Netherlands.",
+            "level": "B2",
+            "type": 0,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Цей вид походить із Нідерландів.",
+            "target_text": "This species is native to the Netherlands.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Ця географічна назва країни вживається з означеним артиклем."
+                }
+            },
+            "verb_hint": "Ця географічна назва країни вживається з означеним артиклем.",
+            "accepted_target_texts": [
+                "This species is native to the Netherlands."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This species",
+                "is native",
+                "to the Netherlands."
+            ],
+            "token_groups": [
+                "This species",
+                "is native",
+                "to the Netherlands."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "cmq-articles-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The witness is {a1} MP, not a government employee.",
+            "level": "C1",
+            "type": 0,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Свідок — депутат парламенту, а не державний службовець.",
+            "target_text": "The witness is an MP, not a government employee.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Уперше називаємо його роль; абревіатуру вимовляємо з початковим голосним звуком."
+                }
+            },
+            "verb_hint": "Уперше називаємо його роль; абревіатуру вимовляємо з початковим голосним звуком.",
+            "accepted_target_texts": [
+                "The witness is an MP, not a government employee."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The witness",
+                "is an MP,",
+                "not a",
+                "government employee."
+            ],
+            "token_groups": [
+                "The witness",
+                "is an MP,",
+                "not a",
+                "government employee."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "cmq-articles-c1-g02",
+            "author_id": "C1-g02",
+            "question": "We must protect {a1} of the press.",
+            "level": "C1",
+            "type": 0,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Ми маємо захищати свободу преси.",
+            "target_text": "We must protect the freedom of the press.",
+            "markers": {
+                "a1": {
+                    "answer": "the freedom",
+                    "options": [
+                        "the freedom",
+                        "a freedom",
+                        "freedoms"
+                    ],
+                    "verb_hint": "Назви конкретну свободу, яку далі уточнює зворот про пресу."
+                }
+            },
+            "verb_hint": "Назви конкретну свободу, яку далі уточнює зворот про пресу.",
+            "accepted_target_texts": [
+                "We must protect the freedom of the press.",
+                "We must protect freedom of the press."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "freedom"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "freedom"
+                ]
+            },
+            "reorder_groups": [
+                "We must",
+                "protect",
+                "the freedom",
+                "of the press."
+            ],
+            "token_groups": [
+                "We must",
+                "protect",
+                "the freedom",
+                "of the press."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "cmq-articles-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The residents demanded {a1} in how their funds were spent.",
+            "level": "C2",
+            "type": 0,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Мешканці вимагали права голосу у вирішенні того, як витрачають їхні кошти.",
+            "target_text": "The residents demanded a say in how their funds were spent.",
+            "markers": {
+                "a1": {
+                    "answer": "a say",
+                    "options": [
+                        "a say",
+                        "an say",
+                        "the say"
+                    ],
+                    "verb_hint": "Усталений зворот про можливість впливати на рішення вимагає неозначеного артикля."
+                }
+            },
+            "verb_hint": "Усталений зворот про можливість впливати на рішення вимагає неозначеного артикля.",
+            "accepted_target_texts": [
+                "The residents demanded a say in how their funds were spent.",
+                "The residents demanded a voice in how their funds were spent."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "a voice"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "a voice"
+                ]
+            },
+            "reorder_groups": [
+                "The residents",
+                "demanded a say",
+                "in how",
+                "their funds",
+                "were spent."
+            ],
+            "token_groups": [
+                "The residents",
+                "demanded a say",
+                "in how",
+                "their funds",
+                "were spent."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "cmq-articles-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The findings cast {a1} on the reliability of the witness.",
+            "level": "C2",
+            "type": 0,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Висновки поставили під сумнів надійність свідка.",
+            "target_text": "The findings cast doubt on the reliability of the witness.",
+            "markers": {
+                "a1": {
+                    "answer": "doubt",
+                    "options": [
+                        "doubt",
+                        "a doubt",
+                        "an doubt"
+                    ],
+                    "verb_hint": "У сталому звороті про сумнів абстрактний іменник тут уживається без артикля."
+                }
+            },
+            "verb_hint": "У сталому звороті про сумнів абстрактний іменник тут уживається без артикля.",
+            "accepted_target_texts": [
+                "The findings cast doubt on the reliability of the witness."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The findings",
+                "cast doubt",
+                "on the reliability",
+                "of the witness."
+            ],
+            "token_groups": [
+                "The findings",
+                "cast doubt",
+                "on the reliability",
+                "of the witness."
+            ],
+            "quality_revision": "cmq-v1"
+        }
+    ]
+}

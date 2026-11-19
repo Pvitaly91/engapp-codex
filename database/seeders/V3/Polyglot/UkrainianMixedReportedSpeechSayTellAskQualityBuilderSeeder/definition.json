@@ -1,0 +1,4543 @@
+{
+    "schema_version": 1,
+    "quality_revision": "rsq-v1",
+    "compiled_from": {
+        "path": "docs/content/reported-speech-quality/say-tell-ask.v1.json",
+        "sha256": "657837151c2e7127f5d8c74637948be87314be512dc159aeb498c666bcc12580"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedReportedSpeechSayTellAskQualityBuilderSeeder",
+        "uuid_namespace": "reported-speech-quality-say-tell-ask-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "reported_speech_quality_say_tell_ask": {
+            "name": "Reported Speech Quality: Say, Tell and Ask"
+        }
+    },
+    "tags": {
+        "reported_speech_say_tell_ask_all_levels": {
+            "name": "reported speech say tell ask all levels",
+            "category": "reported_speech"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "say_something": {
+            "name": "Say Something",
+            "category": "topic"
+        },
+        "say_to_someone": {
+            "name": "Say To Someone",
+            "category": "topic"
+        },
+        "tell_someone_something": {
+            "name": "Tell Someone Something",
+            "category": "topic"
+        },
+        "tell_someone_that": {
+            "name": "Tell Someone That",
+            "category": "topic"
+        },
+        "ask_someone_question": {
+            "name": "Ask Someone Question",
+            "category": "topic"
+        },
+        "ask_if_whether": {
+            "name": "Ask If Whether",
+            "category": "topic"
+        },
+        "ask_someone_to_do": {
+            "name": "Ask Someone To Do",
+            "category": "topic"
+        },
+        "tell_vs_say": {
+            "name": "Tell Vs Say",
+            "category": "topic"
+        },
+        "ask_vs_tell": {
+            "name": "Ask Vs Tell",
+            "category": "topic"
+        },
+        "object_after_tell": {
+            "name": "Object After Tell",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_reported_speech_say_tell_ask_all_levels": {
+            "name": "Say / Tell / Ask",
+            "category": "reported_speech"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rsq-saytell-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Яна розповіла мені кумедну історію.",
+            "level": "A1",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Яна розповіла мені кумедну історію.",
+            "target_text": "Yana told me a funny story.",
+            "markers": {
+                "a1": {
+                    "answer": "Yana",
+                    "verb_hint": "Почни з Яни; назви мене слухачем історії.",
+                    "options": [
+                        "Yana",
+                        "Kateryna",
+                        "Daria",
+                        "Kira"
+                    ]
+                },
+                "a2": {
+                    "answer": "told",
+                    "verb_hint": "Почни з Яни; назви мене слухачем історії.",
+                    "options": [
+                        "told",
+                        "announced",
+                        "promised",
+                        "admitted"
+                    ]
+                },
+                "a3": {
+                    "answer": "me",
+                    "verb_hint": "Почни з Яни; назви мене слухачем історії.",
+                    "options": [
+                        "me",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Почни з Яни; назви мене слухачем історії.",
+                    "options": [
+                        "a",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a5": {
+                    "answer": "funny",
+                    "verb_hint": "Почни з Яни; назви мене слухачем історії.",
+                    "options": [
+                        "funny",
+                        "slight",
+                        "complete",
+                        "incomplete"
+                    ]
+                },
+                "a6": {
+                    "answer": "story.",
+                    "verb_hint": "Почни з Яни; назви мене слухачем історії.",
+                    "options": [
+                        "story",
+                        "little",
+                        "large",
+                        "new"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з Яни; назви мене слухачем історії.",
+            "accepted_target_texts": [
+                "Yana told me a funny story."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Yana told me",
+                "a funny story."
+            ],
+            "token_groups": [
+                "Yana told me",
+                "a funny story."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Yana",
+                "told",
+                "me",
+                "a",
+                "funny",
+                "story."
+            ],
+            "options": [
+                "Yana",
+                "Kateryna",
+                "Daria",
+                "Kira",
+                "told",
+                "announced",
+                "promised",
+                "admitted",
+                "me",
+                "them",
+                "myself",
+                "yourself",
+                "a",
+                "neither",
+                "all",
+                "both",
+                "funny",
+                "slight",
+                "complete",
+                "incomplete",
+                "story",
+                "little",
+                "large",
+                "new"
+            ],
+            "source_text_uk": "Яна розповіла мені кумедну історію.",
+            "options_by_marker": {
+                "a1": [
+                    "Yana",
+                    "Kateryna",
+                    "Daria",
+                    "Kira"
+                ],
+                "a2": [
+                    "told",
+                    "announced",
+                    "promised",
+                    "admitted"
+                ],
+                "a3": [
+                    "me",
+                    "them",
+                    "myself",
+                    "yourself"
+                ],
+                "a4": [
+                    "a",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a5": [
+                    "funny",
+                    "slight",
+                    "complete",
+                    "incomplete"
+                ],
+                "a6": [
+                    "story",
+                    "little",
+                    "large",
+                    "new"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "past_reporting",
+                "a3": "pronoun",
+                "a4": "determiner",
+                "a5": "adjective",
+                "a6": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "rsq-saytell-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Остап попросив води.",
+            "level": "A1",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Остап попросив води.",
+            "target_text": "Ostap asked for some water.",
+            "markers": {
+                "a1": {
+                    "answer": "Ostap",
+                    "verb_hint": "Передай прохання про річ, не про виконання дії.",
+                    "options": [
+                        "Ostap",
+                        "Iryna",
+                        "Olena",
+                        "Marta"
+                    ]
+                },
+                "a2": {
+                    "answer": "asked",
+                    "verb_hint": "Передай прохання про річ, не про виконання дії.",
+                    "options": [
+                        "asked",
+                        "explained",
+                        "remarked",
+                        "said"
+                    ]
+                },
+                "a3": {
+                    "answer": "for",
+                    "verb_hint": "Передай прохання про річ, не про виконання дії.",
+                    "options": [
+                        "for",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a4": {
+                    "answer": "some",
+                    "verb_hint": "Передай прохання про річ, не про виконання дії.",
+                    "options": [
+                        "some",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a5": {
+                    "answer": "water.",
+                    "verb_hint": "Передай прохання про річ, не про виконання дії.",
+                    "options": [
+                        "water",
+                        "cheese",
+                        "coffee",
+                        "tea"
+                    ]
+                }
+            },
+            "verb_hint": "Передай прохання про річ, не про виконання дії.",
+            "accepted_target_texts": [
+                "Ostap asked for some water."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Ostap asked",
+                "for some water."
+            ],
+            "token_groups": [
+                "Ostap asked",
+                "for some water."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Ostap",
+                "asked",
+                "for",
+                "some",
+                "water."
+            ],
+            "options": [
+                "Ostap",
+                "Iryna",
+                "Olena",
+                "Marta",
+                "asked",
+                "explained",
+                "remarked",
+                "said",
+                "for",
+                "of",
+                "in",
+                "on",
+                "some",
+                "that",
+                "these",
+                "those",
+                "water",
+                "cheese",
+                "coffee",
+                "tea"
+            ],
+            "source_text_uk": "Остап попросив води.",
+            "options_by_marker": {
+                "a1": [
+                    "Ostap",
+                    "Iryna",
+                    "Olena",
+                    "Marta"
+                ],
+                "a2": [
+                    "asked",
+                    "explained",
+                    "remarked",
+                    "said"
+                ],
+                "a3": [
+                    "for",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a4": [
+                    "some",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a5": [
+                    "water",
+                    "cheese",
+                    "coffee",
+                    "tea"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "past_reporting",
+                "a3": "preposition",
+                "a4": "determiner",
+                "a5": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "rsq-saytell-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Маленька дівчинка побажала татові доброї ночі.",
+            "level": "A1",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Маленька дівчинка побажала татові доброї ночі.",
+            "target_text": "The little girl said goodnight to her dad.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Спочатку назви дівчинку, адресата постав наприкінці.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "little",
+                    "verb_hint": "Спочатку назви дівчинку, адресата постав наприкінці.",
+                    "options": [
+                        "little",
+                        "selective",
+                        "funny",
+                        "complete"
+                    ]
+                },
+                "a3": {
+                    "answer": "girl",
+                    "verb_hint": "Спочатку назви дівчинку, адресата постав наприкінці.",
+                    "options": [
+                        "girl",
+                        "rice",
+                        "bread",
+                        "delay"
+                    ]
+                },
+                "a4": {
+                    "answer": "said",
+                    "verb_hint": "Спочатку назви дівчинку, адресата постав наприкінці.",
+                    "options": [
+                        "said",
+                        "reported",
+                        "remarked",
+                        "told"
+                    ]
+                },
+                "a5": {
+                    "answer": "goodnight",
+                    "verb_hint": "Спочатку назви дівчинку, адресата постав наприкінці.",
+                    "options": [
+                        "goodnight",
+                        "window",
+                        "error",
+                        "record"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Спочатку назви дівчинку, адресата постав наприкінці.",
+                    "options": [
+                        "to",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a7": {
+                    "answer": "her",
+                    "verb_hint": "Спочатку назви дівчинку, адресата постав наприкінці.",
+                    "options": [
+                        "her",
+                        "theirs",
+                        "whose",
+                        "my"
+                    ]
+                },
+                "a8": {
+                    "answer": "dad.",
+                    "verb_hint": "Спочатку назви дівчинку, адресата постав наприкінці.",
+                    "options": [
+                        "dad",
+                        "name",
+                        "evidence",
+                        "argument"
+                    ]
+                }
+            },
+            "verb_hint": "Спочатку назви дівчинку, адресата постав наприкінці.",
+            "accepted_target_texts": [
+                "The little girl said goodnight to her dad."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The little girl",
+                "said goodnight",
+                "to her dad."
+            ],
+            "token_groups": [
+                "The little girl",
+                "said goodnight",
+                "to her dad."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "little",
+                "girl",
+                "said",
+                "goodnight",
+                "to",
+                "her",
+                "dad."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "little",
+                "selective",
+                "funny",
+                "complete",
+                "girl",
+                "rice",
+                "bread",
+                "delay",
+                "said",
+                "reported",
+                "remarked",
+                "told",
+                "goodnight",
+                "window",
+                "error",
+                "record",
+                "to",
+                "by",
+                "with",
+                "without",
+                "her",
+                "theirs",
+                "whose",
+                "my",
+                "dad",
+                "name",
+                "evidence",
+                "argument"
+            ],
+            "source_text_uk": "Маленька дівчинка побажала татові доброї ночі.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "little",
+                    "selective",
+                    "funny",
+                    "complete"
+                ],
+                "a3": [
+                    "girl",
+                    "rice",
+                    "bread",
+                    "delay"
+                ],
+                "a4": [
+                    "said",
+                    "reported",
+                    "remarked",
+                    "told"
+                ],
+                "a5": [
+                    "goodnight",
+                    "window",
+                    "error",
+                    "record"
+                ],
+                "a6": [
+                    "to",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a7": [
+                    "her",
+                    "theirs",
+                    "whose",
+                    "my"
+                ],
+                "a8": [
+                    "dad",
+                    "name",
+                    "evidence",
+                    "argument"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "adjective",
+                "a3": "noun",
+                "a4": "past_reporting",
+                "a5": "noun",
+                "a6": "preposition",
+                "a7": "determiner",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "rsq-saytell-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Фермер сказав дітям погодувати курей.",
+            "level": "A2",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Фермер сказав дітям погодувати курей.",
+            "target_text": "The farmer told the children to feed the hens.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Назви дітей адресатами й виконавцями вказівки.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "farmer",
+                    "verb_hint": "Назви дітей адресатами й виконавцями вказівки.",
+                    "options": [
+                        "farmer",
+                        "experience",
+                        "towel",
+                        "uncle"
+                    ]
+                },
+                "a3": {
+                    "answer": "told",
+                    "verb_hint": "Назви дітей адресатами й виконавцями вказівки.",
+                    "options": [
+                        "told",
+                        "denied",
+                        "suggested",
+                        "agreed"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Назви дітей адресатами й виконавцями вказівки.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a5": {
+                    "answer": "children",
+                    "verb_hint": "Назви дітей адресатами й виконавцями вказівки.",
+                    "options": [
+                        "children",
+                        "asked",
+                        "said",
+                        "liked"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Назви дітей адресатами й виконавцями вказівки.",
+                    "options": [
+                        "to",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a7": {
+                    "answer": "feed",
+                    "verb_hint": "Назви дітей адресатами й виконавцями вказівки.",
+                    "options": [
+                        "feed",
+                        "open",
+                        "met",
+                        "went"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Назви дітей адресатами й виконавцями вказівки.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a9": {
+                    "answer": "hens.",
+                    "verb_hint": "Назви дітей адресатами й виконавцями вказівки.",
+                    "options": [
+                        "hens",
+                        "terms",
+                        "paintings",
+                        "hours"
+                    ]
+                }
+            },
+            "verb_hint": "Назви дітей адресатами й виконавцями вказівки.",
+            "accepted_target_texts": [
+                "The farmer told the children to feed the hens."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The farmer",
+                "told the children",
+                "to feed",
+                "the hens."
+            ],
+            "token_groups": [
+                "The farmer",
+                "told the children",
+                "to feed",
+                "the hens."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "farmer",
+                "told",
+                "the",
+                "children",
+                "to",
+                "feed",
+                "the",
+                "hens."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "farmer",
+                "experience",
+                "towel",
+                "uncle",
+                "told",
+                "denied",
+                "suggested",
+                "agreed",
+                "the",
+                "a",
+                "an",
+                "some",
+                "children",
+                "asked",
+                "said",
+                "liked",
+                "to",
+                "between",
+                "among",
+                "about",
+                "feed",
+                "open",
+                "met",
+                "went",
+                "any",
+                "this",
+                "that",
+                "hens",
+                "terms",
+                "paintings",
+                "hours"
+            ],
+            "source_text_uk": "Фермер сказав дітям погодувати курей.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "farmer",
+                    "experience",
+                    "towel",
+                    "uncle"
+                ],
+                "a3": [
+                    "told",
+                    "denied",
+                    "suggested",
+                    "agreed"
+                ],
+                "a4": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a5": [
+                    "children",
+                    "asked",
+                    "said",
+                    "liked"
+                ],
+                "a6": [
+                    "to",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a7": [
+                    "feed",
+                    "open",
+                    "met",
+                    "went"
+                ],
+                "a8": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a9": [
+                    "hens",
+                    "terms",
+                    "paintings",
+                    "hours"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "past_reporting",
+                "a4": "determiner",
+                "a5": "noun_plural",
+                "a6": "preposition",
+                "a7": "verb",
+                "a8": "determiner",
+                "a9": "noun_plural"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "rsq-saytell-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Лариса попросила чистий рушник.",
+            "level": "A2",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Лариса попросила чистий рушник.",
+            "target_text": "Larysa asked for a clean towel.",
+            "markers": {
+                "a1": {
+                    "answer": "Larysa",
+                    "verb_hint": "Після дієслова потрібен прийменник прохання про річ.",
+                    "options": [
+                        "Larysa",
+                        "Sofron",
+                        "Yana",
+                        "Ostap"
+                    ]
+                },
+                "a2": {
+                    "answer": "asked",
+                    "verb_hint": "Після дієслова потрібен прийменник прохання про річ.",
+                    "options": [
+                        "asked",
+                        "remarked",
+                        "said",
+                        "told"
+                    ]
+                },
+                "a3": {
+                    "answer": "for",
+                    "verb_hint": "Після дієслова потрібен прийменник прохання про річ.",
+                    "options": [
+                        "for",
+                        "to",
+                        "from",
+                        "of"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Після дієслова потрібен прийменник прохання про річ.",
+                    "options": [
+                        "a",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a5": {
+                    "answer": "clean",
+                    "verb_hint": "Після дієслова потрібен прийменник прохання про річ.",
+                    "options": [
+                        "clean",
+                        "clear",
+                        "unclear",
+                        "fresh"
+                    ]
+                },
+                "a6": {
+                    "answer": "towel.",
+                    "verb_hint": "Після дієслова потрібен прийменник прохання про річ.",
+                    "options": [
+                        "towel",
+                        "name",
+                        "window",
+                        "rice"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслова потрібен прийменник прохання про річ.",
+            "accepted_target_texts": [
+                "Larysa asked for a clean towel."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Larysa asked",
+                "for a clean",
+                "towel."
+            ],
+            "token_groups": [
+                "Larysa asked",
+                "for a clean",
+                "towel."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Larysa",
+                "asked",
+                "for",
+                "a",
+                "clean",
+                "towel."
+            ],
+            "options": [
+                "Larysa",
+                "Sofron",
+                "Yana",
+                "Ostap",
+                "asked",
+                "remarked",
+                "said",
+                "told",
+                "for",
+                "to",
+                "from",
+                "of",
+                "a",
+                "that",
+                "these",
+                "those",
+                "clean",
+                "clear",
+                "unclear",
+                "fresh",
+                "towel",
+                "name",
+                "window",
+                "rice"
+            ],
+            "source_text_uk": "Лариса попросила чистий рушник.",
+            "options_by_marker": {
+                "a1": [
+                    "Larysa",
+                    "Sofron",
+                    "Yana",
+                    "Ostap"
+                ],
+                "a2": [
+                    "asked",
+                    "remarked",
+                    "said",
+                    "told"
+                ],
+                "a3": [
+                    "for",
+                    "to",
+                    "from",
+                    "of"
+                ],
+                "a4": [
+                    "a",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a5": [
+                    "clean",
+                    "clear",
+                    "unclear",
+                    "fresh"
+                ],
+                "a6": [
+                    "towel",
+                    "name",
+                    "window",
+                    "rice"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "past_reporting",
+                "a3": "preposition",
+                "a4": "determiner",
+                "a5": "adjective",
+                "a6": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "rsq-saytell-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Мій дядько сказав, що дорога була вкрита льодом.",
+            "level": "A2",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Мій дядько сказав, що дорога була вкрита льодом.",
+            "target_text": "My uncle said that the road was icy.",
+            "markers": {
+                "a1": {
+                    "answer": "My",
+                    "verb_hint": "Збережи сполучник повідомлення; стан належить дорозі.",
+                    "options": [
+                        "My",
+                        "Mine",
+                        "Yours",
+                        "Hers"
+                    ]
+                },
+                "a2": {
+                    "answer": "uncle",
+                    "verb_hint": "Збережи сполучник повідомлення; стан належить дорозі.",
+                    "options": [
+                        "uncle",
+                        "permission",
+                        "consent",
+                        "estimate"
+                    ]
+                },
+                "a3": {
+                    "answer": "said",
+                    "verb_hint": "Збережи сполучник повідомлення; стан належить дорозі.",
+                    "options": [
+                        "said",
+                        "agreed",
+                        "announced",
+                        "explained"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Збережи сполучник повідомлення; стан належить дорозі.",
+                    "options": [
+                        "that",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи сполучник повідомлення; стан належить дорозі.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a6": {
+                    "answer": "road",
+                    "verb_hint": "Збережи сполучник повідомлення; стан належить дорозі.",
+                    "options": [
+                        "road",
+                        "evidence",
+                        "argument",
+                        "claim"
+                    ]
+                },
+                "a7": {
+                    "answer": "was",
+                    "verb_hint": "Збережи сполучник повідомлення; стан належить дорозі.",
+                    "options": [
+                        "was",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "icy.",
+                    "verb_hint": "Збережи сполучник повідомлення; стан належить дорозі.",
+                    "options": [
+                        "icy",
+                        "fresh",
+                        "valid",
+                        "final"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи сполучник повідомлення; стан належить дорозі.",
+            "accepted_target_texts": [
+                "My uncle said that the road was icy."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My uncle",
+                "said that",
+                "the road",
+                "was icy."
+            ],
+            "token_groups": [
+                "My uncle",
+                "said that",
+                "the road",
+                "was icy."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "My",
+                "uncle",
+                "said",
+                "that",
+                "the",
+                "road",
+                "was",
+                "icy."
+            ],
+            "options": [
+                "My",
+                "Mine",
+                "Yours",
+                "Hers",
+                "uncle",
+                "permission",
+                "consent",
+                "estimate",
+                "said",
+                "agreed",
+                "announced",
+                "explained",
+                "that",
+                "neither",
+                "all",
+                "both",
+                "the",
+                "these",
+                "those",
+                "each",
+                "road",
+                "evidence",
+                "argument",
+                "claim",
+                "was",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "icy",
+                "fresh",
+                "valid",
+                "final"
+            ],
+            "source_text_uk": "Мій дядько сказав, що дорога була вкрита льодом.",
+            "options_by_marker": {
+                "a1": [
+                    "My",
+                    "Mine",
+                    "Yours",
+                    "Hers"
+                ],
+                "a2": [
+                    "uncle",
+                    "permission",
+                    "consent",
+                    "estimate"
+                ],
+                "a3": [
+                    "said",
+                    "agreed",
+                    "announced",
+                    "explained"
+                ],
+                "a4": [
+                    "that",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a5": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a6": [
+                    "road",
+                    "evidence",
+                    "argument",
+                    "claim"
+                ],
+                "a7": [
+                    "was",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a8": [
+                    "icy",
+                    "fresh",
+                    "valid",
+                    "final"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "past_reporting",
+                "a4": "conjunction",
+                "a5": "determiner",
+                "a6": "noun",
+                "a7": "be",
+                "a8": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "rsq-saytell-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Організатор попросив музикантів прибути до полудня.",
+            "level": "B1",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Організатор попросив музикантів прибути до полудня.",
+            "target_text": "The organiser asked the musicians to arrive before noon.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з організатора; музиканти виконуватимуть прохання.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "organiser",
+                    "verb_hint": "Почни з організатора; музиканти виконуватимуть прохання.",
+                    "options": [
+                        "organiser",
+                        "agreement",
+                        "experience",
+                        "neighbour"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Почни з організатора; музиканти виконуватимуть прохання.",
+                    "options": [
+                        "asked",
+                        "said",
+                        "told",
+                        "explained"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з організатора; музиканти виконуватимуть прохання.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "musicians",
+                    "verb_hint": "Почни з організатора; музиканти виконуватимуть прохання.",
+                    "options": [
+                        "musicians",
+                        "workers",
+                        "parties",
+                        "figures"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Почни з організатора; музиканти виконуватимуть прохання.",
+                    "options": [
+                        "to",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a7": {
+                    "answer": "arrive",
+                    "verb_hint": "Почни з організатора; музиканти виконуватимуть прохання.",
+                    "options": [
+                        "arrive",
+                        "survive",
+                        "lovely",
+                        "final"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Почни з організатора; музиканти виконуватимуть прохання.",
+                    "options": [
+                        "before",
+                        "through",
+                        "until",
+                        "at"
+                    ]
+                },
+                "a9": {
+                    "answer": "noon.",
+                    "verb_hint": "Почни з організатора; музиканти виконуватимуть прохання.",
+                    "options": [
+                        "noon",
+                        "argument",
+                        "claim",
+                        "permission"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з організатора; музиканти виконуватимуть прохання.",
+            "accepted_target_texts": [
+                "The organiser asked the musicians to arrive before noon."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The organiser",
+                "asked the musicians",
+                "to arrive",
+                "before noon."
+            ],
+            "token_groups": [
+                "The organiser",
+                "asked the musicians",
+                "to arrive",
+                "before noon."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "organiser",
+                "asked",
+                "the",
+                "musicians",
+                "to",
+                "arrive",
+                "before",
+                "noon."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "organiser",
+                "agreement",
+                "experience",
+                "neighbour",
+                "asked",
+                "said",
+                "told",
+                "explained",
+                "the",
+                "both",
+                "a",
+                "an",
+                "musicians",
+                "workers",
+                "parties",
+                "figures",
+                "to",
+                "for",
+                "of",
+                "in",
+                "arrive",
+                "survive",
+                "lovely",
+                "final",
+                "before",
+                "through",
+                "until",
+                "at",
+                "noon",
+                "argument",
+                "claim",
+                "permission"
+            ],
+            "source_text_uk": "Організатор попросив музикантів прибути до полудня.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "organiser",
+                    "agreement",
+                    "experience",
+                    "neighbour"
+                ],
+                "a3": [
+                    "asked",
+                    "said",
+                    "told",
+                    "explained"
+                ],
+                "a4": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a5": [
+                    "musicians",
+                    "workers",
+                    "parties",
+                    "figures"
+                ],
+                "a6": [
+                    "to",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a7": [
+                    "arrive",
+                    "survive",
+                    "lovely",
+                    "final"
+                ],
+                "a8": [
+                    "before",
+                    "through",
+                    "until",
+                    "at"
+                ],
+                "a9": [
+                    "noon",
+                    "argument",
+                    "claim",
+                    "permission"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "past_reporting",
+                "a4": "determiner",
+                "a5": "noun_plural",
+                "a6": "preposition",
+                "a7": "verb",
+                "a8": "preposition",
+                "a9": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "rsq-saytell-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Катерина сказала, що загубила паспорт.",
+            "level": "B1",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Катерина сказала, що загубила паспорт.",
+            "target_text": "Kateryna said that she had lost her passport.",
+            "markers": {
+                "a1": {
+                    "answer": "Kateryna",
+                    "verb_hint": "Збережи сполучник; втрату подай раніше за минуле повідомлення.",
+                    "options": [
+                        "Kateryna",
+                        "Olena",
+                        "Marta",
+                        "Kira"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Збережи сполучник; втрату подай раніше за минуле повідомлення.",
+                    "options": [
+                        "said",
+                        "explained",
+                        "remarked",
+                        "asked"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Збережи сполучник; втрату подай раніше за минуле повідомлення.",
+                    "options": [
+                        "that",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a4": {
+                    "answer": "she",
+                    "verb_hint": "Збережи сполучник; втрату подай раніше за минуле повідомлення.",
+                    "options": [
+                        "she",
+                        "I",
+                        "you",
+                        "he"
+                    ]
+                },
+                "a5": {
+                    "answer": "had",
+                    "verb_hint": "Збережи сполучник; втрату подай раніше за минуле повідомлення.",
+                    "options": [
+                        "had",
+                        "didn't",
+                        "have",
+                        "has"
+                    ]
+                },
+                "a6": {
+                    "answer": "lost",
+                    "verb_hint": "Збережи сполучник; втрату подай раніше за минуле повідомлення.",
+                    "options": [
+                        "lost",
+                        "approved",
+                        "combined",
+                        "written"
+                    ]
+                },
+                "a7": {
+                    "answer": "her",
+                    "verb_hint": "Збережи сполучник; втрату подай раніше за минуле повідомлення.",
+                    "options": [
+                        "her",
+                        "our",
+                        "their",
+                        "mine"
+                    ]
+                },
+                "a8": {
+                    "answer": "passport.",
+                    "verb_hint": "Збережи сполучник; втрату подай раніше за минуле повідомлення.",
+                    "options": [
+                        "passport",
+                        "organiser",
+                        "name",
+                        "window"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи сполучник; втрату подай раніше за минуле повідомлення.",
+            "accepted_target_texts": [
+                "Kateryna said that she had lost her passport."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Kateryna said",
+                "that she",
+                "had lost",
+                "her passport."
+            ],
+            "token_groups": [
+                "Kateryna said",
+                "that she",
+                "had lost",
+                "her passport."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Kateryna",
+                "said",
+                "that",
+                "she",
+                "had",
+                "lost",
+                "her",
+                "passport."
+            ],
+            "options": [
+                "Kateryna",
+                "Olena",
+                "Marta",
+                "Kira",
+                "said",
+                "explained",
+                "remarked",
+                "asked",
+                "that",
+                "all",
+                "both",
+                "a",
+                "she",
+                "I",
+                "you",
+                "he",
+                "had",
+                "didn't",
+                "have",
+                "has",
+                "lost",
+                "approved",
+                "combined",
+                "written",
+                "her",
+                "our",
+                "their",
+                "mine",
+                "passport",
+                "organiser",
+                "name",
+                "window"
+            ],
+            "source_text_uk": "Катерина сказала, що загубила паспорт.",
+            "options_by_marker": {
+                "a1": [
+                    "Kateryna",
+                    "Olena",
+                    "Marta",
+                    "Kira"
+                ],
+                "a2": [
+                    "said",
+                    "explained",
+                    "remarked",
+                    "asked"
+                ],
+                "a3": [
+                    "that",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a4": [
+                    "she",
+                    "I",
+                    "you",
+                    "he"
+                ],
+                "a5": [
+                    "had",
+                    "didn't",
+                    "have",
+                    "has"
+                ],
+                "a6": [
+                    "lost",
+                    "approved",
+                    "combined",
+                    "written"
+                ],
+                "a7": [
+                    "her",
+                    "our",
+                    "their",
+                    "mine"
+                ],
+                "a8": [
+                    "passport",
+                    "organiser",
+                    "name",
+                    "window"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "past_reporting",
+                "a3": "conjunction",
+                "a4": "pronoun",
+                "a5": "auxiliary",
+                "a6": "participle",
+                "a7": "determiner",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "rsq-saytell-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Сусід повідомив нам, де ховалося цуценя.",
+            "level": "B1",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Сусід повідомив нам, де ховалося цуценя.",
+            "target_text": "The neighbour told us where the puppy was hiding.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Це повідомлення про місце, а не питання до нас.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "neighbour",
+                    "verb_hint": "Це повідомлення про місце, а не питання до нас.",
+                    "options": [
+                        "neighbour",
+                        "baker",
+                        "driver",
+                        "nurse"
+                    ]
+                },
+                "a3": {
+                    "answer": "told",
+                    "verb_hint": "Це повідомлення про місце, а не питання до нас.",
+                    "options": [
+                        "told",
+                        "denied",
+                        "suggested",
+                        "agreed"
+                    ]
+                },
+                "a4": {
+                    "answer": "us",
+                    "verb_hint": "Це повідомлення про місце, а не питання до нас.",
+                    "options": [
+                        "us",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a5": {
+                    "answer": "where",
+                    "verb_hint": "Це повідомлення про місце, а не питання до нас.",
+                    "options": [
+                        "where",
+                        "what",
+                        "which",
+                        "when"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Це повідомлення про місце, а не питання до нас.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a7": {
+                    "answer": "puppy",
+                    "verb_hint": "Це повідомлення про місце, а не питання до нас.",
+                    "options": [
+                        "puppy",
+                        "record",
+                        "permission",
+                        "consent"
+                    ]
+                },
+                "a8": {
+                    "answer": "was",
+                    "verb_hint": "Це повідомлення про місце, а не питання до нас.",
+                    "options": [
+                        "was",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a9": {
+                    "answer": "hiding.",
+                    "verb_hint": "Це повідомлення про місце, а не питання до нас.",
+                    "options": [
+                        "hiding",
+                        "working",
+                        "shaping",
+                        "speaking"
+                    ]
+                }
+            },
+            "verb_hint": "Це повідомлення про місце, а не питання до нас.",
+            "accepted_target_texts": [
+                "The neighbour told us where the puppy was hiding."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The neighbour",
+                "told us",
+                "where the puppy",
+                "was hiding."
+            ],
+            "token_groups": [
+                "The neighbour",
+                "told us",
+                "where the puppy",
+                "was hiding."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "neighbour",
+                "told",
+                "us",
+                "where",
+                "the",
+                "puppy",
+                "was",
+                "hiding."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "neighbour",
+                "baker",
+                "driver",
+                "nurse",
+                "told",
+                "denied",
+                "suggested",
+                "agreed",
+                "us",
+                "myself",
+                "yourself",
+                "herself",
+                "where",
+                "what",
+                "which",
+                "when",
+                "the",
+                "every",
+                "no",
+                "another",
+                "puppy",
+                "record",
+                "permission",
+                "consent",
+                "was",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "hiding",
+                "working",
+                "shaping",
+                "speaking"
+            ],
+            "source_text_uk": "Сусід повідомив нам, де ховалося цуценя.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "neighbour",
+                    "baker",
+                    "driver",
+                    "nurse"
+                ],
+                "a3": [
+                    "told",
+                    "denied",
+                    "suggested",
+                    "agreed"
+                ],
+                "a4": [
+                    "us",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a5": [
+                    "where",
+                    "what",
+                    "which",
+                    "when"
+                ],
+                "a6": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a7": [
+                    "puppy",
+                    "record",
+                    "permission",
+                    "consent"
+                ],
+                "a8": [
+                    "was",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a9": [
+                    "hiding",
+                    "working",
+                    "shaping",
+                    "speaking"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "past_reporting",
+                "a4": "pronoun",
+                "a5": "question",
+                "a6": "determiner",
+                "a7": "noun",
+                "a8": "be",
+                "a9": "gerund"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "rsq-saytell-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Юристка сказала своєму клієнтові зберегти оригінали листування.",
+            "level": "B2",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Юристка сказала своєму клієнтові зберегти оригінали листування.",
+            "target_text": "The solicitor told her client to retain the original correspondence.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з юристки; назви клієнта виконавцем поради.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "solicitor",
+                    "verb_hint": "Почни з юристки; назви клієнта виконавцем поради.",
+                    "options": [
+                        "solicitor",
+                        "permission",
+                        "consent",
+                        "estimate"
+                    ]
+                },
+                "a3": {
+                    "answer": "told",
+                    "verb_hint": "Почни з юристки; назви клієнта виконавцем поради.",
+                    "options": [
+                        "told",
+                        "reported",
+                        "remarked",
+                        "asked"
+                    ]
+                },
+                "a4": {
+                    "answer": "her",
+                    "verb_hint": "Почни з юристки; назви клієнта виконавцем поради.",
+                    "options": [
+                        "her",
+                        "our",
+                        "their",
+                        "mine"
+                    ]
+                },
+                "a5": {
+                    "answer": "client",
+                    "verb_hint": "Почни з юристки; назви клієнта виконавцем поради.",
+                    "options": [
+                        "client",
+                        "window",
+                        "rice",
+                        "bread"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Почни з юристки; назви клієнта виконавцем поради.",
+                    "options": [
+                        "to",
+                        "during",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a7": {
+                    "answer": "retain",
+                    "verb_hint": "Почни з юристки; назви клієнта виконавцем поради.",
+                    "options": [
+                        "retain",
+                        "touch",
+                        "reflect",
+                        "propose"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з юристки; назви клієнта виконавцем поради.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a9": {
+                    "answer": "original",
+                    "verb_hint": "Почни з юристки; назви клієнта виконавцем поради.",
+                    "options": [
+                        "original",
+                        "different",
+                        "same",
+                        "main"
+                    ]
+                },
+                "a10": {
+                    "answer": "correspondence.",
+                    "verb_hint": "Почни з юристки; назви клієнта виконавцем поради.",
+                    "options": [
+                        "correspondence",
+                        "argument",
+                        "claim",
+                        "formulation"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з юристки; назви клієнта виконавцем поради.",
+            "accepted_target_texts": [
+                "The solicitor told her client to retain the original correspondence.",
+                "The solicitor told her client to keep the original correspondence."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "keep"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "keep"
+                ]
+            },
+            "reorder_groups": [
+                "The solicitor",
+                "told her client",
+                "to retain",
+                "the original correspondence."
+            ],
+            "token_groups": [
+                "The solicitor",
+                "told her client",
+                "to retain",
+                "the original correspondence."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "solicitor",
+                "told",
+                "her",
+                "client",
+                "to",
+                "retain",
+                "the",
+                "original",
+                "correspondence."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "solicitor",
+                "permission",
+                "consent",
+                "estimate",
+                "told",
+                "reported",
+                "remarked",
+                "asked",
+                "her",
+                "our",
+                "their",
+                "mine",
+                "client",
+                "window",
+                "rice",
+                "bread",
+                "to",
+                "during",
+                "from",
+                "for",
+                "retain",
+                "touch",
+                "reflect",
+                "propose",
+                "the",
+                "that",
+                "these",
+                "those",
+                "original",
+                "different",
+                "same",
+                "main",
+                "correspondence",
+                "argument",
+                "claim",
+                "formulation"
+            ],
+            "source_text_uk": "Юристка сказала своєму клієнтові зберегти оригінали листування.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "solicitor",
+                    "permission",
+                    "consent",
+                    "estimate"
+                ],
+                "a3": [
+                    "told",
+                    "reported",
+                    "remarked",
+                    "asked"
+                ],
+                "a4": [
+                    "her",
+                    "our",
+                    "their",
+                    "mine"
+                ],
+                "a5": [
+                    "client",
+                    "window",
+                    "rice",
+                    "bread"
+                ],
+                "a6": [
+                    "to",
+                    "during",
+                    "from",
+                    "for"
+                ],
+                "a7": [
+                    "retain",
+                    "touch",
+                    "reflect",
+                    "propose"
+                ],
+                "a8": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a9": [
+                    "original",
+                    "different",
+                    "same",
+                    "main"
+                ],
+                "a10": [
+                    "correspondence",
+                    "argument",
+                    "claim",
+                    "formulation"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "past_reporting",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "preposition",
+                "a7": "verb",
+                "a8": "determiner",
+                "a9": "adjective",
+                "a10": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "rsq-saytell-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Журналіст запитав, чому інспекцію відклали.",
+            "level": "B2",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Журналіст запитав, чому інспекцію відклали.",
+            "target_text": "The reporter asked why the inspection had been postponed.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Причину запитують, а відкладення передує минулому питанню.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "reporter",
+                    "verb_hint": "Причину запитують, а відкладення передує минулому питанню.",
+                    "options": [
+                        "reporter",
+                        "claim",
+                        "permission",
+                        "consent"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Причину запитують, а відкладення передує минулому питанню.",
+                    "options": [
+                        "asked",
+                        "promised",
+                        "admitted",
+                        "denied"
+                    ]
+                },
+                "a4": {
+                    "answer": "why",
+                    "verb_hint": "Причину запитують, а відкладення передує минулому питанню.",
+                    "options": [
+                        "why",
+                        "whenever",
+                        "who",
+                        "whom"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Причину запитують, а відкладення передує минулому питанню.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a6": {
+                    "answer": "inspection",
+                    "verb_hint": "Причину запитують, а відкладення передує минулому питанню.",
+                    "options": [
+                        "inspection",
+                        "estimate",
+                        "formulation",
+                        "contradiction"
+                    ]
+                },
+                "a7": {
+                    "answer": "had",
+                    "verb_hint": "Причину запитують, а відкладення передує минулому питанню.",
+                    "options": [
+                        "had",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "been",
+                    "verb_hint": "Причину запитують, а відкладення передує минулому питанню.",
+                    "options": [
+                        "been",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a9": {
+                    "answer": "postponed.",
+                    "verb_hint": "Причину запитують, а відкладення передує минулому питанню.",
+                    "options": [
+                        "postponed",
+                        "written",
+                        "read",
+                        "given"
+                    ]
+                }
+            },
+            "verb_hint": "Причину запитують, а відкладення передує минулому питанню.",
+            "accepted_target_texts": [
+                "The reporter asked why the inspection had been postponed."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The reporter",
+                "asked why",
+                "the inspection",
+                "had been postponed."
+            ],
+            "token_groups": [
+                "The reporter",
+                "asked why",
+                "the inspection",
+                "had been postponed."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "reporter",
+                "asked",
+                "why",
+                "the",
+                "inspection",
+                "had",
+                "been",
+                "postponed."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "reporter",
+                "claim",
+                "permission",
+                "consent",
+                "asked",
+                "promised",
+                "admitted",
+                "denied",
+                "why",
+                "whenever",
+                "who",
+                "whom",
+                "the",
+                "each",
+                "every",
+                "no",
+                "inspection",
+                "estimate",
+                "formulation",
+                "contradiction",
+                "had",
+                "did",
+                "don't",
+                "doesn't",
+                "been",
+                "am",
+                "is",
+                "are",
+                "postponed",
+                "written",
+                "read",
+                "given"
+            ],
+            "source_text_uk": "Журналіст запитав, чому інспекцію відклали.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "reporter",
+                    "claim",
+                    "permission",
+                    "consent"
+                ],
+                "a3": [
+                    "asked",
+                    "promised",
+                    "admitted",
+                    "denied"
+                ],
+                "a4": [
+                    "why",
+                    "whenever",
+                    "who",
+                    "whom"
+                ],
+                "a5": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a6": [
+                    "inspection",
+                    "estimate",
+                    "formulation",
+                    "contradiction"
+                ],
+                "a7": [
+                    "had",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a8": [
+                    "been",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a9": [
+                    "postponed",
+                    "written",
+                    "read",
+                    "given"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "past_reporting",
+                "a4": "question",
+                "a5": "determiner",
+                "a6": "noun",
+                "a7": "auxiliary",
+                "a8": "be",
+                "a9": "participle"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "rsq-saytell-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Координатор повідомив, що майданчик більше не доступний.",
+            "level": "B2",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Координатор повідомив, що майданчик більше не доступний.",
+            "target_text": "The coordinator said that the venue was no longer available.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи сполучник повідомлення й значення припиненої доступності.",
+                    "options": [
+                        "The",
+                        "This",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "coordinator",
+                    "verb_hint": "Збережи сполучник повідомлення й значення припиненої доступності.",
+                    "options": [
+                        "coordinator",
+                        "rice",
+                        "bread",
+                        "delay"
+                    ]
+                },
+                "a3": {
+                    "answer": "said",
+                    "verb_hint": "Збережи сполучник повідомлення й значення припиненої доступності.",
+                    "options": [
+                        "said",
+                        "suggested",
+                        "agreed",
+                        "announced"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Збережи сполучник повідомлення й значення припиненої доступності.",
+                    "options": [
+                        "that",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи сполучник повідомлення й значення припиненої доступності.",
+                    "options": [
+                        "the",
+                        "any",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a6": {
+                    "answer": "venue",
+                    "verb_hint": "Збережи сполучник повідомлення й значення припиненої доступності.",
+                    "options": [
+                        "venue",
+                        "argument",
+                        "claim",
+                        "permission"
+                    ]
+                },
+                "a7": {
+                    "answer": "was",
+                    "verb_hint": "Збережи сполучник повідомлення й значення припиненої доступності.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a8": {
+                    "answer": "no",
+                    "verb_hint": "Збережи сполучник повідомлення й значення припиненої доступності.",
+                    "options": [
+                        "no",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a9": {
+                    "answer": "longer",
+                    "verb_hint": "Збережи сполучник повідомлення й значення припиненої доступності.",
+                    "options": [
+                        "longer",
+                        "inside",
+                        "carefully",
+                        "quietly"
+                    ]
+                },
+                "a10": {
+                    "answer": "available.",
+                    "verb_hint": "Збережи сполучник повідомлення й значення припиненої доступності.",
+                    "options": [
+                        "available",
+                        "selective",
+                        "small",
+                        "large"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи сполучник повідомлення й значення припиненої доступності.",
+            "accepted_target_texts": [
+                "The coordinator said that the venue was no longer available.",
+                "The coordinator stated that the venue was no longer available."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "stated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "stated"
+                ]
+            },
+            "reorder_groups": [
+                "The coordinator",
+                "said that",
+                "the venue",
+                "was no longer",
+                "available."
+            ],
+            "token_groups": [
+                "The coordinator",
+                "said that",
+                "the venue",
+                "was no longer",
+                "available."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "coordinator",
+                "said",
+                "that",
+                "the",
+                "venue",
+                "was",
+                "no",
+                "longer",
+                "available."
+            ],
+            "options": [
+                "The",
+                "This",
+                "These",
+                "Those",
+                "coordinator",
+                "rice",
+                "bread",
+                "delay",
+                "said",
+                "suggested",
+                "agreed",
+                "announced",
+                "that",
+                "a",
+                "an",
+                "some",
+                "the",
+                "any",
+                "each",
+                "every",
+                "venue",
+                "argument",
+                "claim",
+                "permission",
+                "was",
+                "were",
+                "be",
+                "been",
+                "no",
+                "another",
+                "either",
+                "neither",
+                "longer",
+                "inside",
+                "carefully",
+                "quietly",
+                "available",
+                "selective",
+                "small",
+                "large"
+            ],
+            "source_text_uk": "Координатор повідомив, що майданчик більше не доступний.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "This",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "coordinator",
+                    "rice",
+                    "bread",
+                    "delay"
+                ],
+                "a3": [
+                    "said",
+                    "suggested",
+                    "agreed",
+                    "announced"
+                ],
+                "a4": [
+                    "that",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a5": [
+                    "the",
+                    "any",
+                    "each",
+                    "every"
+                ],
+                "a6": [
+                    "venue",
+                    "argument",
+                    "claim",
+                    "permission"
+                ],
+                "a7": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a8": [
+                    "no",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a9": [
+                    "longer",
+                    "inside",
+                    "carefully",
+                    "quietly"
+                ],
+                "a10": [
+                    "available",
+                    "selective",
+                    "small",
+                    "large"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "past_reporting",
+                "a4": "conjunction",
+                "a5": "determiner",
+                "a6": "noun",
+                "a7": "be",
+                "a8": "negative",
+                "a9": "adverb",
+                "a10": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "rsq-saytell-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Омбудсман попросив установу обґрунтувати неоднакове ставлення.",
+            "level": "C1",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Омбудсман попросив установу обґрунтувати неоднакове ставлення.",
+            "target_text": "The ombudsman asked the agency to justify the differential treatment.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Назви установу виконавицею запитаного обґрунтування.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "ombudsman",
+                    "verb_hint": "Назви установу виконавицею запитаного обґрунтування.",
+                    "options": [
+                        "ombudsman",
+                        "bread",
+                        "delay",
+                        "error"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Назви установу виконавицею запитаного обґрунтування.",
+                    "options": [
+                        "asked",
+                        "agreed",
+                        "announced",
+                        "explained"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Назви установу виконавицею запитаного обґрунтування.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a5": {
+                    "answer": "agency",
+                    "verb_hint": "Назви установу виконавицею запитаного обґрунтування.",
+                    "options": [
+                        "agency",
+                        "evidence",
+                        "argument",
+                        "claim"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Назви установу виконавицею запитаного обґрунтування.",
+                    "options": [
+                        "to",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a7": {
+                    "answer": "justify",
+                    "verb_hint": "Назви установу виконавицею запитаного обґрунтування.",
+                    "options": [
+                        "justify",
+                        "trace",
+                        "reduce",
+                        "reveal"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Назви установу виконавицею запитаного обґрунтування.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a9": {
+                    "answer": "differential",
+                    "verb_hint": "Назви установу виконавицею запитаного обґрунтування.",
+                    "options": [
+                        "differential",
+                        "unclear",
+                        "fresh",
+                        "small"
+                    ]
+                },
+                "a10": {
+                    "answer": "treatment.",
+                    "verb_hint": "Назви установу виконавицею запитаного обґрунтування.",
+                    "options": [
+                        "treatment",
+                        "name",
+                        "window",
+                        "rice"
+                    ]
+                }
+            },
+            "verb_hint": "Назви установу виконавицею запитаного обґрунтування.",
+            "accepted_target_texts": [
+                "The ombudsman asked the agency to justify the differential treatment."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ombudsman",
+                "asked the agency",
+                "to justify",
+                "the differential treatment."
+            ],
+            "token_groups": [
+                "The ombudsman",
+                "asked the agency",
+                "to justify",
+                "the differential treatment."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "ombudsman",
+                "asked",
+                "the",
+                "agency",
+                "to",
+                "justify",
+                "the",
+                "differential",
+                "treatment."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "ombudsman",
+                "bread",
+                "delay",
+                "error",
+                "asked",
+                "agreed",
+                "announced",
+                "explained",
+                "the",
+                "these",
+                "those",
+                "each",
+                "agency",
+                "evidence",
+                "argument",
+                "claim",
+                "to",
+                "without",
+                "into",
+                "onto",
+                "justify",
+                "trace",
+                "reduce",
+                "reveal",
+                "neither",
+                "all",
+                "both",
+                "differential",
+                "unclear",
+                "fresh",
+                "small",
+                "treatment",
+                "name",
+                "window",
+                "rice"
+            ],
+            "source_text_uk": "Омбудсман попросив установу обґрунтувати неоднакове ставлення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "ombudsman",
+                    "bread",
+                    "delay",
+                    "error"
+                ],
+                "a3": [
+                    "asked",
+                    "agreed",
+                    "announced",
+                    "explained"
+                ],
+                "a4": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a5": [
+                    "agency",
+                    "evidence",
+                    "argument",
+                    "claim"
+                ],
+                "a6": [
+                    "to",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a7": [
+                    "justify",
+                    "trace",
+                    "reduce",
+                    "reveal"
+                ],
+                "a8": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a9": [
+                    "differential",
+                    "unclear",
+                    "fresh",
+                    "small"
+                ],
+                "a10": [
+                    "treatment",
+                    "name",
+                    "window",
+                    "rice"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "past_reporting",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "preposition",
+                "a7": "verb",
+                "a8": "determiner",
+                "a9": "adjective",
+                "a10": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "rsq-saytell-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Історик пояснив студентам, чому авторство залишається спірним.",
+            "level": "C1",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Історик пояснив студентам, чому авторство залишається спірним.",
+            "target_text": "The historian told the students why the attribution remained disputed.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай повідомлення причини названим слухачам, а не питання до них.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "historian",
+                    "verb_hint": "Передай повідомлення причини названим слухачам, а не питання до них.",
+                    "options": [
+                        "historian",
+                        "error",
+                        "record",
+                        "evidence"
+                    ]
+                },
+                "a3": {
+                    "answer": "told",
+                    "verb_hint": "Передай повідомлення причини названим слухачам, а не питання до них.",
+                    "options": [
+                        "told",
+                        "announced",
+                        "explained",
+                        "reported"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Передай повідомлення причини названим слухачам, а не питання до них.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a5": {
+                    "answer": "students",
+                    "verb_hint": "Передай повідомлення причини названим слухачам, а не питання до них.",
+                    "options": [
+                        "students",
+                        "paintings",
+                        "workers",
+                        "parties"
+                    ]
+                },
+                "a6": {
+                    "answer": "why",
+                    "verb_hint": "Передай повідомлення причини названим слухачам, а не питання до них.",
+                    "options": [
+                        "why",
+                        "whatever",
+                        "wherever",
+                        "whenever"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Передай повідомлення причини названим слухачам, а не питання до них.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "attribution",
+                    "verb_hint": "Передай повідомлення причини названим слухачам, а не питання до них.",
+                    "options": [
+                        "attribution",
+                        "window",
+                        "rice",
+                        "bread"
+                    ]
+                },
+                "a9": {
+                    "answer": "remained",
+                    "verb_hint": "Передай повідомлення причини названим слухачам, а не питання до них.",
+                    "options": [
+                        "remained",
+                        "started",
+                        "required",
+                        "worked"
+                    ]
+                },
+                "a10": {
+                    "answer": "disputed.",
+                    "verb_hint": "Передай повідомлення причини названим слухачам, а не питання до них.",
+                    "options": [
+                        "disputed",
+                        "cost",
+                        "said",
+                        "rested"
+                    ]
+                }
+            },
+            "verb_hint": "Передай повідомлення причини названим слухачам, а не питання до них.",
+            "accepted_target_texts": [
+                "The historian told the students why the attribution remained disputed."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The historian",
+                "told the students",
+                "why the attribution",
+                "remained disputed."
+            ],
+            "token_groups": [
+                "The historian",
+                "told the students",
+                "why the attribution",
+                "remained disputed."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "historian",
+                "told",
+                "the",
+                "students",
+                "why",
+                "the",
+                "attribution",
+                "remained",
+                "disputed."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "historian",
+                "error",
+                "record",
+                "evidence",
+                "told",
+                "announced",
+                "explained",
+                "reported",
+                "the",
+                "some",
+                "any",
+                "this",
+                "students",
+                "paintings",
+                "workers",
+                "parties",
+                "why",
+                "whatever",
+                "wherever",
+                "whenever",
+                "those",
+                "each",
+                "either",
+                "attribution",
+                "window",
+                "rice",
+                "bread",
+                "remained",
+                "started",
+                "required",
+                "worked",
+                "disputed",
+                "cost",
+                "said",
+                "rested"
+            ],
+            "source_text_uk": "Історик пояснив студентам, чому авторство залишається спірним.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "historian",
+                    "error",
+                    "record",
+                    "evidence"
+                ],
+                "a3": [
+                    "told",
+                    "announced",
+                    "explained",
+                    "reported"
+                ],
+                "a4": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a5": [
+                    "students",
+                    "paintings",
+                    "workers",
+                    "parties"
+                ],
+                "a6": [
+                    "why",
+                    "whatever",
+                    "wherever",
+                    "whenever"
+                ],
+                "a7": [
+                    "the",
+                    "those",
+                    "each",
+                    "either"
+                ],
+                "a8": [
+                    "attribution",
+                    "window",
+                    "rice",
+                    "bread"
+                ],
+                "a9": [
+                    "remained",
+                    "started",
+                    "required",
+                    "worked"
+                ],
+                "a10": [
+                    "disputed",
+                    "cost",
+                    "said",
+                    "rested"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "past_reporting",
+                "a4": "determiner",
+                "a5": "noun_plural",
+                "a6": "question",
+                "a7": "determiner",
+                "a8": "noun",
+                "a9": "past_verb",
+                "a10": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "rsq-saytell-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Оцінювач зазначив, що оцінка ґрунтується на неперевіреному припущенні.",
+            "level": "C1",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Оцінювач зазначив, що оцінка ґрунтується на неперевіреному припущенні.",
+            "target_text": "The assessor said that the estimate rested on an untested assumption.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи сполучник і основу оцінки; це не запитання.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "assessor",
+                    "verb_hint": "Збережи сполучник і основу оцінки; це не запитання.",
+                    "options": [
+                        "assessor",
+                        "identity",
+                        "agreement",
+                        "experience"
+                    ]
+                },
+                "a3": {
+                    "answer": "said",
+                    "verb_hint": "Збережи сполучник і основу оцінки; це не запитання.",
+                    "options": [
+                        "said",
+                        "admitted",
+                        "suggested",
+                        "agreed"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Збережи сполучник і основу оцінки; це не запитання.",
+                    "options": [
+                        "that",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи сполучник і основу оцінки; це не запитання.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a6": {
+                    "answer": "estimate",
+                    "verb_hint": "Збережи сполучник і основу оцінки; це не запитання.",
+                    "options": [
+                        "estimate",
+                        "ombudsman",
+                        "agency",
+                        "treatment"
+                    ]
+                },
+                "a7": {
+                    "answer": "rested",
+                    "verb_hint": "Збережи сполучник і основу оцінки; це не запитання.",
+                    "options": [
+                        "rested",
+                        "undermined",
+                        "opened",
+                        "needed"
+                    ]
+                },
+                "a8": {
+                    "answer": "on",
+                    "verb_hint": "Збережи сполучник і основу оцінки; це не запитання.",
+                    "options": [
+                        "on",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a9": {
+                    "answer": "an",
+                    "verb_hint": "Збережи сполучник і основу оцінки; це не запитання.",
+                    "options": [
+                        "an",
+                        "a",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a10": {
+                    "answer": "untested",
+                    "verb_hint": "Збережи сполучник і основу оцінки; це не запитання.",
+                    "options": [
+                        "untested",
+                        "new",
+                        "old",
+                        "small"
+                    ]
+                },
+                "a11": {
+                    "answer": "assumption.",
+                    "verb_hint": "Збережи сполучник і основу оцінки; це не запитання.",
+                    "options": [
+                        "assumption",
+                        "claim",
+                        "permission",
+                        "consent"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи сполучник і основу оцінки; це не запитання.",
+            "accepted_target_texts": [
+                "The assessor said that the estimate rested on an untested assumption.",
+                "The assessor stated that the estimate rested on an untested assumption."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "stated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "stated"
+                ]
+            },
+            "reorder_groups": [
+                "The assessor",
+                "said that",
+                "the estimate",
+                "rested on",
+                "an untested assumption."
+            ],
+            "token_groups": [
+                "The assessor",
+                "said that",
+                "the estimate",
+                "rested on",
+                "an untested assumption."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "assessor",
+                "said",
+                "that",
+                "the",
+                "estimate",
+                "rested",
+                "on",
+                "an",
+                "untested",
+                "assumption."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "assessor",
+                "identity",
+                "agreement",
+                "experience",
+                "said",
+                "admitted",
+                "suggested",
+                "agreed",
+                "that",
+                "some",
+                "any",
+                "this",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "estimate",
+                "ombudsman",
+                "agency",
+                "treatment",
+                "rested",
+                "undermined",
+                "opened",
+                "needed",
+                "on",
+                "into",
+                "onto",
+                "over",
+                "an",
+                "a",
+                "these",
+                "those",
+                "untested",
+                "new",
+                "old",
+                "small",
+                "assumption",
+                "claim",
+                "permission",
+                "consent"
+            ],
+            "source_text_uk": "Оцінювач зазначив, що оцінка ґрунтується на неперевіреному припущенні.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "assessor",
+                    "identity",
+                    "agreement",
+                    "experience"
+                ],
+                "a3": [
+                    "said",
+                    "admitted",
+                    "suggested",
+                    "agreed"
+                ],
+                "a4": [
+                    "that",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a5": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a6": [
+                    "estimate",
+                    "ombudsman",
+                    "agency",
+                    "treatment"
+                ],
+                "a7": [
+                    "rested",
+                    "undermined",
+                    "opened",
+                    "needed"
+                ],
+                "a8": [
+                    "on",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a9": [
+                    "an",
+                    "a",
+                    "these",
+                    "those"
+                ],
+                "a10": [
+                    "untested",
+                    "new",
+                    "old",
+                    "small"
+                ],
+                "a11": [
+                    "assumption",
+                    "claim",
+                    "permission",
+                    "consent"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "past_reporting",
+                "a4": "conjunction",
+                "a5": "determiner",
+                "a6": "noun",
+                "a7": "past_verb",
+                "a8": "preposition",
+                "a9": "determiner",
+                "a10": "adjective",
+                "a11": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "rsq-saytell-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Голова попросив доповідача відрізнити мовчазне прийняття від прямого схвалення.",
+            "level": "C2",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Голова попросив доповідача відрізнити мовчазне прийняття від прямого схвалення.",
+            "target_text": "The chair asked the rapporteur to distinguish acquiescence from express endorsement.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Назви доповідача виконавцем розрізнення; не підміняй один вид згоди іншим.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "chair",
+                    "verb_hint": "Назви доповідача виконавцем розрізнення; не підміняй один вид згоди іншим.",
+                    "options": [
+                        "chair",
+                        "presumption",
+                        "name",
+                        "window"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Назви доповідача виконавцем розрізнення; не підміняй один вид згоди іншим.",
+                    "options": [
+                        "asked",
+                        "said",
+                        "proposed",
+                        "promised"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Назви доповідача виконавцем розрізнення; не підміняй один вид згоди іншим.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a5": {
+                    "answer": "rapporteur",
+                    "verb_hint": "Назви доповідача виконавцем розрізнення; не підміняй один вид згоди іншим.",
+                    "options": [
+                        "rapporteur",
+                        "rice",
+                        "bread",
+                        "delay"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Назви доповідача виконавцем розрізнення; не підміняй один вид згоди іншим.",
+                    "options": [
+                        "to",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a7": {
+                    "answer": "distinguish",
+                    "verb_hint": "Назви доповідача виконавцем розрізнення; не підміняй один вид згоди іншим.",
+                    "options": [
+                        "distinguish",
+                        "trace",
+                        "reduce",
+                        "reveal"
+                    ]
+                },
+                "a8": {
+                    "answer": "acquiescence",
+                    "verb_hint": "Назви доповідача виконавцем розрізнення; не підміняй один вид згоди іншим.",
+                    "options": [
+                        "acquiescence",
+                        "contradiction",
+                        "quality",
+                        "identity"
+                    ]
+                },
+                "a9": {
+                    "answer": "from",
+                    "verb_hint": "Назви доповідача виконавцем розрізнення; не підміняй один вид згоди іншим.",
+                    "options": [
+                        "from",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a10": {
+                    "answer": "express",
+                    "verb_hint": "Назви доповідача виконавцем розрізнення; не підміняй один вид згоди іншим.",
+                    "options": [
+                        "express",
+                        "same",
+                        "main",
+                        "early"
+                    ]
+                },
+                "a11": {
+                    "answer": "endorsement.",
+                    "verb_hint": "Назви доповідача виконавцем розрізнення; не підміняй один вид згоди іншим.",
+                    "options": [
+                        "endorsement",
+                        "permission",
+                        "consent",
+                        "estimate"
+                    ]
+                }
+            },
+            "verb_hint": "Назви доповідача виконавцем розрізнення; не підміняй один вид згоди іншим.",
+            "accepted_target_texts": [
+                "The chair asked the rapporteur to distinguish acquiescence from express endorsement.",
+                "The chair asked the rapporteur to differentiate acquiescence from express endorsement."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "differentiate"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "differentiate"
+                ]
+            },
+            "reorder_groups": [
+                "The chair",
+                "asked the rapporteur",
+                "to distinguish",
+                "acquiescence from",
+                "express endorsement."
+            ],
+            "token_groups": [
+                "The chair",
+                "asked the rapporteur",
+                "to distinguish",
+                "acquiescence from",
+                "express endorsement."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "chair",
+                "asked",
+                "the",
+                "rapporteur",
+                "to",
+                "distinguish",
+                "acquiescence",
+                "from",
+                "express",
+                "endorsement."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "chair",
+                "presumption",
+                "name",
+                "window",
+                "asked",
+                "said",
+                "proposed",
+                "promised",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "rapporteur",
+                "rice",
+                "bread",
+                "delay",
+                "to",
+                "among",
+                "about",
+                "during",
+                "distinguish",
+                "trace",
+                "reduce",
+                "reveal",
+                "acquiescence",
+                "contradiction",
+                "quality",
+                "identity",
+                "from",
+                "without",
+                "into",
+                "onto",
+                "express",
+                "same",
+                "main",
+                "early",
+                "endorsement",
+                "permission",
+                "consent",
+                "estimate"
+            ],
+            "source_text_uk": "Голова попросив доповідача відрізнити мовчазне прийняття від прямого схвалення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "chair",
+                    "presumption",
+                    "name",
+                    "window"
+                ],
+                "a3": [
+                    "asked",
+                    "said",
+                    "proposed",
+                    "promised"
+                ],
+                "a4": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a5": [
+                    "rapporteur",
+                    "rice",
+                    "bread",
+                    "delay"
+                ],
+                "a6": [
+                    "to",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a7": [
+                    "distinguish",
+                    "trace",
+                    "reduce",
+                    "reveal"
+                ],
+                "a8": [
+                    "acquiescence",
+                    "contradiction",
+                    "quality",
+                    "identity"
+                ],
+                "a9": [
+                    "from",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a10": [
+                    "express",
+                    "same",
+                    "main",
+                    "early"
+                ],
+                "a11": [
+                    "endorsement",
+                    "permission",
+                    "consent",
+                    "estimate"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "past_reporting",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "preposition",
+                "a7": "verb",
+                "a8": "noun",
+                "a9": "preposition",
+                "a10": "adjective",
+                "a11": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "rsq-saytell-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Правознавець пояснив учасникам семінару, як можна спростувати презумпцію без колового міркування.",
+            "level": "C2",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Правознавець пояснив учасникам семінару, як можна спростувати презумпцію без колового міркування.",
+            "target_text": "The jurist told the seminar how the presumption could be rebutted without circular reasoning.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай роз’яснення слухачам; спосіб спростування лишається всередині повідомлення.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "jurist",
+                    "verb_hint": "Передай роз’яснення слухачам; спосіб спростування лишається всередині повідомлення.",
+                    "options": [
+                        "jurist",
+                        "quality",
+                        "identity",
+                        "agreement"
+                    ]
+                },
+                "a3": {
+                    "answer": "told",
+                    "verb_hint": "Передай роз’яснення слухачам; спосіб спростування лишається всередині повідомлення.",
+                    "options": [
+                        "told",
+                        "reported",
+                        "remarked",
+                        "asked"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Передай роз’яснення слухачам; спосіб спростування лишається всередині повідомлення.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "seminar",
+                    "verb_hint": "Передай роз’яснення слухачам; спосіб спростування лишається всередині повідомлення.",
+                    "options": [
+                        "seminar",
+                        "window",
+                        "rice",
+                        "bread"
+                    ]
+                },
+                "a6": {
+                    "answer": "how",
+                    "verb_hint": "Передай роз’яснення слухачам; спосіб спростування лишається всередині повідомлення.",
+                    "options": [
+                        "how",
+                        "when",
+                        "why",
+                        "whoever"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Передай роз’яснення слухачам; спосіб спростування лишається всередині повідомлення.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a8": {
+                    "answer": "presumption",
+                    "verb_hint": "Передай роз’яснення слухачам; спосіб спростування лишається всередині повідомлення.",
+                    "options": [
+                        "presumption",
+                        "delay",
+                        "error",
+                        "record"
+                    ]
+                },
+                "a9": {
+                    "answer": "could",
+                    "verb_hint": "Передай роз’яснення слухачам; спосіб спростування лишається всередині повідомлення.",
+                    "options": [
+                        "could",
+                        "can",
+                        "will",
+                        "would"
+                    ]
+                },
+                "a10": {
+                    "answer": "be",
+                    "verb_hint": "Передай роз’яснення слухачам; спосіб спростування лишається всередині повідомлення.",
+                    "options": [
+                        "be",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a11": {
+                    "answer": "rebutted",
+                    "verb_hint": "Передай роз’яснення слухачам; спосіб спростування лишається всередині повідомлення.",
+                    "options": [
+                        "rebutted",
+                        "cost",
+                        "broken",
+                        "built"
+                    ]
+                },
+                "a12": {
+                    "answer": "without",
+                    "verb_hint": "Передай роз’яснення слухачам; спосіб спростування лишається всередині повідомлення.",
+                    "options": [
+                        "without",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a13": {
+                    "answer": "circular",
+                    "verb_hint": "Передай роз’яснення слухачам; спосіб спростування лишається всередині повідомлення.",
+                    "options": [
+                        "circular",
+                        "experience",
+                        "contradiction",
+                        "name"
+                    ]
+                },
+                "a14": {
+                    "answer": "reasoning.",
+                    "verb_hint": "Передай роз’яснення слухачам; спосіб спростування лишається всередині повідомлення.",
+                    "options": [
+                        "reasoning",
+                        "writing",
+                        "calling",
+                        "walking"
+                    ]
+                }
+            },
+            "verb_hint": "Передай роз’яснення слухачам; спосіб спростування лишається всередині повідомлення.",
+            "accepted_target_texts": [
+                "The jurist told the seminar how the presumption could be rebutted without circular reasoning."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The jurist",
+                "told the seminar",
+                "how the presumption",
+                "could be rebutted",
+                "without circular reasoning."
+            ],
+            "token_groups": [
+                "The jurist",
+                "told the seminar",
+                "how the presumption",
+                "could be rebutted",
+                "without circular reasoning."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "jurist",
+                "told",
+                "the",
+                "seminar",
+                "how",
+                "the",
+                "presumption",
+                "could",
+                "be",
+                "rebutted",
+                "without",
+                "circular",
+                "reasoning."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "jurist",
+                "quality",
+                "identity",
+                "agreement",
+                "told",
+                "reported",
+                "remarked",
+                "asked",
+                "the",
+                "every",
+                "no",
+                "another",
+                "seminar",
+                "window",
+                "rice",
+                "bread",
+                "how",
+                "when",
+                "why",
+                "whoever",
+                "all",
+                "both",
+                "a",
+                "presumption",
+                "delay",
+                "error",
+                "record",
+                "could",
+                "can",
+                "will",
+                "would",
+                "be",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "rebutted",
+                "cost",
+                "broken",
+                "built",
+                "without",
+                "onto",
+                "over",
+                "under",
+                "circular",
+                "experience",
+                "contradiction",
+                "name",
+                "reasoning",
+                "writing",
+                "calling",
+                "walking"
+            ],
+            "source_text_uk": "Правознавець пояснив учасникам семінару, як можна спростувати презумпцію без колового міркування.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "jurist",
+                    "quality",
+                    "identity",
+                    "agreement"
+                ],
+                "a3": [
+                    "told",
+                    "reported",
+                    "remarked",
+                    "asked"
+                ],
+                "a4": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "seminar",
+                    "window",
+                    "rice",
+                    "bread"
+                ],
+                "a6": [
+                    "how",
+                    "when",
+                    "why",
+                    "whoever"
+                ],
+                "a7": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a8": [
+                    "presumption",
+                    "delay",
+                    "error",
+                    "record"
+                ],
+                "a9": [
+                    "could",
+                    "can",
+                    "will",
+                    "would"
+                ],
+                "a10": [
+                    "be",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a11": [
+                    "rebutted",
+                    "cost",
+                    "broken",
+                    "built"
+                ],
+                "a12": [
+                    "without",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a13": [
+                    "circular",
+                    "experience",
+                    "contradiction",
+                    "name"
+                ],
+                "a14": [
+                    "reasoning",
+                    "writing",
+                    "calling",
+                    "walking"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "past_reporting",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "question",
+                "a7": "determiner",
+                "a8": "noun",
+                "a9": "modal",
+                "a10": "be",
+                "a11": "noun",
+                "a12": "preposition",
+                "a13": "noun",
+                "a14": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "rsq-saytell-c2-c03",
+            "author_id": "C2-c03",
+            "question": "У меморандумі зазначалося, що запропонована поступка залежить від взаємного визнання.",
+            "level": "C2",
+            "type": 4,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "У меморандумі зазначалося, що запропонована поступка залежить від взаємного визнання.",
+            "target_text": "The memorandum said that the proposed concession was contingent on reciprocal recognition.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з документа; збережи залежність поступки й сполучник повідомлення.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "memorandum",
+                    "verb_hint": "Почни з документа; збережи залежність поступки й сполучник повідомлення.",
+                    "options": [
+                        "memorandum",
+                        "record",
+                        "evidence",
+                        "argument"
+                    ]
+                },
+                "a3": {
+                    "answer": "said",
+                    "verb_hint": "Почни з документа; збережи залежність поступки й сполучник повідомлення.",
+                    "options": [
+                        "said",
+                        "agreed",
+                        "announced",
+                        "explained"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Почни з документа; збережи залежність поступки й сполучник повідомлення.",
+                    "options": [
+                        "that",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з документа; збережи залежність поступки й сполучник повідомлення.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a6": {
+                    "answer": "proposed",
+                    "verb_hint": "Почни з документа; збережи залежність поступки й сполучник повідомлення.",
+                    "options": [
+                        "proposed",
+                        "denied",
+                        "told",
+                        "asked"
+                    ]
+                },
+                "a7": {
+                    "answer": "concession",
+                    "verb_hint": "Почни з документа; збережи залежність поступки й сполучник повідомлення.",
+                    "options": [
+                        "concession",
+                        "claim",
+                        "permission",
+                        "consent"
+                    ]
+                },
+                "a8": {
+                    "answer": "was",
+                    "verb_hint": "Почни з документа; збережи залежність поступки й сполучник повідомлення.",
+                    "options": [
+                        "was",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a9": {
+                    "answer": "contingent",
+                    "verb_hint": "Почни з документа; збережи залежність поступки й сполучник повідомлення.",
+                    "options": [
+                        "contingent",
+                        "bread",
+                        "delay",
+                        "error"
+                    ]
+                },
+                "a10": {
+                    "answer": "on",
+                    "verb_hint": "Почни з документа; збережи залежність поступки й сполучник повідомлення.",
+                    "options": [
+                        "on",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a11": {
+                    "answer": "reciprocal",
+                    "verb_hint": "Почни з документа; збережи залежність поступки й сполучник повідомлення.",
+                    "options": [
+                        "reciprocal",
+                        "small",
+                        "large",
+                        "new"
+                    ]
+                },
+                "a12": {
+                    "answer": "recognition.",
+                    "verb_hint": "Почни з документа; збережи залежність поступки й сполучник повідомлення.",
+                    "options": [
+                        "recognition",
+                        "estimate",
+                        "formulation",
+                        "contradiction"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з документа; збережи залежність поступки й сполучник повідомлення.",
+            "accepted_target_texts": [
+                "The memorandum said that the proposed concession was contingent on reciprocal recognition.",
+                "The memorandum stated that the proposed concession was contingent on reciprocal recognition."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "stated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "stated"
+                ]
+            },
+            "reorder_groups": [
+                "The memorandum",
+                "said that",
+                "the proposed concession",
+                "was contingent on",
+                "reciprocal recognition."
+            ],
+            "token_groups": [
+                "The memorandum",
+                "said that",
+                "the proposed concession",
+                "was contingent on",
+                "reciprocal recognition."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "memorandum",
+                "said",
+                "that",
+                "the",
+                "proposed",
+                "concession",
+                "was",
+                "contingent",
+                "on",
+                "reciprocal",
+                "recognition."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "memorandum",
+                "record",
+                "evidence",
+                "argument",
+                "said",
+                "agreed",
+                "announced",
+                "explained",
+                "that",
+                "either",
+                "neither",
+                "all",
+                "the",
+                "these",
+                "those",
+                "each",
+                "proposed",
+                "denied",
+                "told",
+                "asked",
+                "concession",
+                "claim",
+                "permission",
+                "consent",
+                "was",
+                "wasn't",
+                "weren't",
+                "am",
+                "contingent",
+                "bread",
+                "delay",
+                "error",
+                "on",
+                "without",
+                "into",
+                "onto",
+                "reciprocal",
+                "small",
+                "large",
+                "new",
+                "recognition",
+                "estimate",
+                "formulation",
+                "contradiction"
+            ],
+            "source_text_uk": "У меморандумі зазначалося, що запропонована поступка залежить від взаємного визнання.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "memorandum",
+                    "record",
+                    "evidence",
+                    "argument"
+                ],
+                "a3": [
+                    "said",
+                    "agreed",
+                    "announced",
+                    "explained"
+                ],
+                "a4": [
+                    "that",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a6": [
+                    "proposed",
+                    "denied",
+                    "told",
+                    "asked"
+                ],
+                "a7": [
+                    "concession",
+                    "claim",
+                    "permission",
+                    "consent"
+                ],
+                "a8": [
+                    "was",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a9": [
+                    "contingent",
+                    "bread",
+                    "delay",
+                    "error"
+                ],
+                "a10": [
+                    "on",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a11": [
+                    "reciprocal",
+                    "small",
+                    "large",
+                    "new"
+                ],
+                "a12": [
+                    "recognition",
+                    "estimate",
+                    "formulation",
+                    "contradiction"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "past_reporting",
+                "a4": "conjunction",
+                "a5": "determiner",
+                "a6": "past_reporting",
+                "a7": "noun",
+                "a8": "be",
+                "a9": "noun",
+                "a10": "preposition",
+                "a11": "adjective",
+                "a12": "noun"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

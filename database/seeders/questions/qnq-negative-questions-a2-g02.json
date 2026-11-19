@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62577,
+        "uuid": "qnq-negative-questions-a2-g02",
+        "question": "{a1} returned yet?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 60,
+        "source_id": 463,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedNegativeQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "Haven't the children",
+                "Hasn't the children",
+                "Aren't the children"
+            ]
+        },
+        "theory_text_block_uuid": "9c44271a-5eaf-5ed5-ba06-921becdbd041",
+        "created_at": "2026-10-30T13:53:09.000000Z",
+        "updated_at": "2026-10-30T13:53:09.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 463,
+        "name": "Questions and Negations Quality: Negative Questions: заперечні питання",
+        "created_at": "2026-10-30T13:53:08.000000Z",
+        "updated_at": "2026-10-30T13:53:08.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 289,
+                "name": "Negative Questions",
+                "category": null,
+                "created_at": "2026-04-23T14:33:01.000000Z",
+                "updated_at": "2026-04-23T14:33:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 62577,
+                "tag_id": 289,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 57176,
+                "option": "Haven't the children",
+                "created_at": "2026-10-30T13:53:09.000000Z",
+                "updated_at": "2026-10-30T13:53:09.000000Z"
+            },
+            "pivot": {
+                "question_id": 62577,
+                "option_id": 57176,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57178,
+                "option": "Hasn't the children",
+                "created_at": "2026-10-30T13:53:09.000000Z",
+                "updated_at": "2026-10-30T13:53:09.000000Z"
+            },
+            "pivot": {
+                "question_id": 62577,
+                "option_id": 57178,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57179,
+                "option": "Aren't the children",
+                "created_at": "2026-10-30T13:53:09.000000Z",
+                "updated_at": "2026-10-30T13:53:09.000000Z"
+            },
+            "pivot": {
+                "question_id": 62577,
+                "option_id": 57179,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332240,
+                "question_id": 62577,
+                "marker": "a1",
+                "option_id": 57176,
+                "created_at": "2026-10-30T13:53:09.000000Z",
+                "updated_at": "2026-10-30T13:53:09.000000Z"
+            },
+            "option": {
+                "id": 57176,
+                "option": "Haven't the children",
+                "created_at": "2026-10-30T13:53:09.000000Z",
+                "updated_at": "2026-10-30T13:53:09.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49574,
+                "question_id": 62577,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 57177,
+                "created_at": "2026-10-30T13:53:09.000000Z",
+                "updated_at": "2026-10-30T13:53:09.000000Z"
+            },
+            "option": {
+                "id": 57177,
+                "option": "Підкресли очікуваний результат до теперішнього моменту. Підмет для введення: діти.",
+                "created_at": "2026-10-30T13:53:09.000000Z",
+                "updated_at": "2026-10-30T13:53:09.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54592,
+            "question_id": 62577,
+            "text": "{a1} returned yet?",
+            "created_at": "2026-10-30T13:53:09.000000Z",
+            "updated_at": "2026-10-30T13:53:09.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

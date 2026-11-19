@@ -1,0 +1,1627 @@
+{
+    "schema_version": 1,
+    "quality_revision": "nouns-articles-quantity-v1",
+    "compiled_from": {
+        "path": "docs/content/nouns-articles-quantity-quality/articles.v1.json",
+        "sha256": "6b17a6853635579e6eb9ae7bf8d675ab3d143b301c8e0c15d61d103e99913477"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\NounsArticlesQuantity\\UkrainianMixedArticlesAAnTheQualityStandardSeeder",
+        "uuid_namespace": "nouns-articles-quantity-quality-articles-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Nouns / Articles / Quantity"
+    },
+    "sources": {
+        "nouns_articles_quantity_quality_articles": {
+            "name": "Nouns Articles Quantity Quality: Артиклі: неозначена згадка, вимова та точна референція"
+        }
+    },
+    "tags": {
+        "articles_a_an_the": {
+            "name": "Articles A An The",
+            "category": "nouns_articles_quantity"
+        },
+        "a_consonant_sound": {
+            "name": "A Consonant Sound",
+            "category": "topic"
+        },
+        "an_vowel_sound": {
+            "name": "An Vowel Sound",
+            "category": "topic"
+        },
+        "the_specific": {
+            "name": "The Specific",
+            "category": "topic"
+        },
+        "first_mention": {
+            "name": "First Mention",
+            "category": "topic"
+        },
+        "second_mention": {
+            "name": "Second Mention",
+            "category": "topic"
+        },
+        "singular_countable_article": {
+            "name": "Singular Countable Article",
+            "category": "topic"
+        },
+        "unique_objects": {
+            "name": "Unique Objects",
+            "category": "topic"
+        },
+        "sound_not_spelling": {
+            "name": "Sound Not Spelling",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "articles_a_an_the"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "naqq-articles-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I have {a1} orange for you.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Я маю для тебе апельсин.",
+            "target_text": "I have an orange for you.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Уперше названий один апельсин; слово починається з голосного звука."
+                }
+            },
+            "verb_hint": "Уперше названий один апельсин; слово починається з голосного звука.",
+            "accepted_target_texts": [
+                "I have an orange for you."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I have",
+                "an orange",
+                "for you."
+            ],
+            "token_groups": [
+                "I have",
+                "an orange",
+                "for you."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "naqq-articles-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Nina is {a1} teacher at our school.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Ніна працює вчителькою в нашій школі.",
+            "target_text": "Nina is a teacher at our school.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Перед назвою професії в однині потрібен неозначений артикль; початковий звук приголосний."
+                }
+            },
+            "verb_hint": "Перед назвою професії в однині потрібен неозначений артикль; початковий звук приголосний.",
+            "accepted_target_texts": [
+                "Nina is a teacher at our school."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nina is",
+                "a teacher",
+                "at our school."
+            ],
+            "token_groups": [
+                "Nina is",
+                "a teacher",
+                "at our school."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "naqq-articles-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Please close {a1} door behind you.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Будь ласка, зачини за собою двері.",
+            "target_text": "Please close the door behind you.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Йдеться про конкретні двері, крізь які щойно пройшов співрозмовник; потрібен означений артикль."
+                }
+            },
+            "verb_hint": "Йдеться про конкретні двері, крізь які щойно пройшов співрозмовник; потрібен означений артикль.",
+            "accepted_target_texts": [
+                "Please close the door behind you."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please close",
+                "the door",
+                "behind you."
+            ],
+            "token_groups": [
+                "Please close",
+                "the door",
+                "behind you."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "naqq-articles-a1-g04",
+            "author_id": "A1-g04",
+            "question": "There is {a1} spoon beside my plate.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Біля моєї тарілки лежить ложка.",
+            "target_text": "There is a spoon beside my plate.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Уперше повідомляємо про одну ложку; використай неозначений артикль перед приголосним звуком."
+                }
+            },
+            "verb_hint": "Уперше повідомляємо про одну ложку; використай неозначений артикль перед приголосним звуком.",
+            "accepted_target_texts": [
+                "There is a spoon beside my plate."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "a spoon",
+                "beside my plate."
+            ],
+            "token_groups": [
+                "There is",
+                "a spoon",
+                "beside my plate."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "naqq-articles-a1-g05",
+            "author_id": "A1-g05",
+            "question": "This is {a1} egg, not a ball.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Це яйце, а не м’яч.",
+            "target_text": "This is an egg, not a ball.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Називаємо, чим є предмет; перед голосним звуком потрібен відповідний неозначений артикль."
+                }
+            },
+            "verb_hint": "Називаємо, чим є предмет; перед голосним звуком потрібен відповідний неозначений артикль.",
+            "accepted_target_texts": [
+                "This is an egg, not a ball."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This is",
+                "an egg,",
+                "not a ball."
+            ],
+            "token_groups": [
+                "This is",
+                "an egg,",
+                "not a ball."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "naqq-articles-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Look at {a1} sun above the trees.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Подивись на сонце над деревами.",
+            "target_text": "Look at the sun above the trees.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "У цьому звичайному земному контексті сонце є єдиним; потрібен означений артикль."
+                }
+            },
+            "verb_hint": "У цьому звичайному земному контексті сонце є єдиним; потрібен означений артикль.",
+            "accepted_target_texts": [
+                "Look at the sun above the trees."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Look",
+                "at the sun",
+                "above the trees."
+            ],
+            "token_groups": [
+                "Look",
+                "at the sun",
+                "above the trees."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "naqq-articles-a2-g01",
+            "author_id": "A2-g01",
+            "question": "We bought a lamp. {a1} lamp is now by the sofa.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Ми купили лампу. Ця лампа тепер стоїть біля дивана.",
+            "target_text": "We bought a lamp. The lamp is now by the sofa.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "options": [
+                        "The",
+                        "A",
+                        "An"
+                    ],
+                    "verb_hint": "Лампу вже згадано в попередньому реченні; потрібен означений артикль на початку другого речення."
+                }
+            },
+            "verb_hint": "Лампу вже згадано в попередньому реченні; потрібен означений артикль на початку другого речення.",
+            "accepted_target_texts": [
+                "We bought a lamp. The lamp is now by the sofa."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We bought",
+                "a lamp.",
+                "The lamp",
+                "is now",
+                "by the sofa."
+            ],
+            "token_groups": [
+                "We bought",
+                "a lamp.",
+                "The lamp",
+                "is now",
+                "by the sofa."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "naqq-articles-a2-g02",
+            "author_id": "A2-g02",
+            "question": "My cousin wants to become {a1} architect.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Мій двоюрідний брат хоче стати архітектором.",
+            "target_text": "My cousin wants to become an architect.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Перед назвою майбутньої професії потрібен неозначений артикль; початковий звук голосний."
+                }
+            },
+            "verb_hint": "Перед назвою майбутньої професії потрібен неозначений артикль; початковий звук голосний.",
+            "accepted_target_texts": [
+                "My cousin wants to become an architect."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My cousin",
+                "wants to become",
+                "an architect."
+            ],
+            "token_groups": [
+                "My cousin",
+                "wants to become",
+                "an architect."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "naqq-articles-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Rita has {a1} uniform for her new job.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Ріта має форму для своєї нової роботи.",
+            "target_text": "Rita has a uniform for her new job.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Назву одного комплекту форми вимовляємо з початковим приголосним звуком, попри голосну літеру."
+                }
+            },
+            "verb_hint": "Назву одного комплекту форми вимовляємо з початковим приголосним звуком, попри голосну літеру.",
+            "accepted_target_texts": [
+                "Rita has a uniform for her new job."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Rita has",
+                "a uniform",
+                "for her",
+                "new job."
+            ],
+            "token_groups": [
+                "Rita has",
+                "a uniform",
+                "for her",
+                "new job."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "naqq-articles-a2-g04",
+            "author_id": "A2-g04",
+            "question": "We arrived {a1} hour before the show.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Ми приїхали за годину до вистави.",
+            "target_text": "We arrived an hour before the show.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Назва години починається з голосного звука, бо початкова приголосна літера не вимовляється."
+                }
+            },
+            "verb_hint": "Назва години починається з голосного звука, бо початкова приголосна літера не вимовляється.",
+            "accepted_target_texts": [
+                "We arrived an hour before the show."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We arrived",
+                "an hour",
+                "before the show."
+            ],
+            "token_groups": [
+                "We arrived",
+                "an hour",
+                "before the show."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "naqq-articles-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Take {a1} red folder, not the blue one.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Візьми червону папку, а не синю.",
+            "target_text": "Take the red folder, not the blue one.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Співрозмовники бачать дві папки; колір визначає конкретну потрібну папку."
+                }
+            },
+            "verb_hint": "Співрозмовники бачать дві папки; колір визначає конкретну потрібну папку.",
+            "accepted_target_texts": [
+                "Take the red folder, not the blue one."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Take",
+                "the red folder,",
+                "not the blue",
+                "one."
+            ],
+            "token_groups": [
+                "Take",
+                "the red folder,",
+                "not the blue",
+                "one."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "naqq-articles-a2-g06",
+            "author_id": "A2-g06",
+            "question": "I am reading {a1} funny story about a robot.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Я читаю кумедне оповідання про робота.",
+            "target_text": "I am reading a funny story about a robot.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Уперше називаємо одне оповідання, не визначене для слухача; потрібен неозначений артикль."
+                }
+            },
+            "verb_hint": "Уперше називаємо одне оповідання, не визначене для слухача; потрібен неозначений артикль.",
+            "accepted_target_texts": [
+                "I am reading a funny story about a robot."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I am reading",
+                "a funny story",
+                "about a robot."
+            ],
+            "token_groups": [
+                "I am reading",
+                "a funny story",
+                "about a robot."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "naqq-articles-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The clinic needs {a1} MRI scanner.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Клініці потрібен апарат МРТ.",
+            "target_text": "The clinic needs an MRI scanner.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Скорочення вимовляємо по літерах; перша літера починається з голосного звука, тому потрібен відповідний неозначений артикль."
+                }
+            },
+            "verb_hint": "Скорочення вимовляємо по літерах; перша літера починається з голосного звука, тому потрібен відповідний неозначений артикль.",
+            "accepted_target_texts": [
+                "The clinic needs an MRI scanner."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The clinic",
+                "needs",
+                "an MRI scanner."
+            ],
+            "token_groups": [
+                "The clinic",
+                "needs",
+                "an MRI scanner."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "naqq-articles-b1-g02",
+            "author_id": "B1-g02",
+            "question": "That was {a1} useful suggestion for our team.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Це була корисна пропозиція для нашої команди.",
+            "target_text": "That was a useful suggestion for our team.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Оцінюємо одну пропозицію; прикметник починається з приголосного звука попри голосну літеру."
+                }
+            },
+            "verb_hint": "Оцінюємо одну пропозицію; прикметник починається з приголосного звука попри голосну літеру.",
+            "accepted_target_texts": [
+                "That was a useful suggestion for our team."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "That was",
+                "a useful suggestion",
+                "for our team."
+            ],
+            "token_groups": [
+                "That was",
+                "a useful suggestion",
+                "for our team."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "naqq-articles-b1-g03",
+            "author_id": "B1-g03",
+            "question": "Please read {a1} second paragraph aloud.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Будь ласка, прочитай другий абзац уголос.",
+            "target_text": "Please read the second paragraph aloud.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Порядковий числівник визначає конкретний абзац у тексті; потрібен означений артикль."
+                }
+            },
+            "verb_hint": "Порядковий числівник визначає конкретний абзац у тексті; потрібен означений артикль.",
+            "accepted_target_texts": [
+                "Please read the second paragraph aloud."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please read",
+                "the second paragraph",
+                "aloud."
+            ],
+            "token_groups": [
+                "Please read",
+                "the second paragraph",
+                "aloud."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "naqq-articles-b1-g04",
+            "author_id": "B1-g04",
+            "question": "There was {a1} unusual smell in the hallway.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "У коридорі був незвичний запах.",
+            "target_text": "There was an unusual smell in the hallway.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Уперше описуємо один запах; неозначений артикль узгоджується з початковим звуком прикметника."
+                }
+            },
+            "verb_hint": "Уперше описуємо один запах; неозначений артикль узгоджується з початковим звуком прикметника.",
+            "accepted_target_texts": [
+                "There was an unusual smell in the hallway."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There was",
+                "an unusual smell",
+                "in the hallway."
+            ],
+            "token_groups": [
+                "There was",
+                "an unusual smell",
+                "in the hallway."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "naqq-articles-b1-g05",
+            "author_id": "B1-g05",
+            "question": "They moved into {a1} one-bedroom flat near the station.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Вони переїхали в однокімнатну квартиру біля станції.",
+            "target_text": "They moved into a one-bedroom flat near the station.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Уперше названо квартиру; перше слово складеного прикметника починається з приголосного звука."
+                }
+            },
+            "verb_hint": "Уперше названо квартиру; перше слово складеного прикметника починається з приголосного звука.",
+            "accepted_target_texts": [
+                "They moved into a one-bedroom flat near the station."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They moved into",
+                "a one-bedroom flat",
+                "near the station."
+            ],
+            "token_groups": [
+                "They moved into",
+                "a one-bedroom flat",
+                "near the station."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "naqq-articles-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The guide showed us a tower. {a1} roof was covered in snow.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Екскурсовод показав нам вежу. Її дах був укритий снігом.",
+            "target_text": "The guide showed us a tower. The roof was covered in snow.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "options": [
+                        "The",
+                        "A",
+                        "An"
+                    ],
+                    "verb_hint": "Після згадки про вежу її дах однозначно визначений зв’язком із цією вежею."
+                }
+            },
+            "verb_hint": "Після згадки про вежу її дах однозначно визначений зв’язком із цією вежею.",
+            "accepted_target_texts": [
+                "The guide showed us a tower. The roof was covered in snow."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guide showed",
+                "us a tower.",
+                "The roof",
+                "was covered",
+                "in snow."
+            ],
+            "token_groups": [
+                "The guide showed",
+                "us a tower.",
+                "The roof",
+                "was covered",
+                "in snow."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "naqq-articles-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The inspectors found {a1} crack that nobody had noticed before.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Інспектори знайшли тріщину, якої раніше ніхто не помічав.",
+            "target_text": "The inspectors found a crack that nobody had noticed before.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Ідеться про одну нововиявлену тріщину; означальний зворот сам по собі не робить першу згадку означеною."
+                }
+            },
+            "verb_hint": "Ідеться про одну нововиявлену тріщину; означальний зворот сам по собі не робить першу згадку означеною.",
+            "accepted_target_texts": [
+                "The inspectors found a crack that nobody had noticed before."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inspectors found",
+                "a crack",
+                "that nobody",
+                "had noticed before."
+            ],
+            "token_groups": [
+                "The inspectors found",
+                "a crack",
+                "that nobody",
+                "had noticed before."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "naqq-articles-b2-g02",
+            "author_id": "B2-g02",
+            "question": "I finally met {a1} researcher you had recommended.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Я нарешті зустрів дослідницю, яку ти рекомендував.",
+            "target_text": "I finally met the researcher you had recommended.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Попередня рекомендація визначає конкретну дослідницю; потрібен означений артикль."
+                }
+            },
+            "verb_hint": "Попередня рекомендація визначає конкретну дослідницю; потрібен означений артикль.",
+            "accepted_target_texts": [
+                "I finally met the researcher you had recommended."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I finally met",
+                "the researcher",
+                "you had recommended."
+            ],
+            "token_groups": [
+                "I finally met",
+                "the researcher",
+                "you had recommended."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "naqq-articles-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The panel considered it {a1} exceptionally clear explanation.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Комісія визнала це винятково зрозумілим поясненням.",
+            "target_text": "The panel considered it an exceptionally clear explanation.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Класифікуємо одне пояснення; найближче після артикля слово починається з голосного звука."
+                }
+            },
+            "verb_hint": "Класифікуємо одне пояснення; найближче після артикля слово починається з голосного звука.",
+            "accepted_target_texts": [
+                "The panel considered it an exceptionally clear explanation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The panel considered",
+                "it",
+                "an exceptionally clear",
+                "explanation."
+            ],
+            "token_groups": [
+                "The panel considered",
+                "it",
+                "an exceptionally clear",
+                "explanation."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "naqq-articles-b2-g04",
+            "author_id": "B2-g04",
+            "question": "We need {a1} European supplier with reliable delivery.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Нам потрібен європейський постачальник із надійною доставкою.",
+            "target_text": "We need a European supplier with reliable delivery.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Шукаємо будь-якого відповідного постачальника; прикметник має початковий приголосний звук."
+                }
+            },
+            "verb_hint": "Шукаємо будь-якого відповідного постачальника; прикметник має початковий приголосний звук.",
+            "accepted_target_texts": [
+                "We need a European supplier with reliable delivery."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We need",
+                "a European supplier",
+                "with reliable delivery."
+            ],
+            "token_groups": [
+                "We need",
+                "a European supplier",
+                "with reliable delivery."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "naqq-articles-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The orchestra gave {a1} unforgettable performance despite the delay.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Попри затримку оркестр дав незабутній виступ.",
+            "target_text": "The orchestra gave an unforgettable performance despite the delay.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Називаємо один окремий виступ; прикметник перед іменником починається з голосного звука."
+                }
+            },
+            "verb_hint": "Називаємо один окремий виступ; прикметник перед іменником починається з голосного звука.",
+            "accepted_target_texts": [
+                "The orchestra gave an unforgettable performance despite the delay."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The orchestra gave",
+                "an unforgettable performance",
+                "despite the delay."
+            ],
+            "token_groups": [
+                "The orchestra gave",
+                "an unforgettable performance",
+                "despite the delay."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "naqq-articles-b2-g06",
+            "author_id": "B2-g06",
+            "question": "She was {a1} first applicant to submit a complete portfolio.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Вона першою з претендентів подала повне портфоліо.",
+            "target_text": "She was the first applicant to submit a complete portfolio.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Порядковий числівник виділяє конкретну претендентку; потрібен означений артикль."
+                }
+            },
+            "verb_hint": "Порядковий числівник виділяє конкретну претендентку; потрібен означений артикль.",
+            "accepted_target_texts": [
+                "She was the first applicant to submit a complete portfolio."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She was",
+                "the first applicant",
+                "to submit",
+                "a complete portfolio."
+            ],
+            "token_groups": [
+                "She was",
+                "the first applicant",
+                "to submit",
+                "a complete portfolio."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "naqq-articles-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The report offers {a1} insight into how informal networks influence recruitment.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Звіт дає уявлення про те, як неформальні зв’язки впливають на найм.",
+            "target_text": "The report offers an insight into how informal networks influence recruitment.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Назви одне окреме розуміння або спостереження, а не знання взагалі; початковий звук голосний."
+                }
+            },
+            "verb_hint": "Назви одне окреме розуміння або спостереження, а не знання взагалі; початковий звук голосний.",
+            "accepted_target_texts": [
+                "The report offers an insight into how informal networks influence recruitment."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The report offers",
+                "an insight",
+                "into how informal",
+                "networks influence recruitment."
+            ],
+            "token_groups": [
+                "The report offers",
+                "an insight",
+                "into how informal",
+                "networks influence recruitment."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "naqq-articles-c1-g02",
+            "author_id": "C1-g02",
+            "question": "What concerned the auditors most was {a1} absence of a documented appeal procedure.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Найбільше аудиторів непокоїла відсутність задокументованої процедури оскарження.",
+            "target_text": "What concerned the auditors most was the absence of a documented appeal procedure.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "У попередньому звіті вже встановили й назвали цю конкретну відсутність процедури; тепер посилаємося на відомий факт, тому артикль означений."
+                }
+            },
+            "verb_hint": "У попередньому звіті вже встановили й назвали цю конкретну відсутність процедури; тепер посилаємося на відомий факт, тому артикль означений.",
+            "accepted_target_texts": [
+                "What concerned the auditors most was the absence of a documented appeal procedure."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What concerned",
+                "the auditors most",
+                "was",
+                "the absence",
+                "of a documented",
+                "appeal procedure."
+            ],
+            "token_groups": [
+                "What concerned",
+                "the auditors most",
+                "was",
+                "the absence",
+                "of a documented",
+                "appeal procedure."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "naqq-articles-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The witness gave {a1} coherent account of events without consulting her notes.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Свідок послідовно виклала події, не звертаючись до нотаток.",
+            "target_text": "The witness gave a coherent account of events without consulting her notes.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Представляємо одну окрему розповідь про події; неозначений артикль перед приголосним звуком."
+                }
+            },
+            "verb_hint": "Представляємо одну окрему розповідь про події; неозначений артикль перед приголосним звуком.",
+            "accepted_target_texts": [
+                "The witness gave a coherent account of events without consulting her notes."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The witness gave",
+                "a coherent account",
+                "of events",
+                "without consulting",
+                "her notes."
+            ],
+            "token_groups": [
+                "The witness gave",
+                "a coherent account",
+                "of events",
+                "without consulting",
+                "her notes."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "naqq-articles-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The pilot revealed {a1} unexpected weakness in the authentication process.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Пілотне випробування виявило неочікуване слабке місце в процесі автентифікації.",
+            "target_text": "The pilot revealed an unexpected weakness in the authentication process.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Називаємо один нововиявлений недолік; артикль обирається за початковим голосним звуком прикметника."
+                }
+            },
+            "verb_hint": "Називаємо один нововиявлений недолік; артикль обирається за початковим голосним звуком прикметника.",
+            "accepted_target_texts": [
+                "The pilot revealed an unexpected weakness in the authentication process."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The pilot revealed",
+                "an unexpected weakness",
+                "in the authentication",
+                "process."
+            ],
+            "token_groups": [
+                "The pilot revealed",
+                "an unexpected weakness",
+                "in the authentication",
+                "process."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "naqq-articles-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The manuscript contains {a1} unique description of daily life inside the settlement.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Рукопис містить унікальний опис повсякденного життя в поселенні.",
+            "target_text": "The manuscript contains a unique description of daily life inside the settlement.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Уперше вводимо один опис; прикметник зі значенням унікальний починається з приголосного звука."
+                }
+            },
+            "verb_hint": "Уперше вводимо один опис; прикметник зі значенням унікальний починається з приголосного звука.",
+            "accepted_target_texts": [
+                "The manuscript contains a unique description of daily life inside the settlement."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The manuscript contains",
+                "a unique description",
+                "of daily life",
+                "inside the settlement."
+            ],
+            "token_groups": [
+                "The manuscript contains",
+                "a unique description",
+                "of daily life",
+                "inside the settlement."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "naqq-articles-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The decision rested on {a1} same assumption as the earlier ruling.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Рішення спиралося на те саме припущення, що й попереднє судове рішення.",
+            "target_text": "The decision rested on the same assumption as the earlier ruling.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Сполука зі значенням те саме припущення вимагає означеного артикля; порівнюємо з попереднім рішенням."
+                }
+            },
+            "verb_hint": "Сполука зі значенням те саме припущення вимагає означеного артикля; порівнюємо з попереднім рішенням.",
+            "accepted_target_texts": [
+                "The decision rested on the same assumption as the earlier ruling."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The decision rested",
+                "on",
+                "the same assumption",
+                "as",
+                "the earlier ruling."
+            ],
+            "token_groups": [
+                "The decision rested",
+                "on",
+                "the same assumption",
+                "as",
+                "the earlier ruling."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "naqq-articles-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The correspondence suggests {a1} tacit understanding rather than an explicit commitment to renew the licence.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Листування вказує радше на мовчазне порозуміння, ніж на пряме зобов’язання продовжити ліцензію.",
+            "target_text": "The correspondence suggests a tacit understanding rather than an explicit commitment to renew the licence.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Ідеться про окреме неформалізоване порозуміння; неозначений артикль перед приголосним звуком."
+                }
+            },
+            "verb_hint": "Ідеться про окреме неформалізоване порозуміння; неозначений артикль перед приголосним звуком.",
+            "accepted_target_texts": [
+                "The correspondence suggests a tacit understanding rather than an explicit commitment to renew the licence.",
+                "The correspondence suggests a tacit understanding rather than an explicit commitment to renew the license."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The correspondence suggests",
+                "a tacit understanding",
+                "rather than",
+                "an explicit commitment",
+                "to renew",
+                "the licence."
+            ],
+            "token_groups": [
+                "The correspondence suggests",
+                "a tacit understanding",
+                "rather than",
+                "an explicit commitment",
+                "to renew",
+                "the licence."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "naqq-articles-c2-g02",
+            "author_id": "C2-g02",
+            "question": "What remains disputed is {a1} extent to which the exemption applies to retrospective claims.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Спірним залишається те, якою мірою виняток стосується вимог за минулі періоди.",
+            "target_text": "What remains disputed is the extent to which the exemption applies to retrospective claims.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Наступна частина визначає конкретний обсяг застосування винятку; потрібен означений артикль."
+                }
+            },
+            "verb_hint": "Наступна частина визначає конкретний обсяг застосування винятку; потрібен означений артикль.",
+            "accepted_target_texts": [
+                "What remains disputed is the extent to which the exemption applies to retrospective claims."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What remains disputed",
+                "is",
+                "the extent",
+                "to which",
+                "the exemption applies",
+                "to retrospective claims."
+            ],
+            "token_groups": [
+                "What remains disputed",
+                "is",
+                "the extent",
+                "to which",
+                "the exemption applies",
+                "to retrospective claims."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "naqq-articles-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The ruling establishes {a1} unusually narrow interpretation of the statutory duty of care.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Рішення встановлює незвично вузьке тлумачення передбаченого законом обов’язку діяти обачно.",
+            "target_text": "The ruling establishes an unusually narrow interpretation of the statutory duty of care.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Називаємо одне тлумачення серед можливих; врахуй початковий голосний звук прислівника."
+                }
+            },
+            "verb_hint": "Називаємо одне тлумачення серед можливих; врахуй початковий голосний звук прислівника.",
+            "accepted_target_texts": [
+                "The ruling establishes an unusually narrow interpretation of the statutory duty of care."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ruling establishes",
+                "an unusually narrow",
+                "interpretation",
+                "of the statutory",
+                "duty of care."
+            ],
+            "token_groups": [
+                "The ruling establishes",
+                "an unusually narrow",
+                "interpretation",
+                "of the statutory",
+                "duty of care."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "naqq-articles-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The revised model rests on {a1} hypothesis whose implications have yet to be tested empirically.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Переглянута модель спирається на гіпотезу, наслідки якої ще належить перевірити дослідним шляхом.",
+            "target_text": "The revised model rests on a hypothesis whose implications have yet to be tested empirically.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Гіпотезу вводимо вперше; наступна означальна частина не змінює неозначеного характеру згадки."
+                }
+            },
+            "verb_hint": "Гіпотезу вводимо вперше; наступна означальна частина не змінює неозначеного характеру згадки.",
+            "accepted_target_texts": [
+                "The revised model rests on a hypothesis whose implications have yet to be tested empirically."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The revised model",
+                "rests",
+                "on a hypothesis",
+                "whose implications",
+                "have yet",
+                "to be tested",
+                "empirically."
+            ],
+            "token_groups": [
+                "The revised model",
+                "rests",
+                "on a hypothesis",
+                "whose implications",
+                "have yet",
+                "to be tested",
+                "empirically."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "naqq-articles-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The dispute concerns {a1} validity of consent obtained under conditions of economic dependence.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Спір стосується чинності згоди, отриманої за умов економічної залежності.",
+            "target_text": "The dispute concerns the validity of consent obtained under conditions of economic dependence.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Доповнення після абстрактного іменника визначає конкретну чинність саме такої згоди."
+                }
+            },
+            "verb_hint": "Доповнення після абстрактного іменника визначає конкретну чинність саме такої згоди.",
+            "accepted_target_texts": [
+                "The dispute concerns the validity of consent obtained under conditions of economic dependence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dispute concerns",
+                "the validity",
+                "of consent obtained",
+                "under conditions",
+                "of economic dependence."
+            ],
+            "token_groups": [
+                "The dispute concerns",
+                "the validity",
+                "of consent obtained",
+                "under conditions",
+                "of economic dependence."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "naqq-articles-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The archive offers {a1} unparalleled opportunity to trace the evolution of the doctrine.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_articles",
+            "translation_uk": "Архів дає безпрецедентну можливість простежити розвиток доктрини.",
+            "target_text": "The archive offers an unparalleled opportunity to trace the evolution of the doctrine.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Це одна конкретна можливість, представлена вперше; перший прикметник починається з голосного звука."
+                }
+            },
+            "verb_hint": "Це одна конкретна можливість, представлена вперше; перший прикметник починається з голосного звука.",
+            "accepted_target_texts": [
+                "The archive offers an unparalleled opportunity to trace the evolution of the doctrine."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The archive offers",
+                "an unparalleled opportunity",
+                "to trace",
+                "the evolution",
+                "of the doctrine."
+            ],
+            "token_groups": [
+                "The archive offers",
+                "an unparalleled opportunity",
+                "to trace",
+                "the evolution",
+                "of the doctrine."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        }
+    ]
+}

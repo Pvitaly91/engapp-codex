@@ -1,0 +1,3780 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/causative.v1.json",
+        "sha256": "58d5375cc3a0bac39b8dfaa3fa1d024a222c7a90d8ec96c1c1dc4d401adaa8c8"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedPassiveVoiceCausativeQualityBuilderSeeder",
+        "uuid_namespace": "passive-voice-quality-causative-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "passive_voice_quality_causative": {
+            "name": "Passive Voice Quality: Замовлені послуги: каузативна конструкція"
+        }
+    },
+    "tags": {
+        "polyglot_passive_voice_causative": {
+            "name": "Passive Voice Causative",
+            "category": "passive_voice"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "have_object_v3": {
+            "name": "Have Object V3",
+            "category": "topic"
+        },
+        "get_object_v3": {
+            "name": "Get Object V3",
+            "category": "topic"
+        },
+        "service_done": {
+            "name": "Service Done",
+            "category": "topic"
+        },
+        "have_hair_cut": {
+            "name": "Have Hair Cut",
+            "category": "topic"
+        },
+        "get_car_repaired": {
+            "name": "Get Car Repaired",
+            "category": "topic"
+        },
+        "causative_vs_self": {
+            "name": "Causative Vs Self",
+            "category": "topic"
+        },
+        "causative_negatives": {
+            "name": "Causative Negatives",
+            "category": "topic"
+        },
+        "causative_questions": {
+            "name": "Causative Questions",
+            "category": "topic"
+        },
+        "tense_changes": {
+            "name": "Tense Changes",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-causative-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Мені сьогодні випрали кепку.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Мені сьогодні випрали кепку.",
+            "target_text": "I had my cap washed today.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з мовця; передай замовлену минулу послугу прання.",
+                    "options": [
+                        "I",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з мовця; передай замовлену минулу послугу прання.",
+                    "options": [
+                        "had",
+                        "didn't",
+                        "have",
+                        "has"
+                    ]
+                },
+                "a3": {
+                    "answer": "my",
+                    "verb_hint": "Почни з мовця; передай замовлену минулу послугу прання.",
+                    "options": [
+                        "my",
+                        "hers",
+                        "ours",
+                        "theirs"
+                    ]
+                },
+                "a4": {
+                    "answer": "cap",
+                    "verb_hint": "Почни з мовця; передай замовлену минулу послугу прання.",
+                    "options": [
+                        "cap",
+                        "dress",
+                        "estate",
+                        "testimony"
+                    ]
+                },
+                "a5": {
+                    "answer": "washed",
+                    "verb_hint": "Почни з мовця; передай замовлену минулу послугу прання.",
+                    "options": [
+                        "washed",
+                        "shortened",
+                        "checked",
+                        "fixed"
+                    ]
+                },
+                "a6": {
+                    "answer": "today.",
+                    "verb_hint": "Почни з мовця; передай замовлену минулу послугу прання.",
+                    "options": [
+                        "today",
+                        "yesterday",
+                        "scarf",
+                        "Omar"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з мовця; передай замовлену минулу послугу прання.",
+            "accepted_target_texts": [
+                "I had my cap washed today."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "had my cap",
+                "washed today."
+            ],
+            "token_groups": [
+                "I",
+                "had my cap",
+                "washed today."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "I",
+                "had",
+                "my",
+                "cap",
+                "washed",
+                "today."
+            ],
+            "options": [
+                "I",
+                "You",
+                "He",
+                "She",
+                "had",
+                "didn't",
+                "have",
+                "has",
+                "my",
+                "hers",
+                "ours",
+                "theirs",
+                "cap",
+                "dress",
+                "estate",
+                "testimony",
+                "washed",
+                "shortened",
+                "checked",
+                "fixed",
+                "today",
+                "yesterday",
+                "scarf",
+                "Omar"
+            ],
+            "source_text_uk": "Мені сьогодні випрали кепку.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a2": [
+                    "had",
+                    "didn't",
+                    "have",
+                    "has"
+                ],
+                "a3": [
+                    "my",
+                    "hers",
+                    "ours",
+                    "theirs"
+                ],
+                "a4": [
+                    "cap",
+                    "dress",
+                    "estate",
+                    "testimony"
+                ],
+                "a5": [
+                    "washed",
+                    "shortened",
+                    "checked",
+                    "fixed"
+                ],
+                "a6": [
+                    "today",
+                    "yesterday",
+                    "scarf",
+                    "Omar"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "causative_frame",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "service",
+                "a6": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-causative-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Ніні вчора вкоротили шарф.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Ніні вчора вкоротили шарф.",
+            "target_text": "Nina had her scarf shortened yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "Nina",
+                    "verb_hint": "Почни з імені Ніна; передай, що послугу скорочення виконала інша людина.",
+                    "options": [
+                        "Nina",
+                        "Taras",
+                        "Lena",
+                        "Ivan"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з імені Ніна; передай, що послугу скорочення виконала інша людина.",
+                    "options": [
+                        "had",
+                        "doesn't",
+                        "didn't",
+                        "have"
+                    ]
+                },
+                "a3": {
+                    "answer": "her",
+                    "verb_hint": "Почни з імені Ніна; передай, що послугу скорочення виконала інша людина.",
+                    "options": [
+                        "her",
+                        "its",
+                        "our",
+                        "their"
+                    ]
+                },
+                "a4": {
+                    "answer": "scarf",
+                    "verb_hint": "Почни з імені Ніна; передай, що послугу скорочення виконала інша людина.",
+                    "options": [
+                        "scarf",
+                        "portrait",
+                        "carpet",
+                        "boiler"
+                    ]
+                },
+                "a5": {
+                    "answer": "shortened",
+                    "verb_hint": "Почни з імені Ніна; передай, що послугу скорочення виконала інша людина.",
+                    "options": [
+                        "shortened",
+                        "washed",
+                        "checked",
+                        "fixed"
+                    ]
+                },
+                "a6": {
+                    "answer": "yesterday.",
+                    "verb_hint": "Почни з імені Ніна; передай, що послугу скорочення виконала інша людина.",
+                    "options": [
+                        "yesterday",
+                        "today",
+                        "cap",
+                        "Omar"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з імені Ніна; передай, що послугу скорочення виконала інша людина.",
+            "accepted_target_texts": [
+                "Nina had her scarf shortened yesterday."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nina",
+                "had her scarf",
+                "shortened yesterday."
+            ],
+            "token_groups": [
+                "Nina",
+                "had her scarf",
+                "shortened yesterday."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "Nina",
+                "had",
+                "her",
+                "scarf",
+                "shortened",
+                "yesterday."
+            ],
+            "options": [
+                "Nina",
+                "Taras",
+                "Lena",
+                "Ivan",
+                "had",
+                "doesn't",
+                "didn't",
+                "have",
+                "her",
+                "its",
+                "our",
+                "their",
+                "scarf",
+                "portrait",
+                "carpet",
+                "boiler",
+                "shortened",
+                "washed",
+                "checked",
+                "fixed",
+                "yesterday",
+                "today",
+                "cap",
+                "Omar"
+            ],
+            "source_text_uk": "Ніні вчора вкоротили шарф.",
+            "options_by_marker": {
+                "a1": [
+                    "Nina",
+                    "Taras",
+                    "Lena",
+                    "Ivan"
+                ],
+                "a2": [
+                    "had",
+                    "doesn't",
+                    "didn't",
+                    "have"
+                ],
+                "a3": [
+                    "her",
+                    "its",
+                    "our",
+                    "their"
+                ],
+                "a4": [
+                    "scarf",
+                    "portrait",
+                    "carpet",
+                    "boiler"
+                ],
+                "a5": [
+                    "shortened",
+                    "washed",
+                    "checked",
+                    "fixed"
+                ],
+                "a6": [
+                    "yesterday",
+                    "today",
+                    "cap",
+                    "Omar"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "causative_frame",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "service",
+                "a6": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-causative-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Омарові полагодили ремінь у понеділок.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Омарові полагодили ремінь у понеділок.",
+            "target_text": "Omar had his belt fixed on Monday.",
+            "markers": {
+                "a1": {
+                    "answer": "Omar",
+                    "verb_hint": "Почни з імені Омар; використай конструкцію замовленої послуги в минулому.",
+                    "options": [
+                        "Omar",
+                        "Hana",
+                        "We",
+                        "Nina"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з імені Омар; використай конструкцію замовленої послуги в минулому.",
+                    "options": [
+                        "had",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a3": {
+                    "answer": "his",
+                    "verb_hint": "Почни з імені Омар; використай конструкцію замовленої послуги в минулому.",
+                    "options": [
+                        "his",
+                        "their",
+                        "mine",
+                        "yours"
+                    ]
+                },
+                "a4": {
+                    "answer": "belt",
+                    "verb_hint": "Почни з імені Омар; використай конструкцію замовленої послуги в минулому.",
+                    "options": [
+                        "belt",
+                        "testimony",
+                        "cap",
+                        "scarf"
+                    ]
+                },
+                "a5": {
+                    "answer": "fixed",
+                    "verb_hint": "Почни з імені Омар; використай конструкцію замовленої послуги в минулому.",
+                    "options": [
+                        "fixed",
+                        "calibrated",
+                        "deacidified",
+                        "valued"
+                    ]
+                },
+                "a6": {
+                    "answer": "on",
+                    "verb_hint": "Почни з імені Омар; використай конструкцію замовленої послуги в минулому.",
+                    "options": [
+                        "on",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a7": {
+                    "answer": "Monday.",
+                    "verb_hint": "Почни з імені Омар; використай конструкцію замовленої послуги в минулому.",
+                    "options": [
+                        "Monday",
+                        "Bristol",
+                        "Departure",
+                        "Intrusion"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з імені Омар; використай конструкцію замовленої послуги в минулому.",
+            "accepted_target_texts": [
+                "Omar had his belt fixed on Monday.",
+                "Omar had his belt repaired on Monday.",
+                "Omar had his belt mended on Monday."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "repaired",
+                    "mended"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "repaired",
+                    "mended"
+                ]
+            },
+            "reorder_groups": [
+                "Omar",
+                "had his belt",
+                "fixed on Monday."
+            ],
+            "token_groups": [
+                "Omar",
+                "had his belt",
+                "fixed on Monday."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "Omar",
+                "had",
+                "his",
+                "belt",
+                "fixed",
+                "on",
+                "Monday."
+            ],
+            "options": [
+                "Omar",
+                "Hana",
+                "We",
+                "Nina",
+                "had",
+                "hasn't",
+                "hadn't",
+                "do",
+                "his",
+                "their",
+                "mine",
+                "yours",
+                "belt",
+                "testimony",
+                "cap",
+                "scarf",
+                "fixed",
+                "calibrated",
+                "deacidified",
+                "valued",
+                "on",
+                "by",
+                "with",
+                "without",
+                "Monday",
+                "Bristol",
+                "Departure",
+                "Intrusion"
+            ],
+            "source_text_uk": "Омарові полагодили ремінь у понеділок.",
+            "options_by_marker": {
+                "a1": [
+                    "Omar",
+                    "Hana",
+                    "We",
+                    "Nina"
+                ],
+                "a2": [
+                    "had",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a3": [
+                    "his",
+                    "their",
+                    "mine",
+                    "yours"
+                ],
+                "a4": [
+                    "belt",
+                    "testimony",
+                    "cap",
+                    "scarf"
+                ],
+                "a5": [
+                    "fixed",
+                    "calibrated",
+                    "deacidified",
+                    "valued"
+                ],
+                "a6": [
+                    "on",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a7": [
+                    "Monday",
+                    "Bristol",
+                    "Departure",
+                    "Intrusion"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "causative_frame",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "service",
+                "a6": "service",
+                "a7": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-causative-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Хані намалювали портрет у школі.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Хані намалювали портрет у школі.",
+            "target_text": "Hana had her portrait drawn at school.",
+            "markers": {
+                "a1": {
+                    "answer": "Hana",
+                    "verb_hint": "Почни з імені Хана; передай минулу послугу малювання портрета.",
+                    "options": [
+                        "Hana",
+                        "We",
+                        "I",
+                        "Nina"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з імені Хана; передай минулу послугу малювання портрета.",
+                    "options": [
+                        "had",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a3": {
+                    "answer": "her",
+                    "verb_hint": "Почни з імені Хана; передай минулу послугу малювання портрета.",
+                    "options": [
+                        "her",
+                        "ours",
+                        "theirs",
+                        "whose"
+                    ]
+                },
+                "a4": {
+                    "answer": "portrait",
+                    "verb_hint": "Почни з імені Хана; передай минулу послугу малювання портрета.",
+                    "options": [
+                        "portrait",
+                        "carpet",
+                        "boiler",
+                        "cap"
+                    ]
+                },
+                "a5": {
+                    "answer": "drawn",
+                    "verb_hint": "Почни з імені Хана; передай минулу послугу малювання портрета.",
+                    "options": [
+                        "drawn",
+                        "forwarded",
+                        "altered",
+                        "repaired"
+                    ]
+                },
+                "a6": {
+                    "answer": "at",
+                    "verb_hint": "Почни з імені Хана; передай минулу послугу малювання портрета.",
+                    "options": [
+                        "at",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a7": {
+                    "answer": "school.",
+                    "verb_hint": "Почни з імені Хана; передай минулу послугу малювання портрета.",
+                    "options": [
+                        "school",
+                        "saturday",
+                        "lunch",
+                        "intrusion"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з імені Хана; передай минулу послугу малювання портрета.",
+            "accepted_target_texts": [
+                "Hana had her portrait drawn at school."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Hana",
+                "had her portrait",
+                "drawn at school."
+            ],
+            "token_groups": [
+                "Hana",
+                "had her portrait",
+                "drawn at school."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "Hana",
+                "had",
+                "her",
+                "portrait",
+                "drawn",
+                "at",
+                "school."
+            ],
+            "options": [
+                "Hana",
+                "We",
+                "I",
+                "Nina",
+                "had",
+                "does",
+                "did",
+                "don't",
+                "her",
+                "ours",
+                "theirs",
+                "whose",
+                "portrait",
+                "carpet",
+                "boiler",
+                "cap",
+                "drawn",
+                "forwarded",
+                "altered",
+                "repaired",
+                "at",
+                "for",
+                "of",
+                "in",
+                "school",
+                "saturday",
+                "lunch",
+                "intrusion"
+            ],
+            "source_text_uk": "Хані намалювали портрет у школі.",
+            "options_by_marker": {
+                "a1": [
+                    "Hana",
+                    "We",
+                    "I",
+                    "Nina"
+                ],
+                "a2": [
+                    "had",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a3": [
+                    "her",
+                    "ours",
+                    "theirs",
+                    "whose"
+                ],
+                "a4": [
+                    "portrait",
+                    "carpet",
+                    "boiler",
+                    "cap"
+                ],
+                "a5": [
+                    "drawn",
+                    "forwarded",
+                    "altered",
+                    "repaired"
+                ],
+                "a6": [
+                    "at",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a7": [
+                    "school",
+                    "saturday",
+                    "lunch",
+                    "intrusion"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "causative_frame",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "service",
+                "a6": "service",
+                "a7": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-causative-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Орендарям почистили килим минулої суботи.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Орендарям почистили килим минулої суботи.",
+            "target_text": "The tenants had their carpet cleaned last Saturday.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з орендарів у множині; передай замовлену послугу чищення.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "tenants",
+                    "verb_hint": "Почни з орендарів у множині; передай замовлену послугу чищення.",
+                    "options": [
+                        "tenants",
+                        "executors",
+                        "curtains",
+                        "women"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Почни з орендарів у множині; передай замовлену послугу чищення.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "their",
+                    "verb_hint": "Почни з орендарів у множині; передай замовлену послугу чищення.",
+                    "options": [
+                        "their",
+                        "mine",
+                        "yours",
+                        "hers"
+                    ]
+                },
+                "a5": {
+                    "answer": "carpet",
+                    "verb_hint": "Почни з орендарів у множині; передай замовлену послугу чищення.",
+                    "options": [
+                        "carpet",
+                        "estate",
+                        "testimony",
+                        "portrait"
+                    ]
+                },
+                "a6": {
+                    "answer": "cleaned",
+                    "verb_hint": "Почни з орендарів у множині; передай замовлену послугу чищення.",
+                    "options": [
+                        "cleaned",
+                        "drawn",
+                        "measured",
+                        "fixed"
+                    ]
+                },
+                "a7": {
+                    "answer": "last",
+                    "verb_hint": "Почни з орендарів у множині; передай замовлену послугу чищення.",
+                    "options": [
+                        "last",
+                        "in",
+                        "to",
+                        "against"
+                    ]
+                },
+                "a8": {
+                    "answer": "Saturday.",
+                    "verb_hint": "Почни з орендарів у множині; передай замовлену послугу чищення.",
+                    "options": [
+                        "Saturday",
+                        "April",
+                        "Bristol",
+                        "Departure"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з орендарів у множині; передай замовлену послугу чищення.",
+            "accepted_target_texts": [
+                "The tenants had their carpet cleaned last Saturday."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The tenants",
+                "had their carpet",
+                "cleaned last Saturday."
+            ],
+            "token_groups": [
+                "The tenants",
+                "had their carpet",
+                "cleaned last Saturday."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "tenants",
+                "had",
+                "their",
+                "carpet",
+                "cleaned",
+                "last",
+                "Saturday."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "tenants",
+                "executors",
+                "curtains",
+                "women",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "their",
+                "mine",
+                "yours",
+                "hers",
+                "carpet",
+                "estate",
+                "testimony",
+                "portrait",
+                "cleaned",
+                "drawn",
+                "measured",
+                "fixed",
+                "last",
+                "in",
+                "to",
+                "against",
+                "Saturday",
+                "April",
+                "Bristol",
+                "Departure"
+            ],
+            "source_text_uk": "Орендарям почистили килим минулої суботи.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "tenants",
+                    "executors",
+                    "curtains",
+                    "women"
+                ],
+                "a3": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a4": [
+                    "their",
+                    "mine",
+                    "yours",
+                    "hers"
+                ],
+                "a5": [
+                    "carpet",
+                    "estate",
+                    "testimony",
+                    "portrait"
+                ],
+                "a6": [
+                    "cleaned",
+                    "drawn",
+                    "measured",
+                    "fixed"
+                ],
+                "a7": [
+                    "last",
+                    "in",
+                    "to",
+                    "against"
+                ],
+                "a8": [
+                    "Saturday",
+                    "April",
+                    "Bristol",
+                    "Departure"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "causative_frame",
+                "a6": "service",
+                "a7": "service",
+                "a8": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-causative-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Нам виміряли штори до обіду.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Нам виміряли штори до обіду.",
+            "target_text": "We had our curtains measured before lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з нас; передай завершену минулу послугу вимірювання.",
+                    "options": [
+                        "We",
+                        "Themselves",
+                        "I",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з нас; передай завершену минулу послугу вимірювання.",
+                    "options": [
+                        "had",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "our",
+                    "verb_hint": "Почни з нас; передай завершену минулу послугу вимірювання.",
+                    "options": [
+                        "our",
+                        "his",
+                        "her",
+                        "its"
+                    ]
+                },
+                "a4": {
+                    "answer": "curtains",
+                    "verb_hint": "Почни з нас; передай завершену минулу послугу вимірювання.",
+                    "options": [
+                        "curtains",
+                        "protocols",
+                        "proofs",
+                        "costumes"
+                    ]
+                },
+                "a5": {
+                    "answer": "measured",
+                    "verb_hint": "Почни з нас; передай завершену минулу послугу вимірювання.",
+                    "options": [
+                        "measured",
+                        "repaired",
+                        "reinforced",
+                        "valued"
+                    ]
+                },
+                "a6": {
+                    "answer": "before",
+                    "verb_hint": "Почни з нас; передай завершену минулу послугу вимірювання.",
+                    "options": [
+                        "before",
+                        "last",
+                        "on",
+                        "in"
+                    ]
+                },
+                "a7": {
+                    "answer": "lunch.",
+                    "verb_hint": "Почни з нас; передай завершену минулу послугу вимірювання.",
+                    "options": [
+                        "lunch",
+                        "intrusion",
+                        "flotation",
+                        "supervision"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з нас; передай завершену минулу послугу вимірювання.",
+            "accepted_target_texts": [
+                "We had our curtains measured before lunch."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "had our curtains",
+                "measured before lunch."
+            ],
+            "token_groups": [
+                "We",
+                "had our curtains",
+                "measured before lunch."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "We",
+                "had",
+                "our",
+                "curtains",
+                "measured",
+                "before",
+                "lunch."
+            ],
+            "options": [
+                "We",
+                "Themselves",
+                "I",
+                "You",
+                "had",
+                "did",
+                "don't",
+                "doesn't",
+                "our",
+                "his",
+                "her",
+                "its",
+                "curtains",
+                "protocols",
+                "proofs",
+                "costumes",
+                "measured",
+                "repaired",
+                "reinforced",
+                "valued",
+                "before",
+                "last",
+                "on",
+                "in",
+                "lunch",
+                "intrusion",
+                "flotation",
+                "supervision"
+            ],
+            "source_text_uk": "Нам виміряли штори до обіду.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Themselves",
+                    "I",
+                    "You"
+                ],
+                "a2": [
+                    "had",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a3": [
+                    "our",
+                    "his",
+                    "her",
+                    "its"
+                ],
+                "a4": [
+                    "curtains",
+                    "protocols",
+                    "proofs",
+                    "costumes"
+                ],
+                "a5": [
+                    "measured",
+                    "repaired",
+                    "reinforced",
+                    "valued"
+                ],
+                "a6": [
+                    "before",
+                    "last",
+                    "on",
+                    "in"
+                ],
+                "a7": [
+                    "lunch",
+                    "intrusion",
+                    "flotation",
+                    "supervision"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "causative_frame",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "service",
+                "a6": "service",
+                "a7": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-causative-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Наш орендодавець замовив обслуговування котла у квітні.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Наш орендодавець замовив обслуговування котла у квітні.",
+            "target_text": "Our landlord had the boiler serviced in April.",
+            "markers": {
+                "a1": {
+                    "answer": "Our",
+                    "verb_hint": "Почни з орендодавця; передай минулу замовлену послугу обслуговування.",
+                    "options": [
+                        "Our",
+                        "Whose",
+                        "My",
+                        "Your"
+                    ]
+                },
+                "a2": {
+                    "answer": "landlord",
+                    "verb_hint": "Почни з орендодавця; передай минулу замовлену послугу обслуговування.",
+                    "options": [
+                        "landlord",
+                        "consortium",
+                        "bride",
+                        "arbitrator"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Почни з орендодавця; передай минулу замовлену послугу обслуговування.",
+                    "options": [
+                        "had",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з орендодавця; передай минулу замовлену послугу обслуговування.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a5": {
+                    "answer": "boiler",
+                    "verb_hint": "Почни з орендодавця; передай минулу замовлену послугу обслуговування.",
+                    "options": [
+                        "boiler",
+                        "belt",
+                        "portrait",
+                        "carpet"
+                    ]
+                },
+                "a6": {
+                    "answer": "serviced",
+                    "verb_hint": "Почни з орендодавця; передай минулу замовлену послугу обслуговування.",
+                    "options": [
+                        "serviced",
+                        "forwarded",
+                        "altered",
+                        "fixed"
+                    ]
+                },
+                "a7": {
+                    "answer": "in",
+                    "verb_hint": "Почни з орендодавця; передай минулу замовлену послугу обслуговування.",
+                    "options": [
+                        "in",
+                        "for",
+                        "of",
+                        "on"
+                    ]
+                },
+                "a8": {
+                    "answer": "April.",
+                    "verb_hint": "Почни з орендодавця; передай минулу замовлену послугу обслуговування.",
+                    "options": [
+                        "April",
+                        "Supervision",
+                        "Bristol",
+                        "Departure"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з орендодавця; передай минулу замовлену послугу обслуговування.",
+            "accepted_target_texts": [
+                "Our landlord had the boiler serviced in April."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our landlord",
+                "had the boiler",
+                "serviced in April."
+            ],
+            "token_groups": [
+                "Our landlord",
+                "had the boiler",
+                "serviced in April."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "Our",
+                "landlord",
+                "had",
+                "the",
+                "boiler",
+                "serviced",
+                "in",
+                "April."
+            ],
+            "options": [
+                "Our",
+                "Whose",
+                "My",
+                "Your",
+                "landlord",
+                "consortium",
+                "bride",
+                "arbitrator",
+                "had",
+                "does",
+                "did",
+                "don't",
+                "the",
+                "some",
+                "any",
+                "this",
+                "boiler",
+                "belt",
+                "portrait",
+                "carpet",
+                "serviced",
+                "forwarded",
+                "altered",
+                "fixed",
+                "in",
+                "for",
+                "of",
+                "on",
+                "April",
+                "Supervision",
+                "Bristol",
+                "Departure"
+            ],
+            "source_text_uk": "Наш орендодавець замовив обслуговування котла у квітні.",
+            "options_by_marker": {
+                "a1": [
+                    "Our",
+                    "Whose",
+                    "My",
+                    "Your"
+                ],
+                "a2": [
+                    "landlord",
+                    "consortium",
+                    "bride",
+                    "arbitrator"
+                ],
+                "a3": [
+                    "had",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a4": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a5": [
+                    "boiler",
+                    "belt",
+                    "portrait",
+                    "carpet"
+                ],
+                "a6": [
+                    "serviced",
+                    "forwarded",
+                    "altered",
+                    "fixed"
+                ],
+                "a7": [
+                    "in",
+                    "for",
+                    "of",
+                    "on"
+                ],
+                "a8": [
+                    "April",
+                    "Supervision",
+                    "Bristol",
+                    "Departure"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "causative_frame",
+                "a6": "service",
+                "a7": "service",
+                "a8": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-causative-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Мені переслали багаж до Бристоля.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Мені переслали багаж до Бристоля.",
+            "target_text": "I had my luggage forwarded to Bristol.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з мовця; передай, що пересилання багажу виконав хтось інший.",
+                    "options": [
+                        "I",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з мовця; передай, що пересилання багажу виконав хтось інший.",
+                    "options": [
+                        "had",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a3": {
+                    "answer": "my",
+                    "verb_hint": "Почни з мовця; передай, що пересилання багажу виконав хтось інший.",
+                    "options": [
+                        "my",
+                        "its",
+                        "our",
+                        "their"
+                    ]
+                },
+                "a4": {
+                    "answer": "luggage",
+                    "verb_hint": "Почни з мовця; передай, що пересилання багажу виконав хтось інший.",
+                    "options": [
+                        "luggage",
+                        "carpet",
+                        "estate",
+                        "testimony"
+                    ]
+                },
+                "a5": {
+                    "answer": "forwarded",
+                    "verb_hint": "Почни з мовця; передай, що пересилання багажу виконав хтось інший.",
+                    "options": [
+                        "forwarded",
+                        "cleaned",
+                        "measured",
+                        "repaired"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Почни з мовця; передай, що пересилання багажу виконав хтось інший.",
+                    "options": [
+                        "to",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a7": {
+                    "answer": "Bristol.",
+                    "verb_hint": "Почни з мовця; передай, що пересилання багажу виконав хтось інший.",
+                    "options": [
+                        "Bristol",
+                        "School",
+                        "Saturday",
+                        "Lunch"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з мовця; передай, що пересилання багажу виконав хтось інший.",
+            "accepted_target_texts": [
+                "I had my luggage forwarded to Bristol."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "had my luggage",
+                "forwarded to Bristol."
+            ],
+            "token_groups": [
+                "I",
+                "had my luggage",
+                "forwarded to Bristol."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "I",
+                "had",
+                "my",
+                "luggage",
+                "forwarded",
+                "to",
+                "Bristol."
+            ],
+            "options": [
+                "I",
+                "Us",
+                "Them",
+                "Myself",
+                "had",
+                "does",
+                "did",
+                "don't",
+                "my",
+                "its",
+                "our",
+                "their",
+                "luggage",
+                "carpet",
+                "estate",
+                "testimony",
+                "forwarded",
+                "cleaned",
+                "measured",
+                "repaired",
+                "to",
+                "for",
+                "of",
+                "in",
+                "Bristol",
+                "School",
+                "Saturday",
+                "Lunch"
+            ],
+            "source_text_uk": "Мені переслали багаж до Бристоля.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "had",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a3": [
+                    "my",
+                    "its",
+                    "our",
+                    "their"
+                ],
+                "a4": [
+                    "luggage",
+                    "carpet",
+                    "estate",
+                    "testimony"
+                ],
+                "a5": [
+                    "forwarded",
+                    "cleaned",
+                    "measured",
+                    "repaired"
+                ],
+                "a6": [
+                    "to",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a7": [
+                    "Bristol",
+                    "School",
+                    "Saturday",
+                    "Lunch"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "causative_frame",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "service",
+                "a6": "service",
+                "a7": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-causative-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Нареченій перешили сукню до від'їзду.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Нареченій перешили сукню до від'їзду.",
+            "target_text": "The bride had her dress altered before departure.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з нареченої; передай замовлену минулу послугу зміни сукні.",
+                    "options": [
+                        "The",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "bride",
+                    "verb_hint": "Почни з нареченої; передай замовлену минулу послугу зміни сукні.",
+                    "options": [
+                        "bride",
+                        "theatre",
+                        "gallery",
+                        "consortium"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Почни з нареченої; передай замовлену минулу послугу зміни сукні.",
+                    "options": [
+                        "had",
+                        "has",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "her",
+                    "verb_hint": "Почни з нареченої; передай замовлену минулу послугу зміни сукні.",
+                    "options": [
+                        "her",
+                        "ours",
+                        "theirs",
+                        "whose"
+                    ]
+                },
+                "a5": {
+                    "answer": "dress",
+                    "verb_hint": "Почни з нареченої; передай замовлену минулу послугу зміни сукні.",
+                    "options": [
+                        "dress",
+                        "luggage",
+                        "boiler",
+                        "belt"
+                    ]
+                },
+                "a6": {
+                    "answer": "altered",
+                    "verb_hint": "Почни з нареченої; передай замовлену минулу послугу зміни сукні.",
+                    "options": [
+                        "altered",
+                        "cleaned",
+                        "fixed",
+                        "drawn"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Почни з нареченої; передай замовлену минулу послугу зміни сукні.",
+                    "options": [
+                        "before",
+                        "against",
+                        "by",
+                        "under"
+                    ]
+                },
+                "a8": {
+                    "answer": "departure.",
+                    "verb_hint": "Почни з нареченої; передай замовлену минулу послугу зміни сукні.",
+                    "options": [
+                        "departure",
+                        "school",
+                        "Saturday",
+                        "lunch"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з нареченої; передай замовлену минулу послугу зміни сукні.",
+            "accepted_target_texts": [
+                "The bride had her dress altered before departure."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The bride",
+                "had her dress",
+                "altered before departure."
+            ],
+            "token_groups": [
+                "The bride",
+                "had her dress",
+                "altered before departure."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "bride",
+                "had",
+                "her",
+                "dress",
+                "altered",
+                "before",
+                "departure."
+            ],
+            "options": [
+                "The",
+                "This",
+                "That",
+                "These",
+                "bride",
+                "theatre",
+                "gallery",
+                "consortium",
+                "had",
+                "has",
+                "haven't",
+                "hasn't",
+                "her",
+                "ours",
+                "theirs",
+                "whose",
+                "dress",
+                "luggage",
+                "boiler",
+                "belt",
+                "altered",
+                "cleaned",
+                "fixed",
+                "drawn",
+                "before",
+                "against",
+                "by",
+                "under",
+                "departure",
+                "school",
+                "Saturday",
+                "lunch"
+            ],
+            "source_text_uk": "Нареченій перешили сукню до від'їзду.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "bride",
+                    "theatre",
+                    "gallery",
+                    "consortium"
+                ],
+                "a3": [
+                    "had",
+                    "has",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a4": [
+                    "her",
+                    "ours",
+                    "theirs",
+                    "whose"
+                ],
+                "a5": [
+                    "dress",
+                    "luggage",
+                    "boiler",
+                    "belt"
+                ],
+                "a6": [
+                    "altered",
+                    "cleaned",
+                    "fixed",
+                    "drawn"
+                ],
+                "a7": [
+                    "before",
+                    "against",
+                    "by",
+                    "under"
+                ],
+                "a8": [
+                    "departure",
+                    "school",
+                    "Saturday",
+                    "lunch"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "causative_frame",
+                "a6": "service",
+                "a7": "service",
+                "a8": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-causative-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Видавець замовив незалежну перевірку коректурних відбитків.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Видавець замовив незалежну перевірку коректурних відбитків.",
+            "target_text": "The publisher had the proofs checked independently.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з видавця; передай минулу замовлену послугу незалежної перевірки.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "publisher",
+                    "verb_hint": "Почни з видавця; передай минулу замовлену послугу незалежної перевірки.",
+                    "options": [
+                        "publisher",
+                        "bride",
+                        "arbitrator",
+                        "theatre"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Почни з видавця; передай минулу замовлену послугу незалежної перевірки.",
+                    "options": [
+                        "had",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з видавця; передай минулу замовлену послугу незалежної перевірки.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a5": {
+                    "answer": "proofs",
+                    "verb_hint": "Почни з видавця; передай минулу замовлену послугу незалежної перевірки.",
+                    "options": [
+                        "proofs",
+                        "windows",
+                        "curtains",
+                        "assets"
+                    ]
+                },
+                "a6": {
+                    "answer": "checked",
+                    "verb_hint": "Почни з видавця; передай минулу замовлену послугу незалежної перевірки.",
+                    "options": [
+                        "checked",
+                        "shortened",
+                        "washed",
+                        "repaired"
+                    ]
+                },
+                "a7": {
+                    "answer": "independently.",
+                    "verb_hint": "Почни з видавця; передай минулу замовлену послугу незалежної перевірки.",
+                    "options": [
+                        "independently",
+                        "badly",
+                        "clearly",
+                        "safely"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з видавця; передай минулу замовлену послугу незалежної перевірки.",
+            "accepted_target_texts": [
+                "The publisher had the proofs checked independently."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The publisher",
+                "had the proofs",
+                "checked independently."
+            ],
+            "token_groups": [
+                "The publisher",
+                "had the proofs",
+                "checked independently."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "publisher",
+                "had",
+                "the",
+                "proofs",
+                "checked",
+                "independently."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "publisher",
+                "bride",
+                "arbitrator",
+                "theatre",
+                "had",
+                "did",
+                "don't",
+                "doesn't",
+                "the",
+                "no",
+                "another",
+                "either",
+                "proofs",
+                "windows",
+                "curtains",
+                "assets",
+                "checked",
+                "shortened",
+                "washed",
+                "repaired",
+                "independently",
+                "badly",
+                "clearly",
+                "safely"
+            ],
+            "source_text_uk": "Видавець замовив незалежну перевірку коректурних відбитків.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "publisher",
+                    "bride",
+                    "arbitrator",
+                    "theatre"
+                ],
+                "a3": [
+                    "had",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a4": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a5": [
+                    "proofs",
+                    "windows",
+                    "curtains",
+                    "assets"
+                ],
+                "a6": [
+                    "checked",
+                    "shortened",
+                    "washed",
+                    "repaired"
+                ],
+                "a7": [
+                    "independently",
+                    "badly",
+                    "clearly",
+                    "safely"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "causative_frame",
+                "a6": "service",
+                "a7": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-causative-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Театр замовив ремонт костюмів між виставами.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Театр замовив ремонт костюмів між виставами.",
+            "target_text": "The theatre had its costumes repaired between performances.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з театру; використай конструкцію замовленого ремонту в минулому.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "theatre",
+                    "verb_hint": "Почни з театру; використай конструкцію замовленого ремонту в минулому.",
+                    "options": [
+                        "theatre",
+                        "arbitrator",
+                        "gallery",
+                        "publisher"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Почни з театру; використай конструкцію замовленого ремонту в минулому.",
+                    "options": [
+                        "had",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a4": {
+                    "answer": "its",
+                    "verb_hint": "Почни з театру; використай конструкцію замовленого ремонту в минулому.",
+                    "options": [
+                        "its",
+                        "whose",
+                        "my",
+                        "your"
+                    ]
+                },
+                "a5": {
+                    "answer": "costumes",
+                    "verb_hint": "Почни з театру; використай конструкцію замовленого ремонту в минулому.",
+                    "options": [
+                        "costumes",
+                        "windows",
+                        "proofs",
+                        "curtains"
+                    ]
+                },
+                "a6": {
+                    "answer": "repaired",
+                    "verb_hint": "Почни з театру; використай конструкцію замовленого ремонту в минулому.",
+                    "options": [
+                        "repaired",
+                        "altered",
+                        "valued",
+                        "calibrated"
+                    ]
+                },
+                "a7": {
+                    "answer": "between",
+                    "verb_hint": "Почни з театру; використай конструкцію замовленого ремонту в минулому.",
+                    "options": [
+                        "between",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a8": {
+                    "answer": "performances.",
+                    "verb_hint": "Почни з театру; використай конструкцію замовленого ремонту в минулому.",
+                    "options": [
+                        "performances",
+                        "specialists",
+                        "dogs",
+                        "cats"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з театру; використай конструкцію замовленого ремонту в минулому.",
+            "accepted_target_texts": [
+                "The theatre had its costumes repaired between performances.",
+                "The theatre had its costumes fixed between performances.",
+                "The theatre had its costumes mended between performances."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "fixed",
+                    "mended"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "fixed",
+                    "mended"
+                ]
+            },
+            "reorder_groups": [
+                "The theatre",
+                "had its costumes",
+                "repaired between performances."
+            ],
+            "token_groups": [
+                "The theatre",
+                "had its costumes",
+                "repaired between performances."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "theatre",
+                "had",
+                "its",
+                "costumes",
+                "repaired",
+                "between",
+                "performances."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "theatre",
+                "arbitrator",
+                "gallery",
+                "publisher",
+                "had",
+                "does",
+                "did",
+                "don't",
+                "its",
+                "whose",
+                "my",
+                "your",
+                "costumes",
+                "windows",
+                "proofs",
+                "curtains",
+                "repaired",
+                "altered",
+                "valued",
+                "calibrated",
+                "between",
+                "of",
+                "in",
+                "on",
+                "performances",
+                "specialists",
+                "dogs",
+                "cats"
+            ],
+            "source_text_uk": "Театр замовив ремонт костюмів між виставами.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "theatre",
+                    "arbitrator",
+                    "gallery",
+                    "publisher"
+                ],
+                "a3": [
+                    "had",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a4": [
+                    "its",
+                    "whose",
+                    "my",
+                    "your"
+                ],
+                "a5": [
+                    "costumes",
+                    "windows",
+                    "proofs",
+                    "curtains"
+                ],
+                "a6": [
+                    "repaired",
+                    "altered",
+                    "valued",
+                    "calibrated"
+                ],
+                "a7": [
+                    "between",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a8": [
+                    "performances",
+                    "specialists",
+                    "dogs",
+                    "cats"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "causative_frame",
+                "a6": "service",
+                "a7": "service",
+                "a8": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-causative-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Галерея замовила посилення вікон для захисту від проникнення.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Галерея замовила посилення вікон для захисту від проникнення.",
+            "target_text": "The gallery had its windows reinforced against intrusion.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з галереї; передай минулу послугу зміцнення й збережи мету.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "gallery",
+                    "verb_hint": "Почни з галереї; передай минулу послугу зміцнення й збережи мету.",
+                    "options": [
+                        "gallery",
+                        "theatre",
+                        "publisher",
+                        "landlord"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Почни з галереї; передай минулу послугу зміцнення й збережи мету.",
+                    "options": [
+                        "had",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a4": {
+                    "answer": "its",
+                    "verb_hint": "Почни з галереї; передай минулу послугу зміцнення й збережи мету.",
+                    "options": [
+                        "its",
+                        "our",
+                        "their",
+                        "mine"
+                    ]
+                },
+                "a5": {
+                    "answer": "windows",
+                    "verb_hint": "Почни з галереї; передай минулу послугу зміцнення й збережи мету.",
+                    "options": [
+                        "windows",
+                        "protocols",
+                        "costumes",
+                        "proofs"
+                    ]
+                },
+                "a6": {
+                    "answer": "reinforced",
+                    "verb_hint": "Почни з галереї; передай минулу послугу зміцнення й збережи мету.",
+                    "options": [
+                        "reinforced",
+                        "altered",
+                        "valued",
+                        "calibrated"
+                    ]
+                },
+                "a7": {
+                    "answer": "against",
+                    "verb_hint": "Почни з галереї; передай минулу послугу зміцнення й збережи мету.",
+                    "options": [
+                        "against",
+                        "last",
+                        "in",
+                        "to"
+                    ]
+                },
+                "a8": {
+                    "answer": "intrusion.",
+                    "verb_hint": "Почни з галереї; передай минулу послугу зміцнення й збережи мету.",
+                    "options": [
+                        "intrusion",
+                        "lunch",
+                        "Monday",
+                        "school"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з галереї; передай минулу послугу зміцнення й збережи мету.",
+            "accepted_target_texts": [
+                "The gallery had its windows reinforced against intrusion."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The gallery",
+                "had its windows",
+                "reinforced against intrusion."
+            ],
+            "token_groups": [
+                "The gallery",
+                "had its windows",
+                "reinforced against intrusion."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "gallery",
+                "had",
+                "its",
+                "windows",
+                "reinforced",
+                "against",
+                "intrusion."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "gallery",
+                "theatre",
+                "publisher",
+                "landlord",
+                "had",
+                "hadn't",
+                "do",
+                "does",
+                "its",
+                "our",
+                "their",
+                "mine",
+                "windows",
+                "protocols",
+                "costumes",
+                "proofs",
+                "reinforced",
+                "altered",
+                "valued",
+                "calibrated",
+                "against",
+                "last",
+                "in",
+                "to",
+                "intrusion",
+                "lunch",
+                "Monday",
+                "school"
+            ],
+            "source_text_uk": "Галерея замовила посилення вікон для захисту від проникнення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "gallery",
+                    "theatre",
+                    "publisher",
+                    "landlord"
+                ],
+                "a3": [
+                    "had",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a4": [
+                    "its",
+                    "our",
+                    "their",
+                    "mine"
+                ],
+                "a5": [
+                    "windows",
+                    "protocols",
+                    "costumes",
+                    "proofs"
+                ],
+                "a6": [
+                    "reinforced",
+                    "altered",
+                    "valued",
+                    "calibrated"
+                ],
+                "a7": [
+                    "against",
+                    "last",
+                    "in",
+                    "to"
+                ],
+                "a8": [
+                    "intrusion",
+                    "lunch",
+                    "Monday",
+                    "school"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "causative_frame",
+                "a6": "service",
+                "a7": "service",
+                "a8": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-causative-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Консорціум замовив оцінювання активів перед виходом на біржу.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Консорціум замовив оцінювання активів перед виходом на біржу.",
+            "target_text": "The consortium had its assets valued before flotation.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з консорціуму; передай минулу замовлену послугу оцінювання.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "consortium",
+                    "verb_hint": "Почни з консорціуму; передай минулу замовлену послугу оцінювання.",
+                    "options": [
+                        "consortium",
+                        "publisher",
+                        "theatre",
+                        "gallery"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Почни з консорціуму; передай минулу замовлену послугу оцінювання.",
+                    "options": [
+                        "had",
+                        "have",
+                        "has",
+                        "haven't"
+                    ]
+                },
+                "a4": {
+                    "answer": "its",
+                    "verb_hint": "Почни з консорціуму; передай минулу замовлену послугу оцінювання.",
+                    "options": [
+                        "its",
+                        "her",
+                        "our",
+                        "their"
+                    ]
+                },
+                "a5": {
+                    "answer": "assets",
+                    "verb_hint": "Почни з консорціуму; передай минулу замовлену послугу оцінювання.",
+                    "options": [
+                        "assets",
+                        "proofs",
+                        "curtains",
+                        "costumes"
+                    ]
+                },
+                "a6": {
+                    "answer": "valued",
+                    "verb_hint": "Почни з консорціуму; передай минулу замовлену послугу оцінювання.",
+                    "options": [
+                        "valued",
+                        "deacidified",
+                        "calibrated",
+                        "fixed"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Почни з консорціуму; передай минулу замовлену послугу оцінювання.",
+                    "options": [
+                        "before",
+                        "by",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a8": {
+                    "answer": "flotation.",
+                    "verb_hint": "Почни з консорціуму; передай минулу замовлену послугу оцінювання.",
+                    "options": [
+                        "flotation",
+                        "April",
+                        "Bristol",
+                        "departure"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з консорціуму; передай минулу замовлену послугу оцінювання.",
+            "accepted_target_texts": [
+                "The consortium had its assets valued before flotation."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The consortium",
+                "had its assets",
+                "valued before flotation."
+            ],
+            "token_groups": [
+                "The consortium",
+                "had its assets",
+                "valued before flotation."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "consortium",
+                "had",
+                "its",
+                "assets",
+                "valued",
+                "before",
+                "flotation."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "consortium",
+                "publisher",
+                "theatre",
+                "gallery",
+                "had",
+                "have",
+                "has",
+                "haven't",
+                "its",
+                "her",
+                "our",
+                "their",
+                "assets",
+                "proofs",
+                "curtains",
+                "costumes",
+                "valued",
+                "deacidified",
+                "calibrated",
+                "fixed",
+                "before",
+                "by",
+                "on",
+                "at",
+                "flotation",
+                "April",
+                "Bristol",
+                "departure"
+            ],
+            "source_text_uk": "Консорціум замовив оцінювання активів перед виходом на біржу.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "consortium",
+                    "publisher",
+                    "theatre",
+                    "gallery"
+                ],
+                "a3": [
+                    "had",
+                    "have",
+                    "has",
+                    "haven't"
+                ],
+                "a4": [
+                    "its",
+                    "her",
+                    "our",
+                    "their"
+                ],
+                "a5": [
+                    "assets",
+                    "proofs",
+                    "curtains",
+                    "costumes"
+                ],
+                "a6": [
+                    "valued",
+                    "deacidified",
+                    "calibrated",
+                    "fixed"
+                ],
+                "a7": [
+                    "before",
+                    "by",
+                    "on",
+                    "at"
+                ],
+                "a8": [
+                    "flotation",
+                    "April",
+                    "Bristol",
+                    "departure"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "causative_frame",
+                "a6": "service",
+                "a7": "service",
+                "a8": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-causative-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Лабораторія замовила калібрування приладів у спеціалістів.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Лабораторія замовила калібрування приладів у спеціалістів.",
+            "target_text": "The laboratory had its instruments calibrated by specialists.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з лабораторії; передай минулу замовлену послугу калібрування.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "laboratory",
+                    "verb_hint": "Почни з лабораторії; передай минулу замовлену послугу калібрування.",
+                    "options": [
+                        "laboratory",
+                        "archive",
+                        "warm",
+                        "quiet"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Почни з лабораторії; передай минулу замовлену послугу калібрування.",
+                    "options": [
+                        "had",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a4": {
+                    "answer": "its",
+                    "verb_hint": "Почни з лабораторії; передай минулу замовлену послугу калібрування.",
+                    "options": [
+                        "its",
+                        "mine",
+                        "yours",
+                        "hers"
+                    ]
+                },
+                "a5": {
+                    "answer": "instruments",
+                    "verb_hint": "Почни з лабораторії; передай минулу замовлену послугу калібрування.",
+                    "options": [
+                        "instruments",
+                        "windows",
+                        "protocols",
+                        "assets"
+                    ]
+                },
+                "a6": {
+                    "answer": "calibrated",
+                    "verb_hint": "Почни з лабораторії; передай минулу замовлену послугу калібрування.",
+                    "options": [
+                        "calibrated",
+                        "valued",
+                        "deacidified",
+                        "fixed"
+                    ]
+                },
+                "a7": {
+                    "answer": "by",
+                    "verb_hint": "Почни з лабораторії; передай минулу замовлену послугу калібрування.",
+                    "options": [
+                        "by",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a8": {
+                    "answer": "specialists.",
+                    "verb_hint": "Почни з лабораторії; передай минулу замовлену послугу калібрування.",
+                    "options": [
+                        "specialists",
+                        "performances",
+                        "manuscripts",
+                        "maps"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з лабораторії; передай минулу замовлену послугу калібрування.",
+            "accepted_target_texts": [
+                "The laboratory had its instruments calibrated by specialists."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The laboratory",
+                "had its instruments",
+                "calibrated by specialists."
+            ],
+            "token_groups": [
+                "The laboratory",
+                "had its instruments",
+                "calibrated by specialists."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "laboratory",
+                "had",
+                "its",
+                "instruments",
+                "calibrated",
+                "by",
+                "specialists."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "laboratory",
+                "archive",
+                "warm",
+                "quiet",
+                "had",
+                "hadn't",
+                "do",
+                "does",
+                "its",
+                "mine",
+                "yours",
+                "hers",
+                "instruments",
+                "windows",
+                "protocols",
+                "assets",
+                "calibrated",
+                "valued",
+                "deacidified",
+                "fixed",
+                "by",
+                "among",
+                "about",
+                "during",
+                "specialists",
+                "performances",
+                "manuscripts",
+                "maps"
+            ],
+            "source_text_uk": "Лабораторія замовила калібрування приладів у спеціалістів.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "laboratory",
+                    "archive",
+                    "warm",
+                    "quiet"
+                ],
+                "a3": [
+                    "had",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a4": [
+                    "its",
+                    "mine",
+                    "yours",
+                    "hers"
+                ],
+                "a5": [
+                    "instruments",
+                    "windows",
+                    "protocols",
+                    "assets"
+                ],
+                "a6": [
+                    "calibrated",
+                    "valued",
+                    "deacidified",
+                    "fixed"
+                ],
+                "a7": [
+                    "by",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a8": [
+                    "specialists",
+                    "performances",
+                    "manuscripts",
+                    "maps"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "causative_frame",
+                "a6": "service",
+                "a7": "service",
+                "a8": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-causative-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Архів замовив знекислення рукописів під наглядом.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Архів замовив знекислення рукописів під наглядом.",
+            "target_text": "The archive had its manuscripts deacidified under supervision.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з архіву; передай спеціалізовану замовлену послугу в минулому.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "archive",
+                    "verb_hint": "Почни з архіву; передай спеціалізовану замовлену послугу в минулому.",
+                    "options": [
+                        "archive",
+                        "laboratory",
+                        "warm",
+                        "quiet"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Почни з архіву; передай спеціалізовану замовлену послугу в минулому.",
+                    "options": [
+                        "had",
+                        "doesn't",
+                        "didn't",
+                        "have"
+                    ]
+                },
+                "a4": {
+                    "answer": "its",
+                    "verb_hint": "Почни з архіву; передай спеціалізовану замовлену послугу в минулому.",
+                    "options": [
+                        "its",
+                        "yours",
+                        "hers",
+                        "ours"
+                    ]
+                },
+                "a5": {
+                    "answer": "manuscripts",
+                    "verb_hint": "Почни з архіву; передай спеціалізовану замовлену послугу в минулому.",
+                    "options": [
+                        "manuscripts",
+                        "proofs",
+                        "costumes",
+                        "protocols"
+                    ]
+                },
+                "a6": {
+                    "answer": "deacidified",
+                    "verb_hint": "Почни з архіву; передай спеціалізовану замовлену послугу в минулому.",
+                    "options": [
+                        "deacidified",
+                        "altered",
+                        "repaired",
+                        "reinforced"
+                    ]
+                },
+                "a7": {
+                    "answer": "under",
+                    "verb_hint": "Почни з архіву; передай спеціалізовану замовлену послугу в минулому.",
+                    "options": [
+                        "under",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a8": {
+                    "answer": "supervision.",
+                    "verb_hint": "Почни з архіву; передай спеціалізовану замовлену послугу в минулому.",
+                    "options": [
+                        "supervision",
+                        "flotation",
+                        "school",
+                        "Monday"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з архіву; передай спеціалізовану замовлену послугу в минулому.",
+            "accepted_target_texts": [
+                "The archive had its manuscripts deacidified under supervision."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The archive",
+                "had its manuscripts",
+                "deacidified under supervision."
+            ],
+            "token_groups": [
+                "The archive",
+                "had its manuscripts",
+                "deacidified under supervision."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "archive",
+                "had",
+                "its",
+                "manuscripts",
+                "deacidified",
+                "under",
+                "supervision."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "archive",
+                "laboratory",
+                "warm",
+                "quiet",
+                "had",
+                "doesn't",
+                "didn't",
+                "have",
+                "its",
+                "yours",
+                "hers",
+                "ours",
+                "manuscripts",
+                "proofs",
+                "costumes",
+                "protocols",
+                "deacidified",
+                "altered",
+                "repaired",
+                "reinforced",
+                "under",
+                "without",
+                "into",
+                "onto",
+                "supervision",
+                "flotation",
+                "school",
+                "Monday"
+            ],
+            "source_text_uk": "Архів замовив знекислення рукописів під наглядом.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "archive",
+                    "laboratory",
+                    "warm",
+                    "quiet"
+                ],
+                "a3": [
+                    "had",
+                    "doesn't",
+                    "didn't",
+                    "have"
+                ],
+                "a4": [
+                    "its",
+                    "yours",
+                    "hers",
+                    "ours"
+                ],
+                "a5": [
+                    "manuscripts",
+                    "proofs",
+                    "costumes",
+                    "protocols"
+                ],
+                "a6": [
+                    "deacidified",
+                    "altered",
+                    "repaired",
+                    "reinforced"
+                ],
+                "a7": [
+                    "under",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a8": [
+                    "supervision",
+                    "flotation",
+                    "school",
+                    "Monday"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "causative_frame",
+                "a6": "service",
+                "a7": "service",
+                "a8": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-causative-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Виконавці заповіту замовили незалежне повторне оцінювання спадкового майна.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Виконавці заповіту замовили незалежне повторне оцінювання спадкового майна.",
+            "target_text": "The executors had the estate independently revalued.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з виконавців заповіту; передай замовлене минуле повторне оцінювання.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "executors",
+                    "verb_hint": "Почни з виконавців заповіту; передай замовлене минуле повторне оцінювання.",
+                    "options": [
+                        "executors",
+                        "tenants",
+                        "protocols",
+                        "schools"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Почни з виконавців заповіту; передай замовлене минуле повторне оцінювання.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з виконавців заповіту; передай замовлене минуле повторне оцінювання.",
+                    "options": [
+                        "the",
+                        "either",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "estate",
+                    "verb_hint": "Почни з виконавців заповіту; передай замовлене минуле повторне оцінювання.",
+                    "options": [
+                        "estate",
+                        "luggage",
+                        "dress",
+                        "testimony"
+                    ]
+                },
+                "a6": {
+                    "answer": "independently",
+                    "verb_hint": "Почни з виконавців заповіту; передай замовлене минуле повторне оцінювання.",
+                    "options": [
+                        "independently",
+                        "externally",
+                        "professionally",
+                        "happily"
+                    ]
+                },
+                "a7": {
+                    "answer": "revalued.",
+                    "verb_hint": "Почни з виконавців заповіту; передай замовлене минуле повторне оцінювання.",
+                    "options": [
+                        "revalued",
+                        "validated",
+                        "transcribed",
+                        "rode"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з виконавців заповіту; передай замовлене минуле повторне оцінювання.",
+            "accepted_target_texts": [
+                "The executors had the estate independently revalued."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The executors",
+                "had the estate",
+                "independently revalued."
+            ],
+            "token_groups": [
+                "The executors",
+                "had the estate",
+                "independently revalued."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "executors",
+                "had",
+                "the",
+                "estate",
+                "independently",
+                "revalued."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "executors",
+                "tenants",
+                "protocols",
+                "schools",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "the",
+                "either",
+                "a",
+                "an",
+                "estate",
+                "luggage",
+                "dress",
+                "testimony",
+                "independently",
+                "externally",
+                "professionally",
+                "happily",
+                "revalued",
+                "validated",
+                "transcribed",
+                "rode"
+            ],
+            "source_text_uk": "Виконавці заповіту замовили незалежне повторне оцінювання спадкового майна.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "executors",
+                    "tenants",
+                    "protocols",
+                    "schools"
+                ],
+                "a3": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a4": [
+                    "the",
+                    "either",
+                    "a",
+                    "an"
+                ],
+                "a5": [
+                    "estate",
+                    "luggage",
+                    "dress",
+                    "testimony"
+                ],
+                "a6": [
+                    "independently",
+                    "externally",
+                    "professionally",
+                    "happily"
+                ],
+                "a7": [
+                    "revalued",
+                    "validated",
+                    "transcribed",
+                    "rode"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "causative_frame",
+                "a6": "service",
+                "a7": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-causative-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Арбітр замовив професійне розшифрування свідчень.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Арбітр замовив професійне розшифрування свідчень.",
+            "target_text": "The arbitrator had the testimony professionally transcribed.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з арбітра; передай минулу послугу розшифрування чужими силами.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "arbitrator",
+                    "verb_hint": "Почни з арбітра; передай минулу послугу розшифрування чужими силами.",
+                    "options": [
+                        "arbitrator",
+                        "landlord",
+                        "bride",
+                        "publisher"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Почни з арбітра; передай минулу послугу розшифрування чужими силами.",
+                    "options": [
+                        "had",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з арбітра; передай минулу послугу розшифрування чужими силами.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a5": {
+                    "answer": "testimony",
+                    "verb_hint": "Почни з арбітра; передай минулу послугу розшифрування чужими силами.",
+                    "options": [
+                        "testimony",
+                        "boiler",
+                        "luggage",
+                        "dress"
+                    ]
+                },
+                "a6": {
+                    "answer": "professionally",
+                    "verb_hint": "Почни з арбітра; передай минулу послугу розшифрування чужими силами.",
+                    "options": [
+                        "professionally",
+                        "externally",
+                        "independently",
+                        "loudly"
+                    ]
+                },
+                "a7": {
+                    "answer": "transcribed.",
+                    "verb_hint": "Почни з арбітра; передай минулу послугу розшифрування чужими силами.",
+                    "options": [
+                        "transcribed",
+                        "revalued",
+                        "validated",
+                        "gave"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з арбітра; передай минулу послугу розшифрування чужими силами.",
+            "accepted_target_texts": [
+                "The arbitrator had the testimony professionally transcribed."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The arbitrator",
+                "had the testimony",
+                "professionally transcribed."
+            ],
+            "token_groups": [
+                "The arbitrator",
+                "had the testimony",
+                "professionally transcribed."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "arbitrator",
+                "had",
+                "the",
+                "testimony",
+                "professionally",
+                "transcribed."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "arbitrator",
+                "landlord",
+                "bride",
+                "publisher",
+                "had",
+                "do",
+                "does",
+                "did",
+                "the",
+                "an",
+                "some",
+                "any",
+                "testimony",
+                "boiler",
+                "luggage",
+                "dress",
+                "professionally",
+                "externally",
+                "independently",
+                "loudly",
+                "transcribed",
+                "revalued",
+                "validated",
+                "gave"
+            ],
+            "source_text_uk": "Арбітр замовив професійне розшифрування свідчень.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "arbitrator",
+                    "landlord",
+                    "bride",
+                    "publisher"
+                ],
+                "a3": [
+                    "had",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a4": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a5": [
+                    "testimony",
+                    "boiler",
+                    "luggage",
+                    "dress"
+                ],
+                "a6": [
+                    "professionally",
+                    "externally",
+                    "independently",
+                    "loudly"
+                ],
+                "a7": [
+                    "transcribed",
+                    "revalued",
+                    "validated",
+                    "gave"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "causative_frame",
+                "a4": "causative_frame",
+                "a5": "causative_frame",
+                "a6": "service",
+                "a7": "service"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-causative-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Дослідницький інститут замовив зовнішню перевірку протоколів.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Дослідницький інститут замовив зовнішню перевірку протоколів.",
+            "target_text": "The research institute had its protocols externally validated.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з інституту; передай минулу замовлену послугу зовнішнього підтвердження.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "research",
+                    "verb_hint": "Почни з інституту; передай минулу замовлену послугу зовнішнього підтвердження.",
+                    "options": [
+                        "research",
+                        "estate",
+                        "arbitrator",
+                        "testimony"
+                    ]
+                },
+                "a3": {
+                    "answer": "institute",
+                    "verb_hint": "Почни з інституту; передай минулу замовлену послугу зовнішнього підтвердження.",
+                    "options": [
+                        "institute",
+                        "map",
+                        "letter",
+                        "window"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Почни з інституту; передай минулу замовлену послугу зовнішнього підтвердження.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "its",
+                    "verb_hint": "Почни з інституту; передай минулу замовлену послугу зовнішнього підтвердження.",
+                    "options": [
+                        "its",
+                        "theirs",
+                        "whose",
+                        "my"
+                    ]
+                },
+                "a6": {
+                    "answer": "protocols",
+                    "verb_hint": "Почни з інституту; передай минулу замовлену послугу зовнішнього підтвердження.",
+                    "options": [
+                        "protocols",
+                        "instruments",
+                        "manuscripts",
+                        "curtains"
+                    ]
+                },
+                "a7": {
+                    "answer": "externally",
+                    "verb_hint": "Почни з інституту; передай минулу замовлену послугу зовнішнього підтвердження.",
+                    "options": [
+                        "externally",
+                        "professionally",
+                        "independently",
+                        "easily"
+                    ]
+                },
+                "a8": {
+                    "answer": "validated.",
+                    "verb_hint": "Почни з інституту; передай минулу замовлену послугу зовнішнього підтвердження.",
+                    "options": [
+                        "validated",
+                        "transcribed",
+                        "revalued",
+                        "played"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з інституту; передай минулу замовлену послугу зовнішнього підтвердження.",
+            "accepted_target_texts": [
+                "The research institute had its protocols externally validated."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The research institute",
+                "had its protocols",
+                "externally validated."
+            ],
+            "token_groups": [
+                "The research institute",
+                "had its protocols",
+                "externally validated."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "research",
+                "institute",
+                "had",
+                "its",
+                "protocols",
+                "externally",
+                "validated."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "research",
+                "estate",
+                "arbitrator",
+                "testimony",
+                "institute",
+                "map",
+                "letter",
+                "window",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "its",
+                "theirs",
+                "whose",
+                "my",
+                "protocols",
+                "instruments",
+                "manuscripts",
+                "curtains",
+                "externally",
+                "professionally",
+                "independently",
+                "easily",
+                "validated",
+                "transcribed",
+                "revalued",
+                "played"
+            ],
+            "source_text_uk": "Дослідницький інститут замовив зовнішню перевірку протоколів.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "research",
+                    "estate",
+                    "arbitrator",
+                    "testimony"
+                ],
+                "a3": [
+                    "institute",
+                    "map",
+                    "letter",
+                    "window"
+                ],
+                "a4": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a5": [
+                    "its",
+                    "theirs",
+                    "whose",
+                    "my"
+                ],
+                "a6": [
+                    "protocols",
+                    "instruments",
+                    "manuscripts",
+                    "curtains"
+                ],
+                "a7": [
+                    "externally",
+                    "professionally",
+                    "independently",
+                    "easily"
+                ],
+                "a8": [
+                    "validated",
+                    "transcribed",
+                    "revalued",
+                    "played"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "causative_frame",
+                "a5": "causative_frame",
+                "a6": "causative_frame",
+                "a7": "service",
+                "a8": "service"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

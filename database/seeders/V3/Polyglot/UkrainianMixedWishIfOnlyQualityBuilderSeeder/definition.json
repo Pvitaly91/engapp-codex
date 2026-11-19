@@ -1,0 +1,4047 @@
+{
+    "schema_version": 1,
+    "quality_revision": "cqq-v1",
+    "compiled_from": {
+        "path": "docs/content/conditionals-quality/wish-if-only.v1.json",
+        "sha256": "12561b8b4d14f0abf4b26d58c27840a3c55bb0da2090692ce4122221a70e36ab"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedWishIfOnlyQualityBuilderSeeder",
+        "uuid_namespace": "conditionals-quality-wish-if-only-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "conditionals_quality_wish_if_only": {
+            "name": "Conditionals Quality: Wish and If Only: Unreal Wishes and Regrets"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_wish_if_only": {
+            "name": "Wish / If only",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "wish_past_simple": {
+            "name": "Wish Past Simple",
+            "category": "topic"
+        },
+        "if_only_past_simple": {
+            "name": "If Only Past Simple",
+            "category": "topic"
+        },
+        "wish_past_perfect": {
+            "name": "Wish Past Perfect",
+            "category": "topic"
+        },
+        "if_only_past_perfect": {
+            "name": "If Only Past Perfect",
+            "category": "topic"
+        },
+        "wish_would": {
+            "name": "Wish Would",
+            "category": "topic"
+        },
+        "wish_were": {
+            "name": "Wish Were",
+            "category": "topic"
+        },
+        "negative_forms": {
+            "name": "Negative Forms",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cqq-wish-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Шкода, що мій письмовий стіл не більший.",
+            "level": "A1",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що мій письмовий стіл не більший.",
+            "target_text": "I wish my desk were larger.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистого побажання; нереальний стан передай минулою формою.",
+                    "options": [
+                        "I",
+                        "Ourselves",
+                        "Themselves",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "wish",
+                    "verb_hint": "Почни з особистого побажання; нереальний стан передай минулою формою.",
+                    "options": [
+                        "wish",
+                        "touch",
+                        "reflect",
+                        "resolve"
+                    ]
+                },
+                "a3": {
+                    "answer": "my",
+                    "verb_hint": "Почни з особистого побажання; нереальний стан передай минулою формою.",
+                    "options": [
+                        "my",
+                        "its",
+                        "our",
+                        "their"
+                    ]
+                },
+                "a4": {
+                    "answer": "desk",
+                    "verb_hint": "Почни з особистого побажання; нереальний стан передай минулою формою.",
+                    "options": [
+                        "desk",
+                        "rice",
+                        "bread",
+                        "delay"
+                    ]
+                },
+                "a5": {
+                    "answer": "were",
+                    "verb_hint": "Почни з особистого побажання; нереальний стан передай минулою формою.",
+                    "options": [
+                        "were",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a6": {
+                    "answer": "larger.",
+                    "verb_hint": "Почни з особистого побажання; нереальний стан передай минулою формою.",
+                    "options": [
+                        "larger",
+                        "large",
+                        "new",
+                        "old"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистого побажання; нереальний стан передай минулою формою.",
+            "accepted_target_texts": [
+                "I wish my desk were larger.",
+                "I wish my desk was larger.",
+                "I wish my desk were bigger.",
+                "I wish my desk was bigger."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "was"
+                ],
+                "a6": [
+                    "bigger."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "was"
+                ],
+                "a6": [
+                    "bigger."
+                ]
+            },
+            "reorder_groups": [
+                "I wish",
+                "my desk",
+                "were larger."
+            ],
+            "token_groups": [
+                "I wish",
+                "my desk",
+                "were larger."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "wish",
+                "my",
+                "desk",
+                "were",
+                "larger."
+            ],
+            "options": [
+                "I",
+                "Ourselves",
+                "Themselves",
+                "You",
+                "wish",
+                "touch",
+                "reflect",
+                "resolve",
+                "my",
+                "its",
+                "our",
+                "their",
+                "desk",
+                "rice",
+                "bread",
+                "delay",
+                "were",
+                "be",
+                "been",
+                "being",
+                "larger",
+                "large",
+                "new",
+                "old"
+            ],
+            "source_text_uk": "Шкода, що мій письмовий стіл не більший.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Ourselves",
+                    "Themselves",
+                    "You"
+                ],
+                "a2": [
+                    "wish",
+                    "touch",
+                    "reflect",
+                    "resolve"
+                ],
+                "a3": [
+                    "my",
+                    "its",
+                    "our",
+                    "their"
+                ],
+                "a4": [
+                    "desk",
+                    "rice",
+                    "bread",
+                    "delay"
+                ],
+                "a5": [
+                    "were",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a6": [
+                    "larger",
+                    "large",
+                    "new",
+                    "old"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "noun",
+                "a5": "be",
+                "a6": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "cqq-wish-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Якби ж я вмів кататися на ковзанах.",
+            "level": "A1",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж я вмів кататися на ковзанах.",
+            "target_text": "If only I could skate.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Почни з підсиленого побажання, потім назви відсутню здатність.",
+                    "options": [
+                        "If",
+                        "Whether",
+                        "And",
+                        "But"
+                    ]
+                },
+                "a2": {
+                    "answer": "only",
+                    "verb_hint": "Почни з підсиленого побажання, потім назви відсутню здатність.",
+                    "options": [
+                        "only",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a3": {
+                    "answer": "I",
+                    "verb_hint": "Почни з підсиленого побажання, потім назви відсутню здатність.",
+                    "options": [
+                        "I",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a4": {
+                    "answer": "could",
+                    "verb_hint": "Почни з підсиленого побажання, потім назви відсутню здатність.",
+                    "options": [
+                        "could",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a5": {
+                    "answer": "skate.",
+                    "verb_hint": "Почни з підсиленого побажання, потім назви відсутню здатність.",
+                    "options": [
+                        "skate",
+                        "reduce",
+                        "swim",
+                        "enter"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з підсиленого побажання, потім назви відсутню здатність.",
+            "accepted_target_texts": [
+                "If only I could skate."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If only",
+                "I could",
+                "skate."
+            ],
+            "token_groups": [
+                "If only",
+                "I could",
+                "skate."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "only",
+                "I",
+                "could",
+                "skate."
+            ],
+            "options": [
+                "If",
+                "Whether",
+                "And",
+                "But",
+                "only",
+                "always",
+                "often",
+                "sometimes",
+                "I",
+                "Me",
+                "Him",
+                "Us",
+                "could",
+                "shouldn't",
+                "cannot",
+                "can",
+                "skate",
+                "reduce",
+                "swim",
+                "enter"
+            ],
+            "source_text_uk": "Якби ж я вмів кататися на ковзанах.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "Whether",
+                    "And",
+                    "But"
+                ],
+                "a2": [
+                    "only",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a3": [
+                    "I",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a4": [
+                    "could",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a5": [
+                    "skate",
+                    "reduce",
+                    "swim",
+                    "enter"
+                ]
+            },
+            "slot_roles": {
+                "a1": "conjunction",
+                "a2": "adverb",
+                "a3": "pronoun",
+                "a4": "modal",
+                "a5": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "cqq-wish-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Хотілося б, щоб вітер ущух.",
+            "level": "A1",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Хотілося б, щоб вітер ущух.",
+            "target_text": "I wish the wind would stop.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистого побажання та передай бажану зміну ситуації.",
+                    "options": [
+                        "I",
+                        "Him",
+                        "Us",
+                        "Them"
+                    ]
+                },
+                "a2": {
+                    "answer": "wish",
+                    "verb_hint": "Почни з особистого побажання та передай бажану зміну ситуації.",
+                    "options": [
+                        "wish",
+                        "rule",
+                        "swim",
+                        "enter"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з особистого побажання та передай бажану зміну ситуації.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a4": {
+                    "answer": "wind",
+                    "verb_hint": "Почни з особистого побажання та передай бажану зміну ситуації.",
+                    "options": [
+                        "wind",
+                        "error",
+                        "record",
+                        "evidence"
+                    ]
+                },
+                "a5": {
+                    "answer": "would",
+                    "verb_hint": "Почни з особистого побажання та передай бажану зміну ситуації.",
+                    "options": [
+                        "would",
+                        "must",
+                        "can't",
+                        "couldn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "stop.",
+                    "verb_hint": "Почни з особистого побажання та передай бажану зміну ситуації.",
+                    "options": [
+                        "stop",
+                        "speak",
+                        "hear",
+                        "trace"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистого побажання та передай бажану зміну ситуації.",
+            "accepted_target_texts": [
+                "I wish the wind would stop."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "the wind",
+                "would stop."
+            ],
+            "token_groups": [
+                "I wish",
+                "the wind",
+                "would stop."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "wish",
+                "the",
+                "wind",
+                "would",
+                "stop."
+            ],
+            "options": [
+                "I",
+                "Him",
+                "Us",
+                "Them",
+                "wish",
+                "rule",
+                "swim",
+                "enter",
+                "the",
+                "a",
+                "an",
+                "some",
+                "wind",
+                "error",
+                "record",
+                "evidence",
+                "would",
+                "must",
+                "can't",
+                "couldn't",
+                "stop",
+                "speak",
+                "hear",
+                "trace"
+            ],
+            "source_text_uk": "Хотілося б, щоб вітер ущух.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Him",
+                    "Us",
+                    "Them"
+                ],
+                "a2": [
+                    "wish",
+                    "rule",
+                    "swim",
+                    "enter"
+                ],
+                "a3": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a4": [
+                    "wind",
+                    "error",
+                    "record",
+                    "evidence"
+                ],
+                "a5": [
+                    "would",
+                    "must",
+                    "can't",
+                    "couldn't"
+                ],
+                "a6": [
+                    "stop",
+                    "speak",
+                    "hear",
+                    "trace"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "noun",
+                "a5": "modal",
+                "a6": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "cqq-wish-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Шкода, що наші сусіди не тихіші.",
+            "level": "A2",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що наші сусіди не тихіші.",
+            "target_text": "I wish our neighbours were quieter.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистого побажання; для кількох сусідів потрібна форма множини.",
+                    "options": [
+                        "I",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a2": {
+                    "answer": "wish",
+                    "verb_hint": "Почни з особистого побажання; для кількох сусідів потрібна форма множини.",
+                    "options": [
+                        "wish",
+                        "touch",
+                        "reflect",
+                        "resolve"
+                    ]
+                },
+                "a3": {
+                    "answer": "our",
+                    "verb_hint": "Почни з особистого побажання; для кількох сусідів потрібна форма множини.",
+                    "options": [
+                        "our",
+                        "whose",
+                        "my",
+                        "your"
+                    ]
+                },
+                "a4": {
+                    "answer": "neighbours",
+                    "verb_hint": "Почни з особистого побажання; для кількох сусідів потрібна форма множини.",
+                    "options": [
+                        "neighbours",
+                        "glasses",
+                        "women",
+                        "bikes"
+                    ]
+                },
+                "a5": {
+                    "answer": "were",
+                    "verb_hint": "Почни з особистого побажання; для кількох сусідів потрібна форма множини.",
+                    "options": [
+                        "were",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "quieter.",
+                    "verb_hint": "Почни з особистого побажання; для кількох сусідів потрібна форма множини.",
+                    "options": [
+                        "quieter",
+                        "same",
+                        "main",
+                        "early"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистого побажання; для кількох сусідів потрібна форма множини.",
+            "accepted_target_texts": [
+                "I wish our neighbours were quieter."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "our neighbours",
+                "were quieter."
+            ],
+            "token_groups": [
+                "I wish",
+                "our neighbours",
+                "were quieter."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "wish",
+                "our",
+                "neighbours",
+                "were",
+                "quieter."
+            ],
+            "options": [
+                "I",
+                "Them",
+                "Myself",
+                "Yourself",
+                "wish",
+                "touch",
+                "reflect",
+                "resolve",
+                "our",
+                "whose",
+                "my",
+                "your",
+                "neighbours",
+                "glasses",
+                "women",
+                "bikes",
+                "were",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "quieter",
+                "same",
+                "main",
+                "early"
+            ],
+            "source_text_uk": "Шкода, що наші сусіди не тихіші.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a2": [
+                    "wish",
+                    "touch",
+                    "reflect",
+                    "resolve"
+                ],
+                "a3": [
+                    "our",
+                    "whose",
+                    "my",
+                    "your"
+                ],
+                "a4": [
+                    "neighbours",
+                    "glasses",
+                    "women",
+                    "bikes"
+                ],
+                "a5": [
+                    "were",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a6": [
+                    "quieter",
+                    "same",
+                    "main",
+                    "early"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "noun",
+                "a5": "be",
+                "a6": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "cqq-wish-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Якби ж я взяв із собою окуляри.",
+            "level": "A2",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж я взяв із собою окуляри.",
+            "target_text": "If only I had brought my glasses.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Почни з підсиленого жалю про вже втрачену минулу можливість.",
+                    "options": [
+                        "If",
+                        "Because",
+                        "Although",
+                        "Though"
+                    ]
+                },
+                "a2": {
+                    "answer": "only",
+                    "verb_hint": "Почни з підсиленого жалю про вже втрачену минулу можливість.",
+                    "options": [
+                        "only",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a3": {
+                    "answer": "I",
+                    "verb_hint": "Почни з підсиленого жалю про вже втрачену минулу можливість.",
+                    "options": [
+                        "I",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Почни з підсиленого жалю про вже втрачену минулу можливість.",
+                    "options": [
+                        "had",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a5": {
+                    "answer": "brought",
+                    "verb_hint": "Почни з підсиленого жалю про вже втрачену минулу можливість.",
+                    "options": [
+                        "brought",
+                        "open",
+                        "called",
+                        "opened"
+                    ]
+                },
+                "a6": {
+                    "answer": "my",
+                    "verb_hint": "Почни з підсиленого жалю про вже втрачену минулу можливість.",
+                    "options": [
+                        "my",
+                        "his",
+                        "her",
+                        "its"
+                    ]
+                },
+                "a7": {
+                    "answer": "glasses.",
+                    "verb_hint": "Почни з підсиленого жалю про вже втрачену минулу можливість.",
+                    "options": [
+                        "glasses",
+                        "neighbours",
+                        "friends",
+                        "dogs"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з підсиленого жалю про вже втрачену минулу можливість.",
+            "accepted_target_texts": [
+                "If only I had brought my glasses."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If only",
+                "I had brought",
+                "my glasses."
+            ],
+            "token_groups": [
+                "If only",
+                "I had brought",
+                "my glasses."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "only",
+                "I",
+                "had",
+                "brought",
+                "my",
+                "glasses."
+            ],
+            "options": [
+                "If",
+                "Because",
+                "Although",
+                "Though",
+                "only",
+                "never",
+                "always",
+                "often",
+                "I",
+                "It",
+                "We",
+                "They",
+                "had",
+                "hasn't",
+                "hadn't",
+                "do",
+                "brought",
+                "open",
+                "called",
+                "opened",
+                "my",
+                "his",
+                "her",
+                "its",
+                "glasses",
+                "neighbours",
+                "friends",
+                "dogs"
+            ],
+            "source_text_uk": "Якби ж я взяв із собою окуляри.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "Because",
+                    "Although",
+                    "Though"
+                ],
+                "a2": [
+                    "only",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a3": [
+                    "I",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a4": [
+                    "had",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a5": [
+                    "brought",
+                    "open",
+                    "called",
+                    "opened"
+                ],
+                "a6": [
+                    "my",
+                    "his",
+                    "her",
+                    "its"
+                ],
+                "a7": [
+                    "glasses",
+                    "neighbours",
+                    "friends",
+                    "dogs"
+                ]
+            },
+            "slot_roles": {
+                "a1": "conjunction",
+                "a2": "adverb",
+                "a3": "pronoun",
+                "a4": "auxiliary",
+                "a5": "verb",
+                "a6": "determiner",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "cqq-wish-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Хотілося б, щоб ти зачинив хвіртку.",
+            "level": "A2",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Хотілося б, щоб ти зачинив хвіртку.",
+            "target_text": "I wish you would close the gate.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистого побажання і вислови прохання змінити поведінку.",
+                    "options": [
+                        "I",
+                        "Themselves",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "wish",
+                    "verb_hint": "Почни з особистого побажання і вислови прохання змінити поведінку.",
+                    "options": [
+                        "wish",
+                        "hear",
+                        "trace",
+                        "reduce"
+                    ]
+                },
+                "a3": {
+                    "answer": "you",
+                    "verb_hint": "Почни з особистого побажання і вислови прохання змінити поведінку.",
+                    "options": [
+                        "you",
+                        "it",
+                        "we",
+                        "they"
+                    ]
+                },
+                "a4": {
+                    "answer": "would",
+                    "verb_hint": "Почни з особистого побажання і вислови прохання змінити поведінку.",
+                    "options": [
+                        "would",
+                        "wouldn't",
+                        "shouldn't",
+                        "cannot"
+                    ]
+                },
+                "a5": {
+                    "answer": "close",
+                    "verb_hint": "Почни з особистого побажання і вислови прохання змінити поведінку.",
+                    "options": [
+                        "close",
+                        "write",
+                        "read",
+                        "ride"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з особистого побажання і вислови прохання змінити поведінку.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a7": {
+                    "answer": "gate.",
+                    "verb_hint": "Почни з особистого побажання і вислови прохання змінити поведінку.",
+                    "options": [
+                        "gate",
+                        "identity",
+                        "agreement",
+                        "experience"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистого побажання і вислови прохання змінити поведінку.",
+            "accepted_target_texts": [
+                "I wish you would close the gate.",
+                "I wish you would shut the gate."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "shut"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "shut"
+                ]
+            },
+            "reorder_groups": [
+                "I wish",
+                "you would",
+                "close the gate."
+            ],
+            "token_groups": [
+                "I wish",
+                "you would",
+                "close the gate."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "wish",
+                "you",
+                "would",
+                "close",
+                "the",
+                "gate."
+            ],
+            "options": [
+                "I",
+                "Themselves",
+                "He",
+                "She",
+                "wish",
+                "hear",
+                "trace",
+                "reduce",
+                "you",
+                "it",
+                "we",
+                "they",
+                "would",
+                "wouldn't",
+                "shouldn't",
+                "cannot",
+                "close",
+                "write",
+                "read",
+                "ride",
+                "the",
+                "this",
+                "that",
+                "these",
+                "gate",
+                "identity",
+                "agreement",
+                "experience"
+            ],
+            "source_text_uk": "Хотілося б, щоб ти зачинив хвіртку.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Themselves",
+                    "He",
+                    "She"
+                ],
+                "a2": [
+                    "wish",
+                    "hear",
+                    "trace",
+                    "reduce"
+                ],
+                "a3": [
+                    "you",
+                    "it",
+                    "we",
+                    "they"
+                ],
+                "a4": [
+                    "would",
+                    "wouldn't",
+                    "shouldn't",
+                    "cannot"
+                ],
+                "a5": [
+                    "close",
+                    "write",
+                    "read",
+                    "ride"
+                ],
+                "a6": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a7": [
+                    "gate",
+                    "identity",
+                    "agreement",
+                    "experience"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb",
+                "a3": "pronoun",
+                "a4": "modal",
+                "a5": "verb",
+                "a6": "determiner",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "cqq-wish-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Шкода, що я не прийняв попередню пропозицію.",
+            "level": "B1",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що я не прийняв попередню пропозицію.",
+            "target_text": "I wish I had accepted the earlier offer.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистого жалю про вже завершену минулу можливість.",
+                    "options": [
+                        "I",
+                        "Ourselves",
+                        "Themselves",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "wish",
+                    "verb_hint": "Почни з особистого жалю про вже завершену минулу можливість.",
+                    "options": [
+                        "wish",
+                        "reveal",
+                        "justify",
+                        "distort"
+                    ]
+                },
+                "a3": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистого жалю про вже завершену минулу можливість.",
+                    "options": [
+                        "I",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Почни з особистого жалю про вже завершену минулу можливість.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "accepted",
+                    "verb_hint": "Почни з особистого жалю про вже завершену минулу можливість.",
+                    "options": [
+                        "accepted",
+                        "open",
+                        "visited",
+                        "cooked"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з особистого жалю про вже завершену минулу можливість.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "earlier",
+                    "verb_hint": "Почни з особистого жалю про вже завершену минулу можливість.",
+                    "options": [
+                        "earlier",
+                        "selective",
+                        "early",
+                        "late"
+                    ]
+                },
+                "a8": {
+                    "answer": "offer.",
+                    "verb_hint": "Почни з особистого жалю про вже завершену минулу можливість.",
+                    "options": [
+                        "offer",
+                        "formulation",
+                        "contradiction",
+                        "quality"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистого жалю про вже завершену минулу можливість.",
+            "accepted_target_texts": [
+                "I wish I had accepted the earlier offer."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "I had accepted",
+                "the earlier offer."
+            ],
+            "token_groups": [
+                "I wish",
+                "I had accepted",
+                "the earlier offer."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "wish",
+                "I",
+                "had",
+                "accepted",
+                "the",
+                "earlier",
+                "offer."
+            ],
+            "options": [
+                "I",
+                "Ourselves",
+                "Themselves",
+                "You",
+                "wish",
+                "reveal",
+                "justify",
+                "distort",
+                "Us",
+                "Them",
+                "Myself",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "accepted",
+                "open",
+                "visited",
+                "cooked",
+                "the",
+                "some",
+                "any",
+                "this",
+                "earlier",
+                "selective",
+                "early",
+                "late",
+                "offer",
+                "formulation",
+                "contradiction",
+                "quality"
+            ],
+            "source_text_uk": "Шкода, що я не прийняв попередню пропозицію.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Ourselves",
+                    "Themselves",
+                    "You"
+                ],
+                "a2": [
+                    "wish",
+                    "reveal",
+                    "justify",
+                    "distort"
+                ],
+                "a3": [
+                    "I",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a4": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a5": [
+                    "accepted",
+                    "open",
+                    "visited",
+                    "cooked"
+                ],
+                "a6": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "earlier",
+                    "selective",
+                    "early",
+                    "late"
+                ],
+                "a8": [
+                    "offer",
+                    "formulation",
+                    "contradiction",
+                    "quality"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb",
+                "a3": "pronoun",
+                "a4": "auxiliary",
+                "a5": "verb",
+                "a6": "determiner",
+                "a7": "adjective",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "cqq-wish-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Якби ж бібліотека залишалася відчиненою довше.",
+            "level": "B1",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж бібліотека залишалася відчиненою довше.",
+            "target_text": "If only the library stayed open later.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Почни з підсиленого побажання про чинний розклад.",
+                    "options": [
+                        "If",
+                        "Yet",
+                        "Because",
+                        "Although"
+                    ]
+                },
+                "a2": {
+                    "answer": "only",
+                    "verb_hint": "Почни з підсиленого побажання про чинний розклад.",
+                    "options": [
+                        "only",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з підсиленого побажання про чинний розклад.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "library",
+                    "verb_hint": "Почни з підсиленого побажання про чинний розклад.",
+                    "options": [
+                        "library",
+                        "earlier",
+                        "good",
+                        "bad"
+                    ]
+                },
+                "a5": {
+                    "answer": "stayed",
+                    "verb_hint": "Почни з підсиленого побажання про чинний розклад.",
+                    "options": [
+                        "stayed",
+                        "accepted",
+                        "children",
+                        "walked"
+                    ]
+                },
+                "a6": {
+                    "answer": "open",
+                    "verb_hint": "Почни з підсиленого побажання про чинний розклад.",
+                    "options": [
+                        "open",
+                        "old",
+                        "clear",
+                        "unclear"
+                    ]
+                },
+                "a7": {
+                    "answer": "later.",
+                    "verb_hint": "Почни з підсиленого побажання про чинний розклад.",
+                    "options": [
+                        "later",
+                        "slowly",
+                        "clearly",
+                        "even"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з підсиленого побажання про чинний розклад.",
+            "accepted_target_texts": [
+                "If only the library stayed open later."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If only",
+                "the library",
+                "stayed open",
+                "later."
+            ],
+            "token_groups": [
+                "If only",
+                "the library",
+                "stayed open",
+                "later."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "only",
+                "the",
+                "library",
+                "stayed",
+                "open",
+                "later."
+            ],
+            "options": [
+                "If",
+                "Yet",
+                "Because",
+                "Although",
+                "only",
+                "still",
+                "just",
+                "also",
+                "the",
+                "each",
+                "every",
+                "no",
+                "library",
+                "earlier",
+                "good",
+                "bad",
+                "stayed",
+                "accepted",
+                "children",
+                "walked",
+                "open",
+                "old",
+                "clear",
+                "unclear",
+                "later",
+                "slowly",
+                "clearly",
+                "even"
+            ],
+            "source_text_uk": "Якби ж бібліотека залишалася відчиненою довше.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "Yet",
+                    "Because",
+                    "Although"
+                ],
+                "a2": [
+                    "only",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a3": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "library",
+                    "earlier",
+                    "good",
+                    "bad"
+                ],
+                "a5": [
+                    "stayed",
+                    "accepted",
+                    "children",
+                    "walked"
+                ],
+                "a6": [
+                    "open",
+                    "old",
+                    "clear",
+                    "unclear"
+                ],
+                "a7": [
+                    "later",
+                    "slowly",
+                    "clearly",
+                    "even"
+                ]
+            },
+            "slot_roles": {
+                "a1": "conjunction",
+                "a2": "adverb",
+                "a3": "determiner",
+                "a4": "noun",
+                "a5": "verb",
+                "a6": "adjective",
+                "a7": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "cqq-wish-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Хотілося б, щоб діти ділилися іграшками.",
+            "level": "B1",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Хотілося б, щоб діти ділилися іграшками.",
+            "target_text": "I wish the children would share their toys.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистого побажання про бажану зміну поведінки інших.",
+                    "options": [
+                        "I",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a2": {
+                    "answer": "wish",
+                    "verb_hint": "Почни з особистого побажання про бажану зміну поведінки інших.",
+                    "options": [
+                        "wish",
+                        "trace",
+                        "reduce",
+                        "reveal"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з особистого побажання про бажану зміну поведінки інших.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a4": {
+                    "answer": "children",
+                    "verb_hint": "Почни з особистого побажання про бажану зміну поведінки інших.",
+                    "options": [
+                        "children",
+                        "cost",
+                        "stayed",
+                        "called"
+                    ]
+                },
+                "a5": {
+                    "answer": "would",
+                    "verb_hint": "Почни з особистого побажання про бажану зміну поведінки інших.",
+                    "options": [
+                        "would",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a6": {
+                    "answer": "share",
+                    "verb_hint": "Почни з особистого побажання про бажану зміну поведінки інших.",
+                    "options": [
+                        "share",
+                        "resolve",
+                        "swim",
+                        "enter"
+                    ]
+                },
+                "a7": {
+                    "answer": "their",
+                    "verb_hint": "Почни з особистого побажання про бажану зміну поведінки інших.",
+                    "options": [
+                        "their",
+                        "its",
+                        "our",
+                        "mine"
+                    ]
+                },
+                "a8": {
+                    "answer": "toys.",
+                    "verb_hint": "Почни з особистого побажання про бажану зміну поведінки інших.",
+                    "options": [
+                        "toys",
+                        "rooms",
+                        "maps",
+                        "letters"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистого побажання про бажану зміну поведінки інших.",
+            "accepted_target_texts": [
+                "I wish the children would share their toys."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "the children",
+                "would share",
+                "their toys."
+            ],
+            "token_groups": [
+                "I wish",
+                "the children",
+                "would share",
+                "their toys."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "wish",
+                "the",
+                "children",
+                "would",
+                "share",
+                "their",
+                "toys."
+            ],
+            "options": [
+                "I",
+                "Them",
+                "Myself",
+                "Yourself",
+                "wish",
+                "trace",
+                "reduce",
+                "reveal",
+                "the",
+                "this",
+                "that",
+                "these",
+                "children",
+                "cost",
+                "stayed",
+                "called",
+                "would",
+                "shall",
+                "should",
+                "may",
+                "share",
+                "resolve",
+                "swim",
+                "enter",
+                "their",
+                "its",
+                "our",
+                "mine",
+                "toys",
+                "rooms",
+                "maps",
+                "letters"
+            ],
+            "source_text_uk": "Хотілося б, щоб діти ділилися іграшками.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a2": [
+                    "wish",
+                    "trace",
+                    "reduce",
+                    "reveal"
+                ],
+                "a3": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a4": [
+                    "children",
+                    "cost",
+                    "stayed",
+                    "called"
+                ],
+                "a5": [
+                    "would",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a6": [
+                    "share",
+                    "resolve",
+                    "swim",
+                    "enter"
+                ],
+                "a7": [
+                    "their",
+                    "its",
+                    "our",
+                    "mine"
+                ],
+                "a8": [
+                    "toys",
+                    "rooms",
+                    "maps",
+                    "letters"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "noun",
+                "a5": "modal",
+                "a6": "verb",
+                "a7": "determiner",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "cqq-wish-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Шкода, що ми не домовилися про довший строк попередження.",
+            "level": "B2",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що ми не домовилися про довший строк попередження.",
+            "target_text": "I wish we had negotiated a longer notice period.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистого жалю щодо вже проведених переговорів.",
+                    "options": [
+                        "I",
+                        "Themselves",
+                        "You",
+                        "He"
+                    ]
+                },
+                "a2": {
+                    "answer": "wish",
+                    "verb_hint": "Почни з особистого жалю щодо вже проведених переговорів.",
+                    "options": [
+                        "wish",
+                        "trace",
+                        "reduce",
+                        "reveal"
+                    ]
+                },
+                "a3": {
+                    "answer": "we",
+                    "verb_hint": "Почни з особистого жалю щодо вже проведених переговорів.",
+                    "options": [
+                        "we",
+                        "she",
+                        "it",
+                        "they"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Почни з особистого жалю щодо вже проведених переговорів.",
+                    "options": [
+                        "had",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a5": {
+                    "answer": "negotiated",
+                    "verb_hint": "Почни з особистого жалю щодо вже проведених переговорів.",
+                    "options": [
+                        "negotiated",
+                        "open",
+                        "said",
+                        "met"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Почни з особистого жалю щодо вже проведених переговорів.",
+                    "options": [
+                        "a",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a7": {
+                    "answer": "longer",
+                    "verb_hint": "Почни з особистого жалю щодо вже проведених переговорів.",
+                    "options": [
+                        "longer",
+                        "formal",
+                        "local",
+                        "practical"
+                    ]
+                },
+                "a8": {
+                    "answer": "notice",
+                    "verb_hint": "Почни з особистого жалю щодо вже проведених переговорів.",
+                    "options": [
+                        "notice",
+                        "estimate",
+                        "formulation",
+                        "contradiction"
+                    ]
+                },
+                "a9": {
+                    "answer": "period.",
+                    "verb_hint": "Почни з особистого жалю щодо вже проведених переговорів.",
+                    "options": [
+                        "period",
+                        "identity",
+                        "agreement",
+                        "experience"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистого жалю щодо вже проведених переговорів.",
+            "accepted_target_texts": [
+                "I wish we had negotiated a longer notice period."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "we had negotiated",
+                "a longer",
+                "notice period."
+            ],
+            "token_groups": [
+                "I wish",
+                "we had negotiated",
+                "a longer",
+                "notice period."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "wish",
+                "we",
+                "had",
+                "negotiated",
+                "a",
+                "longer",
+                "notice",
+                "period."
+            ],
+            "options": [
+                "I",
+                "Themselves",
+                "You",
+                "He",
+                "wish",
+                "trace",
+                "reduce",
+                "reveal",
+                "we",
+                "she",
+                "it",
+                "they",
+                "had",
+                "hadn't",
+                "do",
+                "does",
+                "negotiated",
+                "open",
+                "said",
+                "met",
+                "a",
+                "any",
+                "this",
+                "that",
+                "longer",
+                "formal",
+                "local",
+                "practical",
+                "notice",
+                "estimate",
+                "formulation",
+                "contradiction",
+                "period",
+                "identity",
+                "agreement",
+                "experience"
+            ],
+            "source_text_uk": "Шкода, що ми не домовилися про довший строк попередження.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Themselves",
+                    "You",
+                    "He"
+                ],
+                "a2": [
+                    "wish",
+                    "trace",
+                    "reduce",
+                    "reveal"
+                ],
+                "a3": [
+                    "we",
+                    "she",
+                    "it",
+                    "they"
+                ],
+                "a4": [
+                    "had",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a5": [
+                    "negotiated",
+                    "open",
+                    "said",
+                    "met"
+                ],
+                "a6": [
+                    "a",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a7": [
+                    "longer",
+                    "formal",
+                    "local",
+                    "practical"
+                ],
+                "a8": [
+                    "notice",
+                    "estimate",
+                    "formulation",
+                    "contradiction"
+                ],
+                "a9": [
+                    "period",
+                    "identity",
+                    "agreement",
+                    "experience"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb",
+                "a3": "pronoun",
+                "a4": "auxiliary",
+                "a5": "verb",
+                "a6": "determiner",
+                "a7": "adjective",
+                "a8": "noun",
+                "a9": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "cqq-wish-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Якби ж докази були доступні всім.",
+            "level": "B2",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж докази були доступні всім.",
+            "target_text": "If only the evidence were available to everyone.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний доступ.",
+                    "options": [
+                        "If",
+                        "Because",
+                        "Although",
+                        "Though"
+                    ]
+                },
+                "a2": {
+                    "answer": "only",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний доступ.",
+                    "options": [
+                        "only",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний доступ.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a4": {
+                    "answer": "evidence",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний доступ.",
+                    "options": [
+                        "evidence",
+                        "argument",
+                        "claim",
+                        "permission"
+                    ]
+                },
+                "a5": {
+                    "answer": "were",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний доступ.",
+                    "options": [
+                        "were",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a6": {
+                    "answer": "available",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний доступ.",
+                    "options": [
+                        "available",
+                        "formal",
+                        "local",
+                        "practical"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний доступ.",
+                    "options": [
+                        "to",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a8": {
+                    "answer": "everyone.",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний доступ.",
+                    "options": [
+                        "everyone",
+                        "them",
+                        "him",
+                        "her"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з підсиленого побажання про нереальний поточний доступ.",
+            "accepted_target_texts": [
+                "If only the evidence were available to everyone.",
+                "If only the evidence was available to everyone."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "was"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "was"
+                ]
+            },
+            "reorder_groups": [
+                "If only",
+                "the evidence",
+                "were available",
+                "to everyone."
+            ],
+            "token_groups": [
+                "If only",
+                "the evidence",
+                "were available",
+                "to everyone."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "only",
+                "the",
+                "evidence",
+                "were",
+                "available",
+                "to",
+                "everyone."
+            ],
+            "options": [
+                "If",
+                "Because",
+                "Although",
+                "Though",
+                "only",
+                "still",
+                "just",
+                "also",
+                "the",
+                "any",
+                "this",
+                "that",
+                "evidence",
+                "argument",
+                "claim",
+                "permission",
+                "were",
+                "weren't",
+                "am",
+                "is",
+                "available",
+                "formal",
+                "local",
+                "practical",
+                "to",
+                "of",
+                "in",
+                "on",
+                "everyone",
+                "them",
+                "him",
+                "her"
+            ],
+            "source_text_uk": "Якби ж докази були доступні всім.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "Because",
+                    "Although",
+                    "Though"
+                ],
+                "a2": [
+                    "only",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a3": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a4": [
+                    "evidence",
+                    "argument",
+                    "claim",
+                    "permission"
+                ],
+                "a5": [
+                    "were",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a6": [
+                    "available",
+                    "formal",
+                    "local",
+                    "practical"
+                ],
+                "a7": [
+                    "to",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a8": [
+                    "everyone",
+                    "them",
+                    "him",
+                    "her"
+                ]
+            },
+            "slot_roles": {
+                "a1": "conjunction",
+                "a2": "adverb",
+                "a3": "determiner",
+                "a4": "noun",
+                "a5": "be",
+                "a6": "adjective",
+                "a7": "preposition",
+                "a8": "pronoun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "cqq-wish-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Хотілося б, щоб ти відрізняв пораду від критики.",
+            "level": "B2",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Хотілося б, щоб ти відрізняв пораду від критики.",
+            "target_text": "I wish you would distinguish advice from criticism.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистого побажання про поведінку співрозмовника.",
+                    "options": [
+                        "I",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "wish",
+                    "verb_hint": "Почни з особистого побажання про поведінку співрозмовника.",
+                    "options": [
+                        "wish",
+                        "reveal",
+                        "justify",
+                        "establish"
+                    ]
+                },
+                "a3": {
+                    "answer": "you",
+                    "verb_hint": "Почни з особистого побажання про поведінку співрозмовника.",
+                    "options": [
+                        "you",
+                        "us",
+                        "them",
+                        "myself"
+                    ]
+                },
+                "a4": {
+                    "answer": "would",
+                    "verb_hint": "Почни з особистого побажання про поведінку співрозмовника.",
+                    "options": [
+                        "would",
+                        "must",
+                        "can't",
+                        "couldn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "distinguish",
+                    "verb_hint": "Почни з особистого побажання про поведінку співрозмовника.",
+                    "options": [
+                        "distinguish",
+                        "touch",
+                        "reflect",
+                        "resolve"
+                    ]
+                },
+                "a6": {
+                    "answer": "advice",
+                    "verb_hint": "Почни з особистого побажання про поведінку співрозмовника.",
+                    "options": [
+                        "advice",
+                        "evidence",
+                        "notice",
+                        "name"
+                    ]
+                },
+                "a7": {
+                    "answer": "from",
+                    "verb_hint": "Почни з особистого побажання про поведінку співрозмовника.",
+                    "options": [
+                        "from",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a8": {
+                    "answer": "criticism.",
+                    "verb_hint": "Почни з особистого побажання про поведінку співрозмовника.",
+                    "options": [
+                        "criticism",
+                        "rice",
+                        "bread",
+                        "delay"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистого побажання про поведінку співрозмовника.",
+            "accepted_target_texts": [
+                "I wish you would distinguish advice from criticism."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "you would",
+                "distinguish",
+                "advice from criticism."
+            ],
+            "token_groups": [
+                "I wish",
+                "you would",
+                "distinguish",
+                "advice from criticism."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "wish",
+                "you",
+                "would",
+                "distinguish",
+                "advice",
+                "from",
+                "criticism."
+            ],
+            "options": [
+                "I",
+                "He",
+                "She",
+                "It",
+                "wish",
+                "reveal",
+                "justify",
+                "establish",
+                "you",
+                "us",
+                "them",
+                "myself",
+                "would",
+                "must",
+                "can't",
+                "couldn't",
+                "distinguish",
+                "touch",
+                "reflect",
+                "resolve",
+                "advice",
+                "evidence",
+                "notice",
+                "name",
+                "from",
+                "without",
+                "into",
+                "onto",
+                "criticism",
+                "rice",
+                "bread",
+                "delay"
+            ],
+            "source_text_uk": "Хотілося б, щоб ти відрізняв пораду від критики.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "wish",
+                    "reveal",
+                    "justify",
+                    "establish"
+                ],
+                "a3": [
+                    "you",
+                    "us",
+                    "them",
+                    "myself"
+                ],
+                "a4": [
+                    "would",
+                    "must",
+                    "can't",
+                    "couldn't"
+                ],
+                "a5": [
+                    "distinguish",
+                    "touch",
+                    "reflect",
+                    "resolve"
+                ],
+                "a6": [
+                    "advice",
+                    "evidence",
+                    "notice",
+                    "name"
+                ],
+                "a7": [
+                    "from",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a8": [
+                    "criticism",
+                    "rice",
+                    "bread",
+                    "delay"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb",
+                "a3": "pronoun",
+                "a4": "modal",
+                "a5": "verb",
+                "a6": "noun",
+                "a7": "preposition",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "cqq-wish-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Шкода, що консультація не охопила незгодних учасників.",
+            "level": "C1",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що консультація не охопила незгодних учасників.",
+            "target_text": "I wish the consultation had included dissenting voices.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистого жалю про вже завершений склад консультації.",
+                    "options": [
+                        "I",
+                        "Yourself",
+                        "Herself",
+                        "Ourselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "wish",
+                    "verb_hint": "Почни з особистого жалю про вже завершений склад консультації.",
+                    "options": [
+                        "wish",
+                        "enter",
+                        "speak",
+                        "hear"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з особистого жалю про вже завершений склад консультації.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a4": {
+                    "answer": "consultation",
+                    "verb_hint": "Почни з особистого жалю про вже завершений склад консультації.",
+                    "options": [
+                        "consultation",
+                        "name",
+                        "window",
+                        "rice"
+                    ]
+                },
+                "a5": {
+                    "answer": "had",
+                    "verb_hint": "Почни з особистого жалю про вже завершений склад консультації.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "included",
+                    "verb_hint": "Почни з особистого жалю про вже завершений склад консультації.",
+                    "options": [
+                        "included",
+                        "open",
+                        "given",
+                        "made"
+                    ]
+                },
+                "a7": {
+                    "answer": "dissenting",
+                    "verb_hint": "Почни з особистого жалю про вже завершений склад консультації.",
+                    "options": [
+                        "dissenting",
+                        "incomplete",
+                        "different",
+                        "same"
+                    ]
+                },
+                "a8": {
+                    "answer": "voices.",
+                    "verb_hint": "Почни з особистого жалю про вже завершений склад консультації.",
+                    "options": [
+                        "voices",
+                        "authors",
+                        "tables",
+                        "tickets"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистого жалю про вже завершений склад консультації.",
+            "accepted_target_texts": [
+                "I wish the consultation had included dissenting voices."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "the consultation",
+                "had included",
+                "dissenting voices."
+            ],
+            "token_groups": [
+                "I wish",
+                "the consultation",
+                "had included",
+                "dissenting voices."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "wish",
+                "the",
+                "consultation",
+                "had",
+                "included",
+                "dissenting",
+                "voices."
+            ],
+            "options": [
+                "I",
+                "Yourself",
+                "Herself",
+                "Ourselves",
+                "wish",
+                "enter",
+                "speak",
+                "hear",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "consultation",
+                "name",
+                "window",
+                "rice",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "included",
+                "open",
+                "given",
+                "made",
+                "dissenting",
+                "incomplete",
+                "different",
+                "same",
+                "voices",
+                "authors",
+                "tables",
+                "tickets"
+            ],
+            "source_text_uk": "Шкода, що консультація не охопила незгодних учасників.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Yourself",
+                    "Herself",
+                    "Ourselves"
+                ],
+                "a2": [
+                    "wish",
+                    "enter",
+                    "speak",
+                    "hear"
+                ],
+                "a3": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a4": [
+                    "consultation",
+                    "name",
+                    "window",
+                    "rice"
+                ],
+                "a5": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a6": [
+                    "included",
+                    "open",
+                    "given",
+                    "made"
+                ],
+                "a7": [
+                    "dissenting",
+                    "incomplete",
+                    "different",
+                    "same"
+                ],
+                "a8": [
+                    "voices",
+                    "authors",
+                    "tables",
+                    "tickets"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "noun",
+                "a5": "auxiliary",
+                "a6": "verb",
+                "a7": "adjective",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "cqq-wish-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Якби ж методологія була достатньо прозорою для відтворення.",
+            "level": "C1",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж методологія була достатньо прозорою для відтворення.",
+            "target_text": "If only the methodology were sufficiently transparent to permit replication.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Почни з підсиленого побажання; не стверджуй, що прозорість уже досягнута.",
+                    "options": [
+                        "If",
+                        "Whether",
+                        "And",
+                        "But"
+                    ]
+                },
+                "a2": {
+                    "answer": "only",
+                    "verb_hint": "Почни з підсиленого побажання; не стверджуй, що прозорість уже досягнута.",
+                    "options": [
+                        "only",
+                        "rarely",
+                        "even",
+                        "almost"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з підсиленого побажання; не стверджуй, що прозорість уже досягнута.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "methodology",
+                    "verb_hint": "Почни з підсиленого побажання; не стверджуй, що прозорість уже досягнута.",
+                    "options": [
+                        "methodology",
+                        "bread",
+                        "delay",
+                        "error"
+                    ]
+                },
+                "a5": {
+                    "answer": "were",
+                    "verb_hint": "Почни з підсиленого побажання; не стверджуй, що прозорість уже досягнута.",
+                    "options": [
+                        "were",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a6": {
+                    "answer": "sufficiently",
+                    "verb_hint": "Почни з підсиленого побажання; не стверджуй, що прозорість уже досягнута.",
+                    "options": [
+                        "sufficiently",
+                        "carefully",
+                        "quietly",
+                        "slowly"
+                    ]
+                },
+                "a7": {
+                    "answer": "transparent",
+                    "verb_hint": "Почни з підсиленого побажання; не стверджуй, що прозорість уже досягнута.",
+                    "options": [
+                        "transparent",
+                        "late",
+                        "formal",
+                        "local"
+                    ]
+                },
+                "a8": {
+                    "answer": "to",
+                    "verb_hint": "Почни з підсиленого побажання; не стверджуй, що прозорість уже досягнута.",
+                    "options": [
+                        "to",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a9": {
+                    "answer": "permit",
+                    "verb_hint": "Почни з підсиленого побажання; не стверджуй, що прозорість уже досягнута.",
+                    "options": [
+                        "permit",
+                        "resolve",
+                        "conceal",
+                        "propose"
+                    ]
+                },
+                "a10": {
+                    "answer": "replication.",
+                    "verb_hint": "Почни з підсиленого побажання; не стверджуй, що прозорість уже досягнута.",
+                    "options": [
+                        "replication",
+                        "name",
+                        "window",
+                        "rice"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з підсиленого побажання; не стверджуй, що прозорість уже досягнута.",
+            "accepted_target_texts": [
+                "If only the methodology were sufficiently transparent to permit replication.",
+                "If only the methodology was sufficiently transparent to permit replication."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "was"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "was"
+                ]
+            },
+            "reorder_groups": [
+                "If only",
+                "the methodology",
+                "were sufficiently transparent",
+                "to permit replication."
+            ],
+            "token_groups": [
+                "If only",
+                "the methodology",
+                "were sufficiently transparent",
+                "to permit replication."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "only",
+                "the",
+                "methodology",
+                "were",
+                "sufficiently",
+                "transparent",
+                "to",
+                "permit",
+                "replication."
+            ],
+            "options": [
+                "If",
+                "Whether",
+                "And",
+                "But",
+                "only",
+                "rarely",
+                "even",
+                "almost",
+                "the",
+                "each",
+                "every",
+                "no",
+                "methodology",
+                "bread",
+                "delay",
+                "error",
+                "were",
+                "wasn't",
+                "weren't",
+                "am",
+                "sufficiently",
+                "carefully",
+                "quietly",
+                "slowly",
+                "transparent",
+                "late",
+                "formal",
+                "local",
+                "to",
+                "without",
+                "into",
+                "onto",
+                "permit",
+                "resolve",
+                "conceal",
+                "propose",
+                "replication",
+                "name",
+                "window",
+                "rice"
+            ],
+            "source_text_uk": "Якби ж методологія була достатньо прозорою для відтворення.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "Whether",
+                    "And",
+                    "But"
+                ],
+                "a2": [
+                    "only",
+                    "rarely",
+                    "even",
+                    "almost"
+                ],
+                "a3": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "methodology",
+                    "bread",
+                    "delay",
+                    "error"
+                ],
+                "a5": [
+                    "were",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a6": [
+                    "sufficiently",
+                    "carefully",
+                    "quietly",
+                    "slowly"
+                ],
+                "a7": [
+                    "transparent",
+                    "late",
+                    "formal",
+                    "local"
+                ],
+                "a8": [
+                    "to",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a9": [
+                    "permit",
+                    "resolve",
+                    "conceal",
+                    "propose"
+                ],
+                "a10": [
+                    "replication",
+                    "name",
+                    "window",
+                    "rice"
+                ]
+            },
+            "slot_roles": {
+                "a1": "conjunction",
+                "a2": "adverb",
+                "a3": "determiner",
+                "a4": "noun",
+                "a5": "be",
+                "a6": "adverb",
+                "a7": "adjective",
+                "a8": "preposition",
+                "a9": "verb",
+                "a10": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "cqq-wish-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Хотілося б, щоб автори зробили застереження до свого широкого твердження.",
+            "level": "C1",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Хотілося б, щоб автори зробили застереження до свого широкого твердження.",
+            "target_text": "I wish the authors would qualify their sweeping claim.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистого побажання про бажану редакційну дію інших.",
+                    "options": [
+                        "I",
+                        "Ourselves",
+                        "Themselves",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "wish",
+                    "verb_hint": "Почни з особистого побажання про бажану редакційну дію інших.",
+                    "options": [
+                        "wish",
+                        "reflect",
+                        "resolve",
+                        "conceal"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з особистого побажання про бажану редакційну дію інших.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a4": {
+                    "answer": "authors",
+                    "verb_hint": "Почни з особистого побажання про бажану редакційну дію інших.",
+                    "options": [
+                        "authors",
+                        "voices",
+                        "dogs",
+                        "cats"
+                    ]
+                },
+                "a5": {
+                    "answer": "would",
+                    "verb_hint": "Почни з особистого побажання про бажану редакційну дію інших.",
+                    "options": [
+                        "would",
+                        "wouldn't",
+                        "shouldn't",
+                        "cannot"
+                    ]
+                },
+                "a6": {
+                    "answer": "qualify",
+                    "verb_hint": "Почни з особистого побажання про бажану редакційну дію інших.",
+                    "options": [
+                        "qualify",
+                        "rule",
+                        "sit",
+                        "swim"
+                    ]
+                },
+                "a7": {
+                    "answer": "their",
+                    "verb_hint": "Почни з особистого побажання про бажану редакційну дію інших.",
+                    "options": [
+                        "their",
+                        "mine",
+                        "yours",
+                        "hers"
+                    ]
+                },
+                "a8": {
+                    "answer": "sweeping",
+                    "verb_hint": "Почни з особистого побажання про бажану редакційну дію інших.",
+                    "options": [
+                        "sweeping",
+                        "selective",
+                        "transparent",
+                        "dissenting"
+                    ]
+                },
+                "a9": {
+                    "answer": "claim.",
+                    "verb_hint": "Почни з особистого побажання про бажану редакційну дію інших.",
+                    "options": [
+                        "claim",
+                        "argument",
+                        "permission",
+                        "consent"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистого побажання про бажану редакційну дію інших.",
+            "accepted_target_texts": [
+                "I wish the authors would qualify their sweeping claim."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "the authors",
+                "would qualify",
+                "their sweeping claim."
+            ],
+            "token_groups": [
+                "I wish",
+                "the authors",
+                "would qualify",
+                "their sweeping claim."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "wish",
+                "the",
+                "authors",
+                "would",
+                "qualify",
+                "their",
+                "sweeping",
+                "claim."
+            ],
+            "options": [
+                "I",
+                "Ourselves",
+                "Themselves",
+                "You",
+                "wish",
+                "reflect",
+                "resolve",
+                "conceal",
+                "the",
+                "that",
+                "these",
+                "those",
+                "authors",
+                "voices",
+                "dogs",
+                "cats",
+                "would",
+                "wouldn't",
+                "shouldn't",
+                "cannot",
+                "qualify",
+                "rule",
+                "sit",
+                "swim",
+                "their",
+                "mine",
+                "yours",
+                "hers",
+                "sweeping",
+                "selective",
+                "transparent",
+                "dissenting",
+                "claim",
+                "argument",
+                "permission",
+                "consent"
+            ],
+            "source_text_uk": "Хотілося б, щоб автори зробили застереження до свого широкого твердження.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Ourselves",
+                    "Themselves",
+                    "You"
+                ],
+                "a2": [
+                    "wish",
+                    "reflect",
+                    "resolve",
+                    "conceal"
+                ],
+                "a3": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a4": [
+                    "authors",
+                    "voices",
+                    "dogs",
+                    "cats"
+                ],
+                "a5": [
+                    "would",
+                    "wouldn't",
+                    "shouldn't",
+                    "cannot"
+                ],
+                "a6": [
+                    "qualify",
+                    "rule",
+                    "sit",
+                    "swim"
+                ],
+                "a7": [
+                    "their",
+                    "mine",
+                    "yours",
+                    "hers"
+                ],
+                "a8": [
+                    "sweeping",
+                    "selective",
+                    "transparent",
+                    "dissenting"
+                ],
+                "a9": [
+                    "claim",
+                    "argument",
+                    "permission",
+                    "consent"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "noun",
+                "a5": "modal",
+                "a6": "verb",
+                "a7": "determiner",
+                "a8": "adjective",
+                "a9": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "cqq-wish-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Шкода, що судове рішення не розмежувало процесуальну справедливість і змістовну згоду.",
+            "level": "C2",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що судове рішення не розмежувало процесуальну справедливість і змістовну згоду.",
+            "target_text": "I wish the judgment had distinguished procedural fairness from substantive agreement.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистого жалю щодо відсутнього розмежування в уже ухваленому рішенні.",
+                    "options": [
+                        "I",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "wish",
+                    "verb_hint": "Почни з особистого жалю щодо відсутнього розмежування в уже ухваленому рішенні.",
+                    "options": [
+                        "wish",
+                        "touch",
+                        "resolve",
+                        "conceal"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з особистого жалю щодо відсутнього розмежування в уже ухваленому рішенні.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a4": {
+                    "answer": "judgment",
+                    "verb_hint": "Почни з особистого жалю щодо відсутнього розмежування в уже ухваленому рішенні.",
+                    "options": [
+                        "judgment",
+                        "window",
+                        "rice",
+                        "bread"
+                    ]
+                },
+                "a5": {
+                    "answer": "had",
+                    "verb_hint": "Почни з особистого жалю щодо відсутнього розмежування в уже ухваленому рішенні.",
+                    "options": [
+                        "had",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a6": {
+                    "answer": "distinguished",
+                    "verb_hint": "Почни з особистого жалю щодо відсутнього розмежування в уже ухваленому рішенні.",
+                    "options": [
+                        "distinguished",
+                        "open",
+                        "left",
+                        "said"
+                    ]
+                },
+                "a7": {
+                    "answer": "procedural",
+                    "verb_hint": "Почни з особистого жалю щодо відсутнього розмежування в уже ухваленому рішенні.",
+                    "options": [
+                        "procedural",
+                        "local",
+                        "practical",
+                        "theoretical"
+                    ]
+                },
+                "a8": {
+                    "answer": "fairness",
+                    "verb_hint": "Почни з особистого жалю щодо відсутнього розмежування в уже ухваленому рішенні.",
+                    "options": [
+                        "fairness",
+                        "formulation",
+                        "contradiction",
+                        "quality"
+                    ]
+                },
+                "a9": {
+                    "answer": "from",
+                    "verb_hint": "Почни з особистого жалю щодо відсутнього розмежування в уже ухваленому рішенні.",
+                    "options": [
+                        "from",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a10": {
+                    "answer": "substantive",
+                    "verb_hint": "Почни з особистого жалю щодо відсутнього розмежування в уже ухваленому рішенні.",
+                    "options": [
+                        "substantive",
+                        "slight",
+                        "complete",
+                        "incomplete"
+                    ]
+                },
+                "a11": {
+                    "answer": "agreement.",
+                    "verb_hint": "Почни з особистого жалю щодо відсутнього розмежування в уже ухваленому рішенні.",
+                    "options": [
+                        "agreement",
+                        "delay",
+                        "error",
+                        "record"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистого жалю щодо відсутнього розмежування в уже ухваленому рішенні.",
+            "accepted_target_texts": [
+                "I wish the judgment had distinguished procedural fairness from substantive agreement."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "the judgment",
+                "had distinguished",
+                "procedural fairness",
+                "from substantive agreement."
+            ],
+            "token_groups": [
+                "I wish",
+                "the judgment",
+                "had distinguished",
+                "procedural fairness",
+                "from substantive agreement."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "wish",
+                "the",
+                "judgment",
+                "had",
+                "distinguished",
+                "procedural",
+                "fairness",
+                "from",
+                "substantive",
+                "agreement."
+            ],
+            "options": [
+                "I",
+                "It",
+                "We",
+                "They",
+                "wish",
+                "touch",
+                "resolve",
+                "conceal",
+                "the",
+                "that",
+                "these",
+                "those",
+                "judgment",
+                "window",
+                "rice",
+                "bread",
+                "had",
+                "hadn't",
+                "do",
+                "does",
+                "distinguished",
+                "open",
+                "left",
+                "said",
+                "procedural",
+                "local",
+                "practical",
+                "theoretical",
+                "fairness",
+                "formulation",
+                "contradiction",
+                "quality",
+                "from",
+                "into",
+                "onto",
+                "over",
+                "substantive",
+                "slight",
+                "complete",
+                "incomplete",
+                "agreement",
+                "delay",
+                "error",
+                "record"
+            ],
+            "source_text_uk": "Шкода, що судове рішення не розмежувало процесуальну справедливість і змістовну згоду.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "wish",
+                    "touch",
+                    "resolve",
+                    "conceal"
+                ],
+                "a3": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a4": [
+                    "judgment",
+                    "window",
+                    "rice",
+                    "bread"
+                ],
+                "a5": [
+                    "had",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a6": [
+                    "distinguished",
+                    "open",
+                    "left",
+                    "said"
+                ],
+                "a7": [
+                    "procedural",
+                    "local",
+                    "practical",
+                    "theoretical"
+                ],
+                "a8": [
+                    "fairness",
+                    "formulation",
+                    "contradiction",
+                    "quality"
+                ],
+                "a9": [
+                    "from",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a10": [
+                    "substantive",
+                    "slight",
+                    "complete",
+                    "incomplete"
+                ],
+                "a11": [
+                    "agreement",
+                    "delay",
+                    "error",
+                    "record"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "noun",
+                "a5": "auxiliary",
+                "a6": "verb",
+                "a7": "adjective",
+                "a8": "noun",
+                "a9": "preposition",
+                "a10": "adjective",
+                "a11": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "cqq-wish-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Якби ж це уточнення не було так легко пропустити.",
+            "level": "C2",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж це уточнення не було так легко пропустити.",
+            "target_text": "If only the qualification were not so easily overlooked.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний пасивний стан.",
+                    "options": [
+                        "If",
+                        "But",
+                        "Or",
+                        "Nor"
+                    ]
+                },
+                "a2": {
+                    "answer": "only",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний пасивний стан.",
+                    "options": [
+                        "only",
+                        "usually",
+                        "rarely",
+                        "even"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний пасивний стан.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a4": {
+                    "answer": "qualification",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний пасивний стан.",
+                    "options": [
+                        "qualification",
+                        "window",
+                        "rice",
+                        "bread"
+                    ]
+                },
+                "a5": {
+                    "answer": "were",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний пасивний стан.",
+                    "options": [
+                        "were",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a6": {
+                    "answer": "not",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний пасивний стан.",
+                    "options": [
+                        "not",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a7": {
+                    "answer": "so",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний пасивний стан.",
+                    "options": [
+                        "so",
+                        "and",
+                        "yet",
+                        "because"
+                    ]
+                },
+                "a8": {
+                    "answer": "easily",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний пасивний стан.",
+                    "options": [
+                        "easily",
+                        "tomorrow",
+                        "slowly",
+                        "disproportionately"
+                    ]
+                },
+                "a9": {
+                    "answer": "overlooked.",
+                    "verb_hint": "Почни з підсиленого побажання про нереальний поточний пасивний стан.",
+                    "options": [
+                        "overlooked",
+                        "distinguished",
+                        "open",
+                        "drove"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з підсиленого побажання про нереальний поточний пасивний стан.",
+            "accepted_target_texts": [
+                "If only the qualification were not so easily overlooked.",
+                "If only the qualification was not so easily overlooked."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "was"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "was"
+                ]
+            },
+            "reorder_groups": [
+                "If only",
+                "the qualification",
+                "were not",
+                "so easily overlooked."
+            ],
+            "token_groups": [
+                "If only",
+                "the qualification",
+                "were not",
+                "so easily overlooked."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "only",
+                "the",
+                "qualification",
+                "were",
+                "not",
+                "so",
+                "easily",
+                "overlooked."
+            ],
+            "options": [
+                "If",
+                "But",
+                "Or",
+                "Nor",
+                "only",
+                "usually",
+                "rarely",
+                "even",
+                "the",
+                "a",
+                "an",
+                "some",
+                "qualification",
+                "window",
+                "rice",
+                "bread",
+                "were",
+                "be",
+                "been",
+                "being",
+                "not",
+                "still",
+                "just",
+                "also",
+                "so",
+                "and",
+                "yet",
+                "because",
+                "easily",
+                "tomorrow",
+                "slowly",
+                "disproportionately",
+                "overlooked",
+                "distinguished",
+                "open",
+                "drove"
+            ],
+            "source_text_uk": "Якби ж це уточнення не було так легко пропустити.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "But",
+                    "Or",
+                    "Nor"
+                ],
+                "a2": [
+                    "only",
+                    "usually",
+                    "rarely",
+                    "even"
+                ],
+                "a3": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a4": [
+                    "qualification",
+                    "window",
+                    "rice",
+                    "bread"
+                ],
+                "a5": [
+                    "were",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a6": [
+                    "not",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a7": [
+                    "so",
+                    "and",
+                    "yet",
+                    "because"
+                ],
+                "a8": [
+                    "easily",
+                    "tomorrow",
+                    "slowly",
+                    "disproportionately"
+                ],
+                "a9": [
+                    "overlooked",
+                    "distinguished",
+                    "open",
+                    "drove"
+                ]
+            },
+            "slot_roles": {
+                "a1": "conjunction",
+                "a2": "adverb",
+                "a3": "determiner",
+                "a4": "noun",
+                "a5": "be",
+                "a6": "negative",
+                "a7": "adverb",
+                "a8": "adverb",
+                "a9": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "cqq-wish-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Хотілося б, щоб комісія визнала межі своїх повноважень.",
+            "level": "C2",
+            "type": 4,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Хотілося б, щоб комісія визнала межі своїх повноважень.",
+            "target_text": "I wish the commission would acknowledge the limits of its mandate.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистого побажання про бажану дію іншого органу.",
+                    "options": [
+                        "I",
+                        "We",
+                        "They",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "wish",
+                    "verb_hint": "Почни з особистого побажання про бажану дію іншого органу.",
+                    "options": [
+                        "wish",
+                        "speak",
+                        "hear",
+                        "trace"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з особистого побажання про бажану дію іншого органу.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a4": {
+                    "answer": "commission",
+                    "verb_hint": "Почни з особистого побажання про бажану дію іншого органу.",
+                    "options": [
+                        "commission",
+                        "error",
+                        "record",
+                        "evidence"
+                    ]
+                },
+                "a5": {
+                    "answer": "would",
+                    "verb_hint": "Почни з особистого побажання про бажану дію іншого органу.",
+                    "options": [
+                        "would",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a6": {
+                    "answer": "acknowledge",
+                    "verb_hint": "Почни з особистого побажання про бажану дію іншого органу.",
+                    "options": [
+                        "acknowledge",
+                        "rule",
+                        "sit",
+                        "touch"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з особистого побажання про бажану дію іншого органу.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a8": {
+                    "answer": "limits",
+                    "verb_hint": "Почни з особистого побажання про бажану дію іншого органу.",
+                    "options": [
+                        "limits",
+                        "women",
+                        "bikes",
+                        "cars"
+                    ]
+                },
+                "a9": {
+                    "answer": "of",
+                    "verb_hint": "Почни з особистого побажання про бажану дію іншого органу.",
+                    "options": [
+                        "of",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a10": {
+                    "answer": "its",
+                    "verb_hint": "Почни з особистого побажання про бажану дію іншого органу.",
+                    "options": [
+                        "its",
+                        "yours",
+                        "hers",
+                        "ours"
+                    ]
+                },
+                "a11": {
+                    "answer": "mandate.",
+                    "verb_hint": "Почни з особистого побажання про бажану дію іншого органу.",
+                    "options": [
+                        "mandate",
+                        "agreement",
+                        "experience",
+                        "delay"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистого побажання про бажану дію іншого органу.",
+            "accepted_target_texts": [
+                "I wish the commission would acknowledge the limits of its mandate."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "the commission",
+                "would acknowledge",
+                "the limits",
+                "of its mandate."
+            ],
+            "token_groups": [
+                "I wish",
+                "the commission",
+                "would acknowledge",
+                "the limits",
+                "of its mandate."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "wish",
+                "the",
+                "commission",
+                "would",
+                "acknowledge",
+                "the",
+                "limits",
+                "of",
+                "its",
+                "mandate."
+            ],
+            "options": [
+                "I",
+                "We",
+                "They",
+                "Me",
+                "wish",
+                "speak",
+                "hear",
+                "trace",
+                "the",
+                "every",
+                "no",
+                "another",
+                "commission",
+                "error",
+                "record",
+                "evidence",
+                "would",
+                "shouldn't",
+                "cannot",
+                "can",
+                "acknowledge",
+                "rule",
+                "sit",
+                "touch",
+                "both",
+                "a",
+                "an",
+                "limits",
+                "women",
+                "bikes",
+                "cars",
+                "of",
+                "in",
+                "on",
+                "at",
+                "its",
+                "yours",
+                "hers",
+                "ours",
+                "mandate",
+                "agreement",
+                "experience",
+                "delay"
+            ],
+            "source_text_uk": "Хотілося б, щоб комісія визнала межі своїх повноважень.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "We",
+                    "They",
+                    "Me"
+                ],
+                "a2": [
+                    "wish",
+                    "speak",
+                    "hear",
+                    "trace"
+                ],
+                "a3": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a4": [
+                    "commission",
+                    "error",
+                    "record",
+                    "evidence"
+                ],
+                "a5": [
+                    "would",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a6": [
+                    "acknowledge",
+                    "rule",
+                    "sit",
+                    "touch"
+                ],
+                "a7": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a8": [
+                    "limits",
+                    "women",
+                    "bikes",
+                    "cars"
+                ],
+                "a9": [
+                    "of",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a10": [
+                    "its",
+                    "yours",
+                    "hers",
+                    "ours"
+                ],
+                "a11": [
+                    "mandate",
+                    "agreement",
+                    "experience",
+                    "delay"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "noun",
+                "a5": "modal",
+                "a6": "verb",
+                "a7": "determiner",
+                "a8": "noun",
+                "a9": "preposition",
+                "a10": "determiner",
+                "a11": "noun"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

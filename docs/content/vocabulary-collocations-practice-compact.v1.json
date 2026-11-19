@@ -1,0 +1,309 @@
+{
+    "schema_version": 1,
+    "source": {
+        "path": "docs/content/vocabulary-collocations-practice-supplement.v1.json",
+        "sha256": "e78e46f477d0f8027123cdcafc120659add52cef8022be4bc930f48d62de5c42"
+    },
+    "targets": [
+        {
+            "topic": "advanced-collocation-and-lexical-choice",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\VocabularyAndCollocations\\AdvancedCollocationAndLexicalChoiceTheorySeeder",
+                "locale": "uk",
+                "uuid": "bb18751c-6d38-54f1-bb5f-aa7b50db4e85",
+                "sort_order": 8,
+                "page_id": 316,
+                "page_category_id": 58,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C2",
+                "css_class": null,
+                "body_sha256": "8a18e03de6c617f5de469da6d1e969c45799301f66df8b612c5889b0f64b0629"
+            },
+            "after_data_sha256": "647821dd6be150c957d13679e103fb9f26c7e89d4ba5f7560def8a4dfa944a2e",
+            "projection_family": "vocabulary-collocations-practice-compact-v1",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "36c36dc47d7ff611be4ea59a8f26fb5d82e760099e79e78ff5d3e852309aa131",
+                        "source_index": 1,
+                        "instruction_uk": "Обери вислів і правильний висновок.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Учасник уперше пропонує обговорити зберігання запасних ключів; відповіді ще немає."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "I would like to ___ a question about spare-key storage."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "options",
+                            "author_explanation"
+                        ],
+                        "option_labels": [
+                            "raise a question — порушити питання; відповіді ще не встановлено.",
+                            "answer a question — відповідь уже відома й питання вирішено.",
+                            "raise a question — відповідь уже надано."
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "1a6d6d6911a3861766b78f4f7b91a6640eb7a620b16d1906111628cfce5aba6c",
+                        "source_index": 2,
+                        "instruction_uk": "Збережи ролі джерела труднощів і команди.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Вузький прохід створює труднощі для команди, яка переносить декорації. Використай дві задані моделі."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "The narrow passage poses… / The team faces…"
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "options",
+                            "author_explanation"
+                        ],
+                        "option_labels": [
+                            "The passage poses a challenge to the team; the team faces a challenge in moving the scenery.",
+                            "The passage faces a challenge; the team poses a challenge to the passage. Ролі ті самі.",
+                            "The passage makes moving the scenery impossible. Труднощі означають неможливість."
+                        ]
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "bd63172b5a7f71b71fdda2c42b9800191d91617feb17df8417ae12239bdaf154",
+                        "source_index": 3,
+                        "instruction_uk": "Які пари допустимі та чи гарантоване повторення рішення?",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "set / established a precedent; draws / makes a distinction between repair and replacement"
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "prompt",
+                            "author_explanation"
+                        ],
+                        "option_labels": {
+                            "a": "Обидві пари допустимі; прецедент не гарантує повторення рішення.",
+                            "b": "Лише set і draws допустимі; прецедент гарантує повторення рішення."
+                        }
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "8a5ea3dc89d383737e688556126c40557e788118ae9153550ef7ecf17d5a880d",
+                        "source_index": 4,
+                        "instruction_uk": "Виправ модель розрізнення й число питань; використай a та between A and B.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "The guide draws distinction among repair and replacement. It raises two question about the warranty."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "prompt",
+                            "author_explanation"
+                        ],
+                        "option_labels": {
+                            "a": "The guide draws a distinction between repair and replacement. It raises two questions about the warranty.",
+                            "b": "The guide draws distinction among repair. It answers two question on the warranty."
+                        }
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "bcdbb97eee18a06d6cb368d02a19f6db5c01a255dbf3f661371e6f04309d0a3f",
+                        "source_index": 5,
+                        "instruction_uk": "Склади речення з перемішаних груп слів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "План — 1 000 одиниць, витрати — 1 002. Різницю прямо оцінено як малу й практично неважливу. Склади фразу та перевір статистичний висновок."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Потрібна мала, практично неважлива різниця; окремо не видавай описову оцінку за статистичний висновок."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "before",
+                            "author_explanation"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "32158d5563455428e00c6db9fc227249b9c2d0a7467ae05568bbe9b6de4eb16a",
+                        "source_index": 6,
+                        "instruction_uk": "Склади речення з перемішаних груп слів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Команді важко користуватися тісним складом. Нотатка порушує питання зберігання без відповіді. Один датований рахунок свідчить про купівлю, а не повну історію предмета."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Збережи труднощі, не неможливість; питання без відповіді; один рахунок як свідчення купівлі, не доказ усієї історії."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "before",
+                            "author_explanation"
+                        ]
+                    },
+                    {
+                        "index": 2,
+                        "source_item_sha256": "02144854a51ad23531e57e0c44b5b1ee0ff3ff3ccd82f8daba0afebe65131c62",
+                        "source_index": null,
+                        "instruction_uk": "Уведи всю відсутню частину.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "The new testimony ____ doubt on the witness's claim."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Передай поставлення під сумнів наведеного твердження; встав дієслово теперішнього часу, решту сполучення вже наведено."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 3,
+                        "source_item_sha256": "74ecc61b3ff3a4aed30136d519353f7fba3d83fc7cfa7bad765258837497bad6",
+                        "source_index": null,
+                        "instruction_uk": "Уведи всю відсутню частину.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "Before authorising the loan, the bank carried out a thorough ____ of the risks."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Оцінювання, аналіз або перегляд ризиків: потрібен іменник після вже наведеного прикметника; підмет не повторюй."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 4,
+                        "source_item_sha256": "321bf19ae8f8bfa75d9088d455dd6746870c8291c08f6aaaa2ccc3d8deb95c29",
+                        "source_index": null,
+                        "instruction_uk": "Переклади речення англійською.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Перед підписанням договору оренди орендар звернувся по юридичну пораду."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Почни з дії перед підписанням; орендар просив поради, але її одержання тут не встановлене."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 5,
+                        "source_item_sha256": "4567458519f0adcb07c8134f5da30c2a327a56808e8c9db3ad115846bd4fe0b4",
+                        "source_index": null,
+                        "instruction_uk": "Переклади речення англійською.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Експерти дійшли згоди щодо основних причин витоку."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Почни з експертів; вони погодилися щодо причин конкретного витоку, не обов’язково усунули його."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "vcq-native-advanced-collocation-and-lexical-choice-selects-0",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери правильну форму",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "vcq-native-advanced-collocation-and-lexical-choice-choices-0",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери правильну відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "vcq-native-advanced-collocation-and-lexical-choice-inputs-0",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Введи речення вручну або натискай на перемішані групи слів."
+                },
+                {
+                    "key": "vcq-native-advanced-collocation-and-lexical-choice-inputs-2",
+                    "kind": "inputs",
+                    "indices": [
+                        2,
+                        3
+                    ],
+                    "title": "Заповни пропуски",
+                    "instruction": "Уведи лише пропущену частину; наведені слова не повторюй."
+                },
+                {
+                    "key": "vcq-native-advanced-collocation-and-lexical-choice-inputs-4",
+                    "kind": "inputs",
+                    "indices": [
+                        4,
+                        5
+                    ],
+                    "title": "Переклади речення",
+                    "instruction": "Відповідай вручну або складай речення з груп слів."
+                }
+            ]
+        }
+    ]
+}

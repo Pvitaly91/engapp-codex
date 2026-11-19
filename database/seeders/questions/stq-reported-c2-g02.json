@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 67171,
+        "uuid": "stq-reported-c2-g02",
+        "question": "She insisted that the omission {a1} inadvertent.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 63,
+        "source_id": 574,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\SentenceTransformations\\UkrainianMixedStqReportedSpeechQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "had been",
+                "has been",
+                "is"
+            ]
+        },
+        "theory_text_block_uuid": "3bbe3eae-de1f-546b-aa69-c2df4e53b382",
+        "created_at": "2026-11-03T01:30:43.000000Z",
+        "updated_at": "2026-11-03T01:30:43.000000Z"
+    },
+    "category": {
+        "id": 63,
+        "name": "Sentence Transformations",
+        "created_at": "2026-05-22T21:37:33.000000Z",
+        "updated_at": "2026-05-22T21:37:33.000000Z"
+    },
+    "source": {
+        "id": 574,
+        "name": "Sentence Transformations Quality: Sentence Transformations: Reported Speech",
+        "created_at": "2026-11-03T01:30:42.000000Z",
+        "updated_at": "2026-11-03T01:30:42.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 107,
+                "option": "is",
+                "created_at": "2026-04-23T11:40:01.000000Z",
+                "updated_at": "2026-04-23T11:40:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 67171,
+                "option_id": 107,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 1467,
+                "option": "had been",
+                "created_at": "2026-04-23T14:16:35.000000Z",
+                "updated_at": "2026-04-23T14:16:35.000000Z"
+            },
+            "pivot": {
+                "question_id": 67171,
+                "option_id": 1467,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 5397,
+                "option": "has been",
+                "created_at": "2026-04-23T14:41:50.000000Z",
+                "updated_at": "2026-04-23T14:41:50.000000Z"
+            },
+            "pivot": {
+                "question_id": 67171,
+                "option_id": 5397,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 343244,
+                "question_id": 67171,
+                "marker": "a1",
+                "option_id": 1467,
+                "created_at": "2026-11-03T01:30:43.000000Z",
+                "updated_at": "2026-11-03T01:30:43.000000Z"
+            },
+            "option": {
+                "id": 1467,
+                "option": "had been",
+                "created_at": "2026-04-23T14:16:35.000000Z",
+                "updated_at": "2026-04-23T14:16:35.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 60578,
+                "question_id": 67171,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 71280,
+                "created_at": "2026-11-03T01:30:43.000000Z",
+                "updated_at": "2026-11-03T01:30:43.000000Z"
+            },
+            "option": {
+                "id": 71280,
+                "option": "Початкове: «Вона наполягла: „Пропуск був ненавмисним“». Перекажи наполягання; складеною минулою формою виразно познач попередність стану щодо її слів.",
+                "created_at": "2026-11-03T01:30:43.000000Z",
+                "updated_at": "2026-11-03T01:30:43.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 59186,
+            "question_id": 67171,
+            "text": "She insisted that the omission {a1} inadvertent.",
+            "created_at": "2026-11-03T01:30:43.000000Z",
+            "updated_at": "2026-11-03T01:30:43.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

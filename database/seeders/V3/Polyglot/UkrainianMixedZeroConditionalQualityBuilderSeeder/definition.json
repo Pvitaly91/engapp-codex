@@ -1,0 +1,4981 @@
+{
+    "schema_version": 1,
+    "quality_revision": "cqq-v1",
+    "compiled_from": {
+        "path": "docs/content/conditionals-quality/zero-conditional.v1.json",
+        "sha256": "6782f0d467f66692a1e9831e372df248763181d8f828013ad074475f79fe7868"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedZeroConditionalQualityBuilderSeeder",
+        "uuid_namespace": "conditionals-quality-zero-conditional-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "conditionals_quality_zero_conditional": {
+            "name": "Conditionals Quality: Zero Conditional"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_zero_conditional": {
+            "name": "Zero Conditional",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "if_present_simple": {
+            "name": "If Present Simple",
+            "category": "topic"
+        },
+        "present_simple_result": {
+            "name": "Present Simple Result",
+            "category": "topic"
+        },
+        "when_present_simple": {
+            "name": "When Present Simple",
+            "category": "topic"
+        },
+        "general_truth": {
+            "name": "General Truth",
+            "category": "topic"
+        },
+        "repeated_result": {
+            "name": "Repeated Result",
+            "category": "topic"
+        },
+        "instruction": {
+            "name": "Instruction",
+            "category": "topic"
+        },
+        "if_vs_when": {
+            "name": "If Vs When",
+            "category": "topic"
+        },
+        "comma_rules": {
+            "name": "Comma Rules",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_zero_conditional"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cqq-zero-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Якщо темно, я вмикаю лампу.",
+            "level": "A1",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Якщо темно, я вмикаю лампу.",
+            "target_text": "If it is dark, I turn on a lamp.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Передай звичну дію; почни з умови про темряву.",
+                    "options": [
+                        "If",
+                        "Though",
+                        "Unless",
+                        "Whereas"
+                    ]
+                },
+                "a2": {
+                    "answer": "it",
+                    "verb_hint": "Передай звичну дію; почни з умови про темряву.",
+                    "options": [
+                        "it",
+                        "he",
+                        "she",
+                        "we"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Передай звичну дію; почни з умови про темряву.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a4": {
+                    "answer": "dark,",
+                    "verb_hint": "Передай звичну дію; почни з умови про темряву.",
+                    "options": [
+                        "dark",
+                        "available",
+                        "cold",
+                        "arrive"
+                    ]
+                },
+                "a5": {
+                    "answer": "I",
+                    "verb_hint": "Передай звичну дію; почни з умови про темряву.",
+                    "options": [
+                        "I",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a6": {
+                    "answer": "turn",
+                    "verb_hint": "Передай звичну дію; почни з умови про темряву.",
+                    "options": [
+                        "turn",
+                        "will",
+                        "would",
+                        "can"
+                    ]
+                },
+                "a7": {
+                    "answer": "on",
+                    "verb_hint": "Передай звичну дію; почни з умови про темряву.",
+                    "options": [
+                        "on",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a8": {
+                    "answer": "a",
+                    "verb_hint": "Передай звичну дію; почни з умови про темряву.",
+                    "options": [
+                        "a",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a9": {
+                    "answer": "lamp.",
+                    "verb_hint": "Передай звичну дію; почни з умови про темряву.",
+                    "options": [
+                        "lamp",
+                        "machine",
+                        "ticket",
+                        "forget"
+                    ]
+                }
+            },
+            "verb_hint": "Передай звичну дію; почни з умови про темряву.",
+            "accepted_target_texts": [
+                "If it is dark, I turn on a lamp."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If it",
+                "is dark,",
+                "I turn on",
+                "a lamp."
+            ],
+            "token_groups": [
+                "If it",
+                "is dark,",
+                "I turn on",
+                "a lamp."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "it",
+                "is",
+                "dark,",
+                "I",
+                "turn",
+                "on",
+                "a",
+                "lamp."
+            ],
+            "options": [
+                "If",
+                "Though",
+                "Unless",
+                "Whereas",
+                "it",
+                "he",
+                "she",
+                "we",
+                "is",
+                "are",
+                "was",
+                "were",
+                "dark",
+                "available",
+                "cold",
+                "arrive",
+                "I",
+                "They",
+                "Me",
+                "Him",
+                "turn",
+                "will",
+                "would",
+                "can",
+                "on",
+                "about",
+                "during",
+                "to",
+                "a",
+                "another",
+                "either",
+                "neither",
+                "lamp",
+                "machine",
+                "ticket",
+                "forget"
+            ],
+            "source_text_uk": "Якщо темно, я вмикаю лампу.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "Though",
+                    "Unless",
+                    "Whereas"
+                ],
+                "a2": [
+                    "it",
+                    "he",
+                    "she",
+                    "we"
+                ],
+                "a3": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a4": [
+                    "dark",
+                    "available",
+                    "cold",
+                    "arrive"
+                ],
+                "a5": [
+                    "I",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a6": [
+                    "turn",
+                    "will",
+                    "would",
+                    "can"
+                ],
+                "a7": [
+                    "on",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a8": [
+                    "a",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a9": [
+                    "lamp",
+                    "machine",
+                    "ticket",
+                    "forget"
+                ]
+            },
+            "slot_roles": {
+                "a1": "condition_subject",
+                "a2": "condition_subject",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "clause_phrase",
+                "a6": "clause_phrase",
+                "a7": "clause_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "cqq-zero-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Мої руки мерзнуть, якщо я забуваю рукавички.",
+            "level": "A1",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Мої руки мерзнуть, якщо я забуваю рукавички.",
+            "target_text": "My hands get cold if I forget my gloves.",
+            "markers": {
+                "a1": {
+                    "answer": "My",
+                    "verb_hint": "Опиши повторюваний наслідок; почни з рук.",
+                    "options": [
+                        "My",
+                        "Whose",
+                        "Your",
+                        "His"
+                    ]
+                },
+                "a2": {
+                    "answer": "hands",
+                    "verb_hint": "Опиши повторюваний наслідок; почни з рук.",
+                    "options": [
+                        "hands",
+                        "visitors",
+                        "windows",
+                        "phones"
+                    ]
+                },
+                "a3": {
+                    "answer": "get",
+                    "verb_hint": "Опиши повторюваний наслідок; почни з рук.",
+                    "options": [
+                        "get",
+                        "take",
+                        "read",
+                        "write"
+                    ]
+                },
+                "a4": {
+                    "answer": "cold",
+                    "verb_hint": "Опиши повторюваний наслідок; почни з рук.",
+                    "options": [
+                        "cold",
+                        "available",
+                        "arrive",
+                        "dark"
+                    ]
+                },
+                "a5": {
+                    "answer": "if",
+                    "verb_hint": "Опиши повторюваний наслідок; почни з рук.",
+                    "options": [
+                        "if",
+                        "nor",
+                        "so",
+                        "yet"
+                    ]
+                },
+                "a6": {
+                    "answer": "I",
+                    "verb_hint": "Опиши повторюваний наслідок; почни з рук.",
+                    "options": [
+                        "I",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a7": {
+                    "answer": "forget",
+                    "verb_hint": "Опиши повторюваний наслідок; почни з рук.",
+                    "options": [
+                        "forget",
+                        "mix",
+                        "turn",
+                        "lamp"
+                    ]
+                },
+                "a8": {
+                    "answer": "my",
+                    "verb_hint": "Опиши повторюваний наслідок; почни з рук.",
+                    "options": [
+                        "my",
+                        "yours",
+                        "hers",
+                        "ours"
+                    ]
+                },
+                "a9": {
+                    "answer": "gloves.",
+                    "verb_hint": "Опиши повторюваний наслідок; почни з рук.",
+                    "options": [
+                        "gloves",
+                        "friends",
+                        "dogs",
+                        "cats"
+                    ]
+                }
+            },
+            "verb_hint": "Опиши повторюваний наслідок; почни з рук.",
+            "accepted_target_texts": [
+                "My hands get cold if I forget my gloves."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My hands",
+                "get cold",
+                "if",
+                "I forget",
+                "my gloves."
+            ],
+            "token_groups": [
+                "My hands",
+                "get cold",
+                "if",
+                "I forget",
+                "my gloves."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "My",
+                "hands",
+                "get",
+                "cold",
+                "if",
+                "I",
+                "forget",
+                "my",
+                "gloves."
+            ],
+            "options": [
+                "My",
+                "Whose",
+                "Your",
+                "His",
+                "hands",
+                "visitors",
+                "windows",
+                "phones",
+                "get",
+                "take",
+                "read",
+                "write",
+                "cold",
+                "available",
+                "arrive",
+                "dark",
+                "if",
+                "nor",
+                "so",
+                "yet",
+                "I",
+                "He",
+                "She",
+                "It",
+                "forget",
+                "mix",
+                "turn",
+                "lamp",
+                "my",
+                "yours",
+                "hers",
+                "ours",
+                "gloves",
+                "friends",
+                "dogs",
+                "cats"
+            ],
+            "source_text_uk": "Мої руки мерзнуть, якщо я забуваю рукавички.",
+            "options_by_marker": {
+                "a1": [
+                    "My",
+                    "Whose",
+                    "Your",
+                    "His"
+                ],
+                "a2": [
+                    "hands",
+                    "visitors",
+                    "windows",
+                    "phones"
+                ],
+                "a3": [
+                    "get",
+                    "take",
+                    "read",
+                    "write"
+                ],
+                "a4": [
+                    "cold",
+                    "available",
+                    "arrive",
+                    "dark"
+                ],
+                "a5": [
+                    "if",
+                    "nor",
+                    "so",
+                    "yet"
+                ],
+                "a6": [
+                    "I",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a7": [
+                    "forget",
+                    "mix",
+                    "turn",
+                    "lamp"
+                ],
+                "a8": [
+                    "my",
+                    "yours",
+                    "hers",
+                    "ours"
+                ],
+                "a9": [
+                    "gloves",
+                    "friends",
+                    "dogs",
+                    "cats"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "connector_phrase",
+                "a6": "clause_phrase",
+                "a7": "clause_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "cqq-zero-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Якщо змішати червоний і білий, отримаємо рожевий.",
+            "level": "A1",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Якщо змішати червоний і білий, отримаємо рожевий.",
+            "target_text": "If we mix red and white, we get pink.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Передай загальну закономірність; почни з умови.",
+                    "options": [
+                        "If",
+                        "So",
+                        "Yet",
+                        "Because"
+                    ]
+                },
+                "a2": {
+                    "answer": "we",
+                    "verb_hint": "Передай загальну закономірність; почни з умови.",
+                    "options": [
+                        "we",
+                        "yourself",
+                        "herself",
+                        "ourselves"
+                    ]
+                },
+                "a3": {
+                    "answer": "mix",
+                    "verb_hint": "Передай загальну закономірність; почни з умови.",
+                    "options": [
+                        "mix",
+                        "turn",
+                        "lamp",
+                        "forget"
+                    ]
+                },
+                "a4": {
+                    "answer": "red",
+                    "verb_hint": "Передай загальну закономірність; почни з умови.",
+                    "options": [
+                        "red",
+                        "yellow",
+                        "silver",
+                        "golden"
+                    ]
+                },
+                "a5": {
+                    "answer": "and",
+                    "verb_hint": "Передай загальну закономірність; почни з умови.",
+                    "options": [
+                        "and",
+                        "but",
+                        "or",
+                        "nor"
+                    ]
+                },
+                "a6": {
+                    "answer": "white,",
+                    "verb_hint": "Передай загальну закономірність; почни з умови.",
+                    "options": [
+                        "white",
+                        "grey",
+                        "gray",
+                        "purple"
+                    ]
+                },
+                "a7": {
+                    "answer": "we",
+                    "verb_hint": "Передай загальну закономірність; почни з умови.",
+                    "options": [
+                        "we",
+                        "she",
+                        "it",
+                        "they"
+                    ]
+                },
+                "a8": {
+                    "answer": "get",
+                    "verb_hint": "Передай загальну закономірність; почни з умови.",
+                    "options": [
+                        "get",
+                        "walk",
+                        "open",
+                        "close"
+                    ]
+                },
+                "a9": {
+                    "answer": "pink.",
+                    "verb_hint": "Передай загальну закономірність; почни з умови.",
+                    "options": [
+                        "pink",
+                        "orange",
+                        "blue",
+                        "green"
+                    ]
+                }
+            },
+            "verb_hint": "Передай загальну закономірність; почни з умови.",
+            "accepted_target_texts": [
+                "If we mix red and white, we get pink."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If we",
+                "mix",
+                "red and white,",
+                "we get",
+                "pink."
+            ],
+            "token_groups": [
+                "If we",
+                "mix",
+                "red and white,",
+                "we get",
+                "pink."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "we",
+                "mix",
+                "red",
+                "and",
+                "white,",
+                "we",
+                "get",
+                "pink."
+            ],
+            "options": [
+                "If",
+                "So",
+                "Yet",
+                "Because",
+                "we",
+                "yourself",
+                "herself",
+                "ourselves",
+                "mix",
+                "turn",
+                "lamp",
+                "forget",
+                "red",
+                "yellow",
+                "silver",
+                "golden",
+                "and",
+                "but",
+                "or",
+                "nor",
+                "white",
+                "grey",
+                "gray",
+                "purple",
+                "she",
+                "it",
+                "they",
+                "get",
+                "walk",
+                "open",
+                "close",
+                "pink",
+                "orange",
+                "blue",
+                "green"
+            ],
+            "source_text_uk": "Якщо змішати червоний і білий, отримаємо рожевий.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "So",
+                    "Yet",
+                    "Because"
+                ],
+                "a2": [
+                    "we",
+                    "yourself",
+                    "herself",
+                    "ourselves"
+                ],
+                "a3": [
+                    "mix",
+                    "turn",
+                    "lamp",
+                    "forget"
+                ],
+                "a4": [
+                    "red",
+                    "yellow",
+                    "silver",
+                    "golden"
+                ],
+                "a5": [
+                    "and",
+                    "but",
+                    "or",
+                    "nor"
+                ],
+                "a6": [
+                    "white",
+                    "grey",
+                    "gray",
+                    "purple"
+                ],
+                "a7": [
+                    "we",
+                    "she",
+                    "it",
+                    "they"
+                ],
+                "a8": [
+                    "get",
+                    "walk",
+                    "open",
+                    "close"
+                ],
+                "a9": [
+                    "pink",
+                    "orange",
+                    "blue",
+                    "green"
+                ]
+            },
+            "slot_roles": {
+                "a1": "condition_subject",
+                "a2": "condition_subject",
+                "a3": "verb_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "clause_phrase",
+                "a8": "clause_phrase",
+                "a9": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "cqq-zero-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Якщо в мого велосипеда спущена шина, я йду до коледжу пішки.",
+            "level": "A2",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Якщо в мого велосипеда спущена шина, я йду до коледжу пішки.",
+            "target_text": "If my bike has a flat tyre, I walk to college.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Передай звичну реакцію; почни з умови про велосипед.",
+                    "options": [
+                        "If",
+                        "While",
+                        "Whether",
+                        "And"
+                    ]
+                },
+                "a2": {
+                    "answer": "my",
+                    "verb_hint": "Передай звичну реакцію; почни з умови про велосипед.",
+                    "options": [
+                        "my",
+                        "his",
+                        "her",
+                        "its"
+                    ]
+                },
+                "a3": {
+                    "answer": "bike",
+                    "verb_hint": "Передай звичну реакцію; почни з умови про велосипед.",
+                    "options": [
+                        "bike",
+                        "taxi",
+                        "van",
+                        "bicycle"
+                    ]
+                },
+                "a4": {
+                    "answer": "has",
+                    "verb_hint": "Передай звичну реакцію; почни з умови про велосипед.",
+                    "options": [
+                        "has",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a5": {
+                    "answer": "a",
+                    "verb_hint": "Передай звичну реакцію; почни з умови про велосипед.",
+                    "options": [
+                        "a",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a6": {
+                    "answer": "flat",
+                    "verb_hint": "Передай звичну реакцію; почни з умови про велосипед.",
+                    "options": [
+                        "flat",
+                        "last",
+                        "spare",
+                        "next"
+                    ]
+                },
+                "a7": {
+                    "answer": "tyre,",
+                    "verb_hint": "Передай звичну реакцію; почни з умови про велосипед.",
+                    "options": [
+                        "tyre",
+                        "road",
+                        "route",
+                        "train"
+                    ]
+                },
+                "a8": {
+                    "answer": "I",
+                    "verb_hint": "Передай звичну реакцію; почни з умови про велосипед.",
+                    "options": [
+                        "I",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a9": {
+                    "answer": "walk",
+                    "verb_hint": "Передай звичну реакцію; почни з умови про велосипед.",
+                    "options": [
+                        "walk",
+                        "find",
+                        "bring",
+                        "take"
+                    ]
+                },
+                "a10": {
+                    "answer": "to",
+                    "verb_hint": "Передай звичну реакцію; почни з умови про велосипед.",
+                    "options": [
+                        "to",
+                        "during",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a11": {
+                    "answer": "college.",
+                    "verb_hint": "Передай звичну реакцію; почни з умови про велосипед.",
+                    "options": [
+                        "college",
+                        "breakfast",
+                        "miss",
+                        "feel"
+                    ]
+                }
+            },
+            "verb_hint": "Передай звичну реакцію; почни з умови про велосипед.",
+            "accepted_target_texts": [
+                "If my bike has a flat tyre, I walk to college."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If my bike",
+                "has",
+                "a flat tyre,",
+                "I walk",
+                "to college."
+            ],
+            "token_groups": [
+                "If my bike",
+                "has",
+                "a flat tyre,",
+                "I walk",
+                "to college."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "my",
+                "bike",
+                "has",
+                "a",
+                "flat",
+                "tyre,",
+                "I",
+                "walk",
+                "to",
+                "college."
+            ],
+            "options": [
+                "If",
+                "While",
+                "Whether",
+                "And",
+                "my",
+                "his",
+                "her",
+                "its",
+                "bike",
+                "taxi",
+                "van",
+                "bicycle",
+                "has",
+                "does",
+                "did",
+                "don't",
+                "a",
+                "neither",
+                "all",
+                "both",
+                "flat",
+                "last",
+                "spare",
+                "next",
+                "tyre",
+                "road",
+                "route",
+                "train",
+                "I",
+                "It",
+                "We",
+                "They",
+                "walk",
+                "find",
+                "bring",
+                "take",
+                "to",
+                "during",
+                "from",
+                "for",
+                "college",
+                "breakfast",
+                "miss",
+                "feel"
+            ],
+            "source_text_uk": "Якщо в мого велосипеда спущена шина, я йду до коледжу пішки.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "While",
+                    "Whether",
+                    "And"
+                ],
+                "a2": [
+                    "my",
+                    "his",
+                    "her",
+                    "its"
+                ],
+                "a3": [
+                    "bike",
+                    "taxi",
+                    "van",
+                    "bicycle"
+                ],
+                "a4": [
+                    "has",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a5": [
+                    "a",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a6": [
+                    "flat",
+                    "last",
+                    "spare",
+                    "next"
+                ],
+                "a7": [
+                    "tyre",
+                    "road",
+                    "route",
+                    "train"
+                ],
+                "a8": [
+                    "I",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a9": [
+                    "walk",
+                    "find",
+                    "bring",
+                    "take"
+                ],
+                "a10": [
+                    "to",
+                    "during",
+                    "from",
+                    "for"
+                ],
+                "a11": [
+                    "college",
+                    "breakfast",
+                    "miss",
+                    "feel"
+                ]
+            },
+            "slot_roles": {
+                "a1": "condition_subject",
+                "a2": "condition_subject",
+                "a3": "condition_subject",
+                "a4": "verb_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "clause_phrase",
+                "a9": "clause_phrase",
+                "a10": "adverbial_phrase",
+                "a11": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "cqq-zero-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Чорнило розтікається, якщо папір намокає.",
+            "level": "A2",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Чорнило розтікається, якщо папір намокає.",
+            "target_text": "The ink runs if the paper gets wet.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Опиши властивість чорнила; почни з наслідку.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "ink",
+                    "verb_hint": "Опиши властивість чорнила; почни з наслідку.",
+                    "options": [
+                        "ink",
+                        "manager",
+                        "device",
+                        "miss"
+                    ]
+                },
+                "a3": {
+                    "answer": "runs",
+                    "verb_hint": "Опиши властивість чорнила; почни з наслідку.",
+                    "options": [
+                        "runs",
+                        "has",
+                        "schools",
+                        "friends"
+                    ]
+                },
+                "a4": {
+                    "answer": "if",
+                    "verb_hint": "Опиши властивість чорнила; почни з наслідку.",
+                    "options": [
+                        "if",
+                        "because",
+                        "although",
+                        "though"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Опиши властивість чорнила; почни з наслідку.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "that"
+                    ]
+                },
+                "a6": {
+                    "answer": "paper",
+                    "verb_hint": "Опиши властивість чорнила; почни з наслідку.",
+                    "options": [
+                        "paper",
+                        "breakfast",
+                        "feel",
+                        "flat"
+                    ]
+                },
+                "a7": {
+                    "answer": "gets",
+                    "verb_hint": "Опиши властивість чорнила; почни з наслідку.",
+                    "options": [
+                        "gets",
+                        "needs",
+                        "writes",
+                        "works"
+                    ]
+                },
+                "a8": {
+                    "answer": "wet.",
+                    "verb_hint": "Опиши властивість чорнила; почни з наслідку.",
+                    "options": [
+                        "wet",
+                        "agree",
+                        "tyre",
+                        "college"
+                    ]
+                }
+            },
+            "verb_hint": "Опиши властивість чорнила; почни з наслідку.",
+            "accepted_target_texts": [
+                "The ink runs if the paper gets wet."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ink",
+                "runs",
+                "if",
+                "the paper",
+                "gets wet."
+            ],
+            "token_groups": [
+                "The ink",
+                "runs",
+                "if",
+                "the paper",
+                "gets wet."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "The",
+                "ink",
+                "runs",
+                "if",
+                "the",
+                "paper",
+                "gets",
+                "wet."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "ink",
+                "manager",
+                "device",
+                "miss",
+                "runs",
+                "has",
+                "schools",
+                "friends",
+                "if",
+                "because",
+                "although",
+                "though",
+                "the",
+                "a",
+                "an",
+                "that",
+                "paper",
+                "breakfast",
+                "feel",
+                "flat",
+                "gets",
+                "needs",
+                "writes",
+                "works",
+                "wet",
+                "agree",
+                "tyre",
+                "college"
+            ],
+            "source_text_uk": "Чорнило розтікається, якщо папір намокає.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "ink",
+                    "manager",
+                    "device",
+                    "miss"
+                ],
+                "a3": [
+                    "runs",
+                    "has",
+                    "schools",
+                    "friends"
+                ],
+                "a4": [
+                    "if",
+                    "because",
+                    "although",
+                    "though"
+                ],
+                "a5": [
+                    "the",
+                    "a",
+                    "an",
+                    "that"
+                ],
+                "a6": [
+                    "paper",
+                    "breakfast",
+                    "feel",
+                    "flat"
+                ],
+                "a7": [
+                    "gets",
+                    "needs",
+                    "writes",
+                    "works"
+                ],
+                "a8": [
+                    "wet",
+                    "agree",
+                    "tyre",
+                    "college"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "verb_phrase",
+                "a4": "connector_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "cqq-zero-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Якщо я пропускаю сніданок, до десятої відчуваю голод.",
+            "level": "A2",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Якщо я пропускаю сніданок, до десятої відчуваю голод.",
+            "target_text": "If I miss breakfast, I feel hungry by ten.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Передай звичний наслідок; почни з умови про сніданок.",
+                    "options": [
+                        "If",
+                        "But",
+                        "Or",
+                        "Nor"
+                    ]
+                },
+                "a2": {
+                    "answer": "I",
+                    "verb_hint": "Передай звичний наслідок; почни з умови про сніданок.",
+                    "options": [
+                        "I",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a3": {
+                    "answer": "miss",
+                    "verb_hint": "Передай звичний наслідок; почни з умови про сніданок.",
+                    "options": [
+                        "miss",
+                        "flat",
+                        "tyre",
+                        "college"
+                    ]
+                },
+                "a4": {
+                    "answer": "breakfast,",
+                    "verb_hint": "Передай звичний наслідок; почни з умови про сніданок.",
+                    "options": [
+                        "breakfast",
+                        "ink",
+                        "paper",
+                        "wet"
+                    ]
+                },
+                "a5": {
+                    "answer": "I",
+                    "verb_hint": "Передай звичний наслідок; почни з умови про сніданок.",
+                    "options": [
+                        "I",
+                        "Herself",
+                        "Ourselves",
+                        "Themselves"
+                    ]
+                },
+                "a6": {
+                    "answer": "feel",
+                    "verb_hint": "Передай звичний наслідок; почни з умови про сніданок.",
+                    "options": [
+                        "feel",
+                        "bread",
+                        "milk",
+                        "music"
+                    ]
+                },
+                "a7": {
+                    "answer": "hungry",
+                    "verb_hint": "Передай звичний наслідок; почни з умови про сніданок.",
+                    "options": [
+                        "hungry",
+                        "final",
+                        "small",
+                        "large"
+                    ]
+                },
+                "a8": {
+                    "answer": "by",
+                    "verb_hint": "Передай звичний наслідок; почни з умови про сніданок.",
+                    "options": [
+                        "by",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a9": {
+                    "answer": "ten.",
+                    "verb_hint": "Передай звичний наслідок; почни з умови про сніданок.",
+                    "options": [
+                        "ten",
+                        "rode",
+                        "drove",
+                        "gave"
+                    ]
+                }
+            },
+            "verb_hint": "Передай звичний наслідок; почни з умови про сніданок.",
+            "accepted_target_texts": [
+                "If I miss breakfast, I feel hungry by ten."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If I",
+                "miss",
+                "breakfast,",
+                "I feel",
+                "hungry by ten."
+            ],
+            "token_groups": [
+                "If I",
+                "miss",
+                "breakfast,",
+                "I feel",
+                "hungry by ten."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "I",
+                "miss",
+                "breakfast,",
+                "I",
+                "feel",
+                "hungry",
+                "by",
+                "ten."
+            ],
+            "options": [
+                "If",
+                "But",
+                "Or",
+                "Nor",
+                "I",
+                "You",
+                "He",
+                "She",
+                "miss",
+                "flat",
+                "tyre",
+                "college",
+                "breakfast",
+                "ink",
+                "paper",
+                "wet",
+                "Herself",
+                "Ourselves",
+                "Themselves",
+                "feel",
+                "bread",
+                "milk",
+                "music",
+                "hungry",
+                "final",
+                "small",
+                "large",
+                "by",
+                "about",
+                "during",
+                "to",
+                "ten",
+                "rode",
+                "drove",
+                "gave"
+            ],
+            "source_text_uk": "Якщо я пропускаю сніданок, до десятої відчуваю голод.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "But",
+                    "Or",
+                    "Nor"
+                ],
+                "a2": [
+                    "I",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a3": [
+                    "miss",
+                    "flat",
+                    "tyre",
+                    "college"
+                ],
+                "a4": [
+                    "breakfast",
+                    "ink",
+                    "paper",
+                    "wet"
+                ],
+                "a5": [
+                    "I",
+                    "Herself",
+                    "Ourselves",
+                    "Themselves"
+                ],
+                "a6": [
+                    "feel",
+                    "bread",
+                    "milk",
+                    "music"
+                ],
+                "a7": [
+                    "hungry",
+                    "final",
+                    "small",
+                    "large"
+                ],
+                "a8": [
+                    "by",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a9": [
+                    "ten",
+                    "rode",
+                    "drove",
+                    "gave"
+                ]
+            },
+            "slot_roles": {
+                "a1": "condition_subject",
+                "a2": "condition_subject",
+                "a3": "verb_phrase",
+                "a4": "noun_phrase",
+                "a5": "clause_phrase",
+                "a6": "clause_phrase",
+                "a7": "adjective_phrase",
+                "a8": "adjective_phrase",
+                "a9": "adjective_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "cqq-zero-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Якщо відвідувач губить перепустку, рецепція видає тимчасову.",
+            "level": "B1",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Якщо відвідувач губить перепустку, рецепція видає тимчасову.",
+            "target_text": "If a visitor loses a badge, reception issues a temporary pass.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Опиши чинну процедуру; почни з умови про відвідувача.",
+                    "options": [
+                        "If",
+                        "Whether",
+                        "And",
+                        "But"
+                    ]
+                },
+                "a2": {
+                    "answer": "a",
+                    "verb_hint": "Опиши чинну процедуру; почни з умови про відвідувача.",
+                    "options": [
+                        "a",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a3": {
+                    "answer": "visitor",
+                    "verb_hint": "Опиши чинну процедуру; почни з умови про відвідувача.",
+                    "options": [
+                        "visitor",
+                        "teacher",
+                        "friend",
+                        "manager"
+                    ]
+                },
+                "a4": {
+                    "answer": "loses",
+                    "verb_hint": "Опиши чинну процедуру; почни з умови про відвідувача.",
+                    "options": [
+                        "loses",
+                        "spoils",
+                        "keys",
+                        "rooms"
+                    ]
+                },
+                "a5": {
+                    "answer": "a",
+                    "verb_hint": "Опиши чинну процедуру; почни з умови про відвідувача.",
+                    "options": [
+                        "a",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a6": {
+                    "answer": "badge,",
+                    "verb_hint": "Опиши чинну процедуру; почни з умови про відвідувача.",
+                    "options": [
+                        "badge",
+                        "machine",
+                        "ticket",
+                        "fridge"
+                    ]
+                },
+                "a7": {
+                    "answer": "reception",
+                    "verb_hint": "Опиши чинну процедуру; почни з умови про відвідувача.",
+                    "options": [
+                        "reception",
+                        "i",
+                        "food",
+                        "more"
+                    ]
+                },
+                "a8": {
+                    "answer": "issues",
+                    "verb_hint": "Опиши чинну процедуру; почни з умови про відвідувача.",
+                    "options": [
+                        "issues",
+                        "cups",
+                        "doors",
+                        "maps"
+                    ]
+                },
+                "a9": {
+                    "answer": "a",
+                    "verb_hint": "Опиши чинну процедуру; почни з умови про відвідувача.",
+                    "options": [
+                        "a",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a10": {
+                    "answer": "temporary",
+                    "verb_hint": "Опиши чинну процедуру; почни з умови про відвідувача.",
+                    "options": [
+                        "temporary",
+                        "small",
+                        "new",
+                        "safe"
+                    ]
+                },
+                "a11": {
+                    "answer": "pass.",
+                    "verb_hint": "Опиши чинну процедуру; почни з умови про відвідувача.",
+                    "options": [
+                        "pass",
+                        "coat",
+                        "road",
+                        "route"
+                    ]
+                }
+            },
+            "verb_hint": "Опиши чинну процедуру; почни з умови про відвідувача.",
+            "accepted_target_texts": [
+                "If a visitor loses a badge, reception issues a temporary pass."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If a visitor",
+                "loses",
+                "a badge,",
+                "reception issues",
+                "a temporary pass."
+            ],
+            "token_groups": [
+                "If a visitor",
+                "loses",
+                "a badge,",
+                "reception issues",
+                "a temporary pass."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "a",
+                "visitor",
+                "loses",
+                "a",
+                "badge,",
+                "reception",
+                "issues",
+                "a",
+                "temporary",
+                "pass."
+            ],
+            "options": [
+                "If",
+                "Whether",
+                "And",
+                "But",
+                "a",
+                "every",
+                "no",
+                "another",
+                "visitor",
+                "teacher",
+                "friend",
+                "manager",
+                "loses",
+                "spoils",
+                "keys",
+                "rooms",
+                "either",
+                "neither",
+                "all",
+                "badge",
+                "machine",
+                "ticket",
+                "fridge",
+                "reception",
+                "i",
+                "food",
+                "more",
+                "issues",
+                "cups",
+                "doors",
+                "maps",
+                "that",
+                "these",
+                "those",
+                "temporary",
+                "small",
+                "new",
+                "safe",
+                "pass",
+                "coat",
+                "road",
+                "route"
+            ],
+            "source_text_uk": "Якщо відвідувач губить перепустку, рецепція видає тимчасову.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "Whether",
+                    "And",
+                    "But"
+                ],
+                "a2": [
+                    "a",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a3": [
+                    "visitor",
+                    "teacher",
+                    "friend",
+                    "manager"
+                ],
+                "a4": [
+                    "loses",
+                    "spoils",
+                    "keys",
+                    "rooms"
+                ],
+                "a5": [
+                    "a",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a6": [
+                    "badge",
+                    "machine",
+                    "ticket",
+                    "fridge"
+                ],
+                "a7": [
+                    "reception",
+                    "i",
+                    "food",
+                    "more"
+                ],
+                "a8": [
+                    "issues",
+                    "cups",
+                    "doors",
+                    "maps"
+                ],
+                "a9": [
+                    "a",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a10": [
+                    "temporary",
+                    "small",
+                    "new",
+                    "safe"
+                ],
+                "a11": [
+                    "pass",
+                    "coat",
+                    "road",
+                    "route"
+                ]
+            },
+            "slot_roles": {
+                "a1": "condition_subject",
+                "a2": "condition_subject",
+                "a3": "condition_subject",
+                "a4": "verb_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "clause_phrase",
+                "a8": "clause_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "cqq-zero-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Їжа псується швидше, якщо холодильник перевантажений.",
+            "level": "B1",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Їжа псується швидше, якщо холодильник перевантажений.",
+            "target_text": "Food spoils more quickly if the fridge is overloaded.",
+            "markers": {
+                "a1": {
+                    "answer": "Food",
+                    "verb_hint": "Передай повторюваний наслідок; почни з їжі.",
+                    "options": [
+                        "Food",
+                        "Reception",
+                        "I",
+                        "Concentrate"
+                    ]
+                },
+                "a2": {
+                    "answer": "spoils",
+                    "verb_hint": "Передай повторюваний наслідок; почни з їжі.",
+                    "options": [
+                        "spoils",
+                        "issues",
+                        "loses",
+                        "rooms"
+                    ]
+                },
+                "a3": {
+                    "answer": "more",
+                    "verb_hint": "Передай повторюваний наслідок; почни з їжі.",
+                    "options": [
+                        "more",
+                        "before",
+                        "short",
+                        "badge"
+                    ]
+                },
+                "a4": {
+                    "answer": "quickly",
+                    "verb_hint": "Передай повторюваний наслідок; почни з їжі.",
+                    "options": [
+                        "quickly",
+                        "quietly",
+                        "slowly",
+                        "carefully"
+                    ]
+                },
+                "a5": {
+                    "answer": "if",
+                    "verb_hint": "Передай повторюваний наслідок; почни з їжі.",
+                    "options": [
+                        "if",
+                        "whereas",
+                        "while",
+                        "whether"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Передай повторюваний наслідок; почни з їжі.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a7": {
+                    "answer": "fridge",
+                    "verb_hint": "Передай повторюваний наслідок; почни з їжі.",
+                    "options": [
+                        "fridge",
+                        "device",
+                        "manager",
+                        "pass"
+                    ]
+                },
+                "a8": {
+                    "answer": "is",
+                    "verb_hint": "Передай повторюваний наслідок; почни з їжі.",
+                    "options": [
+                        "is",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a9": {
+                    "answer": "overloaded.",
+                    "verb_hint": "Передай повторюваний наслідок; почни з їжі.",
+                    "options": [
+                        "overloaded",
+                        "waited",
+                        "arrived",
+                        "open"
+                    ]
+                }
+            },
+            "verb_hint": "Передай повторюваний наслідок; почни з їжі.",
+            "accepted_target_texts": [
+                "Food spoils more quickly if the fridge is overloaded."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Food spoils",
+                "more quickly",
+                "if",
+                "the fridge",
+                "is overloaded."
+            ],
+            "token_groups": [
+                "Food spoils",
+                "more quickly",
+                "if",
+                "the fridge",
+                "is overloaded."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "Food",
+                "spoils",
+                "more",
+                "quickly",
+                "if",
+                "the",
+                "fridge",
+                "is",
+                "overloaded."
+            ],
+            "options": [
+                "Food",
+                "Reception",
+                "I",
+                "Concentrate",
+                "spoils",
+                "issues",
+                "loses",
+                "rooms",
+                "more",
+                "before",
+                "short",
+                "badge",
+                "quickly",
+                "quietly",
+                "slowly",
+                "carefully",
+                "if",
+                "whereas",
+                "while",
+                "whether",
+                "the",
+                "no",
+                "another",
+                "either",
+                "fridge",
+                "device",
+                "manager",
+                "pass",
+                "is",
+                "wasn't",
+                "weren't",
+                "am",
+                "overloaded",
+                "waited",
+                "arrived",
+                "open"
+            ],
+            "source_text_uk": "Їжа псується швидше, якщо холодильник перевантажений.",
+            "options_by_marker": {
+                "a1": [
+                    "Food",
+                    "Reception",
+                    "I",
+                    "Concentrate"
+                ],
+                "a2": [
+                    "spoils",
+                    "issues",
+                    "loses",
+                    "rooms"
+                ],
+                "a3": [
+                    "more",
+                    "before",
+                    "short",
+                    "badge"
+                ],
+                "a4": [
+                    "quickly",
+                    "quietly",
+                    "slowly",
+                    "carefully"
+                ],
+                "a5": [
+                    "if",
+                    "whereas",
+                    "while",
+                    "whether"
+                ],
+                "a6": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a7": [
+                    "fridge",
+                    "device",
+                    "manager",
+                    "pass"
+                ],
+                "a8": [
+                    "is",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a9": [
+                    "overloaded",
+                    "waited",
+                    "arrived",
+                    "open"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "adverbial_phrase",
+                "a4": "adverbial_phrase",
+                "a5": "connector_phrase",
+                "a6": "subject_phrase",
+                "a7": "subject_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "cqq-zero-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Якщо я не можу зосередитися, то трохи прогулююся.",
+            "level": "B1",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Якщо я не можу зосередитися, то трохи прогулююся.",
+            "target_text": "If I cannot concentrate, I take a short walk.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Передай звичну реакцію та заперечну здатність; почни з умови.",
+                    "options": [
+                        "If",
+                        "Nor",
+                        "So",
+                        "Yet"
+                    ]
+                },
+                "a2": {
+                    "answer": "I",
+                    "verb_hint": "Передай звичну реакцію та заперечну здатність; почни з умови.",
+                    "options": [
+                        "I",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a3": {
+                    "answer": "cannot",
+                    "verb_hint": "Передай звичну реакцію та заперечну здатність; почни з умови.",
+                    "options": [
+                        "cannot",
+                        "should",
+                        "may",
+                        "might"
+                    ]
+                },
+                "a4": {
+                    "answer": "concentrate,",
+                    "verb_hint": "Передай звичну реакцію та заперечну здатність; почни з умови.",
+                    "options": [
+                        "concentrate",
+                        "agree",
+                        "badge",
+                        "reception"
+                    ]
+                },
+                "a5": {
+                    "answer": "I",
+                    "verb_hint": "Передай звичну реакцію та заперечну здатність; почни з умови.",
+                    "options": [
+                        "I",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a6": {
+                    "answer": "take",
+                    "verb_hint": "Передай звичну реакцію та заперечну здатність; почни з умови.",
+                    "options": [
+                        "take",
+                        "open",
+                        "close",
+                        "help"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Передай звичну реакцію та заперечну здатність; почни з умови.",
+                    "options": [
+                        "a",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a8": {
+                    "answer": "short",
+                    "verb_hint": "Передай звичну реакцію та заперечну здатність; почни з умови.",
+                    "options": [
+                        "short",
+                        "spare",
+                        "next",
+                        "paper"
+                    ]
+                },
+                "a9": {
+                    "answer": "walk.",
+                    "verb_hint": "Передай звичну реакцію та заперечну здатність; почни з умови.",
+                    "options": [
+                        "walk",
+                        "visit",
+                        "cook",
+                        "ride"
+                    ]
+                }
+            },
+            "verb_hint": "Передай звичну реакцію та заперечну здатність; почни з умови.",
+            "accepted_target_texts": [
+                "If I cannot concentrate, I take a short walk.",
+                "If I can not concentrate, I take a short walk.",
+                "If I can't concentrate, I take a short walk."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "can't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "can't"
+                ]
+            },
+            "reorder_groups": [
+                "If I",
+                "cannot concentrate,",
+                "I take",
+                "a short walk."
+            ],
+            "token_groups": [
+                "If I",
+                "cannot concentrate,",
+                "I take",
+                "a short walk."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "I",
+                "cannot",
+                "concentrate,",
+                "I",
+                "take",
+                "a",
+                "short",
+                "walk."
+            ],
+            "options": [
+                "If",
+                "Nor",
+                "So",
+                "Yet",
+                "I",
+                "Me",
+                "Him",
+                "Us",
+                "cannot",
+                "should",
+                "may",
+                "might",
+                "concentrate",
+                "agree",
+                "badge",
+                "reception",
+                "Them",
+                "Myself",
+                "Yourself",
+                "take",
+                "open",
+                "close",
+                "help",
+                "a",
+                "neither",
+                "all",
+                "both",
+                "short",
+                "spare",
+                "next",
+                "paper",
+                "walk",
+                "visit",
+                "cook",
+                "ride"
+            ],
+            "source_text_uk": "Якщо я не можу зосередитися, то трохи прогулююся.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "Nor",
+                    "So",
+                    "Yet"
+                ],
+                "a2": [
+                    "I",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a3": [
+                    "cannot",
+                    "should",
+                    "may",
+                    "might"
+                ],
+                "a4": [
+                    "concentrate",
+                    "agree",
+                    "badge",
+                    "reception"
+                ],
+                "a5": [
+                    "I",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a6": [
+                    "take",
+                    "open",
+                    "close",
+                    "help"
+                ],
+                "a7": [
+                    "a",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a8": [
+                    "short",
+                    "spare",
+                    "next",
+                    "paper"
+                ],
+                "a9": [
+                    "walk",
+                    "visit",
+                    "cook",
+                    "ride"
+                ]
+            },
+            "slot_roles": {
+                "a1": "condition_subject",
+                "a2": "condition_subject",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "clause_phrase",
+                "a6": "clause_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "cqq-zero-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Якщо заявник пропускає обов’язковий документ, портал позначає заявку.",
+            "level": "B2",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Якщо заявник пропускає обов’язковий документ, портал позначає заявку.",
+            "target_text": "If an applicant omits a required document, the portal flags the submission.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Опиши чинне правило перевірки; почни з умови про заявника.",
+                    "options": [
+                        "If",
+                        "So",
+                        "Yet",
+                        "Because"
+                    ]
+                },
+                "a2": {
+                    "answer": "an",
+                    "verb_hint": "Опиши чинне правило перевірки; почни з умови про заявника.",
+                    "options": [
+                        "an",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a3": {
+                    "answer": "applicant",
+                    "verb_hint": "Опиши чинне правило перевірки; почни з умови про заявника.",
+                    "options": [
+                        "applicant",
+                        "interpretation",
+                        "contract",
+                        "valid"
+                    ]
+                },
+                "a4": {
+                    "answer": "omits",
+                    "verb_hint": "Опиши чинне правило перевірки; почни з умови про заявника.",
+                    "options": [
+                        "omits",
+                        "conflicts",
+                        "remains",
+                        "parties"
+                    ]
+                },
+                "a5": {
+                    "answer": "a",
+                    "verb_hint": "Опиши чинне правило перевірки; почни з умови про заявника.",
+                    "options": [
+                        "a",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "required",
+                    "verb_hint": "Опиши чинне правило перевірки; почни з умови про заявника.",
+                    "options": [
+                        "required",
+                        "wanted",
+                        "worked",
+                        "played"
+                    ]
+                },
+                "a7": {
+                    "answer": "document,",
+                    "verb_hint": "Опиши чинне правило перевірки; почни з умови про заявника.",
+                    "options": [
+                        "document",
+                        "newspaper",
+                        "magazine",
+                        "message"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Опиши чинне правило перевірки; почни з умови про заявника.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a9": {
+                    "answer": "portal",
+                    "verb_hint": "Опиши чинне правило перевірки; почни з умови про заявника.",
+                    "options": [
+                        "portal",
+                        "device",
+                        "manager",
+                        "data"
+                    ]
+                },
+                "a10": {
+                    "answer": "flags",
+                    "verb_hint": "Опиши чинне правило перевірки; почни з умови про заявника.",
+                    "options": [
+                        "flags",
+                        "obligations",
+                        "friends",
+                        "dogs"
+                    ]
+                },
+                "a11": {
+                    "answer": "the",
+                    "verb_hint": "Опиши чинне правило перевірки; почни з умови про заявника.",
+                    "options": [
+                        "the",
+                        "both",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a12": {
+                    "answer": "submission.",
+                    "verb_hint": "Опиши чинне правило перевірки; почни з умови про заявника.",
+                    "options": [
+                        "submission",
+                        "machine",
+                        "ticket",
+                        "revise"
+                    ]
+                }
+            },
+            "verb_hint": "Опиши чинне правило перевірки; почни з умови про заявника.",
+            "accepted_target_texts": [
+                "If an applicant omits a required document, the portal flags the submission."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If an applicant",
+                "omits",
+                "a required document,",
+                "the portal",
+                "flags",
+                "the submission."
+            ],
+            "token_groups": [
+                "If an applicant",
+                "omits",
+                "a required document,",
+                "the portal",
+                "flags",
+                "the submission."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "an",
+                "applicant",
+                "omits",
+                "a",
+                "required",
+                "document,",
+                "the",
+                "portal",
+                "flags",
+                "the",
+                "submission."
+            ],
+            "options": [
+                "If",
+                "So",
+                "Yet",
+                "Because",
+                "an",
+                "those",
+                "each",
+                "every",
+                "applicant",
+                "interpretation",
+                "contract",
+                "valid",
+                "omits",
+                "conflicts",
+                "remains",
+                "parties",
+                "a",
+                "some",
+                "any",
+                "this",
+                "required",
+                "wanted",
+                "worked",
+                "played",
+                "document",
+                "newspaper",
+                "magazine",
+                "message",
+                "the",
+                "no",
+                "another",
+                "either",
+                "portal",
+                "device",
+                "manager",
+                "data",
+                "flags",
+                "obligations",
+                "friends",
+                "dogs",
+                "both",
+                "that",
+                "these",
+                "submission",
+                "machine",
+                "ticket",
+                "revise"
+            ],
+            "source_text_uk": "Якщо заявник пропускає обов’язковий документ, портал позначає заявку.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "So",
+                    "Yet",
+                    "Because"
+                ],
+                "a2": [
+                    "an",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a3": [
+                    "applicant",
+                    "interpretation",
+                    "contract",
+                    "valid"
+                ],
+                "a4": [
+                    "omits",
+                    "conflicts",
+                    "remains",
+                    "parties"
+                ],
+                "a5": [
+                    "a",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "required",
+                    "wanted",
+                    "worked",
+                    "played"
+                ],
+                "a7": [
+                    "document",
+                    "newspaper",
+                    "magazine",
+                    "message"
+                ],
+                "a8": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a9": [
+                    "portal",
+                    "device",
+                    "manager",
+                    "data"
+                ],
+                "a10": [
+                    "flags",
+                    "obligations",
+                    "friends",
+                    "dogs"
+                ],
+                "a11": [
+                    "the",
+                    "both",
+                    "that",
+                    "these"
+                ],
+                "a12": [
+                    "submission",
+                    "machine",
+                    "ticket",
+                    "revise"
+                ]
+            },
+            "slot_roles": {
+                "a1": "condition_subject",
+                "a2": "condition_subject",
+                "a3": "condition_subject",
+                "a4": "verb_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "subject_phrase",
+                "a9": "subject_phrase",
+                "a10": "verb_phrase",
+                "a11": "noun_phrase",
+                "a12": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "cqq-zero-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Договір залишається чинним, якщо обидві сторони виконують свої зобов’язання.",
+            "level": "B2",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Договір залишається чинним, якщо обидві сторони виконують свої зобов’язання.",
+            "target_text": "A contract remains valid if both parties meet their obligations.",
+            "markers": {
+                "a1": {
+                    "answer": "A",
+                    "verb_hint": "Передай загальне договірне правило; почни з договору.",
+                    "options": [
+                        "A",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "contract",
+                    "verb_hint": "Передай загальне договірне правило; почни з договору.",
+                    "options": [
+                        "contract",
+                        "portal",
+                        "manager",
+                        "device"
+                    ]
+                },
+                "a3": {
+                    "answer": "remains",
+                    "verb_hint": "Передай загальне договірне правило; почни з договору.",
+                    "options": [
+                        "remains",
+                        "has",
+                        "is",
+                        "conflicts"
+                    ]
+                },
+                "a4": {
+                    "answer": "valid",
+                    "verb_hint": "Передай загальне договірне правило; почни з договору.",
+                    "options": [
+                        "valid",
+                        "agree",
+                        "applicant",
+                        "submission"
+                    ]
+                },
+                "a5": {
+                    "answer": "if",
+                    "verb_hint": "Передай загальне договірне правило; почни з договору.",
+                    "options": [
+                        "if",
+                        "but",
+                        "or",
+                        "nor"
+                    ]
+                },
+                "a6": {
+                    "answer": "both",
+                    "verb_hint": "Передай загальне договірне правило; почни з договору.",
+                    "options": [
+                        "both",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a7": {
+                    "answer": "parties",
+                    "verb_hint": "Передай загальне договірне правило; почни з договору.",
+                    "options": [
+                        "parties",
+                        "visitors",
+                        "flags",
+                        "omits"
+                    ]
+                },
+                "a8": {
+                    "answer": "meet",
+                    "verb_hint": "Передай загальне договірне правило; почни з договору.",
+                    "options": [
+                        "meet",
+                        "get",
+                        "go",
+                        "say"
+                    ]
+                },
+                "a9": {
+                    "answer": "their",
+                    "verb_hint": "Передай загальне договірне правило; почни з договору.",
+                    "options": [
+                        "their",
+                        "theirs",
+                        "whose",
+                        "my"
+                    ]
+                },
+                "a10": {
+                    "answer": "obligations.",
+                    "verb_hint": "Передай загальне договірне правило; почни з договору.",
+                    "options": [
+                        "obligations",
+                        "keys",
+                        "rooms",
+                        "maps"
+                    ]
+                }
+            },
+            "verb_hint": "Передай загальне договірне правило; почни з договору.",
+            "accepted_target_texts": [
+                "A contract remains valid if both parties meet their obligations."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A contract",
+                "remains valid",
+                "if",
+                "both parties",
+                "meet",
+                "their obligations."
+            ],
+            "token_groups": [
+                "A contract",
+                "remains valid",
+                "if",
+                "both parties",
+                "meet",
+                "their obligations."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "A",
+                "contract",
+                "remains",
+                "valid",
+                "if",
+                "both",
+                "parties",
+                "meet",
+                "their",
+                "obligations."
+            ],
+            "options": [
+                "A",
+                "This",
+                "That",
+                "These",
+                "contract",
+                "portal",
+                "manager",
+                "device",
+                "remains",
+                "has",
+                "is",
+                "conflicts",
+                "valid",
+                "agree",
+                "applicant",
+                "submission",
+                "if",
+                "but",
+                "or",
+                "nor",
+                "both",
+                "each",
+                "every",
+                "no",
+                "parties",
+                "visitors",
+                "flags",
+                "omits",
+                "meet",
+                "get",
+                "go",
+                "say",
+                "their",
+                "theirs",
+                "whose",
+                "my",
+                "obligations",
+                "keys",
+                "rooms",
+                "maps"
+            ],
+            "source_text_uk": "Договір залишається чинним, якщо обидві сторони виконують свої зобов’язання.",
+            "options_by_marker": {
+                "a1": [
+                    "A",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "contract",
+                    "portal",
+                    "manager",
+                    "device"
+                ],
+                "a3": [
+                    "remains",
+                    "has",
+                    "is",
+                    "conflicts"
+                ],
+                "a4": [
+                    "valid",
+                    "agree",
+                    "applicant",
+                    "submission"
+                ],
+                "a5": [
+                    "if",
+                    "but",
+                    "or",
+                    "nor"
+                ],
+                "a6": [
+                    "both",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a7": [
+                    "parties",
+                    "visitors",
+                    "flags",
+                    "omits"
+                ],
+                "a8": [
+                    "meet",
+                    "get",
+                    "go",
+                    "say"
+                ],
+                "a9": [
+                    "their",
+                    "theirs",
+                    "whose",
+                    "my"
+                ],
+                "a10": [
+                    "obligations",
+                    "keys",
+                    "rooms",
+                    "maps"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "connector_phrase",
+                "a6": "subject_phrase",
+                "a7": "subject_phrase",
+                "a8": "verb_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "cqq-zero-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Якщо моє тлумачення суперечить даним, я його переглядаю.",
+            "level": "B2",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Якщо моє тлумачення суперечить даним, я його переглядаю.",
+            "target_text": "If my interpretation conflicts with the data, I revise the interpretation.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Опиши звичний дослідницький принцип; почни з умови.",
+                    "options": [
+                        "If",
+                        "And",
+                        "But",
+                        "Or"
+                    ]
+                },
+                "a2": {
+                    "answer": "my",
+                    "verb_hint": "Опиши звичний дослідницький принцип; почни з умови.",
+                    "options": [
+                        "my",
+                        "her",
+                        "its",
+                        "our"
+                    ]
+                },
+                "a3": {
+                    "answer": "interpretation",
+                    "verb_hint": "Опиши звичний дослідницький принцип; почни з умови.",
+                    "options": [
+                        "interpretation",
+                        "applicant",
+                        "portal",
+                        "submission"
+                    ]
+                },
+                "a4": {
+                    "answer": "conflicts",
+                    "verb_hint": "Опиши звичний дослідницький принцип; почни з умови.",
+                    "options": [
+                        "conflicts",
+                        "omits",
+                        "parties",
+                        "obligations"
+                    ]
+                },
+                "a5": {
+                    "answer": "with",
+                    "verb_hint": "Опиши звичний дослідницький принцип; почни з умови.",
+                    "options": [
+                        "with",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Опиши звичний дослідницький принцип; почни з умови.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "data,",
+                    "verb_hint": "Опиши звичний дослідницький принцип; почни з умови.",
+                    "options": [
+                        "data",
+                        "permit",
+                        "shelf",
+                        "approval"
+                    ]
+                },
+                "a8": {
+                    "answer": "I",
+                    "verb_hint": "Опиши звичний дослідницький принцип; почни з умови.",
+                    "options": [
+                        "I",
+                        "Themselves",
+                        "You",
+                        "He"
+                    ]
+                },
+                "a9": {
+                    "answer": "revise",
+                    "verb_hint": "Опиши звичний дослідницький принцип; почни з умови.",
+                    "options": [
+                        "revise",
+                        "contract",
+                        "valid",
+                        "desk"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Опиши звичний дослідницький принцип; почни з умови.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a11": {
+                    "answer": "interpretation.",
+                    "verb_hint": "Опиши звичний дослідницький принцип; почни з умови.",
+                    "options": [
+                        "interpretation",
+                        "ticket",
+                        "machine",
+                        "room"
+                    ]
+                }
+            },
+            "verb_hint": "Опиши звичний дослідницький принцип; почни з умови.",
+            "accepted_target_texts": [
+                "If my interpretation conflicts with the data, I revise the interpretation."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If my interpretation",
+                "conflicts",
+                "with the data,",
+                "I revise",
+                "the interpretation."
+            ],
+            "token_groups": [
+                "If my interpretation",
+                "conflicts",
+                "with the data,",
+                "I revise",
+                "the interpretation."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "my",
+                "interpretation",
+                "conflicts",
+                "with",
+                "the",
+                "data,",
+                "I",
+                "revise",
+                "the",
+                "interpretation."
+            ],
+            "options": [
+                "If",
+                "And",
+                "But",
+                "Or",
+                "my",
+                "her",
+                "its",
+                "our",
+                "interpretation",
+                "applicant",
+                "portal",
+                "submission",
+                "conflicts",
+                "omits",
+                "parties",
+                "obligations",
+                "with",
+                "for",
+                "of",
+                "in",
+                "the",
+                "those",
+                "each",
+                "every",
+                "data",
+                "permit",
+                "shelf",
+                "approval",
+                "I",
+                "Themselves",
+                "You",
+                "He",
+                "revise",
+                "contract",
+                "valid",
+                "desk",
+                "either",
+                "neither",
+                "all",
+                "ticket",
+                "machine",
+                "room"
+            ],
+            "source_text_uk": "Якщо моє тлумачення суперечить даним, я його переглядаю.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "And",
+                    "But",
+                    "Or"
+                ],
+                "a2": [
+                    "my",
+                    "her",
+                    "its",
+                    "our"
+                ],
+                "a3": [
+                    "interpretation",
+                    "applicant",
+                    "portal",
+                    "submission"
+                ],
+                "a4": [
+                    "conflicts",
+                    "omits",
+                    "parties",
+                    "obligations"
+                ],
+                "a5": [
+                    "with",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a6": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "data",
+                    "permit",
+                    "shelf",
+                    "approval"
+                ],
+                "a8": [
+                    "I",
+                    "Themselves",
+                    "You",
+                    "He"
+                ],
+                "a9": [
+                    "revise",
+                    "contract",
+                    "valid",
+                    "desk"
+                ],
+                "a10": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a11": [
+                    "interpretation",
+                    "ticket",
+                    "machine",
+                    "room"
+                ]
+            },
+            "slot_roles": {
+                "a1": "condition_subject",
+                "a2": "condition_subject",
+                "a3": "condition_subject",
+                "a4": "verb_phrase",
+                "a5": "adverbial_phrase",
+                "a6": "adverbial_phrase",
+                "a7": "adverbial_phrase",
+                "a8": "clause_phrase",
+                "a9": "clause_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "cqq-zero-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Якщо модель систематично недооцінює рідкісні події, ми ставимо під сумнів її калібрування.",
+            "level": "C1",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Якщо модель систематично недооцінює рідкісні події, ми ставимо під сумнів її калібрування.",
+            "target_text": "If the model systematically underestimates rare events, we question its calibration.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Передай постійний критерій оцінювання моделі; почни з умови.",
+                    "options": [
+                        "If",
+                        "Whether",
+                        "And",
+                        "But"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Передай постійний критерій оцінювання моделі; почни з умови.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a3": {
+                    "answer": "model",
+                    "verb_hint": "Передай постійний критерій оцінювання моделі; почни з умови.",
+                    "options": [
+                        "model",
+                        "conclusion",
+                        "access",
+                        "disclosure"
+                    ]
+                },
+                "a4": {
+                    "answer": "systematically",
+                    "verb_hint": "Передай постійний критерій оцінювання моделі; почни з умови.",
+                    "options": [
+                        "systematically",
+                        "loudly",
+                        "quietly",
+                        "slowly"
+                    ]
+                },
+                "a5": {
+                    "answer": "underestimates",
+                    "verb_hint": "Передай постійний критерій оцінювання моделі; почни з умови.",
+                    "options": [
+                        "underestimates",
+                        "compromises",
+                        "person's",
+                        "depends"
+                    ]
+                },
+                "a6": {
+                    "answer": "rare",
+                    "verb_hint": "Передай постійний критерій оцінювання моделі; почни з умови.",
+                    "options": [
+                        "rare",
+                        "that",
+                        "your",
+                        "privacy"
+                    ]
+                },
+                "a7": {
+                    "answer": "events,",
+                    "verb_hint": "Передай постійний критерій оцінювання моделі; почни з умови.",
+                    "options": [
+                        "events",
+                        "restricts",
+                        "cups",
+                        "doors"
+                    ]
+                },
+                "a8": {
+                    "answer": "we",
+                    "verb_hint": "Передай постійний критерій оцінювання моделі; почни з умови.",
+                    "options": [
+                        "we",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a9": {
+                    "answer": "question",
+                    "verb_hint": "Передай постійний критерій оцінювання моделі; почни з умови.",
+                    "options": [
+                        "question",
+                        "identify",
+                        "premise",
+                        "dependency"
+                    ]
+                },
+                "a10": {
+                    "answer": "its",
+                    "verb_hint": "Передай постійний критерій оцінювання моделі; почни з умови.",
+                    "options": [
+                        "its",
+                        "yours",
+                        "hers",
+                        "ours"
+                    ]
+                },
+                "a11": {
+                    "answer": "calibration.",
+                    "verb_hint": "Передай постійний критерій оцінювання моделі; почни з умови.",
+                    "options": [
+                        "calibration",
+                        "machine",
+                        "ticket",
+                        "bread"
+                    ]
+                }
+            },
+            "verb_hint": "Передай постійний критерій оцінювання моделі; почни з умови.",
+            "accepted_target_texts": [
+                "If the model systematically underestimates rare events, we question its calibration."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If the model",
+                "systematically underestimates",
+                "rare events,",
+                "we question",
+                "its calibration."
+            ],
+            "token_groups": [
+                "If the model",
+                "systematically underestimates",
+                "rare events,",
+                "we question",
+                "its calibration."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "the",
+                "model",
+                "systematically",
+                "underestimates",
+                "rare",
+                "events,",
+                "we",
+                "question",
+                "its",
+                "calibration."
+            ],
+            "options": [
+                "If",
+                "Whether",
+                "And",
+                "But",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "model",
+                "conclusion",
+                "access",
+                "disclosure",
+                "systematically",
+                "loudly",
+                "quietly",
+                "slowly",
+                "underestimates",
+                "compromises",
+                "person's",
+                "depends",
+                "rare",
+                "that",
+                "your",
+                "privacy",
+                "events",
+                "restricts",
+                "cups",
+                "doors",
+                "we",
+                "myself",
+                "yourself",
+                "herself",
+                "question",
+                "identify",
+                "premise",
+                "dependency",
+                "its",
+                "yours",
+                "hers",
+                "ours",
+                "calibration",
+                "machine",
+                "ticket",
+                "bread"
+            ],
+            "source_text_uk": "Якщо модель систематично недооцінює рідкісні події, ми ставимо під сумнів її калібрування.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "Whether",
+                    "And",
+                    "But"
+                ],
+                "a2": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a3": [
+                    "model",
+                    "conclusion",
+                    "access",
+                    "disclosure"
+                ],
+                "a4": [
+                    "systematically",
+                    "loudly",
+                    "quietly",
+                    "slowly"
+                ],
+                "a5": [
+                    "underestimates",
+                    "compromises",
+                    "person's",
+                    "depends"
+                ],
+                "a6": [
+                    "rare",
+                    "that",
+                    "your",
+                    "privacy"
+                ],
+                "a7": [
+                    "events",
+                    "restricts",
+                    "cups",
+                    "doors"
+                ],
+                "a8": [
+                    "we",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a9": [
+                    "question",
+                    "identify",
+                    "premise",
+                    "dependency"
+                ],
+                "a10": [
+                    "its",
+                    "yours",
+                    "hers",
+                    "ours"
+                ],
+                "a11": [
+                    "calibration",
+                    "machine",
+                    "ticket",
+                    "bread"
+                ]
+            },
+            "slot_roles": {
+                "a1": "condition_subject",
+                "a2": "condition_subject",
+                "a3": "condition_subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "clause_phrase",
+                "a9": "clause_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "cqq-zero-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Архів обмежує доступ, якщо розголошення порушує приватність живої людини.",
+            "level": "C1",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Архів обмежує доступ, якщо розголошення порушує приватність живої людини.",
+            "target_text": "The archive restricts access if disclosure compromises a living person's privacy.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Опиши чинну політику архіву; почни з наслідку.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "archive",
+                    "verb_hint": "Опиши чинну політику архіву; почни з наслідку.",
+                    "options": [
+                        "archive",
+                        "light",
+                        "clean",
+                        "dirty"
+                    ]
+                },
+                "a3": {
+                    "answer": "restricts",
+                    "verb_hint": "Опиши чинну політику архіву; почни з наслідку.",
+                    "options": [
+                        "restricts",
+                        "has",
+                        "is",
+                        "depends"
+                    ]
+                },
+                "a4": {
+                    "answer": "access",
+                    "verb_hint": "Опиши чинну політику архіву; почни з наслідку.",
+                    "options": [
+                        "access",
+                        "agree",
+                        "premise",
+                        "identify"
+                    ]
+                },
+                "a5": {
+                    "answer": "if",
+                    "verb_hint": "Опиши чинну політику архіву; почни з наслідку.",
+                    "options": [
+                        "if",
+                        "nor",
+                        "so",
+                        "yet"
+                    ]
+                },
+                "a6": {
+                    "answer": "disclosure",
+                    "verb_hint": "Опиши чинну політику архіву; почни з наслідку.",
+                    "options": [
+                        "disclosure",
+                        "they",
+                        "she",
+                        "he"
+                    ]
+                },
+                "a7": {
+                    "answer": "compromises",
+                    "verb_hint": "Опиши чинну політику архіву; почни з наслідку.",
+                    "options": [
+                        "compromises",
+                        "underestimates",
+                        "events",
+                        "tickets"
+                    ]
+                },
+                "a8": {
+                    "answer": "a",
+                    "verb_hint": "Опиши чинну політику архіву; почни з наслідку.",
+                    "options": [
+                        "a",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a9": {
+                    "answer": "living",
+                    "verb_hint": "Опиши чинну політику архіву; почни з наслідку.",
+                    "options": [
+                        "living",
+                        "riding",
+                        "driving",
+                        "studying"
+                    ]
+                },
+                "a10": {
+                    "answer": "person's",
+                    "verb_hint": "Опиши чинну політику архіву; почни з наслідку.",
+                    "options": [
+                        "person's",
+                        "keys",
+                        "rooms",
+                        "maps"
+                    ]
+                },
+                "a11": {
+                    "answer": "privacy.",
+                    "verb_hint": "Опиши чинну політику архіву; почни з наслідку.",
+                    "options": [
+                        "privacy",
+                        "conclusion",
+                        "dependency",
+                        "model"
+                    ]
+                }
+            },
+            "verb_hint": "Опиши чинну політику архіву; почни з наслідку.",
+            "accepted_target_texts": [
+                "The archive restricts access if disclosure compromises a living person's privacy."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The archive",
+                "restricts access",
+                "if",
+                "disclosure",
+                "compromises",
+                "a living person's",
+                "privacy."
+            ],
+            "token_groups": [
+                "The archive",
+                "restricts access",
+                "if",
+                "disclosure",
+                "compromises",
+                "a living person's",
+                "privacy."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "The",
+                "archive",
+                "restricts",
+                "access",
+                "if",
+                "disclosure",
+                "compromises",
+                "a",
+                "living",
+                "person's",
+                "privacy."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "archive",
+                "light",
+                "clean",
+                "dirty",
+                "restricts",
+                "has",
+                "is",
+                "depends",
+                "access",
+                "agree",
+                "premise",
+                "identify",
+                "if",
+                "nor",
+                "so",
+                "yet",
+                "disclosure",
+                "they",
+                "she",
+                "he",
+                "compromises",
+                "underestimates",
+                "events",
+                "tickets",
+                "a",
+                "any",
+                "this",
+                "that",
+                "living",
+                "riding",
+                "driving",
+                "studying",
+                "person's",
+                "keys",
+                "rooms",
+                "maps",
+                "privacy",
+                "conclusion",
+                "dependency",
+                "model"
+            ],
+            "source_text_uk": "Архів обмежує доступ, якщо розголошення порушує приватність живої людини.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "archive",
+                    "light",
+                    "clean",
+                    "dirty"
+                ],
+                "a3": [
+                    "restricts",
+                    "has",
+                    "is",
+                    "depends"
+                ],
+                "a4": [
+                    "access",
+                    "agree",
+                    "premise",
+                    "identify"
+                ],
+                "a5": [
+                    "if",
+                    "nor",
+                    "so",
+                    "yet"
+                ],
+                "a6": [
+                    "disclosure",
+                    "they",
+                    "she",
+                    "he"
+                ],
+                "a7": [
+                    "compromises",
+                    "underestimates",
+                    "events",
+                    "tickets"
+                ],
+                "a8": [
+                    "a",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a9": [
+                    "living",
+                    "riding",
+                    "driving",
+                    "studying"
+                ],
+                "a10": [
+                    "person's",
+                    "keys",
+                    "rooms",
+                    "maps"
+                ],
+                "a11": [
+                    "privacy",
+                    "conclusion",
+                    "dependency",
+                    "model"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "connector_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "cqq-zero-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Якщо висновок залежить від спірного припущення, ми вказуємо на цю залежність.",
+            "level": "C1",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Якщо висновок залежить від спірного припущення, ми вказуємо на цю залежність.",
+            "target_text": "If a conclusion depends on a disputed premise, we identify that dependency.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Передай звичну редакційну вимогу; почни з умови.",
+                    "options": [
+                        "If",
+                        "Unless",
+                        "Whereas",
+                        "While"
+                    ]
+                },
+                "a2": {
+                    "answer": "a",
+                    "verb_hint": "Передай звичну редакційну вимогу; почни з умови.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a3": {
+                    "answer": "conclusion",
+                    "verb_hint": "Передай звичну редакційну вимогу; почни з умови.",
+                    "options": [
+                        "conclusion",
+                        "model",
+                        "privacy",
+                        "rare"
+                    ]
+                },
+                "a4": {
+                    "answer": "depends",
+                    "verb_hint": "Передай звичну редакційну вимогу; почни з умови.",
+                    "options": [
+                        "depends",
+                        "compromises",
+                        "restricts",
+                        "person's"
+                    ]
+                },
+                "a5": {
+                    "answer": "on",
+                    "verb_hint": "Передай звичну редакційну вимогу; почни з умови.",
+                    "options": [
+                        "on",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Передай звичну редакційну вимогу; почни з умови.",
+                    "options": [
+                        "a",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "disputed",
+                    "verb_hint": "Передай звичну редакційну вимогу; почни з умови.",
+                    "options": [
+                        "disputed",
+                        "garden",
+                        "liked",
+                        "wanted"
+                    ]
+                },
+                "a8": {
+                    "answer": "premise,",
+                    "verb_hint": "Передай звичну редакційну вимогу; почни з умови.",
+                    "options": [
+                        "premise",
+                        "question",
+                        "calibration",
+                        "access"
+                    ]
+                },
+                "a9": {
+                    "answer": "we",
+                    "verb_hint": "Передай звичну редакційну вимогу; почни з умови.",
+                    "options": [
+                        "we",
+                        "me",
+                        "him",
+                        "us"
+                    ]
+                },
+                "a10": {
+                    "answer": "identify",
+                    "verb_hint": "Передай звичну редакційну вимогу; почни з умови.",
+                    "options": [
+                        "identify",
+                        "disclosure",
+                        "friend",
+                        "dog"
+                    ]
+                },
+                "a11": {
+                    "answer": "that",
+                    "verb_hint": "Передай звичну редакційну вимогу; почни з умови.",
+                    "options": [
+                        "that",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a12": {
+                    "answer": "dependency.",
+                    "verb_hint": "Передай звичну редакційну вимогу; почни з умови.",
+                    "options": [
+                        "dependency",
+                        "ticket",
+                        "machine",
+                        "cup"
+                    ]
+                }
+            },
+            "verb_hint": "Передай звичну редакційну вимогу; почни з умови.",
+            "accepted_target_texts": [
+                "If a conclusion depends on a disputed premise, we identify that dependency."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If a conclusion",
+                "depends",
+                "on a disputed",
+                "premise,",
+                "we identify",
+                "that dependency."
+            ],
+            "token_groups": [
+                "If a conclusion",
+                "depends",
+                "on a disputed",
+                "premise,",
+                "we identify",
+                "that dependency."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "a",
+                "conclusion",
+                "depends",
+                "on",
+                "a",
+                "disputed",
+                "premise,",
+                "we",
+                "identify",
+                "that",
+                "dependency."
+            ],
+            "options": [
+                "If",
+                "Unless",
+                "Whereas",
+                "While",
+                "a",
+                "all",
+                "both",
+                "an",
+                "conclusion",
+                "model",
+                "privacy",
+                "rare",
+                "depends",
+                "compromises",
+                "restricts",
+                "person's",
+                "on",
+                "without",
+                "into",
+                "onto",
+                "those",
+                "each",
+                "every",
+                "disputed",
+                "garden",
+                "liked",
+                "wanted",
+                "premise",
+                "question",
+                "calibration",
+                "access",
+                "we",
+                "me",
+                "him",
+                "us",
+                "identify",
+                "disclosure",
+                "friend",
+                "dog",
+                "that",
+                "some",
+                "any",
+                "this",
+                "dependency",
+                "ticket",
+                "machine",
+                "cup"
+            ],
+            "source_text_uk": "Якщо висновок залежить від спірного припущення, ми вказуємо на цю залежність.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "Unless",
+                    "Whereas",
+                    "While"
+                ],
+                "a2": [
+                    "a",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a3": [
+                    "conclusion",
+                    "model",
+                    "privacy",
+                    "rare"
+                ],
+                "a4": [
+                    "depends",
+                    "compromises",
+                    "restricts",
+                    "person's"
+                ],
+                "a5": [
+                    "on",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a6": [
+                    "a",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "disputed",
+                    "garden",
+                    "liked",
+                    "wanted"
+                ],
+                "a8": [
+                    "premise",
+                    "question",
+                    "calibration",
+                    "access"
+                ],
+                "a9": [
+                    "we",
+                    "me",
+                    "him",
+                    "us"
+                ],
+                "a10": [
+                    "identify",
+                    "disclosure",
+                    "friend",
+                    "dog"
+                ],
+                "a11": [
+                    "that",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a12": [
+                    "dependency",
+                    "ticket",
+                    "machine",
+                    "cup"
+                ]
+            },
+            "slot_roles": {
+                "a1": "condition_subject",
+                "a2": "condition_subject",
+                "a3": "condition_subject",
+                "a4": "verb_phrase",
+                "a5": "adverbial_phrase",
+                "a6": "adverbial_phrase",
+                "a7": "adverbial_phrase",
+                "a8": "noun_phrase",
+                "a9": "clause_phrase",
+                "a10": "clause_phrase",
+                "a11": "noun_phrase",
+                "a12": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "cqq-zero-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Якщо поступка змінює межі висновку, ми зберігаємо це обмеження.",
+            "level": "C2",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Якщо поступка змінює межі висновку, ми зберігаємо це обмеження.",
+            "target_text": "If a concession changes the inferential scope, we preserve that limitation.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Передай постійний принцип точного переказу; почни з умови.",
+                    "options": [
+                        "If",
+                        "Whether",
+                        "And",
+                        "But"
+                    ]
+                },
+                "a2": {
+                    "answer": "a",
+                    "verb_hint": "Передай постійний принцип точного переказу; почни з умови.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a3": {
+                    "answer": "concession",
+                    "verb_hint": "Передай постійний принцип точного переказу; почни з умови.",
+                    "options": [
+                        "concession",
+                        "evidence",
+                        "possibility",
+                        "necessity"
+                    ]
+                },
+                "a4": {
+                    "answer": "changes",
+                    "verb_hint": "Передай постійний принцип точного переказу; почни з умови.",
+                    "options": [
+                        "changes",
+                        "resolves",
+                        "supports",
+                        "distinguishes"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Передай постійний принцип точного переказу; почни з умови.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "these"
+                    ]
+                },
+                "a6": {
+                    "answer": "inferential",
+                    "verb_hint": "Передай постійний принцип точного переказу; почни з умови.",
+                    "options": [
+                        "inferential",
+                        "last",
+                        "from",
+                        "spare"
+                    ]
+                },
+                "a7": {
+                    "answer": "scope,",
+                    "verb_hint": "Передай постійний принцип точного переказу; почни з умови.",
+                    "options": [
+                        "scope",
+                        "ambiguity",
+                        "key",
+                        "coat"
+                    ]
+                },
+                "a8": {
+                    "answer": "we",
+                    "verb_hint": "Передай постійний принцип точного переказу; почни з умови.",
+                    "options": [
+                        "we",
+                        "I",
+                        "you",
+                        "he"
+                    ]
+                },
+                "a9": {
+                    "answer": "preserve",
+                    "verb_hint": "Передай постійний принцип точного переказу; почни з умови.",
+                    "options": [
+                        "preserve",
+                        "reconstruction",
+                        "credibility",
+                        "dog"
+                    ]
+                },
+                "a10": {
+                    "answer": "that",
+                    "verb_hint": "Передай постійний принцип точного переказу; почни з умови.",
+                    "options": [
+                        "that",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a11": {
+                    "answer": "limitation.",
+                    "verb_hint": "Передай постійний принцип точного переказу; почни з умови.",
+                    "options": [
+                        "limitation",
+                        "ticket",
+                        "machine",
+                        "person"
+                    ]
+                }
+            },
+            "verb_hint": "Передай постійний принцип точного переказу; почни з умови.",
+            "accepted_target_texts": [
+                "If a concession changes the inferential scope, we preserve that limitation."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If a concession",
+                "changes",
+                "the inferential scope,",
+                "we preserve",
+                "that limitation."
+            ],
+            "token_groups": [
+                "If a concession",
+                "changes",
+                "the inferential scope,",
+                "we preserve",
+                "that limitation."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "a",
+                "concession",
+                "changes",
+                "the",
+                "inferential",
+                "scope,",
+                "we",
+                "preserve",
+                "that",
+                "limitation."
+            ],
+            "options": [
+                "If",
+                "Whether",
+                "And",
+                "But",
+                "a",
+                "all",
+                "both",
+                "an",
+                "concession",
+                "evidence",
+                "possibility",
+                "necessity",
+                "changes",
+                "resolves",
+                "supports",
+                "distinguishes",
+                "the",
+                "any",
+                "this",
+                "these",
+                "inferential",
+                "last",
+                "from",
+                "spare",
+                "scope",
+                "ambiguity",
+                "key",
+                "coat",
+                "we",
+                "I",
+                "you",
+                "he",
+                "preserve",
+                "reconstruction",
+                "credibility",
+                "dog",
+                "that",
+                "another",
+                "either",
+                "neither",
+                "limitation",
+                "ticket",
+                "machine",
+                "person"
+            ],
+            "source_text_uk": "Якщо поступка змінює межі висновку, ми зберігаємо це обмеження.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "Whether",
+                    "And",
+                    "But"
+                ],
+                "a2": [
+                    "a",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a3": [
+                    "concession",
+                    "evidence",
+                    "possibility",
+                    "necessity"
+                ],
+                "a4": [
+                    "changes",
+                    "resolves",
+                    "supports",
+                    "distinguishes"
+                ],
+                "a5": [
+                    "the",
+                    "any",
+                    "this",
+                    "these"
+                ],
+                "a6": [
+                    "inferential",
+                    "last",
+                    "from",
+                    "spare"
+                ],
+                "a7": [
+                    "scope",
+                    "ambiguity",
+                    "key",
+                    "coat"
+                ],
+                "a8": [
+                    "we",
+                    "I",
+                    "you",
+                    "he"
+                ],
+                "a9": [
+                    "preserve",
+                    "reconstruction",
+                    "credibility",
+                    "dog"
+                ],
+                "a10": [
+                    "that",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a11": [
+                    "limitation",
+                    "ticket",
+                    "machine",
+                    "person"
+                ]
+            },
+            "slot_roles": {
+                "a1": "condition_subject",
+                "a2": "condition_subject",
+                "a3": "condition_subject",
+                "a4": "verb_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "clause_phrase",
+                "a9": "clause_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "cqq-zero-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Реконструкція втрачає переконливість, якщо мовчки усуває нерозв’язану неоднозначність.",
+            "level": "C2",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Реконструкція втрачає переконливість, якщо мовчки усуває нерозв’язану неоднозначність.",
+            "target_text": "A reconstruction loses credibility if it silently resolves an unresolved ambiguity.",
+            "markers": {
+                "a1": {
+                    "answer": "A",
+                    "verb_hint": "Опиши загальний критерій; почни з реконструкції.",
+                    "options": [
+                        "A",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "reconstruction",
+                    "verb_hint": "Опиши загальний критерій; почни з реконструкції.",
+                    "options": [
+                        "reconstruction",
+                        "manager",
+                        "device",
+                        "report"
+                    ]
+                },
+                "a3": {
+                    "answer": "loses",
+                    "verb_hint": "Опиши загальний критерій; почни з реконструкції.",
+                    "options": [
+                        "loses",
+                        "has",
+                        "is",
+                        "distinguishes"
+                    ]
+                },
+                "a4": {
+                    "answer": "credibility",
+                    "verb_hint": "Опиши загальний критерій; почни з реконструкції.",
+                    "options": [
+                        "credibility",
+                        "agree",
+                        "evidence",
+                        "possibility"
+                    ]
+                },
+                "a5": {
+                    "answer": "if",
+                    "verb_hint": "Опиши загальний критерій; почни з реконструкції.",
+                    "options": [
+                        "if",
+                        "because",
+                        "although",
+                        "though"
+                    ]
+                },
+                "a6": {
+                    "answer": "it",
+                    "verb_hint": "Опиши загальний критерій; почни з реконструкції.",
+                    "options": [
+                        "it",
+                        "themselves",
+                        "I",
+                        "you"
+                    ]
+                },
+                "a7": {
+                    "answer": "silently",
+                    "verb_hint": "Опиши загальний критерій; почни з реконструкції.",
+                    "options": [
+                        "silently",
+                        "carefully",
+                        "well",
+                        "badly"
+                    ]
+                },
+                "a8": {
+                    "answer": "resolves",
+                    "verb_hint": "Опиши загальний критерій; почни з реконструкції.",
+                    "options": [
+                        "resolves",
+                        "supports",
+                        "explanations",
+                        "changes"
+                    ]
+                },
+                "a9": {
+                    "answer": "an",
+                    "verb_hint": "Опиши загальний критерій; почни з реконструкції.",
+                    "options": [
+                        "an",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a10": {
+                    "answer": "unresolved",
+                    "verb_hint": "Опиши загальний критерій; почни з реконструкції.",
+                    "options": [
+                        "unresolved",
+                        "brought",
+                        "took",
+                        "wrote"
+                    ]
+                },
+                "a11": {
+                    "answer": "ambiguity.",
+                    "verb_hint": "Опиши загальний критерій; почни з реконструкції.",
+                    "options": [
+                        "ambiguity",
+                        "receipt",
+                        "road",
+                        "route"
+                    ]
+                }
+            },
+            "verb_hint": "Опиши загальний критерій; почни з реконструкції.",
+            "accepted_target_texts": [
+                "A reconstruction loses credibility if it silently resolves an unresolved ambiguity."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A reconstruction",
+                "loses credibility",
+                "if",
+                "it silently",
+                "resolves",
+                "an unresolved ambiguity."
+            ],
+            "token_groups": [
+                "A reconstruction",
+                "loses credibility",
+                "if",
+                "it silently",
+                "resolves",
+                "an unresolved ambiguity."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "A",
+                "reconstruction",
+                "loses",
+                "credibility",
+                "if",
+                "it",
+                "silently",
+                "resolves",
+                "an",
+                "unresolved",
+                "ambiguity."
+            ],
+            "options": [
+                "A",
+                "No",
+                "Another",
+                "Either",
+                "reconstruction",
+                "manager",
+                "device",
+                "report",
+                "loses",
+                "has",
+                "is",
+                "distinguishes",
+                "credibility",
+                "agree",
+                "evidence",
+                "possibility",
+                "if",
+                "because",
+                "although",
+                "though",
+                "it",
+                "themselves",
+                "I",
+                "you",
+                "silently",
+                "carefully",
+                "well",
+                "badly",
+                "resolves",
+                "supports",
+                "explanations",
+                "changes",
+                "an",
+                "some",
+                "any",
+                "this",
+                "unresolved",
+                "brought",
+                "took",
+                "wrote",
+                "ambiguity",
+                "receipt",
+                "road",
+                "route"
+            ],
+            "source_text_uk": "Реконструкція втрачає переконливість, якщо мовчки усуває нерозв’язану неоднозначність.",
+            "options_by_marker": {
+                "a1": [
+                    "A",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "reconstruction",
+                    "manager",
+                    "device",
+                    "report"
+                ],
+                "a3": [
+                    "loses",
+                    "has",
+                    "is",
+                    "distinguishes"
+                ],
+                "a4": [
+                    "credibility",
+                    "agree",
+                    "evidence",
+                    "possibility"
+                ],
+                "a5": [
+                    "if",
+                    "because",
+                    "although",
+                    "though"
+                ],
+                "a6": [
+                    "it",
+                    "themselves",
+                    "I",
+                    "you"
+                ],
+                "a7": [
+                    "silently",
+                    "carefully",
+                    "well",
+                    "badly"
+                ],
+                "a8": [
+                    "resolves",
+                    "supports",
+                    "explanations",
+                    "changes"
+                ],
+                "a9": [
+                    "an",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a10": [
+                    "unresolved",
+                    "brought",
+                    "took",
+                    "wrote"
+                ],
+                "a11": [
+                    "ambiguity",
+                    "receipt",
+                    "road",
+                    "route"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "connector_phrase",
+                "a6": "subject_phrase",
+                "a7": "subject_phrase",
+                "a8": "verb_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "cqq-zero-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Якщо дані підтримують конкуруючі пояснення, звіт розрізняє можливість і необхідність.",
+            "level": "C2",
+            "type": 4,
+            "source": "conditionals_quality_zero_conditional",
+            "translation_uk": "Якщо дані підтримують конкуруючі пояснення, звіт розрізняє можливість і необхідність.",
+            "target_text": "If the evidence supports competing explanations, the report distinguishes possibility from necessity.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Передай методологічне правило; почни з умови про дані.",
+                    "options": [
+                        "If",
+                        "Although",
+                        "Though",
+                        "Unless"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Передай методологічне правило; почни з умови про дані.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a3": {
+                    "answer": "evidence",
+                    "verb_hint": "Передай методологічне правило; почни з умови про дані.",
+                    "options": [
+                        "evidence",
+                        "concession",
+                        "inferential",
+                        "scope"
+                    ]
+                },
+                "a4": {
+                    "answer": "supports",
+                    "verb_hint": "Передай методологічне правило; почни з умови про дані.",
+                    "options": [
+                        "supports",
+                        "changes",
+                        "resolves",
+                        "loses"
+                    ]
+                },
+                "a5": {
+                    "answer": "competing",
+                    "verb_hint": "Передай методологічне правило; почни з умови про дані.",
+                    "options": [
+                        "competing",
+                        "riding",
+                        "driving",
+                        "studying"
+                    ]
+                },
+                "a6": {
+                    "answer": "explanations,",
+                    "verb_hint": "Передай методологічне правило; почни з умови про дані.",
+                    "options": [
+                        "explanations",
+                        "books",
+                        "boxes",
+                        "chairs"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Передай методологічне правило; почни з умови про дані.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a8": {
+                    "answer": "report",
+                    "verb_hint": "Передай методологічне правило; почни з умови про дані.",
+                    "options": [
+                        "report",
+                        "message",
+                        "card",
+                        "poster"
+                    ]
+                },
+                "a9": {
+                    "answer": "distinguishes",
+                    "verb_hint": "Передай методологічне правило; почни з умови про дані.",
+                    "options": [
+                        "distinguishes",
+                        "maps",
+                        "letters",
+                        "windows"
+                    ]
+                },
+                "a10": {
+                    "answer": "possibility",
+                    "verb_hint": "Передай методологічне правило; почни з умови про дані.",
+                    "options": [
+                        "possibility",
+                        "our",
+                        "a",
+                        "preserve"
+                    ]
+                },
+                "a11": {
+                    "answer": "from",
+                    "verb_hint": "Передай методологічне правило; почни з умови про дані.",
+                    "options": [
+                        "from",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a12": {
+                    "answer": "necessity.",
+                    "verb_hint": "Передай методологічне правило; почни з умови про дані.",
+                    "options": [
+                        "necessity",
+                        "coat",
+                        "gate",
+                        "route"
+                    ]
+                }
+            },
+            "verb_hint": "Передай методологічне правило; почни з умови про дані.",
+            "accepted_target_texts": [
+                "If the evidence supports competing explanations, the report distinguishes possibility from necessity."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If the evidence",
+                "supports",
+                "competing explanations,",
+                "the report",
+                "distinguishes",
+                "possibility from necessity."
+            ],
+            "token_groups": [
+                "If the evidence",
+                "supports",
+                "competing explanations,",
+                "the report",
+                "distinguishes",
+                "possibility from necessity."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "If",
+                "the",
+                "evidence",
+                "supports",
+                "competing",
+                "explanations,",
+                "the",
+                "report",
+                "distinguishes",
+                "possibility",
+                "from",
+                "necessity."
+            ],
+            "options": [
+                "If",
+                "Although",
+                "Though",
+                "Unless",
+                "the",
+                "those",
+                "each",
+                "every",
+                "evidence",
+                "concession",
+                "inferential",
+                "scope",
+                "supports",
+                "changes",
+                "resolves",
+                "loses",
+                "competing",
+                "riding",
+                "driving",
+                "studying",
+                "explanations",
+                "books",
+                "boxes",
+                "chairs",
+                "neither",
+                "all",
+                "both",
+                "report",
+                "message",
+                "card",
+                "poster",
+                "distinguishes",
+                "maps",
+                "letters",
+                "windows",
+                "possibility",
+                "our",
+                "a",
+                "preserve",
+                "from",
+                "of",
+                "in",
+                "on",
+                "necessity",
+                "coat",
+                "gate",
+                "route"
+            ],
+            "source_text_uk": "Якщо дані підтримують конкуруючі пояснення, звіт розрізняє можливість і необхідність.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "Although",
+                    "Though",
+                    "Unless"
+                ],
+                "a2": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a3": [
+                    "evidence",
+                    "concession",
+                    "inferential",
+                    "scope"
+                ],
+                "a4": [
+                    "supports",
+                    "changes",
+                    "resolves",
+                    "loses"
+                ],
+                "a5": [
+                    "competing",
+                    "riding",
+                    "driving",
+                    "studying"
+                ],
+                "a6": [
+                    "explanations",
+                    "books",
+                    "boxes",
+                    "chairs"
+                ],
+                "a7": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a8": [
+                    "report",
+                    "message",
+                    "card",
+                    "poster"
+                ],
+                "a9": [
+                    "distinguishes",
+                    "maps",
+                    "letters",
+                    "windows"
+                ],
+                "a10": [
+                    "possibility",
+                    "our",
+                    "a",
+                    "preserve"
+                ],
+                "a11": [
+                    "from",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a12": [
+                    "necessity",
+                    "coat",
+                    "gate",
+                    "route"
+                ]
+            },
+            "slot_roles": {
+                "a1": "condition_subject",
+                "a2": "condition_subject",
+                "a3": "condition_subject",
+                "a4": "verb_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "subject_phrase",
+                "a8": "subject_phrase",
+                "a9": "verb_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase",
+                "a12": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

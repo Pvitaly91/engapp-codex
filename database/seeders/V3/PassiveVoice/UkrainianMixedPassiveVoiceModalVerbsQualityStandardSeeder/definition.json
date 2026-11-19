@@ -1,0 +1,1699 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/modals.v1.json",
+        "sha256": "173d8c34273b2dcbbd529acd23ef5781099cc9245d206dba4d97bda7727ec74e"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoiceModalVerbsQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-modals-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_modals": {
+            "name": "Passive Voice Quality: Пасив із модальними дієсловами"
+        }
+    },
+    "tags": {
+        "passive_voice_modal_verbs": {
+            "name": "Passive Voice Modal Verbs",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "modal_be_v3": {
+            "name": "Modal Be V3",
+            "category": "topic"
+        },
+        "can_be_done": {
+            "name": "Can Be Done",
+            "category": "topic"
+        },
+        "must_be_done": {
+            "name": "Must Be Done",
+            "category": "topic"
+        },
+        "should_be_done": {
+            "name": "Should Be Done",
+            "category": "topic"
+        },
+        "may_might_be_done": {
+            "name": "May Might Be Done",
+            "category": "topic"
+        },
+        "could_would_be_done": {
+            "name": "Could Would Be Done",
+            "category": "topic"
+        },
+        "modal_negative": {
+            "name": "Modal Negative",
+            "category": "topic"
+        },
+        "modal_meaning": {
+            "name": "Modal Meaning",
+            "category": "topic"
+        },
+        "active_passive": {
+            "name": "Active Passive",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-modals-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The dog {a1} every evening.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Собаку треба годувати щовечора.",
+            "target_text": "The dog must be fed every evening.",
+            "markers": {
+                "a1": {
+                    "answer": "must be fed",
+                    "options": [
+                        "must be fed",
+                        "is fed",
+                        "was fed"
+                    ],
+                    "verb_hint": "Передай обов'язкову регулярну дію годування через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай обов'язкову регулярну дію годування через модальний пасив.",
+            "accepted_target_texts": [
+                "The dog must be fed every evening."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dog",
+                "must be",
+                "fed",
+                "every evening."
+            ],
+            "token_groups": [
+                "The dog",
+                "must be",
+                "fed",
+                "every evening."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-modals-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The apples {a1} in this bowl.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Яблука можна помити в цій мисці.",
+            "target_text": "The apples can be washed in this bowl.",
+            "markers": {
+                "a1": {
+                    "answer": "can be washed",
+                    "options": [
+                        "can be washed",
+                        "is washed",
+                        "was washed"
+                    ],
+                    "verb_hint": "Передай можливість миття через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай можливість миття через модальний пасив.",
+            "accepted_target_texts": [
+                "The apples can be washed in this bowl."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The apples",
+                "can be",
+                "washed",
+                "in this bowl."
+            ],
+            "token_groups": [
+                "The apples",
+                "can be",
+                "washed",
+                "in this bowl."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-modals-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Your cap {a1} in the locker.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Твою кепку слід тримати в шафці.",
+            "target_text": "Your cap should be kept in the locker.",
+            "markers": {
+                "a1": {
+                    "answer": "should be kept",
+                    "options": [
+                        "should be kept",
+                        "is kept",
+                        "was kept"
+                    ],
+                    "verb_hint": "Передай пораду щодо зберігання через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай пораду щодо зберігання через модальний пасив.",
+            "accepted_target_texts": [
+                "Your cap should be kept in the locker."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Your cap",
+                "should be",
+                "kept",
+                "in the locker."
+            ],
+            "token_groups": [
+                "Your cap",
+                "should be",
+                "kept",
+                "in the locker."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-modals-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The blue door {a1} at night.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Сині двері треба зачиняти на ніч.",
+            "target_text": "The blue door must be shut at night.",
+            "markers": {
+                "a1": {
+                    "answer": "must be shut",
+                    "options": [
+                        "must be shut",
+                        "is shut",
+                        "was shut"
+                    ],
+                    "verb_hint": "Передай обов'язок зачиняти через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай обов'язок зачиняти через модальний пасив.",
+            "accepted_target_texts": [
+                "The blue door must be shut at night."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The blue door",
+                "must be",
+                "shut",
+                "at night."
+            ],
+            "token_groups": [
+                "The blue door",
+                "must be",
+                "shut",
+                "at night."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-modals-a1-g05",
+            "author_id": "A1-g05",
+            "question": "These coins {a1} by hand.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Ці монети можна порахувати вручну.",
+            "target_text": "These coins can be counted by hand.",
+            "markers": {
+                "a1": {
+                    "answer": "can be counted",
+                    "options": [
+                        "can be counted",
+                        "is counted",
+                        "was counted"
+                    ],
+                    "verb_hint": "Передай можливість лічби через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай можливість лічби через модальний пасив.",
+            "accepted_target_texts": [
+                "These coins can be counted by hand."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "These coins",
+                "can be",
+                "counted",
+                "by hand."
+            ],
+            "token_groups": [
+                "These coins",
+                "can be",
+                "counted",
+                "by hand."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-modals-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The puppy {a1} on the stairs.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Цуценя слід нести на сходах.",
+            "target_text": "The puppy should be carried on the stairs.",
+            "markers": {
+                "a1": {
+                    "answer": "should be carried",
+                    "options": [
+                        "should be carried",
+                        "is carried",
+                        "was carried"
+                    ],
+                    "verb_hint": "Передай пораду щодо перенесення через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай пораду щодо перенесення через модальний пасив.",
+            "accepted_target_texts": [
+                "The puppy should be carried on the stairs."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The puppy",
+                "should be",
+                "carried",
+                "on the stairs."
+            ],
+            "token_groups": [
+                "The puppy",
+                "should be",
+                "carried",
+                "on the stairs."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-modals-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Bicycles {a1} outside the library.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Велосипеди треба залишати поза бібліотекою.",
+            "target_text": "Bicycles must be left outside the library.",
+            "markers": {
+                "a1": {
+                    "answer": "must be left",
+                    "options": [
+                        "must be left",
+                        "is left",
+                        "was left"
+                    ],
+                    "verb_hint": "Передай обов'язок залишати надворі через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай обов'язок залишати надворі через модальний пасив.",
+            "accepted_target_texts": [
+                "Bicycles must be left outside the library."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Bicycles",
+                "must be",
+                "left",
+                "outside the library."
+            ],
+            "token_groups": [
+                "Bicycles",
+                "must be",
+                "left",
+                "outside the library."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-modals-a2-g02",
+            "author_id": "A2-g02",
+            "question": "This form {a1} in pencil.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Цю форму можна заповнити олівцем.",
+            "target_text": "This form can be completed in pencil.",
+            "markers": {
+                "a1": {
+                    "answer": "can be completed",
+                    "options": [
+                        "can be completed",
+                        "is completed",
+                        "was completed"
+                    ],
+                    "verb_hint": "Передай дозвіл на заповнення через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай дозвіл на заповнення через модальний пасив.",
+            "accepted_target_texts": [
+                "This form can be completed in pencil."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This form",
+                "can be",
+                "completed",
+                "in pencil."
+            ],
+            "token_groups": [
+                "This form",
+                "can be",
+                "completed",
+                "in pencil."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-modals-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The soup {a1} in warm bowls.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Суп слід подавати в теплих мисках.",
+            "target_text": "The soup should be served in warm bowls.",
+            "markers": {
+                "a1": {
+                    "answer": "should be served",
+                    "options": [
+                        "should be served",
+                        "is served",
+                        "was served"
+                    ],
+                    "verb_hint": "Передай рекомендацію щодо подавання через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай рекомендацію щодо подавання через модальний пасив.",
+            "accepted_target_texts": [
+                "The soup should be served in warm bowls."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The soup",
+                "should be",
+                "served",
+                "in warm bowls."
+            ],
+            "token_groups": [
+                "The soup",
+                "should be",
+                "served",
+                "in warm bowls."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-modals-a2-g04",
+            "author_id": "A2-g04",
+            "question": "All seat belts {a1} before take-off.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Усі паски безпеки треба застебнути перед зльотом.",
+            "target_text": "All seat belts must be fastened before take-off.",
+            "markers": {
+                "a1": {
+                    "answer": "must be fastened",
+                    "options": [
+                        "must be fastened",
+                        "is fastened",
+                        "was fastened"
+                    ],
+                    "verb_hint": "Передай обов'язкове застібання через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай обов'язкове застібання через модальний пасив.",
+            "accepted_target_texts": [
+                "All seat belts must be fastened before take-off."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "All seat belts",
+                "must be",
+                "fastened",
+                "before take-off."
+            ],
+            "token_groups": [
+                "All seat belts",
+                "must be",
+                "fastened",
+                "before take-off."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-modals-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The bicycle pump {a1} for an hour.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Велосипедний насос дозволено позичити на годину.",
+            "target_text": "The bicycle pump may be borrowed for an hour.",
+            "markers": {
+                "a1": {
+                    "answer": "may be borrowed",
+                    "options": [
+                        "may be borrowed",
+                        "is borrowed",
+                        "was borrowed"
+                    ],
+                    "verb_hint": "Передай офіційний дозвіл позичити річ через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай офіційний дозвіл позичити річ через модальний пасив.",
+            "accepted_target_texts": [
+                "The bicycle pump may be borrowed for an hour."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The bicycle pump",
+                "may be",
+                "borrowed",
+                "for an hour."
+            ],
+            "token_groups": [
+                "The bicycle pump",
+                "may be",
+                "borrowed",
+                "for an hour."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-modals-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Your muddy trainers {a1} before you come in.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Твої брудні кросівки слід почистити перед входом.",
+            "target_text": "Your muddy trainers should be cleaned before you come in.",
+            "markers": {
+                "a1": {
+                    "answer": "should be cleaned",
+                    "options": [
+                        "should be cleaned",
+                        "is cleaned",
+                        "was cleaned"
+                    ],
+                    "verb_hint": "Передай пораду щодо очищення через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай пораду щодо очищення через модальний пасив.",
+            "accepted_target_texts": [
+                "Your muddy trainers should be cleaned before you come in."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Your muddy trainers",
+                "should be cleaned",
+                "before",
+                "you come in."
+            ],
+            "token_groups": [
+                "Your muddy trainers",
+                "should be cleaned",
+                "before",
+                "you come in."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-modals-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The swimming pool {a1} during the inspection.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Басейн можуть закрити на час перевірки.",
+            "target_text": "The swimming pool may be closed during the inspection.",
+            "markers": {
+                "a1": {
+                    "answer": "may be closed",
+                    "options": [
+                        "may be closed",
+                        "is closed",
+                        "was closed"
+                    ],
+                    "verb_hint": "Передай можливу майбутню подію закриття через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай можливу майбутню подію закриття через модальний пасив.",
+            "accepted_target_texts": [
+                "The swimming pool may be closed during the inspection."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The swimming pool",
+                "may be",
+                "closed",
+                "during the inspection."
+            ],
+            "token_groups": [
+                "The swimming pool",
+                "may be",
+                "closed",
+                "during the inspection."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-modals-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The spelling errors {a1} before you submit the essay.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Орфографічні помилки слід виправити перед поданням твору.",
+            "target_text": "The spelling errors ought to be corrected before you submit the essay.",
+            "markers": {
+                "a1": {
+                    "answer": "ought to be corrected",
+                    "options": [
+                        "ought to be corrected",
+                        "is corrected",
+                        "was corrected"
+                    ],
+                    "verb_hint": "Передай рекомендацію виправити через модальний пасив із конструкцією обов'язку."
+                }
+            },
+            "verb_hint": "Передай рекомендацію виправити через модальний пасив із конструкцією обов'язку.",
+            "accepted_target_texts": [
+                "The spelling errors ought to be corrected before you submit the essay."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The spelling errors",
+                "ought to be",
+                "corrected",
+                "before",
+                "you submit",
+                "the essay."
+            ],
+            "token_groups": [
+                "The spelling errors",
+                "ought to be",
+                "corrected",
+                "before",
+                "you submit",
+                "the essay."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-modals-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The spare battery {a1} while we are driving.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Запасний акумулятор можна було б зарядити, поки ми їдемо.",
+            "target_text": "The spare battery could be charged while we are driving.",
+            "markers": {
+                "a1": {
+                    "answer": "could be charged",
+                    "options": [
+                        "could be charged",
+                        "is charged",
+                        "was charged"
+                    ],
+                    "verb_hint": "Передай можливу пропозицію заряджання через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай можливу пропозицію заряджання через модальний пасив.",
+            "accepted_target_texts": [
+                "The spare battery could be charged while we are driving."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The spare battery",
+                "could be charged",
+                "while",
+                "we are driving."
+            ],
+            "token_groups": [
+                "The spare battery",
+                "could be charged",
+                "while",
+                "we are driving."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-modals-b1-g04",
+            "author_id": "B1-g04",
+            "question": "These interviews {a1} with the speakers' permission.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Ці інтерв'ю необхідно записувати за згодою співрозмовників.",
+            "target_text": "These interviews must be recorded with the speakers' permission.",
+            "markers": {
+                "a1": {
+                    "answer": "must be recorded",
+                    "options": [
+                        "must be recorded",
+                        "is recorded",
+                        "was recorded"
+                    ],
+                    "verb_hint": "Передай обов'язковий запис через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай обов'язковий запис через модальний пасив.",
+            "accepted_target_texts": [
+                "These interviews must be recorded with the speakers' permission."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "These interviews",
+                "must be recorded",
+                "with",
+                "the speakers' permission."
+            ],
+            "token_groups": [
+                "These interviews",
+                "must be recorded",
+                "with",
+                "the speakers' permission."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-modals-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The delivery address {a1} before payment.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Адресу доставки слід перевірити перед оплатою.",
+            "target_text": "The delivery address should be checked before payment.",
+            "markers": {
+                "a1": {
+                    "answer": "should be checked",
+                    "options": [
+                        "should be checked",
+                        "is checked",
+                        "was checked"
+                    ],
+                    "verb_hint": "Передай рекомендацію перевірити через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай рекомендацію перевірити через модальний пасив.",
+            "accepted_target_texts": [
+                "The delivery address should be checked before payment.",
+                "The delivery address should be verified before payment."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "should be verified"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "should be verified"
+                ]
+            },
+            "reorder_groups": [
+                "The delivery address",
+                "should be",
+                "checked",
+                "before payment."
+            ],
+            "token_groups": [
+                "The delivery address",
+                "should be",
+                "checked",
+                "before payment."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-modals-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The injured bird {a1} to a rescue centre.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Пораненого птаха, можливо, відвезуть до реабілітаційного центру.",
+            "target_text": "The injured bird might be taken to a rescue centre.",
+            "markers": {
+                "a1": {
+                    "answer": "might be taken",
+                    "options": [
+                        "might be taken",
+                        "is taken",
+                        "was taken"
+                    ],
+                    "verb_hint": "Передай непевну можливість перевезення через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай непевну можливість перевезення через модальний пасив.",
+            "accepted_target_texts": [
+                "The injured bird might be taken to a rescue centre."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The injured bird",
+                "might be taken",
+                "to",
+                "a rescue centre."
+            ],
+            "token_groups": [
+                "The injured bird",
+                "might be taken",
+                "to",
+                "a rescue centre."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-modals-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The confidential files {a1} without written authorisation.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Конфіденційні файли не можна копіювати без письмового дозволу.",
+            "target_text": "The confidential files must not be copied without written authorisation.",
+            "markers": {
+                "a1": {
+                    "answer": "must not be copied",
+                    "options": [
+                        "must not be copied",
+                        "is copied",
+                        "was copied"
+                    ],
+                    "verb_hint": "Передай сувору заборону копіювання через заперечний модальний пасив."
+                }
+            },
+            "verb_hint": "Передай сувору заборону копіювання через заперечний модальний пасив.",
+            "accepted_target_texts": [
+                "The confidential files must not be copied without written authorisation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The confidential files",
+                "must not be",
+                "copied",
+                "without written authorisation."
+            ],
+            "token_groups": [
+                "The confidential files",
+                "must not be",
+                "copied",
+                "without written authorisation."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-modals-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The recording {a1} before it reached the newsroom.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Запис, можливо, змінили ще до його надходження в редакцію.",
+            "target_text": "The recording might have been altered before it reached the newsroom.",
+            "markers": {
+                "a1": {
+                    "answer": "might have been altered",
+                    "options": [
+                        "might have been altered",
+                        "is altered",
+                        "was altered"
+                    ],
+                    "verb_hint": "Передай непевне припущення про минуле через перфектний модальний пасив."
+                }
+            },
+            "verb_hint": "Передай непевне припущення про минуле через перфектний модальний пасив.",
+            "accepted_target_texts": [
+                "The recording might have been altered before it reached the newsroom."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The recording",
+                "might have been",
+                "altered",
+                "before",
+                "it reached",
+                "the newsroom."
+            ],
+            "token_groups": [
+                "The recording",
+                "might have been",
+                "altered",
+                "before",
+                "it reached",
+                "the newsroom."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-modals-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The public notice {a1} at every entrance.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Оголошення для відвідувачів слід було розмістити біля кожного входу.",
+            "target_text": "The public notice should have been displayed at every entrance.",
+            "markers": {
+                "a1": {
+                    "answer": "should have been displayed",
+                    "options": [
+                        "should have been displayed",
+                        "is displayed",
+                        "was displayed"
+                    ],
+                    "verb_hint": "Передай невиконану минулу рекомендацію через перфектний модальний пасив."
+                }
+            },
+            "verb_hint": "Передай невиконану минулу рекомендацію через перфектний модальний пасив.",
+            "accepted_target_texts": [
+                "The public notice should have been displayed at every entrance."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The public notice",
+                "should have been",
+                "displayed",
+                "at every entrance."
+            ],
+            "token_groups": [
+                "The public notice",
+                "should have been",
+                "displayed",
+                "at every entrance."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-modals-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The fire {a1} by regular maintenance.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Пожежі можна було запобігти регулярним техобслуговуванням.",
+            "target_text": "The fire could have been prevented by regular maintenance.",
+            "markers": {
+                "a1": {
+                    "answer": "could have been prevented",
+                    "options": [
+                        "could have been prevented",
+                        "is prevented",
+                        "was prevented"
+                    ],
+                    "verb_hint": "Передай нереалізовану минулу можливість запобігання через перфектний модальний пасив."
+                }
+            },
+            "verb_hint": "Передай нереалізовану минулу можливість запобігання через перфектний модальний пасив.",
+            "accepted_target_texts": [
+                "The fire could have been prevented by regular maintenance."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The fire",
+                "could have been",
+                "prevented",
+                "by regular maintenance."
+            ],
+            "token_groups": [
+                "The fire",
+                "could have been",
+                "prevented",
+                "by regular maintenance."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-modals-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The access card {a1} somewhere near reception.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Перепустку, напевно, загубили десь біля рецепції.",
+            "target_text": "The access card must have been dropped somewhere near reception.",
+            "markers": {
+                "a1": {
+                    "answer": "must have been dropped",
+                    "options": [
+                        "must have been dropped",
+                        "is dropped",
+                        "was dropped"
+                    ],
+                    "verb_hint": "Передай впевнене припущення про минулу втрату через перфектний модальний пасив."
+                }
+            },
+            "verb_hint": "Передай впевнене припущення про минулу втрату через перфектний модальний пасив.",
+            "accepted_target_texts": [
+                "The access card must have been dropped somewhere near reception."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The access card",
+                "must have been",
+                "dropped",
+                "somewhere near reception."
+            ],
+            "token_groups": [
+                "The access card",
+                "must have been",
+                "dropped",
+                "somewhere near reception."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-modals-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The unedited footage {a1} once identities have been concealed.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Невідредаговані кадри можуть оприлюднити, коли дані про осіб буде приховано.",
+            "target_text": "The unedited footage may be released once identities have been concealed.",
+            "markers": {
+                "a1": {
+                    "answer": "may be released",
+                    "options": [
+                        "may be released",
+                        "is released",
+                        "was released"
+                    ],
+                    "verb_hint": "Передай можливість оприлюднення через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай можливість оприлюднення через модальний пасив.",
+            "accepted_target_texts": [
+                "The unedited footage may be released once identities have been concealed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The unedited footage",
+                "may be released",
+                "once",
+                "identities",
+                "have been concealed."
+            ],
+            "token_groups": [
+                "The unedited footage",
+                "may be released",
+                "once",
+                "identities",
+                "have been concealed."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-modals-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The witness statements {a1} before charges were brought.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Свідчення слід було підтвердити незалежними доказами до висунення обвинувачень.",
+            "target_text": "The witness statements should have been corroborated before charges were brought.",
+            "markers": {
+                "a1": {
+                    "answer": "should have been corroborated",
+                    "options": [
+                        "should have been corroborated",
+                        "is corroborated",
+                        "was corroborated"
+                    ],
+                    "verb_hint": "Передай невиконану минулу рекомендацію щодо підтвердження через перфектний модальний пасив."
+                }
+            },
+            "verb_hint": "Передай невиконану минулу рекомендацію щодо підтвердження через перфектний модальний пасив.",
+            "accepted_target_texts": [
+                "The witness statements should have been corroborated before charges were brought."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The witness statements",
+                "should have been",
+                "corroborated",
+                "before",
+                "charges were brought."
+            ],
+            "token_groups": [
+                "The witness statements",
+                "should have been",
+                "corroborated",
+                "before",
+                "charges were brought."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-modals-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The discrepancy {a1} solely to rounding errors.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Розбіжність не можна пояснити самими лише помилками округлення.",
+            "target_text": "The discrepancy cannot be attributed solely to rounding errors.",
+            "markers": {
+                "a1": {
+                    "answer": "cannot be attributed",
+                    "options": [
+                        "cannot be attributed",
+                        "is attributed",
+                        "was attributed"
+                    ],
+                    "verb_hint": "Передай неможливість такого пояснення через заперечний модальний пасив."
+                }
+            },
+            "verb_hint": "Передай неможливість такого пояснення через заперечний модальний пасив.",
+            "accepted_target_texts": [
+                "The discrepancy cannot be attributed solely to rounding errors."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The discrepancy",
+                "cannot be attributed",
+                "solely",
+                "to rounding errors."
+            ],
+            "token_groups": [
+                "The discrepancy",
+                "cannot be attributed",
+                "solely",
+                "to rounding errors."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-modals-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The restricted material {a1} under a judicial order.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Матеріали з обмеженим доступом можна розкривати лише за судовим наказом.",
+            "target_text": "The restricted material may only be disclosed under a judicial order.",
+            "markers": {
+                "a1": {
+                    "answer": "may only be disclosed",
+                    "options": [
+                        "may only be disclosed",
+                        "is only be disclosed",
+                        "was only be disclosed"
+                    ],
+                    "verb_hint": "Передай обмежений дозвіл на розкриття через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай обмежений дозвіл на розкриття через модальний пасив.",
+            "accepted_target_texts": [
+                "The restricted material may only be disclosed under a judicial order."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The restricted material",
+                "may only be",
+                "disclosed",
+                "under",
+                "a judicial order."
+            ],
+            "token_groups": [
+                "The restricted material",
+                "may only be",
+                "disclosed",
+                "under",
+                "a judicial order."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-modals-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The provisional findings {a1} by the briefing team.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Попередні висновки, напевно, неправильно витлумачила команда брифінгу.",
+            "target_text": "The provisional findings must have been misinterpreted by the briefing team.",
+            "markers": {
+                "a1": {
+                    "answer": "must have been misinterpreted",
+                    "options": [
+                        "must have been misinterpreted",
+                        "is misinterpreted",
+                        "was misinterpreted"
+                    ],
+                    "verb_hint": "Передай впевнене припущення про минуле помилкове тлумачення через перфектний модальний пасив."
+                }
+            },
+            "verb_hint": "Передай впевнене припущення про минуле помилкове тлумачення через перфектний модальний пасив.",
+            "accepted_target_texts": [
+                "The provisional findings must have been misinterpreted by the briefing team."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The provisional findings",
+                "must have been",
+                "misinterpreted",
+                "by",
+                "the briefing team."
+            ],
+            "token_groups": [
+                "The provisional findings",
+                "must have been",
+                "misinterpreted",
+                "by",
+                "the briefing team."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-modals-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The contractual ambiguity {a1} through a carefully drafted clarification.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Неоднозначність договору можна було усунути ретельно сформульованим уточненням.",
+            "target_text": "The contractual ambiguity could have been resolved through a carefully drafted clarification.",
+            "markers": {
+                "a1": {
+                    "answer": "could have been resolved",
+                    "options": [
+                        "could have been resolved",
+                        "is resolved",
+                        "was resolved"
+                    ],
+                    "verb_hint": "Передай нереалізовану минулу можливість усунення через перфектний модальний пасив."
+                }
+            },
+            "verb_hint": "Передай нереалізовану минулу можливість усунення через перфектний модальний пасив.",
+            "accepted_target_texts": [
+                "The contractual ambiguity could have been resolved through a carefully drafted clarification."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The contractual ambiguity",
+                "could have been",
+                "resolved",
+                "through a",
+                "carefully drafted clarification."
+            ],
+            "token_groups": [
+                "The contractual ambiguity",
+                "could have been",
+                "resolved",
+                "through a",
+                "carefully drafted clarification."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-modals-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The disputed amendment {a1} in the light of the objections.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Спірну зміну слід переглянути з огляду на заперечення.",
+            "target_text": "The disputed amendment ought to be reconsidered in the light of the objections.",
+            "markers": {
+                "a1": {
+                    "answer": "ought to be reconsidered",
+                    "options": [
+                        "ought to be reconsidered",
+                        "is reconsidered",
+                        "was reconsidered"
+                    ],
+                    "verb_hint": "Передай рекомендацію повторно розглянути через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай рекомендацію повторно розглянути через модальний пасив.",
+            "accepted_target_texts": [
+                "The disputed amendment ought to be reconsidered in the light of the objections."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The disputed amendment",
+                "ought to be",
+                "reconsidered",
+                "in the light",
+                "of the objections."
+            ],
+            "token_groups": [
+                "The disputed amendment",
+                "ought to be",
+                "reconsidered",
+                "in the light",
+                "of the objections."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-modals-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The purported concession {a1} as an irrevocable surrender of rights.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Нібито поступка не могла бути задумана як безповоротна відмова від прав.",
+            "target_text": "The purported concession cannot have been intended as an irrevocable surrender of rights.",
+            "markers": {
+                "a1": {
+                    "answer": "cannot have been intended",
+                    "options": [
+                        "cannot have been intended",
+                        "is intended",
+                        "was intended"
+                    ],
+                    "verb_hint": "Передай впевнене заперечення такого минулого наміру через перфектний модальний пасив."
+                }
+            },
+            "verb_hint": "Передай впевнене заперечення такого минулого наміру через перфектний модальний пасив.",
+            "accepted_target_texts": [
+                "The purported concession cannot have been intended as an irrevocable surrender of rights."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The purported concession",
+                "cannot have been",
+                "intended",
+                "as an",
+                "irrevocable surrender",
+                "of rights."
+            ],
+            "token_groups": [
+                "The purported concession",
+                "cannot have been",
+                "intended",
+                "as an",
+                "irrevocable surrender",
+                "of rights."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-modals-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The residual uncertainty {a1} before a proportionate response is adopted.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Залишкову невизначеність не обов'язково усувати до ухвалення пропорційних заходів.",
+            "target_text": "The residual uncertainty need not be eliminated before a proportionate response is adopted.",
+            "markers": {
+                "a1": {
+                    "answer": "need not be eliminated",
+                    "options": [
+                        "need not be eliminated",
+                        "is eliminated",
+                        "was eliminated"
+                    ],
+                    "verb_hint": "Передай відсутність необхідності усунення через заперечний модальний пасив."
+                }
+            },
+            "verb_hint": "Передай відсутність необхідності усунення через заперечний модальний пасив.",
+            "accepted_target_texts": [
+                "The residual uncertainty need not be eliminated before a proportionate response is adopted."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The residual uncertainty",
+                "need not be",
+                "eliminated",
+                "before a",
+                "proportionate response",
+                "is adopted."
+            ],
+            "token_groups": [
+                "The residual uncertainty",
+                "need not be",
+                "eliminated",
+                "before a",
+                "proportionate response",
+                "is adopted."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-modals-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The impugned determination {a1} with considerably greater precision.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Оскаржуване рішення слід було обґрунтувати значно точніше.",
+            "target_text": "The impugned determination should have been reasoned with considerably greater precision.",
+            "markers": {
+                "a1": {
+                    "answer": "should have been reasoned",
+                    "options": [
+                        "should have been reasoned",
+                        "is reasoned",
+                        "was reasoned"
+                    ],
+                    "verb_hint": "Передай невиконану минулу рекомендацію щодо обґрунтування через перфектний модальний пасив."
+                }
+            },
+            "verb_hint": "Передай невиконану минулу рекомендацію щодо обґрунтування через перфектний модальний пасив.",
+            "accepted_target_texts": [
+                "The impugned determination should have been reasoned with considerably greater precision."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The impugned determination",
+                "should have been",
+                "reasoned",
+                "with",
+                "considerably greater precision."
+            ],
+            "token_groups": [
+                "The impugned determination",
+                "should have been",
+                "reasoned",
+                "with",
+                "considerably greater precision."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-modals-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The evidential presumption {a1} by sufficiently cogent contrary material.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Доказову презумпцію можна правомірно спростувати достатньо переконливими протилежними матеріалами.",
+            "target_text": "The evidential presumption may legitimately be displaced by sufficiently cogent contrary material.",
+            "markers": {
+                "a1": {
+                    "answer": "may legitimately be displaced",
+                    "options": [
+                        "may legitimately be displaced",
+                        "is legitimately be displaced",
+                        "was legitimately be displaced"
+                    ],
+                    "verb_hint": "Передай правомірну можливість спростування через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай правомірну можливість спростування через модальний пасив.",
+            "accepted_target_texts": [
+                "The evidential presumption may legitimately be displaced by sufficiently cogent contrary material."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The evidential presumption",
+                "may legitimately be",
+                "displaced",
+                "by",
+                "sufficiently cogent",
+                "contrary material."
+            ],
+            "token_groups": [
+                "The evidential presumption",
+                "may legitimately be",
+                "displaced",
+                "by",
+                "sufficiently cogent",
+                "contrary material."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-modals-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The unqualified undertaking {a1} without regard to its limiting proviso.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Беззастережне зобов'язання, напевно, витлумачили без урахування обмежувального застереження.",
+            "target_text": "The unqualified undertaking must have been construed without regard to its limiting proviso.",
+            "markers": {
+                "a1": {
+                    "answer": "must have been construed",
+                    "options": [
+                        "must have been construed",
+                        "is construed",
+                        "was construed"
+                    ],
+                    "verb_hint": "Передай впевнене припущення про минуле тлумачення через перфектний модальний пасив."
+                }
+            },
+            "verb_hint": "Передай впевнене припущення про минуле тлумачення через перфектний модальний пасив.",
+            "accepted_target_texts": [
+                "The unqualified undertaking must have been construed without regard to its limiting proviso."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The unqualified undertaking",
+                "must have been",
+                "construed",
+                "without regard to",
+                "its limiting proviso."
+            ],
+            "token_groups": [
+                "The unqualified undertaking",
+                "must have been",
+                "construed",
+                "without regard to",
+                "its limiting proviso."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-modals-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The foreseeable prejudice {a1} without compromising procedural autonomy.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_modals",
+            "translation_uk": "Передбачувану шкоду можна було пом'якшити без порушення процесуальної автономії.",
+            "target_text": "The foreseeable prejudice could have been mitigated without compromising procedural autonomy.",
+            "markers": {
+                "a1": {
+                    "answer": "could have been mitigated",
+                    "options": [
+                        "could have been mitigated",
+                        "is mitigated",
+                        "was mitigated"
+                    ],
+                    "verb_hint": "Передай нереалізовану минулу можливість пом'якшення через перфектний модальний пасив."
+                }
+            },
+            "verb_hint": "Передай нереалізовану минулу можливість пом'якшення через перфектний модальний пасив.",
+            "accepted_target_texts": [
+                "The foreseeable prejudice could have been mitigated without compromising procedural autonomy."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The foreseeable prejudice",
+                "could have been",
+                "mitigated",
+                "without compromising",
+                "procedural autonomy."
+            ],
+            "token_groups": [
+                "The foreseeable prejudice",
+                "could have been",
+                "mitigated",
+                "without compromising",
+                "procedural autonomy."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

@@ -1,0 +1,618 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mrq-v1",
+    "compiled_from": {
+        "path": "docs/content/mixed-revision-quality/b2-mixed-revision.v1.json",
+        "sha256": "4ab915e7ec3e014a39f201f7d2277982735ae34c47de364cfbc7baabbc66d1f2"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\MixedRevision\\UkrainianMixedMrqB2MixedRevisionQualityStandardSeeder",
+        "uuid_namespace": "mixed-revision-quality-b2-mixed-revision-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Mixed Revision"
+    },
+    "sources": {
+        "mixed_revision_quality_b2_mixed_revision": {
+            "name": "Mixed Revision Quality: B2 Mixed Revision"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mrq-b2-a1-g01",
+            "author_id": "A1-g01",
+            "question": "My grandmother {a1} a yellow bag.",
+            "level": "A1",
+            "type": 0,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "У моєї бабусі є жовта сумка.",
+            "target_text": "My grandmother has a yellow bag.",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "having"
+                    ],
+                    "verb_hint": "Передай «має» у теперішньому часі; підмет уже названо в однині."
+                }
+            },
+            "verb_hint": "Передай «має» у теперішньому часі; підмет уже названо в однині.",
+            "accepted_target_texts": [
+                "My grandmother has a yellow bag.",
+                "My grandmother has got a yellow bag."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "has got"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "has got"
+                ]
+            },
+            "reorder_groups": [
+                "My grandmother has",
+                "a yellow bag."
+            ],
+            "token_groups": [
+                "My grandmother has",
+                "a yellow bag."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "mrq-b2-a1-g02",
+            "author_id": "A1-g02",
+            "question": "There {a1} a red ball near the boat.",
+            "level": "A1",
+            "type": 0,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Біля човна є червоний м’яч.",
+            "target_text": "There is a red ball near the boat.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "has"
+                    ],
+                    "verb_hint": "Передай наявність одного предмета; назву предмета вже наведено після пропуску."
+                }
+            },
+            "verb_hint": "Передай наявність одного предмета; назву предмета вже наведено після пропуску.",
+            "accepted_target_texts": [
+                "There is a red ball near the boat."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "a red ball",
+                "near the boat."
+            ],
+            "token_groups": [
+                "There is",
+                "a red ball",
+                "near the boat."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "mrq-b2-a2-g01",
+            "author_id": "A2-g01",
+            "question": "We {a1} the ferry tickets yet.",
+            "level": "A2",
+            "type": 0,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Ми ще не забронювали квитки на пором.",
+            "target_text": "We haven't booked the ferry tickets yet.",
+            "markers": {
+                "a1": {
+                    "answer": "haven't booked",
+                    "options": [
+                        "haven't booked",
+                        "didn't book",
+                        "don't book"
+                    ],
+                    "verb_hint": "Передай «ще не забронювали» теперішнім перфектним часом; слово зі значенням «ще» вже наведено наприкінці."
+                }
+            },
+            "verb_hint": "Передай «ще не забронювали» теперішнім перфектним часом; слово зі значенням «ще» вже наведено наприкінці.",
+            "accepted_target_texts": [
+                "We haven't booked the ferry tickets yet.",
+                "We have not booked the ferry tickets yet."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have not booked"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have not booked"
+                ]
+            },
+            "reorder_groups": [
+                "We haven't booked",
+                "the ferry tickets",
+                "yet."
+            ],
+            "token_groups": [
+                "We haven't booked",
+                "the ferry tickets",
+                "yet."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "mrq-b2-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The band {a1} when the lights went out.",
+            "level": "A2",
+            "type": 0,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Гурт грав, коли згасло світло.",
+            "target_text": "The band was playing when the lights went out.",
+            "markers": {
+                "a1": {
+                    "answer": "was playing",
+                    "options": [
+                        "was playing",
+                        "is playing",
+                        "has played"
+                    ],
+                    "verb_hint": "Передай гру, яка тривала в момент іншої минулої події, минулим тривалим часом."
+                }
+            },
+            "verb_hint": "Передай гру, яка тривала в момент іншої минулої події, минулим тривалим часом.",
+            "accepted_target_texts": [
+                "The band was playing when the lights went out.",
+                "The band were playing when the lights went out."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "were playing"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "were playing"
+                ]
+            },
+            "reorder_groups": [
+                "The band",
+                "was playing",
+                "when the lights",
+                "went out."
+            ],
+            "token_groups": [
+                "The band",
+                "was playing",
+                "when the lights",
+                "went out."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "mrq-b2-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Unless the harbour master {a1}, the race will start at noon.",
+            "level": "B1",
+            "type": 0,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Якщо начальник порту не заперечить, перегони почнуться опівдні.",
+            "target_text": "Unless the harbour master objects, the race will start at noon.",
+            "markers": {
+                "a1": {
+                    "answer": "objects",
+                    "options": [
+                        "objects",
+                        "object",
+                        "will object"
+                    ],
+                    "verb_hint": "Передай «заперечить» у реальній майбутній умові: після вже наведеного сполучника потрібен теперішній час; підмет в однині."
+                }
+            },
+            "verb_hint": "Передай «заперечить» у реальній майбутній умові: після вже наведеного сполучника потрібен теперішній час; підмет в однині.",
+            "accepted_target_texts": [
+                "Unless the harbour master objects, the race will start at noon.",
+                "Unless the harbour master protests, the race will start at noon."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "protests"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "protests"
+                ]
+            },
+            "reorder_groups": [
+                "Unless",
+                "the harbour master",
+                "objects,",
+                "the race",
+                "will start",
+                "at noon."
+            ],
+            "token_groups": [
+                "Unless",
+                "the harbour master",
+                "objects,",
+                "the race",
+                "will start",
+                "at noon."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "mrq-b2-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Where {a1} the spare sail yesterday?",
+            "level": "B1",
+            "type": 0,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Куди ти поклав запасне вітрило вчора?",
+            "target_text": "Where did you put the spare sail yesterday?",
+            "markers": {
+                "a1": {
+                    "answer": "did you put",
+                    "options": [
+                        "did you put",
+                        "do you put",
+                        "did you putted"
+                    ],
+                    "verb_hint": "Питальне слово вже наведено. У пропуску подай допоміжне дієслово минулого часу, займенник співрозмовника та початкову форму «покласти»."
+                }
+            },
+            "verb_hint": "Питальне слово вже наведено. У пропуску подай допоміжне дієслово минулого часу, займенник співрозмовника та початкову форму «покласти».",
+            "accepted_target_texts": [
+                "Where did you put the spare sail yesterday?",
+                "Where did you place the spare sail yesterday?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "did you place"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "did you place"
+                ]
+            },
+            "reorder_groups": [
+                "Where",
+                "did you put",
+                "the spare sail",
+                "yesterday?"
+            ],
+            "token_groups": [
+                "Where",
+                "did you put",
+                "the spare sail",
+                "yesterday?"
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "mrq-b2-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Had the crew checked the winch, they {a1} the delay.",
+            "level": "B2",
+            "type": 0,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Якби екіпаж перевірив лебідку, затримки вдалося б уникнути.",
+            "target_text": "Had the crew checked the winch, they would have avoided the delay.",
+            "markers": {
+                "a1": {
+                    "answer": "would have avoided",
+                    "options": [
+                        "would have avoided",
+                        "would avoid",
+                        "will have avoided"
+                    ],
+                    "verb_hint": "Умовна частина вже виражає нездійснену минулу умову. Передай минулий наслідок «уникнули б» модальною перфектною формою."
+                }
+            },
+            "verb_hint": "Умовна частина вже виражає нездійснену минулу умову. Передай минулий наслідок «уникнули б» модальною перфектною формою.",
+            "accepted_target_texts": [
+                "Had the crew checked the winch, they would have avoided the delay."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Had the crew",
+                "checked the winch,",
+                "they would have",
+                "avoided the delay."
+            ],
+            "token_groups": [
+                "Had the crew",
+                "checked the winch,",
+                "they would have",
+                "avoided the delay."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "mrq-b2-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The lighthouse {a1} by Friday, so the scaffolding can come down then.",
+            "level": "B2",
+            "type": 0,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Маяк буде перефарбовано до п’ятниці, тож тоді риштування можна буде прибрати.",
+            "target_text": "The lighthouse will have been repainted by Friday, so the scaffolding can come down then.",
+            "markers": {
+                "a1": {
+                    "answer": "will have been repainted",
+                    "options": [
+                        "will have been repainted",
+                        "will have repainted",
+                        "will be repainting"
+                    ],
+                    "verb_hint": "Познач завершення перефарбування до майбутньої межі пасивною формою майбутнього перфектного часу."
+                }
+            },
+            "verb_hint": "Познач завершення перефарбування до майбутньої межі пасивною формою майбутнього перфектного часу.",
+            "accepted_target_texts": [
+                "The lighthouse will have been repainted by Friday, so the scaffolding can come down then."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The lighthouse",
+                "will have been",
+                "repainted by Friday,",
+                "so the scaffolding",
+                "can come down",
+                "then."
+            ],
+            "token_groups": [
+                "The lighthouse",
+                "will have been",
+                "repainted by Friday,",
+                "so the scaffolding",
+                "can come down",
+                "then."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "mrq-b2-c1-g01",
+            "author_id": "C1-g01",
+            "question": "Not until the hull was inspected {a1} how serious the corrosion was.",
+            "level": "C1",
+            "type": 0,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Лише після огляду корпусу ми усвідомили, наскільки серйозною була корозія.",
+            "target_text": "Not until the hull was inspected did we realise how serious the corrosion was.",
+            "markers": {
+                "a1": {
+                    "answer": "did we realise",
+                    "options": [
+                        "did we realise",
+                        "we realised",
+                        "do we realise"
+                    ],
+                    "verb_hint": "Початковий обмежувальний зворот вимагає інверсії. У пропуску назви минуле «ми усвідомили», поставивши допоміжне дієслово перед займенником."
+                }
+            },
+            "verb_hint": "Початковий обмежувальний зворот вимагає інверсії. У пропуску назви минуле «ми усвідомили», поставивши допоміжне дієслово перед займенником.",
+            "accepted_target_texts": [
+                "Not until the hull was inspected did we realise how serious the corrosion was.",
+                "Not until the hull was inspected did we realize how serious the corrosion was."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "did we realize"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "did we realize"
+                ]
+            },
+            "reorder_groups": [
+                "Not until",
+                "the hull",
+                "was inspected",
+                "did we realise",
+                "how serious",
+                "the corrosion was."
+            ],
+            "token_groups": [
+                "Not until",
+                "the hull",
+                "was inspected",
+                "did we realise",
+                "how serious",
+                "the corrosion was."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "mrq-b2-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The trust insists that the quay {a1} before reopening.",
+            "level": "C1",
+            "type": 0,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Фонд наполягає, щоб причал укріпили перед повторним відкриттям.",
+            "target_text": "The trust insists that the quay be reinforced before reopening.",
+            "markers": {
+                "a1": {
+                    "answer": "be reinforced",
+                    "options": [
+                        "be reinforced",
+                        "be reinforcing",
+                        "is reinforce"
+                    ],
+                    "verb_hint": "Передай вимогу пасивною наказовою моделлю підрядного речення: початкова форма дієслова-зв’язки та дієприкметник; нормативна модальна модель також допустима."
+                }
+            },
+            "verb_hint": "Передай вимогу пасивною наказовою моделлю підрядного речення: початкова форма дієслова-зв’язки та дієприкметник; нормативна модальна модель також допустима.",
+            "accepted_target_texts": [
+                "The trust insists that the quay be reinforced before reopening.",
+                "The trust insists that the quay should be reinforced before reopening.",
+                "The trust insists that the quay be strengthened before reopening.",
+                "The trust insists that the quay should be strengthened before reopening."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "should be reinforced",
+                    "be strengthened",
+                    "should be strengthened"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "should be reinforced",
+                    "be strengthened",
+                    "should be strengthened"
+                ]
+            },
+            "reorder_groups": [
+                "The trust insists",
+                "that the quay",
+                "be reinforced",
+                "before reopening."
+            ],
+            "token_groups": [
+                "The trust insists",
+                "that the quay",
+                "be reinforced",
+                "before reopening."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "mrq-b2-c2-g01",
+            "author_id": "C2-g01",
+            "question": "Be that as it {a1}, withdrawing now would undermine the agreement.",
+            "level": "C2",
+            "type": 0,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Хай там як, відмова від участі зараз підірвала б угоду.",
+            "target_text": "Be that as it may, withdrawing now would undermine the agreement.",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "might",
+                        "could"
+                    ],
+                    "verb_hint": "Доповни усталений формальний зворот зі значенням «хай там як»; потрібне одне модальне дієслово."
+                }
+            },
+            "verb_hint": "Доповни усталений формальний зворот зі значенням «хай там як»; потрібне одне модальне дієслово.",
+            "accepted_target_texts": [
+                "Be that as it may, withdrawing now would undermine the agreement."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Be that",
+                "as it may,",
+                "withdrawing now",
+                "would undermine",
+                "the agreement."
+            ],
+            "token_groups": [
+                "Be that",
+                "as it may,",
+                "withdrawing now",
+                "would undermine",
+                "the agreement."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "mrq-b2-c2-g02",
+            "author_id": "C2-g02",
+            "question": "So fragile {a1} that a minor setback could unravel the entire settlement.",
+            "level": "C2",
+            "type": 0,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Згода настільки хитка, що навіть незначна невдача може зруйнувати всю домовленість.",
+            "target_text": "So fragile is the consensus that a minor setback could unravel the entire settlement.",
+            "markers": {
+                "a1": {
+                    "answer": "is the consensus",
+                    "options": [
+                        "is the consensus",
+                        "the consensus is",
+                        "does the consensus"
+                    ],
+                    "verb_hint": "Після винесеного ступеневого означення використай інверсію теперішнього часу й подай увесь підмет «згода»."
+                }
+            },
+            "verb_hint": "Після винесеного ступеневого означення використай інверсію теперішнього часу й подай увесь підмет «згода».",
+            "accepted_target_texts": [
+                "So fragile is the consensus that a minor setback could unravel the entire settlement."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "So fragile",
+                "is the consensus",
+                "that",
+                "a minor setback",
+                "could unravel",
+                "the entire settlement."
+            ],
+            "token_groups": [
+                "So fragile",
+                "is the consensus",
+                "that",
+                "a minor setback",
+                "could unravel",
+                "the entire settlement."
+            ],
+            "quality_revision": "mrq-v1"
+        }
+    ]
+}

@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62475,
+        "uuid": "qnq-alternative-b1-g02",
+        "question": "Would you {a1} to stay here or move upstairs?",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 60,
+        "source_id": 461,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedAlternativeQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "prefer",
+                "preferred",
+                "preferring"
+            ]
+        },
+        "theory_text_block_uuid": "d7f61bda-aeea-5fc0-a0a1-ca72af7cdc17",
+        "created_at": "2026-10-30T13:52:45.000000Z",
+        "updated_at": "2026-10-30T13:52:45.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 461,
+        "name": "Questions and Negations Quality: Alternative Questions",
+        "created_at": "2026-10-30T13:52:44.000000Z",
+        "updated_at": "2026-10-30T13:52:44.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 287,
+                "name": "Alternative Questions",
+                "category": null,
+                "created_at": "2026-04-23T14:33:01.000000Z",
+                "updated_at": "2026-04-23T14:33:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 62475,
+                "tag_id": 287,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 2650,
+                "option": "prefer",
+                "created_at": "2026-04-23T14:18:26.000000Z",
+                "updated_at": "2026-04-23T14:18:26.000000Z"
+            },
+            "pivot": {
+                "question_id": 62475,
+                "option_id": 2650,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 16803,
+                "option": "preferred",
+                "created_at": "2026-04-29T15:33:50.000000Z",
+                "updated_at": "2026-04-29T15:33:50.000000Z"
+            },
+            "pivot": {
+                "question_id": 62475,
+                "option_id": 16803,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 56865,
+                "option": "preferring",
+                "created_at": "2026-10-30T13:52:46.000000Z",
+                "updated_at": "2026-10-30T13:52:46.000000Z"
+            },
+            "pivot": {
+                "question_id": 62475,
+                "option_id": 56865,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332015,
+                "question_id": 62475,
+                "marker": "a1",
+                "option_id": 2650,
+                "created_at": "2026-10-30T13:52:46.000000Z",
+                "updated_at": "2026-10-30T13:52:46.000000Z"
+            },
+            "option": {
+                "id": 2650,
+                "option": "prefer",
+                "created_at": "2026-04-23T14:18:26.000000Z",
+                "updated_at": "2026-04-23T14:18:26.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49349,
+                "question_id": 62475,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 56864,
+                "created_at": "2026-10-30T13:52:46.000000Z",
+                "updated_at": "2026-10-30T13:52:46.000000Z"
+            },
+            "option": {
+                "id": 56864,
+                "option": "Воліти: після модального потрібна початкова форма, а частку перед інфінітивом уже подано.",
+                "created_at": "2026-10-30T13:52:46.000000Z",
+                "updated_at": "2026-10-30T13:52:46.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54490,
+            "question_id": 62475,
+            "text": "Would you {a1} to stay here or move upstairs?",
+            "created_at": "2026-10-30T13:52:46.000000Z",
+            "updated_at": "2026-10-30T13:52:46.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

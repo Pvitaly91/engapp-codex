@@ -1,0 +1,2311 @@
+{
+  "schema_version": 1,
+  "version": "1.0.0",
+  "status": "frozen",
+  "id": "m52-passive-basics",
+  "base_sha": "0e2ed40c438400e2f2a3992314220fdf206db9a7",
+  "scope": "Три чинні UK уроки Passive Voice Basics: Formation Rules; Negatives & Questions in Passive; Passive with Modal Verbs.",
+  "policy": {
+    "native_components": true,
+    "visual_changes": false,
+    "course_content_changes": false,
+    "production_access": false,
+    "existing_question_rows_unchanged": true,
+    "existing_answers_progress_unchanged": true,
+    "linked_bank_contract_status": "independent-source-and-live-IDs-reviewed-existing-banks"
+  },
+  "editorial_review": {
+    "status": "main-independent-language-component-metadata-link-bank-engine-review-complete",
+    "new_own_tasks": 18,
+    "groups_per_lesson": {
+      "selects": 2,
+      "choices": 2,
+      "inputs": 2
+    },
+    "input_methods": [
+      "manual",
+      "tokens"
+    ],
+    "linked_bank_questions_separate": 15,
+    "old_continuing_blocks_per_lesson": [
+      9,
+      11,
+      11
+    ],
+    "new_practice_blocks": 3,
+    "meaningful_details": {
+      "formation_rules": 1,
+      "negatives_questions": 1,
+      "modal_passive": 1
+    },
+    "translation_visibility_exceptions": [
+      "У choices переклад English стимулу показується після Check, коли точний переклад назвав би правильне значення; потрібний контекст одразу подано українською."
+    ],
+    "note": "Фіксована редакція 1.0.0: main незалежно звірив H1, metadata, локальні links, actual IDs, українські умови та відповіді; native engine draft review 22/22. Застосування БД і live browser acceptance — окремі наступні кроки, не заявлені цим source freeze."
+  },
+  "sources": [
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/passives",
+      "access": "direct-publisher-html",
+      "reviewed": "Основний Grammar explanation, не коментарі: фокус, be + participle, tense, omission of agent, basic continuous/perfect forms."
+    },
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/active-passive-voice",
+      "access": "direct-publisher-html",
+      "reviewed": "Основний beginner/intermediate reference, не коментарі: transitive objects, by + person/thing, passive infinitive; сусідні теми не модернізовано."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/passive-forms",
+      "access": "direct-tool-internal-error; canonical-publisher-indexed-text",
+      "reviewed": "Прямий US URL недоступний; canonical indexed source нижче перевіряє forms, modal perfect, intransitive limits."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/passive-forms",
+      "access": "publisher-indexed-text",
+      "reviewed": "Modal + be, modal + have been, be tense/aspect, intransitive arrive та linking-verb limits; не повне пряме читання."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/passives-with-and-without-an-agent",
+      "access": "direct-tool-internal-error; publisher-indexed-alternative-url",
+      "reviewed": "Заданий URL недоступний; видавничий indexed endpoint нижче має потрібний матеріал."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/passives-with-and-",
+      "access": "publisher-indexed-text",
+      "reviewed": "By з важливим агентом або неодушевленою причиною; with як інструмент; omission unknown/unimportant/obvious."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/questions-statement-questions-you-re-over-18",
+      "access": "direct-tool-internal-error; publisher-indexed-localisation",
+      "reviewed": "Заданий URL недоступний; indexed Danish publisher localisation нижче містить English основний текст."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/da/grammatik/british-grammar/questions-statement-questions-you-re-over-18",
+      "access": "publisher-indexed-text",
+      "reviewed": "Statement questions можуть уточнювати/перепитувати; не плутати з цільовою neutral yes/no inversion."
+    },
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/perfect-aspect",
+      "access": "direct-publisher-html",
+      "reviewed": "Modals with perfect: огляд назад із present/past/future point; should have може передавати очікуваний результат."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/should",
+      "access": "direct-tool-internal-error; publisher-indexed-text",
+      "reviewed": "Should: desired past action/criticism та expectation; не єдине значення."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/could",
+      "access": "direct-tool-internal-error; publisher-indexed-text",
+      "reviewed": "Could have: possible past event та unrealised opportunity з явним контекстом."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "access": "direct-publisher-html",
+      "reviewed": "People-first self-assessment, точність і користь; немає обіцянок ranking gains, штучних авторів або word targets."
+    }
+  ],
+  "lessons": [
+    {
+      "schema_version": 1,
+      "status": "frozen",
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceFormationRulesTheorySeeder",
+      "slug": "theory-passive-voice-formation-rules",
+      "locale": "uk",
+      "display_level": "A2",
+      "technical_block_level": "A2",
+      "category_ancestry": [
+        "passive-voice"
+      ],
+      "local_url": "http://gramlyze.loc/theory/passive-voice/theory-passive-voice-formation-rules",
+      "subtitle_html": "<p><strong>Пасивний стан (Passive Voice)</strong>: як утворити be + V3, змінити фокус Active → Passive, зберегти час і учасників та доречно назвати виконавця. Приклади з перекладом і тематична практика.</p>",
+      "subtitle_text": "Пасивний стан (Passive Voice): формула be + V3, перетворення Active → Passive, вибір часу, by/with, приклади з перекладом і практика.",
+      "blocks": [
+        {
+          "key": "formation-hero",
+          "existing_source_index": 0,
+          "type": "hero",
+          "column": "header",
+          "level": "A2",
+          "data": {
+            "level": "A2",
+            "intro": "Пасив ставить у центр повідомлення того, на кого або на що спрямовано дію. Це інший спосіб описати ту саму подію, а не довільна перестановка слів і не обов’язковий спосіб зробити мову кращою.",
+            "rules": [
+              {
+                "label": "ФОКУС НА ОБ’ЄКТІ",
+                "color": "emerald",
+                "text": "У пасиві об’єкт активного речення стає підметом.",
+                "example": "<span lang=\"en\">Tom writes letters. → Letters are written by Tom.</span><br><span lang=\"uk\">Том пише листи. → Листи пише Том.</span>"
+              },
+              {
+                "label": "ЧАС І V3",
+                "color": "blue",
+                "text": "Be показує час і узгоджується з новим підметом; V3 — третя форма основного дієслова.",
+                "example": "<span lang=\"en\">They built a house. → A house was built by them.</span><br><span lang=\"uk\">Вони побудували будинок. → Будинок побудували вони.</span>"
+              },
+              {
+                "label": "ПОТРІБНИЙ ВИКОНАВЕЦЬ",
+                "color": "rose",
+                "text": "By називає виконавця або причину, якщо ця інформація важлива.",
+                "example": "<span lang=\"en\">The book was written by Shakespeare.</span><br><span lang=\"uk\">Цю книжку написав Шекспір.</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "formation-forms",
+          "existing_source_index": 1,
+          "type": "forms-grid",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "1. Активний і пасивний стан: основна будова",
+            "intro": "Спочатку визнач дію, її виконавця та об’єкт. Для цього вступного шару основні моделі — Present Simple і Past Simple; інші потрібні форми побачиш у прикладах далі.",
+            "items": [
+              {
+                "label": "АКТИВНИЙ СТАН",
+                "title": "виконавець + дієслово + об’єкт",
+                "subtitle": "Tom writes letters. — Том пише листи. Підмет Tom називає виконавця, letters — об’єкт дії."
+              },
+              {
+                "label": "ПАСИВНИЙ СТАН",
+                "title": "новий підмет + be + V3",
+                "subtitle": "Letters are written by Tom. — Листи пише Том. Підмет letters називає те, що пишуть; by Tom зберігає виконавця."
+              },
+              {
+                "label": "ТЕПЕРІШНЄ Й МИНУЛЕ",
+                "title": "am / is / are + V3; was / were + V3",
+                "subtitle": "English is spoken here. — Тут розмовляють англійською. A house was built. — Будинок побудували. Час визначаємо за подією, а число be — за новим підметом."
+              },
+              {
+                "label": "ТРЕТЯ ФОРМА",
+                "title": "work → worked; write → written; build → built",
+                "subtitle": "У правильних дієслів V3 часто збігається з формою на -ed. Неправильні форми перевіряємо окремо: write — written, speak — spoken. V3 не змінюється за особою або числом."
+              }
+            ]
+          }
+        },
+        {
+          "key": "formation-steps",
+          "existing_source_index": 2,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "2. Як перетворити Active → Passive",
+            "sections": [
+              {
+                "label": "ОБ’ЄКТ СТАЄ ПІДМЕТОМ",
+                "color": "emerald",
+                "description": "Знайди, на що спрямовано дію. Саме цей учасник стає підметом пасивного речення; не змінюй об’єкт і не додавай нової події.",
+                "examples": [
+                  {
+                    "en": "Tom writes letters. → Letters are written by Tom.",
+                    "ua": "Том пише листи. → Листи пише Том."
+                  },
+                  {
+                    "en": "They built a house. → A house was built by them.",
+                    "ua": "Вони побудували будинок. → Будинок побудували вони."
+                  }
+                ],
+                "note": "У першому прикладі новий підмет — letters, у другому — a house. They може називати відому групу; тут by them залишено, щоб не втратити цю інформацію."
+              },
+              {
+                "label": "ЗБЕРЕЖИ ЧАС І ОБЕРИ BE",
+                "color": "blue",
+                "description": "У Present Simple ставимо am/is/are, у Past Simple — was/were. Після цієї форми be потрібна V3. Узгоджуй be з новим підметом, а не з виконавцем після by.",
+                "examples": [
+                  {
+                    "en": "Tom writes one letter. → One letter is written by Tom.",
+                    "ua": "Том пише один лист. → Один лист пише Том."
+                  },
+                  {
+                    "en": "They built two houses. → Two houses were built by them.",
+                    "ua": "Вони побудували два будинки. → Два будинки побудували вони."
+                  }
+                ],
+                "note": "One letter — однина, тому is; two houses — множина, тому were. Writes передає теперішнє, built у вихідному реченні — минуле: перетворення не змінює час."
+              },
+              {
+                "label": "ВИРІШИ, ЧИ ПОТРІБНИЙ BY",
+                "color": "rose",
+                "description": "Коли треба повністю зберегти повідомлення, названого виконавця не пропускаємо. Коли завдання прямо просить не називати невідомого або неважливого виконавця, пасив може бути без by-phrase.",
+                "examples": [
+                  {
+                    "en": "Tom wrote the letter. → The letter was written by Tom.",
+                    "ua": "Том написав листа. → Листа написав Том."
+                  },
+                  {
+                    "en": "Someone stole my bike. → My bike was stolen.",
+                    "ua": "Хтось вкрав мій велосипед. → Мій велосипед вкрали."
+                  }
+                ],
+                "note": "Другий варіант не називає виконавця. Це допустиме скорочення повідомлення за заданої мети, а не правило автоматично видаляти будь-яке they, someone або ім’я."
+              }
+            ]
+          }
+        },
+        {
+          "key": "formation-transformations",
+          "existing_source_index": 3,
+          "type": "comparison-table",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "3. Приклади Active → Passive",
+            "intro": "Обидва речення в рядку описують ту саму дію в тому самому часі. Зміна фокусу не дозволяє мовчки втрачати важливого учасника.",
+            "headers": [
+              "Активне речення й переклад",
+              "Пасивне речення й переклад",
+              "Розбір"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "<span lang=\"en\">Mary bakes a cake.</span><br><span lang=\"uk\">Марія пече торт.</span>",
+                  "<span lang=\"en\">A cake is baked by Mary.</span><br><span lang=\"uk\">Торт пече Марія.</span>",
+                  "Present Simple: a cake — однина, тому is baked. By Mary зберігає виконавицю."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">They speak English here.</span><br><span lang=\"uk\">Тут вони розмовляють англійською.</span>",
+                  "<span lang=\"en\">English is spoken here.</span><br><span lang=\"uk\">Тут розмовляють англійською.</span>",
+                  "Present Simple: spoken — V3. У цьому загальному повідомленні виконавця не називаємо; конкретну групу they такий варіант уже не передає."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">Someone stole my bike.</span><br><span lang=\"uk\">Хтось вкрав мій велосипед.</span>",
+                  "<span lang=\"en\">My bike was stolen.</span><br><span lang=\"uk\">Мій велосипед вкрали.</span>",
+                  "Past Simple: was + stolen. Ім’я виконавця невідоме й для цього повідомлення не потрібне."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">The company will hire new employees.</span><br><span lang=\"uk\">Компанія найме нових працівників.</span>",
+                  "<span lang=\"en\">New employees will be hired by the company.</span><br><span lang=\"uk\">Нових працівників найме компанія.</span>",
+                  "Future Simple: will be + V3. Збережено майбутній час, множину employees і виконавця company."
+                ]
+              }
+            ],
+            "warning": "Пасив не утворюємо з будь-якого речення. The parcel arrived. — Посилка прибула. У цьому значенні arrive не має об’єкта: штучне The parcel was arrived — із задумом «Посилка прибула» — не є потрібним пасивом. Складні випадки з прийменниками — тема окремого уроку."
+          }
+        },
+        {
+          "key": "formation-uses",
+          "existing_source_index": 4,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "4. Коли пасив доречний",
+            "sections": [
+              {
+                "label": "ВИКОНАВЕЦЬ НЕВІДОМИЙ",
+                "color": "emerald",
+                "description": "Можна повідомити про подію, не знаючи, хто її спричинив. Не вигадуй виконавця лише для повної формули.",
+                "examples": [
+                  {
+                    "en": "My car was stolen last night.",
+                    "ua": "Мою машину вкрали минулої ночі."
+                  },
+                  {
+                    "en": "The window has been broken.",
+                    "ua": "Вікно розбили."
+                  },
+                  {
+                    "en": "The building was destroyed.",
+                    "ua": "Будівлю зруйнували."
+                  }
+                ],
+                "note": "Has been + V3 — потрібна тут Present Perfect форма. My car was stolen by someone. — Мою машину вкрав хтось. Це граматичне речення; без додаткового контексту by someone часто не додає корисної інформації. Контекст може робити важливим саме те, що невідома людина вчинила дію, або підкреслювати незнання її особи."
+              },
+              {
+                "label": "ВИКОНАВЕЦЬ НЕВАЖЛИВИЙ АБО ОЧЕВИДНИЙ",
+                "color": "blue",
+                "description": "У загальному повідомленні важливі послуга, правило або результат, а не перелік працівників чи установ.",
+                "examples": [
+                  {
+                    "en": "The streets are cleaned every day.",
+                    "ua": "Вулиці прибирають щодня."
+                  },
+                  {
+                    "en": "Tickets are sold at the entrance.",
+                    "ua": "Квитки продають біля входу."
+                  },
+                  {
+                    "en": "The law was passed last year.",
+                    "ua": "Закон ухвалили минулого року."
+                  }
+                ],
+                "note": "Щоденне прибирання — Present Simple; ухвалення закону минулого року — Past Simple. Пасив не змінює ці часові відмінності."
+              },
+              {
+                "label": "ФОКУС НА ДІЇ АБО ОБ’ЄКТІ",
+                "color": "amber",
+                "description": "Почни з того, про що вже говорите або що зараз важливіше. За потреби виконавця можна назвати наприкінці.",
+                "examples": [
+                  {
+                    "en": "The report was submitted on time.",
+                    "ua": "Звіт подали вчасно."
+                  },
+                  {
+                    "en": "The new system will be launched tomorrow.",
+                    "ua": "Нову систему запустять завтра."
+                  },
+                  {
+                    "en": "The product is made in Germany.",
+                    "ua": "Цей продукт виробляють у Німеччині."
+                  }
+                ],
+                "note": "Пасив також звичайний у повсякденних повідомленнях про загублені речі, ремонт або продаж квитків; він не обмежений офіційним стилем."
+              },
+              {
+                "label": "ПРОЦЕС У ФОРМАЛЬНОМУ ОПИСІ",
+                "color": "slate",
+                "description": "У науковому або діловому тексті пасив допомагає зосередитися на процедурі. Використовуй його за змістом, а не замість кожного активного речення.",
+                "examples": [
+                  {
+                    "en": "The experiment was conducted carefully.",
+                    "ua": "Експеримент провели ретельно."
+                  },
+                  {
+                    "en": "Applicants will be notified by email.",
+                    "ua": "Заявників повідомлять електронною поштою."
+                  },
+                  {
+                    "en": "The data is analyzed weekly.",
+                    "ua": "Дані аналізують щотижня."
+                  }
+                ],
+                "note": "У прикладі data вжито з is як збірну назву даних; узгодження в конкретному науковому стилі може відрізнятися. By email тут називає спосіб повідомлення, не виконавця."
+              }
+            ]
+          }
+        },
+        {
+          "key": "formation-by-with",
+          "existing_source_index": 5,
+          "type": "forms-grid",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "5. By і with: виконавець, причина та засіб",
+            "intro": "Вибирай прийменник за роллю учасника в конкретній події. By не обмежується людьми або організаціями; with часто називає інструмент або матеріал.",
+            "items": [
+              {
+                "label": "BY: ВИКОНАВЕЦЬ",
+                "title": "by + той, хто виконує дію",
+                "subtitle": "The book was written by Mark Twain. — Цю книжку написав Марк Твен. The project was completed by our team. — Проєкт завершила наша команда."
+              },
+              {
+                "label": "BY: ПРИЧИНА ПОДІЇ",
+                "title": "by + те, що спричинило дію",
+                "subtitle": "The roof was damaged by the storm. — Буря пошкодила дах. Буря — причина пошкодження, хоча це не людина."
+              },
+              {
+                "label": "WITH: ІНСТРУМЕНТ",
+                "title": "with + засіб, яким користуються",
+                "subtitle": "The letter was written with a pen. — Листа написали ручкою. Ручка — інструмент; вона не вирішує писати листа."
+              },
+              {
+                "label": "WITH: МАТЕРІАЛ",
+                "title": "with + використаний матеріал",
+                "subtitle": "The cake was decorated with chocolate. — Торт прикрасили шоколадом. Шоколад — матеріал оздоблення, не виконавець."
+              }
+            ]
+          }
+        },
+        {
+          "key": "formation-mistakes",
+          "existing_source_index": 6,
+          "type": "mistakes-grid",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "6. Типові помилки у заданому реченні",
+            "items": [
+              {
+                "label": "ПОВНЕ РЕЧЕННЯ",
+                "color": "rose",
+                "title": "Для самостійного повідомлення про вчора потрібне was.",
+                "wrong_en": "The letter written yesterday.",
+                "wrong_ua": "Лист, написаний учора.",
+                "right_en": "The letter was written yesterday.",
+                "right_ua": "Листа написали вчора.",
+                "note": "The letter written yesterday може бути іменниковою групою всередині більшого речення. Помилка тут — подати її як завершене самостійне речення про подію."
+              },
+              {
+                "label": "V3, НЕ V1",
+                "color": "amber",
+                "title": "Після is у цьому пасиві потрібне spoken.",
+                "wrong_en": "English is speak here.",
+                "wrong_ua": "Тут розмовляють англійською.",
+                "right_en": "English is spoken here.",
+                "right_ua": "Тут розмовляють англійською.",
+                "note": "Переклад задуму не змінюється; виправляємо англійську форму speak → spoken."
+              },
+              {
+                "label": "ВИКОНАВЕЦЬ, НЕ ЗАСІБ",
+                "color": "sky",
+                "title": "Якщо книжку написав Шекспір, назви його через by.",
+                "wrong_en": "The book was written with Shakespeare.",
+                "wrong_ua": "Книжку написали разом із Шекспіром.",
+                "right_en": "The book was written by Shakespeare.",
+                "right_ua": "Книжку написав Шекспір.",
+                "note": "With Shakespeare може мати інше значення, наприклад спільну участь; воно не зберігає саме заданого виконавця так, як by Shakespeare."
+              },
+              {
+                "label": "ЗБЕРЕЖИ НАЗВАНОГО ВИКОНАВЦЯ",
+                "color": "rose",
+                "title": "У повному перетворенні речення про Тома не губи ім’я.",
+                "wrong_en": "Letters are written.",
+                "wrong_ua": "Листи пишуть.",
+                "right_en": "Letters are written by Tom.",
+                "right_ua": "Листи пише Том.",
+                "note": "Перше речення граматичне, але не виконує умову зберегти весь зміст Tom writes letters. — Том пише листи. Без by Tom повідомлення стає менш конкретним."
+              }
+            ]
+          }
+        },
+        {
+          "key": "formation-summary",
+          "existing_source_index": 7,
+          "type": "summary-list",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "7. Короткий підсумок",
+            "items": [
+              "Пасив змінює фокус: об’єкт активної дії стає підметом.",
+              "Обери be за часом і новим підметом; основне дієслово постав у V3.",
+              "By називає потрібного виконавця або причину; with — інструмент чи матеріал у відповідному контексті.",
+              "Виконавця можна не називати за метою повідомлення, але повне перетворення не повинно губити важливу інформацію.",
+              "Не кожне дієслово або значення дає такий пасив; не кожне be + слово на -ed описує подію. Пасив доречний і в повсякденній, і у формальній мові."
+            ]
+          }
+        },
+        {
+          "key": "formation-navigation",
+          "existing_source_index": 8,
+          "type": "navigation-chips",
+          "column": "footer",
+          "data": {
+            "title": "Базові теми пасивного стану",
+            "items": [
+              {
+                "label": "Formation Rules — Правила утворення пасиву",
+                "url": "/theory/passive-voice/theory-passive-voice-formation-rules",
+                "current": true
+              },
+              {
+                "label": "Passive with Modal Verbs — Пасив з модальними",
+                "url": "/theory/passive-voice/theory-passive-voice-modal-verbs",
+                "current": false
+              },
+              {
+                "label": "Causative — have/get something done",
+                "url": "/theory/passive-voice/theory-passive-voice-causative",
+                "current": false
+              },
+              {
+                "label": "Get-Passive — Розмовний пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-get-passive",
+                "current": false
+              },
+              {
+                "label": "Impersonal Passive — Безособовий пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-impersonal-passive",
+                "current": false
+              },
+              {
+                "label": "Negatives & Questions in Passive — Питання й заперечення",
+                "url": "/theory/passive-voice/theory-passive-voice-negatives-questions",
+                "current": false
+              },
+              {
+                "label": "Phrasal Verbs in Passive — Фразові дієслова",
+                "url": "/theory/passive-voice/theory-passive-voice-phrasal-verbs",
+                "current": false
+              },
+              {
+                "label": "Restrictions — Обмеження пасиву",
+                "url": "/theory/passive-voice/theory-passive-voice-restrictions",
+                "current": false
+              },
+              {
+                "label": "Two-object Verbs in Passive — give/send/offer",
+                "url": "/theory/passive-voice/theory-passive-voice-two-object-verbs",
+                "current": false
+              },
+              {
+                "label": "Common Mistakes in Passive — Типові помилки",
+                "url": "/theory/passive-voice/theory-passive-voice-common-mistakes",
+                "current": false
+              },
+              {
+                "label": "Formality & Style in Passive — Формальність і стиль",
+                "url": "/theory/passive-voice/theory-passive-voice-formality-style",
+                "current": false
+              }
+            ]
+          }
+        },
+        {
+          "key": "formation-practice",
+          "existing_source_index": null,
+          "type": "practice-set",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "8. Практика",
+            "select_title": "Доповни пасивну форму",
+            "select_intro": "Час і пасивна модель названі в умові. Узгоджуй be з новим підметом і перевіряй V3.",
+            "selects": [
+              {
+                "id": "m52-formation-plural-present",
+                "source_index": 1,
+                "label": "За звичним розкладом усі посилки сортують тут щодня. Доповни Present Simple Passive: «Посилки сортують тут щодня».<br><span lang=\"en\">The parcels ___ here every day.</span>",
+                "options": [
+                  "is sorted",
+                  "are sorted",
+                  "are sort"
+                ],
+                "answer": "are sorted",
+                "accepted": [
+                  "are sorted"
+                ],
+                "feedback": {
+                  "is sorted": "The parcels are sorted here every day. — Посилки сортують тут щодня. Parcels — множина, тому are.",
+                  "are sorted": "Правильно: The parcels are sorted here every day. — Посилки сортують тут щодня. Are узгоджується з parcels; sorted — V3.",
+                  "are sort": "The parcels are sorted here every day. — Посилки сортують тут щодня. Після are у цьому пасиві потрібне sorted, не sort."
+                }
+              },
+              {
+                "id": "m52-formation-v3-past",
+                "source_index": 2,
+                "label": "Побудуй Past Simple Passive для завершеної вчора дії: «Цю табличку написали вчора».<br><span lang=\"en\">The sign was ___ yesterday.</span>",
+                "options": [
+                  "wrote",
+                  "write",
+                  "written"
+                ],
+                "answer": "written",
+                "accepted": [
+                  "written"
+                ],
+                "feedback": {
+                  "wrote": "The sign was written yesterday. — Цю табличку написали вчора. Wrote — V2; у пасиві після was потрібне written, V3.",
+                  "write": "The sign was written yesterday. — Цю табличку написали вчора. Write — базова форма, а потрібна V3 written.",
+                  "written": "Правильно: The sign was written yesterday. — Цю табличку написали вчора. Was показує Past Simple, written — V3."
+                }
+              }
+            ],
+            "choice_title": "Збережи зміст і ролі",
+            "choice_intro": "Умови прямо задають, яку інформацію треба зберегти. Переклад і розбір English стимулу з’являться після Check.",
+            "choices": [
+              {
+                "id": "m52-formation-retain-agent",
+                "source_index": 3,
+                "label": "Софія — названа виконавиця. Обери пасивне перетворення з повним збереженням часу, об’єкта й виконавиці.",
+                "prompt": "<span lang=\"en\">Sofia packed the suitcase.</span>",
+                "options": [
+                  "The suitcase was packed by Sofia.",
+                  "Sofia was packed by the suitcase.",
+                  "The suitcase was packed."
+                ],
+                "answer": "The suitcase was packed by Sofia.",
+                "accepted": [
+                  "The suitcase was packed by Sofia."
+                ],
+                "feedback": {
+                  "the suitcase was packed by sofia.": "Правильно: Sofia packed the suitcase. — Софія спакувала валізу. The suitcase was packed by Sofia. — Валізу спакувала Софія. Підметом стає suitcase, а by Sofia зберігає виконавицю.",
+                  "sofia was packed by the suitcase.": "Sofia packed the suitcase. — Софія спакувала валізу. Потрібно: The suitcase was packed by Sofia. — Валізу спакувала Софія. Не міняємо виконавця й об’єкт місцями за змістом.",
+                  "the suitcase was packed.": "The suitcase was packed. — Валізу спакували. Речення граматичне, але ім’я втрачено. Умова просить повний зміст: The suitcase was packed by Sofia. — Валізу спакувала Софія."
+                }
+              },
+              {
+                "id": "m52-formation-cause-instrument",
+                "source_index": 4,
+                "label": "У першій ситуації буря сама спричинила пошкодження; у другій людина скористалася ножицями. Які ролі названо?",
+                "prompt": "<span lang=\"en\">The fence was damaged by the storm. The paper was cut with scissors.</span>",
+                "options": [
+                  "Буря — інструмент, ножиці — виконавець.",
+                  "By має бути тільки перед людиною, тому перше речення помилкове.",
+                  "Буря — причина пошкодження, ножиці — інструмент різання."
+                ],
+                "answer": "Буря — причина пошкодження, ножиці — інструмент різання.",
+                "accepted": [
+                  "Буря — причина пошкодження, ножиці — інструмент різання."
+                ],
+                "feedback": {
+                  "буря — інструмент, ножиці — виконавець.": "The fence was damaged by the storm. — Буря пошкодила паркан. The paper was cut with scissors. — Папір розрізали ножицями. Тут storm спричинила подію, scissors були інструментом.",
+                  "by має бути тільки перед людиною, тому перше речення помилкове.": "The fence was damaged by the storm. — Буря пошкодила паркан. The paper was cut with scissors. — Папір розрізали ножицями. By може називати неодушевлену причину; не обмежуй його людьми.",
+                  "буря — причина пошкодження, ножиці — інструмент різання.": "Правильно: The fence was damaged by the storm. — Буря пошкодила паркан. The paper was cut with scissors. — Папір розрізали ножицями. Роль, а не ознака «живе/неживе», визначає вибір."
+                }
+              }
+            ],
+            "input_title": "Побудуй повне пасивне речення",
+            "input_intro": "Введи речення вручну або склади його з перемішаних токенів. Збережи названого виконавця, час і предмет дії.",
+            "inputs": [
+              {
+                "id": "m52-formation-build-past",
+                "source_index": 5,
+                "before": "Nora / repaired / were / by / shelves / yesterday. / The",
+                "after": "Нора полагодила полиці вчора. Почни пасивне речення з The shelves, збережи Нору через by Nora і постав yesterday наприкінці; repair — лагодити, shelf — полиця.",
+                "answer": "The shelves were repaired by Nora yesterday.",
+                "accepted": [
+                  "The shelves were repaired by Nora yesterday."
+                ],
+                "feedback": {
+                  "the shelves were repaired by nora yesterday.": "Правильно: The shelves were repaired by Nora yesterday. — Полиці вчора полагодила Нора. Were відповідає множині shelves і Past Simple; repaired — V3; by Nora зберігає виконавицю.",
+                  "the shelves were repaired by nora yesterday": "Правильно: The shelves were repaired by Nora yesterday. — Полиці вчора полагодила Нора. Усі названі учасники й час збережені.",
+                  "the shelves was repaired by nora yesterday.": "The shelves were repaired by Nora yesterday. — Полиці вчора полагодила Нора. З множиною shelves потрібне were."
+                }
+              },
+              {
+                "id": "m52-formation-build-present",
+                "source_index": 6,
+                "before": "Iryna. / printed / maps / by / are / The",
+                "after": "За звичним розподілом роботи Ірина друкує карти. Передай «Карти друкує Ірина» у Present Simple Passive. Почни з The maps, збережи by Iryna; print — друкувати, map — карта.",
+                "answer": "The maps are printed by Iryna.",
+                "accepted": [
+                  "The maps are printed by Iryna."
+                ],
+                "feedback": {
+                  "the maps are printed by iryna.": "Правильно: The maps are printed by Iryna. — Карти друкує Ірина. Це звична дія, тому Present Simple; maps — множина, тому are; Ірину не пропускаємо.",
+                  "the maps are printed by iryna": "Правильно: The maps are printed by Iryna. — Карти друкує Ірина. Printed — V3 після are.",
+                  "the maps is printed by iryna.": "The maps are printed by Iryna. — Карти друкує Ірина. Новий підмет maps потребує are, не is."
+                }
+              }
+            ],
+            "rephrase": [],
+            "linked_practice": {
+              "source": "theory_links",
+              "question_types": [
+                "4"
+              ],
+              "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoiceBasicsLessonSeeder"
+              ],
+              "title": "Вправа 4. Побудуй речення",
+              "intro": "Склади пасивне речення у Present Simple. У цих п’яти завданнях починай відповідно з Glass, Letters, This room, Food або Cars. Обставини став наприкінці; якщо є місце й час, спочатку місце, потім час. Для слова «магазин» у цій вправі обери shop. Це умови вправи, не єдиний можливий порядок слів.",
+              "footer": "Завдання підібрані лише для цієї теми."
+            }
+          }
+        }
+      ],
+      "details": [
+        {
+          "key": "formation-event-or-state",
+          "title": "Дія чи опис стану: перевір контекст",
+          "owner_block_key": "formation-forms",
+          "owner_pointer": "/items/1",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "НЕ КОЖНЕ BE + -ED Є ПОДІЄВИМ ПАСИВОМ",
+                  "color": "slate",
+                  "description": "Форма на -ed після be може називати результат або стан, а не повідомляти, що хтось саме зараз виконує дію. Контекст із конкретним виконавцем, часом і зміною допомагає побачити подію. Не додавай by лише для того, щоб будь-який прикметниковий опис перетворити на механічне Active → Passive.",
+                  "examples": [
+                    {
+                      "en": "The door is closed.",
+                      "ua": "Двері зачинені."
+                    },
+                    {
+                      "en": "The door is closed by the caretaker every evening.",
+                      "ua": "Доглядач зачиняє двері щовечора."
+                    }
+                  ],
+                  "note": "У першому прикладі без ширшого контексту природно описувати стан дверей. Другий прямо називає регулярну дію та виконавця. Для прозорого початкового перетворення обираємо саме такий контекст, а не вважаємо суфікс -ed достатнім доказом."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "status": "frozen",
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceNegativesQuestionsTheorySeeder",
+      "slug": "theory-passive-voice-negatives-questions",
+      "locale": "uk",
+      "display_level": "B1",
+      "technical_block_level": "B1",
+      "category_ancestry": [
+        "passive-voice"
+      ],
+      "local_url": "http://gramlyze.loc/theory/passive-voice/theory-passive-voice-negatives-questions",
+      "subtitle_html": "<p><strong>Negatives &amp; Questions in Passive</strong> — заперечення, звичайні й спеціальні питання та короткі відповіді: перше допоміжне дієслово, час, учасники, приклади з перекладом і практика.</p>",
+      "subtitle_text": "Negatives & Questions in Passive — місце not, перше допоміжне дієслово, yes/no і wh-питання, короткі відповіді та практика з перекладом.",
+      "blocks": [
+        {
+          "key": "negative-hero",
+          "existing_source_index": 0,
+          "type": "hero",
+          "column": "header",
+          "level": "B1",
+          "data": {
+            "level": "B1",
+            "intro": "У пасиві not та звичайне питання керуються першим допоміжним дієсловом: is/are, was/were, has/have або will. Решта пасивної форми залишається після підмета. Так правило однаково працює для простих, perfect і continuous форм.",
+            "rules": [
+              {
+                "label": "NOT ПІСЛЯ ПЕРШОГО ДОПОМІЖНОГО",
+                "color": "rose",
+                "text": "У простій формі це be; у складеній — перше слово допоміжної групи.",
+                "example": "<span lang=\"en\">The work has not been completed yet.</span><br><span lang=\"uk\">Роботу ще не завершили.</span>"
+              },
+              {
+                "label": "ПИТАННЯ З ІНВЕРСІЄЮ",
+                "color": "blue",
+                "text": "У звичайному yes/no-питанні перше допоміжне стоїть перед підметом.",
+                "example": "<span lang=\"en\">Was it built in 1990?</span><br><span lang=\"uk\">Це побудували у 1990 році?</span>"
+              },
+              {
+                "label": "КОРОТКА ВІДПОВІДЬ",
+                "color": "emerald",
+                "text": "Повтори потрібне перше допоміжне й правильний займенник, не всю пасивну групу.",
+                "example": "<span lang=\"en\">Has the work been completed? — Yes, it has. / No, it hasn't.</span><br><span lang=\"uk\">Роботу завершили? — Так. / Ні.</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "negative-present",
+          "existing_source_index": 1,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "1. Заперечення в Present Simple Passive",
+            "sections": [
+              {
+                "label": "ТЕПЕРІШНЄ ПРАВИЛО АБО СТАТУС",
+                "color": "rose",
+                "description": "Будова: am/is/are + not + V3. Is not і are not можна скоротити до isn't та aren't. Час не стає минулим тільки через пасив.",
+                "examples": [
+                  {
+                    "en": "The products are not made in China.",
+                    "ua": "Ці продукти не виробляють у Китаї."
+                  },
+                  {
+                    "en": "This material isn't used anymore.",
+                    "ua": "Цей матеріал більше не використовують."
+                  },
+                  {
+                    "en": "I am not invited to the party.",
+                    "ua": "Мене не запрошено на вечірку."
+                  },
+                  {
+                    "en": "The doors aren't locked at night.",
+                    "ua": "Двері не замикають на ніч."
+                  }
+                ],
+                "note": "Приклад із I описує теперішній статус запрошення; він не додає подію з минулою датою. Для звичної дії переклад також теперішній: не виробляють, не замикають."
+              },
+              {
+                "label": "I AM NOT / I'M NOT",
+                "color": "amber",
+                "description": "У стандартній навчальній моделі I am not скорочуємо до I'm not, не amn't. У короткій стверджувальній відповіді з am форму не обриваємо після займенника.",
+                "examples": [
+                  {
+                    "en": "I'm not included in the list.",
+                    "ua": "Мене не включено до списку."
+                  },
+                  {
+                    "en": "Am I included? — Yes, you are. / No, you aren't.",
+                    "ua": "Мене включено? — Так. / Ні."
+                  }
+                ],
+                "note": "У відповіді співрозмовника I із питання переходить у you: важливо зберегти учасника, а не механічно копіювати займенник."
+              }
+            ]
+          }
+        },
+        {
+          "key": "negative-past",
+          "existing_source_index": 2,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "2. Заперечення в Past Simple Passive",
+            "sections": [
+              {
+                "label": "МИНУЛА ПОДІЯ",
+                "color": "rose",
+                "description": "Будова: was/were + not + V3; скорочення — wasn't і weren't. Was/were узгоджується з підметом пасивного речення.",
+                "examples": [
+                  {
+                    "en": "The house was not built in 1990.",
+                    "ua": "Будинок не побудували у 1990 році."
+                  },
+                  {
+                    "en": "The letter wasn't sent yesterday.",
+                    "ua": "Листа не надіслали вчора."
+                  },
+                  {
+                    "en": "We were not informed about the changes.",
+                    "ua": "Нас не повідомили про зміни."
+                  },
+                  {
+                    "en": "The tickets weren't sold out.",
+                    "ua": "Квитки не розпродали повністю."
+                  }
+                ],
+                "note": "Not стоїть після was/were; основне дієслово лишається у V3. У цих be-passive моделях окреме did для заперечення не потрібне."
+              }
+            ]
+          }
+        },
+        {
+          "key": "negative-other",
+          "existing_source_index": 3,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "3. Заперечення в майбутньому, perfect і continuous",
+            "sections": [
+              {
+                "label": "FUTURE SIMPLE",
+                "color": "blue",
+                "description": "Will not / won't + be + V3. Not додається після will, а be залишається базовим.",
+                "examples": [
+                  {
+                    "en": "The project will not be finished on time.",
+                    "ua": "Проєкт не завершать вчасно."
+                  },
+                  {
+                    "en": "The meeting won't be held tomorrow.",
+                    "ua": "Зустріч не проведуть завтра."
+                  }
+                ]
+              },
+              {
+                "label": "PRESENT PERFECT",
+                "color": "emerald",
+                "description": "Has/have + not + been + V3; скорочення — hasn't і haven't. Перше допоміжне тут has/have, не been.",
+                "examples": [
+                  {
+                    "en": "The work has not been completed yet.",
+                    "ua": "Роботу ще не завершили."
+                  },
+                  {
+                    "en": "The files haven't been uploaded.",
+                    "ua": "Файли не завантажили."
+                  }
+                ]
+              },
+              {
+                "label": "CONTINUOUS: ПРОЦЕС",
+                "color": "amber",
+                "description": "Для процесу: am/is/are + not + being + V3 або was/were + not + being + V3. Not знову йде після першого допоміжного.",
+                "examples": [
+                  {
+                    "en": "The room isn't being cleaned now.",
+                    "ua": "Кімнату зараз не прибирають."
+                  },
+                  {
+                    "en": "The signs weren't being painted when we arrived.",
+                    "ua": "Коли ми прибули, таблички не фарбували."
+                  }
+                ],
+                "note": "Being показує пасивний процес; не замінюємо його на been. Окреме do не додаємо до цих допоміжних груп; це не глобальна заборона всіх інших конструкцій із get-passive або do."
+              }
+            ]
+          }
+        },
+        {
+          "key": "negative-yes-no",
+          "existing_source_index": 4,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "4. Звичайні yes/no-питання",
+            "sections": [
+              {
+                "label": "PRESENT SIMPLE",
+                "color": "blue",
+                "description": "Am/Is/Are + підмет + V3? Для звичайної питальної моделі перенеси перед підметом саме перше допоміжне.",
+                "examples": [
+                  {
+                    "en": "Is English spoken here?",
+                    "ua": "Тут розмовляють англійською?"
+                  },
+                  {
+                    "en": "Are the rooms cleaned daily?",
+                    "ua": "Кімнати прибирають щодня?"
+                  },
+                  {
+                    "en": "Am I included in the team?",
+                    "ua": "Мене включено до команди?"
+                  }
+                ],
+                "note": "Питання з порядком ствердження теж можливі як уточнення або перепитування. Тут тренуємо нейтральну модель з інверсією, а не оголошуємо всі statement questions помилковими."
+              },
+              {
+                "label": "PAST SIMPLE",
+                "color": "sky",
+                "description": "Was/Were + підмет + V3? Час зберігається в was/were; V3 не змінюється.",
+                "examples": [
+                  {
+                    "en": "Was the house built in 1990?",
+                    "ua": "Будинок побудували у 1990 році?"
+                  },
+                  {
+                    "en": "Were the documents signed?",
+                    "ua": "Документи підписали?"
+                  }
+                ]
+              },
+              {
+                "label": "FUTURE SIMPLE",
+                "color": "amber",
+                "description": "Will + підмет + be + V3? Перед підметом стоїть will; be залишається після нього.",
+                "examples": [
+                  {
+                    "en": "Will the project be finished on time?",
+                    "ua": "Проєкт завершать вчасно?"
+                  },
+                  {
+                    "en": "Will you be invited to the meeting?",
+                    "ua": "Тебе запросять на зустріч?"
+                  }
+                ]
+              },
+              {
+                "label": "PERFECT І CONTINUOUS",
+                "color": "emerald",
+                "description": "Has/Have + підмет + been + V3? Для процесу: Is/Are/Was/Were + підмет + being + V3? Переносимо лише перше допоміжне, не всю групу.",
+                "examples": [
+                  {
+                    "en": "Has the work been completed?",
+                    "ua": "Роботу завершили?"
+                  },
+                  {
+                    "en": "Have the tickets been sold?",
+                    "ua": "Квитки продали?"
+                  },
+                  {
+                    "en": "Is the room being cleaned now?",
+                    "ua": "Кімнату зараз прибирають?"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "negative-short-answers",
+          "existing_source_index": 5,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "5. Короткі відповіді: повтори перше допоміжне",
+            "sections": [
+              {
+                "label": "BE: IS / ARE / WAS / WERE",
+                "color": "emerald",
+                "description": "Yes/No + потрібний займенник + перше допоміжне. У негативній відповіді додай not або відповідне скорочення; не залишай незавершене Yes, it.",
+                "examples": [
+                  {
+                    "en": "Is the door locked? — Yes, it is. / No, it isn't.",
+                    "ua": "Двері замкнені? — Так. / Ні."
+                  },
+                  {
+                    "en": "Was the letter sent? — Yes, it was. / No, it wasn't.",
+                    "ua": "Листа надіслали? — Так. / Ні."
+                  },
+                  {
+                    "en": "Are they invited? — Yes, they are. / No, they aren't.",
+                    "ua": "Їх запрошено? — Так. / Ні."
+                  }
+                ],
+                "note": "У continuous відповідь також повторює тільки перше допоміжне: Is the room being cleaned? — Yes, it is. / No, it isn't. — Кімнату прибирають? — Так. / Ні."
+              },
+              {
+                "label": "PRESENT PERFECT: HAS / HAVE",
+                "color": "blue",
+                "description": "На Has ... been? / Have ... been? відповідаємо has/have, а не is/are. Стверджувальне допоміжне наприкінці короткої відповіді не скорочуємо до 's або 've.",
+                "examples": [
+                  {
+                    "en": "Has the work been finished? — Yes, it has. / No, it hasn't.",
+                    "ua": "Роботу закінчили? — Так. / Ні."
+                  },
+                  {
+                    "en": "Have they been informed? — Yes, they have. / No, they haven't.",
+                    "ua": "Їх повідомили? — Так. / Ні."
+                  }
+                ]
+              },
+              {
+                "label": "FUTURE SIMPLE: WILL / WON'T",
+                "color": "amber",
+                "description": "На Will ... be? потрібне will або will not / won't. Займенник має називати той самий предмет чи особу.",
+                "examples": [
+                  {
+                    "en": "Will it be done tomorrow? — Yes, it will. / No, it won't.",
+                    "ua": "Це зроблять завтра? — Так. / Ні."
+                  }
+                ],
+                "note": "Стверджувальну форму наприкінці не скорочуємо: Yes, it will. У стандартній відповіді про себе з am: Yes, I am. / No, I'm not. — Так. / Ні."
+              }
+            ]
+          }
+        },
+        {
+          "key": "negative-wh",
+          "existing_source_index": 6,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "6. Wh-питання: яку інформацію шукаємо",
+            "sections": [
+              {
+                "label": "ЧАС, МІСЦЕ, СПОСІБ АБО ПРИЧИНА",
+                "color": "sky",
+                "description": "Питальне слово + перше допоміжне + підмет + решта пасивної групи. Це та сама інверсія, але перед нею названо потрібну інформацію.",
+                "examples": [
+                  {
+                    "en": "Where is coffee grown?",
+                    "ua": "Де вирощують каву?"
+                  },
+                  {
+                    "en": "When was the house built?",
+                    "ua": "Коли побудували будинок?"
+                  },
+                  {
+                    "en": "How are these products made?",
+                    "ua": "Як виробляють ці продукти?"
+                  },
+                  {
+                    "en": "Why was the meeting cancelled?",
+                    "ua": "Чому скасували зустріч?"
+                  }
+                ],
+                "note": "Для складеної форми правило зберігається: When will the report be sent? — Коли надішлють звіт?"
+              },
+              {
+                "label": "WHO / WHAT Є ПІДМЕТОМ ПАСИВУ",
+                "color": "emerald",
+                "description": "Якщо саме невідомий одержувач дії є підметом, не додаємо інший підмет після допоміжного: Who/What + пасивна група? Це питання про того, кого запросили, або про те, що виробляють.",
+                "examples": [
+                  {
+                    "en": "What is produced here?",
+                    "ua": "Що тут виробляють?"
+                  },
+                  {
+                    "en": "Who was invited to the party?",
+                    "ua": "Кого запросили на вечірку?"
+                  }
+                ],
+                "note": "Who у пасивному англійському реченні є підметом, але природний український переклад — «кого». Не підмінюй це запитанням про виконавця запрошення."
+              },
+              {
+                "label": "ПИТАННЯ ПРО ВИКОНАВЦЯ З BY",
+                "color": "amber",
+                "description": "Коли питаємо, хто виконав дію, зберігаємо by. Звичайна розмовна модель залишає прийменник наприкінці; формальніша переносить його перед whom.",
+                "examples": [
+                  {
+                    "en": "Who was the letter written by?",
+                    "ua": "Хто написав листа?"
+                  },
+                  {
+                    "en": "By whom was the letter written?",
+                    "ua": "Хто написав листа?"
+                  }
+                ],
+                "note": "В обох прикладах підметом пасиву залишається the letter; шукаємо автора, не одержувача дії. Різниця між питанням про виконавця й питанням про підмет важливіша за розмовний або формальний порядок by."
+              }
+            ]
+          }
+        },
+        {
+          "key": "negative-table",
+          "existing_source_index": 7,
+          "type": "comparison-table",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "7. Зведена таблиця форм",
+            "intro": "Колонки містять справжні речення з окремими перекладами. Час позначено в розборі, а не замість English речення.",
+            "headers": [
+              "Заперечення й переклад",
+              "Питання й переклад",
+              "Коротка відповідь і будова"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "<span lang=\"en\">It isn't made here.</span><br><span lang=\"uk\">Це тут не виробляють.</span>",
+                  "<span lang=\"en\">Is it made here?</span><br><span lang=\"uk\">Це тут виробляють?</span>",
+                  "<span lang=\"en\">Yes, it is. / No, it isn't.</span><br><span lang=\"uk\">Так. / Ні.</span><br>Present Simple: is + V3."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">It wasn't built in 1990.</span><br><span lang=\"uk\">Це не побудували у 1990 році.</span>",
+                  "<span lang=\"en\">Was it built in 1990?</span><br><span lang=\"uk\">Це побудували у 1990 році?</span>",
+                  "<span lang=\"en\">Yes, it was. / No, it wasn't.</span><br><span lang=\"uk\">Так. / Ні.</span><br>Past Simple: was + V3."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">It won't be finished.</span><br><span lang=\"uk\">Це не завершать.</span>",
+                  "<span lang=\"en\">Will it be finished?</span><br><span lang=\"uk\">Це завершать?</span>",
+                  "<span lang=\"en\">Yes, it will. / No, it won't.</span><br><span lang=\"uk\">Так. / Ні.</span><br>Future Simple: will be + V3."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">It hasn't been done.</span><br><span lang=\"uk\">Це не зробили.</span>",
+                  "<span lang=\"en\">Has it been done?</span><br><span lang=\"uk\">Це зробили?</span>",
+                  "<span lang=\"en\">Yes, it has. / No, it hasn't.</span><br><span lang=\"uk\">Так. / Ні.</span><br>Present Perfect: has been + V3."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">It isn't being repaired now.</span><br><span lang=\"uk\">Це зараз не ремонтують.</span>",
+                  "<span lang=\"en\">Is it being repaired now?</span><br><span lang=\"uk\">Це зараз ремонтують?</span>",
+                  "<span lang=\"en\">Yes, it is. / No, it isn't.</span><br><span lang=\"uk\">Так. / Ні.</span><br>Present Continuous: is being + V3."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "negative-mistakes",
+          "existing_source_index": 8,
+          "type": "mistakes-grid",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "8. Типові помилки в цільовій моделі",
+            "items": [
+              {
+                "label": "ЗВИЧАЙНЕ YES/NO-ПИТАННЯ",
+                "color": "rose",
+                "title": "Коли завдання прямо просить нейтральну інверсію, постав was перед підметом.",
+                "wrong_en": "The house was built in 1990?",
+                "wrong_ua": "Будинок побудували у 1990 році?",
+                "right_en": "Was the house built in 1990?",
+                "right_ua": "Будинок побудували у 1990 році?",
+                "note": "Перший порядок можливий як перепитування чи перевірка вже почутого факту. Він не є потрібною відповіддю лише в завданні на звичайне yes/no-питання з інверсією; це не глобальна заборона statement questions."
+              },
+              {
+                "label": "НЕ ПРОПУСКАЙ ДОПОМІЖНЕ",
+                "color": "amber",
+                "title": "У цьому Present Simple be-passive питанні потрібне is.",
+                "wrong_en": "It made in China?",
+                "wrong_ua": "Це виробляють у Китаї?",
+                "right_en": "Is it made in China?",
+                "right_ua": "Це виробляють у Китаї?",
+                "note": "Made — V3, але для потрібної повної форми й звичайного питання потрібне Is it ...?"
+              },
+              {
+                "label": "ПОВНА КОРОТКА ВІДПОВІДЬ",
+                "color": "sky",
+                "title": "Після it не обривай відповідь; повтори was.",
+                "wrong_en": "Was it built? — Yes, it.",
+                "wrong_ua": "Це побудували? — Так.",
+                "right_en": "Was it built? — Yes, it was.",
+                "right_ua": "Це побудували? — Так.",
+                "note": "Українське «так» достатнє як переклад; англійська цільова short answer вимагає займенника й допоміжного."
+              }
+            ]
+          }
+        },
+        {
+          "key": "negative-summary",
+          "existing_source_index": 9,
+          "type": "summary-list",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "9. Короткий підсумок",
+            "items": [
+              "Not стоїть після першого допоміжного: is not, was not, has not been, will not be; continuous зберігає being.",
+              "У звичайному yes/no-питанні перше допоміжне переходить перед підметом; решта пасивної групи залишається після нього.",
+              "У короткій відповіді повтори саме це допоміжне й потрібний займенник: is/was, has/have або will.",
+              "Питання про час, місце й спосіб мають wh-слово перед інверсією; Who/What як підмет не потребує ще одного підмета.",
+              "Питання «Кого запросили?» і «Хто запросив?» шукають різних учасників. Питання про виконавця пасиву зберігає by."
+            ]
+          }
+        },
+        {
+          "key": "negative-navigation",
+          "existing_source_index": 10,
+          "type": "navigation-chips",
+          "column": "footer",
+          "data": {
+            "title": "Базові теми пасивного стану",
+            "items": [
+              {
+                "label": "Formation Rules — Правила утворення пасиву",
+                "url": "/theory/passive-voice/theory-passive-voice-formation-rules",
+                "current": false
+              },
+              {
+                "label": "Passive with Modal Verbs — Пасив з модальними",
+                "url": "/theory/passive-voice/theory-passive-voice-modal-verbs",
+                "current": false
+              },
+              {
+                "label": "Causative — have/get something done",
+                "url": "/theory/passive-voice/theory-passive-voice-causative",
+                "current": false
+              },
+              {
+                "label": "Get-Passive — Розмовний пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-get-passive",
+                "current": false
+              },
+              {
+                "label": "Impersonal Passive — Безособовий пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-impersonal-passive",
+                "current": false
+              },
+              {
+                "label": "Negatives & Questions in Passive — Питання й заперечення",
+                "url": "/theory/passive-voice/theory-passive-voice-negatives-questions",
+                "current": true
+              },
+              {
+                "label": "Phrasal Verbs in Passive — Фразові дієслова",
+                "url": "/theory/passive-voice/theory-passive-voice-phrasal-verbs",
+                "current": false
+              },
+              {
+                "label": "Restrictions — Обмеження пасиву",
+                "url": "/theory/passive-voice/theory-passive-voice-restrictions",
+                "current": false
+              },
+              {
+                "label": "Two-object Verbs in Passive — give/send/offer",
+                "url": "/theory/passive-voice/theory-passive-voice-two-object-verbs",
+                "current": false
+              },
+              {
+                "label": "Common Mistakes in Passive — Типові помилки",
+                "url": "/theory/passive-voice/theory-passive-voice-common-mistakes",
+                "current": false
+              },
+              {
+                "label": "Formality & Style in Passive — Формальність і стиль",
+                "url": "/theory/passive-voice/theory-passive-voice-formality-style",
+                "current": false
+              }
+            ]
+          }
+        },
+        {
+          "key": "negative-practice",
+          "existing_source_index": null,
+          "type": "practice-set",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "10. Практика",
+            "select_title": "Доповни питання й заперечення",
+            "select_intro": "Побудуй названу модель, не змінюючи час або ствердження на заперечення. Перше допоміжне визначає форму.",
+            "selects": [
+              {
+                "id": "m52-negative-perfect-not",
+                "source_index": 1,
+                "label": "Звіт досі не надіслано; використай Present Perfect Passive із запереченням: «Звіт ще не надіслали».<br><span lang=\"en\">The report ___ sent yet.</span>",
+                "options": [
+                  "has not been",
+                  "has been not",
+                  "does not been"
+                ],
+                "answer": "has not been",
+                "accepted": [
+                  "has not been"
+                ],
+                "feedback": {
+                  "has not been": "Правильно: The report has not been sent yet. — Звіт ще не надіслали. Not стоїть після has, першого допоміжного.",
+                  "has been not": "The report has not been sent yet. — Звіт ще не надіслали. У цій моделі not ставимо після has, не після been.",
+                  "does not been": "The report has not been sent yet. — Звіт ще не надіслали. Present Perfect потребує has ... been; does тут не додаємо."
+                }
+              },
+              {
+                "id": "m52-negative-future-answer",
+                "source_index": 2,
+                "label": "На звичайне питання про завтрашню дію дай коротку стверджувальну відповідь: «Вікна помиють завтра? — Так».<br><span lang=\"en\">Will the windows be washed tomorrow? — Yes, they ___.</span>",
+                "options": [
+                  "are",
+                  "be",
+                  "will"
+                ],
+                "answer": "will",
+                "accepted": [
+                  "will"
+                ],
+                "feedback": {
+                  "are": "Will the windows be washed tomorrow? — Yes, they will. — Вікна помиють завтра? — Так. Питання починається з will, його й повторюємо.",
+                  "be": "Will the windows be washed tomorrow? — Yes, they will. — Вікна помиють завтра? — Так. Наприкінці short answer потрібне перше допоміжне will, не be.",
+                  "will": "Правильно: Will the windows be washed tomorrow? — Yes, they will. — Вікна помиють завтра? — Так. They називає windows; will зберігає допоміжне питання."
+                }
+              }
+            ],
+            "choice_title": "Розрізни учасника й тип питання",
+            "choice_intro": "Кого саме шукаємо і яка питальна модель задана? Повні переклади стимулів і розбір доступні після Check.",
+            "choices": [
+              {
+                "id": "m52-negative-who-patient",
+                "source_index": 3,
+                "label": "Шукаємо запрошених людей, а не організатора. Яке питання означає «Кого запросили на зустріч?»?",
+                "prompt": "",
+                "options": [
+                  "Who invited the guests to the meeting?",
+                  "Who was invited to the meeting?",
+                  "Who was the meeting arranged by?"
+                ],
+                "answer": "Who was invited to the meeting?",
+                "accepted": [
+                  "Who was invited to the meeting?"
+                ],
+                "feedback": {
+                  "who invited the guests to the meeting?": "Who invited the guests to the meeting? — Хто запросив гостей на зустріч? Це питання про виконавця. Потрібне: Who was invited to the meeting? — Кого запросили на зустріч?",
+                  "who was invited to the meeting?": "Правильно: Who was invited to the meeting? — Кого запросили на зустріч? Who — підмет пасивного речення; шукаємо людей, на яких спрямовано запрошення.",
+                  "who was the meeting arranged by?": "Who was the meeting arranged by? — Хто організував зустріч? Це питання про іншого виконавця й іншу дію. Потрібне: Who was invited to the meeting? — Кого запросили на зустріч?"
+                }
+              },
+              {
+                "id": "m52-negative-neutral-inversion",
+                "source_index": 4,
+                "label": "Запитуй нову інформацію звичайною yes/no-моделлю з інверсією, не перепитуй уже почуте. Який варіант виконує саме цю умову?",
+                "prompt": "",
+                "options": [
+                  "The keys were found?",
+                  "The keys found?",
+                  "Were the keys found?"
+                ],
+                "answer": "Were the keys found?",
+                "accepted": [
+                  "Were the keys found?"
+                ],
+                "feedback": {
+                  "the keys were found?": "The keys were found? — Ключі знайшли? Такий порядок можливий як перепитування; задане нейтральне питання: Were the keys found? — Ключі знайшли?",
+                  "the keys found?": "Потрібне повне питання: Were the keys found? — Ключі знайшли? У заданій Past Simple Passive моделі не пропускаємо were.",
+                  "were the keys found?": "Правильно: Were the keys found? — Ключі знайшли? Were — перше допоміжне перед підметом the keys, found — V3."
+                }
+              }
+            ],
+            "input_title": "Побудуй пасивне питання й заперечення",
+            "input_intro": "Введи вручну або склади з токенів. Умова називає час, слова й порядок обставини, щоб не потрібно було вгадувати формулювання.",
+            "inputs": [
+              {
+                "id": "m52-negative-build-question",
+                "source_index": 5,
+                "before": "Monday? / parcel / Was / sent / on / the",
+                "after": "Посилку надіслали в понеділок? Побудуй звичайне yes/no-питання у Past Simple Passive; parcel — посилка, send — надсилати. Почни з Was і залиш on Monday наприкінці.",
+                "answer": "Was the parcel sent on Monday?",
+                "accepted": [
+                  "Was the parcel sent on Monday?"
+                ],
+                "feedback": {
+                  "was the parcel sent on monday?": "Правильно: Was the parcel sent on Monday? — Посилку надіслали в понеділок? Was стоїть перед the parcel; sent — V3; on Monday зберігає час події.",
+                  "was the parcel sent on monday": "Правильно: Was the parcel sent on Monday? — Посилку надіслали в понеділок? Збережено потрібну пасивну інверсію.",
+                  "the parcel was sent on monday?": "Was the parcel sent on Monday? — Посилку надіслали в понеділок? Умова прямо просить звичайне yes/no-питання з Was на початку, не statement question."
+                }
+              },
+              {
+                "id": "m52-negative-build-perfect",
+                "source_index": 6,
+                "before": "approved / not / plans / yet. / been / The / have",
+                "after": "На цей момент плани ще не затвердили. Побудуй заперечення саме у Present Perfect Passive; approve — затверджувати, plan — план. Почни з The plans і залиш yet наприкінці. Можна have not або haven't.",
+                "answer": "The plans have not been approved yet.",
+                "accepted": [
+                  "The plans have not been approved yet.",
+                  "The plans haven't been approved yet."
+                ],
+                "feedback": {
+                  "the plans have not been approved yet.": "Правильно: The plans have not been approved yet. — Плани ще не затвердили. Множина plans потребує have; not стоїть після першого допоміжного; been approved завершує пасивну групу.",
+                  "the plans have not been approved yet": "Правильно: The plans have not been approved yet. — Плани ще не затвердили. Yet стосується незавершеного на цей момент результату.",
+                  "the plans haven't been approved yet.": "Правильно: The plans haven't been approved yet. — Плани ще не затвердили. Haven't — допустиме скорочення have not; час і заперечення збережені.",
+                  "the plans have been not approved yet.": "The plans have not been approved yet. — Плани ще не затвердили. Not стоїть після have, не після been."
+                }
+              }
+            ],
+            "rephrase": [],
+            "linked_practice": {
+              "source": "theory_links",
+              "question_types": [
+                "4"
+              ],
+              "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoiceNegativesQuestionsAllLevelsLessonSeeder"
+              ],
+              "title": "Вправа 4. Побудуй речення",
+              "intro": "Склади пасивне заперечення. У цій п’ятірці листи й офіс — повторювані дії у Present Simple, вікна — Past Simple, звіт — Present Perfect, контракт — Future Simple. Починай із названого об’єкта; not став відразу після першого допоміжного дієслова, усі обставини та yet — наприкінці. Для офісу використай on Sundays. Це заданий порядок вправи.",
+              "footer": "Завдання підібрані лише для цієї теми."
+            }
+          }
+        }
+      ],
+      "details": [
+        {
+          "key": "negative-question-purpose",
+          "title": "Нове питання та перепитування мають різну мету",
+          "owner_block_key": "negative-yes-no",
+          "owner_pointer": "/sections/0",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "ПОРЯДОК СЛІВ І КОМУНІКАТИВНИЙ КОНТЕКСТ",
+                  "color": "blue",
+                  "description": "Коли мовець ще не знає відповіді й ставить нейтральне питання, звичайна навчальна модель починається з допоміжного. Порядок ствердження може перевіряти вже почутий факт або передавати здивування; в усному мовленні роль також відіграє інтонація. Отже, два порядки не завжди взаємозамінні за наміром, але другий не стає неграматичним тільки через відсутність інверсії.",
+                  "examples": [
+                    {
+                      "en": "Was the hall painted yesterday?",
+                      "ua": "Залу пофарбували вчора?"
+                    },
+                    {
+                      "en": "The hall was painted yesterday?",
+                      "ua": "То залу пофарбували вчора?"
+                    }
+                  ],
+                  "note": "У першому прикладі питаємо про подію. У другому уявляємо, що співрозмовник щойно повідомив про фарбування, а ми перепитуємо. У вправі на інверсію перший порядок є цільовим через прямо задану мету, не через глобальну заборону другого."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "status": "frozen",
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceModalVerbsTheorySeeder",
+      "slug": "theory-passive-voice-modal-verbs",
+      "locale": "uk",
+      "display_level": "B1",
+      "technical_block_level": "B1",
+      "category_ancestry": [
+        "passive-voice"
+      ],
+      "local_url": "http://gramlyze.loc/theory/passive-voice/theory-passive-voice-modal-verbs",
+      "subtitle_html": "<p><strong>Пасив з модальними дієсловами</strong> — modal + be + V3, заперечення й питання, збереження учасників, відмінність have to / need to та короткий огляд perfect passive з прикладами й практикою.</p>",
+      "subtitle_text": "Пасив з модальними дієсловами — modal + be + V3, модальність, питання й заперечення, have to / need to, perfect passive і практика з перекладом.",
+      "blocks": [
+        {
+          "key": "modal-hero",
+          "existing_source_index": 0,
+          "type": "hero",
+          "column": "header",
+          "level": "B1",
+          "data": {
+            "level": "B1",
+            "intro": "Уже знайомі модальні значення поєднуємо з пасивним фокусом. Основна модель — modal + be + V3; modal передає можливість, вимогу, пораду або інше значення в контексті, а пасив називає того, на кого спрямовано дію.",
+            "rules": [
+              {
+                "label": "СТВЕРДЖЕННЯ",
+                "color": "emerald",
+                "text": "Після can, could, may, might, must, should, will або would потрібні be + V3.",
+                "example": "<span lang=\"en\">This task must be done today.</span><br><span lang=\"uk\">Це завдання треба виконати сьогодні.</span>"
+              },
+              {
+                "label": "ЗАПЕРЕЧЕННЯ",
+                "color": "rose",
+                "text": "Not стоїть після modal. Значення залежить від обраного modal і ситуації.",
+                "example": "<span lang=\"en\">This task cannot be done today.</span><br><span lang=\"uk\">Це завдання неможливо виконати сьогодні.</span>"
+              },
+              {
+                "label": "ПИТАННЯ",
+                "color": "blue",
+                "text": "У звичайному yes/no-питанні modal стоїть перед підметом.",
+                "example": "<span lang=\"en\">Can this task be done today?</span><br><span lang=\"uk\">Чи можна виконати це завдання сьогодні?</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "modal-forms",
+          "existing_source_index": 1,
+          "type": "forms-grid",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "1. Основні форми й конструкції з to",
+            "intro": "Після модальних без to ставимо be, не is/are і не to be. Самі ці modal не отримують -s. Have to, need to та ought to мають іншу будову: потрібне to в них не прибираємо.",
+            "items": [
+              {
+                "label": "CAN",
+                "title": "can be + V3",
+                "subtitle": "This can be fixed. — Це можна виправити."
+              },
+              {
+                "label": "COULD",
+                "title": "could be + V3",
+                "subtitle": "It could be improved. — Це можна було б покращити."
+              },
+              {
+                "label": "MAY",
+                "title": "may be + V3",
+                "subtitle": "It may be postponed. — Можливо, це відкладуть."
+              },
+              {
+                "label": "MIGHT",
+                "title": "might be + V3",
+                "subtitle": "It might be cancelled. — Можливо, це скасують."
+              },
+              {
+                "label": "MUST",
+                "title": "must be + V3",
+                "subtitle": "It must be finished. — Це треба завершити."
+              },
+              {
+                "label": "SHOULD",
+                "title": "should be + V3",
+                "subtitle": "It should be checked. — Це слід перевірити."
+              },
+              {
+                "label": "WILL",
+                "title": "will be + V3",
+                "subtitle": "It will be completed. — Це завершать."
+              },
+              {
+                "label": "WOULD",
+                "title": "would be + V3",
+                "subtitle": "It would be appreciated. — Це було б цінно для нас."
+              },
+              {
+                "label": "HAVE TO / NEED TO / OUGHT TO",
+                "title": "has to be; needs to be; ought to be + V3",
+                "subtitle": "The form has to be signed. — Форму треба підписати. The cable needs to be replaced. — Кабель потрібно замінити. This information ought to be verified. — Цю інформацію слід перевірити. Has та needs узгоджуються з підметом; to залишається частиною цих конструкцій."
+              }
+            ]
+          }
+        },
+        {
+          "key": "modal-meaning",
+          "existing_source_index": 2,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "2. Значення: пасив не робить усі modal обов’язком",
+            "sections": [
+              {
+                "label": "CAN / COULD: МОЖЛИВІСТЬ",
+                "color": "emerald",
+                "description": "У цих прикладах говоримо, що дію можна виконати, або пропонуємо можливий спосіб. Could не означає автоматично завершену успішну минулу дію.",
+                "examples": [
+                  {
+                    "en": "The problem can be solved easily.",
+                    "ua": "Проблему можна легко вирішити."
+                  },
+                  {
+                    "en": "This could be done in a different way.",
+                    "ua": "Це можна було б зробити інакше."
+                  },
+                  {
+                    "en": "The document can be downloaded online.",
+                    "ua": "Документ можна завантажити онлайн."
+                  }
+                ],
+                "note": "Ширші значення збережено в <a href=\"/theory/modal-verbs/can-could\">Can / Could</a>; тут тренуємо саме пасивну форму."
+              },
+              {
+                "label": "MAY / MIGHT: МОЖЛИВІСТЬ; MAY: ДОЗВІЛ",
+                "color": "blue",
+                "description": "Для непідтвердженої події may/might залишають результат можливим. У правилі або дозволі may може означати «дозволено». Контекст відділяє ці значення; фіксованих відсотків немає.",
+                "examples": [
+                  {
+                    "en": "The meeting may be postponed.",
+                    "ua": "Можливо, зустріч відкладуть."
+                  },
+                  {
+                    "en": "The flight might be cancelled.",
+                    "ua": "Можливо, рейс скасують."
+                  },
+                  {
+                    "en": "Photos may be taken here.",
+                    "ua": "Тут дозволено фотографувати."
+                  }
+                ],
+                "note": "Перші два приклади — припущення про результат. Третій у контексті правила — дозвіл. Докладніший контраст: <a href=\"/theory/modal-verbs/may-might\">May / Might</a>."
+              },
+              {
+                "label": "MUST / HAVE TO: ВИМОГА В ЦЬОМУ КОНТЕКСТІ",
+                "color": "amber",
+                "description": "Ці повідомлення задають необхідну дію. Have to зберігає to та змінює have/has за підметом; must не отримує -s.",
+                "examples": [
+                  {
+                    "en": "This work must be done today.",
+                    "ua": "Цю роботу треба виконати сьогодні."
+                  },
+                  {
+                    "en": "The rules must be followed.",
+                    "ua": "Правил треба дотримуватися."
+                  },
+                  {
+                    "en": "Taxes have to be paid on time.",
+                    "ua": "Податки треба сплачувати вчасно."
+                  }
+                ],
+                "note": "У висновку must може означати переконання, а не вимогу: The door must be locked; I can't open it. — Двері, напевно, замкнені: я не можу їх відчинити. Див. <a href=\"/theory/modal-verbs/must-have-to\">Must / Have to</a> і <a href=\"/theory/modal-verbs/modals-of-deduction\">Modals of Deduction</a>."
+              },
+              {
+                "label": "SHOULD / OUGHT TO: ПОРАДА",
+                "color": "rose",
+                "description": "У цих контекстах називаємо бажану або правильну дію. Ought to зберігає to; у звичайних питаннях і запереченнях частіше використовують should.",
+                "examples": [
+                  {
+                    "en": "The report should be checked carefully.",
+                    "ua": "Звіт слід ретельно перевірити."
+                  },
+                  {
+                    "en": "Children should be protected.",
+                    "ua": "Дітей слід захищати."
+                  },
+                  {
+                    "en": "This information ought to be verified.",
+                    "ua": "Цю інформацію слід перевірити."
+                  }
+                ],
+                "note": "Форма пасиву не обирає силу поради за тебе. Значення should/ought to розглянуто в <a href=\"/theory/modal-verbs/should-ought-to\">Should / Ought to</a>."
+              }
+            ]
+          }
+        },
+        {
+          "key": "modal-negatives",
+          "existing_source_index": 3,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "3. Заперечення: неможливість, заборона чи необов’язковість",
+            "sections": [
+              {
+                "label": "CANNOT / CAN'T: НЕМОЖЛИВІСТЬ",
+                "color": "rose",
+                "description": "У цих ситуаціях повідомляємо, що дію неможливо виконати. У контексті правил can't також може відмовляти в дозволі; це визначається ситуацією.",
+                "examples": [
+                  {
+                    "en": "This problem cannot be solved.",
+                    "ua": "Цю проблему неможливо вирішити."
+                  },
+                  {
+                    "en": "The deadline can't be extended.",
+                    "ua": "Кінцевий термін неможливо продовжити."
+                  }
+                ]
+              },
+              {
+                "label": "MUST NOT / MUSTN'T: ЗАБОРОНА",
+                "color": "amber",
+                "description": "У правилі must not / mustn't be + V3 означає, що дія заборонена, не що вона просто необов’язкова.",
+                "examples": [
+                  {
+                    "en": "This information must not be shared.",
+                    "ua": "Цю інформацію не можна поширювати."
+                  },
+                  {
+                    "en": "The password mustn't be revealed.",
+                    "ua": "Пароль не можна розголошувати."
+                  }
+                ]
+              },
+              {
+                "label": "SHOULD NOT / SHOULDN'T: НЕБАЖАНА ДІЯ",
+                "color": "sky",
+                "description": "Порада не виконувати певної дії. Не підміняй її сильнішою забороною mustn't без контексту.",
+                "examples": [
+                  {
+                    "en": "This shouldn't be ignored.",
+                    "ua": "Це не слід ігнорувати."
+                  },
+                  {
+                    "en": "Children should not be left alone.",
+                    "ua": "Дітей не слід залишати наодинці."
+                  }
+                ]
+              },
+              {
+                "label": "NEEDN'T / DOESN'T HAVE TO: НЕОБОВ’ЯЗКОВІСТЬ",
+                "color": "emerald",
+                "description": "Дію можна виконати, але потреби або вимоги немає. Needn't має модальну будову без to; doesn't have to і doesn't need to зберігають to.",
+                "examples": [
+                  {
+                    "en": "The form needn't be printed.",
+                    "ua": "Форму не обов’язково друкувати."
+                  },
+                  {
+                    "en": "The form doesn't have to be printed.",
+                    "ua": "Форму не обов’язково друкувати."
+                  }
+                ],
+                "note": "Необов’язковість не означає заборони друку. Порівняй <a href=\"/theory/modal-verbs/need-neednt-dont-have-to\">Need / Needn't / Don't have to</a>."
+              },
+              {
+                "label": "MAY NOT: МОЖЛИВИЙ НЕГАТИВНИЙ РЕЗУЛЬТАТ",
+                "color": "slate",
+                "description": "Коли результат ще не перевірено, may not be + V3 може означати «можливо, дію не виконають». Це не автоматична заборона: у контексті правила значення may not може бути іншим.",
+                "examples": [
+                  {
+                    "en": "The parcel may not be delivered today.",
+                    "ua": "Можливо, посилку сьогодні не доставлять."
+                  }
+                ],
+                "note": "Тут графік доставки невідомий, тому повідомлення — припущення. Переклад не повинен перетворювати його на «посилку заборонено доставляти»."
+              }
+            ]
+          }
+        },
+        {
+          "key": "modal-questions",
+          "existing_source_index": 4,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "4. Питання та короткі відповіді",
+            "sections": [
+              {
+                "label": "YES/NO: MODAL ПЕРЕД ПІДМЕТОМ",
+                "color": "blue",
+                "description": "Modal + підмет + be + V3? Be залишається після підмета; do/does до can, must або should у цій моделі не додаємо.",
+                "examples": [
+                  {
+                    "en": "Can this be done today?",
+                    "ua": "Чи можна зробити це сьогодні?"
+                  },
+                  {
+                    "en": "Should the report be submitted now?",
+                    "ua": "Чи слід подати звіт зараз?"
+                  },
+                  {
+                    "en": "Must the rules be followed?",
+                    "ua": "Чи треба дотримуватися правил?"
+                  }
+                ],
+                "note": "Have to та need to будуються інакше: Does the form have to be signed? — Форму треба підписати? Does the cable need to be replaced? — Кабель потрібно замінити? Це не суперечить модальній формулі: саме ці конструкції використовують does."
+              },
+              {
+                "label": "WH: ПИТАЛЬНЕ СЛОВО ПЕРЕД MODAL",
+                "color": "emerald",
+                "description": "Питальне слово + modal + підмет + be + V3? Назви, яку інформацію шукаєш, і збережи потрібне модальне значення.",
+                "examples": [
+                  {
+                    "en": "When can the work be finished?",
+                    "ua": "Коли можна закінчити роботу?"
+                  },
+                  {
+                    "en": "How should the problem be solved?",
+                    "ua": "Як слід вирішити проблему?"
+                  },
+                  {
+                    "en": "Where can the tickets be bought?",
+                    "ua": "Де можна купити квитки?"
+                  }
+                ]
+              },
+              {
+                "label": "КОРОТКА ВІДПОВІДЬ",
+                "color": "amber",
+                "description": "Повтори відповідне допоміжне й займенник, а не всю be + V3 групу. На питання з can у контексті можливості відповідаємо can/can't; на should у контексті поради — should/shouldn't.",
+                "examples": [
+                  {
+                    "en": "Can this be repaired? — Yes, it can. / No, it can't.",
+                    "ua": "Це можна полагодити? — Так. / Ні."
+                  },
+                  {
+                    "en": "Should the files be kept? — Yes, they should. / No, they shouldn't.",
+                    "ua": "Файли слід зберегти? — Так. / Ні."
+                  }
+                ],
+                "note": "На питання про обов’язковість Must ...? негативна відповідь часто означає відсутність потреби: Must the form be printed? — No, it needn't. — Форму треба друкувати? — Ні, не обов’язково. Mustn't означало б заборону, а не просте «ні»."
+              }
+            ]
+          }
+        },
+        {
+          "key": "modal-transformations",
+          "existing_source_index": 5,
+          "type": "comparison-table",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "5. Active → Passive зі збереженням modal і учасників",
+            "intro": "У цих рядках зберігаємо все повідомлення, включно з названим виконавцем. Об’єкт стає підметом, додаємо be + V3, а виконавця називаємо через by; сам modal зберігається.",
+            "headers": [
+              "Активне речення й переклад",
+              "Пасивне речення й переклад",
+              "Що збережено"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "<span lang=\"en\">You must finish this work.</span><br><span lang=\"uk\">Ти маєш закінчити цю роботу.</span>",
+                  "<span lang=\"en\">This work must be finished by you.</span><br><span lang=\"uk\">Цю роботу маєш закінчити ти.</span>",
+                  "Must — вимога; this work — той самий об’єкт; by you зберігає адресата обов’язку."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">They can solve the problem.</span><br><span lang=\"uk\">Вони можуть вирішити проблему.</span>",
+                  "<span lang=\"en\">The problem can be solved by them.</span><br><span lang=\"uk\">Проблему можуть вирішити вони.</span>",
+                  "Can — можливість; виконавцем лишається та сама група they."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">You should check the report.</span><br><span lang=\"uk\">Тобі слід перевірити звіт.</span>",
+                  "<span lang=\"en\">The report should be checked by you.</span><br><span lang=\"uk\">Звіт слід перевірити тобі.</span>",
+                  "Should — порада; не замінюємо її must і не губимо того, кому вона адресована."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">We may postpone the meeting.</span><br><span lang=\"uk\">Можливо, ми відкладемо зустріч.</span>",
+                  "<span lang=\"en\">The meeting may be postponed by us.</span><br><span lang=\"uk\">Можливо, зустріч відкладемо ми.</span>",
+                  "У цьому контексті may — можливий результат, не дозвіл. Meeting і we/us збережені."
+                ]
+              }
+            ],
+            "warning": "Якщо прибрати by you / by them / by us, пасив може бути граматичним, але вже повідомлятиме менше про виконавця. Повне перетворення — не лише заміна основного дієслова; воно змінює синтаксичні ролі, не подію або модальність."
+          }
+        },
+        {
+          "key": "modal-perfect-forms",
+          "existing_source_index": 6,
+          "type": "forms-grid",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "6. Perfect passive: modal + have been + V3",
+            "intro": "Це окрема модель для огляду назад до завершеної дії з певної точки часу. Не змішуй have been з основною modal + be формою. За потреби питання: Modal + підмет + have been + V3?",
+            "items": [
+              {
+                "label": "СИЛЬНИЙ ВИСНОВОК",
+                "title": "must have been + V3",
+                "subtitle": "It must have been stolen. — Це, напевно, вкрали. Must передає висновок, не минулий обов’язок."
+              },
+              {
+                "label": "ОЦІНКА АБО ОЧІКУВАННЯ",
+                "title": "should have been + V3",
+                "subtitle": "It should have been checked. — Це слід було перевірити. Без контексту одна форма не доводить невиконання: вона також може передавати очікуваний завершений результат."
+              },
+              {
+                "label": "МОЖЛИВІСТЬ У КОНТЕКСТІ",
+                "title": "could have been + V3",
+                "subtitle": "It could have been avoided. — Цього можна було уникнути. Контекст вирішує, чи можливість не використали, чи мовець лише припускає минулу подію."
+              },
+              {
+                "label": "МОЖЛИВА МИНУЛА ПОДІЯ",
+                "title": "might have been + V3",
+                "subtitle": "It might have been lost. — Можливо, це загубили. Подію не подано як підтверджений факт."
+              }
+            ]
+          }
+        },
+        {
+          "key": "modal-perfect-meaning",
+          "existing_source_index": 7,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "7. Perfect passive: контекст визначає оцінку",
+            "sections": [
+              {
+                "label": "ПРИПУЩЕННЯ ПРО МИНУЛУ ПОДІЮ",
+                "color": "emerald",
+                "description": "Must/may/might/could have been + V3 оцінюють можливе пояснення завершеної події. Must — сильний висновок; may/might/could залишають версію непідтвердженою.",
+                "examples": [
+                  {
+                    "en": "The letter must have been sent yesterday.",
+                    "ua": "Листа, напевно, надіслали вчора."
+                  },
+                  {
+                    "en": "The window may have been broken by the kids.",
+                    "ua": "Можливо, вікно розбили діти."
+                  },
+                  {
+                    "en": "The file might have been deleted accidentally.",
+                    "ua": "Можливо, файл випадково видалили."
+                  }
+                ],
+                "note": "Дія в пасиві спрямована на letter/window/file. Виконавець kids залишається названим, але сама можливість не стає фактом. Див. <a href=\"/theory/modal-verbs/past-modals\">Past Modals</a>."
+              },
+              {
+                "label": "КРИТИКА: НЕВИКОНАННЯ ВІДОМЕ",
+                "color": "rose",
+                "description": "У цих ситуаціях уже відомо, що дію не виконали вчасно або належно. Should have been + V3 тоді оцінює те, що було бажаним; висновок про невиконання дає контекст, не одна формула.",
+                "examples": [
+                  {
+                    "en": "The report was late. It should have been submitted on time.",
+                    "ua": "Звіт подали із запізненням. Його слід було подати вчасно."
+                  },
+                  {
+                    "en": "The problem is still there. It should have been fixed earlier.",
+                    "ua": "Проблема досі є. Її слід було виправити раніше."
+                  },
+                  {
+                    "en": "Nobody received a warning. The warning should have been given.",
+                    "ua": "Ніхто не отримав попередження. Його слід було дати."
+                  }
+                ]
+              },
+              {
+                "label": "НЕВИКОРИСТАНА МОЖЛИВІСТЬ",
+                "color": "blue",
+                "description": "Для цього значення прямо знаємо, що подія сталася або результат був гіршим, хоча існувала інша можливість. Could have been сам по собі не доводить, що кожна можлива дія не відбулася.",
+                "examples": [
+                  {
+                    "en": "The accident happened. It could have been avoided.",
+                    "ua": "Аварія сталася. Її можна було уникнути."
+                  },
+                  {
+                    "en": "The work took all day. It could have been done faster.",
+                    "ua": "Робота зайняла весь день. Її можна було виконати швидше."
+                  },
+                  {
+                    "en": "They made the mistake. It could have been prevented.",
+                    "ua": "Вони припустилися помилки. Їй можна було запобігти."
+                  }
+                ],
+                "note": "Як припущення інша ситуація дає інше читання: The box could have been moved while we were out. — Можливо, коробку пересунули, поки нас не було. Тут ми ще не знаємо, чи це сталося."
+              },
+              {
+                "label": "ОЧІКУВАНИЙ ЗАВЕРШЕНИЙ РЕЗУЛЬТАТ",
+                "color": "amber",
+                "description": "Should have been також може передавати очікування на основі розкладу або домовленості. Якщо виконання ще не перевірили, не додаємо самовільно «але не зробили».",
+                "examples": [
+                  {
+                    "en": "The deadline was noon. The report should have been sent by now, but I haven't checked.",
+                    "ua": "Кінцевий термін був опівдні. Звіт, очікується, вже мали надіслати, але я не перевіряв."
+                  }
+                ],
+                "note": "Це очікування, а не доказ запізнення чи повідомлення про провину."
+              }
+            ]
+          }
+        },
+        {
+          "key": "modal-mistakes",
+          "existing_source_index": 8,
+          "type": "mistakes-grid",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "8. Прозорі помилки форми",
+            "items": [
+              {
+                "label": "НЕ ПРОПУСКАЙ BE",
+                "color": "rose",
+                "title": "Після must у звичайному пасиві потрібне be.",
+                "wrong_en": "The work must done today.",
+                "wrong_ua": "Цю роботу треба виконати сьогодні.",
+                "right_en": "The work must be done today.",
+                "right_ua": "Цю роботу треба виконати сьогодні.",
+                "note": "Вимога й today не змінюються; додаємо відсутнє be."
+              },
+              {
+                "label": "CAN БЕЗ TO",
+                "color": "amber",
+                "title": "Після can не додаємо to, але з have to / ought to воно потрібне.",
+                "wrong_en": "It can to be fixed.",
+                "wrong_ua": "Це можна виправити.",
+                "right_en": "It can be fixed.",
+                "right_ua": "Це можна виправити.",
+                "note": "Виправляємо саме модель can. Це не правило видаляти будь-яке to перед пасивним інфінітивом."
+              },
+              {
+                "label": "PERFECT: BEEN",
+                "color": "sky",
+                "title": "Після should have у perfect passive потрібне been.",
+                "wrong_en": "It should have be done.",
+                "wrong_ua": "Це слід було зробити.",
+                "right_en": "It should have been done.",
+                "right_ua": "Це слід було зробити.",
+                "note": "Perfect-часова перспектива не змінюється. Контекст ще потрібний для відмінності оцінки й очікування."
+              },
+              {
+                "label": "MUST БЕЗ -S",
+                "color": "rose",
+                "title": "Must не змінюється за особою або числом.",
+                "wrong_en": "The work musts be done.",
+                "wrong_ua": "Цю роботу треба виконати.",
+                "right_en": "The work must be done.",
+                "right_ua": "Цю роботу треба виконати.",
+                "note": "Прибираємо зайве -s, не змінюємо вимогу або пасив."
+              }
+            ]
+          }
+        },
+        {
+          "key": "modal-summary",
+          "existing_source_index": 9,
+          "type": "summary-list",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "9. Короткий підсумок",
+            "items": [
+              "Основна форма — modal + be + V3; not стоїть після modal, а у звичайному питанні modal — перед підметом.",
+              "У короткій відповіді повтори потрібне допоміжне. Відповідь про необов’язковість не підміняй забороною mustn't.",
+              "Зберігай modal, час, заперечення й учасників під час Active → Passive; за повного перетворення названий виконавець лишається після by.",
+              "Have to / need to / ought to зберігають to; have/has та need/needs мають власне узгодження й допоміжні для питань.",
+              "Mustn't у правилі — заборона; needn't / doesn't have to — необов’язковість. May not може бути припущенням або іншим значенням у контексті.",
+              "Perfect passive — modal + have been + V3. Контекст розрізняє припущення, критику, невикористану можливість і очікуваний результат."
+            ]
+          }
+        },
+        {
+          "key": "modal-navigation",
+          "existing_source_index": 10,
+          "type": "navigation-chips",
+          "column": "footer",
+          "data": {
+            "title": "Базові теми пасивного стану",
+            "items": [
+              {
+                "label": "Formation Rules — Правила утворення пасиву",
+                "url": "/theory/passive-voice/theory-passive-voice-formation-rules",
+                "current": false
+              },
+              {
+                "label": "Passive with Modal Verbs — Пасив з модальними",
+                "url": "/theory/passive-voice/theory-passive-voice-modal-verbs",
+                "current": true
+              },
+              {
+                "label": "Causative — have/get something done",
+                "url": "/theory/passive-voice/theory-passive-voice-causative",
+                "current": false
+              },
+              {
+                "label": "Get-Passive — Розмовний пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-get-passive",
+                "current": false
+              },
+              {
+                "label": "Impersonal Passive — Безособовий пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-impersonal-passive",
+                "current": false
+              },
+              {
+                "label": "Negatives & Questions in Passive — Питання й заперечення",
+                "url": "/theory/passive-voice/theory-passive-voice-negatives-questions",
+                "current": false
+              },
+              {
+                "label": "Phrasal Verbs in Passive — Фразові дієслова",
+                "url": "/theory/passive-voice/theory-passive-voice-phrasal-verbs",
+                "current": false
+              },
+              {
+                "label": "Restrictions — Обмеження пасиву",
+                "url": "/theory/passive-voice/theory-passive-voice-restrictions",
+                "current": false
+              },
+              {
+                "label": "Two-object Verbs in Passive — give/send/offer",
+                "url": "/theory/passive-voice/theory-passive-voice-two-object-verbs",
+                "current": false
+              },
+              {
+                "label": "Common Mistakes in Passive — Типові помилки",
+                "url": "/theory/passive-voice/theory-passive-voice-common-mistakes",
+                "current": false
+              },
+              {
+                "label": "Formality & Style in Passive — Формальність і стиль",
+                "url": "/theory/passive-voice/theory-passive-voice-formality-style",
+                "current": false
+              }
+            ]
+          }
+        },
+        {
+          "key": "modal-practice",
+          "existing_source_index": null,
+          "type": "practice-set",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "10. Практика",
+            "select_title": "Доповни задану пасивну модель",
+            "select_intro": "Значення й потрібна конструкція названі в умові. Обери be + V3 або відповідну perfect форму, не змінюючи вимогу чи оцінку.",
+            "selects": [
+              {
+                "id": "m52-modal-must-passive",
+                "source_index": 1,
+                "label": "Правило вимагає перевірки перед польотом. Використай must + пасив: «Перед польотом акумулятор треба перевірити».<br><span lang=\"en\">The battery ___ before the flight.</span>",
+                "options": [
+                  "must checked",
+                  "must be checked",
+                  "musts be checked"
+                ],
+                "answer": "must be checked",
+                "accepted": [
+                  "must be checked"
+                ],
+                "feedback": {
+                  "must checked": "The battery must be checked before the flight. — Перед польотом акумулятор треба перевірити. Після must потрібне be перед checked.",
+                  "must be checked": "Правильно: The battery must be checked before the flight. — Перед польотом акумулятор треба перевірити. Must зберігає вимогу; be checked — пасив.",
+                  "musts be checked": "The battery must be checked before the flight. — Перед польотом акумулятор треба перевірити. Must не отримує -s."
+                }
+              },
+              {
+                "id": "m52-modal-perfect-been",
+                "source_index": 2,
+                "label": "Прямо відомо: учора резервну копію не зробили. Передай критику з should have у пасиві: «Файл слід було скопіювати учора».<br><span lang=\"en\">The file should ___ copied yesterday.</span>",
+                "options": [
+                  "have be",
+                  "be",
+                  "have been"
+                ],
+                "answer": "have been",
+                "accepted": [
+                  "have been"
+                ],
+                "feedback": {
+                  "have be": "The file should have been copied yesterday. — Файл слід було скопіювати учора. Після have потрібне been, не be.",
+                  "be": "The file should have been copied yesterday. — Файл слід було скопіювати учора. Задано оцінку минулої невиконаної дії; проста should be не передає потрібної perfect моделі.",
+                  "have been": "Правильно: The file should have been copied yesterday. — Файл слід було скопіювати учора. Should have been + copied передає задану оцінку минулої дії; невиконання відоме з умови."
+                }
+              }
+            ],
+            "choice_title": "Не підмінюй значення",
+            "choice_intro": "Розрізни заборону й необов’язковість, а також очікування й критику. Повні переклади English стимулів показуємо після Check.",
+            "choices": [
+              {
+                "id": "m52-modal-no-obligation",
+                "source_index": 3,
+                "label": "Інструкція дозволяє подати цифрову версію; друк не є вимогою. Що означає речення?",
+                "prompt": "<span lang=\"en\">The receipt doesn't have to be printed.</span>",
+                "options": [
+                  "Чек друкувати заборонено.",
+                  "Чек не обов’язково друкувати, але це дозволено.",
+                  "Чек фізично неможливо надрукувати."
+                ],
+                "answer": "Чек не обов’язково друкувати, але це дозволено.",
+                "accepted": [
+                  "Чек не обов’язково друкувати, але це дозволено."
+                ],
+                "feedback": {
+                  "чек друкувати заборонено.": "The receipt doesn't have to be printed. — Чек не обов’язково друкувати. Doesn't have to передає відсутність вимоги, не заборону mustn't.",
+                  "чек не обов’язково друкувати, але це дозволено.": "Правильно: The receipt doesn't have to be printed. — Чек не обов’язково друкувати. Цифрова версія достатня; сам друк не заборонено.",
+                  "чек фізично неможливо надрукувати.": "The receipt doesn't have to be printed. — Чек не обов’язково друкувати. Речення не повідомляє фізичної неможливості; йдеться про вимогу."
+                }
+              },
+              {
+                "id": "m52-modal-perfect-expectation",
+                "source_index": 4,
+                "label": "За домовленістю повідомлення відправляють до 10:00. Зараз 11:00, але систему ще не перевірили. Який висновок дозволяє це речення?",
+                "prompt": "<span lang=\"en\">The notice should have been sent by now.</span>",
+                "options": [
+                  "Точно знаємо, що повідомлення не відправили; це завжди критика.",
+                  "Це вимога відправити повідомлення лише завтра.",
+                  "Очікуємо, що повідомлення вже відправили, але факт ще не перевірено."
+                ],
+                "answer": "Очікуємо, що повідомлення вже відправили, але факт ще не перевірено.",
+                "accepted": [
+                  "Очікуємо, що повідомлення вже відправили, але факт ще не перевірено."
+                ],
+                "feedback": {
+                  "точно знаємо, що повідомлення не відправили; це завжди критика.": "The notice should have been sent by now. — Повідомлення, очікується, вже мали відправити. За заданим розкладом це очікування; умова не підтверджує невиконання.",
+                  "це вимога відправити повідомлення лише завтра.": "The notice should have been sent by now. — Повідомлення, очікується, вже мали відправити. By now оглядає завершення до теперішнього моменту, не переносить дію на завтра.",
+                  "очікуємо, що повідомлення вже відправили, але факт ще не перевірено.": "Правильно: The notice should have been sent by now. — Повідомлення, очікується, вже мали відправити. Очікування спирається на розклад; невиконання не доведено."
+                }
+              }
+            ],
+            "input_title": "Побудуй пасив зі збереженням змісту",
+            "input_intro": "Пиши вручну або використовуй перемішані токени. Умова прямо задає modal, час, потрібного виконавця та порядок обставини.",
+            "inputs": [
+              {
+                "id": "m52-modal-build-prohibition",
+                "source_index": 5,
+                "before": "during / be / gate / test. / not / opened / The / the / must",
+                "after": "Під час випробування ворота відчиняти заборонено. Побудуй саме пасив із must not; почни з The gate, залиш during the test наприкінці. Gate — ворота, open — відчиняти; виконавця не називай. Можна must not або mustn't.",
+                "answer": "The gate must not be opened during the test.",
+                "accepted": [
+                  "The gate must not be opened during the test.",
+                  "The gate mustn't be opened during the test."
+                ],
+                "feedback": {
+                  "the gate must not be opened during the test.": "Правильно: The gate must not be opened during the test. — Під час випробування ворота відчиняти заборонено. Must not — заборона; be opened — пасив; обставину збережено.",
+                  "the gate must not be opened during the test": "Правильно: The gate must not be opened during the test. — Під час випробування ворота відчиняти заборонено. Не пропускаємо be після must not.",
+                  "the gate mustn't be opened during the test.": "Правильно: The gate mustn't be opened during the test. — Під час випробування ворота відчиняти заборонено. Mustn't — скорочення must not з тим самим значенням.",
+                  "the gate needn't be opened during the test.": "The gate must not be opened during the test. — Під час випробування ворота відчиняти заборонено. Needn't означало б необов’язковість і змінило б задану заборону."
+                }
+              },
+              {
+                "id": "m52-modal-build-perfect-agent",
+                "source_index": 6,
+                "before": "by / checked / should / cables / Olha. / have / The / been",
+                "after": "Ольга не перевірила кабелі, хоча мала це зробити. Передай «Кабелі слід було перевірити Ользі» у perfect passive із should have been; почни з The cables і збережи by Olha. Cable — кабель, check — перевіряти.",
+                "answer": "The cables should have been checked by Olha.",
+                "accepted": [
+                  "The cables should have been checked by Olha.",
+                  "The cables should've been checked by Olha."
+                ],
+                "feedback": {
+                  "the cables should have been checked by olha.": "Правильно: The cables should have been checked by Olha. — Кабелі слід було перевірити Ользі. Should have been checked — оцінка минулої дії; by Olha зберігає виконавицю, яка мала її виконати.",
+                  "the cables should have been checked by olha": "Правильно: The cables should have been checked by Olha. — Кабелі слід було перевірити Ользі. Невиконання відоме з умови, а не виведене лише з should have been.",
+                  "the cables should've been checked by olha.": "Правильно: The cables should've been checked by Olha. — Кабелі слід було перевірити Ользі. Should've — скорочення should have; been і названа виконавиця після by збережені.",
+                  "the cables should have be checked by olha.": "The cables should have been checked by Olha. — Кабелі слід було перевірити Ользі. Після have потрібне been, не be."
+                }
+              }
+            ],
+            "rephrase": [],
+            "linked_practice": {
+              "source": "theory_links",
+              "question_types": [
+                "4"
+              ],
+              "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoiceModalVerbsAllLevelsLessonSeeder"
+              ],
+              "title": "Вправа 4. Побудуй речення",
+              "intro": "Склади модальний пасив за основною моделлю modal + be + V3. У цій п’ятірці для проблеми використай can, для документів — must, для звіту — should, для зустрічі — may, для плану — could. Починай із предмета дії; обставини став наприкінці, carefully — після checked. Це умови вправи, не заборона інших природних формулювань.",
+              "footer": "Завдання підібрані лише для цієї теми."
+            }
+          }
+        }
+      ],
+      "details": [
+        {
+          "key": "modal-perfect-reference-point",
+          "title": "Perfect може дивитися назад і з майбутньої точки",
+          "owner_block_key": "modal-perfect-meaning",
+          "owner_pointer": "/sections/3",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "ЧАСОВА ПЕРСПЕКТИВА ОЧІКУВАННЯ",
+                  "color": "amber",
+                  "description": "Have been + V3 відносить дію раніше за точку, з якої її оцінюють. Ця точка не мусить бути «зараз»: мовець може уявляти майбутній момент і очікувати, що до нього роботу вже завершать. Тому perfect passive не слід перекладати як автоматичне повідомлення про невиконання в минулому; перевір дату дії, точку оцінки й те, чи результат справді відомий.",
+                  "examples": [
+                    {
+                      "en": "We will check at six. The parcel should have been delivered by then.",
+                      "ua": "Ми перевіримо о шостій. Очікується, що до того часу посилку вже доставлять."
+                    }
+                  ],
+                  "note": "By then означає «до того часу», а не «учора». Умова ще не повідомляє, що доставка не відбулася. Це те саме розрізнення perfect і оцінки, що в Past Modals, тепер із пасивним об’єктом parcel."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

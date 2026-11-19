@@ -1,0 +1,1724 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/wh.v1.json",
+        "sha256": "c33c45a4ac0fd7dadbce009af963b95d99200e3079d1952cdd31aa587ffd3ae5"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedWhQuestionsSpecialQuestionsQualityStandardSeeder",
+        "uuid_namespace": "questions-negations-quality-wh-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "questions_negations_quality_wh": {
+            "name": "Questions and Negations Quality: Wh-Questions"
+        }
+    },
+    "tags": {
+        "wh_questions": {
+            "name": "Wh-Questions",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "wh_words": {
+            "name": "Wh Words",
+            "category": "topic"
+        },
+        "wh_aux_subject_verb": {
+            "name": "Wh Aux Subject Verb",
+            "category": "topic"
+        },
+        "what_questions": {
+            "name": "What Questions",
+            "category": "topic"
+        },
+        "where_questions": {
+            "name": "Where Questions",
+            "category": "topic"
+        },
+        "when_questions": {
+            "name": "When Questions",
+            "category": "topic"
+        },
+        "why_questions": {
+            "name": "Why Questions",
+            "category": "topic"
+        },
+        "who_object_questions": {
+            "name": "Who Object Questions",
+            "category": "topic"
+        },
+        "how_much_many": {
+            "name": "How Much Many",
+            "category": "topic"
+        },
+        "subject_object_contrast": {
+            "name": "Subject Object Contrast",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "wh_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-wh-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Where {a1} my red mitten?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Де моя червона рукавичка?",
+            "target_text": "Where is my red mitten?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "do"
+                    ],
+                    "verb_hint": "Запитай про місце однієї речі; запитальне слово вже наведено."
+                }
+            },
+            "verb_hint": "Запитай про місце однієї речі; запитальне слово вже наведено.",
+            "accepted_target_texts": [
+                "Where is my red mitten?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Where",
+                "is",
+                "my red mitten?"
+            ],
+            "token_groups": [
+                "Where",
+                "is",
+                "my red mitten?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-wh-a1-g02",
+            "author_id": "A1-g02",
+            "question": "What {a1} you eat for breakfast?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Що ти їси на сніданок?",
+            "target_text": "What do you eat for breakfast?",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "does",
+                        "are"
+                    ],
+                    "verb_hint": "Запитай про звичне харчування співрозмовника."
+                }
+            },
+            "verb_hint": "Запитай про звичне харчування співрозмовника.",
+            "accepted_target_texts": [
+                "What do you eat for breakfast?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "do",
+                "you eat",
+                "for breakfast?"
+            ],
+            "token_groups": [
+                "What",
+                "do",
+                "you eat",
+                "for breakfast?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-wh-a1-g03",
+            "author_id": "A1-g03",
+            "question": "When {a1} the art class start?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Коли починається заняття з малювання?",
+            "target_text": "When does the art class start?",
+            "markers": {
+                "a1": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "do",
+                        "is"
+                    ],
+                    "verb_hint": "Запитай про розклад одного заняття."
+                }
+            },
+            "verb_hint": "Запитай про розклад одного заняття.",
+            "accepted_target_texts": [
+                "When does the art class start?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "When",
+                "does",
+                "the art class",
+                "start?"
+            ],
+            "token_groups": [
+                "When",
+                "does",
+                "the art class",
+                "start?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-wh-a1-g04",
+            "author_id": "A1-g04",
+            "question": "How {a1} your aunt travel to work?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Як твоя тітка добирається на роботу?",
+            "target_text": "How does your aunt travel to work?",
+            "markers": {
+                "a1": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "do",
+                        "is"
+                    ],
+                    "verb_hint": "Запитай про звичний спосіб пересування однієї людини."
+                }
+            },
+            "verb_hint": "Запитай про звичний спосіб пересування однієї людини.",
+            "accepted_target_texts": [
+                "How does your aunt travel to work?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How",
+                "does",
+                "your aunt",
+                "travel to work?"
+            ],
+            "token_groups": [
+                "How",
+                "does",
+                "your aunt",
+                "travel to work?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-wh-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Why {a1} the kittens hungry?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Чому кошенята голодні?",
+            "target_text": "Why are the kittens hungry?",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "do"
+                    ],
+                    "verb_hint": "Запитай про стан кількох тварин; додаткове дієслово дії не потрібне."
+                }
+            },
+            "verb_hint": "Запитай про стан кількох тварин; додаткове дієслово дії не потрібне.",
+            "accepted_target_texts": [
+                "Why are the kittens hungry?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "are",
+                "the kittens",
+                "hungry?"
+            ],
+            "token_groups": [
+                "Why",
+                "are",
+                "the kittens",
+                "hungry?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-wh-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Whose {a1} this silver ring?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Чия це срібна каблучка?",
+            "target_text": "Whose is this silver ring?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does"
+                    ],
+                    "verb_hint": "Запитай про власника однієї речі."
+                }
+            },
+            "verb_hint": "Запитай про власника однієї речі.",
+            "accepted_target_texts": [
+                "Whose is this silver ring?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Whose",
+                "is",
+                "this silver ring?"
+            ],
+            "token_groups": [
+                "Whose",
+                "is",
+                "this silver ring?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-wh-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Where {a1} you leave the umbrella yesterday?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Де ти вчора залишив парасольку?",
+            "target_text": "Where did you leave the umbrella yesterday?",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "were"
+                    ],
+                    "verb_hint": "Запитай про місце завершеної вчорашньої дії."
+                }
+            },
+            "verb_hint": "Запитай про місце завершеної вчорашньої дії.",
+            "accepted_target_texts": [
+                "Where did you leave the umbrella yesterday?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Where",
+                "did",
+                "you leave",
+                "the umbrella",
+                "yesterday?"
+            ],
+            "token_groups": [
+                "Where",
+                "did",
+                "you leave",
+                "the umbrella",
+                "yesterday?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-wh-a2-g02",
+            "author_id": "A2-g02",
+            "question": "How often {a1} your brother visit the swimming pool?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Як часто твій брат відвідує басейн?",
+            "target_text": "How often does your brother visit the swimming pool?",
+            "markers": {
+                "a1": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "do",
+                        "is"
+                    ],
+                    "verb_hint": "Запитай про частоту звичної дії однієї людини."
+                }
+            },
+            "verb_hint": "Запитай про частоту звичної дії однієї людини.",
+            "accepted_target_texts": [
+                "How often does your brother visit the swimming pool?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How often",
+                "does",
+                "your brother",
+                "visit",
+                "the swimming pool?"
+            ],
+            "token_groups": [
+                "How often",
+                "does",
+                "your brother",
+                "visit",
+                "the swimming pool?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-wh-a2-g03",
+            "author_id": "A2-g03",
+            "question": "What {a1} those children drawing now?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Що зараз малюють ті діти?",
+            "target_text": "What are those children drawing now?",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "do",
+                        "is"
+                    ],
+                    "verb_hint": "Запитай про поточну дію кількох дітей."
+                }
+            },
+            "verb_hint": "Запитай про поточну дію кількох дітей.",
+            "accepted_target_texts": [
+                "What are those children drawing now?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "are",
+                "those children",
+                "drawing now?"
+            ],
+            "token_groups": [
+                "What",
+                "are",
+                "those children",
+                "drawing now?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-wh-a2-g04",
+            "author_id": "A2-g04",
+            "question": "Which jacket {a1} you choose for the trip?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Яку куртку ти вибрав для поїздки?",
+            "target_text": "Which jacket did you choose for the trip?",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "were",
+                        "have"
+                    ],
+                    "verb_hint": "Запитай про конкретний завершений вибір для минулої поїздки."
+                }
+            },
+            "verb_hint": "Запитай про конкретний завершений вибір для минулої поїздки.",
+            "accepted_target_texts": [
+                "Which jacket did you choose for the trip?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which jacket",
+                "did",
+                "you choose",
+                "for the trip?"
+            ],
+            "token_groups": [
+                "Which jacket",
+                "did",
+                "you choose",
+                "for the trip?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-wh-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Why {a1} the shop closed last Monday?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Чому минулого понеділка магазин був зачинений?",
+            "target_text": "Why was the shop closed last Monday?",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "did"
+                    ],
+                    "verb_hint": "Запитай про минулий стан одного закладу."
+                }
+            },
+            "verb_hint": "Запитай про минулий стан одного закладу.",
+            "accepted_target_texts": [
+                "Why was the shop closed last Monday?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "was",
+                "the shop",
+                "closed",
+                "last Monday?"
+            ],
+            "token_groups": [
+                "Why",
+                "was",
+                "the shop",
+                "closed",
+                "last Monday?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-wh-a2-g06",
+            "author_id": "A2-g06",
+            "question": "How many postcards {a1} you going to send?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Скільки листівок ти збираєшся надіслати?",
+            "target_text": "How many postcards are you going to send?",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "do",
+                        "is"
+                    ],
+                    "verb_hint": "Запитай про намір співрозмовника; частину конструкції вже наведено."
+                }
+            },
+            "verb_hint": "Запитай про намір співрозмовника; частину конструкції вже наведено.",
+            "accepted_target_texts": [
+                "How many postcards are you going to send?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How many postcards",
+                "are",
+                "you going",
+                "to send?"
+            ],
+            "token_groups": [
+                "How many postcards",
+                "are",
+                "you going",
+                "to send?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-wh-b1-g01",
+            "author_id": "B1-g01",
+            "question": "How long {a1} the electrician been working upstairs?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Як довго електрик працює нагорі?",
+            "target_text": "How long has the electrician been working upstairs?",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "is",
+                        "does"
+                    ],
+                    "verb_hint": "Запитай про тривалість дії, яка почалася раніше й триває досі."
+                }
+            },
+            "verb_hint": "Запитай про тривалість дії, яка почалася раніше й триває досі.",
+            "accepted_target_texts": [
+                "How long has the electrician been working upstairs?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How long",
+                "has",
+                "the electrician",
+                "been working",
+                "upstairs?"
+            ],
+            "token_groups": [
+                "How long",
+                "has",
+                "the electrician",
+                "been working",
+                "upstairs?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-wh-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Where {a1} the missing keys found?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Де знайшли загублені ключі?",
+            "target_text": "Where were the missing keys found?",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "did",
+                        "have"
+                    ],
+                    "verb_hint": "Запитай про місце минулої дії над кількома речами."
+                }
+            },
+            "verb_hint": "Запитай про місце минулої дії над кількома речами.",
+            "accepted_target_texts": [
+                "Where were the missing keys found?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Where",
+                "were",
+                "the missing keys",
+                "found?"
+            ],
+            "token_groups": [
+                "Where",
+                "were",
+                "the missing keys",
+                "found?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-wh-b1-g03",
+            "author_id": "B1-g03",
+            "question": "What {a1} you do if the lift broke down?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Що ти зробив би, якби ліфт зламався?",
+            "target_text": "What would you do if the lift broke down?",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "will",
+                        "did"
+                    ],
+                    "verb_hint": "Запитай про уявну дію за наведеної умови."
+                }
+            },
+            "verb_hint": "Запитай про уявну дію за наведеної умови.",
+            "accepted_target_texts": [
+                "What would you do if the lift broke down?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "would",
+                "you do",
+                "if the lift",
+                "broke down?"
+            ],
+            "token_groups": [
+                "What",
+                "would",
+                "you do",
+                "if the lift",
+                "broke down?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-wh-b1-g04",
+            "author_id": "B1-g04",
+            "question": "Why {a1} the visitors left before the speech began?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Чому відвідувачі пішли ще до початку промови?",
+            "target_text": "Why had the visitors left before the speech began?",
+            "markers": {
+                "a1": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "were",
+                        "did"
+                    ],
+                    "verb_hint": "Запитай про подію, що завершилася раніше за іншу минулу подію."
+                }
+            },
+            "verb_hint": "Запитай про подію, що завершилася раніше за іншу минулу подію.",
+            "accepted_target_texts": [
+                "Why had the visitors left before the speech began?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "had",
+                "the visitors",
+                "left",
+                "before the speech",
+                "began?"
+            ],
+            "token_groups": [
+                "Why",
+                "had",
+                "the visitors",
+                "left",
+                "before the speech",
+                "began?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-wh-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Which route {a1} we take to avoid the toll bridge?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Яким маршрутом нам варто їхати, щоб оминути платний міст?",
+            "target_text": "Which route should we take to avoid the toll bridge?",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "are",
+                        "have"
+                    ],
+                    "verb_hint": "Запитай про доцільний вибір; основне дієслово вже в початковій формі."
+                }
+            },
+            "verb_hint": "Запитай про доцільний вибір; основне дієслово вже в початковій формі.",
+            "accepted_target_texts": [
+                "Which route should we take to avoid the toll bridge?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which route",
+                "should",
+                "we take",
+                "to avoid",
+                "the toll bridge?"
+            ],
+            "token_groups": [
+                "Which route",
+                "should",
+                "we take",
+                "to avoid",
+                "the toll bridge?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-wh-b1-g06",
+            "author_id": "B1-g06",
+            "question": "How {a1} this sculpture made?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Як виготовили цю скульптуру?",
+            "target_text": "How was this sculpture made?",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "did",
+                        "has"
+                    ],
+                    "verb_hint": "Запитай про спосіб минулого виготовлення у пасиві."
+                }
+            },
+            "verb_hint": "Запитай про спосіб минулого виготовлення у пасиві.",
+            "accepted_target_texts": [
+                "How was this sculpture made?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How",
+                "was",
+                "this sculpture",
+                "made?"
+            ],
+            "token_groups": [
+                "How",
+                "was",
+                "this sculpture",
+                "made?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "qnq-wh-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Why {a1} the application been rejected without explanation?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Чому заяву відхилили без пояснення?",
+            "target_text": "Why has the application been rejected without explanation?",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "is",
+                        "does"
+                    ],
+                    "verb_hint": "Запитай про наявний результат пасивної дії."
+                }
+            },
+            "verb_hint": "Запитай про наявний результат пасивної дії.",
+            "accepted_target_texts": [
+                "Why has the application been rejected without explanation?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "has",
+                "the application",
+                "been rejected",
+                "without explanation?"
+            ],
+            "token_groups": [
+                "Why",
+                "has",
+                "the application",
+                "been rejected",
+                "without explanation?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "qnq-wh-b2-g02",
+            "author_id": "B2-g02",
+            "question": "How much {a1} the refurbishment have cost if we had used local materials?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Скільки коштував би ремонт, якби ми використали місцеві матеріали?",
+            "target_text": "How much would the refurbishment have cost if we had used local materials?",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "will",
+                        "did"
+                    ],
+                    "verb_hint": "Запитай про уявний результат іншого минулого рішення."
+                }
+            },
+            "verb_hint": "Запитай про уявний результат іншого минулого рішення.",
+            "accepted_target_texts": [
+                "How much would the refurbishment have cost if we had used local materials?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How much",
+                "would",
+                "the refurbishment",
+                "have cost",
+                "if we",
+                "had used",
+                "local materials?"
+            ],
+            "token_groups": [
+                "How much",
+                "would",
+                "the refurbishment",
+                "have cost",
+                "if we",
+                "had used",
+                "local materials?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "qnq-wh-b2-g03",
+            "author_id": "B2-g03",
+            "question": "What {a1} the researchers have discovered by the end of the trial?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Що дослідники виявлять до завершення випробування?",
+            "target_text": "What will the researchers have discovered by the end of the trial?",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "have",
+                        "did"
+                    ],
+                    "verb_hint": "Запитай про завершений результат до майбутньої межі."
+                }
+            },
+            "verb_hint": "Запитай про завершений результат до майбутньої межі.",
+            "accepted_target_texts": [
+                "What will the researchers have discovered by the end of the trial?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "will",
+                "the researchers",
+                "have discovered",
+                "by the end",
+                "of the trial?"
+            ],
+            "token_groups": [
+                "What",
+                "will",
+                "the researchers",
+                "have discovered",
+                "by the end",
+                "of the trial?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "qnq-wh-b2-g04",
+            "author_id": "B2-g04",
+            "question": "Why {a1} the accounts being audited for a second time?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Чому рахунки зараз перевіряють удруге?",
+            "target_text": "Why are the accounts being audited for a second time?",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "do",
+                        "have"
+                    ],
+                    "verb_hint": "Запитай про причину поточної повторної перевірки в пасиві."
+                }
+            },
+            "verb_hint": "Запитай про причину поточної повторної перевірки в пасиві.",
+            "accepted_target_texts": [
+                "Why are the accounts being audited for a second time?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "are",
+                "the accounts",
+                "being audited",
+                "for",
+                "a second time?"
+            ],
+            "token_groups": [
+                "Why",
+                "are",
+                "the accounts",
+                "being audited",
+                "for",
+                "a second time?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "qnq-wh-b2-g05",
+            "author_id": "B2-g05",
+            "question": "Whom {a1} the committee consult before announcing its decision?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "З ким комітет порадився перед оголошенням свого рішення?",
+            "target_text": "Whom did the committee consult before announcing its decision?",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "was",
+                        "had"
+                    ],
+                    "verb_hint": "Запитай про людину, на яку спрямовано минулу дію; комітет уже названо."
+                }
+            },
+            "verb_hint": "Запитай про людину, на яку спрямовано минулу дію; комітет уже названо.",
+            "accepted_target_texts": [
+                "Whom did the committee consult before announcing its decision?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Whom",
+                "did",
+                "the committee",
+                "consult",
+                "before announcing",
+                "its decision?"
+            ],
+            "token_groups": [
+                "Whom",
+                "did",
+                "the committee",
+                "consult",
+                "before announcing",
+                "its decision?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "qnq-wh-b2-g06",
+            "author_id": "B2-g06",
+            "question": "How long {a1} the restoration have been going on by December?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Скільки триватиме реставрація станом на грудень?",
+            "target_text": "How long will the restoration have been going on by December?",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "has",
+                        "does"
+                    ],
+                    "verb_hint": "Запитай про тривалість, накопичену до майбутнього місяця."
+                }
+            },
+            "verb_hint": "Запитай про тривалість, накопичену до майбутнього місяця.",
+            "accepted_target_texts": [
+                "How long will the restoration have been going on by December?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How long",
+                "will",
+                "the restoration",
+                "have been",
+                "going on",
+                "by December?"
+            ],
+            "token_groups": [
+                "How long",
+                "will",
+                "the restoration",
+                "have been",
+                "going on",
+                "by December?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "qnq-wh-c1-g01",
+            "author_id": "C1-g01",
+            "question": "On what grounds {a1} the arbitration panel dismissed the claim?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "На яких підставах арбітражна колегія відхилила вимогу?",
+            "target_text": "On what grounds has the arbitration panel dismissed the claim?",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "is",
+                        "does"
+                    ],
+                    "verb_hint": "Запитай про підстави вже отриманого результату; збережи перфектну форму."
+                }
+            },
+            "verb_hint": "Запитай про підстави вже отриманого результату; збережи перфектну форму.",
+            "accepted_target_texts": [
+                "On what grounds has the arbitration panel dismissed the claim?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "On what grounds",
+                "has",
+                "the arbitration panel",
+                "dismissed the claim?"
+            ],
+            "token_groups": [
+                "On what grounds",
+                "has",
+                "the arbitration panel",
+                "dismissed the claim?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "qnq-wh-c1-g02",
+            "author_id": "C1-g02",
+            "question": "To whom {a1} these confidential findings be disclosed?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Кому можна розкрити ці конфіденційні результати?",
+            "target_text": "To whom may these confidential findings be disclosed?",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "have",
+                        "do"
+                    ],
+                    "verb_hint": "Запитай про дозволеного одержувача в пасивній модальній конструкції."
+                }
+            },
+            "verb_hint": "Запитай про дозволеного одержувача в пасивній модальній конструкції.",
+            "accepted_target_texts": [
+                "To whom may these confidential findings be disclosed?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "To whom",
+                "may",
+                "these confidential findings",
+                "be disclosed?"
+            ],
+            "token_groups": [
+                "To whom",
+                "may",
+                "these confidential findings",
+                "be disclosed?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "qnq-wh-c1-g03",
+            "author_id": "C1-g03",
+            "question": "Why {a1} the discrepancy not have been detected during the preliminary review?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Чому розбіжність могли не виявити під час попередньої перевірки?",
+            "target_text": "Why might the discrepancy not have been detected during the preliminary review?",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "did",
+                        "was"
+                    ],
+                    "verb_hint": "Запитай про можливу причину відсутності виявлення в минулому."
+                }
+            },
+            "verb_hint": "Запитай про можливу причину відсутності виявлення в минулому.",
+            "accepted_target_texts": [
+                "Why might the discrepancy not have been detected during the preliminary review?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "might",
+                "the discrepancy",
+                "not have been",
+                "detected",
+                "during",
+                "the preliminary review?"
+            ],
+            "token_groups": [
+                "Why",
+                "might",
+                "the discrepancy",
+                "not have been",
+                "detected",
+                "during",
+                "the preliminary review?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "qnq-wh-c1-g04",
+            "author_id": "C1-g04",
+            "question": "How far {a1} the proposed reforms alter the allocation of responsibility?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Наскільки запропоновані реформи змінили б розподіл відповідальності?",
+            "target_text": "How far would the proposed reforms alter the allocation of responsibility?",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "are",
+                        "have"
+                    ],
+                    "verb_hint": "Запитай про ступінь уявного впливу реформ."
+                }
+            },
+            "verb_hint": "Запитай про ступінь уявного впливу реформ.",
+            "accepted_target_texts": [
+                "How far would the proposed reforms alter the allocation of responsibility?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How far",
+                "would",
+                "the proposed reforms",
+                "alter the allocation",
+                "of responsibility?"
+            ],
+            "token_groups": [
+                "How far",
+                "would",
+                "the proposed reforms",
+                "alter the allocation",
+                "of responsibility?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "qnq-wh-c1-g05",
+            "author_id": "C1-g05",
+            "question": "Which safeguards {a1} the regulator required before authorising the merger?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Яких гарантій регулятор зажадав до дозволу на злиття?",
+            "target_text": "Which safeguards had the regulator required before authorising the merger?",
+            "markers": {
+                "a1": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "was",
+                        "did"
+                    ],
+                    "verb_hint": "Запитай про попередню завершену вимогу; основне дієслово вже у формі дієприкметника."
+                }
+            },
+            "verb_hint": "Запитай про попередню завершену вимогу; основне дієслово вже у формі дієприкметника.",
+            "accepted_target_texts": [
+                "Which safeguards had the regulator required before authorising the merger?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which safeguards",
+                "had",
+                "the regulator",
+                "required",
+                "before authorising",
+                "the merger?"
+            ],
+            "token_groups": [
+                "Which safeguards",
+                "had",
+                "the regulator",
+                "required",
+                "before authorising",
+                "the merger?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "qnq-wh-c1-g06",
+            "author_id": "C1-g06",
+            "question": "Under what circumstances {a1} the licence be revoked?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "За яких обставин ліцензію можуть відкликати?",
+            "target_text": "Under what circumstances can the licence be revoked?",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "Запитай про можливі умови пасивної дії."
+                }
+            },
+            "verb_hint": "Запитай про можливі умови пасивної дії.",
+            "accepted_target_texts": [
+                "Under what circumstances can the licence be revoked?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Under what circumstances",
+                "can",
+                "the licence",
+                "be revoked?"
+            ],
+            "token_groups": [
+                "Under what circumstances",
+                "can",
+                "the licence",
+                "be revoked?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "qnq-wh-c2-g01",
+            "author_id": "C2-g01",
+            "question": "By what reasoning {a1} the distinction be sustained once those assumptions are abandoned?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Яким міркуванням можна обґрунтувати цю відмінність після відмови від тих припущень?",
+            "target_text": "By what reasoning can the distinction be sustained once those assumptions are abandoned?",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "Запитай про можливість підтримати розрізнення в пасивній формі."
+                }
+            },
+            "verb_hint": "Запитай про можливість підтримати розрізнення в пасивній формі.",
+            "accepted_target_texts": [
+                "By what reasoning can the distinction be sustained once those assumptions are abandoned?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "By what reasoning",
+                "can",
+                "the distinction",
+                "be sustained",
+                "once those assumptions",
+                "are abandoned?"
+            ],
+            "token_groups": [
+                "By what reasoning",
+                "can",
+                "the distinction",
+                "be sustained",
+                "once those assumptions",
+                "are abandoned?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "qnq-wh-c2-g02",
+            "author_id": "C2-g02",
+            "question": "How {a1} the negotiations have unfolded had neither side claimed precedence?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Як розгорталися б переговори, якби жодна сторона не претендувала на першість?",
+            "target_text": "How would the negotiations have unfolded had neither side claimed precedence?",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "will",
+                        "did"
+                    ],
+                    "verb_hint": "Передай уявний перебіг минулих подій; умову вже оформлено інверсією."
+                }
+            },
+            "verb_hint": "Передай уявний перебіг минулих подій; умову вже оформлено інверсією.",
+            "accepted_target_texts": [
+                "How would the negotiations have unfolded had neither side claimed precedence?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How",
+                "would",
+                "the negotiations",
+                "have unfolded",
+                "had neither side",
+                "claimed precedence?"
+            ],
+            "token_groups": [
+                "How",
+                "would",
+                "the negotiations",
+                "have unfolded",
+                "had neither side",
+                "claimed precedence?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "qnq-wh-c2-g03",
+            "author_id": "C2-g03",
+            "question": "To what extent {a1} the apparent consensus reflect acquiescence rather than conviction?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Наскільки видима згода може відображати поступливість, а не переконання?",
+            "target_text": "To what extent might the apparent consensus reflect acquiescence rather than conviction?",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "has",
+                        "is"
+                    ],
+                    "verb_hint": "Запитай про обережну інтерпретацію, не стверджуючи причинного висновку."
+                }
+            },
+            "verb_hint": "Запитай про обережну інтерпретацію, не стверджуючи причинного висновку.",
+            "accepted_target_texts": [
+                "To what extent might the apparent consensus reflect acquiescence rather than conviction?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "To what extent",
+                "might",
+                "the apparent consensus",
+                "reflect acquiescence",
+                "rather than conviction?"
+            ],
+            "token_groups": [
+                "To what extent",
+                "might",
+                "the apparent consensus",
+                "reflect acquiescence",
+                "rather than conviction?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "qnq-wh-c2-g04",
+            "author_id": "C2-g04",
+            "question": "Why {a1} the exception have been construed so narrowly in the absence of explicit guidance?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "Чому цей виняток мали б тлумачити так вузько за відсутності явних вказівок?",
+            "target_text": "Why should the exception have been construed so narrowly in the absence of explicit guidance?",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "did",
+                        "was"
+                    ],
+                    "verb_hint": "Запитай про підстави сумнівного минулого тлумачення, а не про рекомендацію на майбутнє."
+                }
+            },
+            "verb_hint": "Запитай про підстави сумнівного минулого тлумачення, а не про рекомендацію на майбутнє.",
+            "accepted_target_texts": [
+                "Why should the exception have been construed so narrowly in the absence of explicit guidance?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "should",
+                "the exception",
+                "have been construed",
+                "so narrowly",
+                "in the absence",
+                "of explicit guidance?"
+            ],
+            "token_groups": [
+                "Why",
+                "should",
+                "the exception",
+                "have been construed",
+                "so narrowly",
+                "in the absence",
+                "of explicit guidance?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "qnq-wh-c2-g05",
+            "author_id": "C2-g05",
+            "question": "In whose interests {a1} the settlement ultimately been framed?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "В чиїх інтересах зрештою сформульовано цю угоду?",
+            "target_text": "In whose interests has the settlement ultimately been framed?",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "is",
+                        "does"
+                    ],
+                    "verb_hint": "Запитай про інтереси сторони та наявний пасивний результат."
+                }
+            },
+            "verb_hint": "Запитай про інтереси сторони та наявний пасивний результат.",
+            "accepted_target_texts": [
+                "In whose interests has the settlement ultimately been framed?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "In whose interests",
+                "has",
+                "the settlement",
+                "ultimately been framed?"
+            ],
+            "token_groups": [
+                "In whose interests",
+                "has",
+                "the settlement",
+                "ultimately been framed?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "qnq-wh-c2-g06",
+            "author_id": "C2-g06",
+            "question": "By what margin {a1} the inference have survived a more stringent evidential test?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_wh",
+            "translation_uk": "З яким запасом переконливості цей висновок міг би витримати суворішу доказову перевірку?",
+            "target_text": "By what margin could the inference have survived a more stringent evidential test?",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "did",
+                        "was"
+                    ],
+                    "verb_hint": "Запитай про нереалізовану можливість за жорсткішої перевірки."
+                }
+            },
+            "verb_hint": "Запитай про нереалізовану можливість за жорсткішої перевірки.",
+            "accepted_target_texts": [
+                "By what margin could the inference have survived a more stringent evidential test?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "By what margin",
+                "could",
+                "the inference",
+                "have survived",
+                "a more stringent",
+                "evidential test?"
+            ],
+            "token_groups": [
+                "By what margin",
+                "could",
+                "the inference",
+                "have survived",
+                "a more stringent",
+                "evidential test?"
+            ],
+            "quality_revision": "qnq-v1"
+        }
+    ]
+}

@@ -1,0 +1,3244 @@
+{
+    "schema_version": 1,
+    "quality_revision": "aaq-v1",
+    "compiled_from": {
+        "path": "docs/content/adjectives-adverbs-quality/adverbs.v1.json",
+        "sha256": "806b74ea9951397c5f58f7cbad58607a6fe168cd669ed051f50c8d3a3fba4539"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedAdjectivesVsAdverbsQualityBuilderSeeder",
+        "uuid_namespace": "adjectives-adverbs-quality-adverbs-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "adjectives_adverbs_quality_adverbs": {
+            "name": "Adjectives and Adverbs Quality: Прикметники та прислівники: ознака і спосіб дії"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "page_topic": {
+            "name": "Adjectives vs Adverbs - Прикметники й прислівники",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "page_topic"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "aaq-adverbs-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Дитина зараз сонна.",
+            "level": "A1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Дитина зараз сонна.",
+            "target_text": "The baby is sleepy now.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Складіть твердження: немовля зараз сонне; можливе слово зі значенням дрімотливе.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "baby",
+                    "verb_hint": "Складіть твердження: немовля зараз сонне; можливе слово зі значенням дрімотливе.",
+                    "options": [
+                        "baby",
+                        "narrator",
+                        "room",
+                        "institution"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Складіть твердження: немовля зараз сонне; можливе слово зі значенням дрімотливе.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a4": {
+                    "answer": "sleepy",
+                    "verb_hint": "Складіть твердження: немовля зараз сонне; можливе слово зі значенням дрімотливе.",
+                    "options": [
+                        "sleepy",
+                        "weak",
+                        "modern",
+                        "detailed"
+                    ]
+                },
+                "a5": {
+                    "answer": "now.",
+                    "verb_hint": "Складіть твердження: немовля зараз сонне; можливе слово зі значенням дрімотливе.",
+                    "options": [
+                        "now",
+                        "door",
+                        "map",
+                        "letter"
+                    ]
+                }
+            },
+            "verb_hint": "Складіть твердження: немовля зараз сонне; можливе слово зі значенням дрімотливе.",
+            "accepted_target_texts": [
+                "The baby is sleepy now.",
+                "The baby is drowsy now."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "drowsy"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "drowsy"
+                ]
+            },
+            "reorder_groups": [
+                "The baby",
+                "is",
+                "sleepy",
+                "now."
+            ],
+            "token_groups": [
+                "The baby",
+                "is",
+                "sleepy",
+                "now."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "baby",
+                "is",
+                "sleepy",
+                "now."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "baby",
+                "narrator",
+                "room",
+                "institution",
+                "is",
+                "was",
+                "were",
+                "be",
+                "sleepy",
+                "weak",
+                "modern",
+                "detailed",
+                "now",
+                "door",
+                "map",
+                "letter"
+            ],
+            "source_text_uk": "Дитина зараз сонна.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "baby",
+                    "narrator",
+                    "room",
+                    "institution"
+                ],
+                "a3": [
+                    "is",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a4": [
+                    "sleepy",
+                    "weak",
+                    "modern",
+                    "detailed"
+                ],
+                "a5": [
+                    "now",
+                    "door",
+                    "map",
+                    "letter"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adjective",
+                "a5": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "aaq-adverbs-a1-c02",
+            "author_id": "A1-c02",
+            "question": "У кімнаті тепло.",
+            "level": "A1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "У кімнаті тепло.",
+            "target_text": "The room feels warm.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Відчувається тепло: назвіть кімнату, дієслово відчуття та прикметник температури, не затишку чи комфорту.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "room",
+                    "verb_hint": "Відчувається тепло: назвіть кімнату, дієслово відчуття та прикметник температури, не затишку чи комфорту.",
+                    "options": [
+                        "room",
+                        "machine",
+                        "report",
+                        "team"
+                    ]
+                },
+                "a3": {
+                    "answer": "feels",
+                    "verb_hint": "Відчувається тепло: назвіть кімнату, дієслово відчуття та прикметник температури, не затишку чи комфорту.",
+                    "options": [
+                        "feels",
+                        "was",
+                        "seems",
+                        "sounds"
+                    ]
+                },
+                "a4": {
+                    "answer": "warm.",
+                    "verb_hint": "Відчувається тепло: назвіть кімнату, дієслово відчуття та прикметник температури, не затишку чи комфорту.",
+                    "options": [
+                        "warm",
+                        "busy",
+                        "weak",
+                        "modern"
+                    ]
+                }
+            },
+            "verb_hint": "Відчувається тепло: назвіть кімнату, дієслово відчуття та прикметник температури, не затишку чи комфорту.",
+            "accepted_target_texts": [
+                "The room feels warm."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The room",
+                "feels",
+                "warm."
+            ],
+            "token_groups": [
+                "The room",
+                "feels",
+                "warm."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "room",
+                "feels",
+                "warm."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "room",
+                "machine",
+                "report",
+                "team",
+                "feels",
+                "was",
+                "seems",
+                "sounds",
+                "warm",
+                "busy",
+                "weak",
+                "modern"
+            ],
+            "source_text_uk": "У кімнаті тепло.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "room",
+                    "machine",
+                    "report",
+                    "team"
+                ],
+                "a3": [
+                    "feels",
+                    "was",
+                    "seems",
+                    "sounds"
+                ],
+                "a4": [
+                    "warm",
+                    "busy",
+                    "weak",
+                    "modern"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "aaq-adverbs-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Вона тихо зачинила двері.",
+            "level": "A1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Вона тихо зачинила двері.",
+            "target_text": "She closed the door quietly.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Зачинила двері без шуму: минула дія, спосіб дії наприкінці речення; також можливе беззвучно.",
+                    "options": [
+                        "She",
+                        "We",
+                        "They",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "closed",
+                    "verb_hint": "Зачинила двері без шуму: минула дія, спосіб дії наприкінці речення; також можливе беззвучно.",
+                    "options": [
+                        "closed",
+                        "reacted",
+                        "grew",
+                        "became"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Зачинила двері без шуму: минула дія, спосіб дії наприкінці речення; також можливе беззвучно.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a4": {
+                    "answer": "door",
+                    "verb_hint": "Зачинила двері без шуму: минула дія, спосіб дії наприкінці речення; також можливе беззвучно.",
+                    "options": [
+                        "door",
+                        "report",
+                        "proposal",
+                        "patient"
+                    ]
+                },
+                "a5": {
+                    "answer": "quietly.",
+                    "verb_hint": "Зачинила двері без шуму: минула дія, спосіб дії наприкінці речення; також можливе беззвучно.",
+                    "options": [
+                        "quietly",
+                        "brilliantly",
+                        "genuinely",
+                        "slowly"
+                    ]
+                }
+            },
+            "verb_hint": "Зачинила двері без шуму: минула дія, спосіб дії наприкінці речення; також можливе беззвучно.",
+            "accepted_target_texts": [
+                "She closed the door quietly.",
+                "She closed the door silently."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "silently."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "silently."
+                ]
+            },
+            "reorder_groups": [
+                "She",
+                "closed",
+                "the door",
+                "quietly."
+            ],
+            "token_groups": [
+                "She",
+                "closed",
+                "the door",
+                "quietly."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "She",
+                "closed",
+                "the",
+                "door",
+                "quietly."
+            ],
+            "options": [
+                "She",
+                "We",
+                "They",
+                "Me",
+                "closed",
+                "reacted",
+                "grew",
+                "became",
+                "the",
+                "an",
+                "some",
+                "any",
+                "door",
+                "report",
+                "proposal",
+                "patient",
+                "quietly",
+                "brilliantly",
+                "genuinely",
+                "slowly"
+            ],
+            "source_text_uk": "Вона тихо зачинила двері.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "We",
+                    "They",
+                    "Me"
+                ],
+                "a2": [
+                    "closed",
+                    "reacted",
+                    "grew",
+                    "became"
+                ],
+                "a3": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a4": [
+                    "door",
+                    "report",
+                    "proposal",
+                    "patient"
+                ],
+                "a5": [
+                    "quietly",
+                    "brilliantly",
+                    "genuinely",
+                    "slowly"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "aaq-adverbs-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Після бурі небо посвітлішало.",
+            "level": "A2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Після бурі небо посвітлішало.",
+            "target_text": "The sky grew bright after the storm.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Небо стало світлим після бурі: дієслово зміни стану й прикметник; світле також можна передати як ясне.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "sky",
+                    "verb_hint": "Небо стало світлим після бурі: дієслово зміни стану й прикметник; світле також можна передати як ясне.",
+                    "options": [
+                        "sky",
+                        "neighbour",
+                        "narrator",
+                        "author"
+                    ]
+                },
+                "a3": {
+                    "answer": "grew",
+                    "verb_hint": "Небо стало світлим після бурі: дієслово зміни стану й прикметник; світле також можна передати як ясне.",
+                    "options": [
+                        "grew",
+                        "reacted",
+                        "performed",
+                        "responded"
+                    ]
+                },
+                "a4": {
+                    "answer": "bright",
+                    "verb_hint": "Небо стало світлим після бурі: дієслово зміни стану й прикметник; світле також можна передати як ясне.",
+                    "options": [
+                        "bright",
+                        "silent",
+                        "composed",
+                        "efficient"
+                    ]
+                },
+                "a5": {
+                    "answer": "after",
+                    "verb_hint": "Небо стало світлим після бурі: дієслово зміни стану й прикметник; світле також можна передати як ясне.",
+                    "options": [
+                        "after",
+                        "to",
+                        "for",
+                        "on"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Небо стало світлим після бурі: дієслово зміни стану й прикметник; світле також можна передати як ясне.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "storm.",
+                    "verb_hint": "Небо стало світлим після бурі: дієслово зміни стану й прикметник; світле також можна передати як ясне.",
+                    "options": [
+                        "storm",
+                        "fragile",
+                        "debate",
+                        "journey"
+                    ]
+                }
+            },
+            "verb_hint": "Небо стало світлим після бурі: дієслово зміни стану й прикметник; світле також можна передати як ясне.",
+            "accepted_target_texts": [
+                "The sky grew bright after the storm.",
+                "The sky grew light after the storm."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "light"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "light"
+                ]
+            },
+            "reorder_groups": [
+                "The sky",
+                "grew",
+                "bright",
+                "after the storm."
+            ],
+            "token_groups": [
+                "The sky",
+                "grew",
+                "bright",
+                "after the storm."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "sky",
+                "grew",
+                "bright",
+                "after",
+                "the",
+                "storm."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "sky",
+                "neighbour",
+                "narrator",
+                "author",
+                "grew",
+                "reacted",
+                "performed",
+                "responded",
+                "bright",
+                "silent",
+                "composed",
+                "efficient",
+                "after",
+                "to",
+                "for",
+                "on",
+                "the",
+                "those",
+                "each",
+                "every",
+                "storm",
+                "fragile",
+                "debate",
+                "journey"
+            ],
+            "source_text_uk": "Після бурі небо посвітлішало.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "sky",
+                    "neighbour",
+                    "narrator",
+                    "author"
+                ],
+                "a3": [
+                    "grew",
+                    "reacted",
+                    "performed",
+                    "responded"
+                ],
+                "a4": [
+                    "bright",
+                    "silent",
+                    "composed",
+                    "efficient"
+                ],
+                "a5": [
+                    "after",
+                    "to",
+                    "for",
+                    "on"
+                ],
+                "a6": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "storm",
+                    "fragile",
+                    "debate",
+                    "journey"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adjective",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "aaq-adverbs-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Наш сусід розмовляє тихо.",
+            "level": "A2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Наш сусід розмовляє тихо.",
+            "target_text": "Our neighbour speaks quietly.",
+            "markers": {
+                "a1": {
+                    "answer": "Our",
+                    "verb_hint": "Наш сусід говорить тихо, неголосно: теперішня звична дія; приймається й прислівник зі значенням м’яко та британське й американське написання назви сусіда.",
+                    "options": [
+                        "Our",
+                        "Hers",
+                        "Ours",
+                        "Theirs"
+                    ]
+                },
+                "a2": {
+                    "answer": "neighbour",
+                    "verb_hint": "Наш сусід говорить тихо, неголосно: теперішня звична дія; приймається й прислівник зі значенням м’яко та британське й американське написання назви сусіда.",
+                    "options": [
+                        "neighbour",
+                        "teacher",
+                        "friend",
+                        "manager"
+                    ]
+                },
+                "a3": {
+                    "answer": "speaks",
+                    "verb_hint": "Наш сусід говорить тихо, неголосно: теперішня звична дія; приймається й прислівник зі значенням м’яко та британське й американське написання назви сусіда.",
+                    "options": [
+                        "speaks",
+                        "feels",
+                        "remains",
+                        "seems"
+                    ]
+                },
+                "a4": {
+                    "answer": "quietly.",
+                    "verb_hint": "Наш сусід говорить тихо, неголосно: теперішня звична дія; приймається й прислівник зі значенням м’яко та британське й американське написання назви сусіда.",
+                    "options": [
+                        "quietly",
+                        "slowly",
+                        "carefully",
+                        "clearly"
+                    ]
+                }
+            },
+            "verb_hint": "Наш сусід говорить тихо, неголосно: теперішня звична дія; приймається й прислівник зі значенням м’яко та британське й американське написання назви сусіда.",
+            "accepted_target_texts": [
+                "Our neighbour speaks quietly.",
+                "Our neighbour speaks softly.",
+                "Our neighbor speaks quietly.",
+                "Our neighbor speaks softly."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "softly."
+                ],
+                "a2": [
+                    "neighbor"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "softly."
+                ],
+                "a2": [
+                    "neighbor"
+                ]
+            },
+            "reorder_groups": [
+                "Our neighbour",
+                "speaks",
+                "quietly."
+            ],
+            "token_groups": [
+                "Our neighbour",
+                "speaks",
+                "quietly."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "Our",
+                "neighbour",
+                "speaks",
+                "quietly."
+            ],
+            "options": [
+                "Our",
+                "Hers",
+                "Ours",
+                "Theirs",
+                "neighbour",
+                "teacher",
+                "friend",
+                "manager",
+                "speaks",
+                "feels",
+                "remains",
+                "seems",
+                "quietly",
+                "slowly",
+                "carefully",
+                "clearly"
+            ],
+            "source_text_uk": "Наш сусід розмовляє тихо.",
+            "options_by_marker": {
+                "a1": [
+                    "Our",
+                    "Hers",
+                    "Ours",
+                    "Theirs"
+                ],
+                "a2": [
+                    "neighbour",
+                    "teacher",
+                    "friend",
+                    "manager"
+                ],
+                "a3": [
+                    "speaks",
+                    "feels",
+                    "remains",
+                    "seems"
+                ],
+                "a4": [
+                    "quietly",
+                    "slowly",
+                    "carefully",
+                    "clearly"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "aaq-adverbs-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Його відповідь здається дивною.",
+            "level": "A2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Його відповідь здається дивною.",
+            "target_text": "His answer seems strange.",
+            "markers": {
+                "a1": {
+                    "answer": "His",
+                    "verb_hint": "Відповідь виглядає дивною, незвичною: теперішній стан, прикметник після дієслова враження.",
+                    "options": [
+                        "His",
+                        "Our",
+                        "Their",
+                        "Mine"
+                    ]
+                },
+                "a2": {
+                    "answer": "answer",
+                    "verb_hint": "Відповідь виглядає дивною, незвичною: теперішній стан, прикметник після дієслова враження.",
+                    "options": [
+                        "answer",
+                        "report",
+                        "team",
+                        "narrator"
+                    ]
+                },
+                "a3": {
+                    "answer": "seems",
+                    "verb_hint": "Відповідь виглядає дивною, незвичною: теперішній стан, прикметник після дієслова враження.",
+                    "options": [
+                        "seems",
+                        "speaks",
+                        "is",
+                        "was"
+                    ]
+                },
+                "a4": {
+                    "answer": "strange.",
+                    "verb_hint": "Відповідь виглядає дивною, незвичною: теперішній стан, прикметник після дієслова враження.",
+                    "options": [
+                        "strange",
+                        "plausible",
+                        "coherent",
+                        "bright"
+                    ]
+                }
+            },
+            "verb_hint": "Відповідь виглядає дивною, незвичною: теперішній стан, прикметник після дієслова враження.",
+            "accepted_target_texts": [
+                "His answer seems strange.",
+                "His answer seems odd."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "odd."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "odd."
+                ]
+            },
+            "reorder_groups": [
+                "His answer",
+                "seems",
+                "strange."
+            ],
+            "token_groups": [
+                "His answer",
+                "seems",
+                "strange."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "His",
+                "answer",
+                "seems",
+                "strange."
+            ],
+            "options": [
+                "His",
+                "Our",
+                "Their",
+                "Mine",
+                "answer",
+                "report",
+                "team",
+                "narrator",
+                "seems",
+                "speaks",
+                "is",
+                "was",
+                "strange",
+                "plausible",
+                "coherent",
+                "bright"
+            ],
+            "source_text_uk": "Його відповідь здається дивною.",
+            "options_by_marker": {
+                "a1": [
+                    "His",
+                    "Our",
+                    "Their",
+                    "Mine"
+                ],
+                "a2": [
+                    "answer",
+                    "report",
+                    "team",
+                    "narrator"
+                ],
+                "a3": [
+                    "seems",
+                    "speaks",
+                    "is",
+                    "was"
+                ],
+                "a4": [
+                    "strange",
+                    "plausible",
+                    "coherent",
+                    "bright"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "aaq-adverbs-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Стажери професійно розібралися зі скаргою.",
+            "level": "B1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Стажери професійно розібралися зі скаргою.",
+            "target_text": "The interns handled the complaint professionally.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Стажери належно опрацювали скаргу: минула дія; назву працівників можна передати як стажери або практиканти.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "interns",
+                    "verb_hint": "Стажери належно опрацювали скаргу: минула дія; назву працівників можна передати як стажери або практиканти.",
+                    "options": [
+                        "interns",
+                        "seems",
+                        "looks",
+                        "cats"
+                    ]
+                },
+                "a3": {
+                    "answer": "handled",
+                    "verb_hint": "Стажери належно опрацювали скаргу: минула дія; назву працівників можна передати як стажери або практиканти.",
+                    "options": [
+                        "handled",
+                        "grew",
+                        "became",
+                        "reacted"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Стажери належно опрацювали скаргу: минула дія; назву працівників можна передати як стажери або практиканти.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a5": {
+                    "answer": "complaint",
+                    "verb_hint": "Стажери належно опрацювали скаргу: минула дія; назву працівників можна передати як стажери або практиканти.",
+                    "options": [
+                        "complaint",
+                        "proposal",
+                        "patient",
+                        "report"
+                    ]
+                },
+                "a6": {
+                    "answer": "professionally.",
+                    "verb_hint": "Стажери належно опрацювали скаргу: минула дія; назву працівників можна передати як стажери або практиканти.",
+                    "options": [
+                        "professionally",
+                        "confidently",
+                        "persuasively",
+                        "cautiously"
+                    ]
+                }
+            },
+            "verb_hint": "Стажери належно опрацювали скаргу: минула дія; назву працівників можна передати як стажери або практиканти.",
+            "accepted_target_texts": [
+                "The interns handled the complaint professionally.",
+                "The trainees handled the complaint professionally."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "trainees"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "trainees"
+                ]
+            },
+            "reorder_groups": [
+                "The interns",
+                "handled",
+                "the complaint",
+                "professionally."
+            ],
+            "token_groups": [
+                "The interns",
+                "handled",
+                "the complaint",
+                "professionally."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "interns",
+                "handled",
+                "the",
+                "complaint",
+                "professionally."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "interns",
+                "seems",
+                "looks",
+                "cats",
+                "handled",
+                "grew",
+                "became",
+                "reacted",
+                "the",
+                "no",
+                "another",
+                "either",
+                "complaint",
+                "proposal",
+                "patient",
+                "report",
+                "professionally",
+                "confidently",
+                "persuasively",
+                "cautiously"
+            ],
+            "source_text_uk": "Стажери професійно розібралися зі скаргою.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "interns",
+                    "seems",
+                    "looks",
+                    "cats"
+                ],
+                "a3": [
+                    "handled",
+                    "grew",
+                    "became",
+                    "reacted"
+                ],
+                "a4": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a5": [
+                    "complaint",
+                    "proposal",
+                    "patient",
+                    "report"
+                ],
+                "a6": [
+                    "professionally",
+                    "confidently",
+                    "persuasively",
+                    "cautiously"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "aaq-adverbs-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Звіт здається незвично докладним.",
+            "level": "B1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Звіт здається незвично докладним.",
+            "target_text": "The report seems unusually detailed.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Звіт виглядає незвично докладним: теперішній стан, прислівник незвичного ступеня перед прикметником; приймаються два природні відповідники.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "report",
+                    "verb_hint": "Звіт виглядає незвично докладним: теперішній стан, прислівник незвичного ступеня перед прикметником; приймаються два природні відповідники.",
+                    "options": [
+                        "report",
+                        "card",
+                        "poster",
+                        "book"
+                    ]
+                },
+                "a3": {
+                    "answer": "seems",
+                    "verb_hint": "Звіт виглядає незвично докладним: теперішній стан, прислівник незвичного ступеня перед прикметником; приймаються два природні відповідники.",
+                    "options": [
+                        "seems",
+                        "remains",
+                        "is",
+                        "was"
+                    ]
+                },
+                "a4": {
+                    "answer": "unusually",
+                    "verb_hint": "Звіт виглядає незвично докладним: теперішній стан, прислівник незвичного ступеня перед прикметником; приймаються два природні відповідники.",
+                    "options": [
+                        "unusually",
+                        "persuasively",
+                        "cautiously",
+                        "efficiently"
+                    ]
+                },
+                "a5": {
+                    "answer": "detailed.",
+                    "verb_hint": "Звіт виглядає незвично докладним: теперішній стан, прислівник незвичного ступеня перед прикметником; приймаються два природні відповідники.",
+                    "options": [
+                        "detailed",
+                        "quiet",
+                        "warm",
+                        "busy"
+                    ]
+                }
+            },
+            "verb_hint": "Звіт виглядає незвично докладним: теперішній стан, прислівник незвичного ступеня перед прикметником; приймаються два природні відповідники.",
+            "accepted_target_texts": [
+                "The report seems unusually detailed.",
+                "The report seems uncommonly detailed."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "uncommonly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "uncommonly"
+                ]
+            },
+            "reorder_groups": [
+                "The report",
+                "seems",
+                "unusually",
+                "detailed."
+            ],
+            "token_groups": [
+                "The report",
+                "seems",
+                "unusually",
+                "detailed."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "report",
+                "seems",
+                "unusually",
+                "detailed."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "report",
+                "card",
+                "poster",
+                "book",
+                "seems",
+                "remains",
+                "is",
+                "was",
+                "unusually",
+                "persuasively",
+                "cautiously",
+                "efficiently",
+                "detailed",
+                "quiet",
+                "warm",
+                "busy"
+            ],
+            "source_text_uk": "Звіт здається незвично докладним.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "report",
+                    "card",
+                    "poster",
+                    "book"
+                ],
+                "a3": [
+                    "seems",
+                    "remains",
+                    "is",
+                    "was"
+                ],
+                "a4": [
+                    "unusually",
+                    "persuasively",
+                    "cautiously",
+                    "efficiently"
+                ],
+                "a5": [
+                    "detailed",
+                    "quiet",
+                    "warm",
+                    "busy"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adverb",
+                "a5": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "aaq-adverbs-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Новий дизайн виглядає справді сучасним.",
+            "level": "B1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Новий дизайн виглядає справді сучасним.",
+            "target_text": "The new design looks genuinely modern.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Новий дизайн має справді сучасний вигляд: прислівник щирої оцінки перед прикметником; справді також можна передати як дійсно.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "new",
+                    "verb_hint": "Новий дизайн має справді сучасний вигляд: прислівник щирої оцінки перед прикметником; справді також можна передати як дійсно.",
+                    "options": [
+                        "new",
+                        "detailed",
+                        "friendly",
+                        "lovely"
+                    ]
+                },
+                "a3": {
+                    "answer": "design",
+                    "verb_hint": "Новий дизайн має справді сучасний вигляд: прислівник щирої оцінки перед прикметником; справді також можна передати як дійсно.",
+                    "options": [
+                        "design",
+                        "complaint",
+                        "music",
+                        "food"
+                    ]
+                },
+                "a4": {
+                    "answer": "looks",
+                    "verb_hint": "Новий дизайн має справді сучасний вигляд: прислівник щирої оцінки перед прикметником; справді також можна передати як дійсно.",
+                    "options": [
+                        "looks",
+                        "seems",
+                        "is",
+                        "was"
+                    ]
+                },
+                "a5": {
+                    "answer": "genuinely",
+                    "verb_hint": "Новий дизайн має справді сучасний вигляд: прислівник щирої оцінки перед прикметником; справді також можна передати як дійсно.",
+                    "options": [
+                        "genuinely",
+                        "rapidly",
+                        "brilliantly",
+                        "professionally"
+                    ]
+                },
+                "a6": {
+                    "answer": "modern.",
+                    "verb_hint": "Новий дизайн має справді сучасний вигляд: прислівник щирої оцінки перед прикметником; справді також можна передати як дійсно.",
+                    "options": [
+                        "modern",
+                        "rough",
+                        "right",
+                        "quiet"
+                    ]
+                }
+            },
+            "verb_hint": "Новий дизайн має справді сучасний вигляд: прислівник щирої оцінки перед прикметником; справді також можна передати як дійсно.",
+            "accepted_target_texts": [
+                "The new design looks genuinely modern.",
+                "The new design looks truly modern."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "truly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "truly"
+                ]
+            },
+            "reorder_groups": [
+                "The new design",
+                "looks",
+                "genuinely",
+                "modern."
+            ],
+            "token_groups": [
+                "The new design",
+                "looks",
+                "genuinely",
+                "modern."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "new",
+                "design",
+                "looks",
+                "genuinely",
+                "modern."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "new",
+                "detailed",
+                "friendly",
+                "lovely",
+                "design",
+                "complaint",
+                "music",
+                "food",
+                "looks",
+                "seems",
+                "is",
+                "was",
+                "genuinely",
+                "rapidly",
+                "brilliantly",
+                "professionally",
+                "modern",
+                "rough",
+                "right",
+                "quiet"
+            ],
+            "source_text_uk": "Новий дизайн виглядає справді сучасним.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "new",
+                    "detailed",
+                    "friendly",
+                    "lovely"
+                ],
+                "a3": [
+                    "design",
+                    "complaint",
+                    "music",
+                    "food"
+                ],
+                "a4": [
+                    "looks",
+                    "seems",
+                    "is",
+                    "was"
+                ],
+                "a5": [
+                    "genuinely",
+                    "rapidly",
+                    "brilliantly",
+                    "professionally"
+                ],
+                "a6": [
+                    "modern",
+                    "rough",
+                    "right",
+                    "quiet"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb",
+                "a5": "adverb",
+                "a6": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "aaq-adverbs-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Команда блискуче виступила під тиском.",
+            "level": "B2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Команда блискуче виступила під тиском.",
+            "target_text": "The team performed brilliantly under pressure.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Команда чудово впоралася в напружених умовах: минула дія, прислівник високої оцінки; блискуче можна передати як чудово.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "team",
+                    "verb_hint": "Команда чудово впоралася в напружених умовах: минула дія, прислівник високої оцінки; блискуче можна передати як чудово.",
+                    "options": [
+                        "team",
+                        "machine",
+                        "report",
+                        "institution"
+                    ]
+                },
+                "a3": {
+                    "answer": "performed",
+                    "verb_hint": "Команда чудово впоралася в напружених умовах: минула дія, прислівник високої оцінки; блискуче можна передати як чудово.",
+                    "options": [
+                        "performed",
+                        "reacted",
+                        "responded",
+                        "handled"
+                    ]
+                },
+                "a4": {
+                    "answer": "brilliantly",
+                    "verb_hint": "Команда чудово впоралася в напружених умовах: минула дія, прислівник високої оцінки; блискуче можна передати як чудово.",
+                    "options": [
+                        "brilliantly",
+                        "rapidly",
+                        "genuinely",
+                        "surprisingly"
+                    ]
+                },
+                "a5": {
+                    "answer": "under",
+                    "verb_hint": "Команда чудово впоралася в напружених умовах: минула дія, прислівник високої оцінки; блискуче можна передати як чудово.",
+                    "options": [
+                        "under",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a6": {
+                    "answer": "pressure.",
+                    "verb_hint": "Команда чудово впоралася в напружених умовах: минула дія, прислівник високої оцінки; блискуче можна передати як чудово.",
+                    "options": [
+                        "pressure",
+                        "day",
+                        "heat",
+                        "time"
+                    ]
+                }
+            },
+            "verb_hint": "Команда чудово впоралася в напружених умовах: минула дія, прислівник високої оцінки; блискуче можна передати як чудово.",
+            "accepted_target_texts": [
+                "The team performed brilliantly under pressure.",
+                "The team performed superbly under pressure."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "superbly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "superbly"
+                ]
+            },
+            "reorder_groups": [
+                "The team",
+                "performed",
+                "brilliantly",
+                "under pressure."
+            ],
+            "token_groups": [
+                "The team",
+                "performed",
+                "brilliantly",
+                "under pressure."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "team",
+                "performed",
+                "brilliantly",
+                "under",
+                "pressure."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "team",
+                "machine",
+                "report",
+                "institution",
+                "performed",
+                "reacted",
+                "responded",
+                "handled",
+                "brilliantly",
+                "rapidly",
+                "genuinely",
+                "surprisingly",
+                "under",
+                "among",
+                "about",
+                "during",
+                "pressure",
+                "day",
+                "heat",
+                "time"
+            ],
+            "source_text_uk": "Команда блискуче виступила під тиском.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "team",
+                    "machine",
+                    "report",
+                    "institution"
+                ],
+                "a3": [
+                    "performed",
+                    "reacted",
+                    "responded",
+                    "handled"
+                ],
+                "a4": [
+                    "brilliantly",
+                    "rapidly",
+                    "genuinely",
+                    "surprisingly"
+                ],
+                "a5": [
+                    "under",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a6": [
+                    "pressure",
+                    "day",
+                    "heat",
+                    "time"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adverb",
+                "a5": "adjunct",
+                "a6": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "aaq-adverbs-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Тканина на дотик напрочуд груба.",
+            "level": "B2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Тканина на дотик напрочуд груба.",
+            "target_text": "The fabric feels surprisingly rough.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Тканина відчувається несподівано шорсткою: після дієслова дотику потрібна ознака; тканину також можна назвати матеріалом.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "fabric",
+                    "verb_hint": "Тканина відчувається несподівано шорсткою: після дієслова дотику потрібна ознака; тканину також можна назвати матеріалом.",
+                    "options": [
+                        "fabric",
+                        "light",
+                        "clean",
+                        "dirty"
+                    ]
+                },
+                "a3": {
+                    "answer": "feels",
+                    "verb_hint": "Тканина відчувається несподівано шорсткою: після дієслова дотику потрібна ознака; тканину також можна назвати матеріалом.",
+                    "options": [
+                        "feels",
+                        "speaks",
+                        "was",
+                        "is"
+                    ]
+                },
+                "a4": {
+                    "answer": "surprisingly",
+                    "verb_hint": "Тканина відчувається несподівано шорсткою: після дієслова дотику потрібна ознака; тканину також можна назвати матеріалом.",
+                    "options": [
+                        "surprisingly",
+                        "persuasively",
+                        "cautiously",
+                        "efficiently"
+                    ]
+                },
+                "a5": {
+                    "answer": "rough.",
+                    "verb_hint": "Тканина відчувається несподівано шорсткою: після дієслова дотику потрібна ознака; тканину також можна назвати матеріалом.",
+                    "options": [
+                        "rough",
+                        "right",
+                        "unstable",
+                        "silent"
+                    ]
+                }
+            },
+            "verb_hint": "Тканина відчувається несподівано шорсткою: після дієслова дотику потрібна ознака; тканину також можна назвати матеріалом.",
+            "accepted_target_texts": [
+                "The fabric feels surprisingly rough.",
+                "The material feels surprisingly rough."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "material"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "material"
+                ]
+            },
+            "reorder_groups": [
+                "The fabric",
+                "feels",
+                "surprisingly",
+                "rough."
+            ],
+            "token_groups": [
+                "The fabric",
+                "feels",
+                "surprisingly",
+                "rough."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "fabric",
+                "feels",
+                "surprisingly",
+                "rough."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "fabric",
+                "light",
+                "clean",
+                "dirty",
+                "feels",
+                "speaks",
+                "was",
+                "is",
+                "surprisingly",
+                "persuasively",
+                "cautiously",
+                "efficiently",
+                "rough",
+                "right",
+                "unstable",
+                "silent"
+            ],
+            "source_text_uk": "Тканина на дотик напрочуд груба.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "fabric",
+                    "light",
+                    "clean",
+                    "dirty"
+                ],
+                "a3": [
+                    "feels",
+                    "speaks",
+                    "was",
+                    "is"
+                ],
+                "a4": [
+                    "surprisingly",
+                    "persuasively",
+                    "cautiously",
+                    "efficiently"
+                ],
+                "a5": [
+                    "rough",
+                    "right",
+                    "unstable",
+                    "silent"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adverb",
+                "a5": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "aaq-adverbs-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Службову записку ретельно сформулювали, щоб уникнути звинувачень.",
+            "level": "B2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Службову записку ретельно сформулювали, щоб уникнути звинувачень.",
+            "target_text": "The memo was carefully worded to avoid blame.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Записку обережно сформулювали задля уникнення вини: пасивний минулий стан; ретельно також можна передати як обачно.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "memo",
+                    "verb_hint": "Записку обережно сформулювали задля уникнення вини: пасивний минулий стан; ретельно також можна передати як обачно.",
+                    "options": [
+                        "memo",
+                        "committee",
+                        "machine",
+                        "report"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Записку обережно сформулювали задля уникнення вини: пасивний минулий стан; ретельно також можна передати як обачно.",
+                    "options": [
+                        "was",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "carefully",
+                    "verb_hint": "Записку обережно сформулювали задля уникнення вини: пасивний минулий стан; ретельно також можна передати як обачно.",
+                    "options": [
+                        "carefully",
+                        "politely",
+                        "calmly",
+                        "steadily"
+                    ]
+                },
+                "a5": {
+                    "answer": "worded",
+                    "verb_hint": "Записку обережно сформулювали задля уникнення вини: пасивний минулий стан; ретельно також можна передати як обачно.",
+                    "options": [
+                        "worded",
+                        "grew",
+                        "became",
+                        "reacted"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Записку обережно сформулювали задля уникнення вини: пасивний минулий стан; ретельно також можна передати як обачно.",
+                    "options": [
+                        "to",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a7": {
+                    "answer": "avoid",
+                    "verb_hint": "Записку обережно сформулювали задля уникнення вини: пасивний минулий стан; ретельно також можна передати як обачно.",
+                    "options": [
+                        "avoid",
+                        "her",
+                        "six",
+                        "team"
+                    ]
+                },
+                "a8": {
+                    "answer": "blame.",
+                    "verb_hint": "Записку обережно сформулювали задля уникнення вини: пасивний минулий стан; ретельно також можна передати як обачно.",
+                    "options": [
+                        "blame",
+                        "stage",
+                        "map",
+                        "storm"
+                    ]
+                }
+            },
+            "verb_hint": "Записку обережно сформулювали задля уникнення вини: пасивний минулий стан; ретельно також можна передати як обачно.",
+            "accepted_target_texts": [
+                "The memo was carefully worded to avoid blame.",
+                "The memo was cautiously worded to avoid blame."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "cautiously"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "cautiously"
+                ]
+            },
+            "reorder_groups": [
+                "The memo",
+                "was",
+                "carefully",
+                "worded",
+                "to avoid blame."
+            ],
+            "token_groups": [
+                "The memo",
+                "was",
+                "carefully",
+                "worded",
+                "to avoid blame."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "memo",
+                "was",
+                "carefully",
+                "worded",
+                "to",
+                "avoid",
+                "blame."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "memo",
+                "committee",
+                "machine",
+                "report",
+                "was",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "carefully",
+                "politely",
+                "calmly",
+                "steadily",
+                "worded",
+                "grew",
+                "became",
+                "reacted",
+                "to",
+                "over",
+                "under",
+                "through",
+                "avoid",
+                "her",
+                "six",
+                "team",
+                "blame",
+                "stage",
+                "map",
+                "storm"
+            ],
+            "source_text_uk": "Службову записку ретельно сформулювали, щоб уникнути звинувачень.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "memo",
+                    "committee",
+                    "machine",
+                    "report"
+                ],
+                "a3": [
+                    "was",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a4": [
+                    "carefully",
+                    "politely",
+                    "calmly",
+                    "steadily"
+                ],
+                "a5": [
+                    "worded",
+                    "grew",
+                    "became",
+                    "reacted"
+                ],
+                "a6": [
+                    "to",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a7": [
+                    "avoid",
+                    "her",
+                    "six",
+                    "team"
+                ],
+                "a8": [
+                    "blame",
+                    "stage",
+                    "map",
+                    "storm"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adverb",
+                "a5": "verb",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "aaq-adverbs-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Стаття оманливо проста.",
+            "level": "C1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Стаття оманливо проста.",
+            "target_text": "The article is deceptively simple.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Стаття лише здається простою: прислівник перед прикметником підкреслює хибне враження; проста також означає нескладна.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "article",
+                    "verb_hint": "Стаття лише здається простою: прислівник перед прикметником підкреслює хибне враження; проста також означає нескладна.",
+                    "options": [
+                        "article",
+                        "molecule",
+                        "institution",
+                        "author"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Стаття лише здається простою: прислівник перед прикметником підкреслює хибне враження; проста також означає нескладна.",
+                    "options": [
+                        "is",
+                        "am",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a4": {
+                    "answer": "deceptively",
+                    "verb_hint": "Стаття лише здається простою: прислівник перед прикметником підкреслює хибне враження; проста також означає нескладна.",
+                    "options": [
+                        "deceptively",
+                        "slowly",
+                        "clearly",
+                        "politely"
+                    ]
+                },
+                "a5": {
+                    "answer": "simple.",
+                    "verb_hint": "Стаття лише здається простою: прислівник перед прикметником підкреслює хибне враження; проста також означає нескладна.",
+                    "options": [
+                        "simple",
+                        "right",
+                        "composed",
+                        "efficient"
+                    ]
+                }
+            },
+            "verb_hint": "Стаття лише здається простою: прислівник перед прикметником підкреслює хибне враження; проста також означає нескладна.",
+            "accepted_target_texts": [
+                "The article is deceptively simple.",
+                "The article is deceptively straightforward."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "straightforward."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "straightforward."
+                ]
+            },
+            "reorder_groups": [
+                "The article",
+                "is",
+                "deceptively",
+                "simple."
+            ],
+            "token_groups": [
+                "The article",
+                "is",
+                "deceptively",
+                "simple."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "article",
+                "is",
+                "deceptively",
+                "simple."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "article",
+                "molecule",
+                "institution",
+                "author",
+                "is",
+                "am",
+                "are",
+                "was",
+                "deceptively",
+                "slowly",
+                "clearly",
+                "politely",
+                "simple",
+                "right",
+                "composed",
+                "efficient"
+            ],
+            "source_text_uk": "Стаття оманливо проста.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "article",
+                    "molecule",
+                    "institution",
+                    "author"
+                ],
+                "a3": [
+                    "is",
+                    "am",
+                    "are",
+                    "was"
+                ],
+                "a4": [
+                    "deceptively",
+                    "slowly",
+                    "clearly",
+                    "politely"
+                ],
+                "a5": [
+                    "simple",
+                    "right",
+                    "composed",
+                    "efficient"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adverb",
+                "a5": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "aaq-adverbs-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Учасники переговорів і далі мовчали, що особливо впадало в око.",
+            "level": "C1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Учасники переговорів і далі мовчали, що особливо впадало в око.",
+            "target_text": "The negotiators remained conspicuously silent.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Переговорники продовжували мовчати, і це особливо впадало в око: минулий стан, прислівник перед ознакою; приймається й помітно, без припущення про навмисність.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "negotiators",
+                    "verb_hint": "Переговорники продовжували мовчати, і це особливо впадало в око: минулий стан, прислівник перед ознакою; приймається й помітно, без припущення про навмисність.",
+                    "options": [
+                        "negotiators",
+                        "women",
+                        "bikes",
+                        "cars"
+                    ]
+                },
+                "a3": {
+                    "answer": "remained",
+                    "verb_hint": "Переговорники продовжували мовчати, і це особливо впадало в око: минулий стан, прислівник перед ознакою; приймається й помітно, без припущення про навмисність.",
+                    "options": [
+                        "remained",
+                        "became",
+                        "reacted",
+                        "performed"
+                    ]
+                },
+                "a4": {
+                    "answer": "conspicuously",
+                    "verb_hint": "Переговорники продовжували мовчати, і це особливо впадало в око: минулий стан, прислівник перед ознакою; приймається й помітно, без припущення про навмисність.",
+                    "options": [
+                        "conspicuously",
+                        "politely",
+                        "calmly",
+                        "steadily"
+                    ]
+                },
+                "a5": {
+                    "answer": "silent.",
+                    "verb_hint": "Переговорники продовжували мовчати, і це особливо впадало в око: минулий стан, прислівник перед ознакою; приймається й помітно, без припущення про навмисність.",
+                    "options": [
+                        "silent",
+                        "modern",
+                        "detailed",
+                        "rough"
+                    ]
+                }
+            },
+            "verb_hint": "Переговорники продовжували мовчати, і це особливо впадало в око: минулий стан, прислівник перед ознакою; приймається й помітно, без припущення про навмисність.",
+            "accepted_target_texts": [
+                "The negotiators remained conspicuously silent.",
+                "The negotiators remained noticeably silent."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "noticeably"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "noticeably"
+                ]
+            },
+            "reorder_groups": [
+                "The negotiators",
+                "remained",
+                "conspicuously",
+                "silent."
+            ],
+            "token_groups": [
+                "The negotiators",
+                "remained",
+                "conspicuously",
+                "silent."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "negotiators",
+                "remained",
+                "conspicuously",
+                "silent."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "negotiators",
+                "women",
+                "bikes",
+                "cars",
+                "remained",
+                "became",
+                "reacted",
+                "performed",
+                "conspicuously",
+                "politely",
+                "calmly",
+                "steadily",
+                "silent",
+                "modern",
+                "detailed",
+                "rough"
+            ],
+            "source_text_uk": "Учасники переговорів і далі мовчали, що особливо впадало в око.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "negotiators",
+                    "women",
+                    "bikes",
+                    "cars"
+                ],
+                "a3": [
+                    "remained",
+                    "became",
+                    "reacted",
+                    "performed"
+                ],
+                "a4": [
+                    "conspicuously",
+                    "politely",
+                    "calmly",
+                    "steadily"
+                ],
+                "a5": [
+                    "silent",
+                    "modern",
+                    "detailed",
+                    "rough"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adverb",
+                "a5": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "aaq-adverbs-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Молекула хімічно нестійка під дією тепла.",
+            "level": "C1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Молекула хімічно нестійка під дією тепла.",
+            "target_text": "The molecule is chemically unstable under heat.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Хімічна нестійкість молекули під нагріванням: стан описано прикметником; під дією тепла також можна передати як коли нагрівають.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "molecule",
+                    "verb_hint": "Хімічна нестійкість молекули під нагріванням: стан описано прикметником; під дією тепла також можна передати як коли нагрівають.",
+                    "options": [
+                        "molecule",
+                        "author",
+                        "witness",
+                        "machine"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Хімічна нестійкість молекули під нагріванням: стан описано прикметником; під дією тепла також можна передати як коли нагрівають.",
+                    "options": [
+                        "is",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "chemically",
+                    "verb_hint": "Хімічна нестійкість молекули під нагріванням: стан описано прикметником; під дією тепла також можна передати як коли нагрівають.",
+                    "options": [
+                        "chemically",
+                        "efficiently",
+                        "professionally",
+                        "rapidly"
+                    ]
+                },
+                "a5": {
+                    "answer": "unstable",
+                    "verb_hint": "Хімічна нестійкість молекули під нагріванням: стан описано прикметником; під дією тепла також можна передати як коли нагрівають.",
+                    "options": [
+                        "unstable",
+                        "silent",
+                        "coherent",
+                        "quiet"
+                    ]
+                },
+                "a6": {
+                    "answer": "under",
+                    "verb_hint": "Хімічна нестійкість молекули під нагріванням: стан описано прикметником; під дією тепла також можна передати як коли нагрівають.",
+                    "options": [
+                        "under",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a7": {
+                    "answer": "heat.",
+                    "verb_hint": "Хімічна нестійкість молекули під нагріванням: стан описано прикметником; під дією тепла також можна передати як коли нагрівають.",
+                    "options": [
+                        "heat",
+                        "day",
+                        "pressure",
+                        "time"
+                    ]
+                }
+            },
+            "verb_hint": "Хімічна нестійкість молекули під нагріванням: стан описано прикметником; під дією тепла також можна передати як коли нагрівають.",
+            "accepted_target_texts": [
+                "The molecule is chemically unstable under heat.",
+                "The molecule is chemically unstable when heated."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "when"
+                ],
+                "a7": [
+                    "heated."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "when"
+                ],
+                "a7": [
+                    "heated."
+                ]
+            },
+            "reorder_groups": [
+                "The molecule",
+                "is",
+                "chemically",
+                "unstable",
+                "under heat."
+            ],
+            "token_groups": [
+                "The molecule",
+                "is",
+                "chemically",
+                "unstable",
+                "under heat."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "molecule",
+                "is",
+                "chemically",
+                "unstable",
+                "under",
+                "heat."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "molecule",
+                "author",
+                "witness",
+                "machine",
+                "is",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "chemically",
+                "efficiently",
+                "professionally",
+                "rapidly",
+                "unstable",
+                "silent",
+                "coherent",
+                "quiet",
+                "under",
+                "to",
+                "from",
+                "for",
+                "heat",
+                "day",
+                "pressure",
+                "time"
+            ],
+            "source_text_uk": "Молекула хімічно нестійка під дією тепла.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "molecule",
+                    "author",
+                    "witness",
+                    "machine"
+                ],
+                "a3": [
+                    "is",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a4": [
+                    "chemically",
+                    "efficiently",
+                    "professionally",
+                    "rapidly"
+                ],
+                "a5": [
+                    "unstable",
+                    "silent",
+                    "coherent",
+                    "quiet"
+                ],
+                "a6": [
+                    "under",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a7": [
+                    "heat",
+                    "day",
+                    "pressure",
+                    "time"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adverb",
+                "a5": "adjective",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "aaq-adverbs-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Стаття аргументує переконливо, але не остаточно.",
+            "level": "C2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Стаття аргументує переконливо, але не остаточно.",
+            "target_text": "The paper argues persuasively but not conclusively.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Академічна стаття переконливо доводить думку, та не ставить остаточної крапки; переконливо також передається іншим природним прислівником.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "paper",
+                    "verb_hint": "Академічна стаття переконливо доводить думку, та не ставить остаточної крапки; переконливо також передається іншим природним прислівником.",
+                    "options": [
+                        "paper",
+                        "committee",
+                        "machine",
+                        "report"
+                    ]
+                },
+                "a3": {
+                    "answer": "argues",
+                    "verb_hint": "Академічна стаття переконливо доводить думку, та не ставить остаточної крапки; переконливо також передається іншим природним прислівником.",
+                    "options": [
+                        "argues",
+                        "remains",
+                        "speaks",
+                        "is"
+                    ]
+                },
+                "a4": {
+                    "answer": "persuasively",
+                    "verb_hint": "Академічна стаття переконливо доводить думку, та не ставить остаточної крапки; переконливо також передається іншим природним прислівником.",
+                    "options": [
+                        "persuasively",
+                        "administratively",
+                        "genuinely",
+                        "quietly"
+                    ]
+                },
+                "a5": {
+                    "answer": "but",
+                    "verb_hint": "Академічна стаття переконливо доводить думку, та не ставить остаточної крапки; переконливо також передається іншим природним прислівником.",
+                    "options": [
+                        "but",
+                        "nor",
+                        "so",
+                        "yet"
+                    ]
+                },
+                "a6": {
+                    "answer": "not",
+                    "verb_hint": "Академічна стаття переконливо доводить думку, та не ставить остаточної крапки; переконливо також передається іншим природним прислівником.",
+                    "options": [
+                        "not",
+                        "only",
+                        "even",
+                        "almost"
+                    ]
+                },
+                "a7": {
+                    "answer": "conclusively.",
+                    "verb_hint": "Академічна стаття переконливо доводить думку, та не ставить остаточної крапки; переконливо також передається іншим природним прислівником.",
+                    "options": [
+                        "conclusively",
+                        "steadily",
+                        "confidently",
+                        "cautiously"
+                    ]
+                }
+            },
+            "verb_hint": "Академічна стаття переконливо доводить думку, та не ставить остаточної крапки; переконливо також передається іншим природним прислівником.",
+            "accepted_target_texts": [
+                "The paper argues persuasively but not conclusively.",
+                "The paper argues convincingly but not conclusively."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "convincingly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "convincingly"
+                ]
+            },
+            "reorder_groups": [
+                "The paper",
+                "argues",
+                "persuasively",
+                "but not",
+                "conclusively."
+            ],
+            "token_groups": [
+                "The paper",
+                "argues",
+                "persuasively",
+                "but not",
+                "conclusively."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "paper",
+                "argues",
+                "persuasively",
+                "but",
+                "not",
+                "conclusively."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "paper",
+                "committee",
+                "machine",
+                "report",
+                "argues",
+                "remains",
+                "speaks",
+                "is",
+                "persuasively",
+                "administratively",
+                "genuinely",
+                "quietly",
+                "but",
+                "nor",
+                "so",
+                "yet",
+                "not",
+                "only",
+                "even",
+                "almost",
+                "conclusively",
+                "steadily",
+                "confidently",
+                "cautiously"
+            ],
+            "source_text_uk": "Стаття аргументує переконливо, але не остаточно.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "paper",
+                    "committee",
+                    "machine",
+                    "report"
+                ],
+                "a3": [
+                    "argues",
+                    "remains",
+                    "speaks",
+                    "is"
+                ],
+                "a4": [
+                    "persuasively",
+                    "administratively",
+                    "genuinely",
+                    "quietly"
+                ],
+                "a5": [
+                    "but",
+                    "nor",
+                    "so",
+                    "yet"
+                ],
+                "a6": [
+                    "not",
+                    "only",
+                    "even",
+                    "almost"
+                ],
+                "a7": [
+                    "conclusively",
+                    "steadily",
+                    "confidently",
+                    "cautiously"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adverb",
+                "a5": "linker",
+                "a6": "linker",
+                "a7": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "aaq-adverbs-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Передумова філософськи послідовна.",
+            "level": "C2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Передумова філософськи послідовна.",
+            "target_text": "The premise is philosophically coherent.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передумова внутрішньо узгоджена у філософському сенсі: прислівник сфери перед ознакою; послідовна також означає несуперечлива.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "premise",
+                    "verb_hint": "Передумова внутрішньо узгоджена у філософському сенсі: прислівник сфери перед ознакою; послідовна також означає несуперечлива.",
+                    "options": [
+                        "premise",
+                        "witness",
+                        "committee",
+                        "report"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Передумова внутрішньо узгоджена у філософському сенсі: прислівник сфери перед ознакою; послідовна також означає несуперечлива.",
+                    "options": [
+                        "is",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a4": {
+                    "answer": "philosophically",
+                    "verb_hint": "Передумова внутрішньо узгоджена у філософському сенсі: прислівник сфери перед ознакою; послідовна також означає несуперечлива.",
+                    "options": [
+                        "philosophically",
+                        "confidently",
+                        "cautiously",
+                        "efficiently"
+                    ]
+                },
+                "a5": {
+                    "answer": "coherent.",
+                    "verb_hint": "Передумова внутрішньо узгоджена у філософському сенсі: прислівник сфери перед ознакою; послідовна також означає несуперечлива.",
+                    "options": [
+                        "coherent",
+                        "sleepy",
+                        "bright",
+                        "busy"
+                    ]
+                }
+            },
+            "verb_hint": "Передумова внутрішньо узгоджена у філософському сенсі: прислівник сфери перед ознакою; послідовна також означає несуперечлива.",
+            "accepted_target_texts": [
+                "The premise is philosophically coherent.",
+                "The premise is philosophically consistent."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "consistent."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "consistent."
+                ]
+            },
+            "reorder_groups": [
+                "The premise",
+                "is",
+                "philosophically",
+                "coherent."
+            ],
+            "token_groups": [
+                "The premise",
+                "is",
+                "philosophically",
+                "coherent."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "premise",
+                "is",
+                "philosophically",
+                "coherent."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "premise",
+                "witness",
+                "committee",
+                "report",
+                "is",
+                "wasn't",
+                "weren't",
+                "am",
+                "philosophically",
+                "confidently",
+                "cautiously",
+                "efficiently",
+                "coherent",
+                "sleepy",
+                "bright",
+                "busy"
+            ],
+            "source_text_uk": "Передумова філософськи послідовна.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "premise",
+                    "witness",
+                    "committee",
+                    "report"
+                ],
+                "a3": [
+                    "is",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a4": [
+                    "philosophically",
+                    "confidently",
+                    "cautiously",
+                    "efficiently"
+                ],
+                "a5": [
+                    "coherent",
+                    "sleepy",
+                    "bright",
+                    "busy"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adverb",
+                "a5": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "aaq-adverbs-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Установа адміністративно ефективна, але культурно вразлива.",
+            "level": "C2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_adverbs",
+            "translation_uk": "Установа адміністративно ефективна, але культурно вразлива.",
+            "target_text": "The institution is administratively efficient but culturally fragile.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Ефективне адміністрування протиставлене культурній вразливості установи; вразлива також можна передати як незахищена.",
+                    "options": [
+                        "The",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "institution",
+                    "verb_hint": "Ефективне адміністрування протиставлене культурній вразливості установи; вразлива також можна передати як незахищена.",
+                    "options": [
+                        "institution",
+                        "paper",
+                        "author",
+                        "witness"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Ефективне адміністрування протиставлене культурній вразливості установи; вразлива також можна передати як незахищена.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a4": {
+                    "answer": "administratively",
+                    "verb_hint": "Ефективне адміністрування протиставлене культурній вразливості установи; вразлива також можна передати як незахищена.",
+                    "options": [
+                        "administratively",
+                        "slowly",
+                        "carefully",
+                        "clearly"
+                    ]
+                },
+                "a5": {
+                    "answer": "efficient",
+                    "verb_hint": "Ефективне адміністрування протиставлене культурній вразливості установи; вразлива також можна передати як незахищена.",
+                    "options": [
+                        "efficient",
+                        "quiet",
+                        "warm",
+                        "sleepy"
+                    ]
+                },
+                "a6": {
+                    "answer": "but",
+                    "verb_hint": "Ефективне адміністрування протиставлене культурній вразливості установи; вразлива також можна передати як незахищена.",
+                    "options": [
+                        "but",
+                        "although",
+                        "though",
+                        "unless"
+                    ]
+                },
+                "a7": {
+                    "answer": "culturally",
+                    "verb_hint": "Ефективне адміністрування протиставлене культурній вразливості установи; вразлива також можна передати як незахищена.",
+                    "options": [
+                        "culturally",
+                        "persuasively",
+                        "conclusively",
+                        "philosophically"
+                    ]
+                },
+                "a8": {
+                    "answer": "fragile.",
+                    "verb_hint": "Ефективне адміністрування протиставлене культурній вразливості установи; вразлива також можна передати як незахищена.",
+                    "options": [
+                        "fragile",
+                        "bright",
+                        "busy",
+                        "weak"
+                    ]
+                }
+            },
+            "verb_hint": "Ефективне адміністрування протиставлене культурній вразливості установи; вразлива також можна передати як незахищена.",
+            "accepted_target_texts": [
+                "The institution is administratively efficient but culturally fragile.",
+                "The institution is administratively efficient but culturally vulnerable."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "vulnerable."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "vulnerable."
+                ]
+            },
+            "reorder_groups": [
+                "The institution",
+                "is",
+                "administratively",
+                "efficient",
+                "but culturally",
+                "fragile."
+            ],
+            "token_groups": [
+                "The institution",
+                "is",
+                "administratively",
+                "efficient",
+                "but culturally",
+                "fragile."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "institution",
+                "is",
+                "administratively",
+                "efficient",
+                "but",
+                "culturally",
+                "fragile."
+            ],
+            "options": [
+                "The",
+                "This",
+                "That",
+                "These",
+                "institution",
+                "paper",
+                "author",
+                "witness",
+                "is",
+                "are",
+                "was",
+                "were",
+                "administratively",
+                "slowly",
+                "carefully",
+                "clearly",
+                "efficient",
+                "quiet",
+                "warm",
+                "sleepy",
+                "but",
+                "although",
+                "though",
+                "unless",
+                "culturally",
+                "persuasively",
+                "conclusively",
+                "philosophically",
+                "fragile",
+                "bright",
+                "busy",
+                "weak"
+            ],
+            "source_text_uk": "Установа адміністративно ефективна, але культурно вразлива.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "institution",
+                    "paper",
+                    "author",
+                    "witness"
+                ],
+                "a3": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a4": [
+                    "administratively",
+                    "slowly",
+                    "carefully",
+                    "clearly"
+                ],
+                "a5": [
+                    "efficient",
+                    "quiet",
+                    "warm",
+                    "sleepy"
+                ],
+                "a6": [
+                    "but",
+                    "although",
+                    "though",
+                    "unless"
+                ],
+                "a7": [
+                    "culturally",
+                    "persuasively",
+                    "conclusively",
+                    "philosophically"
+                ],
+                "a8": [
+                    "fragile",
+                    "bright",
+                    "busy",
+                    "weak"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adverb",
+                "a5": "adjective",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjective"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Database\Seeders\Page_V3\FutureForms\FutureFormsCategorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FutureSimple\FutureSimpleCategorySeeder;
 use Database\Seeders\Page_V3\FutureForms\FutureSimple\FutureSimpleFormsTheorySeeder;
+use Illuminate\Support\Facades\File;
 use Tests\Support\RebuildsComposeTestSchema;
 use Tests\TestCase;
 
@@ -48,13 +49,25 @@ class TheoryCanonicalLessonUrlTest extends TestCase
 
     public function test_mobile_navigation_tree_is_loaded_on_demand(): void
     {
+        $menuPath = storage_path('framework/testing/theory-menu-url-'.bin2hex(random_bytes(8)));
+        config(['app.url' => 'http://gramlyze.loc', 'theory-menu.path' => $menuPath]);
+        try {
+            $this->artisan('theory:menu-build', ['--locale' => 'uk'])->assertSuccessful();
+            $this->checkMobileNavigationTree();
+        } finally {
+            File::deleteDirectory($menuPath);
+        }
+    }
+
+    private function checkMobileNavigationTree(): void
+    {
         $page = \App\Models\Page::query()->where('slug', 'future-simple-forms')->firstOrFail();
         $category = $page->category;
         $lessonUrl = '/theory/maibutni-formy/future-simple/future-simple-forms';
 
         $initialHtml = $this->get($lessonUrl)->assertOk()->getContent();
 
-        $this->assertSame(0, substr_count($initialHtml, 'id="theory-sidebar-search-desktop"'));
+        $this->assertSame(1, substr_count($initialHtml, 'id="theory-sidebar-search-desktop"'));
         $this->assertSame(0, substr_count($initialHtml, 'id="theory-sidebar-search-mobile"'));
 
         $this->get('/theory/navigation?category='.$category->id.'&page='.$page->id)

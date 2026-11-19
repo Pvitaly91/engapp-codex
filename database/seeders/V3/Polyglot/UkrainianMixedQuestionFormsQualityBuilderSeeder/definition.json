@@ -1,0 +1,3140 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/question-forms.v1.json",
+        "sha256": "69aa3e249af2be9261baee00e727df69e18eb28cb3e85a3446f2fd38c7993135"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedQuestionFormsQualityBuilderSeeder",
+        "uuid_namespace": "questions-negations-quality-question-forms-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "questions_negations_quality_question_forms": {
+            "name": "Questions and Negations Quality: Question Forms"
+        }
+    },
+    "tags": {
+        "polyglot_question_forms": {
+            "name": "Question Forms",
+            "category": "questions_negations"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "general_structure": {
+            "name": "General Structure",
+            "category": "topic"
+        },
+        "auxiliary_before_subject": {
+            "name": "Auxiliary Before Subject",
+            "category": "topic"
+        },
+        "yes_no_questions": {
+            "name": "Yes No Questions",
+            "category": "topic"
+        },
+        "wh_questions": {
+            "name": "Wh Questions",
+            "category": "topic"
+        },
+        "do_does_did": {
+            "name": "Do Does Did",
+            "category": "topic"
+        },
+        "to_be_questions": {
+            "name": "To Be Questions",
+            "category": "topic"
+        },
+        "modal_questions": {
+            "name": "Modal Questions",
+            "category": "topic"
+        },
+        "perfect_auxiliary_questions": {
+            "name": "Perfect Auxiliary Questions",
+            "category": "topic"
+        },
+        "question_word_order": {
+            "name": "Question Word Order",
+            "category": "topic"
+        },
+        "subject_questions_overview": {
+            "name": "Subject Questions Overview",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_question_forms",
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-question-forms-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Чи можеш ти відчинити хвіртку?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Чи можеш ти відчинити хвіртку?",
+            "target_text": "Can you open the gate?",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "verb_hint": "Запитай про можливість виконати прохання; почни з модального дієслова.",
+                    "options": [
+                        "Can",
+                        "Can't",
+                        "Couldn't",
+                        "Won't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Запитай про можливість виконати прохання; почни з модального дієслова.",
+                    "options": [
+                        "you",
+                        "us",
+                        "them",
+                        "myself"
+                    ]
+                },
+                "a3": {
+                    "answer": "open",
+                    "verb_hint": "Запитай про можливість виконати прохання; почни з модального дієслова.",
+                    "options": [
+                        "open",
+                        "watched",
+                        "visited",
+                        "cooked"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про можливість виконати прохання; почни з модального дієслова.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a5": {
+                    "answer": "gate?",
+                    "verb_hint": "Запитай про можливість виконати прохання; почни з модального дієслова.",
+                    "options": [
+                        "gate",
+                        "evidence",
+                        "receipt",
+                        "form"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про можливість виконати прохання; почни з модального дієслова.",
+            "accepted_target_texts": [
+                "Can you open the gate?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Can",
+                "you",
+                "open the gate?"
+            ],
+            "token_groups": [
+                "Can",
+                "you",
+                "open the gate?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Can",
+                "you",
+                "open",
+                "the",
+                "gate?"
+            ],
+            "options": [
+                "Can",
+                "Can't",
+                "Couldn't",
+                "Won't",
+                "you",
+                "us",
+                "them",
+                "myself",
+                "open",
+                "watched",
+                "visited",
+                "cooked",
+                "the",
+                "these",
+                "those",
+                "each",
+                "gate",
+                "evidence",
+                "receipt",
+                "form"
+            ],
+            "source_text_uk": "Чи можеш ти відчинити хвіртку?",
+            "options_by_marker": {
+                "a1": [
+                    "Can",
+                    "Can't",
+                    "Couldn't",
+                    "Won't"
+                ],
+                "a2": [
+                    "you",
+                    "us",
+                    "them",
+                    "myself"
+                ],
+                "a3": [
+                    "open",
+                    "watched",
+                    "visited",
+                    "cooked"
+                ],
+                "a4": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a5": [
+                    "gate",
+                    "evidence",
+                    "receipt",
+                    "form"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "pronoun",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-question-forms-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Вона готова?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Вона готова?",
+            "target_text": "Is she ready?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "verb_hint": "Утвори коротке питання про стан однієї людини.",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Was",
+                        "Were"
+                    ]
+                },
+                "a2": {
+                    "answer": "she",
+                    "verb_hint": "Утвори коротке питання про стан однієї людини.",
+                    "options": [
+                        "she",
+                        "ourselves",
+                        "themselves",
+                        "I"
+                    ]
+                },
+                "a3": {
+                    "answer": "ready?",
+                    "verb_hint": "Утвори коротке питання про стан однієї людини.",
+                    "options": [
+                        "ready",
+                        "insignificant",
+                        "certain",
+                        "unusual"
+                    ]
+                }
+            },
+            "verb_hint": "Утвори коротке питання про стан однієї людини.",
+            "accepted_target_texts": [
+                "Is she ready?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "she",
+                "ready?"
+            ],
+            "token_groups": [
+                "Is",
+                "she",
+                "ready?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Is",
+                "she",
+                "ready?"
+            ],
+            "options": [
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "she",
+                "ourselves",
+                "themselves",
+                "I",
+                "ready",
+                "insignificant",
+                "certain",
+                "unusual"
+            ],
+            "source_text_uk": "Вона готова?",
+            "options_by_marker": {
+                "a1": [
+                    "Is",
+                    "Are",
+                    "Was",
+                    "Were"
+                ],
+                "a2": [
+                    "she",
+                    "ourselves",
+                    "themselves",
+                    "I"
+                ],
+                "a3": [
+                    "ready",
+                    "insignificant",
+                    "certain",
+                    "unusual"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "pronoun",
+                "a3": "complement"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-question-forms-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Ми маємо чекати?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Ми маємо чекати?",
+            "target_text": "Must we wait?",
+            "markers": {
+                "a1": {
+                    "answer": "Must",
+                    "verb_hint": "Запитай про необхідність чекати; після підмета потрібне дієслово без закінчення.",
+                    "options": [
+                        "Must",
+                        "Won't",
+                        "Wouldn't",
+                        "Shouldn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "we",
+                    "verb_hint": "Запитай про необхідність чекати; після підмета потрібне дієслово без закінчення.",
+                    "options": [
+                        "we",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a3": {
+                    "answer": "wait?",
+                    "verb_hint": "Запитай про необхідність чекати; після підмета потрібне дієслово без закінчення.",
+                    "options": [
+                        "wait",
+                        "work",
+                        "leave",
+                        "read"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про необхідність чекати; після підмета потрібне дієслово без закінчення.",
+            "accepted_target_texts": [
+                "Must we wait?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Must",
+                "we",
+                "wait?"
+            ],
+            "token_groups": [
+                "Must",
+                "we",
+                "wait?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Must",
+                "we",
+                "wait?"
+            ],
+            "options": [
+                "Must",
+                "Won't",
+                "Wouldn't",
+                "Shouldn't",
+                "we",
+                "they",
+                "me",
+                "him",
+                "wait",
+                "work",
+                "leave",
+                "read"
+            ],
+            "source_text_uk": "Ми маємо чекати?",
+            "options_by_marker": {
+                "a1": [
+                    "Must",
+                    "Won't",
+                    "Wouldn't",
+                    "Shouldn't"
+                ],
+                "a2": [
+                    "we",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a3": [
+                    "wait",
+                    "work",
+                    "leave",
+                    "read"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "pronoun",
+                "a3": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-question-forms-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Мені зачинити вікно?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Мені зачинити вікно?",
+            "target_text": "Shall I close the window?",
+            "markers": {
+                "a1": {
+                    "answer": "Shall",
+                    "verb_hint": "Запропонуй власну дію; питальна форма має виражати пропозицію.",
+                    "options": [
+                        "Shall",
+                        "Can't",
+                        "Couldn't",
+                        "Won't"
+                    ]
+                },
+                "a2": {
+                    "answer": "I",
+                    "verb_hint": "Запропонуй власну дію; питальна форма має виражати пропозицію.",
+                    "options": [
+                        "I",
+                        "Yourself",
+                        "Herself",
+                        "Ourselves"
+                    ]
+                },
+                "a3": {
+                    "answer": "close",
+                    "verb_hint": "Запропонуй власну дію; питальна форма має виражати пропозицію.",
+                    "options": [
+                        "close",
+                        "leave",
+                        "read",
+                        "use"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Запропонуй власну дію; питальна форма має виражати пропозицію.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a5": {
+                    "answer": "window?",
+                    "verb_hint": "Запропонуй власну дію; питальна форма має виражати пропозицію.",
+                    "options": [
+                        "window",
+                        "notice",
+                        "evidence",
+                        "motion"
+                    ]
+                }
+            },
+            "verb_hint": "Запропонуй власну дію; питальна форма має виражати пропозицію.",
+            "accepted_target_texts": [
+                "Shall I close the window?",
+                "Shall I shut the window?"
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "shut"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "shut"
+                ]
+            },
+            "reorder_groups": [
+                "Shall",
+                "I",
+                "close the window?"
+            ],
+            "token_groups": [
+                "Shall",
+                "I",
+                "close the window?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Shall",
+                "I",
+                "close",
+                "the",
+                "window?"
+            ],
+            "options": [
+                "Shall",
+                "Can't",
+                "Couldn't",
+                "Won't",
+                "I",
+                "Yourself",
+                "Herself",
+                "Ourselves",
+                "close",
+                "leave",
+                "read",
+                "use",
+                "the",
+                "no",
+                "another",
+                "either",
+                "window",
+                "notice",
+                "evidence",
+                "motion"
+            ],
+            "source_text_uk": "Мені зачинити вікно?",
+            "options_by_marker": {
+                "a1": [
+                    "Shall",
+                    "Can't",
+                    "Couldn't",
+                    "Won't"
+                ],
+                "a2": [
+                    "I",
+                    "Yourself",
+                    "Herself",
+                    "Ourselves"
+                ],
+                "a3": [
+                    "close",
+                    "leave",
+                    "read",
+                    "use"
+                ],
+                "a4": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a5": [
+                    "window",
+                    "notice",
+                    "evidence",
+                    "motion"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "pronoun",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-question-forms-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Ти вчора зберіг чек?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Ти вчора зберіг чек?",
+            "target_text": "Did you keep the receipt yesterday?",
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "verb_hint": "Запитай про завершену вчорашню дію; основне дієслово залиш у початковій формі.",
+                    "options": [
+                        "Did",
+                        "Has",
+                        "Had",
+                        "Haven't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Запитай про завершену вчорашню дію; основне дієслово залиш у початковій формі.",
+                    "options": [
+                        "you",
+                        "we",
+                        "they",
+                        "me"
+                    ]
+                },
+                "a3": {
+                    "answer": "keep",
+                    "verb_hint": "Запитай про завершену вчорашню дію; основне дієслово залиш у початковій формі.",
+                    "options": [
+                        "keep",
+                        "sign",
+                        "check",
+                        "send"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про завершену вчорашню дію; основне дієслово залиш у початковій формі.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a5": {
+                    "answer": "receipt",
+                    "verb_hint": "Запитай про завершену вчорашню дію; основне дієслово залиш у початковій формі.",
+                    "options": [
+                        "receipt",
+                        "evidence",
+                        "motion",
+                        "notebook"
+                    ]
+                },
+                "a6": {
+                    "answer": "yesterday?",
+                    "verb_hint": "Запитай про завершену вчорашню дію; основне дієслово залиш у початковій формі.",
+                    "options": [
+                        "yesterday",
+                        "today",
+                        "tomorrow",
+                        "window"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про завершену вчорашню дію; основне дієслово залиш у початковій формі.",
+            "accepted_target_texts": [
+                "Did you keep the receipt yesterday?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Did",
+                "you",
+                "keep the receipt",
+                "yesterday?"
+            ],
+            "token_groups": [
+                "Did",
+                "you",
+                "keep the receipt",
+                "yesterday?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Did",
+                "you",
+                "keep",
+                "the",
+                "receipt",
+                "yesterday?"
+            ],
+            "options": [
+                "Did",
+                "Has",
+                "Had",
+                "Haven't",
+                "you",
+                "we",
+                "they",
+                "me",
+                "keep",
+                "sign",
+                "check",
+                "send",
+                "the",
+                "a",
+                "an",
+                "some",
+                "receipt",
+                "evidence",
+                "motion",
+                "notebook",
+                "yesterday",
+                "today",
+                "tomorrow",
+                "window"
+            ],
+            "source_text_uk": "Ти вчора зберіг чек?",
+            "options_by_marker": {
+                "a1": [
+                    "Did",
+                    "Has",
+                    "Had",
+                    "Haven't"
+                ],
+                "a2": [
+                    "you",
+                    "we",
+                    "they",
+                    "me"
+                ],
+                "a3": [
+                    "keep",
+                    "sign",
+                    "check",
+                    "send"
+                ],
+                "a4": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a5": [
+                    "receipt",
+                    "evidence",
+                    "motion",
+                    "notebook"
+                ],
+                "a6": [
+                    "yesterday",
+                    "today",
+                    "tomorrow",
+                    "window"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "pronoun",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-question-forms-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Вони завтра принесуть зошит?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Вони завтра принесуть зошит?",
+            "target_text": "Will they bring a notebook tomorrow?",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "verb_hint": "Побудуй питання про майбутню дію; обставину часу постав наприкінці.",
+                    "options": [
+                        "Will",
+                        "Should",
+                        "May",
+                        "Might"
+                    ]
+                },
+                "a2": {
+                    "answer": "they",
+                    "verb_hint": "Побудуй питання про майбутню дію; обставину часу постав наприкінці.",
+                    "options": [
+                        "they",
+                        "me",
+                        "him",
+                        "us"
+                    ]
+                },
+                "a3": {
+                    "answer": "bring",
+                    "verb_hint": "Побудуй питання про майбутню дію; обставину часу постав наприкінці.",
+                    "options": [
+                        "bring",
+                        "giving",
+                        "making",
+                        "going"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Побудуй питання про майбутню дію; обставину часу постав наприкінці.",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "some"
+                    ]
+                },
+                "a5": {
+                    "answer": "notebook",
+                    "verb_hint": "Побудуй питання про майбутню дію; обставину часу постав наприкінці.",
+                    "options": [
+                        "notebook",
+                        "folder",
+                        "newspaper",
+                        "magazine"
+                    ]
+                },
+                "a6": {
+                    "answer": "tomorrow?",
+                    "verb_hint": "Побудуй питання про майбутню дію; обставину часу постав наприкінці.",
+                    "options": [
+                        "tomorrow",
+                        "yesterday",
+                        "today",
+                        "window"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй питання про майбутню дію; обставину часу постав наприкінці.",
+            "accepted_target_texts": [
+                "Will they bring a notebook tomorrow?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will",
+                "they",
+                "bring a notebook",
+                "tomorrow?"
+            ],
+            "token_groups": [
+                "Will",
+                "they",
+                "bring a notebook",
+                "tomorrow?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Will",
+                "they",
+                "bring",
+                "a",
+                "notebook",
+                "tomorrow?"
+            ],
+            "options": [
+                "Will",
+                "Should",
+                "May",
+                "Might",
+                "they",
+                "me",
+                "him",
+                "us",
+                "bring",
+                "giving",
+                "making",
+                "going",
+                "a",
+                "an",
+                "the",
+                "some",
+                "notebook",
+                "folder",
+                "newspaper",
+                "magazine",
+                "tomorrow",
+                "yesterday",
+                "today",
+                "window"
+            ],
+            "source_text_uk": "Вони завтра принесуть зошит?",
+            "options_by_marker": {
+                "a1": [
+                    "Will",
+                    "Should",
+                    "May",
+                    "Might"
+                ],
+                "a2": [
+                    "they",
+                    "me",
+                    "him",
+                    "us"
+                ],
+                "a3": [
+                    "bring",
+                    "giving",
+                    "making",
+                    "going"
+                ],
+                "a4": [
+                    "a",
+                    "an",
+                    "the",
+                    "some"
+                ],
+                "a5": [
+                    "notebook",
+                    "folder",
+                    "newspaper",
+                    "magazine"
+                ],
+                "a6": [
+                    "tomorrow",
+                    "yesterday",
+                    "today",
+                    "window"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "pronoun",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-question-forms-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Ти вже прочитав оголошення?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Ти вже прочитав оголошення?",
+            "target_text": "Have you read the notice already?",
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "verb_hint": "Запитай про результат до теперішнього моменту; обставину постав наприкінці.",
+                    "options": [
+                        "Have",
+                        "Didn't",
+                        "Has",
+                        "Had"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Запитай про результат до теперішнього моменту; обставину постав наприкінці.",
+                    "options": [
+                        "you",
+                        "it",
+                        "we",
+                        "they"
+                    ]
+                },
+                "a3": {
+                    "answer": "read",
+                    "verb_hint": "Запитай про результат до теперішнього моменту; обставину постав наприкінці.",
+                    "options": [
+                        "read",
+                        "leave",
+                        "close",
+                        "help"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про результат до теперішнього моменту; обставину постав наприкінці.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a5": {
+                    "answer": "notice",
+                    "verb_hint": "Запитай про результат до теперішнього моменту; обставину постав наприкінці.",
+                    "options": [
+                        "notice",
+                        "window",
+                        "notebook",
+                        "parcel"
+                    ]
+                },
+                "a6": {
+                    "answer": "already?",
+                    "verb_hint": "Запитай про результат до теперішнього моменту; обставину постав наприкінці.",
+                    "options": [
+                        "already",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про результат до теперішнього моменту; обставину постав наприкінці.",
+            "accepted_target_texts": [
+                "Have you read the notice already?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Have",
+                "you",
+                "read the notice",
+                "already?"
+            ],
+            "token_groups": [
+                "Have",
+                "you",
+                "read the notice",
+                "already?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Have",
+                "you",
+                "read",
+                "the",
+                "notice",
+                "already?"
+            ],
+            "options": [
+                "Have",
+                "Didn't",
+                "Has",
+                "Had",
+                "you",
+                "it",
+                "we",
+                "they",
+                "read",
+                "leave",
+                "close",
+                "help",
+                "the",
+                "an",
+                "some",
+                "any",
+                "notice",
+                "window",
+                "notebook",
+                "parcel",
+                "already",
+                "still",
+                "just",
+                "also"
+            ],
+            "source_text_uk": "Ти вже прочитав оголошення?",
+            "options_by_marker": {
+                "a1": [
+                    "Have",
+                    "Didn't",
+                    "Has",
+                    "Had"
+                ],
+                "a2": [
+                    "you",
+                    "it",
+                    "we",
+                    "they"
+                ],
+                "a3": [
+                    "read",
+                    "leave",
+                    "close",
+                    "help"
+                ],
+                "a4": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a5": [
+                    "notice",
+                    "window",
+                    "notebook",
+                    "parcel"
+                ],
+                "a6": [
+                    "already",
+                    "still",
+                    "just",
+                    "also"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "pronoun",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-question-forms-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Чи повинні ми прийняти умови?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Чи повинні ми прийняти умови?",
+            "target_text": "Should we accept the terms?",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "verb_hint": "Запитай про доцільність рішення, а не про встановлений обов’язок.",
+                    "options": [
+                        "Should",
+                        "Shouldn't",
+                        "Cannot",
+                        "Can"
+                    ]
+                },
+                "a2": {
+                    "answer": "we",
+                    "verb_hint": "Запитай про доцільність рішення, а не про встановлений обов’язок.",
+                    "options": [
+                        "we",
+                        "ourselves",
+                        "themselves",
+                        "I"
+                    ]
+                },
+                "a3": {
+                    "answer": "accept",
+                    "verb_hint": "Запитай про доцільність рішення, а не про встановлений обов’язок.",
+                    "options": [
+                        "accept",
+                        "sign",
+                        "support",
+                        "keep"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про доцільність рішення, а не про встановлений обов’язок.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a5": {
+                    "answer": "terms?",
+                    "verb_hint": "Запитай про доцільність рішення, а не про встановлений обов’язок.",
+                    "options": [
+                        "terms",
+                        "figures",
+                        "dogs",
+                        "cats"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про доцільність рішення, а не про встановлений обов’язок.",
+            "accepted_target_texts": [
+                "Should we accept the terms?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Should",
+                "we",
+                "accept the terms?"
+            ],
+            "token_groups": [
+                "Should",
+                "we",
+                "accept the terms?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Should",
+                "we",
+                "accept",
+                "the",
+                "terms?"
+            ],
+            "options": [
+                "Should",
+                "Shouldn't",
+                "Cannot",
+                "Can",
+                "we",
+                "ourselves",
+                "themselves",
+                "I",
+                "accept",
+                "sign",
+                "support",
+                "keep",
+                "the",
+                "any",
+                "this",
+                "that",
+                "terms",
+                "figures",
+                "dogs",
+                "cats"
+            ],
+            "source_text_uk": "Чи повинні ми прийняти умови?",
+            "options_by_marker": {
+                "a1": [
+                    "Should",
+                    "Shouldn't",
+                    "Cannot",
+                    "Can"
+                ],
+                "a2": [
+                    "we",
+                    "ourselves",
+                    "themselves",
+                    "I"
+                ],
+                "a3": [
+                    "accept",
+                    "sign",
+                    "support",
+                    "keep"
+                ],
+                "a4": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a5": [
+                    "terms",
+                    "figures",
+                    "dogs",
+                    "cats"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "pronoun",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-question-forms-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Чому вони пішли з будівлі?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Чому вони пішли з будівлі?",
+            "target_text": "Why did they leave the building?",
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "verb_hint": "Питальне слово має питати про причину; дія завершилась у минулому.",
+                    "options": [
+                        "Why",
+                        "Who",
+                        "Whom",
+                        "What"
+                    ]
+                },
+                "a2": {
+                    "answer": "did",
+                    "verb_hint": "Питальне слово має питати про причину; дія завершилась у минулому.",
+                    "options": [
+                        "did",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "they",
+                    "verb_hint": "Питальне слово має питати про причину; дія завершилась у минулому.",
+                    "options": [
+                        "they",
+                        "yourself",
+                        "herself",
+                        "ourselves"
+                    ]
+                },
+                "a4": {
+                    "answer": "leave",
+                    "verb_hint": "Питальне слово має питати про причину; дія завершилась у минулому.",
+                    "options": [
+                        "leave",
+                        "close",
+                        "read",
+                        "see"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Питальне слово має питати про причину; дія завершилась у минулому.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a6": {
+                    "answer": "building?",
+                    "verb_hint": "Питальне слово має питати про причину; дія завершилась у минулому.",
+                    "options": [
+                        "building",
+                        "playing",
+                        "reading",
+                        "writing"
+                    ]
+                }
+            },
+            "verb_hint": "Питальне слово має питати про причину; дія завершилась у минулому.",
+            "accepted_target_texts": [
+                "Why did they leave the building?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "did",
+                "they",
+                "leave the building?"
+            ],
+            "token_groups": [
+                "Why",
+                "did",
+                "they",
+                "leave the building?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Why",
+                "did",
+                "they",
+                "leave",
+                "the",
+                "building?"
+            ],
+            "options": [
+                "Why",
+                "Who",
+                "Whom",
+                "What",
+                "did",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "they",
+                "yourself",
+                "herself",
+                "ourselves",
+                "leave",
+                "close",
+                "read",
+                "see",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "building",
+                "playing",
+                "reading",
+                "writing"
+            ],
+            "source_text_uk": "Чому вони пішли з будівлі?",
+            "options_by_marker": {
+                "a1": [
+                    "Why",
+                    "Who",
+                    "Whom",
+                    "What"
+                ],
+                "a2": [
+                    "did",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a3": [
+                    "they",
+                    "yourself",
+                    "herself",
+                    "ourselves"
+                ],
+                "a4": [
+                    "leave",
+                    "close",
+                    "read",
+                    "see"
+                ],
+                "a5": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a6": [
+                    "building",
+                    "playing",
+                    "reading",
+                    "writing"
+                ]
+            },
+            "slot_roles": {
+                "a1": "wh_word",
+                "a2": "auxiliary",
+                "a3": "pronoun",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-question-forms-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Чи могли вони перевірити цифри вчора?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Чи могли вони перевірити цифри вчора?",
+            "target_text": "Could they have checked the figures yesterday?",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "verb_hint": "Запитай про можливу минулу дію; потрібна доконана форма після модального дієслова.",
+                    "options": [
+                        "Could",
+                        "Can't",
+                        "Couldn't",
+                        "Won't"
+                    ]
+                },
+                "a2": {
+                    "answer": "they",
+                    "verb_hint": "Запитай про можливу минулу дію; потрібна доконана форма після модального дієслова.",
+                    "options": [
+                        "they",
+                        "him",
+                        "us",
+                        "them"
+                    ]
+                },
+                "a3": {
+                    "answer": "have",
+                    "verb_hint": "Запитай про можливу минулу дію; потрібна доконана форма після модального дієслова.",
+                    "options": [
+                        "have",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a4": {
+                    "answer": "checked",
+                    "verb_hint": "Запитай про можливу минулу дію; потрібна доконана форма після модального дієслова.",
+                    "options": [
+                        "checked",
+                        "cooked",
+                        "found",
+                        "brought"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про можливу минулу дію; потрібна доконана форма після модального дієслова.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a6": {
+                    "answer": "figures",
+                    "verb_hint": "Запитай про можливу минулу дію; потрібна доконана форма після модального дієслова.",
+                    "options": [
+                        "figures",
+                        "chairs",
+                        "tables",
+                        "tickets"
+                    ]
+                },
+                "a7": {
+                    "answer": "yesterday?",
+                    "verb_hint": "Запитай про можливу минулу дію; потрібна доконана форма після модального дієслова.",
+                    "options": [
+                        "yesterday",
+                        "tomorrow",
+                        "today",
+                        "support"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про можливу минулу дію; потрібна доконана форма після модального дієслова.",
+            "accepted_target_texts": [
+                "Could they have checked the figures yesterday?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could",
+                "they",
+                "have checked",
+                "the figures",
+                "yesterday?"
+            ],
+            "token_groups": [
+                "Could",
+                "they",
+                "have checked",
+                "the figures",
+                "yesterday?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Could",
+                "they",
+                "have",
+                "checked",
+                "the",
+                "figures",
+                "yesterday?"
+            ],
+            "options": [
+                "Could",
+                "Can't",
+                "Couldn't",
+                "Won't",
+                "they",
+                "him",
+                "us",
+                "them",
+                "have",
+                "do",
+                "does",
+                "did",
+                "checked",
+                "cooked",
+                "found",
+                "brought",
+                "the",
+                "those",
+                "each",
+                "every",
+                "figures",
+                "chairs",
+                "tables",
+                "tickets",
+                "yesterday",
+                "tomorrow",
+                "today",
+                "support"
+            ],
+            "source_text_uk": "Чи могли вони перевірити цифри вчора?",
+            "options_by_marker": {
+                "a1": [
+                    "Could",
+                    "Can't",
+                    "Couldn't",
+                    "Won't"
+                ],
+                "a2": [
+                    "they",
+                    "him",
+                    "us",
+                    "them"
+                ],
+                "a3": [
+                    "have",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a4": [
+                    "checked",
+                    "cooked",
+                    "found",
+                    "brought"
+                ],
+                "a5": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a6": [
+                    "figures",
+                    "chairs",
+                    "tables",
+                    "tickets"
+                ],
+                "a7": [
+                    "yesterday",
+                    "tomorrow",
+                    "today",
+                    "support"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "pronoun",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-question-forms-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Чи підтримали б ви цю пропозицію публічно?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Чи підтримали б ви цю пропозицію публічно?",
+            "target_text": "Would you support the motion in public?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "verb_hint": "Запитай про гіпотетичну готовність підтримати пропозицію; обставину постав наприкінці.",
+                    "options": [
+                        "Would",
+                        "Will",
+                        "Shall",
+                        "Should"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Запитай про гіпотетичну готовність підтримати пропозицію; обставину постав наприкінці.",
+                    "options": [
+                        "you",
+                        "he",
+                        "she",
+                        "it"
+                    ]
+                },
+                "a3": {
+                    "answer": "support",
+                    "verb_hint": "Запитай про гіпотетичну готовність підтримати пропозицію; обставину постав наприкінці.",
+                    "options": [
+                        "support",
+                        "accept",
+                        "keep",
+                        "sign"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про гіпотетичну готовність підтримати пропозицію; обставину постав наприкінці.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a5": {
+                    "answer": "motion",
+                    "verb_hint": "Запитай про гіпотетичну готовність підтримати пропозицію; обставину постав наприкінці.",
+                    "options": [
+                        "motion",
+                        "window",
+                        "parcel",
+                        "notice"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Запитай про гіпотетичну готовність підтримати пропозицію; обставину постав наприкінці.",
+                    "options": [
+                        "in",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a7": {
+                    "answer": "public?",
+                    "verb_hint": "Запитай про гіпотетичну готовність підтримати пропозицію; обставину постав наприкінці.",
+                    "options": [
+                        "public",
+                        "useful",
+                        "helpful",
+                        "different"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про гіпотетичну готовність підтримати пропозицію; обставину постав наприкінці.",
+            "accepted_target_texts": [
+                "Would you support the motion in public?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would",
+                "you",
+                "support the motion",
+                "in public?"
+            ],
+            "token_groups": [
+                "Would",
+                "you",
+                "support the motion",
+                "in public?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Would",
+                "you",
+                "support",
+                "the",
+                "motion",
+                "in",
+                "public?"
+            ],
+            "options": [
+                "Would",
+                "Will",
+                "Shall",
+                "Should",
+                "you",
+                "he",
+                "she",
+                "it",
+                "support",
+                "accept",
+                "keep",
+                "sign",
+                "the",
+                "no",
+                "another",
+                "either",
+                "motion",
+                "window",
+                "parcel",
+                "notice",
+                "in",
+                "across",
+                "between",
+                "among",
+                "public",
+                "useful",
+                "helpful",
+                "different"
+            ],
+            "source_text_uk": "Чи підтримали б ви цю пропозицію публічно?",
+            "options_by_marker": {
+                "a1": [
+                    "Would",
+                    "Will",
+                    "Shall",
+                    "Should"
+                ],
+                "a2": [
+                    "you",
+                    "he",
+                    "she",
+                    "it"
+                ],
+                "a3": [
+                    "support",
+                    "accept",
+                    "keep",
+                    "sign"
+                ],
+                "a4": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a5": [
+                    "motion",
+                    "window",
+                    "parcel",
+                    "notice"
+                ],
+                "a6": [
+                    "in",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a7": [
+                    "public",
+                    "useful",
+                    "helpful",
+                    "different"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "pronoun",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "adverb_phrase",
+                "a7": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-question-forms-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Чому нам слід переглянути докази?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Чому нам слід переглянути докази?",
+            "target_text": "Why should we review the evidence?",
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "verb_hint": "Побудуй пряме питання про підставу для рекомендованої дії.",
+                    "options": [
+                        "Why",
+                        "How",
+                        "Whoever",
+                        "Whatever"
+                    ]
+                },
+                "a2": {
+                    "answer": "should",
+                    "verb_hint": "Побудуй пряме питання про підставу для рекомендованої дії.",
+                    "options": [
+                        "should",
+                        "may",
+                        "might",
+                        "must"
+                    ]
+                },
+                "a3": {
+                    "answer": "we",
+                    "verb_hint": "Побудуй пряме питання про підставу для рекомендованої дії.",
+                    "options": [
+                        "we",
+                        "you",
+                        "he",
+                        "she"
+                    ]
+                },
+                "a4": {
+                    "answer": "review",
+                    "verb_hint": "Побудуй пряме питання про підставу для рекомендованої дії.",
+                    "options": [
+                        "review",
+                        "accept",
+                        "sign",
+                        "support"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй пряме питання про підставу для рекомендованої дії.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "evidence?",
+                    "verb_hint": "Побудуй пряме питання про підставу для рекомендованої дії.",
+                    "options": [
+                        "evidence",
+                        "gate",
+                        "window",
+                        "notebook"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй пряме питання про підставу для рекомендованої дії.",
+            "accepted_target_texts": [
+                "Why should we review the evidence?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "should",
+                "we",
+                "review the evidence?"
+            ],
+            "token_groups": [
+                "Why",
+                "should",
+                "we",
+                "review the evidence?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Why",
+                "should",
+                "we",
+                "review",
+                "the",
+                "evidence?"
+            ],
+            "options": [
+                "Why",
+                "How",
+                "Whoever",
+                "Whatever",
+                "should",
+                "may",
+                "might",
+                "must",
+                "we",
+                "you",
+                "he",
+                "she",
+                "review",
+                "accept",
+                "sign",
+                "support",
+                "the",
+                "some",
+                "any",
+                "this",
+                "evidence",
+                "gate",
+                "window",
+                "notebook"
+            ],
+            "source_text_uk": "Чому нам слід переглянути докази?",
+            "options_by_marker": {
+                "a1": [
+                    "Why",
+                    "How",
+                    "Whoever",
+                    "Whatever"
+                ],
+                "a2": [
+                    "should",
+                    "may",
+                    "might",
+                    "must"
+                ],
+                "a3": [
+                    "we",
+                    "you",
+                    "he",
+                    "she"
+                ],
+                "a4": [
+                    "review",
+                    "accept",
+                    "sign",
+                    "support"
+                ],
+                "a5": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "evidence",
+                    "gate",
+                    "window",
+                    "notebook"
+                ]
+            },
+            "slot_roles": {
+                "a1": "wh_word",
+                "a2": "auxiliary",
+                "a3": "pronoun",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-question-forms-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Чи слід нам вимагати письмової згоди?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Чи слід нам вимагати письмової згоди?",
+            "target_text": "Should we require written consent?",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "verb_hint": "Побудуй питання про доцільний запобіжний захід, а не про вже чинну вимогу.",
+                    "options": [
+                        "Should",
+                        "Can",
+                        "Could",
+                        "Will"
+                    ]
+                },
+                "a2": {
+                    "answer": "we",
+                    "verb_hint": "Побудуй питання про доцільний запобіжний захід, а не про вже чинну вимогу.",
+                    "options": [
+                        "we",
+                        "themselves",
+                        "I",
+                        "you"
+                    ]
+                },
+                "a3": {
+                    "answer": "require",
+                    "verb_hint": "Побудуй питання про доцільний запобіжний захід, а не про вже чинну вимогу.",
+                    "options": [
+                        "require",
+                        "justify",
+                        "such",
+                        "decision"
+                    ]
+                },
+                "a4": {
+                    "answer": "written",
+                    "verb_hint": "Побудуй питання про доцільний запобіжний захід, а не про вже чинну вимогу.",
+                    "options": [
+                        "written",
+                        "ridden",
+                        "driven",
+                        "given"
+                    ]
+                },
+                "a5": {
+                    "answer": "consent?",
+                    "verb_hint": "Побудуй питання про доцільний запобіжний захід, а не про вже чинну вимогу.",
+                    "options": [
+                        "consent",
+                        "remain",
+                        "relevant",
+                        "evidence"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй питання про доцільний запобіжний захід, а не про вже чинну вимогу.",
+            "accepted_target_texts": [
+                "Should we require written consent?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Should",
+                "we",
+                "require",
+                "written consent?"
+            ],
+            "token_groups": [
+                "Should",
+                "we",
+                "require",
+                "written consent?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Should",
+                "we",
+                "require",
+                "written",
+                "consent?"
+            ],
+            "options": [
+                "Should",
+                "Can",
+                "Could",
+                "Will",
+                "we",
+                "themselves",
+                "I",
+                "you",
+                "require",
+                "justify",
+                "such",
+                "decision",
+                "written",
+                "ridden",
+                "driven",
+                "given",
+                "consent",
+                "remain",
+                "relevant",
+                "evidence"
+            ],
+            "source_text_uk": "Чи слід нам вимагати письмової згоди?",
+            "options_by_marker": {
+                "a1": [
+                    "Should",
+                    "Can",
+                    "Could",
+                    "Will"
+                ],
+                "a2": [
+                    "we",
+                    "themselves",
+                    "I",
+                    "you"
+                ],
+                "a3": [
+                    "require",
+                    "justify",
+                    "such",
+                    "decision"
+                ],
+                "a4": [
+                    "written",
+                    "ridden",
+                    "driven",
+                    "given"
+                ],
+                "a5": [
+                    "consent",
+                    "remain",
+                    "relevant",
+                    "evidence"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "pronoun",
+                "a3": "verb_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-question-forms-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Чи залишилися б ці висновки актуальними?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Чи залишилися б ці висновки актуальними?",
+            "target_text": "Would these findings remain relevant?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "verb_hint": "Запитай про гіпотетичне збереження актуальності висновків.",
+                    "options": [
+                        "Would",
+                        "Won't",
+                        "Wouldn't",
+                        "Shouldn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "these",
+                    "verb_hint": "Запитай про гіпотетичне збереження актуальності висновків.",
+                    "options": [
+                        "these",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a3": {
+                    "answer": "findings",
+                    "verb_hint": "Запитай про гіпотетичне збереження актуальності висновків.",
+                    "options": [
+                        "findings",
+                        "people",
+                        "men",
+                        "women"
+                    ]
+                },
+                "a4": {
+                    "answer": "remain",
+                    "verb_hint": "Запитай про гіпотетичне збереження актуальності висновків.",
+                    "options": [
+                        "remain",
+                        "justify",
+                        "remember",
+                        "agree"
+                    ]
+                },
+                "a5": {
+                    "answer": "relevant?",
+                    "verb_hint": "Запитай про гіпотетичне збереження актуальності висновків.",
+                    "options": [
+                        "relevant",
+                        "certain",
+                        "unusual",
+                        "irrelevant"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про гіпотетичне збереження актуальності висновків.",
+            "accepted_target_texts": [
+                "Would these findings remain relevant?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would",
+                "these findings",
+                "remain",
+                "relevant?"
+            ],
+            "token_groups": [
+                "Would",
+                "these findings",
+                "remain",
+                "relevant?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Would",
+                "these",
+                "findings",
+                "remain",
+                "relevant?"
+            ],
+            "options": [
+                "Would",
+                "Won't",
+                "Wouldn't",
+                "Shouldn't",
+                "these",
+                "all",
+                "both",
+                "a",
+                "findings",
+                "people",
+                "men",
+                "women",
+                "remain",
+                "justify",
+                "remember",
+                "agree",
+                "relevant",
+                "certain",
+                "unusual",
+                "irrelevant"
+            ],
+            "source_text_uk": "Чи залишилися б ці висновки актуальними?",
+            "options_by_marker": {
+                "a1": [
+                    "Would",
+                    "Won't",
+                    "Wouldn't",
+                    "Shouldn't"
+                ],
+                "a2": [
+                    "these",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a3": [
+                    "findings",
+                    "people",
+                    "men",
+                    "women"
+                ],
+                "a4": [
+                    "remain",
+                    "justify",
+                    "remember",
+                    "agree"
+                ],
+                "a5": [
+                    "relevant",
+                    "certain",
+                    "unusual",
+                    "irrelevant"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "noun_phrase",
+                "a3": "noun_phrase",
+                "a4": "verb",
+                "a5": "complement"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-question-forms-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Які докази могли б виправдати таке рішення?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Які докази могли б виправдати таке рішення?",
+            "target_text": "What evidence could justify such a decision?",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Питальна іменна група сама є підметом; не додавай окремого займенника.",
+                    "options": [
+                        "What",
+                        "Why",
+                        "How",
+                        "Whoever"
+                    ]
+                },
+                "a2": {
+                    "answer": "evidence",
+                    "verb_hint": "Питальна іменна група сама є підметом; не додавай окремого займенника.",
+                    "options": [
+                        "evidence",
+                        "consent",
+                        "remain",
+                        "relevant"
+                    ]
+                },
+                "a3": {
+                    "answer": "could",
+                    "verb_hint": "Питальна іменна група сама є підметом; не додавай окремого займенника.",
+                    "options": [
+                        "could",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "justify",
+                    "verb_hint": "Питальна іменна група сама є підметом; не додавай окремого займенника.",
+                    "options": [
+                        "justify",
+                        "approve",
+                        "expect",
+                        "mean"
+                    ]
+                },
+                "a5": {
+                    "answer": "such",
+                    "verb_hint": "Питальна іменна група сама є підметом; не додавай окремого займенника.",
+                    "options": [
+                        "such",
+                        "the",
+                        "our",
+                        "these"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Питальна іменна група сама є підметом; не додавай окремого займенника.",
+                    "options": [
+                        "a",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "decision?",
+                    "verb_hint": "Питальна іменна група сама є підметом; не додавай окремого займенника.",
+                    "options": [
+                        "decision",
+                        "key",
+                        "ferry",
+                        "suitcase"
+                    ]
+                }
+            },
+            "verb_hint": "Питальна іменна група сама є підметом; не додавай окремого займенника.",
+            "accepted_target_texts": [
+                "What evidence could justify such a decision?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What evidence",
+                "could",
+                "justify",
+                "such a decision?"
+            ],
+            "token_groups": [
+                "What evidence",
+                "could",
+                "justify",
+                "such a decision?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "What",
+                "evidence",
+                "could",
+                "justify",
+                "such",
+                "a",
+                "decision?"
+            ],
+            "options": [
+                "What",
+                "Why",
+                "How",
+                "Whoever",
+                "evidence",
+                "consent",
+                "remain",
+                "relevant",
+                "could",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "justify",
+                "approve",
+                "expect",
+                "mean",
+                "such",
+                "the",
+                "our",
+                "these",
+                "a",
+                "those",
+                "each",
+                "every",
+                "decision",
+                "key",
+                "ferry",
+                "suitcase"
+            ],
+            "source_text_uk": "Які докази могли б виправдати таке рішення?",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "Why",
+                    "How",
+                    "Whoever"
+                ],
+                "a2": [
+                    "evidence",
+                    "consent",
+                    "remain",
+                    "relevant"
+                ],
+                "a3": [
+                    "could",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a4": [
+                    "justify",
+                    "approve",
+                    "expect",
+                    "mean"
+                ],
+                "a5": [
+                    "such",
+                    "the",
+                    "our",
+                    "these"
+                ],
+                "a6": [
+                    "a",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "decision",
+                    "key",
+                    "ferry",
+                    "suitcase"
+                ]
+            },
+            "slot_roles": {
+                "a1": "wh_word",
+                "a2": "wh_word",
+                "a3": "auxiliary",
+                "a4": "verb",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-question-forms-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Чи можна було передбачити таке тлумачення?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Чи можна було передбачити таке тлумачення?",
+            "target_text": "Could such an interpretation have been foreseen?",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "verb_hint": "Запитай про минулу можливість передбачення; збережи доконаний пасив.",
+                    "options": [
+                        "Could",
+                        "Shall",
+                        "Should",
+                        "May"
+                    ]
+                },
+                "a2": {
+                    "answer": "such",
+                    "verb_hint": "Запитай про минулу можливість передбачення; збережи доконаний пасив.",
+                    "options": [
+                        "such",
+                        "your",
+                        "those",
+                        "the"
+                    ]
+                },
+                "a3": {
+                    "answer": "an",
+                    "verb_hint": "Запитай про минулу можливість передбачення; збережи доконаний пасив.",
+                    "options": [
+                        "an",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a4": {
+                    "answer": "interpretation",
+                    "verb_hint": "Запитай про минулу можливість передбачення; збережи доконаний пасив.",
+                    "options": [
+                        "interpretation",
+                        "consent",
+                        "gate",
+                        "folder"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Запитай про минулу можливість передбачення; збережи доконаний пасив.",
+                    "options": [
+                        "have",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Запитай про минулу можливість передбачення; збережи доконаний пасив.",
+                    "options": [
+                        "been",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "foreseen?",
+                    "verb_hint": "Запитай про минулу можливість передбачення; збережи доконаний пасив.",
+                    "options": [
+                        "foreseen",
+                        "opened",
+                        "closed",
+                        "helped"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про минулу можливість передбачення; збережи доконаний пасив.",
+            "accepted_target_texts": [
+                "Could such an interpretation have been foreseen?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could",
+                "such an interpretation",
+                "have been foreseen?"
+            ],
+            "token_groups": [
+                "Could",
+                "such an interpretation",
+                "have been foreseen?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Could",
+                "such",
+                "an",
+                "interpretation",
+                "have",
+                "been",
+                "foreseen?"
+            ],
+            "options": [
+                "Could",
+                "Shall",
+                "Should",
+                "May",
+                "such",
+                "your",
+                "those",
+                "the",
+                "an",
+                "some",
+                "any",
+                "this",
+                "interpretation",
+                "consent",
+                "gate",
+                "folder",
+                "have",
+                "does",
+                "did",
+                "don't",
+                "been",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "foreseen",
+                "opened",
+                "closed",
+                "helped"
+            ],
+            "source_text_uk": "Чи можна було передбачити таке тлумачення?",
+            "options_by_marker": {
+                "a1": [
+                    "Could",
+                    "Shall",
+                    "Should",
+                    "May"
+                ],
+                "a2": [
+                    "such",
+                    "your",
+                    "those",
+                    "the"
+                ],
+                "a3": [
+                    "an",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a4": [
+                    "interpretation",
+                    "consent",
+                    "gate",
+                    "folder"
+                ],
+                "a5": [
+                    "have",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a6": [
+                    "been",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a7": [
+                    "foreseen",
+                    "opened",
+                    "closed",
+                    "helped"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "noun_phrase",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-question-forms-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Наскільки цей прецедент обмежує судовий розсуд?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Наскільки цей прецедент обмежує судовий розсуд?",
+            "target_text": "To what extent does this precedent constrain judicial discretion?",
+            "markers": {
+                "a1": {
+                    "answer": "To",
+                    "verb_hint": "Побудуй формальне пряме питання про чинну межу повноважень.",
+                    "options": [
+                        "To",
+                        "Through",
+                        "Across",
+                        "Between"
+                    ]
+                },
+                "a2": {
+                    "answer": "what",
+                    "verb_hint": "Побудуй формальне пряме питання про чинну межу повноважень.",
+                    "options": [
+                        "what",
+                        "which",
+                        "where",
+                        "when"
+                    ]
+                },
+                "a3": {
+                    "answer": "extent",
+                    "verb_hint": "Побудуй формальне пряме питання про чинну межу повноважень.",
+                    "options": [
+                        "extent",
+                        "silence",
+                        "such",
+                        "interpretation"
+                    ]
+                },
+                "a4": {
+                    "answer": "does",
+                    "verb_hint": "Побудуй формальне пряме питання про чинну межу повноважень.",
+                    "options": [
+                        "does",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a5": {
+                    "answer": "this",
+                    "verb_hint": "Побудуй формальне пряме питання про чинну межу повноважень.",
+                    "options": [
+                        "this",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a6": {
+                    "answer": "precedent",
+                    "verb_hint": "Побудуй формальне пряме питання про чинну межу повноважень.",
+                    "options": [
+                        "precedent",
+                        "box",
+                        "chair",
+                        "table"
+                    ]
+                },
+                "a7": {
+                    "answer": "constrain",
+                    "verb_hint": "Побудуй формальне пряме питання про чинну межу повноважень.",
+                    "options": [
+                        "constrain",
+                        "approve",
+                        "expect",
+                        "mean"
+                    ]
+                },
+                "a8": {
+                    "answer": "judicial",
+                    "verb_hint": "Побудуй формальне пряме питання про чинну межу повноважень.",
+                    "options": [
+                        "judicial",
+                        "child",
+                        "teacher",
+                        "school"
+                    ]
+                },
+                "a9": {
+                    "answer": "discretion?",
+                    "verb_hint": "Побудуй формальне пряме питання про чинну межу повноважень.",
+                    "options": [
+                        "discretion",
+                        "ticket",
+                        "cup",
+                        "door"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй формальне пряме питання про чинну межу повноважень.",
+            "accepted_target_texts": [
+                "To what extent does this precedent constrain judicial discretion?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "To what extent",
+                "does",
+                "this precedent",
+                "constrain",
+                "judicial discretion?"
+            ],
+            "token_groups": [
+                "To what extent",
+                "does",
+                "this precedent",
+                "constrain",
+                "judicial discretion?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "To",
+                "what",
+                "extent",
+                "does",
+                "this",
+                "precedent",
+                "constrain",
+                "judicial",
+                "discretion?"
+            ],
+            "options": [
+                "To",
+                "Through",
+                "Across",
+                "Between",
+                "what",
+                "which",
+                "where",
+                "when",
+                "extent",
+                "silence",
+                "such",
+                "interpretation",
+                "does",
+                "hasn't",
+                "hadn't",
+                "do",
+                "this",
+                "those",
+                "each",
+                "every",
+                "precedent",
+                "box",
+                "chair",
+                "table",
+                "constrain",
+                "approve",
+                "expect",
+                "mean",
+                "judicial",
+                "child",
+                "teacher",
+                "school",
+                "discretion",
+                "ticket",
+                "cup",
+                "door"
+            ],
+            "source_text_uk": "Наскільки цей прецедент обмежує судовий розсуд?",
+            "options_by_marker": {
+                "a1": [
+                    "To",
+                    "Through",
+                    "Across",
+                    "Between"
+                ],
+                "a2": [
+                    "what",
+                    "which",
+                    "where",
+                    "when"
+                ],
+                "a3": [
+                    "extent",
+                    "silence",
+                    "such",
+                    "interpretation"
+                ],
+                "a4": [
+                    "does",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a5": [
+                    "this",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a6": [
+                    "precedent",
+                    "box",
+                    "chair",
+                    "table"
+                ],
+                "a7": [
+                    "constrain",
+                    "approve",
+                    "expect",
+                    "mean"
+                ],
+                "a8": [
+                    "judicial",
+                    "child",
+                    "teacher",
+                    "school"
+                ],
+                "a9": [
+                    "discretion",
+                    "ticket",
+                    "cup",
+                    "door"
+                ]
+            },
+            "slot_roles": {
+                "a1": "wh_word",
+                "a2": "wh_word",
+                "a3": "wh_word",
+                "a4": "auxiliary",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "verb",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-question-forms-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Які наслідки мало б мовчання?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_question_forms",
+            "translation_uk": "Які наслідки мало б мовчання?",
+            "target_text": "What implications would silence have?",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Запитай про можливі смислові наслідки мовчання; не додавай зайвого підмета.",
+                    "options": [
+                        "What",
+                        "Whom",
+                        "Which",
+                        "Where"
+                    ]
+                },
+                "a2": {
+                    "answer": "implications",
+                    "verb_hint": "Запитай про можливі смислові наслідки мовчання; не додавай зайвого підмета.",
+                    "options": [
+                        "implications",
+                        "bikes",
+                        "cars",
+                        "bags"
+                    ]
+                },
+                "a3": {
+                    "answer": "would",
+                    "verb_hint": "Запитай про можливі смислові наслідки мовчання; не додавай зайвого підмета.",
+                    "options": [
+                        "would",
+                        "couldn't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "silence",
+                    "verb_hint": "Запитай про можливі смислові наслідки мовчання; не додавай зайвого підмета.",
+                    "options": [
+                        "silence",
+                        "constrain",
+                        "judicial",
+                        "discretion"
+                    ]
+                },
+                "a5": {
+                    "answer": "have?",
+                    "verb_hint": "Запитай про можливі смислові наслідки мовчання; не додавай зайвого підмета.",
+                    "options": [
+                        "have",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про можливі смислові наслідки мовчання; не додавай зайвого підмета.",
+            "accepted_target_texts": [
+                "What implications would silence have?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What implications",
+                "would",
+                "silence",
+                "have?"
+            ],
+            "token_groups": [
+                "What implications",
+                "would",
+                "silence",
+                "have?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "What",
+                "implications",
+                "would",
+                "silence",
+                "have?"
+            ],
+            "options": [
+                "What",
+                "Whom",
+                "Which",
+                "Where",
+                "implications",
+                "bikes",
+                "cars",
+                "bags",
+                "would",
+                "couldn't",
+                "won't",
+                "wouldn't",
+                "silence",
+                "constrain",
+                "judicial",
+                "discretion",
+                "have",
+                "don't",
+                "doesn't",
+                "didn't"
+            ],
+            "source_text_uk": "Які наслідки мало б мовчання?",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "Whom",
+                    "Which",
+                    "Where"
+                ],
+                "a2": [
+                    "implications",
+                    "bikes",
+                    "cars",
+                    "bags"
+                ],
+                "a3": [
+                    "would",
+                    "couldn't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a4": [
+                    "silence",
+                    "constrain",
+                    "judicial",
+                    "discretion"
+                ],
+                "a5": [
+                    "have",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ]
+            },
+            "slot_roles": {
+                "a1": "wh_word",
+                "a2": "wh_word",
+                "a3": "auxiliary",
+                "a4": "noun_phrase",
+                "a5": "verb"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

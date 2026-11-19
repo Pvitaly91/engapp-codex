@@ -1,0 +1,352 @@
+{
+    "schema_version": 1,
+    "status": "frozen",
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotRequestsOffersSuggestionsThematicLessonSeeder",
+        "uuid_namespace": "PolyglotRequestsOffersSuggestionsThematicLessonSeeder"
+    },
+    "author_source": {
+        "path": "docs/content/m51-modal-meanings-widget-questions.v1.0.0.json",
+        "sha256": "9a8fd25f5e4f9c952a438aed2951dafbdb26551e52babf71aaeab2c09cd0a1e0",
+        "projection": "derived-from-frozen-author"
+    },
+    "taxonomy_status": "confirmed-existing-only",
+    "taxonomy_note_uk": "Category і source names підтверджено свіжим inventory; numeric IDs не зашиті й нова taxonomy не створюється. Tags не додаються. Погоджене локальне застосування виконує лише guarded insert-only supplement, не mutating JsonTestSeeder.",
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "B1": 3,
+            "A2": 2
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "theory_page_requests_offers_suggestions": {
+            "name": "Requests / Offers / Suggestions"
+        }
+    },
+    "tags": {},
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "uuid": "m51-requests-a2-01",
+            "source_uid": "m51-requests-a2-01",
+            "question": "Я не почув назву книжки й прошу співрозмовницю повторити її: не могла б ти повторити назву? Сформулюй прохання за допомогою Could; повторює співрозмовниця.",
+            "level": "A2",
+            "type": 4,
+            "source_text_uk": "Не могла б ти повторити назву?",
+            "target_text": "Could you repeat the title?",
+            "tokens_correct": [
+                "Could",
+                "you",
+                "repeat",
+                "the",
+                "title",
+                "?"
+            ],
+            "answers": {
+                "a1": "Could",
+                "a2": "you",
+                "a3": "repeat",
+                "a4": "the",
+                "a5": "title",
+                "a6": "?"
+            },
+            "options_by_marker": {
+                "a1": [
+                    "Could"
+                ],
+                "a2": [
+                    "you"
+                ],
+                "a3": [
+                    "repeat"
+                ],
+                "a4": [
+                    "the"
+                ],
+                "a5": [
+                    "title"
+                ],
+                "a6": [
+                    "?"
+                ]
+            },
+            "options": [
+                "title",
+                "you",
+                "?",
+                "repeat",
+                "Could",
+                "the"
+            ],
+            "variants": [],
+            "source": "theory_page_requests_offers_suggestions",
+            "tag_keys": []
+        },
+        {
+            "uuid": "m51-requests-a2-02",
+            "source_uid": "m51-requests-a2-02",
+            "question": "У колеги зайняті руки, і я пропоную свою допомогу: понести тобі папку? Використай Shall I; папку понесу я.",
+            "level": "A2",
+            "type": 4,
+            "source_text_uk": "Понести тобі папку?",
+            "target_text": "Shall I carry the folder for you?",
+            "tokens_correct": [
+                "Shall",
+                "I",
+                "carry",
+                "the",
+                "folder",
+                "for",
+                "you",
+                "?"
+            ],
+            "answers": {
+                "a1": "Shall",
+                "a2": "I",
+                "a3": "carry",
+                "a4": "the",
+                "a5": "folder",
+                "a6": "for",
+                "a7": "you",
+                "a8": "?"
+            },
+            "options_by_marker": {
+                "a1": [
+                    "Shall"
+                ],
+                "a2": [
+                    "I"
+                ],
+                "a3": [
+                    "carry"
+                ],
+                "a4": [
+                    "the"
+                ],
+                "a5": [
+                    "folder"
+                ],
+                "a6": [
+                    "for"
+                ],
+                "a7": [
+                    "you"
+                ],
+                "a8": [
+                    "?"
+                ]
+            },
+            "options": [
+                "for",
+                "folder",
+                "I",
+                "?",
+                "carry",
+                "you",
+                "the",
+                "Shall"
+            ],
+            "variants": [],
+            "source": "theory_page_requests_offers_suggestions",
+            "tag_keys": []
+        },
+        {
+            "uuid": "m51-requests-a2-03",
+            "source_uid": "m51-requests-a2-03",
+            "question": "У мене є запасна закладка, і я пропоную її тобі: хочеш закладку? Використай Would you like для пропозиції речі.",
+            "level": "A2",
+            "type": 4,
+            "source_text_uk": "Хочеш закладку?",
+            "target_text": "Would you like a bookmark?",
+            "tokens_correct": [
+                "Would",
+                "you",
+                "like",
+                "a",
+                "bookmark",
+                "?"
+            ],
+            "answers": {
+                "a1": "Would",
+                "a2": "you",
+                "a3": "like",
+                "a4": "a",
+                "a5": "bookmark",
+                "a6": "?"
+            },
+            "options_by_marker": {
+                "a1": [
+                    "Would"
+                ],
+                "a2": [
+                    "you"
+                ],
+                "a3": [
+                    "like"
+                ],
+                "a4": [
+                    "a"
+                ],
+                "a5": [
+                    "bookmark"
+                ],
+                "a6": [
+                    "?"
+                ]
+            },
+            "options": [
+                "bookmark",
+                "you",
+                "?",
+                "a",
+                "Would",
+                "like"
+            ],
+            "variants": [],
+            "source": "theory_page_requests_offers_suggestions",
+            "tag_keys": []
+        },
+        {
+            "uuid": "m51-requests-a2-04",
+            "source_uid": "m51-requests-a2-04",
+            "question": "Я вже записалася на екскурсію й запрошую тебе долучитися: хочеш приєднатися до екскурсії? Використай Would you like to; приєднаєшся ти.",
+            "level": "A2",
+            "type": 4,
+            "source_text_uk": "Хочеш приєднатися до екскурсії?",
+            "target_text": "Would you like to join the tour?",
+            "tokens_correct": [
+                "Would",
+                "you",
+                "like",
+                "to",
+                "join",
+                "the",
+                "tour",
+                "?"
+            ],
+            "answers": {
+                "a1": "Would",
+                "a2": "you",
+                "a3": "like",
+                "a4": "to",
+                "a5": "join",
+                "a6": "the",
+                "a7": "tour",
+                "a8": "?"
+            },
+            "options_by_marker": {
+                "a1": [
+                    "Would"
+                ],
+                "a2": [
+                    "you"
+                ],
+                "a3": [
+                    "like"
+                ],
+                "a4": [
+                    "to"
+                ],
+                "a5": [
+                    "join"
+                ],
+                "a6": [
+                    "the"
+                ],
+                "a7": [
+                    "tour"
+                ],
+                "a8": [
+                    "?"
+                ]
+            },
+            "options": [
+                "join",
+                "tour",
+                "you",
+                "?",
+                "like",
+                "the",
+                "Would",
+                "to"
+            ],
+            "variants": [],
+            "source": "theory_page_requests_offers_suggestions",
+            "tag_keys": []
+        },
+        {
+            "uuid": "m51-requests-a2-05",
+            "source_uid": "m51-requests-a2-05",
+            "question": "Ми плануємо спільне дозвілля, і я пропоную ідею нам обом: може, відвідаємо галерею після обіду? Використай Shall we; галерею відвідаємо разом. Почни з Shall we; after lunch постав наприкінці.",
+            "level": "A2",
+            "type": 4,
+            "source_text_uk": "Може, відвідаємо галерею після обіду?",
+            "target_text": "Shall we visit the gallery after lunch?",
+            "tokens_correct": [
+                "Shall",
+                "we",
+                "visit",
+                "the",
+                "gallery",
+                "after",
+                "lunch",
+                "?"
+            ],
+            "answers": {
+                "a1": "Shall",
+                "a2": "we",
+                "a3": "visit",
+                "a4": "the",
+                "a5": "gallery",
+                "a6": "after",
+                "a7": "lunch",
+                "a8": "?"
+            },
+            "options_by_marker": {
+                "a1": [
+                    "Shall"
+                ],
+                "a2": [
+                    "we"
+                ],
+                "a3": [
+                    "visit"
+                ],
+                "a4": [
+                    "the"
+                ],
+                "a5": [
+                    "gallery"
+                ],
+                "a6": [
+                    "after"
+                ],
+                "a7": [
+                    "lunch"
+                ],
+                "a8": [
+                    "?"
+                ]
+            },
+            "options": [
+                "lunch",
+                "we",
+                "gallery",
+                "?",
+                "Shall",
+                "after",
+                "the",
+                "visit"
+            ],
+            "variants": [],
+            "source": "theory_page_requests_offers_suggestions",
+            "tag_keys": []
+        }
+    ]
+}

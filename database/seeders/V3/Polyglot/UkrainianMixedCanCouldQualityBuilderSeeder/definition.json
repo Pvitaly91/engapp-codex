@@ -1,0 +1,4045 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mvq-v1",
+    "compiled_from": {
+        "path": "docs/content/modal-verbs-quality/can-could.v1.json",
+        "sha256": "565f4b4f714ca5fd606f6fc1e6445ac2cf2effb100f91e897e5c39ddb1d6b6b7"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedCanCouldQualityBuilderSeeder",
+        "uuid_namespace": "modal-verbs-quality-can-could-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "modal_verbs_quality_can_could": {
+            "name": "Modal Verbs Quality: Can and Could"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_can_could": {
+            "name": "Can / Could",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_can_could"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mvq-cc-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Моя сестра вміє співати.",
+            "level": "A1",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "Моя сестра вміє співати.",
+            "target_text": "My sister can sing.",
+            "markers": {
+                "a1": {
+                    "answer": "My",
+                    "verb_hint": "Уміти співати; почни з того, про кого йдеться.",
+                    "options": [
+                        "My",
+                        "Your",
+                        "His",
+                        "Her"
+                    ]
+                },
+                "a2": {
+                    "answer": "sister",
+                    "verb_hint": "Уміти співати; почни з того, про кого йдеться.",
+                    "options": [
+                        "sister",
+                        "error",
+                        "record",
+                        "evidence"
+                    ]
+                },
+                "a3": {
+                    "answer": "can",
+                    "verb_hint": "Уміти співати; почни з того, про кого йдеться.",
+                    "options": [
+                        "can",
+                        "will",
+                        "would",
+                        "shall"
+                    ]
+                },
+                "a4": {
+                    "answer": "sing.",
+                    "verb_hint": "Уміти співати; почни з того, про кого йдеться.",
+                    "options": [
+                        "sing",
+                        "waiting",
+                        "watching",
+                        "visiting"
+                    ]
+                }
+            },
+            "verb_hint": "Уміти співати; почни з того, про кого йдеться.",
+            "accepted_target_texts": [
+                "My sister can sing."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My sister",
+                "can sing."
+            ],
+            "token_groups": [
+                "My sister",
+                "can sing."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "My",
+                "sister",
+                "can",
+                "sing."
+            ],
+            "options": [
+                "My",
+                "Your",
+                "His",
+                "Her",
+                "sister",
+                "error",
+                "record",
+                "evidence",
+                "can",
+                "will",
+                "would",
+                "shall",
+                "sing",
+                "waiting",
+                "watching",
+                "visiting"
+            ],
+            "source_text_uk": "Моя сестра вміє співати.",
+            "options_by_marker": {
+                "a1": [
+                    "My",
+                    "Your",
+                    "His",
+                    "Her"
+                ],
+                "a2": [
+                    "sister",
+                    "error",
+                    "record",
+                    "evidence"
+                ],
+                "a3": [
+                    "can",
+                    "will",
+                    "would",
+                    "shall"
+                ],
+                "a4": [
+                    "sing",
+                    "waiting",
+                    "watching",
+                    "visiting"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "modal",
+                "a4": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "mvq-cc-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Ми не можемо відчинити це вікно.",
+            "level": "A1",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "Ми не можемо відчинити це вікно.",
+            "target_text": "We cannot open this window.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Не можемо відчинити; збережи вказівку саме на це вікно.",
+                    "options": [
+                        "We",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "cannot",
+                    "verb_hint": "Не можемо відчинити; збережи вказівку саме на це вікно.",
+                    "options": [
+                        "cannot",
+                        "might",
+                        "must",
+                        "couldn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "open",
+                    "verb_hint": "Не можемо відчинити; збережи вказівку саме на це вікно.",
+                    "options": [
+                        "open",
+                        "left",
+                        "said",
+                        "met"
+                    ]
+                },
+                "a4": {
+                    "answer": "this",
+                    "verb_hint": "Не можемо відчинити; збережи вказівку саме на це вікно.",
+                    "options": [
+                        "this",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a5": {
+                    "answer": "window.",
+                    "verb_hint": "Не можемо відчинити; збережи вказівку саме на це вікно.",
+                    "options": [
+                        "window",
+                        "error",
+                        "record",
+                        "evidence"
+                    ]
+                }
+            },
+            "verb_hint": "Не можемо відчинити; збережи вказівку саме на це вікно.",
+            "accepted_target_texts": [
+                "We cannot open this window.",
+                "We can not open this window.",
+                "We can't open this window."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "can't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "can't"
+                ]
+            },
+            "reorder_groups": [
+                "We cannot open",
+                "this window."
+            ],
+            "token_groups": [
+                "We cannot open",
+                "this window."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "We",
+                "cannot",
+                "open",
+                "this",
+                "window."
+            ],
+            "options": [
+                "We",
+                "They",
+                "Me",
+                "Him",
+                "cannot",
+                "might",
+                "must",
+                "couldn't",
+                "open",
+                "left",
+                "said",
+                "met",
+                "this",
+                "each",
+                "every",
+                "no",
+                "window",
+                "error",
+                "record",
+                "evidence"
+            ],
+            "source_text_uk": "Ми не можемо відчинити це вікно.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "cannot",
+                    "might",
+                    "must",
+                    "couldn't"
+                ],
+                "a3": [
+                    "open",
+                    "left",
+                    "said",
+                    "met"
+                ],
+                "a4": [
+                    "this",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a5": [
+                    "window",
+                    "error",
+                    "record",
+                    "evidence"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "verb",
+                "a4": "determiner",
+                "a5": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "mvq-cc-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Ти можеш допомогти мені?",
+            "level": "A1",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "Ти можеш допомогти мені?",
+            "target_text": "Can you help me?",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "verb_hint": "Попроси допомоги простим прямим питанням.",
+                    "options": [
+                        "Can",
+                        "Shouldn't",
+                        "Cannot",
+                        "Could"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Попроси допомоги простим прямим питанням.",
+                    "options": [
+                        "you",
+                        "him",
+                        "us",
+                        "them"
+                    ]
+                },
+                "a3": {
+                    "answer": "help",
+                    "verb_hint": "Попроси допомоги простим прямим питанням.",
+                    "options": [
+                        "help",
+                        "come",
+                        "leave",
+                        "go"
+                    ]
+                },
+                "a4": {
+                    "answer": "me?",
+                    "verb_hint": "Попроси допомоги простим прямим питанням.",
+                    "options": [
+                        "me",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                }
+            },
+            "verb_hint": "Попроси допомоги простим прямим питанням.",
+            "accepted_target_texts": [
+                "Can you help me?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Can you",
+                "help me?"
+            ],
+            "token_groups": [
+                "Can you",
+                "help me?"
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "Can",
+                "you",
+                "help",
+                "me?"
+            ],
+            "options": [
+                "Can",
+                "Shouldn't",
+                "Cannot",
+                "Could",
+                "you",
+                "him",
+                "us",
+                "them",
+                "help",
+                "come",
+                "leave",
+                "go",
+                "me",
+                "myself",
+                "yourself",
+                "herself"
+            ],
+            "source_text_uk": "Ти можеш допомогти мені?",
+            "options_by_marker": {
+                "a1": [
+                    "Can",
+                    "Shouldn't",
+                    "Cannot",
+                    "Could"
+                ],
+                "a2": [
+                    "you",
+                    "him",
+                    "us",
+                    "them"
+                ],
+                "a3": [
+                    "help",
+                    "come",
+                    "leave",
+                    "go"
+                ],
+                "a4": [
+                    "me",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ]
+            },
+            "slot_roles": {
+                "a1": "modal",
+                "a2": "pronoun",
+                "a3": "verb",
+                "a4": "pronoun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "mvq-cc-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Можна нам сісти біля дверей?",
+            "level": "A2",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "Можна нам сісти біля дверей?",
+            "target_text": "Can we sit near the door?",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "verb_hint": "Попроси дозволу сісти; говориш від імені кількох людей.",
+                    "options": [
+                        "Can",
+                        "May",
+                        "Might",
+                        "Must"
+                    ]
+                },
+                "a2": {
+                    "answer": "we",
+                    "verb_hint": "Попроси дозволу сісти; говориш від імені кількох людей.",
+                    "options": [
+                        "we",
+                        "themselves",
+                        "I",
+                        "you"
+                    ]
+                },
+                "a3": {
+                    "answer": "sit",
+                    "verb_hint": "Попроси дозволу сісти; говориш від імені кількох людей.",
+                    "options": [
+                        "sit",
+                        "reduce",
+                        "reveal",
+                        "justify"
+                    ]
+                },
+                "a4": {
+                    "answer": "near",
+                    "verb_hint": "Попроси дозволу сісти; говориш від імені кількох людей.",
+                    "options": [
+                        "near",
+                        "on",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Попроси дозволу сісти; говориш від імені кількох людей.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "door?",
+                    "verb_hint": "Попроси дозволу сісти; говориш від імені кількох людей.",
+                    "options": [
+                        "door",
+                        "claim",
+                        "permission",
+                        "consent"
+                    ]
+                }
+            },
+            "verb_hint": "Попроси дозволу сісти; говориш від імені кількох людей.",
+            "accepted_target_texts": [
+                "Can we sit near the door?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Can we sit",
+                "near the door?"
+            ],
+            "token_groups": [
+                "Can we sit",
+                "near the door?"
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "Can",
+                "we",
+                "sit",
+                "near",
+                "the",
+                "door?"
+            ],
+            "options": [
+                "Can",
+                "May",
+                "Might",
+                "Must",
+                "we",
+                "themselves",
+                "I",
+                "you",
+                "sit",
+                "reduce",
+                "reveal",
+                "justify",
+                "near",
+                "on",
+                "by",
+                "with",
+                "the",
+                "some",
+                "any",
+                "this",
+                "door",
+                "claim",
+                "permission",
+                "consent"
+            ],
+            "source_text_uk": "Можна нам сісти біля дверей?",
+            "options_by_marker": {
+                "a1": [
+                    "Can",
+                    "May",
+                    "Might",
+                    "Must"
+                ],
+                "a2": [
+                    "we",
+                    "themselves",
+                    "I",
+                    "you"
+                ],
+                "a3": [
+                    "sit",
+                    "reduce",
+                    "reveal",
+                    "justify"
+                ],
+                "a4": [
+                    "near",
+                    "on",
+                    "by",
+                    "with"
+                ],
+                "a5": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "door",
+                    "claim",
+                    "permission",
+                    "consent"
+                ]
+            },
+            "slot_roles": {
+                "a1": "modal",
+                "a2": "pronoun",
+                "a3": "verb",
+                "a4": "preposition",
+                "a5": "determiner",
+                "a6": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "mvq-cc-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Раніше він не вмів готувати рис.",
+            "level": "A2",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "Раніше він не вмів готувати рис.",
+            "target_text": "He could not cook rice before.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Раніше не вмів готувати; збережи значення минулої здатності.",
+                    "options": [
+                        "He",
+                        "Yourself",
+                        "Herself",
+                        "Ourselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "could",
+                    "verb_hint": "Раніше не вмів готувати; збережи значення минулої здатності.",
+                    "options": [
+                        "could",
+                        "wouldn't",
+                        "shouldn't",
+                        "cannot"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Раніше не вмів готувати; збережи значення минулої здатності.",
+                    "options": [
+                        "not",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a4": {
+                    "answer": "cook",
+                    "verb_hint": "Раніше не вмів готувати; збережи значення минулої здатності.",
+                    "options": [
+                        "cook",
+                        "help",
+                        "see",
+                        "come"
+                    ]
+                },
+                "a5": {
+                    "answer": "rice",
+                    "verb_hint": "Раніше не вмів готувати; збережи значення минулої здатності.",
+                    "options": [
+                        "rice",
+                        "milk",
+                        "bread",
+                        "water"
+                    ]
+                },
+                "a6": {
+                    "answer": "before.",
+                    "verb_hint": "Раніше не вмів готувати; збережи значення минулої здатності.",
+                    "options": [
+                        "before",
+                        "here",
+                        "tomorrow",
+                        "disproportionately"
+                    ]
+                }
+            },
+            "verb_hint": "Раніше не вмів готувати; збережи значення минулої здатності.",
+            "accepted_target_texts": [
+                "He could not cook rice before.",
+                "He couldn't cook rice before."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He could not",
+                "cook rice before."
+            ],
+            "token_groups": [
+                "He could not",
+                "cook rice before."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "He",
+                "could",
+                "not",
+                "cook",
+                "rice",
+                "before."
+            ],
+            "options": [
+                "He",
+                "Yourself",
+                "Herself",
+                "Ourselves",
+                "could",
+                "wouldn't",
+                "shouldn't",
+                "cannot",
+                "not",
+                "always",
+                "often",
+                "sometimes",
+                "cook",
+                "help",
+                "see",
+                "come",
+                "rice",
+                "milk",
+                "bread",
+                "water",
+                "before",
+                "here",
+                "tomorrow",
+                "disproportionately"
+            ],
+            "source_text_uk": "Раніше він не вмів готувати рис.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "Yourself",
+                    "Herself",
+                    "Ourselves"
+                ],
+                "a2": [
+                    "could",
+                    "wouldn't",
+                    "shouldn't",
+                    "cannot"
+                ],
+                "a3": [
+                    "not",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a4": [
+                    "cook",
+                    "help",
+                    "see",
+                    "come"
+                ],
+                "a5": [
+                    "rice",
+                    "milk",
+                    "bread",
+                    "water"
+                ],
+                "a6": [
+                    "before",
+                    "here",
+                    "tomorrow",
+                    "disproportionately"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "modal",
+                "a4": "verb",
+                "a5": "noun",
+                "a6": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "mvq-cc-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Тут можна купити свіжий хліб.",
+            "level": "A2",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "Тут можна купити свіжий хліб.",
+            "target_text": "You can buy fresh bread here.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Загальна можливість: звернися до читача словом «ти».",
+                    "options": [
+                        "You",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "can",
+                    "verb_hint": "Загальна можливість: звернися до читача словом «ти».",
+                    "options": [
+                        "can",
+                        "might",
+                        "must",
+                        "can't"
+                    ]
+                },
+                "a3": {
+                    "answer": "buy",
+                    "verb_hint": "Загальна можливість: звернися до читача словом «ти».",
+                    "options": [
+                        "buy",
+                        "help",
+                        "see",
+                        "come"
+                    ]
+                },
+                "a4": {
+                    "answer": "fresh",
+                    "verb_hint": "Загальна можливість: звернися до читача словом «ти».",
+                    "options": [
+                        "fresh",
+                        "slight",
+                        "complete",
+                        "incomplete"
+                    ]
+                },
+                "a5": {
+                    "answer": "bread",
+                    "verb_hint": "Загальна можливість: звернися до читача словом «ти».",
+                    "options": [
+                        "bread",
+                        "honey",
+                        "milk",
+                        "water"
+                    ]
+                },
+                "a6": {
+                    "answer": "here.",
+                    "verb_hint": "Загальна можливість: звернися до читача словом «ти».",
+                    "options": [
+                        "here",
+                        "now",
+                        "then",
+                        "there"
+                    ]
+                }
+            },
+            "verb_hint": "Загальна можливість: звернися до читача словом «ти».",
+            "accepted_target_texts": [
+                "You can buy fresh bread here."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You can buy",
+                "fresh bread here."
+            ],
+            "token_groups": [
+                "You can buy",
+                "fresh bread here."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "You",
+                "can",
+                "buy",
+                "fresh",
+                "bread",
+                "here."
+            ],
+            "options": [
+                "You",
+                "They",
+                "Me",
+                "Him",
+                "can",
+                "might",
+                "must",
+                "can't",
+                "buy",
+                "help",
+                "see",
+                "come",
+                "fresh",
+                "slight",
+                "complete",
+                "incomplete",
+                "bread",
+                "honey",
+                "milk",
+                "water",
+                "here",
+                "now",
+                "then",
+                "there"
+            ],
+            "source_text_uk": "Тут можна купити свіжий хліб.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "can",
+                    "might",
+                    "must",
+                    "can't"
+                ],
+                "a3": [
+                    "buy",
+                    "help",
+                    "see",
+                    "come"
+                ],
+                "a4": [
+                    "fresh",
+                    "slight",
+                    "complete",
+                    "incomplete"
+                ],
+                "a5": [
+                    "bread",
+                    "honey",
+                    "milk",
+                    "water"
+                ],
+                "a6": [
+                    "here",
+                    "now",
+                    "then",
+                    "there"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "verb",
+                "a4": "adjective",
+                "a5": "noun",
+                "a6": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "mvq-cc-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Якщо в тебе є квиток, ти можеш увійти.",
+            "level": "B1",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "Якщо в тебе є квиток, ти можеш увійти.",
+            "target_text": "If you have a ticket, you can enter.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Мати квиток дає право увійти; почни з умови.",
+                    "options": [
+                        "If",
+                        "Because",
+                        "Although",
+                        "Though"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Мати квиток дає право увійти; почни з умови.",
+                    "options": [
+                        "you",
+                        "she",
+                        "it",
+                        "we"
+                    ]
+                },
+                "a3": {
+                    "answer": "have",
+                    "verb_hint": "Мати квиток дає право увійти; почни з умови.",
+                    "options": [
+                        "have",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Мати квиток дає право увійти; почни з умови.",
+                    "options": [
+                        "a",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a5": {
+                    "answer": "ticket,",
+                    "verb_hint": "Мати квиток дає право увійти; почни з умови.",
+                    "options": [
+                        "ticket",
+                        "record",
+                        "evidence",
+                        "name"
+                    ]
+                },
+                "a6": {
+                    "answer": "you",
+                    "verb_hint": "Мати квиток дає право увійти; почни з умови.",
+                    "options": [
+                        "you",
+                        "he",
+                        "they",
+                        "me"
+                    ]
+                },
+                "a7": {
+                    "answer": "can",
+                    "verb_hint": "Мати квиток дає право увійти; почни з умови.",
+                    "options": [
+                        "can",
+                        "should",
+                        "may",
+                        "might"
+                    ]
+                },
+                "a8": {
+                    "answer": "enter.",
+                    "verb_hint": "Мати квиток дає право увійти; почни з умови.",
+                    "options": [
+                        "enter",
+                        "reveal",
+                        "justify",
+                        "establish"
+                    ]
+                }
+            },
+            "verb_hint": "Мати квиток дає право увійти; почни з умови.",
+            "accepted_target_texts": [
+                "If you have a ticket, you can enter."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If you have",
+                "a ticket,",
+                "you can enter."
+            ],
+            "token_groups": [
+                "If you have",
+                "a ticket,",
+                "you can enter."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "If",
+                "you",
+                "have",
+                "a",
+                "ticket,",
+                "you",
+                "can",
+                "enter."
+            ],
+            "options": [
+                "If",
+                "Because",
+                "Although",
+                "Though",
+                "you",
+                "she",
+                "it",
+                "we",
+                "have",
+                "do",
+                "does",
+                "did",
+                "a",
+                "this",
+                "that",
+                "these",
+                "ticket",
+                "record",
+                "evidence",
+                "name",
+                "he",
+                "they",
+                "me",
+                "can",
+                "should",
+                "may",
+                "might",
+                "enter",
+                "reveal",
+                "justify",
+                "establish"
+            ],
+            "source_text_uk": "Якщо в тебе є квиток, ти можеш увійти.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "Because",
+                    "Although",
+                    "Though"
+                ],
+                "a2": [
+                    "you",
+                    "she",
+                    "it",
+                    "we"
+                ],
+                "a3": [
+                    "have",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a4": [
+                    "a",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a5": [
+                    "ticket",
+                    "record",
+                    "evidence",
+                    "name"
+                ],
+                "a6": [
+                    "you",
+                    "he",
+                    "they",
+                    "me"
+                ],
+                "a7": [
+                    "can",
+                    "should",
+                    "may",
+                    "might"
+                ],
+                "a8": [
+                    "enter",
+                    "reveal",
+                    "justify",
+                    "establish"
+                ]
+            },
+            "slot_roles": {
+                "a1": "conjunction",
+                "a2": "pronoun",
+                "a3": "verb",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "pronoun",
+                "a7": "modal",
+                "a8": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "mvq-cc-b1-c02",
+            "author_id": "B1-c02",
+            "question": "У дитинстві ми могли годинами грати надворі.",
+            "level": "B1",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "У дитинстві ми могли годинами грати надворі.",
+            "target_text": "As children, we could play outside for hours.",
+            "markers": {
+                "a1": {
+                    "answer": "As",
+                    "verb_hint": "Загальна можливість у дитинстві, не одиничний успіх.",
+                    "options": [
+                        "As",
+                        "Cups",
+                        "Doors",
+                        "Keys"
+                    ]
+                },
+                "a2": {
+                    "answer": "children,",
+                    "verb_hint": "Загальна можливість у дитинстві, не одиничний успіх.",
+                    "options": [
+                        "children",
+                        "found",
+                        "brought",
+                        "took"
+                    ]
+                },
+                "a3": {
+                    "answer": "we",
+                    "verb_hint": "Загальна можливість у дитинстві, не одиничний успіх.",
+                    "options": [
+                        "we",
+                        "themselves",
+                        "I",
+                        "you"
+                    ]
+                },
+                "a4": {
+                    "answer": "could",
+                    "verb_hint": "Загальна можливість у дитинстві, не одиничний успіх.",
+                    "options": [
+                        "could",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "play",
+                    "verb_hint": "Загальна можливість у дитинстві, не одиничний успіх.",
+                    "options": [
+                        "play",
+                        "close",
+                        "ride",
+                        "help"
+                    ]
+                },
+                "a6": {
+                    "answer": "outside",
+                    "verb_hint": "Загальна можливість у дитинстві, не одиничний успіх.",
+                    "options": [
+                        "outside",
+                        "disproportionately",
+                        "slowly",
+                        "more"
+                    ]
+                },
+                "a7": {
+                    "answer": "for",
+                    "verb_hint": "Загальна можливість у дитинстві, не одиничний успіх.",
+                    "options": [
+                        "for",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a8": {
+                    "answer": "hours.",
+                    "verb_hint": "Загальна можливість у дитинстві, не одиничний успіх.",
+                    "options": [
+                        "hours",
+                        "costs",
+                        "records",
+                        "criteria"
+                    ]
+                }
+            },
+            "verb_hint": "Загальна можливість у дитинстві, не одиничний успіх.",
+            "accepted_target_texts": [
+                "As children, we could play outside for hours."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "As children,",
+                "we could play",
+                "outside for hours."
+            ],
+            "token_groups": [
+                "As children,",
+                "we could play",
+                "outside for hours."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "As",
+                "children,",
+                "we",
+                "could",
+                "play",
+                "outside",
+                "for",
+                "hours."
+            ],
+            "options": [
+                "As",
+                "Cups",
+                "Doors",
+                "Keys",
+                "children",
+                "found",
+                "brought",
+                "took",
+                "we",
+                "themselves",
+                "I",
+                "you",
+                "could",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "play",
+                "close",
+                "ride",
+                "help",
+                "outside",
+                "disproportionately",
+                "slowly",
+                "more",
+                "for",
+                "among",
+                "about",
+                "during",
+                "hours",
+                "costs",
+                "records",
+                "criteria"
+            ],
+            "source_text_uk": "У дитинстві ми могли годинами грати надворі.",
+            "options_by_marker": {
+                "a1": [
+                    "As",
+                    "Cups",
+                    "Doors",
+                    "Keys"
+                ],
+                "a2": [
+                    "children",
+                    "found",
+                    "brought",
+                    "took"
+                ],
+                "a3": [
+                    "we",
+                    "themselves",
+                    "I",
+                    "you"
+                ],
+                "a4": [
+                    "could",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a5": [
+                    "play",
+                    "close",
+                    "ride",
+                    "help"
+                ],
+                "a6": [
+                    "outside",
+                    "disproportionately",
+                    "slowly",
+                    "more"
+                ],
+                "a7": [
+                    "for",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a8": [
+                    "hours",
+                    "costs",
+                    "records",
+                    "criteria"
+                ]
+            },
+            "slot_roles": {
+                "a1": "preposition",
+                "a2": "noun_plural",
+                "a3": "pronoun",
+                "a4": "modal",
+                "a5": "verb",
+                "a6": "adverb",
+                "a7": "preposition",
+                "a8": "noun_plural"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "mvq-cc-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Не могли б ви говорити трохи повільніше?",
+            "level": "B1",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "Не могли б ви говорити трохи повільніше?",
+            "target_text": "Could you speak a little more slowly?",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "verb_hint": "Ввічливе прохання; передай невелике зменшення швидкості.",
+                    "options": [
+                        "Could",
+                        "Can't",
+                        "Couldn't",
+                        "Won't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Ввічливе прохання; передай невелике зменшення швидкості.",
+                    "options": [
+                        "you",
+                        "she",
+                        "it",
+                        "we"
+                    ]
+                },
+                "a3": {
+                    "answer": "speak",
+                    "verb_hint": "Ввічливе прохання; передай невелике зменшення швидкості.",
+                    "options": [
+                        "speak",
+                        "sit",
+                        "touch",
+                        "reflect"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Ввічливе прохання; передай невелике зменшення швидкості.",
+                    "options": [
+                        "a",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a5": {
+                    "answer": "little",
+                    "verb_hint": "Ввічливе прохання; передай невелике зменшення швидкості.",
+                    "options": [
+                        "little",
+                        "fresh",
+                        "valid",
+                        "final"
+                    ]
+                },
+                "a6": {
+                    "answer": "more",
+                    "verb_hint": "Ввічливе прохання; передай невелике зменшення швидкості.",
+                    "options": [
+                        "more",
+                        "quietly",
+                        "clearly",
+                        "still"
+                    ]
+                },
+                "a7": {
+                    "answer": "slowly?",
+                    "verb_hint": "Ввічливе прохання; передай невелике зменшення швидкості.",
+                    "options": [
+                        "slowly",
+                        "tomorrow",
+                        "disproportionately",
+                        "later"
+                    ]
+                }
+            },
+            "verb_hint": "Ввічливе прохання; передай невелике зменшення швидкості.",
+            "accepted_target_texts": [
+                "Could you speak a little more slowly?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you speak",
+                "a little",
+                "more slowly?"
+            ],
+            "token_groups": [
+                "Could you speak",
+                "a little",
+                "more slowly?"
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "Could",
+                "you",
+                "speak",
+                "a",
+                "little",
+                "more",
+                "slowly?"
+            ],
+            "options": [
+                "Could",
+                "Can't",
+                "Couldn't",
+                "Won't",
+                "you",
+                "she",
+                "it",
+                "we",
+                "speak",
+                "sit",
+                "touch",
+                "reflect",
+                "a",
+                "each",
+                "every",
+                "no",
+                "little",
+                "fresh",
+                "valid",
+                "final",
+                "more",
+                "quietly",
+                "clearly",
+                "still",
+                "slowly",
+                "tomorrow",
+                "disproportionately",
+                "later"
+            ],
+            "source_text_uk": "Не могли б ви говорити трохи повільніше?",
+            "options_by_marker": {
+                "a1": [
+                    "Could",
+                    "Can't",
+                    "Couldn't",
+                    "Won't"
+                ],
+                "a2": [
+                    "you",
+                    "she",
+                    "it",
+                    "we"
+                ],
+                "a3": [
+                    "speak",
+                    "sit",
+                    "touch",
+                    "reflect"
+                ],
+                "a4": [
+                    "a",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a5": [
+                    "little",
+                    "fresh",
+                    "valid",
+                    "final"
+                ],
+                "a6": [
+                    "more",
+                    "quietly",
+                    "clearly",
+                    "still"
+                ],
+                "a7": [
+                    "slowly",
+                    "tomorrow",
+                    "disproportionately",
+                    "later"
+                ]
+            },
+            "slot_roles": {
+                "a1": "modal",
+                "a2": "pronoun",
+                "a3": "verb",
+                "a4": "determiner",
+                "a5": "adjective",
+                "a6": "adverb",
+                "a7": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "mvq-cc-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Звідси можна побачити обидва входи, але не внутрішній двір.",
+            "level": "B2",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "Звідси можна побачити обидва входи, але не внутрішній двір.",
+            "target_text": "You can see both entrances from here, but not the courtyard.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Можливість бачити; збережи протиставлення двох входів і двору.",
+                    "options": [
+                        "You",
+                        "Him",
+                        "Us",
+                        "Them"
+                    ]
+                },
+                "a2": {
+                    "answer": "can",
+                    "verb_hint": "Можливість бачити; збережи протиставлення двох входів і двору.",
+                    "options": [
+                        "can",
+                        "shouldn't",
+                        "cannot",
+                        "could"
+                    ]
+                },
+                "a3": {
+                    "answer": "see",
+                    "verb_hint": "Можливість бачити; збережи протиставлення двох входів і двору.",
+                    "options": [
+                        "see",
+                        "write",
+                        "read",
+                        "close"
+                    ]
+                },
+                "a4": {
+                    "answer": "both",
+                    "verb_hint": "Можливість бачити; збережи протиставлення двох входів і двору.",
+                    "options": [
+                        "both",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "entrances",
+                    "verb_hint": "Можливість бачити; збережи протиставлення двох входів і двору.",
+                    "options": [
+                        "entrances",
+                        "costs",
+                        "hours",
+                        "records"
+                    ]
+                },
+                "a6": {
+                    "answer": "from",
+                    "verb_hint": "Можливість бачити; збережи протиставлення двох входів і двору.",
+                    "options": [
+                        "from",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a7": {
+                    "answer": "here,",
+                    "verb_hint": "Можливість бачити; збережи протиставлення двох входів і двору.",
+                    "options": [
+                        "here",
+                        "tomorrow",
+                        "disproportionately",
+                        "now"
+                    ]
+                },
+                "a8": {
+                    "answer": "but",
+                    "verb_hint": "Можливість бачити; збережи протиставлення двох входів і двору.",
+                    "options": [
+                        "but",
+                        "nor",
+                        "so",
+                        "yet"
+                    ]
+                },
+                "a9": {
+                    "answer": "not",
+                    "verb_hint": "Можливість бачити; збережи протиставлення двох входів і двору.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Можливість бачити; збережи протиставлення двох входів і двору.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a11": {
+                    "answer": "courtyard.",
+                    "verb_hint": "Можливість бачити; збережи протиставлення двох входів і двору.",
+                    "options": [
+                        "courtyard",
+                        "beach",
+                        "room",
+                        "school"
+                    ]
+                }
+            },
+            "verb_hint": "Можливість бачити; збережи протиставлення двох входів і двору.",
+            "accepted_target_texts": [
+                "You can see both entrances from here, but not the courtyard."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You can see",
+                "both entrances",
+                "from here,",
+                "but not",
+                "the courtyard."
+            ],
+            "token_groups": [
+                "You can see",
+                "both entrances",
+                "from here,",
+                "but not",
+                "the courtyard."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "You",
+                "can",
+                "see",
+                "both",
+                "entrances",
+                "from",
+                "here,",
+                "but",
+                "not",
+                "the",
+                "courtyard."
+            ],
+            "options": [
+                "You",
+                "Him",
+                "Us",
+                "Them",
+                "can",
+                "shouldn't",
+                "cannot",
+                "could",
+                "see",
+                "write",
+                "read",
+                "close",
+                "both",
+                "either",
+                "neither",
+                "all",
+                "entrances",
+                "costs",
+                "hours",
+                "records",
+                "from",
+                "about",
+                "during",
+                "to",
+                "here",
+                "tomorrow",
+                "disproportionately",
+                "now",
+                "but",
+                "nor",
+                "so",
+                "yet",
+                "not",
+                "never",
+                "always",
+                "often",
+                "the",
+                "those",
+                "each",
+                "every",
+                "courtyard",
+                "beach",
+                "room",
+                "school"
+            ],
+            "source_text_uk": "Звідси можна побачити обидва входи, але не внутрішній двір.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "Him",
+                    "Us",
+                    "Them"
+                ],
+                "a2": [
+                    "can",
+                    "shouldn't",
+                    "cannot",
+                    "could"
+                ],
+                "a3": [
+                    "see",
+                    "write",
+                    "read",
+                    "close"
+                ],
+                "a4": [
+                    "both",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "entrances",
+                    "costs",
+                    "hours",
+                    "records"
+                ],
+                "a6": [
+                    "from",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a7": [
+                    "here",
+                    "tomorrow",
+                    "disproportionately",
+                    "now"
+                ],
+                "a8": [
+                    "but",
+                    "nor",
+                    "so",
+                    "yet"
+                ],
+                "a9": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a10": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a11": [
+                    "courtyard",
+                    "beach",
+                    "room",
+                    "school"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "verb",
+                "a4": "determiner",
+                "a5": "noun_plural",
+                "a6": "preposition",
+                "a7": "adverb",
+                "a8": "conjunction",
+                "a9": "negative",
+                "a10": "determiner",
+                "a11": "place"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "mvq-cc-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Без доступу до журналу ми не могли відстежити помилку.",
+            "level": "B2",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "Без доступу до журналу ми не могли відстежити помилку.",
+            "target_text": "Without access to the log, we could not trace the error.",
+            "markers": {
+                "a1": {
+                    "answer": "Without",
+                    "verb_hint": "Не могли відстежити за відсутності доступу; почни з обставини.",
+                    "options": [
+                        "Without",
+                        "For",
+                        "Of",
+                        "In"
+                    ]
+                },
+                "a2": {
+                    "answer": "access",
+                    "verb_hint": "Не могли відстежити за відсутності доступу; почни з обставини.",
+                    "options": [
+                        "access",
+                        "change",
+                        "quality",
+                        "rice"
+                    ]
+                },
+                "a3": {
+                    "answer": "to",
+                    "verb_hint": "Не могли відстежити за відсутності доступу; почни з обставини.",
+                    "options": [
+                        "to",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Не могли відстежити за відсутності доступу; почни з обставини.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a5": {
+                    "answer": "log,",
+                    "verb_hint": "Не могли відстежити за відсутності доступу; почни з обставини.",
+                    "options": [
+                        "log",
+                        "agreement",
+                        "experience",
+                        "name"
+                    ]
+                },
+                "a6": {
+                    "answer": "we",
+                    "verb_hint": "Не могли відстежити за відсутності доступу; почни з обставини.",
+                    "options": [
+                        "we",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                },
+                "a7": {
+                    "answer": "could",
+                    "verb_hint": "Не могли відстежити за відсутності доступу; почни з обставини.",
+                    "options": [
+                        "could",
+                        "must",
+                        "can't",
+                        "won't"
+                    ]
+                },
+                "a8": {
+                    "answer": "not",
+                    "verb_hint": "Не могли відстежити за відсутності доступу; почни з обставини.",
+                    "options": [
+                        "not",
+                        "already",
+                        "still",
+                        "just"
+                    ]
+                },
+                "a9": {
+                    "answer": "trace",
+                    "verb_hint": "Не могли відстежити за відсутності доступу; почни з обставини.",
+                    "options": [
+                        "trace",
+                        "hear",
+                        "reveal",
+                        "justify"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Не могли відстежити за відсутності доступу; почни з обставини.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a11": {
+                    "answer": "error.",
+                    "verb_hint": "Не могли відстежити за відсутності доступу; почни з обставини.",
+                    "options": [
+                        "error",
+                        "evidence",
+                        "argument",
+                        "claim"
+                    ]
+                }
+            },
+            "verb_hint": "Не могли відстежити за відсутності доступу; почни з обставини.",
+            "accepted_target_texts": [
+                "Without access to the log, we could not trace the error.",
+                "Without access to the log, we couldn't trace the error."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Without access",
+                "to the log,",
+                "we could not",
+                "trace the error."
+            ],
+            "token_groups": [
+                "Without access",
+                "to the log,",
+                "we could not",
+                "trace the error."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "Without",
+                "access",
+                "to",
+                "the",
+                "log,",
+                "we",
+                "could",
+                "not",
+                "trace",
+                "the",
+                "error."
+            ],
+            "options": [
+                "Without",
+                "For",
+                "Of",
+                "In",
+                "access",
+                "change",
+                "quality",
+                "rice",
+                "to",
+                "on",
+                "at",
+                "by",
+                "the",
+                "some",
+                "any",
+                "this",
+                "log",
+                "agreement",
+                "experience",
+                "name",
+                "we",
+                "them",
+                "myself",
+                "yourself",
+                "could",
+                "must",
+                "can't",
+                "won't",
+                "not",
+                "already",
+                "still",
+                "just",
+                "trace",
+                "hear",
+                "reveal",
+                "justify",
+                "those",
+                "each",
+                "every",
+                "error",
+                "evidence",
+                "argument",
+                "claim"
+            ],
+            "source_text_uk": "Без доступу до журналу ми не могли відстежити помилку.",
+            "options_by_marker": {
+                "a1": [
+                    "Without",
+                    "For",
+                    "Of",
+                    "In"
+                ],
+                "a2": [
+                    "access",
+                    "change",
+                    "quality",
+                    "rice"
+                ],
+                "a3": [
+                    "to",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a4": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a5": [
+                    "log",
+                    "agreement",
+                    "experience",
+                    "name"
+                ],
+                "a6": [
+                    "we",
+                    "them",
+                    "myself",
+                    "yourself"
+                ],
+                "a7": [
+                    "could",
+                    "must",
+                    "can't",
+                    "won't"
+                ],
+                "a8": [
+                    "not",
+                    "already",
+                    "still",
+                    "just"
+                ],
+                "a9": [
+                    "trace",
+                    "hear",
+                    "reveal",
+                    "justify"
+                ],
+                "a10": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a11": [
+                    "error",
+                    "evidence",
+                    "argument",
+                    "claim"
+                ]
+            },
+            "slot_roles": {
+                "a1": "preposition",
+                "a2": "noun",
+                "a3": "preposition",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "pronoun",
+                "a7": "modal",
+                "a8": "modal",
+                "a9": "verb",
+                "a10": "determiner",
+                "a11": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "mvq-cc-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Ця зміна могла б зменшити витрати, не погіршуючи якість.",
+            "level": "B2",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "Ця зміна могла б зменшити витрати, не погіршуючи якість.",
+            "target_text": "This change could reduce costs without lowering quality.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "verb_hint": "Запропонуй умовну можливість зменшення витрат; не стверджуй, що результат уже отримано.",
+                    "options": [
+                        "This",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "change",
+                    "verb_hint": "Запропонуй умовну можливість зменшення витрат; не стверджуй, що результат уже отримано.",
+                    "options": [
+                        "change",
+                        "argument",
+                        "claim",
+                        "permission"
+                    ]
+                },
+                "a3": {
+                    "answer": "could",
+                    "verb_hint": "Запропонуй умовну можливість зменшення витрат; не стверджуй, що результат уже отримано.",
+                    "options": [
+                        "could",
+                        "might",
+                        "must",
+                        "can't"
+                    ]
+                },
+                "a4": {
+                    "answer": "reduce",
+                    "verb_hint": "Запропонуй умовну можливість зменшення витрат; не стверджуй, що результат уже отримано.",
+                    "options": [
+                        "reduce",
+                        "conceal",
+                        "propose",
+                        "trace"
+                    ]
+                },
+                "a5": {
+                    "answer": "costs",
+                    "verb_hint": "Запропонуй умовну можливість зменшення витрат; не стверджуй, що результат уже отримано.",
+                    "options": [
+                        "costs",
+                        "principles",
+                        "terms",
+                        "paintings"
+                    ]
+                },
+                "a6": {
+                    "answer": "without",
+                    "verb_hint": "Запропонуй умовну можливість зменшення витрат; не стверджуй, що результат уже отримано.",
+                    "options": [
+                        "without",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a7": {
+                    "answer": "lowering",
+                    "verb_hint": "Запропонуй умовну можливість зменшення витрат; не стверджуй, що результат уже отримано.",
+                    "options": [
+                        "lowering",
+                        "waiting",
+                        "underestimating",
+                        "negotiating"
+                    ]
+                },
+                "a8": {
+                    "answer": "quality.",
+                    "verb_hint": "Запропонуй умовну можливість зменшення витрат; не стверджуй, що результат уже отримано.",
+                    "options": [
+                        "quality",
+                        "consent",
+                        "estimate",
+                        "formulation"
+                    ]
+                }
+            },
+            "verb_hint": "Запропонуй умовну можливість зменшення витрат; не стверджуй, що результат уже отримано.",
+            "accepted_target_texts": [
+                "This change could reduce costs without lowering quality."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This change",
+                "could reduce costs",
+                "without lowering quality."
+            ],
+            "token_groups": [
+                "This change",
+                "could reduce costs",
+                "without lowering quality."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "This",
+                "change",
+                "could",
+                "reduce",
+                "costs",
+                "without",
+                "lowering",
+                "quality."
+            ],
+            "options": [
+                "This",
+                "Either",
+                "Neither",
+                "All",
+                "change",
+                "argument",
+                "claim",
+                "permission",
+                "could",
+                "might",
+                "must",
+                "can't",
+                "reduce",
+                "conceal",
+                "propose",
+                "trace",
+                "costs",
+                "principles",
+                "terms",
+                "paintings",
+                "without",
+                "from",
+                "for",
+                "of",
+                "lowering",
+                "waiting",
+                "underestimating",
+                "negotiating",
+                "quality",
+                "consent",
+                "estimate",
+                "formulation"
+            ],
+            "source_text_uk": "Ця зміна могла б зменшити витрати, не погіршуючи якість.",
+            "options_by_marker": {
+                "a1": [
+                    "This",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "change",
+                    "argument",
+                    "claim",
+                    "permission"
+                ],
+                "a3": [
+                    "could",
+                    "might",
+                    "must",
+                    "can't"
+                ],
+                "a4": [
+                    "reduce",
+                    "conceal",
+                    "propose",
+                    "trace"
+                ],
+                "a5": [
+                    "costs",
+                    "principles",
+                    "terms",
+                    "paintings"
+                ],
+                "a6": [
+                    "without",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a7": [
+                    "lowering",
+                    "waiting",
+                    "underestimating",
+                    "negotiating"
+                ],
+                "a8": [
+                    "quality",
+                    "consent",
+                    "estimate",
+                    "formulation"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "modal",
+                "a4": "verb",
+                "a5": "noun_plural",
+                "a6": "preposition",
+                "a7": "gerund",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "mvq-cc-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Навіть анонімізовані записи можуть розкрити особу учасника, якщо їх поєднати.",
+            "level": "C1",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "Навіть анонімізовані записи можуть розкрити особу учасника, якщо їх поєднати.",
+            "target_text": "Even anonymised records can reveal a participant's identity if combined.",
+            "markers": {
+                "a1": {
+                    "answer": "Even",
+                    "verb_hint": "Загальний ризик розкриття особи через поєднання записів; збережи умову.",
+                    "options": [
+                        "Even",
+                        "Just",
+                        "Also",
+                        "Usually"
+                    ]
+                },
+                "a2": {
+                    "answer": "anonymised",
+                    "verb_hint": "Загальний ризик розкриття особи через поєднання записів; збережи умову.",
+                    "options": [
+                        "anonymised",
+                        "old",
+                        "clear",
+                        "unclear"
+                    ]
+                },
+                "a3": {
+                    "answer": "records",
+                    "verb_hint": "Загальний ризик розкриття особи через поєднання записів; збережи умову.",
+                    "options": [
+                        "records",
+                        "guests",
+                        "assumptions",
+                        "terms"
+                    ]
+                },
+                "a4": {
+                    "answer": "can",
+                    "verb_hint": "Загальний ризик розкриття особи через поєднання записів; збережи умову.",
+                    "options": [
+                        "can",
+                        "should",
+                        "may",
+                        "might"
+                    ]
+                },
+                "a5": {
+                    "answer": "reveal",
+                    "verb_hint": "Загальний ризик розкриття особи через поєднання записів; збережи умову.",
+                    "options": [
+                        "reveal",
+                        "resolve",
+                        "conceal",
+                        "propose"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Загальний ризик розкриття особи через поєднання записів; збережи умову.",
+                    "options": [
+                        "a",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a7": {
+                    "answer": "participant's",
+                    "verb_hint": "Загальний ризик розкриття особи через поєднання записів; збережи умову.",
+                    "options": [
+                        "participant's",
+                        "criteria",
+                        "changes",
+                        "women"
+                    ]
+                },
+                "a8": {
+                    "answer": "identity",
+                    "verb_hint": "Загальний ризик розкриття особи через поєднання записів; збережи умову.",
+                    "options": [
+                        "identity",
+                        "quality",
+                        "agreement",
+                        "experience"
+                    ]
+                },
+                "a9": {
+                    "answer": "if",
+                    "verb_hint": "Загальний ризик розкриття особи через поєднання записів; збережи умову.",
+                    "options": [
+                        "if",
+                        "so",
+                        "yet",
+                        "because"
+                    ]
+                },
+                "a10": {
+                    "answer": "combined.",
+                    "verb_hint": "Загальний ризик розкриття особи через поєднання записів; збережи умову.",
+                    "options": [
+                        "combined",
+                        "confined",
+                        "limited",
+                        "approved"
+                    ]
+                }
+            },
+            "verb_hint": "Загальний ризик розкриття особи через поєднання записів; збережи умову.",
+            "accepted_target_texts": [
+                "Even anonymised records can reveal a participant's identity if combined.",
+                "Even anonymized records can reveal a participant's identity if combined."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "anonymized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "anonymized"
+                ]
+            },
+            "reorder_groups": [
+                "Even anonymised records",
+                "can reveal",
+                "a participant's identity",
+                "if combined."
+            ],
+            "token_groups": [
+                "Even anonymised records",
+                "can reveal",
+                "a participant's identity",
+                "if combined."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "Even",
+                "anonymised",
+                "records",
+                "can",
+                "reveal",
+                "a",
+                "participant's",
+                "identity",
+                "if",
+                "combined."
+            ],
+            "options": [
+                "Even",
+                "Just",
+                "Also",
+                "Usually",
+                "anonymised",
+                "old",
+                "clear",
+                "unclear",
+                "records",
+                "guests",
+                "assumptions",
+                "terms",
+                "can",
+                "should",
+                "may",
+                "might",
+                "reveal",
+                "resolve",
+                "conceal",
+                "propose",
+                "a",
+                "either",
+                "neither",
+                "all",
+                "participant's",
+                "criteria",
+                "changes",
+                "women",
+                "identity",
+                "quality",
+                "agreement",
+                "experience",
+                "if",
+                "so",
+                "yet",
+                "because",
+                "combined",
+                "confined",
+                "limited",
+                "approved"
+            ],
+            "source_text_uk": "Навіть анонімізовані записи можуть розкрити особу учасника, якщо їх поєднати.",
+            "options_by_marker": {
+                "a1": [
+                    "Even",
+                    "Just",
+                    "Also",
+                    "Usually"
+                ],
+                "a2": [
+                    "anonymised",
+                    "old",
+                    "clear",
+                    "unclear"
+                ],
+                "a3": [
+                    "records",
+                    "guests",
+                    "assumptions",
+                    "terms"
+                ],
+                "a4": [
+                    "can",
+                    "should",
+                    "may",
+                    "might"
+                ],
+                "a5": [
+                    "reveal",
+                    "resolve",
+                    "conceal",
+                    "propose"
+                ],
+                "a6": [
+                    "a",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a7": [
+                    "participant's",
+                    "criteria",
+                    "changes",
+                    "women"
+                ],
+                "a8": [
+                    "identity",
+                    "quality",
+                    "agreement",
+                    "experience"
+                ],
+                "a9": [
+                    "if",
+                    "so",
+                    "yet",
+                    "because"
+                ],
+                "a10": [
+                    "combined",
+                    "confined",
+                    "limited",
+                    "approved"
+                ]
+            },
+            "slot_roles": {
+                "a1": "adverb",
+                "a2": "adjective",
+                "a3": "noun_plural",
+                "a4": "modal",
+                "a5": "verb",
+                "a6": "determiner",
+                "a7": "noun",
+                "a8": "noun",
+                "a9": "conjunction",
+                "a10": "participle"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "mvq-cc-c1-c02",
+            "author_id": "C1-c02",
+            "question": "За чіткіших критеріїв комітет міг би обґрунтувати виняток.",
+            "level": "C1",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "За чіткіших критеріїв комітет міг би обґрунтувати виняток.",
+            "target_text": "With clearer criteria, the committee could justify the exception.",
+            "markers": {
+                "a1": {
+                    "answer": "With",
+                    "verb_hint": "Умовна можливість обґрунтувати виняток, а не повідомлення про ухвалене рішення.",
+                    "options": [
+                        "With",
+                        "During",
+                        "To",
+                        "From"
+                    ]
+                },
+                "a2": {
+                    "answer": "clearer",
+                    "verb_hint": "Умовна можливість обґрунтувати виняток, а не повідомлення про ухвалене рішення.",
+                    "options": [
+                        "clearer",
+                        "fresh",
+                        "valid",
+                        "final"
+                    ]
+                },
+                "a3": {
+                    "answer": "criteria,",
+                    "verb_hint": "Умовна можливість обґрунтувати виняток, а не повідомлення про ухвалене рішення.",
+                    "options": [
+                        "criteria",
+                        "workers",
+                        "parties",
+                        "figures"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Умовна можливість обґрунтувати виняток, а не повідомлення про ухвалене рішення.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "committee",
+                    "verb_hint": "Умовна можливість обґрунтувати виняток, а не повідомлення про ухвалене рішення.",
+                    "options": [
+                        "committee",
+                        "experience",
+                        "publication",
+                        "identity"
+                    ]
+                },
+                "a6": {
+                    "answer": "could",
+                    "verb_hint": "Умовна можливість обґрунтувати виняток, а не повідомлення про ухвалене рішення.",
+                    "options": [
+                        "could",
+                        "should",
+                        "may",
+                        "might"
+                    ]
+                },
+                "a7": {
+                    "answer": "justify",
+                    "verb_hint": "Умовна можливість обґрунтувати виняток, а не повідомлення про ухвалене рішення.",
+                    "options": [
+                        "justify",
+                        "reflect",
+                        "resolve",
+                        "conceal"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Умовна можливість обґрунтувати виняток, а не повідомлення про ухвалене рішення.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a9": {
+                    "answer": "exception.",
+                    "verb_hint": "Умовна можливість обґрунтувати виняток, а не повідомлення про ухвалене рішення.",
+                    "options": [
+                        "exception",
+                        "record",
+                        "evidence",
+                        "argument"
+                    ]
+                }
+            },
+            "verb_hint": "Умовна можливість обґрунтувати виняток, а не повідомлення про ухвалене рішення.",
+            "accepted_target_texts": [
+                "With clearer criteria, the committee could justify the exception."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "With clearer criteria,",
+                "the committee",
+                "could justify",
+                "the exception."
+            ],
+            "token_groups": [
+                "With clearer criteria,",
+                "the committee",
+                "could justify",
+                "the exception."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "With",
+                "clearer",
+                "criteria,",
+                "the",
+                "committee",
+                "could",
+                "justify",
+                "the",
+                "exception."
+            ],
+            "options": [
+                "With",
+                "During",
+                "To",
+                "From",
+                "clearer",
+                "fresh",
+                "valid",
+                "final",
+                "criteria",
+                "workers",
+                "parties",
+                "figures",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "committee",
+                "experience",
+                "publication",
+                "identity",
+                "could",
+                "should",
+                "may",
+                "might",
+                "justify",
+                "reflect",
+                "resolve",
+                "conceal",
+                "both",
+                "a",
+                "an",
+                "exception",
+                "record",
+                "evidence",
+                "argument"
+            ],
+            "source_text_uk": "За чіткіших критеріїв комітет міг би обґрунтувати виняток.",
+            "options_by_marker": {
+                "a1": [
+                    "With",
+                    "During",
+                    "To",
+                    "From"
+                ],
+                "a2": [
+                    "clearer",
+                    "fresh",
+                    "valid",
+                    "final"
+                ],
+                "a3": [
+                    "criteria",
+                    "workers",
+                    "parties",
+                    "figures"
+                ],
+                "a4": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "committee",
+                    "experience",
+                    "publication",
+                    "identity"
+                ],
+                "a6": [
+                    "could",
+                    "should",
+                    "may",
+                    "might"
+                ],
+                "a7": [
+                    "justify",
+                    "reflect",
+                    "resolve",
+                    "conceal"
+                ],
+                "a8": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a9": [
+                    "exception",
+                    "record",
+                    "evidence",
+                    "argument"
+                ]
+            },
+            "slot_roles": {
+                "a1": "preposition",
+                "a2": "adjective",
+                "a3": "noun_plural",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "modal",
+                "a7": "verb",
+                "a8": "determiner",
+                "a9": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "mvq-cc-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Ми не могли встановити, чи погоджували зміни до публікації.",
+            "level": "C1",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "Ми не могли встановити, чи погоджували зміни до публікації.",
+            "target_text": "We could not establish whether the changes had been approved before publication.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Не могли встановити факт погодження; збережи непряме питання й часову межу.",
+                    "options": [
+                        "We",
+                        "Themselves",
+                        "I",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "could",
+                    "verb_hint": "Не могли встановити факт погодження; збережи непряме питання й часову межу.",
+                    "options": [
+                        "could",
+                        "can't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Не могли встановити факт погодження; збережи непряме питання й часову межу.",
+                    "options": [
+                        "not",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a4": {
+                    "answer": "establish",
+                    "verb_hint": "Не могли встановити факт погодження; збережи непряме питання й часову межу.",
+                    "options": [
+                        "establish",
+                        "enter",
+                        "speak",
+                        "hear"
+                    ]
+                },
+                "a5": {
+                    "answer": "whether",
+                    "verb_hint": "Не могли встановити факт погодження; збережи непряме питання й часову межу.",
+                    "options": [
+                        "whether",
+                        "unless",
+                        "whereas",
+                        "while"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Не могли встановити факт погодження; збережи непряме питання й часову межу.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a7": {
+                    "answer": "changes",
+                    "verb_hint": "Не могли встановити факт погодження; збережи непряме питання й часову межу.",
+                    "options": [
+                        "changes",
+                        "principles",
+                        "terms",
+                        "paintings"
+                    ]
+                },
+                "a8": {
+                    "answer": "had",
+                    "verb_hint": "Не могли встановити факт погодження; збережи непряме питання й часову межу.",
+                    "options": [
+                        "had",
+                        "didn't",
+                        "have",
+                        "has"
+                    ]
+                },
+                "a9": {
+                    "answer": "been",
+                    "verb_hint": "Не могли встановити факт погодження; збережи непряме питання й часову межу.",
+                    "options": [
+                        "been",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a10": {
+                    "answer": "approved",
+                    "verb_hint": "Не могли встановити факт погодження; збережи непряме питання й часову межу.",
+                    "options": [
+                        "approved",
+                        "identified",
+                        "confined",
+                        "limited"
+                    ]
+                },
+                "a11": {
+                    "answer": "before",
+                    "verb_hint": "Не могли встановити факт погодження; збережи непряме питання й часову межу.",
+                    "options": [
+                        "before",
+                        "to",
+                        "of",
+                        "under"
+                    ]
+                },
+                "a12": {
+                    "answer": "publication.",
+                    "verb_hint": "Не могли встановити факт погодження; збережи непряме питання й часову межу.",
+                    "options": [
+                        "publication",
+                        "record",
+                        "evidence",
+                        "argument"
+                    ]
+                }
+            },
+            "verb_hint": "Не могли встановити факт погодження; збережи непряме питання й часову межу.",
+            "accepted_target_texts": [
+                "We could not establish whether the changes had been approved before publication.",
+                "We couldn't establish whether the changes had been approved before publication."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We could not",
+                "establish whether",
+                "the changes",
+                "had been approved",
+                "before publication."
+            ],
+            "token_groups": [
+                "We could not",
+                "establish whether",
+                "the changes",
+                "had been approved",
+                "before publication."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "We",
+                "could",
+                "not",
+                "establish",
+                "whether",
+                "the",
+                "changes",
+                "had",
+                "been",
+                "approved",
+                "before",
+                "publication."
+            ],
+            "options": [
+                "We",
+                "Themselves",
+                "I",
+                "You",
+                "could",
+                "can't",
+                "won't",
+                "wouldn't",
+                "not",
+                "always",
+                "often",
+                "sometimes",
+                "establish",
+                "enter",
+                "speak",
+                "hear",
+                "whether",
+                "unless",
+                "whereas",
+                "while",
+                "the",
+                "any",
+                "this",
+                "that",
+                "changes",
+                "principles",
+                "terms",
+                "paintings",
+                "had",
+                "didn't",
+                "have",
+                "has",
+                "been",
+                "wasn't",
+                "weren't",
+                "am",
+                "approved",
+                "identified",
+                "confined",
+                "limited",
+                "before",
+                "to",
+                "of",
+                "under",
+                "publication",
+                "record",
+                "evidence",
+                "argument"
+            ],
+            "source_text_uk": "Ми не могли встановити, чи погоджували зміни до публікації.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Themselves",
+                    "I",
+                    "You"
+                ],
+                "a2": [
+                    "could",
+                    "can't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a3": [
+                    "not",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a4": [
+                    "establish",
+                    "enter",
+                    "speak",
+                    "hear"
+                ],
+                "a5": [
+                    "whether",
+                    "unless",
+                    "whereas",
+                    "while"
+                ],
+                "a6": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a7": [
+                    "changes",
+                    "principles",
+                    "terms",
+                    "paintings"
+                ],
+                "a8": [
+                    "had",
+                    "didn't",
+                    "have",
+                    "has"
+                ],
+                "a9": [
+                    "been",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a10": [
+                    "approved",
+                    "identified",
+                    "confined",
+                    "limited"
+                ],
+                "a11": [
+                    "before",
+                    "to",
+                    "of",
+                    "under"
+                ],
+                "a12": [
+                    "publication",
+                    "record",
+                    "evidence",
+                    "argument"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "modal",
+                "a4": "verb",
+                "a5": "conjunction",
+                "a6": "determiner",
+                "a7": "noun_plural",
+                "a8": "auxiliary",
+                "a9": "be",
+                "a10": "participle",
+                "a11": "preposition",
+                "a12": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "mvq-cc-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Відсутність заперечень не може сама собою підтвердити поінформовану згоду.",
+            "level": "C2",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "Відсутність заперечень не може сама собою підтвердити поінформовану згоду.",
+            "target_text": "The absence of objections cannot in itself establish informed consent.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Запереч можливість вивести поінформовану згоду лише з мовчання.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "absence",
+                    "verb_hint": "Запереч можливість вивести поінформовану згоду лише з мовчання.",
+                    "options": [
+                        "absence",
+                        "formulation",
+                        "contradiction",
+                        "quality"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Запереч можливість вивести поінформовану згоду лише з мовчання.",
+                    "options": [
+                        "of",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a4": {
+                    "answer": "objections",
+                    "verb_hint": "Запереч можливість вивести поінформовану згоду лише з мовчання.",
+                    "options": [
+                        "objections",
+                        "costs",
+                        "records",
+                        "criteria"
+                    ]
+                },
+                "a5": {
+                    "answer": "cannot",
+                    "verb_hint": "Запереч можливість вивести поінформовану згоду лише з мовчання.",
+                    "options": [
+                        "cannot",
+                        "would",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Запереч можливість вивести поінформовану згоду лише з мовчання.",
+                    "options": [
+                        "in",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a7": {
+                    "answer": "itself",
+                    "verb_hint": "Запереч можливість вивести поінформовану згоду лише з мовчання.",
+                    "options": [
+                        "itself",
+                        "him",
+                        "her",
+                        "everyone"
+                    ]
+                },
+                "a8": {
+                    "answer": "establish",
+                    "verb_hint": "Запереч можливість вивести поінформовану згоду лише з мовчання.",
+                    "options": [
+                        "establish",
+                        "trace",
+                        "reduce",
+                        "reveal"
+                    ]
+                },
+                "a9": {
+                    "answer": "informed",
+                    "verb_hint": "Запереч можливість вивести поінформовану згоду лише з мовчання.",
+                    "options": [
+                        "informed",
+                        "practical",
+                        "theoretical",
+                        "reliable"
+                    ]
+                },
+                "a10": {
+                    "answer": "consent.",
+                    "verb_hint": "Запереч можливість вивести поінформовану згоду лише з мовчання.",
+                    "options": [
+                        "consent",
+                        "estimate",
+                        "identity",
+                        "agreement"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч можливість вивести поінформовану згоду лише з мовчання.",
+            "accepted_target_texts": [
+                "The absence of objections cannot in itself establish informed consent.",
+                "The absence of objections can not in itself establish informed consent.",
+                "The absence of objections can't in itself establish informed consent."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "can't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "can't"
+                ]
+            },
+            "reorder_groups": [
+                "The absence",
+                "of objections",
+                "cannot in itself",
+                "establish informed consent."
+            ],
+            "token_groups": [
+                "The absence",
+                "of objections",
+                "cannot in itself",
+                "establish informed consent."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "The",
+                "absence",
+                "of",
+                "objections",
+                "cannot",
+                "in",
+                "itself",
+                "establish",
+                "informed",
+                "consent."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "absence",
+                "formulation",
+                "contradiction",
+                "quality",
+                "of",
+                "without",
+                "into",
+                "onto",
+                "objections",
+                "costs",
+                "records",
+                "criteria",
+                "cannot",
+                "would",
+                "shall",
+                "should",
+                "in",
+                "to",
+                "from",
+                "for",
+                "itself",
+                "him",
+                "her",
+                "everyone",
+                "establish",
+                "trace",
+                "reduce",
+                "reveal",
+                "informed",
+                "practical",
+                "theoretical",
+                "reliable",
+                "consent",
+                "estimate",
+                "identity",
+                "agreement"
+            ],
+            "source_text_uk": "Відсутність заперечень не може сама собою підтвердити поінформовану згоду.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "absence",
+                    "formulation",
+                    "contradiction",
+                    "quality"
+                ],
+                "a3": [
+                    "of",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a4": [
+                    "objections",
+                    "costs",
+                    "records",
+                    "criteria"
+                ],
+                "a5": [
+                    "cannot",
+                    "would",
+                    "shall",
+                    "should"
+                ],
+                "a6": [
+                    "in",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a7": [
+                    "itself",
+                    "him",
+                    "her",
+                    "everyone"
+                ],
+                "a8": [
+                    "establish",
+                    "trace",
+                    "reduce",
+                    "reveal"
+                ],
+                "a9": [
+                    "informed",
+                    "practical",
+                    "theoretical",
+                    "reliable"
+                ],
+                "a10": [
+                    "consent",
+                    "estimate",
+                    "identity",
+                    "agreement"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "preposition",
+                "a4": "noun_plural",
+                "a5": "modal",
+                "a6": "preposition",
+                "a7": "pronoun",
+                "a8": "verb",
+                "a9": "adjective",
+                "a10": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "mvq-cc-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Навіть незначне відхилення може непропорційно спотворити сукупну оцінку.",
+            "level": "C2",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "Навіть незначне відхилення може непропорційно спотворити сукупну оцінку.",
+            "target_text": "Even a slight deviation can disproportionately distort the aggregate estimate.",
+            "markers": {
+                "a1": {
+                    "answer": "Even",
+                    "verb_hint": "Загальна здатність відхилення спотворювати оцінку; збережи непропорційність ефекту.",
+                    "options": [
+                        "Even",
+                        "Always",
+                        "Often",
+                        "Sometimes"
+                    ]
+                },
+                "a2": {
+                    "answer": "a",
+                    "verb_hint": "Загальна здатність відхилення спотворювати оцінку; збережи непропорційність ефекту.",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a3": {
+                    "answer": "slight",
+                    "verb_hint": "Загальна здатність відхилення спотворювати оцінку; збережи непропорційність ефекту.",
+                    "options": [
+                        "slight",
+                        "selective",
+                        "small",
+                        "large"
+                    ]
+                },
+                "a4": {
+                    "answer": "deviation",
+                    "verb_hint": "Загальна здатність відхилення спотворювати оцінку; збережи непропорційність ефекту.",
+                    "options": [
+                        "deviation",
+                        "error",
+                        "evidence",
+                        "argument"
+                    ]
+                },
+                "a5": {
+                    "answer": "can",
+                    "verb_hint": "Загальна здатність відхилення спотворювати оцінку; збережи непропорційність ефекту.",
+                    "options": [
+                        "can",
+                        "should",
+                        "may",
+                        "might"
+                    ]
+                },
+                "a6": {
+                    "answer": "disproportionately",
+                    "verb_hint": "Загальна здатність відхилення спотворювати оцінку; збережи непропорційність ефекту.",
+                    "options": [
+                        "disproportionately",
+                        "there",
+                        "soon",
+                        "later"
+                    ]
+                },
+                "a7": {
+                    "answer": "distort",
+                    "verb_hint": "Загальна здатність відхилення спотворювати оцінку; збережи непропорційність ефекту.",
+                    "options": [
+                        "distort",
+                        "propose",
+                        "rule",
+                        "establish"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Загальна здатність відхилення спотворювати оцінку; збережи непропорційність ефекту.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a9": {
+                    "answer": "aggregate",
+                    "verb_hint": "Загальна здатність відхилення спотворювати оцінку; збережи непропорційність ефекту.",
+                    "options": [
+                        "aggregate",
+                        "practical",
+                        "new",
+                        "old"
+                    ]
+                },
+                "a10": {
+                    "answer": "estimate.",
+                    "verb_hint": "Загальна здатність відхилення спотворювати оцінку; збережи непропорційність ефекту.",
+                    "options": [
+                        "estimate",
+                        "name",
+                        "window",
+                        "rice"
+                    ]
+                }
+            },
+            "verb_hint": "Загальна здатність відхилення спотворювати оцінку; збережи непропорційність ефекту.",
+            "accepted_target_texts": [
+                "Even a slight deviation can disproportionately distort the aggregate estimate."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Even a",
+                "slight deviation",
+                "can disproportionately distort",
+                "the aggregate estimate."
+            ],
+            "token_groups": [
+                "Even a",
+                "slight deviation",
+                "can disproportionately distort",
+                "the aggregate estimate."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "Even",
+                "a",
+                "slight",
+                "deviation",
+                "can",
+                "disproportionately",
+                "distort",
+                "the",
+                "aggregate",
+                "estimate."
+            ],
+            "options": [
+                "Even",
+                "Always",
+                "Often",
+                "Sometimes",
+                "a",
+                "an",
+                "some",
+                "any",
+                "slight",
+                "selective",
+                "small",
+                "large",
+                "deviation",
+                "error",
+                "evidence",
+                "argument",
+                "can",
+                "should",
+                "may",
+                "might",
+                "disproportionately",
+                "there",
+                "soon",
+                "later",
+                "distort",
+                "propose",
+                "rule",
+                "establish",
+                "the",
+                "this",
+                "that",
+                "these",
+                "aggregate",
+                "practical",
+                "new",
+                "old",
+                "estimate",
+                "name",
+                "window",
+                "rice"
+            ],
+            "source_text_uk": "Навіть незначне відхилення може непропорційно спотворити сукупну оцінку.",
+            "options_by_marker": {
+                "a1": [
+                    "Even",
+                    "Always",
+                    "Often",
+                    "Sometimes"
+                ],
+                "a2": [
+                    "a",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a3": [
+                    "slight",
+                    "selective",
+                    "small",
+                    "large"
+                ],
+                "a4": [
+                    "deviation",
+                    "error",
+                    "evidence",
+                    "argument"
+                ],
+                "a5": [
+                    "can",
+                    "should",
+                    "may",
+                    "might"
+                ],
+                "a6": [
+                    "disproportionately",
+                    "there",
+                    "soon",
+                    "later"
+                ],
+                "a7": [
+                    "distort",
+                    "propose",
+                    "rule",
+                    "establish"
+                ],
+                "a8": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a9": [
+                    "aggregate",
+                    "practical",
+                    "new",
+                    "old"
+                ],
+                "a10": [
+                    "estimate",
+                    "name",
+                    "window",
+                    "rice"
+                ]
+            },
+            "slot_roles": {
+                "a1": "adverb",
+                "a2": "determiner",
+                "a3": "adjective",
+                "a4": "noun",
+                "a5": "modal",
+                "a6": "adverb",
+                "a7": "verb",
+                "a8": "determiner",
+                "a9": "adjective",
+                "a10": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "mvq-cc-c2-c03",
+            "author_id": "C2-c03",
+            "question": "За відсутності повного запису ми не могли виключити вибіркового цитування.",
+            "level": "C2",
+            "type": 4,
+            "source": "modal_verbs_quality_can_could",
+            "translation_uk": "За відсутності повного запису ми не могли виключити вибіркового цитування.",
+            "target_text": "Without a complete record, we could not rule out selective quotation.",
+            "markers": {
+                "a1": {
+                    "answer": "Without",
+                    "verb_hint": "Не могли виключити таку можливість у минулому; почни з браку повного запису.",
+                    "options": [
+                        "Without",
+                        "About",
+                        "During",
+                        "To"
+                    ]
+                },
+                "a2": {
+                    "answer": "a",
+                    "verb_hint": "Не могли виключити таку можливість у минулому; почни з браку повного запису.",
+                    "options": [
+                        "a",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a3": {
+                    "answer": "complete",
+                    "verb_hint": "Не могли виключити таку можливість у минулому; почни з браку повного запису.",
+                    "options": [
+                        "complete",
+                        "practical",
+                        "theoretical",
+                        "reliable"
+                    ]
+                },
+                "a4": {
+                    "answer": "record,",
+                    "verb_hint": "Не могли виключити таку можливість у минулому; почни з браку повного запису.",
+                    "options": [
+                        "record",
+                        "quality",
+                        "identity",
+                        "agreement"
+                    ]
+                },
+                "a5": {
+                    "answer": "we",
+                    "verb_hint": "Не могли виключити таку можливість у минулому; почни з браку повного запису.",
+                    "options": [
+                        "we",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a6": {
+                    "answer": "could",
+                    "verb_hint": "Не могли виключити таку можливість у минулому; почни з браку повного запису.",
+                    "options": [
+                        "could",
+                        "wouldn't",
+                        "shouldn't",
+                        "cannot"
+                    ]
+                },
+                "a7": {
+                    "answer": "not",
+                    "verb_hint": "Не могли виключити таку можливість у минулому; почни з браку повного запису.",
+                    "options": [
+                        "not",
+                        "already",
+                        "still",
+                        "just"
+                    ]
+                },
+                "a8": {
+                    "answer": "rule",
+                    "verb_hint": "Не могли виключити таку можливість у минулому; почни з браку повного запису.",
+                    "options": [
+                        "rule",
+                        "justify",
+                        "sit",
+                        "touch"
+                    ]
+                },
+                "a9": {
+                    "answer": "out",
+                    "verb_hint": "Не могли виключити таку можливість у минулому; почни з браку повного запису.",
+                    "options": [
+                        "out",
+                        "under",
+                        "over",
+                        "before"
+                    ]
+                },
+                "a10": {
+                    "answer": "selective",
+                    "verb_hint": "Не могли виключити таку можливість у минулому; почни з браку повного запису.",
+                    "options": [
+                        "selective",
+                        "slight",
+                        "main",
+                        "early"
+                    ]
+                },
+                "a11": {
+                    "answer": "quotation.",
+                    "verb_hint": "Не могли виключити таку можливість у минулому; почни з браку повного запису.",
+                    "options": [
+                        "quotation",
+                        "experience",
+                        "estimate",
+                        "delay"
+                    ]
+                }
+            },
+            "verb_hint": "Не могли виключити таку можливість у минулому; почни з браку повного запису.",
+            "accepted_target_texts": [
+                "Without a complete record, we could not rule out selective quotation.",
+                "Without a complete record, we couldn't rule out selective quotation."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Without a",
+                "complete record,",
+                "we could not",
+                "rule out",
+                "selective quotation."
+            ],
+            "token_groups": [
+                "Without a",
+                "complete record,",
+                "we could not",
+                "rule out",
+                "selective quotation."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "Without",
+                "a",
+                "complete",
+                "record,",
+                "we",
+                "could",
+                "not",
+                "rule",
+                "out",
+                "selective",
+                "quotation."
+            ],
+            "options": [
+                "Without",
+                "About",
+                "During",
+                "To",
+                "a",
+                "some",
+                "any",
+                "this",
+                "complete",
+                "practical",
+                "theoretical",
+                "reliable",
+                "record",
+                "quality",
+                "identity",
+                "agreement",
+                "we",
+                "they",
+                "me",
+                "him",
+                "could",
+                "wouldn't",
+                "shouldn't",
+                "cannot",
+                "not",
+                "already",
+                "still",
+                "just",
+                "rule",
+                "justify",
+                "sit",
+                "touch",
+                "out",
+                "under",
+                "over",
+                "before",
+                "selective",
+                "slight",
+                "main",
+                "early",
+                "quotation",
+                "experience",
+                "estimate",
+                "delay"
+            ],
+            "source_text_uk": "За відсутності повного запису ми не могли виключити вибіркового цитування.",
+            "options_by_marker": {
+                "a1": [
+                    "Without",
+                    "About",
+                    "During",
+                    "To"
+                ],
+                "a2": [
+                    "a",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a3": [
+                    "complete",
+                    "practical",
+                    "theoretical",
+                    "reliable"
+                ],
+                "a4": [
+                    "record",
+                    "quality",
+                    "identity",
+                    "agreement"
+                ],
+                "a5": [
+                    "we",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a6": [
+                    "could",
+                    "wouldn't",
+                    "shouldn't",
+                    "cannot"
+                ],
+                "a7": [
+                    "not",
+                    "already",
+                    "still",
+                    "just"
+                ],
+                "a8": [
+                    "rule",
+                    "justify",
+                    "sit",
+                    "touch"
+                ],
+                "a9": [
+                    "out",
+                    "under",
+                    "over",
+                    "before"
+                ],
+                "a10": [
+                    "selective",
+                    "slight",
+                    "main",
+                    "early"
+                ],
+                "a11": [
+                    "quotation",
+                    "experience",
+                    "estimate",
+                    "delay"
+                ]
+            },
+            "slot_roles": {
+                "a1": "preposition",
+                "a2": "determiner",
+                "a3": "adjective",
+                "a4": "noun",
+                "a5": "pronoun",
+                "a6": "modal",
+                "a7": "modal",
+                "a8": "verb",
+                "a9": "preposition",
+                "a10": "adjective",
+                "a11": "noun"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

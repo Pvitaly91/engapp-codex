@@ -1,0 +1,1862 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/future-simple.v1.json",
+        "sha256": "8fd9666758f53ca271a01ff1c5b85928fa0b22aca91584ab3825cb2ee6d5d715"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoiceFutureSimpleQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-future-simple-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_future_simple": {
+            "name": "Passive Voice Quality: Passive Voice Future Simple"
+        }
+    },
+    "tags": {
+        "passive_voice_future_simple": {
+            "name": "Passive Voice Future Simple",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "will_be_v3": {
+            "name": "Will Be V3",
+            "category": "topic"
+        },
+        "future_passive": {
+            "name": "Future Passive",
+            "category": "topic"
+        },
+        "will_not_be_v3": {
+            "name": "Will Not Be V3",
+            "category": "topic"
+        },
+        "future_plans": {
+            "name": "Future Plans",
+            "category": "topic"
+        },
+        "active_passive": {
+            "name": "Active Passive",
+            "category": "topic"
+        },
+        "time_markers": {
+            "name": "Time Markers",
+            "category": "topic"
+        },
+        "agreement": {
+            "name": "Agreement",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "passive_voice_future_simple"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-future-simple-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The apples {a1} in this bag.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Яблука запакують у цю сумку.",
+            "target_text": "The apples will be packed in this bag.",
+            "markers": {
+                "a1": {
+                    "answer": "will be packed",
+                    "options": [
+                        "will be packed",
+                        "were packed",
+                        "are packed"
+                    ],
+                    "verb_hint": "Запакують у сумку; утвори простий майбутній пасив від «пакувати». Не додавай уже наведений підмет."
+                }
+            },
+            "verb_hint": "Запакують у сумку; утвори простий майбутній пасив від «пакувати». Не додавай уже наведений підмет.",
+            "accepted_target_texts": [
+                "The apples will be packed in this bag."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The apples",
+                "will be packed",
+                "in this bag."
+            ],
+            "token_groups": [
+                "The apples",
+                "will be packed",
+                "in this bag."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-future-simple-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Your birthday cake {a1} tomorrow.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Твій торт на день народження принесуть завтра.",
+            "target_text": "Your birthday cake will be brought tomorrow.",
+            "markers": {
+                "a1": {
+                    "answer": "will be brought",
+                    "options": [
+                        "will be brought",
+                        "was brought",
+                        "is brought"
+                    ],
+                    "verb_hint": "Принесуть завтра; утвори простий майбутній пасив від неправильного дієслова «приносити»."
+                }
+            },
+            "verb_hint": "Принесуть завтра; утвори простий майбутній пасив від неправильного дієслова «приносити».",
+            "accepted_target_texts": [
+                "Your birthday cake will be brought tomorrow."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Your birthday cake",
+                "will be brought",
+                "tomorrow."
+            ],
+            "token_groups": [
+                "Your birthday cake",
+                "will be brought",
+                "tomorrow."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-future-simple-a1-g03",
+            "author_id": "A1-g03",
+            "question": "The little beds {a1} before bedtime.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Маленькі ліжка застелять перед сном.",
+            "target_text": "The little beds will be made before bedtime.",
+            "markers": {
+                "a1": {
+                    "answer": "will be made",
+                    "options": [
+                        "will be made",
+                        "were made",
+                        "are made"
+                    ],
+                    "verb_hint": "Застелять перед сном; утвори простий майбутній пасив від дієслова, яке означає «застеляти ліжко»."
+                }
+            },
+            "verb_hint": "Застелять перед сном; утвори простий майбутній пасив від дієслова, яке означає «застеляти ліжко».",
+            "accepted_target_texts": [
+                "The little beds will be made before bedtime."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The little beds",
+                "will be made",
+                "before bedtime."
+            ],
+            "token_groups": [
+                "The little beds",
+                "will be made",
+                "before bedtime."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-future-simple-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The small table {a1} outside.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Маленький стіл винесуть надвір.",
+            "target_text": "The small table will be carried outside.",
+            "markers": {
+                "a1": {
+                    "answer": "will be carried",
+                    "options": [
+                        "will be carried",
+                        "was carried",
+                        "is carried"
+                    ],
+                    "verb_hint": "Винесуть надвір, несучи в руках; утвори простий майбутній пасив від «нести»."
+                }
+            },
+            "verb_hint": "Винесуть надвір, несучи в руках; утвори простий майбутній пасив від «нести».",
+            "accepted_target_texts": [
+                "The small table will be carried outside.",
+                "The small table will be taken outside."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be taken"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be taken"
+                ]
+            },
+            "reorder_groups": [
+                "The small table",
+                "will be carried",
+                "outside."
+            ],
+            "token_groups": [
+                "The small table",
+                "will be carried",
+                "outside."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-future-simple-a1-g05",
+            "author_id": "A1-g05",
+            "question": "My old coat {a1} to Ben.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Моє старе пальто віддадуть Бенові.",
+            "target_text": "My old coat will be given to Ben.",
+            "markers": {
+                "a1": {
+                    "answer": "will be given",
+                    "options": [
+                        "will be given",
+                        "was given",
+                        "is given"
+                    ],
+                    "verb_hint": "Віддадуть іншій людині; утвори простий майбутній пасив від неправильного дієслова «давати»."
+                }
+            },
+            "verb_hint": "Віддадуть іншій людині; утвори простий майбутній пасив від неправильного дієслова «давати».",
+            "accepted_target_texts": [
+                "My old coat will be given to Ben.",
+                "My old coat will be passed to Ben.",
+                "My old coat will be handed to Ben."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be passed",
+                    "will be handed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be passed",
+                    "will be handed"
+                ]
+            },
+            "reorder_groups": [
+                "My old coat",
+                "will be given",
+                "to Ben."
+            ],
+            "token_groups": [
+                "My old coat",
+                "will be given",
+                "to Ben."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-future-simple-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The juice {a1} into the cups.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Сік наллють у чашки.",
+            "target_text": "The juice will be poured into the cups.",
+            "markers": {
+                "a1": {
+                    "answer": "will be poured",
+                    "options": [
+                        "will be poured",
+                        "was poured",
+                        "is poured"
+                    ],
+                    "verb_hint": "Наллють у чашки; утвори простий майбутній пасив від «наливати»."
+                }
+            },
+            "verb_hint": "Наллють у чашки; утвори простий майбутній пасив від «наливати».",
+            "accepted_target_texts": [
+                "The juice will be poured into the cups."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The juice",
+                "will be poured",
+                "into the cups."
+            ],
+            "token_groups": [
+                "The juice",
+                "will be poured",
+                "into the cups."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-future-simple-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The lost suitcase {a1} to its owner on Friday.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Загублену валізу повернуть власникові в п’ятницю.",
+            "target_text": "The lost suitcase will be returned to its owner on Friday.",
+            "markers": {
+                "a1": {
+                    "answer": "will be returned",
+                    "options": [
+                        "will be returned",
+                        "was returned",
+                        "is returned"
+                    ],
+                    "verb_hint": "Повернуть власникові; утвори простий майбутній пасив від «повертати»."
+                }
+            },
+            "verb_hint": "Повернуть власникові; утвори простий майбутній пасив від «повертати».",
+            "accepted_target_texts": [
+                "The lost suitcase will be returned to its owner on Friday.",
+                "The lost suitcase will be given back to its owner on Friday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be given back"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be given back"
+                ]
+            },
+            "reorder_groups": [
+                "The lost suitcase",
+                "will be returned",
+                "to its owner",
+                "on Friday."
+            ],
+            "token_groups": [
+                "The lost suitcase",
+                "will be returned",
+                "to its owner",
+                "on Friday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-future-simple-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The pedestrian crossing {a1} this weekend.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Пішохідний перехід наново пофарбують цими вихідними.",
+            "target_text": "The pedestrian crossing will be repainted this weekend.",
+            "markers": {
+                "a1": {
+                    "answer": "will be repainted",
+                    "options": [
+                        "will be repainted",
+                        "was repainted",
+                        "is repainted"
+                    ],
+                    "verb_hint": "Наново пофарбують розмітку; утвори простий майбутній пасив від «перефарбовувати»."
+                }
+            },
+            "verb_hint": "Наново пофарбують розмітку; утвори простий майбутній пасив від «перефарбовувати».",
+            "accepted_target_texts": [
+                "The pedestrian crossing will be repainted this weekend."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The pedestrian crossing",
+                "will be repainted",
+                "this weekend."
+            ],
+            "token_groups": [
+                "The pedestrian crossing",
+                "will be repainted",
+                "this weekend."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-future-simple-a2-g03",
+            "author_id": "A2-g03",
+            "question": "When will new bus passes {a1} to local residents?",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Коли місцевим жителям видадуть нові автобусні проїзні?",
+            "target_text": "When will new bus passes be issued to local residents?",
+            "markers": {
+                "a1": {
+                    "answer": "be issued",
+                    "options": [
+                        "be issued",
+                        "being issued",
+                        "been issued"
+                    ],
+                    "verb_hint": "Видадуть документ: додай лише два слова пасивної форми від «видавати, надавати»; початок питання вже наведено."
+                }
+            },
+            "verb_hint": "Видадуть документ: додай лише два слова пасивної форми від «видавати, надавати»; початок питання вже наведено.",
+            "accepted_target_texts": [
+                "When will new bus passes be issued to local residents?",
+                "When will new bus passes be provided to local residents?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be provided"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be provided"
+                ]
+            },
+            "reorder_groups": [
+                "When",
+                "will new",
+                "bus passes",
+                "be issued",
+                "to local residents?"
+            ],
+            "token_groups": [
+                "When",
+                "will new",
+                "bus passes",
+                "be issued",
+                "to local residents?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-future-simple-a2-g04",
+            "author_id": "A2-g04",
+            "question": "Our paddling pool {a1} before noon.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Наш дитячий басейн наповнять до полудня.",
+            "target_text": "Our paddling pool will be filled before noon.",
+            "markers": {
+                "a1": {
+                    "answer": "will be filled",
+                    "options": [
+                        "will be filled",
+                        "was filled",
+                        "is filled"
+                    ],
+                    "verb_hint": "Наповнять водою до полудня; утвори простий майбутній пасив від «наповнювати»."
+                }
+            },
+            "verb_hint": "Наповнять водою до полудня; утвори простий майбутній пасив від «наповнювати».",
+            "accepted_target_texts": [
+                "Our paddling pool will be filled before noon."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our paddling pool",
+                "will be filled",
+                "before noon."
+            ],
+            "token_groups": [
+                "Our paddling pool",
+                "will be filled",
+                "before noon."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-future-simple-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The picnic area {a1} for our group.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Місце для пікніка забронюють для нашої групи.",
+            "target_text": "The picnic area will be reserved for our group.",
+            "markers": {
+                "a1": {
+                    "answer": "will be reserved",
+                    "options": [
+                        "will be reserved",
+                        "was reserved",
+                        "is reserved"
+                    ],
+                    "verb_hint": "Забронюють для групи; утвори простий майбутній пасив від «бронювати»."
+                }
+            },
+            "verb_hint": "Забронюють для групи; утвори простий майбутній пасив від «бронювати».",
+            "accepted_target_texts": [
+                "The picnic area will be reserved for our group.",
+                "The picnic area will be booked for our group."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be booked"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be booked"
+                ]
+            },
+            "reorder_groups": [
+                "The picnic area",
+                "will be reserved",
+                "for our group."
+            ],
+            "token_groups": [
+                "The picnic area",
+                "will be reserved",
+                "for our group."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-future-simple-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The short route {a1} during the repairs.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Коротким маршрутом не користуватимуться під час ремонту.",
+            "target_text": "The short route will not be used during the repairs.",
+            "markers": {
+                "a1": {
+                    "answer": "will not be used",
+                    "options": [
+                        "will not be used",
+                        "was not used",
+                        "is not used"
+                    ],
+                    "verb_hint": "Не користуватимуться маршрутом під час ремонту; утвори заперечний простий майбутній пасив від «використовувати»."
+                }
+            },
+            "verb_hint": "Не користуватимуться маршрутом під час ремонту; утвори заперечний простий майбутній пасив від «використовувати».",
+            "accepted_target_texts": [
+                "The short route will not be used during the repairs.",
+                "The short route won't be used during the repairs."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "won't be used"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "won't be used"
+                ]
+            },
+            "reorder_groups": [
+                "The short route",
+                "will not be",
+                "used",
+                "during the repairs."
+            ],
+            "token_groups": [
+                "The short route",
+                "will not be",
+                "used",
+                "during the repairs."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-future-simple-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The passengers {a1} to a temporary exit.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Пасажирів проведуть до тимчасового виходу.",
+            "target_text": "The passengers will be guided to a temporary exit.",
+            "markers": {
+                "a1": {
+                    "answer": "will be guided",
+                    "options": [
+                        "will be guided",
+                        "were guided",
+                        "are guided"
+                    ],
+                    "verb_hint": "Проведуть до потрібного виходу; утвори простий майбутній пасив від «вести, супроводжувати»."
+                }
+            },
+            "verb_hint": "Проведуть до потрібного виходу; утвори простий майбутній пасив від «вести, супроводжувати».",
+            "accepted_target_texts": [
+                "The passengers will be guided to a temporary exit.",
+                "The passengers will be led to a temporary exit.",
+                "The passengers will be escorted to a temporary exit."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be led",
+                    "will be escorted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be led",
+                    "will be escorted"
+                ]
+            },
+            "reorder_groups": [
+                "The passengers",
+                "will be guided",
+                "to a",
+                "temporary exit."
+            ],
+            "token_groups": [
+                "The passengers",
+                "will be guided",
+                "to a",
+                "temporary exit."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-future-simple-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The moving costs {a1} after you submit the receipts.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Витрати на переїзд відшкодують після того, як ти подаси чеки.",
+            "target_text": "The moving costs will be reimbursed after you submit the receipts.",
+            "markers": {
+                "a1": {
+                    "answer": "will be reimbursed",
+                    "options": [
+                        "will be reimbursed",
+                        "were reimbursed",
+                        "are reimbursed"
+                    ],
+                    "verb_hint": "Відшкодують витрати після подання чеків; утвори простий майбутній пасив від «відшкодовувати». Частина про подання чеків уже наведена."
+                }
+            },
+            "verb_hint": "Відшкодують витрати після подання чеків; утвори простий майбутній пасив від «відшкодовувати». Частина про подання чеків уже наведена.",
+            "accepted_target_texts": [
+                "The moving costs will be reimbursed after you submit the receipts.",
+                "The moving costs will be refunded after you submit the receipts."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be refunded"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be refunded"
+                ]
+            },
+            "reorder_groups": [
+                "The moving costs",
+                "will be reimbursed",
+                "after you submit",
+                "the receipts."
+            ],
+            "token_groups": [
+                "The moving costs",
+                "will be reimbursed",
+                "after you submit",
+                "the receipts."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-future-simple-b1-g03",
+            "author_id": "B1-g03",
+            "question": "Why will the departure {a1} by two hours?",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Чому відправлення затримають на дві години?",
+            "target_text": "Why will the departure be delayed by two hours?",
+            "markers": {
+                "a1": {
+                    "answer": "be delayed",
+                    "options": [
+                        "be delayed",
+                        "being delayed",
+                        "been delayed"
+                    ],
+                    "verb_hint": "Затримають: додай лише два слова пасивної форми від «затримувати»; початок питання вже наведено."
+                }
+            },
+            "verb_hint": "Затримають: додай лише два слова пасивної форми від «затримувати»; початок питання вже наведено.",
+            "accepted_target_texts": [
+                "Why will the departure be delayed by two hours?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "will the departure",
+                "be delayed",
+                "by two hours?"
+            ],
+            "token_groups": [
+                "Why",
+                "will the departure",
+                "be delayed",
+                "by two hours?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-future-simple-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The damaged tent {a1} before Friday.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Пошкоджений намет не замінять до п’ятниці.",
+            "target_text": "The damaged tent will not be replaced before Friday.",
+            "markers": {
+                "a1": {
+                    "answer": "will not be replaced",
+                    "options": [
+                        "will not be replaced",
+                        "was not replaced",
+                        "is not replaced"
+                    ],
+                    "verb_hint": "Не замінять до п’ятниці; утвори заперечний простий майбутній пасив від «замінювати»."
+                }
+            },
+            "verb_hint": "Не замінять до п’ятниці; утвори заперечний простий майбутній пасив від «замінювати».",
+            "accepted_target_texts": [
+                "The damaged tent will not be replaced before Friday.",
+                "The damaged tent won't be replaced before Friday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "won't be replaced"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "won't be replaced"
+                ]
+            },
+            "reorder_groups": [
+                "The damaged tent",
+                "will not be",
+                "replaced before Friday."
+            ],
+            "token_groups": [
+                "The damaged tent",
+                "will not be",
+                "replaced before Friday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-future-simple-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The delivery driver {a1} when the gate opens.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "З водієм доставки зв’яжуться, коли відчинять ворота.",
+            "target_text": "The delivery driver will be contacted when the gate opens.",
+            "markers": {
+                "a1": {
+                    "answer": "will be contacted",
+                    "options": [
+                        "will be contacted",
+                        "was contacted",
+                        "is contacted"
+                    ],
+                    "verb_hint": "Зв’яжуться з людиною після відкриття воріт; утвори простий майбутній пасив від «зв’язуватися, контактувати»."
+                }
+            },
+            "verb_hint": "Зв’яжуться з людиною після відкриття воріт; утвори простий майбутній пасив від «зв’язуватися, контактувати».",
+            "accepted_target_texts": [
+                "The delivery driver will be contacted when the gate opens."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The delivery driver",
+                "will be contacted",
+                "when the gate",
+                "opens."
+            ],
+            "token_groups": [
+                "The delivery driver",
+                "will be contacted",
+                "when the gate",
+                "opens."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-future-simple-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The equipment list {a1} to the trip leader tonight.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Список спорядження надішлють електронною поштою керівникові поїздки сьогодні ввечері.",
+            "target_text": "The equipment list will be emailed to the trip leader tonight.",
+            "markers": {
+                "a1": {
+                    "answer": "will be emailed",
+                    "options": [
+                        "will be emailed",
+                        "was emailed",
+                        "is emailed"
+                    ],
+                    "verb_hint": "Надішлють електронною поштою; утвори простий майбутній пасив від «надсилати електронного листа»."
+                }
+            },
+            "verb_hint": "Надішлють електронною поштою; утвори простий майбутній пасив від «надсилати електронного листа».",
+            "accepted_target_texts": [
+                "The equipment list will be emailed to the trip leader tonight.",
+                "The equipment list will be sent by email to the trip leader tonight.",
+                "The equipment list will be e-mailed to the trip leader tonight."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be sent by email",
+                    "will be e-mailed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be sent by email",
+                    "will be e-mailed"
+                ]
+            },
+            "reorder_groups": [
+                "The equipment list",
+                "will be emailed",
+                "to the",
+                "trip leader tonight."
+            ],
+            "token_groups": [
+                "The equipment list",
+                "will be emailed",
+                "to the",
+                "trip leader tonight."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-future-simple-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Captured rainwater {a1} before it enters the irrigation system.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Зібрану дощову воду відфільтрують перед подачею в систему зрошення.",
+            "target_text": "Captured rainwater will be filtered before it enters the irrigation system.",
+            "markers": {
+                "a1": {
+                    "answer": "will be filtered",
+                    "options": [
+                        "will be filtered",
+                        "was filtered",
+                        "is filtered"
+                    ],
+                    "verb_hint": "Відфільтрують перед подачею в систему; утвори простий майбутній пасив від «фільтрувати»."
+                }
+            },
+            "verb_hint": "Відфільтрують перед подачею в систему; утвори простий майбутній пасив від «фільтрувати».",
+            "accepted_target_texts": [
+                "Captured rainwater will be filtered before it enters the irrigation system."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Captured rainwater",
+                "will be filtered",
+                "before it enters",
+                "the irrigation system."
+            ],
+            "token_groups": [
+                "Captured rainwater",
+                "will be filtered",
+                "before it enters",
+                "the irrigation system."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-future-simple-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The emissions data {a1} with the previous year's figures.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Дані про викиди порівняють із показниками попереднього року.",
+            "target_text": "The emissions data will be compared with the previous year's figures.",
+            "markers": {
+                "a1": {
+                    "answer": "will be compared",
+                    "options": [
+                        "will be compared",
+                        "were compared",
+                        "are compared"
+                    ],
+                    "verb_hint": "Порівняють дані з попередніми показниками; утвори простий майбутній пасив від «порівнювати»."
+                }
+            },
+            "verb_hint": "Порівняють дані з попередніми показниками; утвори простий майбутній пасив від «порівнювати».",
+            "accepted_target_texts": [
+                "The emissions data will be compared with the previous year's figures."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The emissions data",
+                "will be compared",
+                "with the",
+                "previous year's figures."
+            ],
+            "token_groups": [
+                "The emissions data",
+                "will be compared",
+                "with the",
+                "previous year's figures."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-future-simple-b2-g03",
+            "author_id": "B2-g03",
+            "question": "Why will the trial {a1} if recruitment falls below the target?",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Чому дослідження призупинять, якщо наберуть менше учасників, ніж заплановано?",
+            "target_text": "Why will the trial be suspended if recruitment falls below the target?",
+            "markers": {
+                "a1": {
+                    "answer": "be suspended",
+                    "options": [
+                        "be suspended",
+                        "being suspended",
+                        "been suspended"
+                    ],
+                    "verb_hint": "Призупинять: додай лише два слова пасивної форми від «призупиняти»; початок питання та умова вже наведені."
+                }
+            },
+            "verb_hint": "Призупинять: додай лише два слова пасивної форми від «призупиняти»; початок питання та умова вже наведені.",
+            "accepted_target_texts": [
+                "Why will the trial be suspended if recruitment falls below the target?",
+                "Why will the trial be paused if recruitment falls below the target?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be paused"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be paused"
+                ]
+            },
+            "reorder_groups": [
+                "Why",
+                "will the trial",
+                "be suspended",
+                "if recruitment falls",
+                "below the target?"
+            ],
+            "token_groups": [
+                "Why",
+                "will the trial",
+                "be suspended",
+                "if recruitment falls",
+                "below the target?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-future-simple-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The damaged reactor {a1} until the safety checks are complete.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Пошкоджений реактор не запустять знову до завершення перевірок безпеки.",
+            "target_text": "The damaged reactor will not be restarted until the safety checks are complete.",
+            "markers": {
+                "a1": {
+                    "answer": "will not be restarted",
+                    "options": [
+                        "will not be restarted",
+                        "was not restarted",
+                        "is not restarted"
+                    ],
+                    "verb_hint": "Не запустять знову до завершення перевірок; утвори заперечний простий майбутній пасив від «перезапускати»."
+                }
+            },
+            "verb_hint": "Не запустять знову до завершення перевірок; утвори заперечний простий майбутній пасив від «перезапускати».",
+            "accepted_target_texts": [
+                "The damaged reactor will not be restarted until the safety checks are complete.",
+                "The damaged reactor won't be restarted until the safety checks are complete."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "won't be restarted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "won't be restarted"
+                ]
+            },
+            "reorder_groups": [
+                "The damaged reactor",
+                "will not be",
+                "restarted",
+                "until the",
+                "safety checks",
+                "are complete."
+            ],
+            "token_groups": [
+                "The damaged reactor",
+                "will not be",
+                "restarted",
+                "until the",
+                "safety checks",
+                "are complete."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-future-simple-b2-g05",
+            "author_id": "B2-g05",
+            "question": "Every shipment {a1} before it leaves the distribution centre.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Кожне відправлення зважать перед виїздом із розподільчого центру.",
+            "target_text": "Every shipment will be weighed before it leaves the distribution centre.",
+            "markers": {
+                "a1": {
+                    "answer": "will be weighed",
+                    "options": [
+                        "will be weighed",
+                        "was weighed",
+                        "is weighed"
+                    ],
+                    "verb_hint": "Зважать перед відправленням; утвори простий майбутній пасив від «зважувати»."
+                }
+            },
+            "verb_hint": "Зважать перед відправленням; утвори простий майбутній пасив від «зважувати».",
+            "accepted_target_texts": [
+                "Every shipment will be weighed before it leaves the distribution centre."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Every shipment",
+                "will be weighed",
+                "before it leaves",
+                "the distribution centre."
+            ],
+            "token_groups": [
+                "Every shipment",
+                "will be weighed",
+                "before it leaves",
+                "the distribution centre."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-future-simple-b2-g06",
+            "author_id": "B2-g06",
+            "question": "Surplus electricity {a1} into the national grid.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Надлишкову електроенергію повертатимуть у національну електромережу.",
+            "target_text": "Surplus electricity will be fed back into the national grid.",
+            "markers": {
+                "a1": {
+                    "answer": "will be fed back",
+                    "options": [
+                        "will be fed back",
+                        "was fed back",
+                        "is fed back"
+                    ],
+                    "verb_hint": "Повертатимуть надлишкову електроенергію до мережі; утвори простий майбутній пасив від «подавати назад»."
+                }
+            },
+            "verb_hint": "Повертатимуть надлишкову електроенергію до мережі; утвори простий майбутній пасив від «подавати назад».",
+            "accepted_target_texts": [
+                "Surplus electricity will be fed back into the national grid.",
+                "Surplus electricity will be returned into the national grid."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be returned"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be returned"
+                ]
+            },
+            "reorder_groups": [
+                "Surplus electricity",
+                "will be fed",
+                "back",
+                "into the",
+                "national grid."
+            ],
+            "token_groups": [
+                "Surplus electricity",
+                "will be fed",
+                "back",
+                "into the",
+                "national grid."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-future-simple-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The incident classification {a1} independently of the initial assessment.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Класифікацію інциденту переглянуть незалежно від первинної оцінки.",
+            "target_text": "The incident classification will be reviewed independently of the initial assessment.",
+            "markers": {
+                "a1": {
+                    "answer": "will be reviewed",
+                    "options": [
+                        "will be reviewed",
+                        "was reviewed",
+                        "is reviewed"
+                    ],
+                    "verb_hint": "Переглянуть класифікацію незалежно від первинної оцінки; утвори простий майбутній пасив від «переглядати, повторно оцінювати»."
+                }
+            },
+            "verb_hint": "Переглянуть класифікацію незалежно від первинної оцінки; утвори простий майбутній пасив від «переглядати, повторно оцінювати».",
+            "accepted_target_texts": [
+                "The incident classification will be reviewed independently of the initial assessment.",
+                "The incident classification will be reassessed independently of the initial assessment.",
+                "The incident classification will be reconsidered independently of the initial assessment."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be reassessed",
+                    "will be reconsidered"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be reassessed",
+                    "will be reconsidered"
+                ]
+            },
+            "reorder_groups": [
+                "The incident classification",
+                "will be reviewed",
+                "independently of",
+                "the initial assessment."
+            ],
+            "token_groups": [
+                "The incident classification",
+                "will be reviewed",
+                "independently of",
+                "the initial assessment."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-future-simple-c1-g02",
+            "author_id": "C1-g02",
+            "question": "A consolidated audit record {a1} from several independent systems.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Зведений аудиторський запис укладуть на основі кількох незалежних систем.",
+            "target_text": "A consolidated audit record will be compiled from several independent systems.",
+            "markers": {
+                "a1": {
+                    "answer": "will be compiled",
+                    "options": [
+                        "will be compiled",
+                        "was compiled",
+                        "is compiled"
+                    ],
+                    "verb_hint": "Укладуть зведений запис на основі кількох джерел; утвори простий майбутній пасив від «укладати, зводити дані»."
+                }
+            },
+            "verb_hint": "Укладуть зведений запис на основі кількох джерел; утвори простий майбутній пасив від «укладати, зводити дані».",
+            "accepted_target_texts": [
+                "A consolidated audit record will be compiled from several independent systems.",
+                "A consolidated audit record will be assembled from several independent systems."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be assembled"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be assembled"
+                ]
+            },
+            "reorder_groups": [
+                "A consolidated",
+                "audit record",
+                "will be compiled",
+                "from several",
+                "independent systems."
+            ],
+            "token_groups": [
+                "A consolidated",
+                "audit record",
+                "will be compiled",
+                "from several",
+                "independent systems."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-future-simple-c1-g03",
+            "author_id": "C1-g03",
+            "question": "On what basis will departures from the protocol {a1} during the pilot phase?",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "На якій підставі дозволятимуть відхилення від протоколу під час пілотного етапу?",
+            "target_text": "On what basis will departures from the protocol be authorised during the pilot phase?",
+            "markers": {
+                "a1": {
+                    "answer": "be authorised",
+                    "options": [
+                        "be authorised",
+                        "being authorised",
+                        "been authorised"
+                    ],
+                    "verb_hint": "Дозволятимуть: додай лише два слова пасивної форми від «дозволяти, санкціонувати»; початок питання вже наведено. Приймаються два нормативні написання й доречні синоніми."
+                }
+            },
+            "verb_hint": "Дозволятимуть: додай лише два слова пасивної форми від «дозволяти, санкціонувати»; початок питання вже наведено. Приймаються два нормативні написання й доречні синоніми.",
+            "accepted_target_texts": [
+                "On what basis will departures from the protocol be authorised during the pilot phase?",
+                "On what basis will departures from the protocol be authorized during the pilot phase?",
+                "On what basis will departures from the protocol be permitted during the pilot phase?",
+                "On what basis will departures from the protocol be allowed during the pilot phase?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be authorized",
+                    "be permitted",
+                    "be allowed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be authorized",
+                    "be permitted",
+                    "be allowed"
+                ]
+            },
+            "reorder_groups": [
+                "On what basis",
+                "will departures",
+                "from the protocol",
+                "be authorised",
+                "during the",
+                "pilot phase?"
+            ],
+            "token_groups": [
+                "On what basis",
+                "will departures",
+                "from the protocol",
+                "be authorised",
+                "during the",
+                "pilot phase?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-future-simple-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The unverified invoices {a1} until supporting evidence arrives.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Неперевірені рахунки не звірятимуть до надходження підтвердних документів.",
+            "target_text": "The unverified invoices will not be reconciled until supporting evidence arrives.",
+            "markers": {
+                "a1": {
+                    "answer": "will not be reconciled",
+                    "options": [
+                        "will not be reconciled",
+                        "were not reconciled",
+                        "are not reconciled"
+                    ],
+                    "verb_hint": "Не звірятимуть рахунки з відповідними записами до отримання доказів; утвори заперечний простий майбутній пасив від «звіряти, узгоджувати облікові дані»."
+                }
+            },
+            "verb_hint": "Не звірятимуть рахунки з відповідними записами до отримання доказів; утвори заперечний простий майбутній пасив від «звіряти, узгоджувати облікові дані».",
+            "accepted_target_texts": [
+                "The unverified invoices will not be reconciled until supporting evidence arrives.",
+                "The unverified invoices won't be reconciled until supporting evidence arrives."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "won't be reconciled"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "won't be reconciled"
+                ]
+            },
+            "reorder_groups": [
+                "The unverified invoices",
+                "will not be",
+                "reconciled",
+                "until supporting evidence",
+                "arrives."
+            ],
+            "token_groups": [
+                "The unverified invoices",
+                "will not be",
+                "reconciled",
+                "until supporting evidence",
+                "arrives."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-future-simple-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The formal response {a1} in consultation with the legal team.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Проєкт офіційної відповіді підготують у консультації з юридичною командою.",
+            "target_text": "The formal response will be drafted in consultation with the legal team.",
+            "markers": {
+                "a1": {
+                    "answer": "will be drafted",
+                    "options": [
+                        "will be drafted",
+                        "was drafted",
+                        "is drafted"
+                    ],
+                    "verb_hint": "Підготують проєкт відповіді, а не вже підписаний документ; утвори простий майбутній пасив від «складати проєкт документа»."
+                }
+            },
+            "verb_hint": "Підготують проєкт відповіді, а не вже підписаний документ; утвори простий майбутній пасив від «складати проєкт документа».",
+            "accepted_target_texts": [
+                "The formal response will be drafted in consultation with the legal team.",
+                "The formal response will be prepared in consultation with the legal team."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be prepared"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be prepared"
+                ]
+            },
+            "reorder_groups": [
+                "The formal response",
+                "will be drafted",
+                "in consultation",
+                "with the",
+                "legal team."
+            ],
+            "token_groups": [
+                "The formal response",
+                "will be drafted",
+                "in consultation",
+                "with the",
+                "legal team."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-future-simple-c1-g06",
+            "author_id": "C1-g06",
+            "question": "Sensitive attachments {a1} before the report is circulated.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Конфіденційні додатки зашифрують перед поширенням звіту.",
+            "target_text": "Sensitive attachments will be encrypted before the report is circulated.",
+            "markers": {
+                "a1": {
+                    "answer": "will be encrypted",
+                    "options": [
+                        "will be encrypted",
+                        "were encrypted",
+                        "are encrypted"
+                    ],
+                    "verb_hint": "Зашифрують конфіденційні файли перед поширенням; утвори простий майбутній пасив від «шифрувати»."
+                }
+            },
+            "verb_hint": "Зашифрують конфіденційні файли перед поширенням; утвори простий майбутній пасив від «шифрувати».",
+            "accepted_target_texts": [
+                "Sensitive attachments will be encrypted before the report is circulated.",
+                "Sensitive attachments will be enciphered before the report is circulated."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be enciphered"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be enciphered"
+                ]
+            },
+            "reorder_groups": [
+                "Sensitive attachments",
+                "will be encrypted",
+                "before the report",
+                "is circulated."
+            ],
+            "token_groups": [
+                "Sensitive attachments",
+                "will be encrypted",
+                "before the report",
+                "is circulated."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-future-simple-c2-g01",
+            "author_id": "C2-g01",
+            "question": "Any latent ambiguity {a1} by reference to the bespoke valuation clause.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Кожну приховану неоднозначність усунуть шляхом звернення до спеціально узгодженого положення про оцінку вартості.",
+            "target_text": "Any latent ambiguity will be resolved by reference to the bespoke valuation clause.",
+            "markers": {
+                "a1": {
+                    "answer": "will be resolved",
+                    "options": [
+                        "will be resolved",
+                        "was resolved",
+                        "is resolved"
+                    ],
+                    "verb_hint": "Усунуть неоднозначність через спеціальне положення про оцінку; утвори простий майбутній пасив від «усувати, розв’язувати»."
+                }
+            },
+            "verb_hint": "Усунуть неоднозначність через спеціальне положення про оцінку; утвори простий майбутній пасив від «усувати, розв’язувати».",
+            "accepted_target_texts": [
+                "Any latent ambiguity will be resolved by reference to the bespoke valuation clause.",
+                "Any latent ambiguity will be clarified by reference to the bespoke valuation clause."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be clarified"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be clarified"
+                ]
+            },
+            "reorder_groups": [
+                "Any latent ambiguity",
+                "will be resolved",
+                "by reference to",
+                "the bespoke",
+                "valuation clause."
+            ],
+            "token_groups": [
+                "Any latent ambiguity",
+                "will be resolved",
+                "by reference to",
+                "the bespoke",
+                "valuation clause."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-future-simple-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The adverse valuation adjustment {a1} against unrealised gains.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Несприятливе коригування вартості не зараховуватимуть у рахунок нереалізованих прибутків.",
+            "target_text": "The adverse valuation adjustment will not be offset against unrealised gains.",
+            "markers": {
+                "a1": {
+                    "answer": "will not be offset",
+                    "options": [
+                        "will not be offset",
+                        "was not offset",
+                        "is not offset"
+                    ],
+                    "verb_hint": "Не зараховуватимуть зустрічно проти іншої суми; утвори заперечний простий майбутній пасив від «зараховувати, компенсувати зустрічною сумою»."
+                }
+            },
+            "verb_hint": "Не зараховуватимуть зустрічно проти іншої суми; утвори заперечний простий майбутній пасив від «зараховувати, компенсувати зустрічною сумою».",
+            "accepted_target_texts": [
+                "The adverse valuation adjustment will not be offset against unrealised gains.",
+                "The adverse valuation adjustment won't be offset against unrealised gains.",
+                "The adverse valuation adjustment will not be set off against unrealised gains.",
+                "The adverse valuation adjustment won't be set off against unrealised gains."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "won't be offset",
+                    "will not be set off",
+                    "won't be set off"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "won't be offset",
+                    "will not be set off",
+                    "won't be set off"
+                ]
+            },
+            "reorder_groups": [
+                "The adverse",
+                "valuation adjustment",
+                "will not be",
+                "offset",
+                "against unrealised gains."
+            ],
+            "token_groups": [
+                "The adverse",
+                "valuation adjustment",
+                "will not be",
+                "offset",
+                "against unrealised gains."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-future-simple-c2-g03",
+            "author_id": "C2-g03",
+            "question": "To what extent will overlapping indemnities {a1} under the agreed allocation mechanism?",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Якою мірою перекривні зобов’язання з відшкодування розподілять за погодженим механізмом?",
+            "target_text": "To what extent will overlapping indemnities be apportioned under the agreed allocation mechanism?",
+            "markers": {
+                "a1": {
+                    "answer": "be apportioned",
+                    "options": [
+                        "be apportioned",
+                        "being apportioned",
+                        "been apportioned"
+                    ],
+                    "verb_hint": "Розподілять пропорційно: додай лише два слова пасивної форми від «розподіляти пропорційно, виділяти частки»; початок питання вже наведено."
+                }
+            },
+            "verb_hint": "Розподілять пропорційно: додай лише два слова пасивної форми від «розподіляти пропорційно, виділяти частки»; початок питання вже наведено.",
+            "accepted_target_texts": [
+                "To what extent will overlapping indemnities be apportioned under the agreed allocation mechanism?",
+                "To what extent will overlapping indemnities be allocated under the agreed allocation mechanism?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be allocated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be allocated"
+                ]
+            },
+            "reorder_groups": [
+                "To what extent",
+                "will overlapping indemnities",
+                "be apportioned",
+                "under the",
+                "agreed allocation mechanism?"
+            ],
+            "token_groups": [
+                "To what extent",
+                "will overlapping indemnities",
+                "be apportioned",
+                "under the",
+                "agreed allocation mechanism?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-future-simple-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The asserted entitlement {a1} from mere participation.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Заявленого права не виводитимуть із самого лише факту участі.",
+            "target_text": "The asserted entitlement will not be inferred from mere participation.",
+            "markers": {
+                "a1": {
+                    "answer": "will not be inferred",
+                    "options": [
+                        "will not be inferred",
+                        "was not inferred",
+                        "is not inferred"
+                    ],
+                    "verb_hint": "Не виводитимуть існування права із самого лише факту участі; утвори заперечний простий майбутній пасив від «робити висновок, виводити»."
+                }
+            },
+            "verb_hint": "Не виводитимуть існування права із самого лише факту участі; утвори заперечний простий майбутній пасив від «робити висновок, виводити».",
+            "accepted_target_texts": [
+                "The asserted entitlement will not be inferred from mere participation.",
+                "The asserted entitlement won't be inferred from mere participation.",
+                "The asserted entitlement will not be deduced from mere participation.",
+                "The asserted entitlement won't be deduced from mere participation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "won't be inferred",
+                    "will not be deduced",
+                    "won't be deduced"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "won't be inferred",
+                    "will not be deduced",
+                    "won't be deduced"
+                ]
+            },
+            "reorder_groups": [
+                "The asserted entitlement",
+                "will not be",
+                "inferred",
+                "from mere participation."
+            ],
+            "token_groups": [
+                "The asserted entitlement",
+                "will not be",
+                "inferred",
+                "from mere participation."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-future-simple-c2-g05",
+            "author_id": "C2-g05",
+            "question": "An irrevocable undertaking {a1} in lieu of a cash deposit.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Безвідкличне зобов’язання нададуть замість грошової застави.",
+            "target_text": "An irrevocable undertaking will be furnished in lieu of a cash deposit.",
+            "markers": {
+                "a1": {
+                    "answer": "will be furnished",
+                    "options": [
+                        "will be furnished",
+                        "was furnished",
+                        "is furnished"
+                    ],
+                    "verb_hint": "Нададуть безвідкличне зобов’язання як заміну заставі; утвори простий майбутній пасив від «надавати, забезпечувати документом»."
+                }
+            },
+            "verb_hint": "Нададуть безвідкличне зобов’язання як заміну заставі; утвори простий майбутній пасив від «надавати, забезпечувати документом».",
+            "accepted_target_texts": [
+                "An irrevocable undertaking will be furnished in lieu of a cash deposit.",
+                "An irrevocable undertaking will be provided in lieu of a cash deposit.",
+                "An irrevocable undertaking will be supplied in lieu of a cash deposit."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be provided",
+                    "will be supplied"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be provided",
+                    "will be supplied"
+                ]
+            },
+            "reorder_groups": [
+                "An irrevocable undertaking",
+                "will be furnished",
+                "in lieu of",
+                "a cash deposit."
+            ],
+            "token_groups": [
+                "An irrevocable undertaking",
+                "will be furnished",
+                "in lieu of",
+                "a cash deposit."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-future-simple-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The reversionary interest {a1} on a discounted basis.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_future_simple",
+            "translation_uk": "Майбутнє право на повернення майна оцінять на дисконтованій основі.",
+            "target_text": "The reversionary interest will be valued on a discounted basis.",
+            "markers": {
+                "a1": {
+                    "answer": "will be valued",
+                    "options": [
+                        "will be valued",
+                        "was valued",
+                        "is valued"
+                    ],
+                    "verb_hint": "Оцінять вартість майбутнього майнового права з дисконтуванням; утвори простий майбутній пасив від «визначати вартість»."
+                }
+            },
+            "verb_hint": "Оцінять вартість майбутнього майнового права з дисконтуванням; утвори простий майбутній пасив від «визначати вартість».",
+            "accepted_target_texts": [
+                "The reversionary interest will be valued on a discounted basis.",
+                "The reversionary interest will be appraised on a discounted basis."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be appraised"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be appraised"
+                ]
+            },
+            "reorder_groups": [
+                "The reversionary interest",
+                "will be valued",
+                "on a",
+                "discounted basis."
+            ],
+            "token_groups": [
+                "The reversionary interest",
+                "will be valued",
+                "on a",
+                "discounted basis."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

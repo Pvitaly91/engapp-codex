@@ -1,0 +1,1427 @@
+{
+    "schema_version": 1,
+    "quality_revision": "stq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-transformations-quality/passive.v1.json",
+        "sha256": "139ac9ef7d9dcf60d91ca44d165093caadc8c19b3437631585d6e605a77bb0ed"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedStqPassiveQualityBuilderSeeder",
+        "uuid_namespace": "sentence-transformations-quality-passive-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "sentence_transformations_quality_passive": {
+            "name": "Sentence Transformations Quality: Sentence Transformations: Passive"
+        }
+    },
+    "tags": {
+        "sentence_transformations_passive_all_levels": {
+            "name": "sentence transformations passive all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "active_to_passive": {
+            "name": "Active To Passive",
+            "category": "topic"
+        },
+        "passive_to_active": {
+            "name": "Passive To Active",
+            "category": "topic"
+        },
+        "object_subject": {
+            "name": "Object Subject",
+            "category": "topic"
+        },
+        "by_agent": {
+            "name": "By Agent",
+            "category": "topic"
+        },
+        "preserve_tense": {
+            "name": "Preserve Tense",
+            "category": "topic"
+        },
+        "present_simple_passive": {
+            "name": "Present Simple Passive",
+            "category": "topic"
+        },
+        "past_simple_passive": {
+            "name": "Past Simple Passive",
+            "category": "topic"
+        },
+        "present_perfect_passive": {
+            "name": "Present Perfect Passive",
+            "category": "topic"
+        },
+        "future_modal_passive": {
+            "name": "Future Modal Passive",
+            "category": "topic"
+        },
+        "by_agent_omission": {
+            "name": "By Agent Omission",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_sentence_transformations_passive_all_levels": {
+            "name": "Sentence Transformations — Passive",
+            "category": "sentence_transformations"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stq-passive-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Ці глечики пакують робітники.",
+            "level": "A1",
+            "type": 4,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Ці глечики пакують робітники.",
+            "target_text": "These jugs are packed by the workers.",
+            "markers": {
+                "a1": {
+                    "answer": "These",
+                    "verb_hint": "Почни з глечиків; передай звичайну дію пасивом і назви робітників наприкінці.",
+                    "options": [
+                        "These",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "jugs",
+                    "verb_hint": "Почни з глечиків; передай звичайну дію пасивом і назви робітників наприкінці.",
+                    "options": [
+                        "jugs",
+                        "neighbours",
+                        "books",
+                        "parents"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Почни з глечиків; передай звичайну дію пасивом і назви робітників наприкінці.",
+                    "options": [
+                        "are",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a4": {
+                    "answer": "packed",
+                    "verb_hint": "Почни з глечиків; передай звичайну дію пасивом і назви робітників наприкінці.",
+                    "options": [
+                        "packed",
+                        "stored",
+                        "used",
+                        "opened"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Почни з глечиків; передай звичайну дію пасивом і назви робітників наприкінці.",
+                    "options": [
+                        "by",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з глечиків; передай звичайну дію пасивом і назви робітників наприкінці.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a7": {
+                    "answer": "workers.",
+                    "verb_hint": "Почни з глечиків; передай звичайну дію пасивом і назви робітників наприкінці.",
+                    "options": [
+                        "workers",
+                        "children",
+                        "teachers",
+                        "schools"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з глечиків; передай звичайну дію пасивом і назви робітників наприкінці.",
+            "accepted_target_texts": [
+                "These jugs are packed by the workers.",
+                "These jugs are packaged by the workers.",
+                "These pitchers are packed by the workers.",
+                "These pitchers are packaged by the workers."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "packaged"
+                ],
+                "a2": [
+                    "pitchers"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "packaged"
+                ],
+                "a2": [
+                    "pitchers"
+                ]
+            },
+            "reorder_groups": [
+                "These jugs",
+                "are packed",
+                "by the workers."
+            ],
+            "token_groups": [
+                "These jugs",
+                "are packed",
+                "by the workers."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "These",
+                "jugs",
+                "are",
+                "packed",
+                "by",
+                "the",
+                "workers."
+            ],
+            "options": [
+                "These",
+                "Another",
+                "Either",
+                "Neither",
+                "jugs",
+                "neighbours",
+                "books",
+                "parents",
+                "are",
+                "wasn't",
+                "weren't",
+                "am",
+                "packed",
+                "stored",
+                "used",
+                "opened",
+                "by",
+                "among",
+                "about",
+                "during",
+                "the",
+                "any",
+                "this",
+                "that",
+                "workers",
+                "children",
+                "teachers",
+                "schools"
+            ],
+            "source_text_uk": "Ці глечики пакують робітники.",
+            "options_by_marker": {
+                "a1": [
+                    "These",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "jugs",
+                    "neighbours",
+                    "books",
+                    "parents"
+                ],
+                "a3": [
+                    "are",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a4": [
+                    "packed",
+                    "stored",
+                    "used",
+                    "opened"
+                ],
+                "a5": [
+                    "by",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a6": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a7": [
+                    "workers",
+                    "children",
+                    "teachers",
+                    "schools"
+                ]
+            },
+            "slot_roles": {
+                "a1": "plural_noun_phrase",
+                "a2": "plural_noun_phrase",
+                "a3": "present_passive_plural",
+                "a4": "present_passive_plural",
+                "a5": "agent_phrase",
+                "a6": "agent_phrase",
+                "a7": "agent_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "stq-passive-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Олена виготовила керамічну миску.",
+            "level": "A2",
+            "type": 4,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Олена виготовила керамічну миску.",
+            "target_text": "Olena made the ceramic bowl.",
+            "markers": {
+                "a1": {
+                    "answer": "Olena",
+                    "verb_hint": "Почни з Олени та передай виготовлення активною формою минулого часу.",
+                    "options": [
+                        "Olena",
+                        "Maria",
+                        "Petro",
+                        "Alice"
+                    ]
+                },
+                "a2": {
+                    "answer": "made",
+                    "verb_hint": "Почни з Олени та передай виготовлення активною формою минулого часу.",
+                    "options": [
+                        "made",
+                        "repaired",
+                        "found",
+                        "bought"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з Олени та передай виготовлення активною формою минулого часу.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "ceramic",
+                    "verb_hint": "Почни з Олени та передай виготовлення активною формою минулого часу.",
+                    "options": [
+                        "ceramic",
+                        "old",
+                        "small",
+                        "warm"
+                    ]
+                },
+                "a5": {
+                    "answer": "bowl.",
+                    "verb_hint": "Почни з Олени та передай виготовлення активною формою минулого часу.",
+                    "options": [
+                        "bowl",
+                        "coat",
+                        "cup",
+                        "box"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з Олени та передай виготовлення активною формою минулого часу.",
+            "accepted_target_texts": [
+                "Olena made the ceramic bowl.",
+                "Olena crafted the ceramic bowl.",
+                "Olena produced the ceramic bowl."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "crafted",
+                    "produced"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "crafted",
+                    "produced"
+                ]
+            },
+            "reorder_groups": [
+                "Olena",
+                "made",
+                "the ceramic bowl."
+            ],
+            "token_groups": [
+                "Olena",
+                "made",
+                "the ceramic bowl."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "Olena",
+                "made",
+                "the",
+                "ceramic",
+                "bowl."
+            ],
+            "options": [
+                "Olena",
+                "Maria",
+                "Petro",
+                "Alice",
+                "made",
+                "repaired",
+                "found",
+                "bought",
+                "the",
+                "each",
+                "every",
+                "no",
+                "ceramic",
+                "old",
+                "small",
+                "warm",
+                "bowl",
+                "coat",
+                "cup",
+                "box"
+            ],
+            "source_text_uk": "Олена виготовила керамічну миску.",
+            "options_by_marker": {
+                "a1": [
+                    "Olena",
+                    "Maria",
+                    "Petro",
+                    "Alice"
+                ],
+                "a2": [
+                    "made",
+                    "repaired",
+                    "found",
+                    "bought"
+                ],
+                "a3": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "ceramic",
+                    "old",
+                    "small",
+                    "warm"
+                ],
+                "a5": [
+                    "bowl",
+                    "coat",
+                    "cup",
+                    "box"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "past_transitive_verb",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "stq-passive-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Обидва лічильники вже перевірив інспектор.",
+            "level": "B1",
+            "type": 4,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Обидва лічильники вже перевірив інспектор.",
+            "target_text": "Both meters have already been checked by the inspector.",
+            "markers": {
+                "a1": {
+                    "answer": "Both",
+                    "verb_hint": "Почни з обох об’єктів і збережи завершеність донині та виконавця.",
+                    "options": [
+                        "Both",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "meters",
+                    "verb_hint": "Почни з обох об’єктів і збережи завершеність донині та виконавця.",
+                    "options": [
+                        "meters",
+                        "friends",
+                        "cameras",
+                        "books"
+                    ]
+                },
+                "a3": {
+                    "answer": "have",
+                    "verb_hint": "Почни з обох об’єктів і збережи завершеність донині та виконавця.",
+                    "options": [
+                        "have",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "already",
+                    "verb_hint": "Почни з обох об’єктів і збережи завершеність донині та виконавця.",
+                    "options": [
+                        "already",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Почни з обох об’єктів і збережи завершеність донині та виконавця.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "checked",
+                    "verb_hint": "Почни з обох об’єктів і збережи завершеність донині та виконавця.",
+                    "options": [
+                        "checked",
+                        "found",
+                        "opened",
+                        "closed"
+                    ]
+                },
+                "a7": {
+                    "answer": "by",
+                    "verb_hint": "Почни з обох об’єктів і збережи завершеність донині та виконавця.",
+                    "options": [
+                        "by",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з обох об’єктів і збережи завершеність донині та виконавця.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a9": {
+                    "answer": "inspector.",
+                    "verb_hint": "Почни з обох об’єктів і збережи завершеність донині та виконавця.",
+                    "options": [
+                        "inspector",
+                        "father",
+                        "mother",
+                        "teacher"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з обох об’єктів і збережи завершеність донині та виконавця.",
+            "accepted_target_texts": [
+                "Both meters have already been checked by the inspector.",
+                "Both meters have already been inspected by the inspector.",
+                "Both meters have already been verified by the inspector."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "inspected",
+                    "verified"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "inspected",
+                    "verified"
+                ]
+            },
+            "reorder_groups": [
+                "Both meters",
+                "have already been",
+                "checked",
+                "by the inspector."
+            ],
+            "token_groups": [
+                "Both meters",
+                "have already been",
+                "checked",
+                "by the inspector."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "Both",
+                "meters",
+                "have",
+                "already",
+                "been",
+                "checked",
+                "by",
+                "the",
+                "inspector."
+            ],
+            "options": [
+                "Both",
+                "An",
+                "Some",
+                "Any",
+                "meters",
+                "friends",
+                "cameras",
+                "books",
+                "have",
+                "had",
+                "haven't",
+                "hasn't",
+                "already",
+                "still",
+                "just",
+                "also",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "checked",
+                "found",
+                "opened",
+                "closed",
+                "by",
+                "among",
+                "about",
+                "during",
+                "the",
+                "this",
+                "that",
+                "these",
+                "inspector",
+                "father",
+                "mother",
+                "teacher"
+            ],
+            "source_text_uk": "Обидва лічильники вже перевірив інспектор.",
+            "options_by_marker": {
+                "a1": [
+                    "Both",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "meters",
+                    "friends",
+                    "cameras",
+                    "books"
+                ],
+                "a3": [
+                    "have",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a4": [
+                    "already",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a5": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a6": [
+                    "checked",
+                    "found",
+                    "opened",
+                    "closed"
+                ],
+                "a7": [
+                    "by",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a8": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a9": [
+                    "inspector",
+                    "father",
+                    "mother",
+                    "teacher"
+                ]
+            },
+            "slot_roles": {
+                "a1": "plural_noun_phrase",
+                "a2": "plural_noun_phrase",
+                "a3": "perfect_auxiliary",
+                "a4": "perfect_auxiliary",
+                "a5": "perfect_auxiliary",
+                "a6": "past_participle",
+                "a7": "agent_phrase",
+                "a8": "agent_phrase",
+                "a9": "agent_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "stq-passive-b2-c01",
+            "author_id": "B2-c01",
+            "question": "На наше замовлення майстер полагодив арфу.",
+            "level": "B2",
+            "type": 4,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "На наше замовлення майстер полагодив арфу.",
+            "target_text": "We had the harp repaired by the craftsman.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з нас; передай завершену замовлену дію та назви майстра.",
+                    "options": [
+                        "We",
+                        "Myself",
+                        "Yourself",
+                        "Herself"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з нас; передай завершену замовлену дію та назви майстра.",
+                    "options": [
+                        "had",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з нас; передай завершену замовлену дію та назви майстра.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a4": {
+                    "answer": "harp",
+                    "verb_hint": "Почни з нас; передай завершену замовлену дію та назви майстра.",
+                    "options": [
+                        "harp",
+                        "picture",
+                        "child",
+                        "teacher"
+                    ]
+                },
+                "a5": {
+                    "answer": "repaired",
+                    "verb_hint": "Почни з нас; передай завершену замовлену дію та назви майстра.",
+                    "options": [
+                        "repaired",
+                        "carried",
+                        "checked",
+                        "made"
+                    ]
+                },
+                "a6": {
+                    "answer": "by",
+                    "verb_hint": "Почни з нас; передай завершену замовлену дію та назви майстра.",
+                    "options": [
+                        "by",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з нас; передай завершену замовлену дію та назви майстра.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a8": {
+                    "answer": "craftsman.",
+                    "verb_hint": "Почни з нас; передай завершену замовлену дію та назви майстра.",
+                    "options": [
+                        "craftsman",
+                        "driver",
+                        "father",
+                        "mother"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з нас; передай завершену замовлену дію та назви майстра.",
+            "accepted_target_texts": [
+                "We had the harp repaired by the craftsman.",
+                "We had the harp repaired by the artisan.",
+                "We had the harp fixed by the craftsman.",
+                "We had the harp fixed by the artisan."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "artisan."
+                ],
+                "a5": [
+                    "fixed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "artisan."
+                ],
+                "a5": [
+                    "fixed"
+                ]
+            },
+            "reorder_groups": [
+                "We had",
+                "the harp",
+                "repaired",
+                "by the craftsman."
+            ],
+            "token_groups": [
+                "We had",
+                "the harp",
+                "repaired",
+                "by the craftsman."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "We",
+                "had",
+                "the",
+                "harp",
+                "repaired",
+                "by",
+                "the",
+                "craftsman."
+            ],
+            "options": [
+                "We",
+                "Myself",
+                "Yourself",
+                "Herself",
+                "had",
+                "did",
+                "don't",
+                "doesn't",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "harp",
+                "picture",
+                "child",
+                "teacher",
+                "repaired",
+                "carried",
+                "checked",
+                "made",
+                "by",
+                "without",
+                "into",
+                "onto",
+                "any",
+                "this",
+                "that",
+                "craftsman",
+                "driver",
+                "father",
+                "mother"
+            ],
+            "source_text_uk": "На наше замовлення майстер полагодив арфу.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Myself",
+                    "Yourself",
+                    "Herself"
+                ],
+                "a2": [
+                    "had",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a3": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a4": [
+                    "harp",
+                    "picture",
+                    "child",
+                    "teacher"
+                ],
+                "a5": [
+                    "repaired",
+                    "carried",
+                    "checked",
+                    "made"
+                ],
+                "a6": [
+                    "by",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a7": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a8": [
+                    "craftsman",
+                    "driver",
+                    "father",
+                    "mother"
+                ]
+            },
+            "slot_roles": {
+                "a1": "causative_past_subject",
+                "a2": "causative_past_subject",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "past_participle",
+                "a6": "agent_phrase",
+                "a7": "agent_phrase",
+                "a8": "agent_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "stq-passive-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Він ненавидить, коли його виправляють публічно.",
+            "level": "C1",
+            "type": 4,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Він ненавидить, коли його виправляють публічно.",
+            "target_text": "He hates being corrected in public.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Почни з нього; після дієслова ненависті використай пасивний герундій.",
+                    "options": [
+                        "He",
+                        "Themselves",
+                        "I",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "hates",
+                    "verb_hint": "Почни з нього; після дієслова ненависті використай пасивний герундій.",
+                    "options": [
+                        "hates",
+                        "prefers",
+                        "imagines",
+                        "enjoys"
+                    ]
+                },
+                "a3": {
+                    "answer": "being",
+                    "verb_hint": "Почни з нього; після дієслова ненависті використай пасивний герундій.",
+                    "options": [
+                        "being",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "corrected",
+                    "verb_hint": "Почни з нього; після дієслова ненависті використай пасивний герундій.",
+                    "options": [
+                        "corrected",
+                        "taught",
+                        "moved",
+                        "named"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Почни з нього; після дієслова ненависті використай пасивний герундій.",
+                    "options": [
+                        "in",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a6": {
+                    "answer": "public.",
+                    "verb_hint": "Почни з нього; після дієслова ненависті використай пасивний герундій.",
+                    "options": [
+                        "public",
+                        "helpful",
+                        "different",
+                        "simple"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з нього; після дієслова ненависті використай пасивний герундій.",
+            "accepted_target_texts": [
+                "He hates being corrected in public.",
+                "He hates being put right in public.",
+                "He detests being corrected in public.",
+                "He detests being put right in public.",
+                "He loathes being corrected in public.",
+                "He loathes being put right in public."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "detests",
+                    "loathes"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "detests",
+                    "loathes"
+                ]
+            },
+            "reorder_groups": [
+                "He",
+                "hates",
+                "being corrected",
+                "in public."
+            ],
+            "token_groups": [
+                "He",
+                "hates",
+                "being corrected",
+                "in public."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "He",
+                "hates",
+                "being",
+                "corrected",
+                "in",
+                "public."
+            ],
+            "options": [
+                "He",
+                "Themselves",
+                "I",
+                "You",
+                "hates",
+                "prefers",
+                "imagines",
+                "enjoys",
+                "being",
+                "were",
+                "be",
+                "been",
+                "corrected",
+                "taught",
+                "moved",
+                "named",
+                "in",
+                "through",
+                "across",
+                "between",
+                "public",
+                "helpful",
+                "different",
+                "simple"
+            ],
+            "source_text_uk": "Він ненавидить, коли його виправляють публічно.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "Themselves",
+                    "I",
+                    "You"
+                ],
+                "a2": [
+                    "hates",
+                    "prefers",
+                    "imagines",
+                    "enjoys"
+                ],
+                "a3": [
+                    "being",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a4": [
+                    "corrected",
+                    "taught",
+                    "moved",
+                    "named"
+                ],
+                "a5": [
+                    "in",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a6": [
+                    "public",
+                    "helpful",
+                    "different",
+                    "simple"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "present_transitive_verb",
+                "a3": "passive_gerund",
+                "a4": "passive_gerund",
+                "a5": "closed_prepositional_phrase",
+                "a6": "closed_prepositional_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "stq-passive-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Саме незавершений ескіз продали помилково.",
+            "level": "C2",
+            "type": 4,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Саме незавершений ескіз продали помилково.",
+            "target_text": "It was the unfinished sketch that was sold by mistake.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Використай видільну конструкцію з пасивом; збережи акцент на об’єкті та помилковість продажу.",
+                    "options": [
+                        "It",
+                        "Ourselves",
+                        "Themselves",
+                        "I"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Використай видільну конструкцію з пасивом; збережи акцент на об’єкті та помилковість продажу.",
+                    "options": [
+                        "was",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Використай видільну конструкцію з пасивом; збережи акцент на об’єкті та помилковість продажу.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a4": {
+                    "answer": "unfinished",
+                    "verb_hint": "Використай видільну конструкцію з пасивом; збережи акцент на об’єкті та помилковість продажу.",
+                    "options": [
+                        "unfinished",
+                        "green",
+                        "red",
+                        "left"
+                    ]
+                },
+                "a5": {
+                    "answer": "sketch",
+                    "verb_hint": "Використай видільну конструкцію з пасивом; збережи акцент на об’єкті та помилковість продажу.",
+                    "options": [
+                        "sketch",
+                        "dog",
+                        "room",
+                        "cup"
+                    ]
+                },
+                "a6": {
+                    "answer": "that",
+                    "verb_hint": "Використай видільну конструкцію з пасивом; збережи акцент на об’єкті та помилковість продажу.",
+                    "options": [
+                        "that",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a7": {
+                    "answer": "was",
+                    "verb_hint": "Використай видільну конструкцію з пасивом; збережи акцент на об’єкті та помилковість продажу.",
+                    "options": [
+                        "was",
+                        "isn't",
+                        "aren't",
+                        "is"
+                    ]
+                },
+                "a8": {
+                    "answer": "sold",
+                    "verb_hint": "Використай видільну конструкцію з пасивом; збережи акцент на об’єкті та помилковість продажу.",
+                    "options": [
+                        "sold",
+                        "opened",
+                        "found",
+                        "painted"
+                    ]
+                },
+                "a9": {
+                    "answer": "by",
+                    "verb_hint": "Використай видільну конструкцію з пасивом; збережи акцент на об’єкті та помилковість продажу.",
+                    "options": [
+                        "by",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a10": {
+                    "answer": "mistake.",
+                    "verb_hint": "Використай видільну конструкцію з пасивом; збережи акцент на об’єкті та помилковість продажу.",
+                    "options": [
+                        "mistake",
+                        "secret",
+                        "lunch",
+                        "school"
+                    ]
+                }
+            },
+            "verb_hint": "Використай видільну конструкцію з пасивом; збережи акцент на об’єкті та помилковість продажу.",
+            "accepted_target_texts": [
+                "It was the unfinished sketch that was sold by mistake."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "the unfinished sketch",
+                "that was sold",
+                "by mistake."
+            ],
+            "token_groups": [
+                "It was",
+                "the unfinished sketch",
+                "that was sold",
+                "by mistake."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "It",
+                "was",
+                "the",
+                "unfinished",
+                "sketch",
+                "that",
+                "was",
+                "sold",
+                "by",
+                "mistake."
+            ],
+            "options": [
+                "It",
+                "Ourselves",
+                "Themselves",
+                "I",
+                "was",
+                "wasn't",
+                "weren't",
+                "am",
+                "the",
+                "a",
+                "an",
+                "some",
+                "unfinished",
+                "green",
+                "red",
+                "left",
+                "sketch",
+                "dog",
+                "room",
+                "cup",
+                "that",
+                "no",
+                "another",
+                "either",
+                "isn't",
+                "aren't",
+                "is",
+                "sold",
+                "opened",
+                "found",
+                "painted",
+                "by",
+                "without",
+                "into",
+                "onto",
+                "mistake",
+                "secret",
+                "lunch",
+                "school"
+            ],
+            "source_text_uk": "Саме незавершений ескіз продали помилково.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "Ourselves",
+                    "Themselves",
+                    "I"
+                ],
+                "a2": [
+                    "was",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a3": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a4": [
+                    "unfinished",
+                    "green",
+                    "red",
+                    "left"
+                ],
+                "a5": [
+                    "sketch",
+                    "dog",
+                    "room",
+                    "cup"
+                ],
+                "a6": [
+                    "that",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a7": [
+                    "was",
+                    "isn't",
+                    "aren't",
+                    "is"
+                ],
+                "a8": [
+                    "sold",
+                    "opened",
+                    "found",
+                    "painted"
+                ],
+                "a9": [
+                    "by",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a10": [
+                    "mistake",
+                    "secret",
+                    "lunch",
+                    "school"
+                ]
+            },
+            "slot_roles": {
+                "a1": "cleft_subject_aux",
+                "a2": "cleft_subject_aux",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "relative_passive",
+                "a7": "relative_passive",
+                "a8": "relative_passive",
+                "a9": "adverbial_clause",
+                "a10": "adverbial_clause"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

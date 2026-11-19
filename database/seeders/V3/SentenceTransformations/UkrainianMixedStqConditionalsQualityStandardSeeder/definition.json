@@ -1,0 +1,684 @@
+{
+    "schema_version": 1,
+    "quality_revision": "stq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-transformations-quality/conditionals.v1.json",
+        "sha256": "ffa265d9ae9ffc2059ed44b237cf589b4cbe46daf330769c6b4d1c1abee7963a"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SentenceTransformations\\UkrainianMixedStqConditionalsQualityStandardSeeder",
+        "uuid_namespace": "sentence-transformations-quality-conditionals-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Sentence Transformations"
+    },
+    "sources": {
+        "sentence_transformations_quality_conditionals": {
+            "name": "Sentence Transformations Quality: Sentence Transformations: Conditionals"
+        }
+    },
+    "tags": {
+        "sentence_transformations_conditionals_all_levels": {
+            "name": "sentence transformations conditionals all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "if_unless": {
+            "name": "If Unless",
+            "category": "topic"
+        },
+        "first_conditional": {
+            "name": "First Conditional",
+            "category": "topic"
+        },
+        "second_conditional": {
+            "name": "Second Conditional",
+            "category": "topic"
+        },
+        "third_conditional": {
+            "name": "Third Conditional",
+            "category": "topic"
+        },
+        "mixed_conditional": {
+            "name": "Mixed Conditional",
+            "category": "topic"
+        },
+        "wish_if_only": {
+            "name": "Wish If Only",
+            "category": "topic"
+        },
+        "would_rather": {
+            "name": "Would Rather",
+            "category": "topic"
+        },
+        "had_better": {
+            "name": "Had Better",
+            "category": "topic"
+        },
+        "provided_as_long_as_in_case": {
+            "name": "Provided As Long As In Case",
+            "category": "topic"
+        },
+        "preserve_condition_result": {
+            "name": "Preserve Condition Result",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stq-conditionals-a1-g01",
+            "author_id": "A1-g01",
+            "question": "If you {a1} the green button, the light comes on.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Початкове: «Натискання зеленої кнопки завжди вмикає світло».",
+            "target_text": "If you press the green button, the light comes on.",
+            "markers": {
+                "a1": {
+                    "answer": "press",
+                    "options": [
+                        "press",
+                        "pressed",
+                        "will press"
+                    ],
+                    "verb_hint": "Початкове: «Натискання зеленої кнопки завжди вмикає світло». Передай постійний наслідок умовним реченням; у пропуску лише дія натиснути."
+                }
+            },
+            "verb_hint": "Початкове: «Натискання зеленої кнопки завжди вмикає світло». Передай постійний наслідок умовним реченням; у пропуску лише дія натиснути.",
+            "accepted_target_texts": [
+                "If you press the green button, the light comes on.",
+                "If you push the green button, the light comes on."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "push"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "push"
+                ]
+            },
+            "reorder_groups": [
+                "If you press",
+                "the green button,",
+                "the light",
+                "comes on."
+            ],
+            "token_groups": [
+                "If you press",
+                "the green button,",
+                "the light",
+                "comes on."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "stq-conditionals-a1-g02",
+            "author_id": "A1-g02",
+            "question": "If it {a1}, wear a coat.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Початкове: «За холодної погоди вдягай пальто».",
+            "target_text": "If it is cold, wear a coat.",
+            "markers": {
+                "a1": {
+                    "answer": "is cold",
+                    "options": [
+                        "is cold",
+                        "was cold",
+                        "will be cold"
+                    ],
+                    "verb_hint": "Початкове: «За холодної погоди вдягай пальто». Заміни обставину погоди умовою; вжий теперішню форму зі значенням холодно."
+                }
+            },
+            "verb_hint": "Початкове: «За холодної погоди вдягай пальто». Заміни обставину погоди умовою; вжий теперішню форму зі значенням холодно.",
+            "accepted_target_texts": [
+                "If it is cold, wear a coat."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If it",
+                "is cold,",
+                "wear a coat."
+            ],
+            "token_groups": [
+                "If it",
+                "is cold,",
+                "wear a coat."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "stq-conditionals-a2-g01",
+            "author_id": "A2-g01",
+            "question": "If you {a1} a torch, the path will stay dark.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Початкове: «Без ліхтаря стежка залишиться темною».",
+            "target_text": "If you do not bring a torch, the path will stay dark.",
+            "markers": {
+                "a1": {
+                    "answer": "do not bring",
+                    "options": [
+                        "do not bring",
+                        "did not bring",
+                        "will not bring"
+                    ],
+                    "verb_hint": "Початкове: «Без ліхтаря стежка залишиться темною». Передай майбутню умову заперечною теперішньою формою; заперечення й дію принести введи разом."
+                }
+            },
+            "verb_hint": "Початкове: «Без ліхтаря стежка залишиться темною». Передай майбутню умову заперечною теперішньою формою; заперечення й дію принести введи разом.",
+            "accepted_target_texts": [
+                "If you do not bring a torch, the path will stay dark.",
+                "If you don't bring a torch, the path will stay dark."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "don't bring"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "don't bring"
+                ]
+            },
+            "reorder_groups": [
+                "If you",
+                "do not bring",
+                "a torch,",
+                "the path",
+                "will stay dark."
+            ],
+            "token_groups": [
+                "If you",
+                "do not bring",
+                "a torch,",
+                "the path",
+                "will stay dark."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "stq-conditionals-a2-g02",
+            "author_id": "A2-g02",
+            "question": "I {a1} if you need a ride.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Початкове: «Якщо тебе потрібно підвезти, я тебе підвезу».",
+            "target_text": "I will drive you if you need a ride.",
+            "markers": {
+                "a1": {
+                    "answer": "will drive you",
+                    "options": [
+                        "will drive you",
+                        "drove you",
+                        "will driving you"
+                    ],
+                    "verb_hint": "Початкове: «Якщо тебе потрібно підвезти, я тебе підвезу». Перестав наслідок на початок; передай майбутню пропозицію підвезти співрозмовника."
+                }
+            },
+            "verb_hint": "Початкове: «Якщо тебе потрібно підвезти, я тебе підвезу». Перестав наслідок на початок; передай майбутню пропозицію підвезти співрозмовника.",
+            "accepted_target_texts": [
+                "I will drive you if you need a ride.",
+                "I will give you a lift if you need a ride."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will give you a lift"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will give you a lift"
+                ]
+            },
+            "reorder_groups": [
+                "I",
+                "will drive you",
+                "if you need",
+                "a ride."
+            ],
+            "token_groups": [
+                "I",
+                "will drive you",
+                "if you need",
+                "a ride."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "stq-conditionals-b1-g01",
+            "author_id": "B1-g01",
+            "question": "If we {a1} a spare key, we could open the cellar.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Початкове: «У нас немає запасного ключа, тому ми не можемо відчинити підвал».",
+            "target_text": "If we had a spare key, we could open the cellar.",
+            "markers": {
+                "a1": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "have",
+                        "will have"
+                    ],
+                    "verb_hint": "Початкове: «У нас немає запасного ключа, тому ми не можемо відчинити підвал». Перебудуй нереальну теперішню ситуацію через якби; у пропуску лише форма володіння ключем."
+                }
+            },
+            "verb_hint": "Початкове: «У нас немає запасного ключа, тому ми не можемо відчинити підвал». Перебудуй нереальну теперішню ситуацію через якби; у пропуску лише форма володіння ключем.",
+            "accepted_target_texts": [
+                "If we had a spare key, we could open the cellar."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If we had",
+                "a spare key,",
+                "we could open",
+                "the cellar."
+            ],
+            "token_groups": [
+                "If we had",
+                "a spare key,",
+                "we could open",
+                "the cellar."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "stq-conditionals-b1-g02",
+            "author_id": "B1-g02",
+            "question": "You will miss the ferry {a1} you leave now.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Початкове: «Якщо ти зараз не вирушиш, то пропустиш пором».",
+            "target_text": "You will miss the ferry unless you leave now.",
+            "markers": {
+                "a1": {
+                    "answer": "unless",
+                    "options": [
+                        "unless",
+                        "if",
+                        "because"
+                    ],
+                    "verb_hint": "Початкове: «Якщо ти зараз не вирушиш, то пропустиш пором». Почни з наслідку; збережи умову невиконаної дії одним сполучником зі значенням якщо не."
+                }
+            },
+            "verb_hint": "Початкове: «Якщо ти зараз не вирушиш, то пропустиш пором». Почни з наслідку; збережи умову невиконаної дії одним сполучником зі значенням якщо не.",
+            "accepted_target_texts": [
+                "You will miss the ferry unless you leave now."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You will miss",
+                "the ferry",
+                "unless",
+                "you leave now."
+            ],
+            "token_groups": [
+                "You will miss",
+                "the ferry",
+                "unless",
+                "you leave now."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "stq-conditionals-b2-g01",
+            "author_id": "B2-g01",
+            "question": "If the walkers {a1} a map, they would not have lost their way.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Початкове: «Мандрівники заблукали, бо не мали із собою карти».",
+            "target_text": "If the walkers had carried a map, they would not have lost their way.",
+            "markers": {
+                "a1": {
+                    "answer": "had carried",
+                    "options": [
+                        "had carried",
+                        "have carried",
+                        "carried"
+                    ],
+                    "verb_hint": "Початкове: «Мандрівники заблукали, бо не мали із собою карти». Перебудуй минулу причину на нереальну попередню умову; передай мали із собою."
+                }
+            },
+            "verb_hint": "Початкове: «Мандрівники заблукали, бо не мали із собою карти». Перебудуй минулу причину на нереальну попередню умову; передай мали із собою.",
+            "accepted_target_texts": [
+                "If the walkers had carried a map, they would not have lost their way.",
+                "If the walkers had taken a map, they would not have lost their way.",
+                "If the walkers had brought a map, they would not have lost their way."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had taken",
+                    "had brought"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had taken",
+                    "had brought"
+                ]
+            },
+            "reorder_groups": [
+                "If the walkers",
+                "had carried",
+                "a map,",
+                "they would not",
+                "have lost",
+                "their way."
+            ],
+            "token_groups": [
+                "If the walkers",
+                "had carried",
+                "a map,",
+                "they would not",
+                "have lost",
+                "their way."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "stq-conditionals-b2-g02",
+            "author_id": "B2-g02",
+            "question": "{a1} told me earlier, I would have reserved another seat.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Початкове: «Якби він сказав мені раніше, я зарезервував би інше місце».",
+            "target_text": "Had he told me earlier, I would have reserved another seat.",
+            "markers": {
+                "a1": {
+                    "answer": "Had he",
+                    "options": [
+                        "Had he",
+                        "If he",
+                        "Has he"
+                    ],
+                    "verb_hint": "Початкове: «Якби він сказав мені раніше, я зарезервував би інше місце». Прибери сполучник якби та почни з інверсії минулої нереальної умови; введи допоміжне дієслово й підмет."
+                }
+            },
+            "verb_hint": "Початкове: «Якби він сказав мені раніше, я зарезервував би інше місце». Прибери сполучник якби та почни з інверсії минулої нереальної умови; введи допоміжне дієслово й підмет.",
+            "accepted_target_texts": [
+                "Had he told me earlier, I would have reserved another seat."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Had he",
+                "told me earlier,",
+                "I would have",
+                "reserved",
+                "another seat."
+            ],
+            "token_groups": [
+                "Had he",
+                "told me earlier,",
+                "I would have",
+                "reserved",
+                "another seat."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "stq-conditionals-c1-g01",
+            "author_id": "C1-g01",
+            "question": "But for your timely hint, I {a1} the hidden clue.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Початкове: «Лише завдяки твоїй вчасній підказці я не пропустив приховану зачіпку».",
+            "target_text": "But for your timely hint, I would have missed the hidden clue.",
+            "markers": {
+                "a1": {
+                    "answer": "would have missed",
+                    "options": [
+                        "would have missed",
+                        "would miss",
+                        "had missed"
+                    ],
+                    "verb_hint": "Початкове: «Лише завдяки твоїй вчасній підказці я не пропустив приховану зачіпку». Почни зі значення якби не; передай нереальний наслідок у минулому, а не теперішню звичку."
+                }
+            },
+            "verb_hint": "Початкове: «Лише завдяки твоїй вчасній підказці я не пропустив приховану зачіпку». Почни зі значення якби не; передай нереальний наслідок у минулому, а не теперішню звичку.",
+            "accepted_target_texts": [
+                "But for your timely hint, I would have missed the hidden clue."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "But for",
+                "your timely hint,",
+                "I",
+                "would have missed",
+                "the hidden clue."
+            ],
+            "token_groups": [
+                "But for",
+                "your timely hint,",
+                "I",
+                "would have missed",
+                "the hidden clue."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "stq-conditionals-c1-g02",
+            "author_id": "C1-g02",
+            "question": "Only if the claimant withdraws the suit {a1} to negotiations.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Початкове: «Ми повернемося до переговорів лише тоді, коли позивач відкличе позов».",
+            "target_text": "Only if the claimant withdraws the suit will we return to negotiations.",
+            "markers": {
+                "a1": {
+                    "answer": "will we return",
+                    "options": [
+                        "will we return",
+                        "we will return",
+                        "did we return"
+                    ],
+                    "verb_hint": "Початкове: «Ми повернемося до переговорів лише тоді, коли позивач відкличе позов». Винеси обмежувальну умову на початок; у головній частині збережи майбутній час та інверсію."
+                }
+            },
+            "verb_hint": "Початкове: «Ми повернемося до переговорів лише тоді, коли позивач відкличе позов». Винеси обмежувальну умову на початок; у головній частині збережи майбутній час та інверсію.",
+            "accepted_target_texts": [
+                "Only if the claimant withdraws the suit will we return to negotiations."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Only if",
+                "the claimant withdraws",
+                "the suit",
+                "will we return",
+                "to negotiations."
+            ],
+            "token_groups": [
+                "Only if",
+                "the claimant withdraws",
+                "the suit",
+                "will we return",
+                "to negotiations."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "stq-conditionals-c2-g01",
+            "author_id": "C2-g01",
+            "question": "Supposing the licence were revoked, {a1} remain lawful?",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Початкове: «Припустімо, ліцензію відкликали б: чи залишалося б розповсюдження законним?».",
+            "target_text": "Supposing the licence were revoked, would the distribution remain lawful?",
+            "markers": {
+                "a1": {
+                    "answer": "would the distribution",
+                    "options": [
+                        "would the distribution",
+                        "the distribution would",
+                        "did the distribution"
+                    ],
+                    "verb_hint": "Початкове: «Припустімо, ліцензію відкликали б: чи залишалося б розповсюдження законним?». Перебудуй друге питання всередину одного умовного речення; введи умовне допоміжне дієслово й увесь підмет."
+                }
+            },
+            "verb_hint": "Початкове: «Припустімо, ліцензію відкликали б: чи залишалося б розповсюдження законним?». Перебудуй друге питання всередину одного умовного речення; введи умовне допоміжне дієслово й увесь підмет.",
+            "accepted_target_texts": [
+                "Supposing the licence were revoked, would the distribution remain lawful?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Supposing the licence",
+                "were revoked,",
+                "would the distribution",
+                "remain lawful?"
+            ],
+            "token_groups": [
+                "Supposing the licence",
+                "were revoked,",
+                "would the distribution",
+                "remain lawful?"
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "stq-conditionals-c2-g02",
+            "author_id": "C2-g02",
+            "question": "We will accept the undertaking {a1} it does not waive any existing rights.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Початкове: «Ми приймемо зобов’язання лише за умови, що воно не скасовує жодних чинних прав».",
+            "target_text": "We will accept the undertaking provided that it does not waive any existing rights.",
+            "markers": {
+                "a1": {
+                    "answer": "provided that",
+                    "options": [
+                        "provided that",
+                        "even if",
+                        "now that"
+                    ],
+                    "verb_hint": "Початкове: «Ми приймемо зобов’язання лише за умови, що воно не скасовує жодних чинних прав». Збережи сувору передумову прийняття; не замінюй її поступкою чи вже встановленою причиною."
+                }
+            },
+            "verb_hint": "Початкове: «Ми приймемо зобов’язання лише за умови, що воно не скасовує жодних чинних прав». Збережи сувору передумову прийняття; не замінюй її поступкою чи вже встановленою причиною.",
+            "accepted_target_texts": [
+                "We will accept the undertaking provided that it does not waive any existing rights.",
+                "We will accept the undertaking providing that it does not waive any existing rights.",
+                "We will accept the undertaking as long as it does not waive any existing rights.",
+                "We will accept the undertaking so long as it does not waive any existing rights."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "providing that",
+                    "as long as",
+                    "so long as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "providing that",
+                    "as long as",
+                    "so long as"
+                ]
+            },
+            "reorder_groups": [
+                "We will accept",
+                "the undertaking",
+                "provided that",
+                "it does not",
+                "waive any",
+                "existing rights."
+            ],
+            "token_groups": [
+                "We will accept",
+                "the undertaking",
+                "provided that",
+                "it does not",
+                "waive any",
+                "existing rights."
+            ],
+            "quality_revision": "stq-v1"
+        }
+    ]
+}

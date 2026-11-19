@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 59812,
+        "uuid": "woq-questions-negatives-a1-g03",
+        "question": "They {a1} meat.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 4,
+        "source_id": 412,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\WordOrder\\UkrainianMixedWordOrderQuestionsNegativesQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "do not eat",
+                "not do eat",
+                "do eat not"
+            ]
+        },
+        "theory_text_block_uuid": "ec899a08-4708-53db-8d13-2225853d7b72",
+        "created_at": "2026-10-27T01:00:54.000000Z",
+        "updated_at": "2026-10-27T01:00:54.000000Z"
+    },
+    "category": {
+        "id": 4,
+        "name": "Базова граматика / Word Order",
+        "created_at": "2026-04-23T14:15:58.000000Z",
+        "updated_at": "2026-04-23T14:15:58.000000Z"
+    },
+    "source": {
+        "id": 412,
+        "name": "Word Order Quality: Порядок слів у питаннях і запереченнях",
+        "created_at": "2026-10-27T01:00:53.000000Z",
+        "updated_at": "2026-10-27T01:00:53.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 131,
+                "name": "Auxiliary Verbs",
+                "category": null,
+                "created_at": "2026-04-23T14:15:17.000000Z",
+                "updated_at": "2026-04-23T14:15:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 59812,
+                "tag_id": 131,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 7895,
+                "option": "do not eat",
+                "created_at": "2026-04-23T14:48:33.000000Z",
+                "updated_at": "2026-04-23T14:48:33.000000Z"
+            },
+            "pivot": {
+                "question_id": 59812,
+                "option_id": 7895,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 50990,
+                "option": "not do eat",
+                "created_at": "2026-10-27T01:00:54.000000Z",
+                "updated_at": "2026-10-27T01:00:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 59812,
+                "option_id": 50990,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 50991,
+                "option": "do eat not",
+                "created_at": "2026-10-27T01:00:54.000000Z",
+                "updated_at": "2026-10-27T01:00:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 59812,
+                "option_id": 50991,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 322656,
+                "question_id": 59812,
+                "marker": "a1",
+                "option_id": 7895,
+                "created_at": "2026-10-27T01:00:54.000000Z",
+                "updated_at": "2026-10-27T01:00:54.000000Z"
+            },
+            "option": {
+                "id": 7895,
+                "option": "do not eat",
+                "created_at": "2026-04-23T14:48:33.000000Z",
+                "updated_at": "2026-04-23T14:48:33.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 39990,
+                "question_id": 59812,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 50989,
+                "created_at": "2026-10-27T01:00:54.000000Z",
+                "updated_at": "2026-10-27T01:00:54.000000Z"
+            },
+            "option": {
+                "id": 50989,
+                "option": "Заперечення простого теперішнього часу потребує допоміжного дієслова перед заперечною часткою.",
+                "created_at": "2026-10-27T01:00:54.000000Z",
+                "updated_at": "2026-10-27T01:00:54.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 51827,
+            "question_id": 59812,
+            "text": "They {a1} meat.",
+            "created_at": "2026-10-27T01:00:54.000000Z",
+            "updated_at": "2026-10-27T01:00:54.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

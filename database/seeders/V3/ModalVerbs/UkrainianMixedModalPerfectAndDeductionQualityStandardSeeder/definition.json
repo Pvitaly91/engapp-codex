@@ -1,0 +1,1830 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mvq-v1",
+    "compiled_from": {
+        "path": "docs/content/modal-verbs-quality/modal-perfect-and-deduction.v1.json",
+        "sha256": "ff817f9a557fc51462bd79a391e6c7a31378f4cb8ade80b5b9485e22b2e437c6"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ModalVerbs\\UkrainianMixedModalPerfectAndDeductionQualityStandardSeeder",
+        "uuid_namespace": "modal-verbs-quality-modal-perfect-and-deduction-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Modal Verbs"
+    },
+    "sources": {
+        "modal_verbs_quality_modal_perfect_and_deduction": {
+            "name": "Modal Verbs Quality: Перфектні модальні форми та висновки"
+        }
+    },
+    "tags": {
+        "modal_modal_perfect_and_deduction": {
+            "name": "Modal Perfect and Deduction",
+            "category": "modal-verbs"
+        },
+        "must_have_deduction": {
+            "name": "Must Have Deduction",
+            "category": "topic"
+        },
+        "cant_have_deduction": {
+            "name": "Cannot Have Deduction",
+            "category": "topic"
+        },
+        "possible_past": {
+            "name": "Possible Past",
+            "category": "topic"
+        },
+        "should_have": {
+            "name": "Should Have",
+            "category": "topic"
+        },
+        "neednt_have": {
+            "name": "Need Not Have",
+            "category": "topic"
+        },
+        "couldnt_have": {
+            "name": "Could Not Have",
+            "category": "topic"
+        },
+        "modal_have_v3": {
+            "name": "Modal Have V3",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "modal_modal_perfect_and_deduction"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mvq-perfect-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The plate is broken; someone {a1} it.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Тарілка розбита; хтось, напевно, її впустив.",
+            "target_text": "The plate is broken; someone must have dropped it.",
+            "markers": {
+                "a1": {
+                    "answer": "must have dropped",
+                    "options": [
+                        "must have dropped",
+                        "must has dropped",
+                        "must have drop"
+                    ],
+                    "verb_hint": "Зроби сильний висновок про попередню дію, не називаючи невідомої особи."
+                }
+            },
+            "verb_hint": "Зроби сильний висновок про попередню дію, не називаючи невідомої особи.",
+            "accepted_target_texts": [
+                "The plate is broken; someone must have dropped it."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The plate",
+                "is broken;",
+                "someone",
+                "must have dropped",
+                "it."
+            ],
+            "token_groups": [
+                "The plate",
+                "is broken;",
+                "someone",
+                "must have dropped",
+                "it."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "mvq-perfect-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Ben {a1} the bus.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Бен, можливо, не встиг на автобус.",
+            "target_text": "Ben might have missed the bus.",
+            "markers": {
+                "a1": {
+                    "answer": "might have missed",
+                    "options": [
+                        "might have missed",
+                        "might has missed",
+                        "might have miss"
+                    ],
+                    "verb_hint": "Припусти минуле запізнення на автобус; результат ще не перевірено."
+                }
+            },
+            "verb_hint": "Припусти минуле запізнення на автобус; результат ще не перевірено.",
+            "accepted_target_texts": [
+                "Ben might have missed the bus.",
+                "Ben may have missed the bus.",
+                "Ben could have missed the bus."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "may have missed",
+                    "could have missed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "may have missed",
+                    "could have missed"
+                ]
+            },
+            "reorder_groups": [
+                "Ben",
+                "might have missed",
+                "the bus."
+            ],
+            "token_groups": [
+                "Ben",
+                "might have missed",
+                "the bus."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "mvq-perfect-a1-g03",
+            "author_id": "A1-g03",
+            "question": "This key was made today; the guest {a1} it yesterday.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Цей ключ виготовили сьогодні; не може бути, щоб гість користувався ним учора.",
+            "target_text": "This key was made today; the guest cannot have used it yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "cannot have used",
+                    "options": [
+                        "cannot have used",
+                        "cannot has used",
+                        "cannot have use"
+                    ],
+                    "verb_hint": "Відкинь минуле користування саме новим ключем за названою часовою ознакою."
+                }
+            },
+            "verb_hint": "Відкинь минуле користування саме новим ключем за названою часовою ознакою.",
+            "accepted_target_texts": [
+                "This key was made today; the guest cannot have used it yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This key",
+                "was made today;",
+                "the guest",
+                "cannot have used",
+                "it yesterday."
+            ],
+            "token_groups": [
+                "This key",
+                "was made today;",
+                "the guest",
+                "cannot have used",
+                "it yesterday."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "mvq-perfect-a1-g04",
+            "author_id": "A1-g04",
+            "question": "We {a1} a card.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Нам слід було надіслати листівку.",
+            "target_text": "We should have sent a card.",
+            "markers": {
+                "a1": {
+                    "answer": "should have sent",
+                    "options": [
+                        "should have sent",
+                        "should has sent",
+                        "should have send"
+                    ],
+                    "verb_hint": "Оціни відсутню минулу дію як помилку, а не дай теперішню пораду."
+                }
+            },
+            "verb_hint": "Оціни відсутню минулу дію як помилку, а не дай теперішню пораду.",
+            "accepted_target_texts": [
+                "We should have sent a card.",
+                "We ought to have sent a card."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to have sent"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to have sent"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "should have sent",
+                "a card."
+            ],
+            "token_groups": [
+                "We",
+                "should have sent",
+                "a card."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "mvq-perfect-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Who {a1} the spoon?",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Хто міг узяти ложку?",
+            "target_text": "Who could have taken the spoon?",
+            "markers": {
+                "a1": {
+                    "answer": "could have taken",
+                    "options": [
+                        "could have taken",
+                        "could has taken",
+                        "could have took"
+                    ],
+                    "verb_hint": "Запитай про можливу попередню дію; питальний підмет уже наведений."
+                }
+            },
+            "verb_hint": "Запитай про можливу попередню дію; питальний підмет уже наведений.",
+            "accepted_target_texts": [
+                "Who could have taken the spoon?",
+                "Who might have taken the spoon?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might have taken"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might have taken"
+                ]
+            },
+            "reorder_groups": [
+                "Who",
+                "could have taken",
+                "the spoon?"
+            ],
+            "token_groups": [
+                "Who",
+                "could have taken",
+                "the spoon?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "mvq-perfect-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The ball may have {a1} under the sofa.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "М’яч, можливо, закотився під диван.",
+            "target_text": "The ball may have rolled under the sofa.",
+            "markers": {
+                "a1": {
+                    "answer": "rolled",
+                    "options": [
+                        "rolled",
+                        "roll",
+                        "rolling"
+                    ],
+                    "verb_hint": "Після наведеної перфектної конструкції вживи минулу форму «котитися»."
+                }
+            },
+            "verb_hint": "Після наведеної перфектної конструкції вживи минулу форму «котитися».",
+            "accepted_target_texts": [
+                "The ball may have rolled under the sofa."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ball",
+                "may have",
+                "rolled",
+                "under the sofa."
+            ],
+            "token_groups": [
+                "The ball",
+                "may have",
+                "rolled",
+                "under the sofa."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "mvq-perfect-a2-g01",
+            "author_id": "A2-g01",
+            "question": "His boots are muddy; he {a1} through the field.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Його чоботи забруднені; він, напевно, пройшов через поле.",
+            "target_text": "His boots are muddy; he must have walked through the field.",
+            "markers": {
+                "a1": {
+                    "answer": "must have walked",
+                    "options": [
+                        "must have walked",
+                        "must has walked",
+                        "must have walk"
+                    ],
+                    "verb_hint": "Зроби сильний висновок про попередню прогулянку за теперішньою ознакою."
+                }
+            },
+            "verb_hint": "Зроби сильний висновок про попередню прогулянку за теперішньою ознакою.",
+            "accepted_target_texts": [
+                "His boots are muddy; he must have walked through the field."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "His boots",
+                "are muddy;",
+                "he",
+                "must have walked",
+                "through the field."
+            ],
+            "token_groups": [
+                "His boots",
+                "are muddy;",
+                "he",
+                "must have walked",
+                "through the field."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "mvq-perfect-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Amy {a1} to the pool; we have not asked her.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Емі могла піти до басейну; ми її ще не запитували.",
+            "target_text": "Amy could have gone to the pool; we have not asked her.",
+            "markers": {
+                "a1": {
+                    "answer": "could have gone",
+                    "options": [
+                        "could have gone",
+                        "could has gone",
+                        "could have went"
+                    ],
+                    "verb_hint": "Вислови можливе пояснення минулого, залишивши фактичний результат невідомим."
+                }
+            },
+            "verb_hint": "Вислови можливе пояснення минулого, залишивши фактичний результат невідомим.",
+            "accepted_target_texts": [
+                "Amy could have gone to the pool; we have not asked her.",
+                "Amy may have gone to the pool; we have not asked her.",
+                "Amy might have gone to the pool; we have not asked her."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "may have gone",
+                    "might have gone"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "may have gone",
+                    "might have gone"
+                ]
+            },
+            "reorder_groups": [
+                "Amy",
+                "could have gone",
+                "to the pool;",
+                "we have not",
+                "asked her."
+            ],
+            "token_groups": [
+                "Amy",
+                "could have gone",
+                "to the pool;",
+                "we have not",
+                "asked her."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "mvq-perfect-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The rear door was unlocked, but we used the front; we {a1} there.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Задні двері були незамкнені, але ми скористалися передніми; ми могли зайти там.",
+            "target_text": "The rear door was unlocked, but we used the front; we could have entered there.",
+            "markers": {
+                "a1": {
+                    "answer": "could have entered",
+                    "options": [
+                        "could have entered",
+                        "could has entered",
+                        "could have enter"
+                    ],
+                    "verb_hint": "Назви доступну минулу можливість, якою явно не скористалися."
+                }
+            },
+            "verb_hint": "Назви доступну минулу можливість, якою явно не скористалися.",
+            "accepted_target_texts": [
+                "The rear door was unlocked, but we used the front; we could have entered there."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The rear door",
+                "was unlocked,",
+                "but we used",
+                "the front;",
+                "we",
+                "could have entered",
+                "there."
+            ],
+            "token_groups": [
+                "The rear door",
+                "was unlocked,",
+                "but we used",
+                "the front;",
+                "we",
+                "could have entered",
+                "there."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "mvq-perfect-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The museum was closed all week; the class {a1} it on Monday.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Музей увесь тиждень був зачинений; не може бути, щоб клас відвідав його в понеділок.",
+            "target_text": "The museum was closed all week; the class cannot have visited it on Monday.",
+            "markers": {
+                "a1": {
+                    "answer": "cannot have visited",
+                    "options": [
+                        "cannot have visited",
+                        "cannot has visited",
+                        "cannot have visit"
+                    ],
+                    "verb_hint": "Відкинь відвідування за достовірним графіком, зберігши названий день."
+                }
+            },
+            "verb_hint": "Відкинь відвідування за достовірним графіком, зберігши названий день.",
+            "accepted_target_texts": [
+                "The museum was closed all week; the class cannot have visited it on Monday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The museum",
+                "was closed",
+                "all week;",
+                "the class",
+                "cannot have visited",
+                "it on Monday."
+            ],
+            "token_groups": [
+                "The museum",
+                "was closed",
+                "all week;",
+                "the class",
+                "cannot have visited",
+                "it on Monday."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "mvq-perfect-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Where {a1} put the envelope?",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Куди він міг покласти конверт?",
+            "target_text": "Where might he have put the envelope?",
+            "markers": {
+                "a1": {
+                    "answer": "might he have",
+                    "options": [
+                        "might he have",
+                        "might he has",
+                        "does he might have"
+                    ],
+                    "verb_hint": "Запитай про можливе минуле місце; підмет і перфектне допоміжне дієслово у пропуску."
+                }
+            },
+            "verb_hint": "Запитай про можливе минуле місце; підмет і перфектне допоміжне дієслово у пропуску.",
+            "accepted_target_texts": [
+                "Where might he have put the envelope?",
+                "Where could he have put the envelope?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "could he have"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "could he have"
+                ]
+            },
+            "reorder_groups": [
+                "Where",
+                "might he have",
+                "put the envelope?"
+            ],
+            "token_groups": [
+                "Where",
+                "might he have",
+                "put the envelope?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "mvq-perfect-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The paint should have {a1} by now; we have not touched it.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Фарба вже мала б висохнути; ми до неї ще не торкалися.",
+            "target_text": "The paint should have dried by now; we have not touched it.",
+            "markers": {
+                "a1": {
+                    "answer": "dried",
+                    "options": [
+                        "dried",
+                        "dry",
+                        "drying"
+                    ],
+                    "verb_hint": "Передай очікуваний результат, не стверджуючи, що фарба точно волога."
+                }
+            },
+            "verb_hint": "Передай очікуваний результат, не стверджуючи, що фарба точно волога.",
+            "accepted_target_texts": [
+                "The paint should have dried by now; we have not touched it."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The paint",
+                "should have",
+                "dried",
+                "by now;",
+                "we have not",
+                "touched it."
+            ],
+            "token_groups": [
+                "The paint",
+                "should have",
+                "dried",
+                "by now;",
+                "we have not",
+                "touched it."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "mvq-perfect-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The puddles are deep; it {a1} for hours.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Калюжі глибокі; дощ, напевно, йшов годинами.",
+            "target_text": "The puddles are deep; it must have been raining for hours.",
+            "markers": {
+                "a1": {
+                    "answer": "must have been raining",
+                    "options": [
+                        "must have been raining",
+                        "must has been raining",
+                        "must have raining"
+                    ],
+                    "verb_hint": "Зроби сильний висновок про попередній тривалий процес, а не лише разову дію."
+                }
+            },
+            "verb_hint": "Зроби сильний висновок про попередній тривалий процес, а не лише разову дію.",
+            "accepted_target_texts": [
+                "The puddles are deep; it must have been raining for hours."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The puddles",
+                "are deep;",
+                "it",
+                "must have been",
+                "raining",
+                "for hours."
+            ],
+            "token_groups": [
+                "The puddles",
+                "are deep;",
+                "it",
+                "must have been",
+                "raining",
+                "for hours."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "mvq-perfect-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The invoice {a1} to the wrong department.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Рахунок, можливо, надіслали не до того відділу.",
+            "target_text": "The invoice may have been sent to the wrong department.",
+            "markers": {
+                "a1": {
+                    "answer": "may have been sent",
+                    "options": [
+                        "may have been sent",
+                        "may has been sent",
+                        "may have be sent"
+                    ],
+                    "verb_hint": "Припусти минулу пасивну дію, не називаючи виконавця й не стверджуючи її напевно."
+                }
+            },
+            "verb_hint": "Припусти минулу пасивну дію, не називаючи виконавця й не стверджуючи її напевно.",
+            "accepted_target_texts": [
+                "The invoice may have been sent to the wrong department.",
+                "The invoice might have been sent to the wrong department.",
+                "The invoice could have been sent to the wrong department."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might have been sent",
+                    "could have been sent"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might have been sent",
+                    "could have been sent"
+                ]
+            },
+            "reorder_groups": [
+                "The invoice",
+                "may have been",
+                "sent",
+                "to the wrong",
+                "department."
+            ],
+            "token_groups": [
+                "The invoice",
+                "may have been",
+                "sent",
+                "to the wrong",
+                "department."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "mvq-perfect-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The road was passable, but we stayed at home; we {a1} the village.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Дорога була проїзною, але ми залишилися вдома; ми могли дістатися села.",
+            "target_text": "The road was passable, but we stayed at home; we could have reached the village.",
+            "markers": {
+                "a1": {
+                    "answer": "could have reached",
+                    "options": [
+                        "could have reached",
+                        "could has reached",
+                        "could have reach"
+                    ],
+                    "verb_hint": "Назви явно невикористану минулу можливість за доступної дороги."
+                }
+            },
+            "verb_hint": "Назви явно невикористану минулу можливість за доступної дороги.",
+            "accepted_target_texts": [
+                "The road was passable, but we stayed at home; we could have reached the village."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The road",
+                "was passable,",
+                "but we stayed",
+                "at home;",
+                "we",
+                "could have reached",
+                "the village."
+            ],
+            "token_groups": [
+                "The road",
+                "was passable,",
+                "but we stayed",
+                "at home;",
+                "we",
+                "could have reached",
+                "the village."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "mvq-perfect-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The clerk was abroad all morning; she {a1} the receipt in person at our office then.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Службовиця весь ранок була за кордоном; не може бути, щоб вона тоді особисто підписала квитанцію в нашому офісі.",
+            "target_text": "The clerk was abroad all morning; she cannot have signed the receipt in person at our office then.",
+            "markers": {
+                "a1": {
+                    "answer": "cannot have signed",
+                    "options": [
+                        "cannot have signed",
+                        "cannot has signed",
+                        "cannot have sign"
+                    ],
+                    "verb_hint": "Відкинь особисту дію саме в нашому офісі в названий час, зберігши алібі."
+                }
+            },
+            "verb_hint": "Відкинь особисту дію саме в нашому офісі в названий час, зберігши алібі.",
+            "accepted_target_texts": [
+                "The clerk was abroad all morning; she cannot have signed the receipt in person at our office then."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The clerk",
+                "was abroad",
+                "all morning;",
+                "she",
+                "cannot have signed",
+                "the receipt",
+                "in person",
+                "at our office",
+                "then."
+            ],
+            "token_groups": [
+                "The clerk",
+                "was abroad",
+                "all morning;",
+                "she",
+                "cannot have signed",
+                "the receipt",
+                "in person",
+                "at our office",
+                "then."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "mvq-perfect-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Why {a1} have been returned?",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Чому посилку могли повернути?",
+            "target_text": "Why might the parcel have been returned?",
+            "markers": {
+                "a1": {
+                    "answer": "might the parcel",
+                    "options": [
+                        "might the parcel",
+                        "might the parcels",
+                        "does the parcel might"
+                    ],
+                    "verb_hint": "Запитай про можливу минулу причину пасивної дії; перфектна частина вже наведена."
+                }
+            },
+            "verb_hint": "Запитай про можливу минулу причину пасивної дії; перфектна частина вже наведена.",
+            "accepted_target_texts": [
+                "Why might the parcel have been returned?",
+                "Why could the parcel have been returned?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "could the parcel"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "could the parcel"
+                ]
+            },
+            "reorder_groups": [
+                "Why",
+                "might the parcel",
+                "have been returned?"
+            ],
+            "token_groups": [
+                "Why",
+                "might the parcel",
+                "have been returned?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "mvq-perfect-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The ferry ought to have {a1} by six; its position is unconfirmed.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Пором мав би пришвартуватися до шостої; його місце не підтверджене.",
+            "target_text": "The ferry ought to have docked by six; its position is unconfirmed.",
+            "markers": {
+                "a1": {
+                    "answer": "docked",
+                    "options": [
+                        "docked",
+                        "dock",
+                        "docking"
+                    ],
+                    "verb_hint": "Передай очікуваний результат без твердження, що пором точно не прибув."
+                }
+            },
+            "verb_hint": "Передай очікуваний результат без твердження, що пором точно не прибув.",
+            "accepted_target_texts": [
+                "The ferry ought to have docked by six; its position is unconfirmed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ferry",
+                "ought to have",
+                "docked",
+                "by six;",
+                "its position",
+                "is unconfirmed."
+            ],
+            "token_groups": [
+                "The ferry",
+                "ought to have",
+                "docked",
+                "by six;",
+                "its position",
+                "is unconfirmed."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "mvq-perfect-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The duplicated entries {a1} from an import error.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Повторені записи могли виникнути через помилку імпорту.",
+            "target_text": "The duplicated entries might have resulted from an import error.",
+            "markers": {
+                "a1": {
+                    "answer": "might have resulted",
+                    "options": [
+                        "might have resulted",
+                        "might has resulted",
+                        "might have result"
+                    ],
+                    "verb_hint": "Припусти можливе минуле джерело повторів, не оголошуючи його доведеним."
+                }
+            },
+            "verb_hint": "Припусти можливе минуле джерело повторів, не оголошуючи його доведеним.",
+            "accepted_target_texts": [
+                "The duplicated entries might have resulted from an import error.",
+                "The duplicated entries may have resulted from an import error.",
+                "The duplicated entries could have resulted from an import error."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "may have resulted",
+                    "could have resulted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "may have resulted",
+                    "could have resulted"
+                ]
+            },
+            "reorder_groups": [
+                "The duplicated entries",
+                "might have resulted",
+                "from an import",
+                "error."
+            ],
+            "token_groups": [
+                "The duplicated entries",
+                "might have resulted",
+                "from an import",
+                "error."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "mvq-perfect-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The sealed packet is intact; the assistant {a1} it without leaving a trace.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Запечатаний пакунок не пошкоджений; не може бути, щоб помічник відкрив його без сліду.",
+            "target_text": "The sealed packet is intact; the assistant cannot have opened it without leaving a trace.",
+            "markers": {
+                "a1": {
+                    "answer": "cannot have opened",
+                    "options": [
+                        "cannot have opened",
+                        "cannot has opened",
+                        "cannot have open"
+                    ],
+                    "verb_hint": "Відкинь лише безслідне відкриття за ознакою цілісності; не стверджуй невинуватості в усьому."
+                }
+            },
+            "verb_hint": "Відкинь лише безслідне відкриття за ознакою цілісності; не стверджуй невинуватості в усьому.",
+            "accepted_target_texts": [
+                "The sealed packet is intact; the assistant cannot have opened it without leaving a trace."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The sealed packet",
+                "is intact;",
+                "the assistant",
+                "cannot have opened",
+                "it without",
+                "leaving a trace."
+            ],
+            "token_groups": [
+                "The sealed packet",
+                "is intact;",
+                "the assistant",
+                "cannot have opened",
+                "it without",
+                "leaving a trace."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "mvq-perfect-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The interview {a1} with prior consent.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Інтерв’ю слід було записати за попередньою згодою.",
+            "target_text": "The interview should have been recorded with prior consent.",
+            "markers": {
+                "a1": {
+                    "answer": "should have been recorded",
+                    "options": [
+                        "should have been recorded",
+                        "should has been recorded",
+                        "should have be recorded"
+                    ],
+                    "verb_hint": "Оціни відсутній минулий запис у перфектному пасиві, зберігши умову згоди."
+                }
+            },
+            "verb_hint": "Оціни відсутній минулий запис у перфектному пасиві, зберігши умову згоди.",
+            "accepted_target_texts": [
+                "The interview should have been recorded with prior consent.",
+                "The interview ought to have been recorded with prior consent."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to have been recorded"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to have been recorded"
+                ]
+            },
+            "reorder_groups": [
+                "The interview",
+                "should have been",
+                "recorded",
+                "with prior consent."
+            ],
+            "token_groups": [
+                "The interview",
+                "should have been",
+                "recorded",
+                "with prior consent."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "mvq-perfect-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The grant was available, but the club declined it; they {a1} the repairs.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Грант був доступний, але клуб від нього відмовився; вони могли профінансувати ремонт.",
+            "target_text": "The grant was available, but the club declined it; they could have funded the repairs.",
+            "markers": {
+                "a1": {
+                    "answer": "could have funded",
+                    "options": [
+                        "could have funded",
+                        "could has funded",
+                        "could have fund"
+                    ],
+                    "verb_hint": "Назви доступну, але невикористану минулу можливість фінансування."
+                }
+            },
+            "verb_hint": "Назви доступну, але невикористану минулу можливість фінансування.",
+            "accepted_target_texts": [
+                "The grant was available, but the club declined it; they could have funded the repairs."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The grant",
+                "was available,",
+                "but the club",
+                "declined it;",
+                "they",
+                "could have funded",
+                "the repairs."
+            ],
+            "token_groups": [
+                "The grant",
+                "was available,",
+                "but the club",
+                "declined it;",
+                "they",
+                "could have funded",
+                "the repairs."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "mvq-perfect-b2-g05",
+            "author_id": "B2-g05",
+            "question": "How {a1} have been altered?",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Як ці показники могли змінити?",
+            "target_text": "How could the figures have been altered?",
+            "markers": {
+                "a1": {
+                    "answer": "could the figures",
+                    "options": [
+                        "could the figures",
+                        "could the figure",
+                        "do the figures could"
+                    ],
+                    "verb_hint": "Запитай про можливий спосіб минулої пасивної зміни; не повторюй наведену перфектну частину."
+                }
+            },
+            "verb_hint": "Запитай про можливий спосіб минулої пасивної зміни; не повторюй наведену перфектну частину.",
+            "accepted_target_texts": [
+                "How could the figures have been altered?",
+                "How might the figures have been altered?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might the figures"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might the figures"
+                ]
+            },
+            "reorder_groups": [
+                "How",
+                "could the figures",
+                "have been altered?"
+            ],
+            "token_groups": [
+                "How",
+                "could the figures",
+                "have been altered?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "mvq-perfect-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The device must have {a1} during calibration.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Пристрій, напевно, перегрівся під час калібрування.",
+            "target_text": "The device must have overheated during calibration.",
+            "markers": {
+                "a1": {
+                    "answer": "overheated",
+                    "options": [
+                        "overheated",
+                        "overheat",
+                        "overheating"
+                    ],
+                    "verb_hint": "Доповни сильний минулий висновок формою «перегрітися»."
+                }
+            },
+            "verb_hint": "Доповни сильний минулий висновок формою «перегрітися».",
+            "accepted_target_texts": [
+                "The device must have overheated during calibration."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The device",
+                "must have",
+                "overheated",
+                "during calibration."
+            ],
+            "token_groups": [
+                "The device",
+                "must have",
+                "overheated",
+                "during calibration."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "mvq-perfect-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The unexplained gap {a1} a missing qualification.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Непояснена прогалина, можливо, приховувала пропущене застереження.",
+            "target_text": "The unexplained gap may have concealed a missing qualification.",
+            "markers": {
+                "a1": {
+                    "answer": "may have concealed",
+                    "options": [
+                        "may have concealed",
+                        "may has concealed",
+                        "may have conceal"
+                    ],
+                    "verb_hint": "Припусти минулу роль прогалини, не додаючи доведеного наміру приховати."
+                }
+            },
+            "verb_hint": "Припусти минулу роль прогалини, не додаючи доведеного наміру приховати.",
+            "accepted_target_texts": [
+                "The unexplained gap may have concealed a missing qualification.",
+                "The unexplained gap might have concealed a missing qualification.",
+                "The unexplained gap could have concealed a missing qualification."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might have concealed",
+                    "could have concealed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might have concealed",
+                    "could have concealed"
+                ]
+            },
+            "reorder_groups": [
+                "The unexplained gap",
+                "may have concealed",
+                "a missing qualification."
+            ],
+            "token_groups": [
+                "The unexplained gap",
+                "may have concealed",
+                "a missing qualification."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "mvq-perfect-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The author {a1} on an earlier account.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Автор, напевно, спирався на попередню розповідь.",
+            "target_text": "The author must have been drawing on an earlier account.",
+            "markers": {
+                "a1": {
+                    "answer": "must have been drawing",
+                    "options": [
+                        "must have been drawing",
+                        "must has been drawing",
+                        "must have drawing"
+                    ],
+                    "verb_hint": "Зроби сильний висновок про тривалий попередній процес використання джерела."
+                }
+            },
+            "verb_hint": "Зроби сильний висновок про тривалий попередній процес використання джерела.",
+            "accepted_target_texts": [
+                "The author must have been drawing on an earlier account."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The author",
+                "must have been",
+                "drawing",
+                "on an earlier",
+                "account."
+            ],
+            "token_groups": [
+                "The author",
+                "must have been",
+                "drawing",
+                "on an earlier",
+                "account."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "mvq-perfect-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The final transcript was created today with no earlier version; the witness {a1} its final wording last month.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Остаточну стенограму створили сьогодні без попередньої версії; не може бути, щоб свідок перевірила її остаточне формулювання минулого місяця.",
+            "target_text": "The final transcript was created today with no earlier version; the witness cannot have checked its final wording last month.",
+            "markers": {
+                "a1": {
+                    "answer": "cannot have checked",
+                    "options": [
+                        "cannot have checked",
+                        "cannot has checked",
+                        "cannot have check"
+                    ],
+                    "verb_hint": "Відкинь перевірку ще не створеного тексту за однозначною хронологією; «перевірити» можна передати як «звірити»."
+                }
+            },
+            "verb_hint": "Відкинь перевірку ще не створеного тексту за однозначною хронологією; «перевірити» можна передати як «звірити».",
+            "accepted_target_texts": [
+                "The final transcript was created today with no earlier version; the witness cannot have checked its final wording last month.",
+                "The final transcript was created today with no earlier version; the witness cannot have verified its final wording last month."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "cannot have verified"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "cannot have verified"
+                ]
+            },
+            "reorder_groups": [
+                "The final transcript",
+                "was created today",
+                "with no",
+                "earlier version;",
+                "the witness",
+                "cannot have checked",
+                "its final wording",
+                "last month."
+            ],
+            "token_groups": [
+                "The final transcript",
+                "was created today",
+                "with no",
+                "earlier version;",
+                "the witness",
+                "cannot have checked",
+                "its final wording",
+                "last month."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "mvq-perfect-c1-g04",
+            "author_id": "C1-g04",
+            "question": "A narrower remedy was expressly permitted, but rejected; the court {a1} its order to disclosure.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Вужчий засіб захисту було прямо дозволено, але його відкинули; суд міг обмежити свій наказ розкриттям інформації.",
+            "target_text": "A narrower remedy was expressly permitted, but rejected; the court could have confined its order to disclosure.",
+            "markers": {
+                "a1": {
+                    "answer": "could have confined",
+                    "options": [
+                        "could have confined",
+                        "could has confined",
+                        "could have confine"
+                    ],
+                    "verb_hint": "Назви доступну, але явно невикористану минулу можливість вужчого рішення."
+                }
+            },
+            "verb_hint": "Назви доступну, але явно невикористану минулу можливість вужчого рішення.",
+            "accepted_target_texts": [
+                "A narrower remedy was expressly permitted, but rejected; the court could have confined its order to disclosure."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A narrower remedy",
+                "was expressly permitted,",
+                "but rejected;",
+                "the court",
+                "could have confined",
+                "its order",
+                "to disclosure."
+            ],
+            "token_groups": [
+                "A narrower remedy",
+                "was expressly permitted,",
+                "but rejected;",
+                "the court",
+                "could have confined",
+                "its order",
+                "to disclosure."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "mvq-perfect-c1-g05",
+            "author_id": "C1-g05",
+            "question": "Why {a1} have been omitted?",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Чому це застереження слід було пропустити?",
+            "target_text": "Why should the proviso have been omitted?",
+            "markers": {
+                "a1": {
+                    "answer": "should the proviso",
+                    "options": [
+                        "should the proviso",
+                        "should the provisos",
+                        "does the proviso should"
+                    ],
+                    "verb_hint": "Запитай про доцільність минулого вилучення в пасиві; перфектна частина вже наведена."
+                }
+            },
+            "verb_hint": "Запитай про доцільність минулого вилучення в пасиві; перфектна частина вже наведена.",
+            "accepted_target_texts": [
+                "Why should the proviso have been omitted?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "should the proviso",
+                "have been omitted?"
+            ],
+            "token_groups": [
+                "Why",
+                "should the proviso",
+                "have been omitted?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "mvq-perfect-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The reservation may have been {a1} too narrowly.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Застереження, можливо, витлумачили надто вузько.",
+            "target_text": "The reservation may have been construed too narrowly.",
+            "markers": {
+                "a1": {
+                    "answer": "construed",
+                    "options": [
+                        "construed",
+                        "construe",
+                        "construing"
+                    ],
+                    "verb_hint": "У наведеній пасивній перфектній конструкції назви тлумачення, не підтверджений факт."
+                }
+            },
+            "verb_hint": "У наведеній пасивній перфектній конструкції назви тлумачення, не підтверджений факт.",
+            "accepted_target_texts": [
+                "The reservation may have been construed too narrowly.",
+                "The reservation may have been interpreted too narrowly."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "interpreted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "interpreted"
+                ]
+            },
+            "reorder_groups": [
+                "The reservation",
+                "may have been",
+                "construed",
+                "too narrowly."
+            ],
+            "token_groups": [
+                "The reservation",
+                "may have been",
+                "construed",
+                "too narrowly."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "mvq-perfect-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The concession {a1} the residual issue moot.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Це визнання могло позбавити залишкове питання практичного значення.",
+            "target_text": "The concession might have rendered the residual issue moot.",
+            "markers": {
+                "a1": {
+                    "answer": "might have rendered",
+                    "options": [
+                        "might have rendered",
+                        "might has rendered",
+                        "might have render"
+                    ],
+                    "verb_hint": "Припусти можливий минулий наслідок, не представляючи його встановленим."
+                }
+            },
+            "verb_hint": "Припусти можливий минулий наслідок, не представляючи його встановленим.",
+            "accepted_target_texts": [
+                "The concession might have rendered the residual issue moot.",
+                "The concession may have rendered the residual issue moot.",
+                "The concession could have rendered the residual issue moot.",
+                "The concession might have made the residual issue moot.",
+                "The concession may have made the residual issue moot.",
+                "The concession could have made the residual issue moot."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "may have rendered",
+                    "could have rendered",
+                    "might have made",
+                    "may have made",
+                    "could have made"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "may have rendered",
+                    "could have rendered",
+                    "might have made",
+                    "may have made",
+                    "could have made"
+                ]
+            },
+            "reorder_groups": [
+                "The concession",
+                "might have rendered",
+                "the residual issue",
+                "moot."
+            ],
+            "token_groups": [
+                "The concession",
+                "might have rendered",
+                "the residual issue",
+                "moot."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "mvq-perfect-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The drafts are identical; the later writer {a1} access to the earlier text.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Чернетки однакові; пізніший автор, напевно, мав доступ до попереднього тексту.",
+            "target_text": "The drafts are identical; the later writer must have had access to the earlier text.",
+            "markers": {
+                "a1": {
+                    "answer": "must have had",
+                    "options": [
+                        "must have had",
+                        "must has had",
+                        "must have have"
+                    ],
+                    "verb_hint": "Зроби сильний висновок про попередню наявність доступу, не називаючи його незалежним доказом."
+                }
+            },
+            "verb_hint": "Зроби сильний висновок про попередню наявність доступу, не називаючи його незалежним доказом.",
+            "accepted_target_texts": [
+                "The drafts are identical; the later writer must have had access to the earlier text."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The drafts",
+                "are identical;",
+                "the later writer",
+                "must have had",
+                "access to",
+                "the earlier text."
+            ],
+            "token_groups": [
+                "The drafts",
+                "are identical;",
+                "the later writer",
+                "must have had",
+                "access to",
+                "the earlier text."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "mvq-perfect-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The instrument postdates the transaction and has no retrospective effect; it {a1} the original bargain.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Документ складено пізніше за операцію й він не має зворотної дії; не може бути, щоб він регулював початкову домовленість.",
+            "target_text": "The instrument postdates the transaction and has no retrospective effect; it cannot have governed the original bargain.",
+            "markers": {
+                "a1": {
+                    "answer": "cannot have governed",
+                    "options": [
+                        "cannot have governed",
+                        "cannot has governed",
+                        "cannot have govern"
+                    ],
+                    "verb_hint": "Відкинь попередню застосовність за однозначною хронологією й прямо заданою відсутністю зворотної дії."
+                }
+            },
+            "verb_hint": "Відкинь попередню застосовність за однозначною хронологією й прямо заданою відсутністю зворотної дії.",
+            "accepted_target_texts": [
+                "The instrument postdates the transaction and has no retrospective effect; it cannot have governed the original bargain."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The instrument",
+                "postdates the transaction",
+                "and has no",
+                "retrospective effect;",
+                "it",
+                "cannot have governed",
+                "the original bargain."
+            ],
+            "token_groups": [
+                "The instrument",
+                "postdates the transaction",
+                "and has no",
+                "retrospective effect;",
+                "it",
+                "cannot have governed",
+                "the original bargain."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "mvq-perfect-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The parties had expressly reserved a different allocation, but abandoned it; they {a1} the risk differently.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Сторони прямо передбачили інший розподіл, але відмовилися від нього; вони могли інакше розподілити ризик.",
+            "target_text": "The parties had expressly reserved a different allocation, but abandoned it; they could have apportioned the risk differently.",
+            "markers": {
+                "a1": {
+                    "answer": "could have apportioned",
+                    "options": [
+                        "could have apportioned",
+                        "could has apportioned",
+                        "could have apportion"
+                    ],
+                    "verb_hint": "Назви явно невикористану можливість іншого минулого розподілу ризику."
+                }
+            },
+            "verb_hint": "Назви явно невикористану можливість іншого минулого розподілу ризику.",
+            "accepted_target_texts": [
+                "The parties had expressly reserved a different allocation, but abandoned it; they could have apportioned the risk differently."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The parties",
+                "had expressly reserved",
+                "a different allocation,",
+                "but abandoned it;",
+                "they",
+                "could have apportioned",
+                "the risk differently."
+            ],
+            "token_groups": [
+                "The parties",
+                "had expressly reserved",
+                "a different allocation,",
+                "but abandoned it;",
+                "they",
+                "could have apportioned",
+                "the risk differently."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "mvq-perfect-c2-g05",
+            "author_id": "C2-g05",
+            "question": "To what extent {a1} have been influenced by hindsight?",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Якою мірою на ці міркування міг вплинути ретроспективний погляд?",
+            "target_text": "To what extent might the reasoning have been influenced by hindsight?",
+            "markers": {
+                "a1": {
+                    "answer": "might the reasoning",
+                    "options": [
+                        "might the reasoning",
+                        "might the reasonings",
+                        "does the reasoning might"
+                    ],
+                    "verb_hint": "Запитай про можливий минулий вплив у пасиві; не повторюй наведену перфектну частину."
+                }
+            },
+            "verb_hint": "Запитай про можливий минулий вплив у пасиві; не повторюй наведену перфектну частину.",
+            "accepted_target_texts": [
+                "To what extent might the reasoning have been influenced by hindsight?",
+                "To what extent could the reasoning have been influenced by hindsight?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "could the reasoning"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "could the reasoning"
+                ]
+            },
+            "reorder_groups": [
+                "To what extent",
+                "might the reasoning",
+                "have been influenced",
+                "by hindsight?"
+            ],
+            "token_groups": [
+                "To what extent",
+                "might the reasoning",
+                "have been influenced",
+                "by hindsight?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "mvq-perfect-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The ambiguity ought to have {a1} an express clarification.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_modal_perfect_and_deduction",
+            "translation_uk": "Неоднозначність мала б спонукати до прямого уточнення.",
+            "target_text": "The ambiguity ought to have prompted an express clarification.",
+            "markers": {
+                "a1": {
+                    "answer": "prompted",
+                    "options": [
+                        "prompted",
+                        "prompt",
+                        "prompting"
+                    ],
+                    "verb_hint": "Передай очікуваний минулий наслідок без твердження про перевірений результат."
+                }
+            },
+            "verb_hint": "Передай очікуваний минулий наслідок без твердження про перевірений результат.",
+            "accepted_target_texts": [
+                "The ambiguity ought to have prompted an express clarification."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ambiguity",
+                "ought to have",
+                "prompted",
+                "an express clarification."
+            ],
+            "token_groups": [
+                "The ambiguity",
+                "ought to have",
+                "prompted",
+                "an express clarification."
+            ],
+            "quality_revision": "mvq-v1"
+        }
+    ]
+}

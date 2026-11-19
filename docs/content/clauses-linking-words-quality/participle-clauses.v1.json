@@ -1,0 +1,603 @@
+{
+    "schema_version": 1,
+    "topic_key": "participle-clauses",
+    "title": "Participle Clauses",
+    "choice_pools": {
+        "subject_phrase": [
+            "the visitor",
+            "our neighbour",
+            "the children",
+            "a gardener",
+            "the artist",
+            "the travellers",
+            "the reader",
+            "my cousin",
+            "the team",
+            "the witness"
+        ],
+        "noun_phrase": [
+            "a green door",
+            "the spare button",
+            "a fresh loaf",
+            "the old map",
+            "her little dog",
+            "a small bowl",
+            "the main entrance",
+            "a written reply",
+            "a careful account",
+            "a useful distinction"
+        ],
+        "verb_phrase": [
+            "is open",
+            "lives nearby",
+            "was missing",
+            "needs attention",
+            "arrived early",
+            "had disappeared",
+            "remains unclear",
+            "cannot be verified",
+            "was postponed",
+            "has changed"
+        ],
+        "relative_phrase": [
+            "who lives",
+            "which belongs",
+            "whose windows",
+            "that we found",
+            "whom they trusted",
+            "where she works",
+            "which I borrowed",
+            "who helped us",
+            "whose cover",
+            "which explains"
+        ],
+        "connector_phrase": [
+            "because",
+            "since",
+            "as",
+            "so",
+            "therefore",
+            "consequently",
+            "although",
+            "however",
+            "whereas",
+            "if",
+            "when",
+            "unless"
+        ],
+        "adverbial_phrase": [
+            "after lunch",
+            "near the gate",
+            "on the table",
+            "in the courtyard",
+            "without warning",
+            "for two weeks",
+            "in this case",
+            "at the time",
+            "with great care",
+            "by contrast"
+        ],
+        "proper_noun": [
+            "Mia",
+            "Oleh",
+            "Nora",
+            "Lena",
+            "Tomas",
+            "Iryna",
+            "Ruth",
+            "Ada",
+            "Kyiv",
+            "Bristol"
+        ],
+        "preposition_phrase": [
+            "from the shelf",
+            "by the river",
+            "to the owner",
+            "for the guests",
+            "under the bench",
+            "in the archive",
+            "with the editor",
+            "about the proposal",
+            "on the evidence",
+            "at the workshop"
+        ],
+        "participle_phrase": [
+            "Carrying a torch",
+            "Having checked twice",
+            "Dressed in blue",
+            "Not having noticed",
+            "Surrounded by fields",
+            "Looking for shelter",
+            "Having been delayed",
+            "Having completed",
+            "Having locked up",
+            "Smiling quietly"
+        ],
+        "absolute_phrase": [
+            "There being",
+            "Her coat wet",
+            "His eyes open",
+            "The task complete",
+            "Their coats drying",
+            "The door shut",
+            "Weather permitting",
+            "Dinner finished",
+            "The engine running",
+            "Her voice steady"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The child {a1} at the bus is my son.",
+            "target": "The child waving at the bus is my son.",
+            "uk": "Дитина, яка махає автобусу, — мій син.",
+            "hint_uk": "Яка махає; скороти опис дитини до форми поточної дії без нового особового дієслова.",
+            "groups": [
+                "The child",
+                "waving",
+                "at the bus",
+                "is my son."
+            ],
+            "answer": "waving",
+            "options": [
+                "waving",
+                "waves",
+                "waved"
+            ]
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "I cannot open the {a1} jar.",
+            "target": "I cannot open the closed jar.",
+            "uk": "Я не можу відкрити закриту банку.",
+            "hint_uk": "Закриту; назви теперішній стан банки після закривання, не дію того, хто її закриває.",
+            "groups": [
+                "I cannot open",
+                "the closed jar."
+            ],
+            "answer": "closed",
+            "options": [
+                "closed",
+                "close",
+                "closing"
+            ]
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Хлопчик, який сидить на килимі, сміється.",
+            "target": "The boy sitting on the carpet is laughing.",
+            "uk": "Хлопчик, який сидить на килимі, сміється.",
+            "hint_uk": "Почни з хлопчика; короткий опис сидіння не містить окремого відносного слова.",
+            "groups": [
+                "The boy",
+                "sitting",
+                "on the carpet",
+                "is laughing."
+            ],
+            "compose_slots": [
+                "The boy",
+                "sitting",
+                "on the carpet",
+                "is laughing."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "participle_phrase",
+                "preposition_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [
+                "The boy sitting on the rug is laughing."
+            ],
+            "display_synonyms": {
+                "on the carpet": [
+                    "on the rug"
+                ]
+            }
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "{a1} at the empty bowl, the puppy barked.",
+            "target": "Looking at the empty bowl, the puppy barked.",
+            "uk": "Дивлячись на порожню миску, цуценя загавкало.",
+            "hint_uk": "Дивлячись; обидві дії виконує цуценя, а перша є фоном другої.",
+            "groups": [
+                "Looking",
+                "at",
+                "the empty bowl,",
+                "the puppy",
+                "barked."
+            ],
+            "answer": "Looking",
+            "options": [
+                "Looking",
+                "Looked",
+                "Looks"
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "{a1} by the open window, the letter blew onto the floor.",
+            "target": "Left by the open window, the letter blew onto the floor.",
+            "uk": "Залишений біля відчиненого вікна, лист злетів на підлогу.",
+            "hint_uk": "Залишений; лист зазнав попередньої дії й сам не залишав іншої речі.",
+            "groups": [
+                "Left",
+                "by",
+                "the open window,",
+                "the letter",
+                "blew",
+                "onto the floor."
+            ],
+            "answer": "Left",
+            "options": [
+                "Left",
+                "Leaving",
+                "Leave"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Несучи мокре взуття, Тарас увійшов на кухню.",
+            "target": "Carrying his wet shoes, Taras entered the kitchen.",
+            "uk": "Несучи мокре взуття, Тарас увійшов на кухню.",
+            "hint_uk": "Почни з фонової дії; взуття несе саме Тарас.",
+            "groups": [
+                "Carrying",
+                "his wet shoes,",
+                "Taras",
+                "entered",
+                "the kitchen."
+            ],
+            "compose_slots": [
+                "Carrying",
+                "his wet shoes,",
+                "Taras",
+                "entered",
+                "the kitchen."
+            ],
+            "slot_roles": [
+                "participle_phrase",
+                "noun_phrase",
+                "proper_noun",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "{a1} the last plate, Marta turned off the tap.",
+            "target": "Having washed the last plate, Marta turned off the tap.",
+            "uk": "Помивши останню тарілку, Марта закрутила кран.",
+            "hint_uk": "Помивши раніше; завершення миття передує дії з краном, виконавиця та сама.",
+            "groups": [
+                "Having washed",
+                "the last plate,",
+                "Marta",
+                "turned off",
+                "the tap."
+            ],
+            "answer": "Having washed",
+            "options": [
+                "Having washed",
+                "Having wash",
+                "Have washed"
+            ]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The hikers, {a1} by thick fog, decided to wait.",
+            "target": "The hikers, surrounded by thick fog, decided to wait.",
+            "uk": "Мандрівники, оточені густим туманом, вирішили почекати.",
+            "hint_uk": "Оточені; навколо мандрівників був туман, вони не були його виконавцями.",
+            "groups": [
+                "The hikers,",
+                "surrounded",
+                "by thick fog,",
+                "decided to wait."
+            ],
+            "answer": "surrounded",
+            "options": [
+                "surrounded",
+                "surrounding",
+                "surround"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Почувши знайомий голос, дівчинка обернулася.",
+            "target": "Hearing a familiar voice, the girl turned round.",
+            "uk": "Почувши знайомий голос, дівчинка обернулася.",
+            "hint_uk": "Почни з події, що безпосередньо спричинила поворот; обидві дії виконує дівчинка.",
+            "groups": [
+                "Hearing",
+                "a familiar voice,",
+                "the girl",
+                "turned round."
+            ],
+            "compose_slots": [
+                "Hearing",
+                "a familiar voice,",
+                "the girl",
+                "turned round."
+            ],
+            "slot_roles": [
+                "participle_phrase",
+                "noun_phrase",
+                "subject_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [
+                "Hearing a familiar voice, the girl turned around."
+            ],
+            "display_synonyms": {
+                "turned round.": [
+                    "turned around."
+                ]
+            }
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "{a1} the timetable, the guide suggested an earlier departure.",
+            "target": "Having consulted the timetable, the guide suggested an earlier departure.",
+            "uk": "Звірившись із розкладом, гід запропонував виїхати раніше.",
+            "hint_uk": "Звірившись раніше; початкова завершена дія належить тому самому гідові.",
+            "groups": [
+                "Having consulted",
+                "the timetable,",
+                "the guide",
+                "suggested",
+                "an earlier departure."
+            ],
+            "answer": "Having consulted",
+            "options": [
+                "Having consulted",
+                "Having consult",
+                "Has consulted"
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The note was left unsigned, {a1} its origin difficult to establish.",
+            "target": "The note was left unsigned, making its origin difficult to establish.",
+            "uk": "Записку залишили без підпису, через що було важко встановити її походження.",
+            "hint_uk": "Через що стало важко; кінцева неособова частина передає результат попереднього факту.",
+            "groups": [
+                "The note",
+                "was left unsigned,",
+                "making",
+                "its origin",
+                "difficult to establish."
+            ],
+            "answer": "making",
+            "options": [
+                "making",
+                "made",
+                "makes"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Вже отримавши попередження, керівниця призупинила доставку.",
+            "target": "Having been warned, the manager suspended the delivery.",
+            "uk": "Вже отримавши попередження, керівниця призупинила доставку.",
+            "hint_uk": "Постав завершений пасив попередження на початок; керівниця є його одержувачкою.",
+            "groups": [
+                "Having been warned,",
+                "the manager",
+                "suspended",
+                "the delivery."
+            ],
+            "compose_slots": [
+                "Having been warned,",
+                "the manager",
+                "suspended",
+                "the delivery."
+            ],
+            "slot_roles": [
+                "participle_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "Having been warned, the manager halted the delivery."
+            ],
+            "display_synonyms": {
+                "suspended": [
+                    "halted"
+                ]
+            }
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "{a1} the witness a chance to respond, the chair adjourned the hearing.",
+            "target": "Having given the witness a chance to respond, the chair adjourned the hearing.",
+            "uk": "Надавши свідкові можливість відповісти, головуючий оголосив перерву в слуханні.",
+            "hint_uk": "Надавши раніше; збережи активну завершену дію того самого головуючого.",
+            "groups": [
+                "Having given",
+                "the witness",
+                "a chance",
+                "to respond,",
+                "the chair",
+                "adjourned",
+                "the hearing."
+            ],
+            "answer": "Having given",
+            "options": [
+                "Having given",
+                "Having gave",
+                "Has given"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "{a1} in isolation, the figures invite an overly optimistic reading.",
+            "target": "Interpreted in isolation, the figures invite an overly optimistic reading.",
+            "uk": "Витлумачені окремо, ці цифри спонукають до надто оптимістичного прочитання.",
+            "hint_uk": "Витлумачені; початковий пасив стосується цифр, а не їхнього неназваного читача.",
+            "groups": [
+                "Interpreted",
+                "in isolation,",
+                "the figures",
+                "invite",
+                "an overly optimistic",
+                "reading."
+            ],
+            "answer": "Interpreted",
+            "options": [
+                "Interpreted",
+                "Interpreting",
+                "Interpret"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Не встановивши походження цитати, редакторка залишила атрибуцію відкритою.",
+            "target": "Not having established the quotation's origin, the editor left the attribution open.",
+            "uk": "Не встановивши походження цитати, редакторка залишила атрибуцію відкритою.",
+            "hint_uk": "Почни із заперечної завершеної дії редакторки; не перетворюй непевність на хибну атрибуцію.",
+            "groups": [
+                "Not having established",
+                "the quotation's origin,",
+                "the editor",
+                "left",
+                "the attribution",
+                "open."
+            ],
+            "compose_slots": [
+                "Not having established",
+                "the quotation's origin,",
+                "the editor",
+                "left",
+                "the attribution",
+                "open."
+            ],
+            "slot_roles": [
+                "participle_phrase",
+                "noun_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "noun_phrase",
+                "adverbial_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "{a1} of its qualifications, the proposition appears categorical.",
+            "target": "Stripped of its qualifications, the proposition appears categorical.",
+            "uk": "Позбавлене застережень, це твердження здається категоричним.",
+            "hint_uk": "Позбавлене; саме твердження зазнало вилучення застережень, а не вилучало їх.",
+            "groups": [
+                "Stripped",
+                "of its qualifications,",
+                "the proposition",
+                "appears categorical."
+            ],
+            "answer": "Stripped",
+            "options": [
+                "Stripped",
+                "Stripping",
+                "Strip"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The account omits the dissent, {a1} a consensus that never existed.",
+            "target": "The account omits the dissent, implying a consensus that never existed.",
+            "uk": "Виклад замовчує окрему думку, тим самим створюючи враження згоди, якої ніколи не було.",
+            "hint_uk": "Тим самим створюючи враження; неособова кінцева частина називає наслідок замовчування.",
+            "groups": [
+                "The account",
+                "omits the dissent,",
+                "implying",
+                "a consensus",
+                "that never existed."
+            ],
+            "answer": "implying",
+            "options": [
+                "implying",
+                "implied",
+                "implies"
+            ]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Раніше мовчки прийнявши передумову, рецензентка не помітила колової аргументації.",
+            "target": "Having tacitly accepted the premise, the reviewer overlooked the circular reasoning.",
+            "uk": "Раніше мовчки прийнявши передумову, рецензентка не помітила колової аргументації.",
+            "hint_uk": "Почни з завершеної дії тієї самої рецензентки; збережи непомічений логічний недолік.",
+            "groups": [
+                "Having tacitly accepted",
+                "the premise,",
+                "the reviewer",
+                "overlooked",
+                "the circular reasoning."
+            ],
+            "compose_slots": [
+                "Having tacitly accepted",
+                "the premise,",
+                "the reviewer",
+                "overlooked",
+                "the circular reasoning."
+            ],
+            "slot_roles": [
+                "participle_phrase",
+                "noun_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "Having tacitly accepted the premise, the reviewer missed the circular reasoning."
+            ],
+            "display_synonyms": {
+                "overlooked": [
+                    "missed"
+                ]
+            }
+        }
+    ]
+}

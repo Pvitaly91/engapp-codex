@@ -1,0 +1,659 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mrq-v1",
+    "compiled_from": {
+        "path": "docs/content/mixed-revision-quality/b1-mixed-revision.v1.json",
+        "sha256": "82301189d02eaf6b09b4cc93d601c720e7c8a270c803732119dfbe58f954b27e"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\MixedRevision\\UkrainianMixedMrqB1MixedRevisionQualityStandardSeeder",
+        "uuid_namespace": "mixed-revision-quality-b1-mixed-revision-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Mixed Revision"
+    },
+    "sources": {
+        "mixed_revision_quality_b1_mixed_revision": {
+            "name": "Mixed Revision Quality: B1 Mixed Revision"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mrq-b1-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The young rabbit {a1} very soft ears.",
+            "level": "A1",
+            "type": 0,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "У молодого кролика дуже м'які вуха.",
+            "target_text": "The young rabbit has very soft ears.",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "are"
+                    ],
+                    "verb_hint": "Передай наявність частин тіла дієсловом володіння; уже названо одну тварину, тому узгодь форму з одниною."
+                }
+            },
+            "verb_hint": "Передай наявність частин тіла дієсловом володіння; уже названо одну тварину, тому узгодь форму з одниною.",
+            "accepted_target_texts": [
+                "The young rabbit has very soft ears.",
+                "The young rabbit has got very soft ears."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "has got"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "has got"
+                ]
+            },
+            "reorder_groups": [
+                "The young rabbit",
+                "has",
+                "very soft ears."
+            ],
+            "token_groups": [
+                "The young rabbit",
+                "has",
+                "very soft ears."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "mrq-b1-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Please put the clean bowls {a1} the shelf.",
+            "level": "A1",
+            "type": 0,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Будь ласка, постав чисті миски на полицю.",
+            "target_text": "Please put the clean bowls on the shelf.",
+            "markers": {
+                "a1": {
+                    "answer": "on",
+                    "options": [
+                        "on",
+                        "under",
+                        "between"
+                    ],
+                    "verb_hint": "Назви положення на поверхні полиці після дії переміщення; решту речення вже наведено."
+                }
+            },
+            "verb_hint": "Назви положення на поверхні полиці після дії переміщення; решту речення вже наведено.",
+            "accepted_target_texts": [
+                "Please put the clean bowls on the shelf.",
+                "Please put the clean bowls onto the shelf."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "onto"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "onto"
+                ]
+            },
+            "reorder_groups": [
+                "Please put",
+                "the clean bowls",
+                "on the shelf."
+            ],
+            "token_groups": [
+                "Please put",
+                "the clean bowls",
+                "on the shelf."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "mrq-b1-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The volunteers {a1} the muddy cages yesterday.",
+            "level": "A2",
+            "type": 0,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Волонтери вчора помили забруднені багнюкою клітки.",
+            "target_text": "The volunteers washed the muddy cages yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "washed",
+                    "options": [
+                        "washed",
+                        "wash",
+                        "have washed"
+                    ],
+                    "verb_hint": "Передай завершену вчорашню дію «помили» простою минулою формою; підмет і час уже наведено."
+                }
+            },
+            "verb_hint": "Передай завершену вчорашню дію «помили» простою минулою формою; підмет і час уже наведено.",
+            "accepted_target_texts": [
+                "The volunteers washed the muddy cages yesterday.",
+                "The volunteers cleaned the muddy cages yesterday.",
+                "The volunteers scrubbed the muddy cages yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "cleaned",
+                    "scrubbed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "cleaned",
+                    "scrubbed"
+                ]
+            },
+            "reorder_groups": [
+                "The volunteers washed",
+                "the muddy cages",
+                "yesterday."
+            ],
+            "token_groups": [
+                "The volunteers washed",
+                "the muddy cages",
+                "yesterday."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "mrq-b1-a2-g02",
+            "author_id": "A2-g02",
+            "question": "You {a1} the deer if you walk quietly.",
+            "level": "A2",
+            "type": 0,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Ти побачиш оленів, якщо йтимеш тихо.",
+            "target_text": "You will see the deer if you walk quietly.",
+            "markers": {
+                "a1": {
+                    "answer": "will see",
+                    "options": [
+                        "will see",
+                        "would see",
+                        "will seeing"
+                    ],
+                    "verb_hint": "Передай реальний майбутній наслідок «побачиш»; умовну частину вже наведено в теперішньому часі."
+                }
+            },
+            "verb_hint": "Передай реальний майбутній наслідок «побачиш»; умовну частину вже наведено в теперішньому часі.",
+            "accepted_target_texts": [
+                "You will see the deer if you walk quietly.",
+                "You will spot the deer if you walk quietly."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will spot"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will spot"
+                ]
+            },
+            "reorder_groups": [
+                "You will see",
+                "the deer",
+                "if you walk",
+                "quietly."
+            ],
+            "token_groups": [
+                "You will see",
+                "the deer",
+                "if you walk",
+                "quietly."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "mrq-b1-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The ranger told the hikers {a1} any food near the tents.",
+            "level": "B1",
+            "type": 0,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Наглядач сказав туристам не залишати жодної їжі біля наметів.",
+            "target_text": "The ranger told the hikers not to leave any food near the tents.",
+            "markers": {
+                "a1": {
+                    "answer": "not to leave",
+                    "options": [
+                        "not to leave",
+                        "do not leave",
+                        "not leave"
+                    ],
+                    "verb_hint": "Передай заперечений наказ «не залишати» інфінітивною групою; наглядача й адресатів наказу вже названо."
+                }
+            },
+            "verb_hint": "Передай заперечений наказ «не залишати» інфінітивною групою; наглядача й адресатів наказу вже названо.",
+            "accepted_target_texts": [
+                "The ranger told the hikers not to leave any food near the tents."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ranger told",
+                "the hikers",
+                "not to leave",
+                "any food",
+                "near the tents."
+            ],
+            "token_groups": [
+                "The ranger told",
+                "the hikers",
+                "not to leave",
+                "any food",
+                "near the tents."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "mrq-b1-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The puppy {a1} by a vet before it left the shelter.",
+            "level": "B1",
+            "type": 0,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Цуценя оглянув ветеринар, перш ніж воно залишило притулок.",
+            "target_text": "The puppy was examined by a vet before it left the shelter.",
+            "markers": {
+                "a1": {
+                    "answer": "was examined",
+                    "options": [
+                        "was examined",
+                        "was examining",
+                        "has examined"
+                    ],
+                    "verb_hint": "Передай минуле «оглянули» пасивною формою: цуценя отримує дію, а виконавця вже названо після пропуску."
+                }
+            },
+            "verb_hint": "Передай минуле «оглянули» пасивною формою: цуценя отримує дію, а виконавця вже названо після пропуску.",
+            "accepted_target_texts": [
+                "The puppy was examined by a vet before it left the shelter.",
+                "The puppy was checked by a vet before it left the shelter.",
+                "The puppy had been examined by a vet before it left the shelter.",
+                "The puppy had been checked by a vet before it left the shelter."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was checked",
+                    "had been examined",
+                    "had been checked"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was checked",
+                    "had been examined",
+                    "had been checked"
+                ]
+            },
+            "reorder_groups": [
+                "The puppy",
+                "was examined",
+                "by a vet",
+                "before it left",
+                "the shelter."
+            ],
+            "token_groups": [
+                "The puppy",
+                "was examined",
+                "by a vet",
+                "before it left",
+                "the shelter."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "mrq-b1-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Had the researcher {a1} the camera battery, the rare owl would have been photographed.",
+            "level": "B2",
+            "type": 0,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Якби дослідниця перевірила акумулятор фотоапарата, рідкісну сову сфотографували б.",
+            "target_text": "Had the researcher checked the camera battery, the rare owl would have been photographed.",
+            "markers": {
+                "a1": {
+                    "answer": "checked",
+                    "options": [
+                        "checked",
+                        "check",
+                        "checking"
+                    ],
+                    "verb_hint": "Уже наведено інверсію допоміжного дієслова й підмета минулої нереальної умови; додай третю форму «перевірити»."
+                }
+            },
+            "verb_hint": "Уже наведено інверсію допоміжного дієслова й підмета минулої нереальної умови; додай третю форму «перевірити».",
+            "accepted_target_texts": [
+                "Had the researcher checked the camera battery, the rare owl would have been photographed.",
+                "Had the researcher tested the camera battery, the rare owl would have been photographed."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "tested"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "tested"
+                ]
+            },
+            "reorder_groups": [
+                "Had the researcher",
+                "checked",
+                "the camera battery,",
+                "the rare owl",
+                "would have been",
+                "photographed."
+            ],
+            "token_groups": [
+                "Had the researcher",
+                "checked",
+                "the camera battery,",
+                "the rare owl",
+                "would have been",
+                "photographed."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "mrq-b1-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The photo archive {a1} by the time the new curator arrived.",
+            "level": "B2",
+            "type": 0,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Архів світлин уже було оцифровано до того, як прибув новий куратор.",
+            "target_text": "The photo archive had been digitised by the time the new curator arrived.",
+            "markers": {
+                "a1": {
+                    "answer": "had been digitised",
+                    "options": [
+                        "had been digitised",
+                        "had been digitising",
+                        "has been digitised"
+                    ],
+                    "verb_hint": "Передай пасивну дію «було оцифровано» як завершену раніше за іншу минулу подію; введи всю перфектну групу."
+                }
+            },
+            "verb_hint": "Передай пасивну дію «було оцифровано» як завершену раніше за іншу минулу подію; введи всю перфектну групу.",
+            "accepted_target_texts": [
+                "The photo archive had been digitised by the time the new curator arrived.",
+                "The photo archive had been digitized by the time the new curator arrived."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had been digitized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had been digitized"
+                ]
+            },
+            "reorder_groups": [
+                "The photo archive",
+                "had been digitised",
+                "by the time",
+                "the new curator",
+                "arrived."
+            ],
+            "token_groups": [
+                "The photo archive",
+                "had been digitised",
+                "by the time",
+                "the new curator",
+                "arrived."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "mrq-b1-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The injured climber is reported {a1} by a helicopter crew.",
+            "level": "C1",
+            "type": 0,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Повідомляють, що пораненого альпініста врятував екіпаж гелікоптера.",
+            "target_text": "The injured climber is reported to have been rescued by a helicopter crew.",
+            "markers": {
+                "a1": {
+                    "answer": "to have been rescued",
+                    "options": [
+                        "to have been rescued",
+                        "to have rescued",
+                        "to be rescuing"
+                    ],
+                    "verb_hint": "Після пасивного повідомлення передай попереднє «бути врятованим» перфектним пасивним інфінітивом; виконавця вже наведено."
+                }
+            },
+            "verb_hint": "Після пасивного повідомлення передай попереднє «бути врятованим» перфектним пасивним інфінітивом; виконавця вже наведено.",
+            "accepted_target_texts": [
+                "The injured climber is reported to have been rescued by a helicopter crew.",
+                "The injured climber is reported to have been saved by a helicopter crew."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to have been saved"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to have been saved"
+                ]
+            },
+            "reorder_groups": [
+                "The injured climber",
+                "is reported",
+                "to have been",
+                "rescued",
+                "by",
+                "a helicopter crew."
+            ],
+            "token_groups": [
+                "The injured climber",
+                "is reported",
+                "to have been",
+                "rescued",
+                "by",
+                "a helicopter crew."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "mrq-b1-c1-g02",
+            "author_id": "C1-g02",
+            "question": "No sooner {a1} the ridge than a blizzard began.",
+            "level": "C1",
+            "type": 0,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Щойно вони дісталися гірського гребеня, як почалася снігова буря.",
+            "target_text": "No sooner had they reached the ridge than a blizzard began.",
+            "markers": {
+                "a1": {
+                    "answer": "had they reached",
+                    "options": [
+                        "had they reached",
+                        "they had reached",
+                        "did they reach"
+                    ],
+                    "verb_hint": "Після вже наведеної обмежувальної початкової групи передай «вони дісталися» з інверсією та попередністю в минулому."
+                }
+            },
+            "verb_hint": "Після вже наведеної обмежувальної початкової групи передай «вони дісталися» з інверсією та попередністю в минулому.",
+            "accepted_target_texts": [
+                "No sooner had they reached the ridge than a blizzard began.",
+                "No sooner had they got to the ridge than a blizzard began."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had they got to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had they got to"
+                ]
+            },
+            "reorder_groups": [
+                "No sooner",
+                "had they reached",
+                "the ridge",
+                "than a blizzard",
+                "began."
+            ],
+            "token_groups": [
+                "No sooner",
+                "had they reached",
+                "the ridge",
+                "than a blizzard",
+                "began."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "mrq-b1-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The transfer of the archive {a1}, the volunteers could begin cataloguing the negatives.",
+            "level": "C2",
+            "type": 0,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Після завершення перенесення архіву волонтери змогли почати каталогізацію негативів.",
+            "target_text": "The transfer of the archive having been completed, the volunteers could begin cataloguing the negatives.",
+            "markers": {
+                "a1": {
+                    "answer": "having been completed",
+                    "options": [
+                        "having been completed",
+                        "having completed",
+                        "has been completed"
+                    ],
+                    "verb_hint": "Доповни самостійну обставинну групу з власним підметом: пасивне завершення перенесення передує можливості почати іншу роботу."
+                }
+            },
+            "verb_hint": "Доповни самостійну обставинну групу з власним підметом: пасивне завершення перенесення передує можливості почати іншу роботу.",
+            "accepted_target_texts": [
+                "The transfer of the archive having been completed, the volunteers could begin cataloguing the negatives.",
+                "The transfer of the archive having been finished, the volunteers could begin cataloguing the negatives."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "having been finished"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "having been finished"
+                ]
+            },
+            "reorder_groups": [
+                "The transfer of",
+                "the archive",
+                "having been completed,",
+                "the volunteers",
+                "could begin cataloguing",
+                "the negatives."
+            ],
+            "token_groups": [
+                "The transfer of",
+                "the archive",
+                "having been completed,",
+                "the volunteers",
+                "could begin cataloguing",
+                "the negatives."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "mrq-b1-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The discrepancy, {a1} trivial, invalidates the comparison between the two surveys.",
+            "level": "C2",
+            "type": 0,
+            "source": "mixed_revision_quality_b1_mixed_revision",
+            "translation_uk": "Розбіжність далеко не незначна: вона робить порівняння двох досліджень недійсним.",
+            "target_text": "The discrepancy, far from being trivial, invalidates the comparison between the two surveys.",
+            "markers": {
+                "a1": {
+                    "answer": "far from being",
+                    "options": [
+                        "far from being",
+                        "far being from",
+                        "far been from"
+                    ],
+                    "verb_hint": "Передай відокремлене заперечення очікуваної ознаки зі значенням «далеко не»; заперечується не наявність розбіжності, а її незначність."
+                }
+            },
+            "verb_hint": "Передай відокремлене заперечення очікуваної ознаки зі значенням «далеко не»; заперечується не наявність розбіжності, а її незначність.",
+            "accepted_target_texts": [
+                "The discrepancy, far from being trivial, invalidates the comparison between the two surveys.",
+                "The discrepancy, far from trivial, invalidates the comparison between the two surveys."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "far from"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "far from"
+                ]
+            },
+            "reorder_groups": [
+                "The discrepancy,",
+                "far from being",
+                "trivial,",
+                "invalidates",
+                "the comparison",
+                "between",
+                "the two surveys."
+            ],
+            "token_groups": [
+                "The discrepancy,",
+                "far from being",
+                "trivial,",
+                "invalidates",
+                "the comparison",
+                "between",
+                "the two surveys."
+            ],
+            "quality_revision": "mrq-v1"
+        }
+    ]
+}

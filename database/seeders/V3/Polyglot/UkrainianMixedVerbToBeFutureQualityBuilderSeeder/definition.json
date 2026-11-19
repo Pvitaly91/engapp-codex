@@ -1,0 +1,4735 @@
+{
+    "schema_version": 1,
+    "quality_revision": "verb-to-be-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-to-be-quality/future.v1.json",
+        "sha256": "5bd0855d2a015551221a45fafcca2431dc06152487ca9897622cfb6dae450db4"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedVerbToBeFutureQualityBuilderSeeder",
+        "uuid_namespace": "verb-to-be-quality-future-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "verb_to_be_quality_future": {
+            "name": "Verb to Be Quality: Майбутні форми дієслова бути"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_verb_to_be_future": {
+            "name": "Verb to Be: Future",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_verb_to_be_future"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "beq-future-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Пікнік буде в суботу.",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Пікнік буде в суботу.",
+            "target_text": "The picnic will be on Saturday.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з пікніка й назви майбутній день події.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "picnic",
+                    "verb_hint": "Почни з пікніка й назви майбутній день події.",
+                    "options": [
+                        "picnic",
+                        "hungry",
+                        "bad",
+                        "friendly"
+                    ]
+                },
+                "a3": {
+                    "answer": "will",
+                    "verb_hint": "Почни з пікніка й назви майбутній день події.",
+                    "options": [
+                        "will",
+                        "must",
+                        "can't",
+                        "couldn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Почни з пікніка й назви майбутній день події.",
+                    "options": [
+                        "be",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a5": {
+                    "answer": "on",
+                    "verb_hint": "Почни з пікніка й назви майбутній день події.",
+                    "options": [
+                        "on",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a6": {
+                    "answer": "Saturday.",
+                    "verb_hint": "Почни з пікніка й назви майбутній день події.",
+                    "options": [
+                        "Saturday",
+                        "Puppy",
+                        "Late",
+                        "Tomorrow"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з пікніка й назви майбутній день події.",
+            "accepted_target_texts": [
+                "The picnic will be on Saturday."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The picnic",
+                "will be",
+                "on Saturday."
+            ],
+            "token_groups": [
+                "The picnic",
+                "will be",
+                "on Saturday."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "picnic",
+                "will",
+                "be",
+                "on",
+                "Saturday."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "picnic",
+                "hungry",
+                "bad",
+                "friendly",
+                "will",
+                "must",
+                "can't",
+                "couldn't",
+                "be",
+                "wasn't",
+                "weren't",
+                "am",
+                "on",
+                "with",
+                "without",
+                "into",
+                "Saturday",
+                "Puppy",
+                "Late",
+                "Tomorrow"
+            ],
+            "source_text_uk": "Пікнік буде в суботу.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "picnic",
+                    "hungry",
+                    "bad",
+                    "friendly"
+                ],
+                "a3": [
+                    "will",
+                    "must",
+                    "can't",
+                    "couldn't"
+                ],
+                "a4": [
+                    "be",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a5": [
+                    "on",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a6": [
+                    "Saturday",
+                    "Puppy",
+                    "Late",
+                    "Tomorrow"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "beq-future-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Завтра я не запізнюся.",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Завтра я не запізнюся.",
+            "target_text": "I will not be late tomorrow.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з мовця та запереч майбутній стан запізнення.",
+                    "options": [
+                        "I",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "will",
+                    "verb_hint": "Почни з мовця та запереч майбутній стан запізнення.",
+                    "options": [
+                        "will",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Почни з мовця та запереч майбутній стан запізнення.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Почни з мовця та запереч майбутній стан запізнення.",
+                    "options": [
+                        "be",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a5": {
+                    "answer": "late",
+                    "verb_hint": "Почни з мовця та запереч майбутній стан запізнення.",
+                    "options": [
+                        "late",
+                        "puppy",
+                        "Saturday",
+                        "bag"
+                    ]
+                },
+                "a6": {
+                    "answer": "tomorrow.",
+                    "verb_hint": "Почни з мовця та запереч майбутній стан запізнення.",
+                    "options": [
+                        "tomorrow",
+                        "dog",
+                        "cat",
+                        "person"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з мовця та запереч майбутній стан запізнення.",
+            "accepted_target_texts": [
+                "I will not be late tomorrow."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I will",
+                "not be",
+                "late tomorrow."
+            ],
+            "token_groups": [
+                "I will",
+                "not be",
+                "late tomorrow."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "I",
+                "will",
+                "not",
+                "be",
+                "late",
+                "tomorrow."
+            ],
+            "options": [
+                "I",
+                "They",
+                "Me",
+                "Him",
+                "will",
+                "cannot",
+                "can",
+                "could",
+                "not",
+                "never",
+                "always",
+                "often",
+                "be",
+                "wasn't",
+                "weren't",
+                "am",
+                "late",
+                "puppy",
+                "Saturday",
+                "bag",
+                "tomorrow",
+                "dog",
+                "cat",
+                "person"
+            ],
+            "source_text_uk": "Завтра я не запізнюся.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "will",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a3": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a4": [
+                    "be",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a5": [
+                    "late",
+                    "puppy",
+                    "Saturday",
+                    "bag"
+                ],
+                "a6": [
+                    "tomorrow",
+                    "dog",
+                    "cat",
+                    "person"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "beq-future-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Цуценя буде голодне?",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Цуценя буде голодне?",
+            "target_text": "Will the puppy be hungry?",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "verb_hint": "Побудуй пряме питання про майбутній стан цуценяти.",
+                    "options": [
+                        "Will",
+                        "Cannot",
+                        "Can",
+                        "Could"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй пряме питання про майбутній стан цуценяти.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a3": {
+                    "answer": "puppy",
+                    "verb_hint": "Побудуй пряме питання про майбутній стан цуценяти.",
+                    "options": [
+                        "puppy",
+                        "Saturday",
+                        "late",
+                        "tomorrow"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Побудуй пряме питання про майбутній стан цуценяти.",
+                    "options": [
+                        "be",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a5": {
+                    "answer": "hungry?",
+                    "verb_hint": "Побудуй пряме питання про майбутній стан цуценяти.",
+                    "options": [
+                        "hungry",
+                        "picnic",
+                        "thirsty",
+                        "clear"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй пряме питання про майбутній стан цуценяти.",
+            "accepted_target_texts": [
+                "Will the puppy be hungry?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will the puppy",
+                "be hungry?"
+            ],
+            "token_groups": [
+                "Will the puppy",
+                "be hungry?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Will",
+                "the",
+                "puppy",
+                "be",
+                "hungry?"
+            ],
+            "options": [
+                "Will",
+                "Cannot",
+                "Can",
+                "Could",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "puppy",
+                "Saturday",
+                "late",
+                "tomorrow",
+                "be",
+                "am",
+                "is",
+                "are",
+                "hungry",
+                "picnic",
+                "thirsty",
+                "clear"
+            ],
+            "source_text_uk": "Цуценя буде голодне?",
+            "options_by_marker": {
+                "a1": [
+                    "Will",
+                    "Cannot",
+                    "Can",
+                    "Could"
+                ],
+                "a2": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a3": [
+                    "puppy",
+                    "Saturday",
+                    "late",
+                    "tomorrow"
+                ],
+                "a4": [
+                    "be",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a5": [
+                    "hungry",
+                    "picnic",
+                    "thirsty",
+                    "clear"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "beq-future-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Гості будуть тут до обіду.",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Гості будуть тут до обіду.",
+            "target_text": "The guests will be here before lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з гостей і збережи місце та майбутній граничний час.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "guests",
+                    "verb_hint": "Почни з гостей і збережи місце та майбутній граничний час.",
+                    "options": [
+                        "guests",
+                        "cats",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a3": {
+                    "answer": "will",
+                    "verb_hint": "Почни з гостей і збережи місце та майбутній граничний час.",
+                    "options": [
+                        "will",
+                        "would",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Почни з гостей і збережи місце та майбутній граничний час.",
+                    "options": [
+                        "be",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "here",
+                    "verb_hint": "Почни з гостей і збережи місце та майбутній граничний час.",
+                    "options": [
+                        "here",
+                        "parcel",
+                        "daughter",
+                        "door"
+                    ]
+                },
+                "a6": {
+                    "answer": "before",
+                    "verb_hint": "Почни з гостей і збережи місце та майбутній граничний час.",
+                    "options": [
+                        "before",
+                        "bread",
+                        "milk",
+                        "music"
+                    ]
+                },
+                "a7": {
+                    "answer": "lunch.",
+                    "verb_hint": "Почни з гостей і збережи місце та майбутній граничний час.",
+                    "options": [
+                        "lunch",
+                        "food",
+                        "bike",
+                        "car"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з гостей і збережи місце та майбутній граничний час.",
+            "accepted_target_texts": [
+                "The guests will be here before lunch."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guests",
+                "will be",
+                "here before lunch."
+            ],
+            "token_groups": [
+                "The guests",
+                "will be",
+                "here before lunch."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "guests",
+                "will",
+                "be",
+                "here",
+                "before",
+                "lunch."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "guests",
+                "cats",
+                "people",
+                "men",
+                "will",
+                "would",
+                "shall",
+                "should",
+                "be",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "here",
+                "parcel",
+                "daughter",
+                "door",
+                "before",
+                "bread",
+                "milk",
+                "music",
+                "lunch",
+                "food",
+                "bike",
+                "car"
+            ],
+            "source_text_uk": "Гості будуть тут до обіду.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "guests",
+                    "cats",
+                    "people",
+                    "men"
+                ],
+                "a3": [
+                    "will",
+                    "would",
+                    "shall",
+                    "should"
+                ],
+                "a4": [
+                    "be",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a5": [
+                    "here",
+                    "parcel",
+                    "daughter",
+                    "door"
+                ],
+                "a6": [
+                    "before",
+                    "bread",
+                    "milk",
+                    "music"
+                ],
+                "a7": [
+                    "lunch",
+                    "food",
+                    "bike",
+                    "car"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "beq-future-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Твоя посилка не буде важка.",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Твоя посилка не буде важка.",
+            "target_text": "Your parcel will not be heavy.",
+            "markers": {
+                "a1": {
+                    "answer": "Your",
+                    "verb_hint": "Почни з посилки й запереч її майбутню вагову характеристику.",
+                    "options": [
+                        "Your",
+                        "Their",
+                        "Mine",
+                        "Yours"
+                    ]
+                },
+                "a2": {
+                    "answer": "parcel",
+                    "verb_hint": "Почни з посилки й запереч її майбутню вагову характеристику.",
+                    "options": [
+                        "parcel",
+                        "daughter",
+                        "here",
+                        "before"
+                    ]
+                },
+                "a3": {
+                    "answer": "will",
+                    "verb_hint": "Почни з посилки й запереч її майбутню вагову характеристику.",
+                    "options": [
+                        "will",
+                        "must",
+                        "can't",
+                        "couldn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Почни з посилки й запереч її майбутню вагову характеристику.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a5": {
+                    "answer": "be",
+                    "verb_hint": "Почни з посилки й запереч її майбутню вагову характеристику.",
+                    "options": [
+                        "be",
+                        "was",
+                        "were",
+                        "been"
+                    ]
+                },
+                "a6": {
+                    "answer": "heavy.",
+                    "verb_hint": "Почни з посилки й запереч її майбутню вагову характеристику.",
+                    "options": [
+                        "heavy",
+                        "old",
+                        "sad",
+                        "easy"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з посилки й запереч її майбутню вагову характеристику.",
+            "accepted_target_texts": [
+                "Your parcel will not be heavy."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Your parcel",
+                "will not be",
+                "heavy."
+            ],
+            "token_groups": [
+                "Your parcel",
+                "will not be",
+                "heavy."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Your",
+                "parcel",
+                "will",
+                "not",
+                "be",
+                "heavy."
+            ],
+            "options": [
+                "Your",
+                "Their",
+                "Mine",
+                "Yours",
+                "parcel",
+                "daughter",
+                "here",
+                "before",
+                "will",
+                "must",
+                "can't",
+                "couldn't",
+                "not",
+                "never",
+                "always",
+                "often",
+                "be",
+                "was",
+                "were",
+                "been",
+                "heavy",
+                "old",
+                "sad",
+                "easy"
+            ],
+            "source_text_uk": "Твоя посилка не буде важка.",
+            "options_by_marker": {
+                "a1": [
+                    "Your",
+                    "Their",
+                    "Mine",
+                    "Yours"
+                ],
+                "a2": [
+                    "parcel",
+                    "daughter",
+                    "here",
+                    "before"
+                ],
+                "a3": [
+                    "will",
+                    "must",
+                    "can't",
+                    "couldn't"
+                ],
+                "a4": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a5": [
+                    "be",
+                    "was",
+                    "were",
+                    "been"
+                ],
+                "a6": [
+                    "heavy",
+                    "old",
+                    "sad",
+                    "easy"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "beq-future-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Скільки років буде твоїй доньці в травні?",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Скільки років буде твоїй доньці в травні?",
+            "target_text": "How old will your daughter be in May?",
+            "markers": {
+                "a1": {
+                    "answer": "How",
+                    "verb_hint": "Почни з питального звороту про вік і збережи майбутній місяць.",
+                    "options": [
+                        "How",
+                        "Who",
+                        "Whom",
+                        "What"
+                    ]
+                },
+                "a2": {
+                    "answer": "old",
+                    "verb_hint": "Почни з питального звороту про вік і збережи майбутній місяць.",
+                    "options": [
+                        "old",
+                        "heavy",
+                        "bright",
+                        "dark"
+                    ]
+                },
+                "a3": {
+                    "answer": "will",
+                    "verb_hint": "Почни з питального звороту про вік і збережи майбутній місяць.",
+                    "options": [
+                        "will",
+                        "should",
+                        "might",
+                        "must"
+                    ]
+                },
+                "a4": {
+                    "answer": "your",
+                    "verb_hint": "Почни з питального звороту про вік і збережи майбутній місяць.",
+                    "options": [
+                        "your",
+                        "her",
+                        "its",
+                        "our"
+                    ]
+                },
+                "a5": {
+                    "answer": "daughter",
+                    "verb_hint": "Почни з питального звороту про вік і збережи майбутній місяць.",
+                    "options": [
+                        "daughter",
+                        "lunch",
+                        "parcel",
+                        "here"
+                    ]
+                },
+                "a6": {
+                    "answer": "be",
+                    "verb_hint": "Почни з питального звороту про вік і збережи майбутній місяць.",
+                    "options": [
+                        "be",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a7": {
+                    "answer": "in",
+                    "verb_hint": "Почни з питального звороту про вік і збережи майбутній місяць.",
+                    "options": [
+                        "in",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a8": {
+                    "answer": "May?",
+                    "verb_hint": "Почни з питального звороту про вік і збережи майбутній місяць.",
+                    "options": [
+                        "May",
+                        "Couldn't",
+                        "Won't",
+                        "Wouldn't"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з питального звороту про вік і збережи майбутній місяць.",
+            "accepted_target_texts": [
+                "How old will your daughter be in May?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How old",
+                "will your daughter",
+                "be in May?"
+            ],
+            "token_groups": [
+                "How old",
+                "will your daughter",
+                "be in May?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "How",
+                "old",
+                "will",
+                "your",
+                "daughter",
+                "be",
+                "in",
+                "May?"
+            ],
+            "options": [
+                "How",
+                "Who",
+                "Whom",
+                "What",
+                "old",
+                "heavy",
+                "bright",
+                "dark",
+                "will",
+                "should",
+                "might",
+                "must",
+                "your",
+                "her",
+                "its",
+                "our",
+                "daughter",
+                "lunch",
+                "parcel",
+                "here",
+                "be",
+                "are",
+                "was",
+                "were",
+                "in",
+                "among",
+                "about",
+                "during",
+                "May",
+                "Couldn't",
+                "Won't",
+                "Wouldn't"
+            ],
+            "source_text_uk": "Скільки років буде твоїй доньці в травні?",
+            "options_by_marker": {
+                "a1": [
+                    "How",
+                    "Who",
+                    "Whom",
+                    "What"
+                ],
+                "a2": [
+                    "old",
+                    "heavy",
+                    "bright",
+                    "dark"
+                ],
+                "a3": [
+                    "will",
+                    "should",
+                    "might",
+                    "must"
+                ],
+                "a4": [
+                    "your",
+                    "her",
+                    "its",
+                    "our"
+                ],
+                "a5": [
+                    "daughter",
+                    "lunch",
+                    "parcel",
+                    "here"
+                ],
+                "a6": [
+                    "be",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a7": [
+                    "in",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a8": [
+                    "May",
+                    "Couldn't",
+                    "Won't",
+                    "Wouldn't"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "beq-future-b1-c01",
+            "author_id": "B1-c01",
+            "question": "До місць біля виходу буде легше дістатися.",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "До місць біля виходу буде легше дістатися.",
+            "target_text": "The seats near the exit will be easier to reach.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з названих місць і передай майбутню легкість доступу до них.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "seats",
+                    "verb_hint": "Почни з названих місць і передай майбутню легкість доступу до них.",
+                    "options": [
+                        "seats",
+                        "rains",
+                        "men",
+                        "women"
+                    ]
+                },
+                "a3": {
+                    "answer": "near",
+                    "verb_hint": "Почни з названих місць і передай майбутню легкість доступу до них.",
+                    "options": [
+                        "near",
+                        "upset",
+                        "decline",
+                        "point"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з названих місць і передай майбутню легкість доступу до них.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a5": {
+                    "answer": "exit",
+                    "verb_hint": "Почни з названих місць і передай майбутню легкість доступу до них.",
+                    "options": [
+                        "exit",
+                        "key",
+                        "room",
+                        "map"
+                    ]
+                },
+                "a6": {
+                    "answer": "will",
+                    "verb_hint": "Почни з названих місць і передай майбутню легкість доступу до них.",
+                    "options": [
+                        "will",
+                        "might",
+                        "must",
+                        "can't"
+                    ]
+                },
+                "a7": {
+                    "answer": "be",
+                    "verb_hint": "Почни з названих місць і передай майбутню легкість доступу до них.",
+                    "options": [
+                        "be",
+                        "was",
+                        "were",
+                        "been"
+                    ]
+                },
+                "a8": {
+                    "answer": "easier",
+                    "verb_hint": "Почни з названих місць і передай майбутню легкість доступу до них.",
+                    "options": [
+                        "easier",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a9": {
+                    "answer": "to",
+                    "verb_hint": "Почни з названих місць і передай майбутню легкість доступу до них.",
+                    "options": [
+                        "to",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a10": {
+                    "answer": "reach.",
+                    "verb_hint": "Почни з названих місць і передай майбутню легкість доступу до них.",
+                    "options": [
+                        "reach",
+                        "friend",
+                        "dog",
+                        "cat"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з названих місць і передай майбутню легкість доступу до них.",
+            "accepted_target_texts": [
+                "The seats near the exit will be easier to reach."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The seats",
+                "near the exit",
+                "will be",
+                "easier to reach."
+            ],
+            "token_groups": [
+                "The seats",
+                "near the exit",
+                "will be",
+                "easier to reach."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "seats",
+                "near",
+                "the",
+                "exit",
+                "will",
+                "be",
+                "easier",
+                "to",
+                "reach."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "seats",
+                "rains",
+                "men",
+                "women",
+                "near",
+                "upset",
+                "decline",
+                "point",
+                "the",
+                "that",
+                "these",
+                "those",
+                "exit",
+                "key",
+                "room",
+                "map",
+                "will",
+                "might",
+                "must",
+                "can't",
+                "be",
+                "was",
+                "were",
+                "been",
+                "easier",
+                "school",
+                "sister",
+                "brother",
+                "to",
+                "into",
+                "onto",
+                "over",
+                "reach",
+                "friend",
+                "dog",
+                "cat"
+            ],
+            "source_text_uk": "До місць біля виходу буде легше дістатися.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "seats",
+                    "rains",
+                    "men",
+                    "women"
+                ],
+                "a3": [
+                    "near",
+                    "upset",
+                    "decline",
+                    "point"
+                ],
+                "a4": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a5": [
+                    "exit",
+                    "key",
+                    "room",
+                    "map"
+                ],
+                "a6": [
+                    "will",
+                    "might",
+                    "must",
+                    "can't"
+                ],
+                "a7": [
+                    "be",
+                    "was",
+                    "were",
+                    "been"
+                ],
+                "a8": [
+                    "easier",
+                    "school",
+                    "sister",
+                    "brother"
+                ],
+                "a9": [
+                    "to",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a10": [
+                    "reach",
+                    "friend",
+                    "dog",
+                    "cat"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "beq-future-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Я не засмучуся, якщо ти відмовишся.",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Я не засмучуся, якщо ти відмовишся.",
+            "target_text": "I will not be upset if you decline.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з мовця, запереч майбутній стан і збережи умову відмови.",
+                    "options": [
+                        "I",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "will",
+                    "verb_hint": "Почни з мовця, запереч майбутній стан і збережи умову відмови.",
+                    "options": [
+                        "will",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Почни з мовця, запереч майбутній стан і збережи умову відмови.",
+                    "options": [
+                        "not",
+                        "rarely",
+                        "only",
+                        "even"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Почни з мовця, запереч майбутній стан і збережи умову відмови.",
+                    "options": [
+                        "be",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a5": {
+                    "answer": "upset",
+                    "verb_hint": "Почни з мовця, запереч майбутній стан і збережи умову відмови.",
+                    "options": [
+                        "upset",
+                        "point",
+                        "near",
+                        "exit"
+                    ]
+                },
+                "a6": {
+                    "answer": "if",
+                    "verb_hint": "Почни з мовця, запереч майбутній стан і збережи умову відмови.",
+                    "options": [
+                        "if",
+                        "so",
+                        "yet",
+                        "because"
+                    ]
+                },
+                "a7": {
+                    "answer": "you",
+                    "verb_hint": "Почни з мовця, запереч майбутній стан і збережи умову відмови.",
+                    "options": [
+                        "you",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a8": {
+                    "answer": "decline.",
+                    "verb_hint": "Почни з мовця, запереч майбутній стан і збережи умову відмови.",
+                    "options": [
+                        "decline",
+                        "easier",
+                        "reach",
+                        "chair"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з мовця, запереч майбутній стан і збережи умову відмови.",
+            "accepted_target_texts": [
+                "I will not be upset if you decline."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I will not",
+                "be upset",
+                "if you decline."
+            ],
+            "token_groups": [
+                "I will not",
+                "be upset",
+                "if you decline."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "I",
+                "will",
+                "not",
+                "be",
+                "upset",
+                "if",
+                "you",
+                "decline."
+            ],
+            "options": [
+                "I",
+                "He",
+                "She",
+                "It",
+                "will",
+                "cannot",
+                "can",
+                "could",
+                "not",
+                "rarely",
+                "only",
+                "even",
+                "be",
+                "weren't",
+                "am",
+                "is",
+                "upset",
+                "point",
+                "near",
+                "exit",
+                "if",
+                "so",
+                "yet",
+                "because",
+                "you",
+                "myself",
+                "yourself",
+                "herself",
+                "decline",
+                "easier",
+                "reach",
+                "chair"
+            ],
+            "source_text_uk": "Я не засмучуся, якщо ти відмовишся.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "will",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a3": [
+                    "not",
+                    "rarely",
+                    "only",
+                    "even"
+                ],
+                "a4": [
+                    "be",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a5": [
+                    "upset",
+                    "point",
+                    "near",
+                    "exit"
+                ],
+                "a6": [
+                    "if",
+                    "so",
+                    "yet",
+                    "because"
+                ],
+                "a7": [
+                    "you",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a8": [
+                    "decline",
+                    "easier",
+                    "reach",
+                    "chair"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "beq-future-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Де буде місце зустрічі, якщо піде дощ?",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Де буде місце зустрічі, якщо піде дощ?",
+            "target_text": "Where will the meeting point be if it rains?",
+            "markers": {
+                "a1": {
+                    "answer": "Where",
+                    "verb_hint": "Збережи прямий майбутній порядок слів у головному питанні та умову дощу.",
+                    "options": [
+                        "Where",
+                        "Wherever",
+                        "Whenever",
+                        "Who"
+                    ]
+                },
+                "a2": {
+                    "answer": "will",
+                    "verb_hint": "Збережи прямий майбутній порядок слів у головному питанні та умову дощу.",
+                    "options": [
+                        "will",
+                        "couldn't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Збережи прямий майбутній порядок слів у головному питанні та умову дощу.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a4": {
+                    "answer": "meeting",
+                    "verb_hint": "Збережи прямий майбутній порядок слів у головному питанні та умову дощу.",
+                    "options": [
+                        "meeting",
+                        "closing",
+                        "helping",
+                        "waiting"
+                    ]
+                },
+                "a5": {
+                    "answer": "point",
+                    "verb_hint": "Збережи прямий майбутній порядок слів у головному питанні та умову дощу.",
+                    "options": [
+                        "point",
+                        "near",
+                        "exit",
+                        "easier"
+                    ]
+                },
+                "a6": {
+                    "answer": "be",
+                    "verb_hint": "Збережи прямий майбутній порядок слів у головному питанні та умову дощу.",
+                    "options": [
+                        "be",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a7": {
+                    "answer": "if",
+                    "verb_hint": "Збережи прямий майбутній порядок слів у головному питанні та умову дощу.",
+                    "options": [
+                        "if",
+                        "or",
+                        "nor",
+                        "so"
+                    ]
+                },
+                "a8": {
+                    "answer": "it",
+                    "verb_hint": "Збережи прямий майбутній порядок слів у головному питанні та умову дощу.",
+                    "options": [
+                        "it",
+                        "ourselves",
+                        "themselves",
+                        "I"
+                    ]
+                },
+                "a9": {
+                    "answer": "rains?",
+                    "verb_hint": "Збережи прямий майбутній порядок слів у головному питанні та умову дощу.",
+                    "options": [
+                        "rains",
+                        "seats",
+                        "teachers",
+                        "schools"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи прямий майбутній порядок слів у головному питанні та умову дощу.",
+            "accepted_target_texts": [
+                "Where will the meeting point be if it rains?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Where will",
+                "the meeting point",
+                "be if",
+                "it rains?"
+            ],
+            "token_groups": [
+                "Where will",
+                "the meeting point",
+                "be if",
+                "it rains?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Where",
+                "will",
+                "the",
+                "meeting",
+                "point",
+                "be",
+                "if",
+                "it",
+                "rains?"
+            ],
+            "options": [
+                "Where",
+                "Wherever",
+                "Whenever",
+                "Who",
+                "will",
+                "couldn't",
+                "won't",
+                "wouldn't",
+                "the",
+                "that",
+                "these",
+                "those",
+                "meeting",
+                "closing",
+                "helping",
+                "waiting",
+                "point",
+                "near",
+                "exit",
+                "easier",
+                "be",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "if",
+                "or",
+                "nor",
+                "so",
+                "it",
+                "ourselves",
+                "themselves",
+                "I",
+                "rains",
+                "seats",
+                "teachers",
+                "schools"
+            ],
+            "source_text_uk": "Де буде місце зустрічі, якщо піде дощ?",
+            "options_by_marker": {
+                "a1": [
+                    "Where",
+                    "Wherever",
+                    "Whenever",
+                    "Who"
+                ],
+                "a2": [
+                    "will",
+                    "couldn't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a3": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a4": [
+                    "meeting",
+                    "closing",
+                    "helping",
+                    "waiting"
+                ],
+                "a5": [
+                    "point",
+                    "near",
+                    "exit",
+                    "easier"
+                ],
+                "a6": [
+                    "be",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a7": [
+                    "if",
+                    "or",
+                    "nor",
+                    "so"
+                ],
+                "a8": [
+                    "it",
+                    "ourselves",
+                    "themselves",
+                    "I"
+                ],
+                "a9": [
+                    "rains",
+                    "seats",
+                    "teachers",
+                    "schools"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "beq-future-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Різниця між варіантами стане зрозуміліша, щойно ми порівняємо витрати.",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Різниця між варіантами стане зрозуміліша, щойно ми порівняємо витрати.",
+            "target_text": "The difference between the options will be clearer once we compare the costs.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи майбутню порівняльну оцінку та часову умову.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "difference",
+                    "verb_hint": "Збережи майбутню порівняльну оцінку та часову умову.",
+                    "options": [
+                        "difference",
+                        "consistent",
+                        "last",
+                        "assess"
+                    ]
+                },
+                "a3": {
+                    "answer": "between",
+                    "verb_hint": "Збережи майбутню порівняльну оцінку та часову умову.",
+                    "options": [
+                        "between",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи майбутню порівняльну оцінку та часову умову.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "options",
+                    "verb_hint": "Збережи майбутню порівняльну оцінку та часову умову.",
+                    "options": [
+                        "options",
+                        "commitments",
+                        "cats",
+                        "people"
+                    ]
+                },
+                "a6": {
+                    "answer": "will",
+                    "verb_hint": "Збережи майбутню порівняльну оцінку та часову умову.",
+                    "options": [
+                        "will",
+                        "would",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a7": {
+                    "answer": "be",
+                    "verb_hint": "Збережи майбутню порівняльну оцінку та часову умову.",
+                    "options": [
+                        "be",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a8": {
+                    "answer": "clearer",
+                    "verb_hint": "Збережи майбутню порівняльну оцінку та часову умову.",
+                    "options": [
+                        "clearer",
+                        "impact",
+                        "outcome",
+                        "cup"
+                    ]
+                },
+                "a9": {
+                    "answer": "once",
+                    "verb_hint": "Збережи майбутню порівняльну оцінку та часову умову.",
+                    "options": [
+                        "once",
+                        "train",
+                        "bus",
+                        "desk"
+                    ]
+                },
+                "a10": {
+                    "answer": "we",
+                    "verb_hint": "Збережи майбутню порівняльну оцінку та часову умову.",
+                    "options": [
+                        "we",
+                        "you",
+                        "he",
+                        "she"
+                    ]
+                },
+                "a11": {
+                    "answer": "compare",
+                    "verb_hint": "Збережи майбутню порівняльну оцінку та часову умову.",
+                    "options": [
+                        "compare",
+                        "friend",
+                        "dog",
+                        "cat"
+                    ]
+                },
+                "a12": {
+                    "answer": "the",
+                    "verb_hint": "Збережи майбутню порівняльну оцінку та часову умову.",
+                    "options": [
+                        "the",
+                        "that",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a13": {
+                    "answer": "costs.",
+                    "verb_hint": "Збережи майбутню порівняльну оцінку та часову умову.",
+                    "options": [
+                        "costs",
+                        "tickets",
+                        "cups",
+                        "doors"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи майбутню порівняльну оцінку та часову умову.",
+            "accepted_target_texts": [
+                "The difference between the options will be clearer once we compare the costs."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The difference",
+                "between the options",
+                "will be",
+                "clearer once",
+                "we compare",
+                "the costs."
+            ],
+            "token_groups": [
+                "The difference",
+                "between the options",
+                "will be",
+                "clearer once",
+                "we compare",
+                "the costs."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "difference",
+                "between",
+                "the",
+                "options",
+                "will",
+                "be",
+                "clearer",
+                "once",
+                "we",
+                "compare",
+                "the",
+                "costs."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "difference",
+                "consistent",
+                "last",
+                "assess",
+                "between",
+                "to",
+                "from",
+                "for",
+                "the",
+                "every",
+                "no",
+                "another",
+                "options",
+                "commitments",
+                "cats",
+                "people",
+                "will",
+                "would",
+                "shall",
+                "should",
+                "be",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "clearer",
+                "impact",
+                "outcome",
+                "cup",
+                "once",
+                "train",
+                "bus",
+                "desk",
+                "we",
+                "you",
+                "he",
+                "she",
+                "compare",
+                "friend",
+                "dog",
+                "cat",
+                "that",
+                "either",
+                "neither",
+                "costs",
+                "tickets",
+                "cups",
+                "doors"
+            ],
+            "source_text_uk": "Різниця між варіантами стане зрозуміліша, щойно ми порівняємо витрати.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "difference",
+                    "consistent",
+                    "last",
+                    "assess"
+                ],
+                "a3": [
+                    "between",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a4": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "options",
+                    "commitments",
+                    "cats",
+                    "people"
+                ],
+                "a6": [
+                    "will",
+                    "would",
+                    "shall",
+                    "should"
+                ],
+                "a7": [
+                    "be",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a8": [
+                    "clearer",
+                    "impact",
+                    "outcome",
+                    "cup"
+                ],
+                "a9": [
+                    "once",
+                    "train",
+                    "bus",
+                    "desk"
+                ],
+                "a10": [
+                    "we",
+                    "you",
+                    "he",
+                    "she"
+                ],
+                "a11": [
+                    "compare",
+                    "friend",
+                    "dog",
+                    "cat"
+                ],
+                "a12": [
+                    "the",
+                    "that",
+                    "either",
+                    "neither"
+                ],
+                "a13": [
+                    "costs",
+                    "tickets",
+                    "cups",
+                    "doors"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "beq-future-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Одразу оцінити вплив буде неможливо.",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Одразу оцінити вплив буде неможливо.",
+            "target_text": "It will not be possible to assess the impact immediately.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Використай формальний підмет і запереч можливість негайної оцінки.",
+                    "options": [
+                        "It",
+                        "Themselves",
+                        "I",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "will",
+                    "verb_hint": "Використай формальний підмет і запереч можливість негайної оцінки.",
+                    "options": [
+                        "will",
+                        "couldn't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Використай формальний підмет і запереч можливість негайної оцінки.",
+                    "options": [
+                        "not",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Використай формальний підмет і запереч можливість негайної оцінки.",
+                    "options": [
+                        "be",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a5": {
+                    "answer": "possible",
+                    "verb_hint": "Використай формальний підмет і запереч можливість негайної оцінки.",
+                    "options": [
+                        "possible",
+                        "friendly",
+                        "lovely",
+                        "final"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Використай формальний підмет і запереч можливість негайної оцінки.",
+                    "options": [
+                        "to",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a7": {
+                    "answer": "assess",
+                    "verb_hint": "Використай формальний підмет і запереч можливість негайної оцінки.",
+                    "options": [
+                        "assess",
+                        "clearer",
+                        "once",
+                        "compare"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Використай формальний підмет і запереч можливість негайної оцінки.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a9": {
+                    "answer": "impact",
+                    "verb_hint": "Використай формальний підмет і запереч можливість негайної оцінки.",
+                    "options": [
+                        "impact",
+                        "outcome",
+                        "consistent",
+                        "last"
+                    ]
+                },
+                "a10": {
+                    "answer": "immediately.",
+                    "verb_hint": "Використай формальний підмет і запереч можливість негайної оцінки.",
+                    "options": [
+                        "immediately",
+                        "loudly",
+                        "quietly",
+                        "slowly"
+                    ]
+                }
+            },
+            "verb_hint": "Використай формальний підмет і запереч можливість негайної оцінки.",
+            "accepted_target_texts": [
+                "It will not be possible to assess the impact immediately."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It will not",
+                "be possible",
+                "to assess",
+                "the impact",
+                "immediately."
+            ],
+            "token_groups": [
+                "It will not",
+                "be possible",
+                "to assess",
+                "the impact",
+                "immediately."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "It",
+                "will",
+                "not",
+                "be",
+                "possible",
+                "to",
+                "assess",
+                "the",
+                "impact",
+                "immediately."
+            ],
+            "options": [
+                "It",
+                "Themselves",
+                "I",
+                "You",
+                "will",
+                "couldn't",
+                "won't",
+                "wouldn't",
+                "not",
+                "still",
+                "just",
+                "also",
+                "be",
+                "are",
+                "was",
+                "were",
+                "possible",
+                "friendly",
+                "lovely",
+                "final",
+                "to",
+                "onto",
+                "over",
+                "under",
+                "assess",
+                "clearer",
+                "once",
+                "compare",
+                "the",
+                "those",
+                "each",
+                "every",
+                "impact",
+                "outcome",
+                "consistent",
+                "last",
+                "immediately",
+                "loudly",
+                "quietly",
+                "slowly"
+            ],
+            "source_text_uk": "Одразу оцінити вплив буде неможливо.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "Themselves",
+                    "I",
+                    "You"
+                ],
+                "a2": [
+                    "will",
+                    "couldn't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a3": [
+                    "not",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a4": [
+                    "be",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a5": [
+                    "possible",
+                    "friendly",
+                    "lovely",
+                    "final"
+                ],
+                "a6": [
+                    "to",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a7": [
+                    "assess",
+                    "clearer",
+                    "once",
+                    "compare"
+                ],
+                "a8": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a9": [
+                    "impact",
+                    "outcome",
+                    "consistent",
+                    "last"
+                ],
+                "a10": [
+                    "immediately",
+                    "loudly",
+                    "quietly",
+                    "slowly"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "beq-future-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Результат відповідатиме зобов'язанням, узятим торік?",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Результат відповідатиме зобов'язанням, узятим торік?",
+            "target_text": "Will the outcome be consistent with the commitments made last year?",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "verb_hint": "Запитай про майбутню відповідність результату вже взятим зобов'язанням.",
+                    "options": [
+                        "Will",
+                        "May",
+                        "Might",
+                        "Must"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про майбутню відповідність результату вже взятим зобов'язанням.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a3": {
+                    "answer": "outcome",
+                    "verb_hint": "Запитай про майбутню відповідність результату вже взятим зобов'язанням.",
+                    "options": [
+                        "outcome",
+                        "compare",
+                        "assess",
+                        "impact"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Запитай про майбутню відповідність результату вже взятим зобов'язанням.",
+                    "options": [
+                        "be",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "consistent",
+                    "verb_hint": "Запитай про майбутню відповідність результату вже взятим зобов'язанням.",
+                    "options": [
+                        "consistent",
+                        "difference",
+                        "clearer",
+                        "once"
+                    ]
+                },
+                "a6": {
+                    "answer": "with",
+                    "verb_hint": "Запитай про майбутню відповідність результату вже взятим зобов'язанням.",
+                    "options": [
+                        "with",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про майбутню відповідність результату вже взятим зобов'язанням.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a8": {
+                    "answer": "commitments",
+                    "verb_hint": "Запитай про майбутню відповідність результату вже взятим зобов'язанням.",
+                    "options": [
+                        "commitments",
+                        "options",
+                        "costs",
+                        "cups"
+                    ]
+                },
+                "a9": {
+                    "answer": "made",
+                    "verb_hint": "Запитай про майбутню відповідність результату вже взятим зобов'язанням.",
+                    "options": [
+                        "made",
+                        "visited",
+                        "cooked",
+                        "found"
+                    ]
+                },
+                "a10": {
+                    "answer": "last",
+                    "verb_hint": "Запитай про майбутню відповідність результату вже взятим зобов'язанням.",
+                    "options": [
+                        "last",
+                        "food",
+                        "bike",
+                        "car"
+                    ]
+                },
+                "a11": {
+                    "answer": "year?",
+                    "verb_hint": "Запитай про майбутню відповідність результату вже взятим зобов'язанням.",
+                    "options": [
+                        "year",
+                        "hour",
+                        "minute",
+                        "second"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про майбутню відповідність результату вже взятим зобов'язанням.",
+            "accepted_target_texts": [
+                "Will the outcome be consistent with the commitments made last year?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will the outcome",
+                "be consistent",
+                "with the commitments",
+                "made last year?"
+            ],
+            "token_groups": [
+                "Will the outcome",
+                "be consistent",
+                "with the commitments",
+                "made last year?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Will",
+                "the",
+                "outcome",
+                "be",
+                "consistent",
+                "with",
+                "the",
+                "commitments",
+                "made",
+                "last",
+                "year?"
+            ],
+            "options": [
+                "Will",
+                "May",
+                "Might",
+                "Must",
+                "the",
+                "both",
+                "a",
+                "an",
+                "outcome",
+                "compare",
+                "assess",
+                "impact",
+                "be",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "consistent",
+                "difference",
+                "clearer",
+                "once",
+                "with",
+                "about",
+                "during",
+                "to",
+                "some",
+                "any",
+                "this",
+                "commitments",
+                "options",
+                "costs",
+                "cups",
+                "made",
+                "visited",
+                "cooked",
+                "found",
+                "last",
+                "food",
+                "bike",
+                "car",
+                "year",
+                "hour",
+                "minute",
+                "second"
+            ],
+            "source_text_uk": "Результат відповідатиме зобов'язанням, узятим торік?",
+            "options_by_marker": {
+                "a1": [
+                    "Will",
+                    "May",
+                    "Might",
+                    "Must"
+                ],
+                "a2": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a3": [
+                    "outcome",
+                    "compare",
+                    "assess",
+                    "impact"
+                ],
+                "a4": [
+                    "be",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a5": [
+                    "consistent",
+                    "difference",
+                    "clearer",
+                    "once"
+                ],
+                "a6": [
+                    "with",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a7": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a8": [
+                    "commitments",
+                    "options",
+                    "costs",
+                    "cups"
+                ],
+                "a9": [
+                    "made",
+                    "visited",
+                    "cooked",
+                    "found"
+                ],
+                "a10": [
+                    "last",
+                    "food",
+                    "bike",
+                    "car"
+                ],
+                "a11": [
+                    "year",
+                    "hour",
+                    "minute",
+                    "second"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "beq-future-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Успіх ініціативи залежатиме від співпраці місцевих установ.",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Успіх ініціативи залежатиме від співпраці місцевих установ.",
+            "target_text": "The success of the initiative will be contingent on the cooperation of local agencies.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай майбутню залежність успіху від конкретного виду співпраці.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "success",
+                    "verb_hint": "Передай майбутню залежність успіху від конкретного виду співпраці.",
+                    "options": [
+                        "success",
+                        "transparent",
+                        "process",
+                        "distribution"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Передай майбутню залежність успіху від конкретного виду співпраці.",
+                    "options": [
+                        "of",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Передай майбутню залежність успіху від конкретного виду співпраці.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "initiative",
+                    "verb_hint": "Передай майбутню залежність успіху від конкретного виду співпраці.",
+                    "options": [
+                        "initiative",
+                        "good",
+                        "bad",
+                        "friendly"
+                    ]
+                },
+                "a6": {
+                    "answer": "will",
+                    "verb_hint": "Передай майбутню залежність успіху від конкретного виду співпраці.",
+                    "options": [
+                        "will",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a7": {
+                    "answer": "be",
+                    "verb_hint": "Передай майбутню залежність успіху від конкретного виду співпраці.",
+                    "options": [
+                        "be",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "contingent",
+                    "verb_hint": "Передай майбутню залежність успіху від конкретного виду співпраці.",
+                    "options": [
+                        "contingent",
+                        "aggregate",
+                        "value",
+                        "most"
+                    ]
+                },
+                "a9": {
+                    "answer": "on",
+                    "verb_hint": "Передай майбутню залежність успіху від конкретного виду співпраці.",
+                    "options": [
+                        "on",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Передай майбутню залежність успіху від конкретного виду співпраці.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a11": {
+                    "answer": "cooperation",
+                    "verb_hint": "Передай майбутню залежність успіху від конкретного виду співпраці.",
+                    "options": [
+                        "cooperation",
+                        "book",
+                        "box",
+                        "chair"
+                    ]
+                },
+                "a12": {
+                    "answer": "of",
+                    "verb_hint": "Передай майбутню залежність успіху від конкретного виду співпраці.",
+                    "options": [
+                        "of",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a13": {
+                    "answer": "local",
+                    "verb_hint": "Передай майбутню залежність успіху від конкретного виду співпраці.",
+                    "options": [
+                        "local",
+                        "key",
+                        "room",
+                        "map"
+                    ]
+                },
+                "a14": {
+                    "answer": "agencies.",
+                    "verb_hint": "Передай майбутню залежність успіху від конкретного виду співпраці.",
+                    "options": [
+                        "agencies",
+                        "matters",
+                        "interests",
+                        "benefits"
+                    ]
+                }
+            },
+            "verb_hint": "Передай майбутню залежність успіху від конкретного виду співпраці.",
+            "accepted_target_texts": [
+                "The success of the initiative will be contingent on the cooperation of local agencies.",
+                "The success of the initiative will be dependent on the cooperation of local agencies."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "dependent"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "dependent"
+                ]
+            },
+            "reorder_groups": [
+                "The success",
+                "of the initiative",
+                "will be",
+                "contingent on",
+                "the cooperation",
+                "of local agencies."
+            ],
+            "token_groups": [
+                "The success",
+                "of the initiative",
+                "will be",
+                "contingent on",
+                "the cooperation",
+                "of local agencies."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "success",
+                "of",
+                "the",
+                "initiative",
+                "will",
+                "be",
+                "contingent",
+                "on",
+                "the",
+                "cooperation",
+                "of",
+                "local",
+                "agencies."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "success",
+                "transparent",
+                "process",
+                "distribution",
+                "of",
+                "across",
+                "between",
+                "among",
+                "the",
+                "every",
+                "no",
+                "another",
+                "initiative",
+                "good",
+                "bad",
+                "friendly",
+                "will",
+                "cannot",
+                "can",
+                "could",
+                "be",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "contingent",
+                "aggregate",
+                "value",
+                "most",
+                "on",
+                "about",
+                "during",
+                "to",
+                "either",
+                "neither",
+                "all",
+                "cooperation",
+                "book",
+                "box",
+                "chair",
+                "into",
+                "onto",
+                "over",
+                "local",
+                "key",
+                "room",
+                "map",
+                "agencies",
+                "matters",
+                "interests",
+                "benefits"
+            ],
+            "source_text_uk": "Успіх ініціативи залежатиме від співпраці місцевих установ.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "success",
+                    "transparent",
+                    "process",
+                    "distribution"
+                ],
+                "a3": [
+                    "of",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a4": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "initiative",
+                    "good",
+                    "bad",
+                    "friendly"
+                ],
+                "a6": [
+                    "will",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a7": [
+                    "be",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a8": [
+                    "contingent",
+                    "aggregate",
+                    "value",
+                    "most"
+                ],
+                "a9": [
+                    "on",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a10": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a11": [
+                    "cooperation",
+                    "book",
+                    "box",
+                    "chair"
+                ],
+                "a12": [
+                    "of",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a13": [
+                    "local",
+                    "key",
+                    "room",
+                    "map"
+                ],
+                "a14": [
+                    "agencies",
+                    "matters",
+                    "interests",
+                    "benefits"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "beq-future-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Найважливішим буде розподіл вигод, а не їхня сукупна вартість.",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Найважливішим буде розподіл вигод, а не їхня сукупна вартість.",
+            "target_text": "It will be the distribution of the benefits, not their aggregate value, that matters most.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+                    "options": [
+                        "It",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "will",
+                    "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+                    "options": [
+                        "will",
+                        "couldn't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "be",
+                    "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+                    "options": [
+                        "be",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a5": {
+                    "answer": "distribution",
+                    "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+                    "options": [
+                        "distribution",
+                        "transparent",
+                        "process",
+                        "success"
+                    ]
+                },
+                "a6": {
+                    "answer": "of",
+                    "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+                    "options": [
+                        "of",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a8": {
+                    "answer": "benefits,",
+                    "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+                    "options": [
+                        "benefits",
+                        "interests",
+                        "agencies",
+                        "keys"
+                    ]
+                },
+                "a9": {
+                    "answer": "not",
+                    "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a10": {
+                    "answer": "their",
+                    "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+                    "options": [
+                        "their",
+                        "her",
+                        "its",
+                        "our"
+                    ]
+                },
+                "a11": {
+                    "answer": "aggregate",
+                    "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+                    "options": [
+                        "aggregate",
+                        "contingent",
+                        "cooperation",
+                        "local"
+                    ]
+                },
+                "a12": {
+                    "answer": "value,",
+                    "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+                    "options": [
+                        "value",
+                        "picture",
+                        "child",
+                        "teacher"
+                    ]
+                },
+                "a13": {
+                    "answer": "that",
+                    "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+                    "options": [
+                        "that",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a14": {
+                    "answer": "matters",
+                    "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+                    "options": [
+                        "matters",
+                        "letters",
+                        "windows",
+                        "phones"
+                    ]
+                },
+                "a15": {
+                    "answer": "most.",
+                    "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+                    "options": [
+                        "most",
+                        "train",
+                        "bus",
+                        "desk"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи майбутнє виділення та протиставлення розподілу сукупній вартості.",
+            "accepted_target_texts": [
+                "It will be the distribution of the benefits, not their aggregate value, that matters most."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It will be",
+                "the distribution",
+                "of the benefits,",
+                "not their aggregate",
+                "value,",
+                "that matters most."
+            ],
+            "token_groups": [
+                "It will be",
+                "the distribution",
+                "of the benefits,",
+                "not their aggregate",
+                "value,",
+                "that matters most."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "It",
+                "will",
+                "be",
+                "the",
+                "distribution",
+                "of",
+                "the",
+                "benefits,",
+                "not",
+                "their",
+                "aggregate",
+                "value,",
+                "that",
+                "matters",
+                "most."
+            ],
+            "options": [
+                "It",
+                "Us",
+                "Them",
+                "Myself",
+                "will",
+                "couldn't",
+                "won't",
+                "wouldn't",
+                "be",
+                "weren't",
+                "am",
+                "is",
+                "the",
+                "a",
+                "an",
+                "some",
+                "distribution",
+                "transparent",
+                "process",
+                "success",
+                "of",
+                "between",
+                "among",
+                "about",
+                "neither",
+                "all",
+                "both",
+                "benefits",
+                "interests",
+                "agencies",
+                "keys",
+                "not",
+                "never",
+                "always",
+                "often",
+                "their",
+                "her",
+                "its",
+                "our",
+                "aggregate",
+                "contingent",
+                "cooperation",
+                "local",
+                "value",
+                "picture",
+                "child",
+                "teacher",
+                "that",
+                "those",
+                "each",
+                "every",
+                "matters",
+                "letters",
+                "windows",
+                "phones",
+                "most",
+                "train",
+                "bus",
+                "desk"
+            ],
+            "source_text_uk": "Найважливішим буде розподіл вигод, а не їхня сукупна вартість.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "will",
+                    "couldn't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a3": [
+                    "be",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a4": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a5": [
+                    "distribution",
+                    "transparent",
+                    "process",
+                    "success"
+                ],
+                "a6": [
+                    "of",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a7": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a8": [
+                    "benefits",
+                    "interests",
+                    "agencies",
+                    "keys"
+                ],
+                "a9": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a10": [
+                    "their",
+                    "her",
+                    "its",
+                    "our"
+                ],
+                "a11": [
+                    "aggregate",
+                    "contingent",
+                    "cooperation",
+                    "local"
+                ],
+                "a12": [
+                    "value",
+                    "picture",
+                    "child",
+                    "teacher"
+                ],
+                "a13": [
+                    "that",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a14": [
+                    "matters",
+                    "letters",
+                    "windows",
+                    "phones"
+                ],
+                "a15": [
+                    "most",
+                    "train",
+                    "bus",
+                    "desk"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "beq-future-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Наскільки прозорим буде процес для тих, чиї інтереси він безпосередньо зачіпає?",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Наскільки прозорим буде процес для тих, чиї інтереси він безпосередньо зачіпає?",
+            "target_text": "How transparent will the process be to those whose interests are directly affected?",
+            "markers": {
+                "a1": {
+                    "answer": "How",
+                    "verb_hint": "Склади пряме майбутнє питання та збережи означення зацікавлених людей.",
+                    "options": [
+                        "How",
+                        "Whatever",
+                        "Wherever",
+                        "Whenever"
+                    ]
+                },
+                "a2": {
+                    "answer": "transparent",
+                    "verb_hint": "Склади пряме майбутнє питання та збережи означення зацікавлених людей.",
+                    "options": [
+                        "transparent",
+                        "cooperation",
+                        "local",
+                        "distribution"
+                    ]
+                },
+                "a3": {
+                    "answer": "will",
+                    "verb_hint": "Склади пряме майбутнє питання та збережи означення зацікавлених людей.",
+                    "options": [
+                        "will",
+                        "can",
+                        "could",
+                        "would"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Склади пряме майбутнє питання та збережи означення зацікавлених людей.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a5": {
+                    "answer": "process",
+                    "verb_hint": "Склади пряме майбутнє питання та збережи означення зацікавлених людей.",
+                    "options": [
+                        "process",
+                        "aggregate",
+                        "value",
+                        "most"
+                    ]
+                },
+                "a6": {
+                    "answer": "be",
+                    "verb_hint": "Склади пряме майбутнє питання та збережи означення зацікавлених людей.",
+                    "options": [
+                        "be",
+                        "is",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Склади пряме майбутнє питання та збережи означення зацікавлених людей.",
+                    "options": [
+                        "to",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a8": {
+                    "answer": "those",
+                    "verb_hint": "Склади пряме майбутнє питання та збережи означення зацікавлених людей.",
+                    "options": [
+                        "those",
+                        "these",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a9": {
+                    "answer": "whose",
+                    "verb_hint": "Склади пряме майбутнє питання та збережи означення зацікавлених людей.",
+                    "options": [
+                        "whose",
+                        "my",
+                        "your",
+                        "his"
+                    ]
+                },
+                "a10": {
+                    "answer": "interests",
+                    "verb_hint": "Склади пряме майбутнє питання та збережи означення зацікавлених людей.",
+                    "options": [
+                        "interests",
+                        "benefits",
+                        "matters",
+                        "agencies"
+                    ]
+                },
+                "a11": {
+                    "answer": "are",
+                    "verb_hint": "Склади пряме майбутнє питання та збережи означення зацікавлених людей.",
+                    "options": [
+                        "are",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a12": {
+                    "answer": "directly",
+                    "verb_hint": "Склади пряме майбутнє питання та збережи означення зацікавлених людей.",
+                    "options": [
+                        "directly",
+                        "carefully",
+                        "well",
+                        "badly"
+                    ]
+                },
+                "a13": {
+                    "answer": "affected?",
+                    "verb_hint": "Склади пряме майбутнє питання та збережи означення зацікавлених людей.",
+                    "options": [
+                        "affected",
+                        "liked",
+                        "wanted",
+                        "worked"
+                    ]
+                }
+            },
+            "verb_hint": "Склади пряме майбутнє питання та збережи означення зацікавлених людей.",
+            "accepted_target_texts": [
+                "How transparent will the process be to those whose interests are directly affected?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How transparent",
+                "will the process",
+                "be to those",
+                "whose interests",
+                "are directly affected?"
+            ],
+            "token_groups": [
+                "How transparent",
+                "will the process",
+                "be to those",
+                "whose interests",
+                "are directly affected?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "How",
+                "transparent",
+                "will",
+                "the",
+                "process",
+                "be",
+                "to",
+                "those",
+                "whose",
+                "interests",
+                "are",
+                "directly",
+                "affected?"
+            ],
+            "options": [
+                "How",
+                "Whatever",
+                "Wherever",
+                "Whenever",
+                "transparent",
+                "cooperation",
+                "local",
+                "distribution",
+                "will",
+                "can",
+                "could",
+                "would",
+                "the",
+                "a",
+                "an",
+                "some",
+                "process",
+                "aggregate",
+                "value",
+                "most",
+                "be",
+                "is",
+                "was",
+                "were",
+                "to",
+                "into",
+                "onto",
+                "over",
+                "those",
+                "these",
+                "each",
+                "every",
+                "whose",
+                "my",
+                "your",
+                "his",
+                "interests",
+                "benefits",
+                "matters",
+                "agencies",
+                "are",
+                "been",
+                "being",
+                "isn't",
+                "directly",
+                "carefully",
+                "well",
+                "badly",
+                "affected",
+                "liked",
+                "wanted",
+                "worked"
+            ],
+            "source_text_uk": "Наскільки прозорим буде процес для тих, чиї інтереси він безпосередньо зачіпає?",
+            "options_by_marker": {
+                "a1": [
+                    "How",
+                    "Whatever",
+                    "Wherever",
+                    "Whenever"
+                ],
+                "a2": [
+                    "transparent",
+                    "cooperation",
+                    "local",
+                    "distribution"
+                ],
+                "a3": [
+                    "will",
+                    "can",
+                    "could",
+                    "would"
+                ],
+                "a4": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a5": [
+                    "process",
+                    "aggregate",
+                    "value",
+                    "most"
+                ],
+                "a6": [
+                    "be",
+                    "is",
+                    "was",
+                    "were"
+                ],
+                "a7": [
+                    "to",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a8": [
+                    "those",
+                    "these",
+                    "each",
+                    "every"
+                ],
+                "a9": [
+                    "whose",
+                    "my",
+                    "your",
+                    "his"
+                ],
+                "a10": [
+                    "interests",
+                    "benefits",
+                    "matters",
+                    "agencies"
+                ],
+                "a11": [
+                    "are",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a12": [
+                    "directly",
+                    "carefully",
+                    "well",
+                    "badly"
+                ],
+                "a13": [
+                    "affected",
+                    "liked",
+                    "wanted",
+                    "worked"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "beq-future-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Питання полягатиме не в тому, чи працює механізм, а в тому, чиїм інтересам він служить.",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Питання полягатиме не в тому, чи працює механізм, а в тому, чиїм інтересам він служить.",
+            "target_text": "The question will be not whether the mechanism works, but whose interests it serves.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи майбутню постановку питання та протиставлення працездатності й інтересів.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "question",
+                    "verb_hint": "Збережи майбутню постановку питання та протиставлення працездатності й інтересів.",
+                    "options": [
+                        "question",
+                        "uniformity",
+                        "sign",
+                        "genuine"
+                    ]
+                },
+                "a3": {
+                    "answer": "will",
+                    "verb_hint": "Збережи майбутню постановку питання та протиставлення працездатності й інтересів.",
+                    "options": [
+                        "will",
+                        "couldn't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Збережи майбутню постановку питання та протиставлення працездатності й інтересів.",
+                    "options": [
+                        "be",
+                        "is",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a5": {
+                    "answer": "not",
+                    "verb_hint": "Збережи майбутню постановку питання та протиставлення працездатності й інтересів.",
+                    "options": [
+                        "not",
+                        "often",
+                        "sometimes",
+                        "already"
+                    ]
+                },
+                "a6": {
+                    "answer": "whether",
+                    "verb_hint": "Збережи майбутню постановку питання та протиставлення працездатності й інтересів.",
+                    "options": [
+                        "whether",
+                        "so",
+                        "yet",
+                        "because"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Збережи майбутню постановку питання та протиставлення працездатності й інтересів.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "mechanism",
+                    "verb_hint": "Збережи майбутню постановку питання та протиставлення працездатності й інтересів.",
+                    "options": [
+                        "mechanism",
+                        "convergence",
+                        "compliance",
+                        "disentangle"
+                    ]
+                },
+                "a9": {
+                    "answer": "works,",
+                    "verb_hint": "Збережи майбутню постановку питання та протиставлення працездатності й інтересів.",
+                    "options": [
+                        "works",
+                        "closes",
+                        "helps",
+                        "waits"
+                    ]
+                },
+                "a10": {
+                    "answer": "but",
+                    "verb_hint": "Збережи майбутню постановку питання та протиставлення працездатності й інтересів.",
+                    "options": [
+                        "but",
+                        "though",
+                        "unless",
+                        "whereas"
+                    ]
+                },
+                "a11": {
+                    "answer": "whose",
+                    "verb_hint": "Збережи майбутню постановку питання та протиставлення працездатності й інтересів.",
+                    "options": [
+                        "whose",
+                        "our",
+                        "their",
+                        "mine"
+                    ]
+                },
+                "a12": {
+                    "answer": "interests",
+                    "verb_hint": "Збережи майбутню постановку питання та протиставлення працездатності й інтересів.",
+                    "options": [
+                        "interests",
+                        "reform's",
+                        "consequences",
+                        "boxes"
+                    ]
+                },
+                "a13": {
+                    "answer": "it",
+                    "verb_hint": "Збережи майбутню постановку питання та протиставлення працездатності й інтересів.",
+                    "options": [
+                        "it",
+                        "me",
+                        "him",
+                        "us"
+                    ]
+                },
+                "a14": {
+                    "answer": "serves.",
+                    "verb_hint": "Збережи майбутню постановку питання та протиставлення працездатності й інтересів.",
+                    "options": [
+                        "serves",
+                        "tables",
+                        "tickets",
+                        "cups"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи майбутню постановку питання та протиставлення працездатності й інтересів.",
+            "accepted_target_texts": [
+                "The question will be not whether the mechanism works, but whose interests it serves."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The question",
+                "will be",
+                "not whether",
+                "the mechanism works,",
+                "but whose interests",
+                "it serves."
+            ],
+            "token_groups": [
+                "The question",
+                "will be",
+                "not whether",
+                "the mechanism works,",
+                "but whose interests",
+                "it serves."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "question",
+                "will",
+                "be",
+                "not",
+                "whether",
+                "the",
+                "mechanism",
+                "works,",
+                "but",
+                "whose",
+                "interests",
+                "it",
+                "serves."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "question",
+                "uniformity",
+                "sign",
+                "genuine",
+                "will",
+                "couldn't",
+                "won't",
+                "wouldn't",
+                "be",
+                "is",
+                "are",
+                "was",
+                "not",
+                "often",
+                "sometimes",
+                "already",
+                "whether",
+                "so",
+                "yet",
+                "because",
+                "the",
+                "no",
+                "another",
+                "either",
+                "mechanism",
+                "convergence",
+                "compliance",
+                "disentangle",
+                "works",
+                "closes",
+                "helps",
+                "waits",
+                "but",
+                "though",
+                "unless",
+                "whereas",
+                "whose",
+                "our",
+                "their",
+                "mine",
+                "interests",
+                "reform's",
+                "consequences",
+                "boxes",
+                "it",
+                "me",
+                "him",
+                "us",
+                "serves",
+                "tables",
+                "tickets",
+                "cups"
+            ],
+            "source_text_uk": "Питання полягатиме не в тому, чи працює механізм, а в тому, чиїм інтересам він служить.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "question",
+                    "uniformity",
+                    "sign",
+                    "genuine"
+                ],
+                "a3": [
+                    "will",
+                    "couldn't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a4": [
+                    "be",
+                    "is",
+                    "are",
+                    "was"
+                ],
+                "a5": [
+                    "not",
+                    "often",
+                    "sometimes",
+                    "already"
+                ],
+                "a6": [
+                    "whether",
+                    "so",
+                    "yet",
+                    "because"
+                ],
+                "a7": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a8": [
+                    "mechanism",
+                    "convergence",
+                    "compliance",
+                    "disentangle"
+                ],
+                "a9": [
+                    "works",
+                    "closes",
+                    "helps",
+                    "waits"
+                ],
+                "a10": [
+                    "but",
+                    "though",
+                    "unless",
+                    "whereas"
+                ],
+                "a11": [
+                    "whose",
+                    "our",
+                    "their",
+                    "mine"
+                ],
+                "a12": [
+                    "interests",
+                    "reform's",
+                    "consequences",
+                    "boxes"
+                ],
+                "a13": [
+                    "it",
+                    "me",
+                    "him",
+                    "us"
+                ],
+                "a14": [
+                    "serves",
+                    "tables",
+                    "tickets",
+                    "cups"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "beq-future-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Отримана одноманітність буде ознакою справжнього зближення чи лише вимушеного підкорення?",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Отримана одноманітність буде ознакою справжнього зближення чи лише вимушеного підкорення?",
+            "target_text": "Will the resulting uniformity be a sign of genuine convergence or merely of enforced compliance?",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+                    "options": [
+                        "Will",
+                        "Shall",
+                        "Should",
+                        "May"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a3": {
+                    "answer": "resulting",
+                    "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+                    "options": [
+                        "resulting",
+                        "living",
+                        "buying",
+                        "giving"
+                    ]
+                },
+                "a4": {
+                    "answer": "uniformity",
+                    "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+                    "options": [
+                        "uniformity",
+                        "confidence",
+                        "question",
+                        "mechanism"
+                    ]
+                },
+                "a5": {
+                    "answer": "be",
+                    "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+                    "options": [
+                        "be",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+                    "options": [
+                        "a",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a7": {
+                    "answer": "sign",
+                    "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+                    "options": [
+                        "sign",
+                        "significance",
+                        "disentangle",
+                        "key"
+                    ]
+                },
+                "a8": {
+                    "answer": "of",
+                    "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+                    "options": [
+                        "of",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a9": {
+                    "answer": "genuine",
+                    "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+                    "options": [
+                        "genuine",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a10": {
+                    "answer": "convergence",
+                    "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+                    "options": [
+                        "convergence",
+                        "bag",
+                        "book",
+                        "box"
+                    ]
+                },
+                "a11": {
+                    "answer": "or",
+                    "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+                    "options": [
+                        "or",
+                        "whether",
+                        "and",
+                        "but"
+                    ]
+                },
+                "a12": {
+                    "answer": "merely",
+                    "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+                    "options": [
+                        "merely",
+                        "clearly",
+                        "safely",
+                        "happily"
+                    ]
+                },
+                "a13": {
+                    "answer": "of",
+                    "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+                    "options": [
+                        "of",
+                        "for",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a14": {
+                    "answer": "enforced",
+                    "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+                    "options": [
+                        "enforced",
+                        "liked",
+                        "wanted",
+                        "worked"
+                    ]
+                },
+                "a15": {
+                    "answer": "compliance?",
+                    "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+                    "options": [
+                        "compliance",
+                        "room",
+                        "map",
+                        "letter"
+                    ]
+                }
+            },
+            "verb_hint": "Склади альтернативне майбутнє питання, не відкидаючи жодного з двох тлумачень.",
+            "accepted_target_texts": [
+                "Will the resulting uniformity be a sign of genuine convergence or merely of enforced compliance?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will the resulting",
+                "uniformity be",
+                "a sign",
+                "of genuine convergence",
+                "or merely",
+                "of enforced compliance?"
+            ],
+            "token_groups": [
+                "Will the resulting",
+                "uniformity be",
+                "a sign",
+                "of genuine convergence",
+                "or merely",
+                "of enforced compliance?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Will",
+                "the",
+                "resulting",
+                "uniformity",
+                "be",
+                "a",
+                "sign",
+                "of",
+                "genuine",
+                "convergence",
+                "or",
+                "merely",
+                "of",
+                "enforced",
+                "compliance?"
+            ],
+            "options": [
+                "Will",
+                "Shall",
+                "Should",
+                "May",
+                "the",
+                "each",
+                "every",
+                "no",
+                "resulting",
+                "living",
+                "buying",
+                "giving",
+                "uniformity",
+                "confidence",
+                "question",
+                "mechanism",
+                "be",
+                "wasn't",
+                "weren't",
+                "am",
+                "a",
+                "another",
+                "either",
+                "neither",
+                "sign",
+                "significance",
+                "disentangle",
+                "key",
+                "of",
+                "among",
+                "about",
+                "during",
+                "genuine",
+                "school",
+                "sister",
+                "brother",
+                "convergence",
+                "bag",
+                "book",
+                "box",
+                "or",
+                "whether",
+                "and",
+                "but",
+                "merely",
+                "clearly",
+                "safely",
+                "happily",
+                "for",
+                "in",
+                "on",
+                "enforced",
+                "liked",
+                "wanted",
+                "worked",
+                "compliance",
+                "room",
+                "map",
+                "letter"
+            ],
+            "source_text_uk": "Отримана одноманітність буде ознакою справжнього зближення чи лише вимушеного підкорення?",
+            "options_by_marker": {
+                "a1": [
+                    "Will",
+                    "Shall",
+                    "Should",
+                    "May"
+                ],
+                "a2": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a3": [
+                    "resulting",
+                    "living",
+                    "buying",
+                    "giving"
+                ],
+                "a4": [
+                    "uniformity",
+                    "confidence",
+                    "question",
+                    "mechanism"
+                ],
+                "a5": [
+                    "be",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a6": [
+                    "a",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a7": [
+                    "sign",
+                    "significance",
+                    "disentangle",
+                    "key"
+                ],
+                "a8": [
+                    "of",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a9": [
+                    "genuine",
+                    "school",
+                    "sister",
+                    "brother"
+                ],
+                "a10": [
+                    "convergence",
+                    "bag",
+                    "book",
+                    "box"
+                ],
+                "a11": [
+                    "or",
+                    "whether",
+                    "and",
+                    "but"
+                ],
+                "a12": [
+                    "merely",
+                    "clearly",
+                    "safely",
+                    "happily"
+                ],
+                "a13": [
+                    "of",
+                    "for",
+                    "in",
+                    "on"
+                ],
+                "a14": [
+                    "enforced",
+                    "liked",
+                    "wanted",
+                    "worked"
+                ],
+                "a15": [
+                    "compliance",
+                    "room",
+                    "map",
+                    "letter"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "beq-future-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Неможливо буде впевнено відокремити символічне значення реформи від її практичних наслідків.",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Неможливо буде впевнено відокремити символічне значення реформи від її практичних наслідків.",
+            "target_text": "It will be impossible to disentangle the reform's symbolic significance from its practical consequences with any confidence.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "It",
+                        "Yourself",
+                        "Herself",
+                        "Ourselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "will",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "will",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a3": {
+                    "answer": "be",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "be",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a4": {
+                    "answer": "impossible",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "impossible",
+                        "clear",
+                        "safe",
+                        "useful"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "to",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a6": {
+                    "answer": "disentangle",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "disentangle",
+                        "question",
+                        "mechanism",
+                        "uniformity"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "the",
+                        "some",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a8": {
+                    "answer": "reform's",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "reform's",
+                        "interests",
+                        "serves",
+                        "tables"
+                    ]
+                },
+                "a9": {
+                    "answer": "symbolic",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "symbolic",
+                        "light",
+                        "clean",
+                        "dirty"
+                    ]
+                },
+                "a10": {
+                    "answer": "significance",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "significance",
+                        "sign",
+                        "genuine",
+                        "convergence"
+                    ]
+                },
+                "a11": {
+                    "answer": "from",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "from",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a12": {
+                    "answer": "its",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "its",
+                        "your",
+                        "his",
+                        "her"
+                    ]
+                },
+                "a13": {
+                    "answer": "practical",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "practical",
+                        "dark",
+                        "heavy",
+                        "good"
+                    ]
+                },
+                "a14": {
+                    "answer": "consequences",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "consequences",
+                        "maps",
+                        "letters",
+                        "windows"
+                    ]
+                },
+                "a15": {
+                    "answer": "with",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "with",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a16": {
+                    "answer": "any",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "any",
+                        "an",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a17": {
+                    "answer": "confidence.",
+                    "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+                    "options": [
+                        "confidence",
+                        "compliance",
+                        "school",
+                        "sister"
+                    ]
+                }
+            },
+            "verb_hint": "Використай формальний підмет і збережи оцінку неможливості впевненого розмежування.",
+            "accepted_target_texts": [
+                "It will be impossible to disentangle the reform's symbolic significance from its practical consequences with any confidence."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It will be",
+                "impossible to disentangle",
+                "the reform's symbolic",
+                "significance from",
+                "its practical consequences",
+                "with any confidence."
+            ],
+            "token_groups": [
+                "It will be",
+                "impossible to disentangle",
+                "the reform's symbolic",
+                "significance from",
+                "its practical consequences",
+                "with any confidence."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "It",
+                "will",
+                "be",
+                "impossible",
+                "to",
+                "disentangle",
+                "the",
+                "reform's",
+                "symbolic",
+                "significance",
+                "from",
+                "its",
+                "practical",
+                "consequences",
+                "with",
+                "any",
+                "confidence."
+            ],
+            "options": [
+                "It",
+                "Yourself",
+                "Herself",
+                "Ourselves",
+                "will",
+                "shall",
+                "should",
+                "may",
+                "be",
+                "are",
+                "was",
+                "were",
+                "impossible",
+                "clear",
+                "safe",
+                "useful",
+                "to",
+                "among",
+                "about",
+                "during",
+                "disentangle",
+                "question",
+                "mechanism",
+                "uniformity",
+                "the",
+                "some",
+                "this",
+                "that",
+                "reform's",
+                "interests",
+                "serves",
+                "tables",
+                "symbolic",
+                "light",
+                "clean",
+                "dirty",
+                "significance",
+                "sign",
+                "genuine",
+                "convergence",
+                "from",
+                "for",
+                "of",
+                "in",
+                "its",
+                "your",
+                "his",
+                "her",
+                "practical",
+                "dark",
+                "heavy",
+                "good",
+                "consequences",
+                "maps",
+                "letters",
+                "windows",
+                "with",
+                "without",
+                "into",
+                "onto",
+                "any",
+                "an",
+                "these",
+                "those",
+                "confidence",
+                "compliance",
+                "school",
+                "sister"
+            ],
+            "source_text_uk": "Неможливо буде впевнено відокремити символічне значення реформи від її практичних наслідків.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "Yourself",
+                    "Herself",
+                    "Ourselves"
+                ],
+                "a2": [
+                    "will",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a3": [
+                    "be",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a4": [
+                    "impossible",
+                    "clear",
+                    "safe",
+                    "useful"
+                ],
+                "a5": [
+                    "to",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a6": [
+                    "disentangle",
+                    "question",
+                    "mechanism",
+                    "uniformity"
+                ],
+                "a7": [
+                    "the",
+                    "some",
+                    "this",
+                    "that"
+                ],
+                "a8": [
+                    "reform's",
+                    "interests",
+                    "serves",
+                    "tables"
+                ],
+                "a9": [
+                    "symbolic",
+                    "light",
+                    "clean",
+                    "dirty"
+                ],
+                "a10": [
+                    "significance",
+                    "sign",
+                    "genuine",
+                    "convergence"
+                ],
+                "a11": [
+                    "from",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a12": [
+                    "its",
+                    "your",
+                    "his",
+                    "her"
+                ],
+                "a13": [
+                    "practical",
+                    "dark",
+                    "heavy",
+                    "good"
+                ],
+                "a14": [
+                    "consequences",
+                    "maps",
+                    "letters",
+                    "windows"
+                ],
+                "a15": [
+                    "with",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a16": [
+                    "any",
+                    "an",
+                    "these",
+                    "those"
+                ],
+                "a17": [
+                    "confidence",
+                    "compliance",
+                    "school",
+                    "sister"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

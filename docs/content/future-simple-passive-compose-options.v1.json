@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "revision": "future-simple-passive-compose-options-v1",
+  "source_path": "database/seeders/V3/Polyglot/PolyglotPassiveVoiceFutureSimpleAllLevelsLessonSeeder/definition.json",
+  "source_sha256": "73f9518c716b3ae73c43b5030fa95e29a3f271fa0a8baae17a8778c1f6d01e07",
+  "source_seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoiceFutureSimpleAllLevelsLessonSeeder",
+  "question_prefix": "pv-fut-simple-poly-",
+  "question_count": 72,
+  "wrong_options_per_marker": 3,
+  "profiles": {
+    "determiner": {
+      "tokens": ["a", "an", "the", "any", "every", "our", "your", "their", "its", "this", "these", "other"],
+      "candidates": ["a", "an", "the", "some", "no", "few", "several", "each", "every", "either", "neither", "both", "all", "many", "much", "another", "those", "these", "this", "that", "enough", "one", "three", "four", "five", "six"]
+    },
+    "possessive": {
+      "tokens": ["applicant's", "applicants'", "case's", "children's", "clause's", "donor's", "material's", "museum's", "painting's", "parties'", "students'", "study's", "treaty's"],
+      "candidates": ["author's", "visitor's", "teacher's", "company's", "reviewer's", "owner's", "manager's", "reader's", "council's", "client's", "editor's", "sponsor's", "neighbour's", "committee's", "witness's"]
+    },
+    "pronoun": {
+      "tokens": ["i", "it"],
+      "candidates": ["I", "me", "you", "he", "him", "she", "her", "we", "us", "they", "them", "it", "myself", "themselves"]
+    },
+    "modal": {
+      "tokens": ["will", "would", "did"],
+      "candidates": ["would", "had", "does", "did", "do", "can", "could", "must", "should", "might", "may", "has", "have"]
+    },
+    "be": {
+      "tokens": ["be", "are", "is", "were"],
+      "candidates": ["am", "is", "are", "was", "were", "been", "being", "has", "have", "had"]
+    },
+    "negative": {
+      "tokens": ["not"],
+      "candidates": ["never", "always", "already", "often", "still", "usually", "sometimes", "ever", "yet", "again"]
+    },
+    "preposition": {
+      "tokens": ["above", "after", "alongside", "among", "as", "at", "before", "between", "beyond", "by", "during", "for", "from", "in", "inside", "into", "of", "on", "pending", "throughout", "to", "under", "with", "without", "according"],
+      "candidates": ["above", "below", "under", "over", "across", "through", "within", "outside", "inside", "beside", "behind", "against", "towards", "around", "near", "past", "before", "after", "during", "until", "since", "between", "among", "beyond", "despite", "without", "for", "from", "in", "on", "at", "by", "of", "to", "with", "upon", "underneath"]
+    },
+    "conjunction": {
+      "tokens": ["and", "that"],
+      "candidates": ["although", "because", "unless", "while", "whether", "when", "once", "whereas", "if", "but", "or", "nor", "yet", "since"]
+    },
+    "question": {
+      "tokens": ["what", "when", "where", "which", "whom", "why", "how"],
+      "candidates": ["what", "when", "where", "why", "how", "whose", "which", "whom", "whenever", "whatever"]
+    },
+    "adverb": {
+      "tokens": ["aloud", "automatically", "equally", "expressly", "narrowly", "online", "only", "separately", "solely", "twice"],
+      "candidates": ["quietly", "slowly", "carefully", "publicly", "privately", "briefly", "widely", "loosely", "fully", "partly", "rarely", "frequently", "together", "individually", "manually", "immediately", "directly", "indirectly", "once", "three times", "locally", "abroad", "yesterday", "later"]
+    },
+    "adjective": {
+      "tokens": ["accessible", "archival", "audio", "colourful", "competing", "constitutional", "critical", "curatorial", "distinctive", "disputed", "documented", "editorial", "electronic", "empty", "eventual", "evidential", "expansive", "explicit", "express", "final", "full-time", "guided", "implied", "independent", "initial", "institutional", "intended", "interpretative", "introductory", "legislative", "literal", "live", "main", "new", "next", "old", "original", "permanent", "personal", "printed", "provisional", "public", "purported", "registered", "restored", "revised", "short", "sign-language", "small", "specified", "subsequent", "tentative", "textual", "ultimate", "unsuccessful", "whole", "written"],
+      "candidates": ["previous", "recent", "early", "late", "large", "tiny", "heavy", "light", "private", "public", "temporary", "permanent", "optional", "essential", "external", "internal", "practical", "theoretical", "local", "international", "familiar", "unfamiliar", "visible", "hidden", "simple", "complex", "formal", "informal", "general", "specific", "reliable", "uncertain", "relevant", "irrelevant", "physical", "digital", "annual", "monthly", "joint", "separate"]
+    },
+    "human": {
+      "tokens": ["candidates", "contributors", "donors", "finalists", "guest", "interpreter", "owner", "participants", "readership", "singers", "students", "teacher", "visitors"],
+      "candidates": ["readers", "writers", "editors", "tourists", "managers", "drivers", "clients", "workers", "neighbours", "witnesses", "advisers", "researchers", "officials", "residents", "audience", "staff", "members", "speakers", "colleagues", "customers", "performers", "volunteers", "guests", "organisers"]
+    },
+    "place": {
+      "tokens": ["café", "class", "club", "gallery", "home", "library", "school", "shop", "stage", "website", "workshop"],
+      "candidates": ["hall", "office", "station", "theatre", "studio", "cinema", "park", "garden", "harbour", "campus", "courtyard", "reception", "entrance", "corridor", "balcony", "laboratory", "classroom", "warehouse", "kitchen", "square", "museum", "library", "school", "gallery"]
+    },
+    "time": {
+      "tokens": ["tomorrow"],
+      "candidates": ["yesterday", "tonight", "soon", "later", "previously", "earlier", "now", "today", "next week", "last year"]
+    },
+    "number": {
+      "tokens": ["two", "ten"],
+      "candidates": ["three", "four", "five", "six", "seven", "eight", "nine", "eleven", "twelve", "twenty", "thirty", "forty"]
+    },
+    "weekday": {
+      "tokens": ["monday", "saturday"],
+      "candidates": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    },
+    "time_noun": {
+      "tokens": ["evening", "period"],
+      "candidates": ["morning", "afternoon", "night", "week", "month", "year", "season", "decade", "weekend", "interval", "term", "session"]
+    },
+    "language": {
+      "tokens": ["ukrainian"],
+      "candidates": ["English", "French", "German", "Spanish", "Italian", "Polish"]
+    },
+    "noun": {
+      "tokens": ["absence", "access", "acquiescence", "agreement", "allocation", "archive", "assessment", "assurance", "attribution", "authority", "authorship", "award", "basis", "book", "breakdown", "brief", "budget", "cases", "ceremony", "choir", "circumstances", "claims", "comments", "concert", "conduct", "consent", "consultation", "continuity", "costumes", "decision", "decisions", "delays", "delegation", "departure", "description", "desks", "discussion", "display", "distinction", "drawings", "duty", "edition", "evidence", "exclusion", "exhibit", "exhibition", "facts", "fair", "fee", "festival", "figures", "film", "finding", "findings", "funds", "game", "grounds", "guarantee", "identities", "inference", "involvement", "lesson", "limitations", "list", "messages", "money", "music", "names", "note", "object", "obligations", "opening", "opinion", "organisations", "page", "paintings", "parties", "partnership", "performance", "photographs", "photos", "piano", "picture", "play", "poem", "poster", "precedent", "preferences", "prize", "prizes", "provenance", "publication", "purpose", "qualification", "recordings", "reference", "rehearsal", "relevance", "renewal", "reproduction", "request", "reservation", "responsibility", "restriction", "results", "review", "reviews", "revision", "safeguards", "scenes", "scope", "silence", "song", "soundtrack", "space", "speech", "stories", "subscriptions", "subtitles", "success", "tours", "translation", "undertaking", "variants", "weight", "windows", "wording"],
+      "candidates": ["arrival", "destination", "schedule", "building", "journey", "meeting", "price", "storm", "key", "bridge", "forest", "deadline", "vehicle", "device", "package", "document", "contract", "portrait", "sculpture", "notice", "letter", "article", "chapter", "receipt", "certificate", "invitation", "delivery", "appointment", "survey", "experiment", "harvest", "traffic", "temperature", "payment", "equipment", "storage", "transport", "distance", "quantity", "permission", "obligation", "procedure", "complaint", "recommendation", "investment", "inspection", "competition", "boundary", "protection", "discovery", "operation", "insurance", "application", "interview", "proposal", "explanation", "comparison", "response", "organisation", "relationship", "construction", "collection", "communication", "transaction", "registration", "negotiation", "opportunity", "committee", "method", "setting", "circumstance"]
+    }
+  },
+  "verb_forms": {
+    "taught": ["teach", "teaches", "teaching"],
+    "shown": ["show", "shows", "showing"],
+    "moved": ["move", "moves", "moving"],
+    "read": ["reads", "reading", "reader"],
+    "asked": ["ask", "asks", "asking"],
+    "given": ["give", "gives", "giving"],
+    "used": ["use", "uses", "using"],
+    "put": ["puts", "putting", "placing"],
+    "learned": ["learn", "learns", "learning"],
+    "opened": ["open", "opens", "opening"],
+    "placed": ["place", "places", "placing"],
+    "written": ["write", "writes", "writing"],
+    "held": ["hold", "holds", "holding"],
+    "turned": ["turn", "turns", "turning"],
+    "joined": ["join", "joins", "joining"],
+    "hung": ["hang", "hangs", "hanging"],
+    "sold": ["sell", "sells", "selling"],
+    "published": ["publish", "publishes", "publishing"],
+    "decorated": ["decorate", "decorates", "decorating"],
+    "prepared": ["prepare", "prepares", "preparing"],
+    "recorded": ["record", "records", "recording"],
+    "advertised": ["advertise", "advertises", "advertising"],
+    "rearranged": ["rearrange", "rearranges", "rearranging"],
+    "offered": ["offer", "offers", "offering"],
+    "invited": ["invite", "invites", "inviting"],
+    "provided": ["provide", "provides", "providing"],
+    "shared": ["share", "shares", "sharing"],
+    "replaced": ["replace", "replaces", "replacing"],
+    "allowed": ["allow", "allows", "allowing"],
+    "removed": ["remove", "removes", "removing"],
+    "scanned": ["scan", "scans", "scanning"],
+    "reduced": ["reduce", "reduces", "reducing"],
+    "added": ["add", "adds", "adding"],
+    "divided": ["divide", "divides", "dividing"],
+    "licensed": ["license", "licenses", "licensing"],
+    "extended": ["extend", "extends", "extending"],
+    "charged": ["charge", "charges", "charging"],
+    "cited": ["cite", "cites", "citing"],
+    "notified": ["notify", "notifies", "notifying"],
+    "introduced": ["introduce", "introduces", "introducing"],
+    "renewed": ["renew", "renews", "renewing"],
+    "broadcast": ["broadcasts", "broadcasting", "broadcaster"],
+    "summarised": ["summarise", "summarises", "summarising"],
+    "approved": ["approve", "approves", "approving"],
+    "stated": ["state", "states", "stating"],
+    "credited": ["credit", "credits", "crediting"],
+    "accompanied": ["accompany", "accompanies", "accompanying"],
+    "concealed": ["conceal", "conceals", "concealing"],
+    "amended": ["amend", "amends", "amending"],
+    "lifted": ["lift", "lifts", "lifting"],
+    "determined": ["determine", "determines", "determining"],
+    "reorganised": ["reorganise", "reorganises", "reorganising"],
+    "entrusted": ["entrust", "entrusts", "entrusting"],
+    "acknowledged": ["acknowledge", "acknowledges", "acknowledging"],
+    "maintained": ["maintain", "maintains", "maintaining"],
+    "flagged": ["flag", "flags", "flagging"],
+    "justified": ["justify", "justifies", "justifying"],
+    "construed": ["construe", "construes", "construing"],
+    "limited": ["limit", "limits", "limiting"],
+    "treated": ["treat", "treats", "treating"],
+    "equated": ["equate", "equates", "equating"],
+    "generalised": ["generalise", "generalises", "generalising"],
+    "preferred": ["prefer", "prefers", "preferring"],
+    "reconciled": ["reconcile", "reconciles", "reconciling"],
+    "attached": ["attach", "attaches", "attaching"],
+    "established": ["establish", "establishes", "establishing"],
+    "preserved": ["preserve", "preserves", "preserving"],
+    "qualified": ["qualify", "qualifies", "qualifying"],
+    "allow": ["allows", "allowed", "allowing"],
+    "assume": ["assumes", "assumed", "assuming"],
+    "conferring": ["confer", "confers", "conferred"],
+    "defeat": ["defeats", "defeated", "defeating"],
+    "importing": ["import", "imports", "imported"],
+    "make": ["makes", "made", "making"],
+    "prejudging": ["prejudge", "prejudges", "prejudged"],
+    "reading": ["read", "reads", "reader"],
+    "reflect": ["reflects", "reflected", "reflecting"],
+    "rests": ["rest", "rested", "resting"],
+    "sing": ["sings", "sang", "singing"],
+    "sketch": ["sketches", "sketched", "sketching"]
+  },
+  "token_overrides": {
+    "any": ["no", "few", "several", "neither", "both", "many"],
+    "departure": ["arrival", "destination", "schedule", "return", "journey", "location"],
+    "be": ["is", "are", "been", "being", "was", "were", "am"],
+    "will": ["would", "had", "does", "can", "could", "must", "might", "should"],
+    "two": ["three", "four", "five", "six", "seven", "eight"],
+    "ten": ["six", "seven", "eight", "nine", "eleven", "twelve"],
+    "next": ["last", "previous", "every", "each", "any", "all"]
+  }
+}

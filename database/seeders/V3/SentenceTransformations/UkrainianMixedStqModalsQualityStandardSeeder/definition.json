@@ -1,0 +1,693 @@
+{
+    "schema_version": 1,
+    "quality_revision": "stq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-transformations-quality/modals.v1.json",
+        "sha256": "1b71c3f8e4794ae08b2d16bbb0f4d6e50f2cefff42e1e3d63c27add8d24b9308"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SentenceTransformations\\UkrainianMixedStqModalsQualityStandardSeeder",
+        "uuid_namespace": "sentence-transformations-quality-modals-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Sentence Transformations"
+    },
+    "sources": {
+        "sentence_transformations_quality_modals": {
+            "name": "Sentence Transformations Quality: Sentence Transformations: Modals"
+        }
+    },
+    "tags": {
+        "sentence_transformations_modals_all_levels": {
+            "name": "sentence transformations modals all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "can_be_able_to": {
+            "name": "Can Be Able To",
+            "category": "topic"
+        },
+        "must_have_to": {
+            "name": "Must Have To",
+            "category": "topic"
+        },
+        "mustnt_not_allowed": {
+            "name": "Mustnt Not Allowed",
+            "category": "topic"
+        },
+        "dont_have_to_neednt": {
+            "name": "Dont Have To Neednt",
+            "category": "topic"
+        },
+        "should_ought_to": {
+            "name": "Should Ought To",
+            "category": "topic"
+        },
+        "may_might_paraphrase": {
+            "name": "May Might Paraphrase",
+            "category": "topic"
+        },
+        "had_better_would_rather": {
+            "name": "Had Better Would Rather",
+            "category": "topic"
+        },
+        "modal_perfect": {
+            "name": "Modal Perfect",
+            "category": "topic"
+        },
+        "preserve_modal_meaning": {
+            "name": "Preserve Modal Meaning",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stq-modals-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Olena {a1} swim without help.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Початкове: «Олена вміє плавати самостійно».",
+            "target_text": "Olena can swim without help.",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "must",
+                        "may"
+                    ],
+                    "verb_hint": "Початкове: «Олена вміє плавати самостійно». Передай вміння одним модальним дієсловом; підмет і дію вже наведено."
+                }
+            },
+            "verb_hint": "Початкове: «Олена вміє плавати самостійно». Передай вміння одним модальним дієсловом; підмет і дію вже наведено.",
+            "accepted_target_texts": [
+                "Olena can swim without help."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Olena",
+                "can swim",
+                "without help."
+            ],
+            "token_groups": [
+                "Olena",
+                "can swim",
+                "without help."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "stq-modals-a1-g02",
+            "author_id": "A1-g02",
+            "question": "All riders {a1} a helmet.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Початкове: «Усі велосипедисти зобов’язані носити шолом».",
+            "target_text": "All riders must wear a helmet.",
+            "markers": {
+                "a1": {
+                    "answer": "must wear",
+                    "options": [
+                        "must wear",
+                        "can wear",
+                        "might wear"
+                    ],
+                    "verb_hint": "Початкове: «Усі велосипедисти зобов’язані носити шолом». Заміни слова про обов’язок модальним дієсловом із дією носити."
+                }
+            },
+            "verb_hint": "Початкове: «Усі велосипедисти зобов’язані носити шолом». Заміни слова про обов’язок модальним дієсловом із дією носити.",
+            "accepted_target_texts": [
+                "All riders must wear a helmet.",
+                "All riders have to wear a helmet."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have to wear"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have to wear"
+                ]
+            },
+            "reorder_groups": [
+                "All riders",
+                "must wear",
+                "a helmet."
+            ],
+            "token_groups": [
+                "All riders",
+                "must wear",
+                "a helmet."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "stq-modals-a2-g01",
+            "author_id": "A2-g01",
+            "question": "It {a1} rain after sunset.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Початкове: «Можливо, після заходу сонця піде дощ».",
+            "target_text": "It may rain after sunset.",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "will",
+                        "must"
+                    ],
+                    "verb_hint": "Початкове: «Можливо, після заходу сонця піде дощ». Заміни слово можливо модальним дієсловом, не посилюй упевненість."
+                }
+            },
+            "verb_hint": "Початкове: «Можливо, після заходу сонця піде дощ». Заміни слово можливо модальним дієсловом, не посилюй упевненість.",
+            "accepted_target_texts": [
+                "It may rain after sunset.",
+                "It might rain after sunset.",
+                "It could rain after sunset."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might",
+                    "could"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might",
+                    "could"
+                ]
+            },
+            "reorder_groups": [
+                "It may rain",
+                "after sunset."
+            ],
+            "token_groups": [
+                "It may rain",
+                "after sunset."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "stq-modals-a2-g02",
+            "author_id": "A2-g02",
+            "question": "We {a1} tickets in advance.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Початкове: «Нам необов’язково купувати квитки заздалегідь».",
+            "target_text": "We do not have to buy tickets in advance.",
+            "markers": {
+                "a1": {
+                    "answer": "do not have to buy",
+                    "options": [
+                        "do not have to buy",
+                        "must not buy",
+                        "had to buy"
+                    ],
+                    "verb_hint": "Початкове: «Нам необов’язково купувати квитки заздалегідь». Передай відсутність необхідності, а не заборону покупки; вжий повну заперечну форму."
+                }
+            },
+            "verb_hint": "Початкове: «Нам необов’язково купувати квитки заздалегідь». Передай відсутність необхідності, а не заборону покупки; вжий повну заперечну форму.",
+            "accepted_target_texts": [
+                "We do not have to buy tickets in advance.",
+                "We do not need to buy tickets in advance.",
+                "We need not buy tickets in advance."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "do not need to buy",
+                    "need not buy"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "do not need to buy",
+                    "need not buy"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "do not",
+                "have to buy",
+                "tickets",
+                "in advance."
+            ],
+            "token_groups": [
+                "We",
+                "do not",
+                "have to buy",
+                "tickets",
+                "in advance."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "stq-modals-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Mark {a1} at home; the lights are on.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Початкове: «У Марка горить світло; він, напевно, вдома».",
+            "target_text": "Mark must be at home; the lights are on.",
+            "markers": {
+                "a1": {
+                    "answer": "must be",
+                    "options": [
+                        "must be",
+                        "might be",
+                        "cannot be"
+                    ],
+                    "verb_hint": "Початкове: «У Марка горить світло; він, напевно, вдома». Подай сильний висновок із наявної ознаки; ідеться про теперішнє місце перебування."
+                }
+            },
+            "verb_hint": "Початкове: «У Марка горить світло; він, напевно, вдома». Подай сильний висновок із наявної ознаки; ідеться про теперішнє місце перебування.",
+            "accepted_target_texts": [
+                "Mark must be at home; the lights are on."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Mark must be",
+                "at home;",
+                "the lights",
+                "are on."
+            ],
+            "token_groups": [
+                "Mark must be",
+                "at home;",
+                "the lights",
+                "are on."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "stq-modals-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Yulia {a1} the rusty gate yesterday.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Початкове: «Юлі вдалося відчинити іржаві ворота вчора».",
+            "target_text": "Yulia was able to open the rusty gate yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "was able to open",
+                    "options": [
+                        "was able to open",
+                        "was able open",
+                        "is able to open"
+                    ],
+                    "verb_hint": "Початкове: «Юлі вдалося відчинити іржаві ворота вчора». Збережи успішне виконання однієї минулої дії; передай вдалося відчинити."
+                }
+            },
+            "verb_hint": "Початкове: «Юлі вдалося відчинити іржаві ворота вчора». Збережи успішне виконання однієї минулої дії; передай вдалося відчинити.",
+            "accepted_target_texts": [
+                "Yulia was able to open the rusty gate yesterday.",
+                "Yulia managed to open the rusty gate yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "managed to open"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "managed to open"
+                ]
+            },
+            "reorder_groups": [
+                "Yulia",
+                "was able",
+                "to open",
+                "the rusty gate",
+                "yesterday."
+            ],
+            "token_groups": [
+                "Yulia",
+                "was able",
+                "to open",
+                "the rusty gate",
+                "yesterday."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "stq-modals-b2-g01",
+            "author_id": "B2-g01",
+            "question": "He {a1} the appointment.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Початкове: «Він, напевно, забув про зустріч».",
+            "target_text": "He must have forgotten the appointment.",
+            "markers": {
+                "a1": {
+                    "answer": "must have forgotten",
+                    "options": [
+                        "must have forgotten",
+                        "may have forgotten",
+                        "must forget"
+                    ],
+                    "verb_hint": "Початкове: «Він, напевно, забув про зустріч». Перебудуй сильний висновок про попередню подію через складену модальну форму."
+                }
+            },
+            "verb_hint": "Початкове: «Він, напевно, забув про зустріч». Перебудуй сильний висновок про попередню подію через складену модальну форму.",
+            "accepted_target_texts": [
+                "He must have forgotten the appointment."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He",
+                "must have forgotten",
+                "the appointment."
+            ],
+            "token_groups": [
+                "He",
+                "must have forgotten",
+                "the appointment."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "stq-modals-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Marta {a1} the itinerary; we already had a copy.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Початкове: «Марта дарма надрукувала маршрут: копія в нас уже була».",
+            "target_text": "Marta need not have printed the itinerary; we already had a copy.",
+            "markers": {
+                "a1": {
+                    "answer": "need not have printed",
+                    "options": [
+                        "need not have printed",
+                        "could not print",
+                        "need not print"
+                    ],
+                    "verb_hint": "Початкове: «Марта дарма надрукувала маршрут: копія в нас уже була». Передай не було потреби друкувати; обов’язково збережи факт виконаного зайвого друку в минулому."
+                }
+            },
+            "verb_hint": "Початкове: «Марта дарма надрукувала маршрут: копія в нас уже була». Передай не було потреби друкувати; обов’язково збережи факт виконаного зайвого друку в минулому.",
+            "accepted_target_texts": [
+                "Marta need not have printed the itinerary; we already had a copy.",
+                "Marta needn't have printed the itinerary; we already had a copy."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "needn't have printed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "needn't have printed"
+                ]
+            },
+            "reorder_groups": [
+                "Marta",
+                "need not",
+                "have printed",
+                "the itinerary;",
+                "we already had",
+                "a copy."
+            ],
+            "token_groups": [
+                "Marta",
+                "need not",
+                "have printed",
+                "the itinerary;",
+                "we already had",
+                "a copy."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "stq-modals-c1-g01",
+            "author_id": "C1-g01",
+            "question": "Much as I {a1} to help, I lack the expertise.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Початкове: «Хоч я й хотів би допомогти, мені бракує фахових знань».",
+            "target_text": "Much as I would like to help, I lack the expertise.",
+            "markers": {
+                "a1": {
+                    "answer": "would like",
+                    "options": [
+                        "would like",
+                        "may like",
+                        "can like"
+                    ],
+                    "verb_hint": "Початкове: «Хоч я й хотів би допомогти, мені бракує фахових знань». Збережи бажання, обмежене реальною перешкодою; не перетворюй його на дозвіл чи вміння."
+                }
+            },
+            "verb_hint": "Початкове: «Хоч я й хотів би допомогти, мені бракує фахових знань». Збережи бажання, обмежене реальною перешкодою; не перетворюй його на дозвіл чи вміння.",
+            "accepted_target_texts": [
+                "Much as I would like to help, I lack the expertise."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Much as I",
+                "would like",
+                "to help,",
+                "I lack",
+                "the expertise."
+            ],
+            "token_groups": [
+                "Much as I",
+                "would like",
+                "to help,",
+                "I lack",
+                "the expertise."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "stq-modals-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The curator {a1} the appendix to protect the donor.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Початкове: «Можливо, куратор приховав додаток, щоб захистити дарувальника».",
+            "target_text": "The curator may have withheld the appendix to protect the donor.",
+            "markers": {
+                "a1": {
+                    "answer": "may have withheld",
+                    "options": [
+                        "may have withheld",
+                        "must have withheld",
+                        "may withhold"
+                    ],
+                    "verb_hint": "Початкове: «Можливо, куратор приховав додаток, щоб захистити дарувальника». Подай лише припущення про попередню навмисну дію приховати; не роби певного висновку."
+                }
+            },
+            "verb_hint": "Початкове: «Можливо, куратор приховав додаток, щоб захистити дарувальника». Подай лише припущення про попередню навмисну дію приховати; не роби певного висновку.",
+            "accepted_target_texts": [
+                "The curator may have withheld the appendix to protect the donor.",
+                "The curator might have withheld the appendix to protect the donor.",
+                "The curator could have withheld the appendix to protect the donor."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might have withheld",
+                    "could have withheld"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might have withheld",
+                    "could have withheld"
+                ]
+            },
+            "reorder_groups": [
+                "The curator",
+                "may have withheld",
+                "the appendix",
+                "to protect",
+                "the donor."
+            ],
+            "token_groups": [
+                "The curator",
+                "may have withheld",
+                "the appendix",
+                "to protect",
+                "the donor."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "stq-modals-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The remedy {a1} the defect, but no trial has confirmed this.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Початкове: «За теорією, цей засіб мав би усунути дефект, але випробування цього ще не підтвердили».",
+            "target_text": "The remedy should eliminate the defect, but no trial has confirmed this.",
+            "markers": {
+                "a1": {
+                    "answer": "should eliminate",
+                    "options": [
+                        "should eliminate",
+                        "will eliminate",
+                        "must eliminate"
+                    ],
+                    "verb_hint": "Початкове: «За теорією, цей засіб мав би усунути дефект, але випробування цього ще не підтвердили». Передай обґрунтоване очікування усунення дефекту, не гарантований результат чи обов’язок."
+                }
+            },
+            "verb_hint": "Початкове: «За теорією, цей засіб мав би усунути дефект, але випробування цього ще не підтвердили». Передай обґрунтоване очікування усунення дефекту, не гарантований результат чи обов’язок.",
+            "accepted_target_texts": [
+                "The remedy should eliminate the defect, but no trial has confirmed this.",
+                "The remedy ought to eliminate the defect, but no trial has confirmed this."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to eliminate"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to eliminate"
+                ]
+            },
+            "reorder_groups": [
+                "The remedy",
+                "should eliminate",
+                "the defect,",
+                "but no trial",
+                "has confirmed this."
+            ],
+            "token_groups": [
+                "The remedy",
+                "should eliminate",
+                "the defect,",
+                "but no trial",
+                "has confirmed this."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "stq-modals-c2-g02",
+            "author_id": "C2-g02",
+            "question": "No one {a1} their identity twice, although several volunteers did.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Початкове: «Нікому не було потрібно підтверджувати особу двічі, хоча кілька добровольців це зробили».",
+            "target_text": "No one needed to confirm their identity twice, although several volunteers did.",
+            "markers": {
+                "a1": {
+                    "answer": "needed to confirm",
+                    "options": [
+                        "needed to confirm",
+                        "needs to confirm",
+                        "will need to confirm"
+                    ],
+                    "verb_hint": "Початкове: «Нікому не було потрібно підтверджувати особу двічі, хоча кілька добровольців це зробили». Збережи відсутність минулої необхідності й окремий факт добровільного виконання; не перетворюй це на заборону."
+                }
+            },
+            "verb_hint": "Початкове: «Нікому не було потрібно підтверджувати особу двічі, хоча кілька добровольців це зробили». Збережи відсутність минулої необхідності й окремий факт добровільного виконання; не перетворюй це на заборону.",
+            "accepted_target_texts": [
+                "No one needed to confirm their identity twice, although several volunteers did.",
+                "No one had to confirm their identity twice, although several volunteers did."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had to confirm"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had to confirm"
+                ]
+            },
+            "reorder_groups": [
+                "No one",
+                "needed to confirm",
+                "their identity twice,",
+                "although",
+                "several volunteers did."
+            ],
+            "token_groups": [
+                "No one",
+                "needed to confirm",
+                "their identity twice,",
+                "although",
+                "several volunteers did."
+            ],
+            "quality_revision": "stq-v1"
+        }
+    ]
+}

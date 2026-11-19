@@ -1,0 +1,1070 @@
+{
+    "schema_version": 1,
+    "source": {
+        "path": "docs/content/sentence-structure-practice-supplement.v1.json",
+        "sha256": "3800fb93266b16cd237d949b351f01862c2de82da58b16bc8e2886327b0e497a"
+    },
+    "targets": [
+        {
+            "topic": "cleft-sentences-basics",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\SentenceStructure\\CleftSentencesBasicsTheorySeeder",
+                "locale": "uk",
+                "uuid": "2fda2289-909a-51e7-8204-5fdda30588ef",
+                "sort_order": 7,
+                "page_id": 289,
+                "page_category_id": 53,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "B2",
+                "css_class": null,
+                "body_sha256": "a6f6cc090419fef68b8003464374e7b7b96a519f91371f37b666b5d94c2e2822"
+            },
+            "after_data_sha256": "d5db6a72fbbb360e6d69e2d61d9861aaeae87e02c7e3374e7e1f127cc595e7ad",
+            "projection_family": "sentence-structure-practice-compact-v1",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "4b1eb7ddf0c14ee4fc53b44db6a781d54042c6316b95ac9e9ae5dfa5e84831a2",
+                        "source_index": null,
+                        "instruction_uk": "Заповни пропуск, виділивши Нору, а не Лео.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "It was ___ who found the spare key yesterday."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "label"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "139638b5369ece0c78e8ac48f797fd64d2109713806fce58f18e2b21263f4914",
+                        "source_index": null,
+                        "instruction_uk": "Заповни пропуск зі звичайним порядком слів.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "What ___ is a quieter room."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "label"
+                        ]
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "6385bea003f22b5360e10056bc0503549a5eeb22895d2307366fae80051d5837",
+                        "source_index": null,
+                        "instruction_uk": "Обери речення без повторного підмета.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Виділи майстра, який перезапустив сигналізацію."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "label"
+                        ],
+                        "option_labels": {
+                            "a": "It was the technician who reset the alarm.",
+                            "b": "It was the technician who she reset the alarm."
+                        }
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "0fcdc031b2fb0648bbbf2d3d2c4b3419cad08cb8a083ed618ff65889baa59c6f",
+                        "source_index": null,
+                        "instruction_uk": "У якому реченні виділено місце знахідки?",
+                        "stimuli": [],
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt"
+                        ],
+                        "option_labels": {
+                            "a": "It was difficult to find the entrance.",
+                            "b": "It was behind the library that we found the entrance."
+                        }
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "610d5ddfe9e6f8c1135311d89fe432b0f42f821d1cd78218a6421a2cac34b041",
+                        "source_index": null,
+                        "instruction_uk": "Склади речення з перемішаних груп слів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Саме Нора, а не Лео, знайшла запасний ключ учора."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Виділи Нору як виконавицю; збережи запасний ключ і вчорашній час."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "7a76c3cf88006c1dbeeab80eed3b7e909e75857e27f62d64d8b472b2e7e26204",
+                        "source_index": null,
+                        "instruction_uk": "Склади речення з перемішаних груп слів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Ми підписали угоду саме в п’ятницю."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Виділи день підписання, а не виконавців; збережи минулий час."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before"
+                        ]
+                    },
+                    {
+                        "index": 2,
+                        "source_item_sha256": "f795aff345594039c7dbc65892f012f1d134687b592a15a20b8366ef2545dd0e",
+                        "source_index": null,
+                        "instruction_uk": "Уведи всю відсутню частину.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "It ____ the blue folder that I need now, not the red one."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Теперішня потреба: встав теперішню форму дієслова-зв’язки; підмет уже наведено."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 3,
+                        "source_item_sha256": "1ca36e8eb3db537b0488c31a019181a49188f7dd7928ba459e0224b8ba776321",
+                        "source_index": null,
+                        "instruction_uk": "Уведи всю відсутню частину.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "What the apprentices value ____ patient guidance."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Теперішня оцінка учнів: узгодь дієслово-зв’язку з початковою частиною про те, що вони цінують."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 4,
+                        "source_item_sha256": "12cf4c25b88eb8b702a50d115f35f2cfdb75781093f81df3a2bce063e44f474c",
+                        "source_index": null,
+                        "instruction_uk": "Переклади речення англійською.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Саме моя сестра спекла цей хліб учора."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Виділи сестру як виконавицю випікання; збережи цей хліб і вчорашній час."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 5,
+                        "source_item_sha256": "afa0343176f4c7664a4298e7bd80999792e50cafe02c71a33dc086d0a795167f",
+                        "source_index": null,
+                        "instruction_uk": "Переклади речення англійською.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Те, що нам потрібно, — надійний човен."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Почни з того, що нам потрібно; збережи теперішню потребу й надійність човна."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "ssq-native-cleft-sentences-basics-selects-0",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери правильну форму",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "ssq-native-cleft-sentences-basics-choices-0",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери правильну відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "ssq-native-cleft-sentences-basics-inputs-0",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Введи речення вручну або натискай на перемішані групи слів."
+                },
+                {
+                    "key": "ssq-native-cleft-sentences-basics-inputs-2",
+                    "kind": "inputs",
+                    "indices": [
+                        2,
+                        3
+                    ],
+                    "title": "Заповни пропуски",
+                    "instruction": "Уведи лише пропущену частину; наведені слова не повторюй."
+                },
+                {
+                    "key": "ssq-native-cleft-sentences-basics-inputs-4",
+                    "kind": "inputs",
+                    "indices": [
+                        4,
+                        5
+                    ],
+                    "title": "Переклади речення",
+                    "instruction": "Відповідай вручну або складай речення з груп слів."
+                }
+            ]
+        },
+        {
+            "topic": "cleft-sentences-emphasis",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\SentenceStructure\\CleftSentencesEmphasisTheorySeeder",
+                "locale": "uk",
+                "uuid": "9ee5a239-3235-5fd9-811a-fe15efa41057",
+                "sort_order": 9,
+                "page_id": 297,
+                "page_category_id": 53,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C1",
+                "css_class": null,
+                "body_sha256": "562b9a6957d5cbfdf6959dda75a7465aa5aff28092b648dd508284442fa19a07"
+            },
+            "after_data_sha256": "aedf7a1866f647109d0f8ab3db43497763cf70ce36b21f13321d3731a4a39231",
+            "projection_family": "sentence-structure-practice-compact-v1",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "9db04d45c4341f22e9f1a900355deba65aaeb96d980ee3578ac86fcd0707392e",
+                        "source_index": null,
+                        "instruction_uk": "Заповни пропуск: відкинули не через вартість, а через брак доказів.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "It wasn't the ___ that led the committee to reject the proposal; it was the lack of evidence."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "label"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "25d18ef7ade7c8da42c18e113677b161d4cb346ab2c1c5f2a86a9366a9287505",
+                        "source_index": null,
+                        "instruction_uk": "Заповни пропуск, зберігши модель називання дії.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "What the panel did was ___ an independent review."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "label"
+                        ]
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "a5518d272e81d035e28f8ec51276fcf3a32ac45fd9d94e496a7c9dd2b4fc27e2",
+                        "source_index": null,
+                        "instruction_uk": "Обери точніший фокус відповіді.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Редактор прибрав додаток чи повторений абзац?"
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt"
+                        ],
+                        "option_labels": {
+                            "a": "It was the editor who removed the repeated paragraph.",
+                            "b": "It was the repeated paragraph that the editor removed."
+                        }
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "38db001f8c649df39a250830b51958565f263984bc70f794314b2d188b041a77",
+                        "source_index": null,
+                        "instruction_uk": "Обери правильне узгодження.",
+                        "stimuli": [],
+                        "deferred_source_fields": [
+                            "label"
+                        ],
+                        "option_labels": {
+                            "a": "It is the local volunteers who help visitors.",
+                            "b": "It are the local volunteers who helps visitors."
+                        }
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "21a5c01536962cac63eb9f44a9c6b19d58c2dca6e32e56a7943a75dbfc3134ec",
+                        "source_index": null,
+                        "instruction_uk": "Склади речення з перемішаних груп слів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Коли саме постачальник змінив дату доставки?"
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Почни з питання про час; збережи постачальника та зміну дати доставки."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "910f3c9d7c8e2396a034bbb1ec15f8f2827b1eec2e0248afa39b9763f6fb9114",
+                        "source_index": null,
+                        "instruction_uk": "Склади речення з перемішаних груп слів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Обладнання вистачало, але команда не могла завершити дослідження. Їй потрібне було чіткіше завдання."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Виділи те, чого бракувало команді: чіткіше завдання, не додаткове обладнання."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 2,
+                        "source_item_sha256": "87bc02099d7420162131c5741eda01a57524b9305091566a868a0ae29781a2e7",
+                        "source_index": null,
+                        "instruction_uk": "Уведи всю відсутню частину.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "Why ____ it that the courier arrived so late yesterday?"
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Запитання про вчорашню причину: встав минулу форму дієслова-зв’язки перед уже наведеним підметом."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 3,
+                        "source_item_sha256": "8491e2cf9354869280196b5f03c6872dbbe7fe320521d1b1e7a5dcb40d6bcd76",
+                        "source_index": null,
+                        "instruction_uk": "Уведи всю відсутню частину.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "What the consultant did yesterday ____ recommend a second inspection."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Повідомлення про вчорашню дію: встав минулу форму дієслова-зв’язки, не повторюй наведені частини."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 4,
+                        "source_item_sha256": "ec0d78f90a9fe6228ba6ca8927cfbc3958e54a732a29e76b9173d54aea78ea71",
+                        "source_index": null,
+                        "instruction_uk": "Переклади речення англійською.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Те, чого вона хотіла, — письмове вибачення."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Виділи бажаний результат; збережи минулий час і вимогу письмової форми вибачення."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 5,
+                        "source_item_sha256": "7436c5542238ad7329ef7b42cbe4edfb3d2116948017e693fd9c062fd1c1fcf0",
+                        "source_index": null,
+                        "instruction_uk": "Переклади речення англійською.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Саме через те, що міст був закритий, ми поїхали іншою дорогою."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Виділи причину вибору іншої дороги: міст був закритий; обидві події належать минулому."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "ssq-native-cleft-sentences-emphasis-selects-0",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери правильну форму",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "ssq-native-cleft-sentences-emphasis-choices-0",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери правильну відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "ssq-native-cleft-sentences-emphasis-inputs-0",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Введи речення вручну або натискай на перемішані групи слів."
+                },
+                {
+                    "key": "ssq-native-cleft-sentences-emphasis-inputs-2",
+                    "kind": "inputs",
+                    "indices": [
+                        2,
+                        3
+                    ],
+                    "title": "Заповни пропуски",
+                    "instruction": "Уведи лише пропущену частину; наведені слова не повторюй."
+                },
+                {
+                    "key": "ssq-native-cleft-sentences-emphasis-inputs-4",
+                    "kind": "inputs",
+                    "indices": [
+                        4,
+                        5
+                    ],
+                    "title": "Переклади речення",
+                    "instruction": "Відповідай вручну або складай речення з груп слів."
+                }
+            ]
+        },
+        {
+            "topic": "ellipsis-substitution-and-reference",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\SentenceStructure\\EllipsisSubstitutionAndReferenceTheorySeeder",
+                "locale": "uk",
+                "uuid": "cf743e15-58b4-59d3-8ede-2b5227a6f8be",
+                "sort_order": 10,
+                "page_id": 311,
+                "page_category_id": 53,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C2",
+                "css_class": null,
+                "body_sha256": "0ef61995c8b2d34ce52b8176ef05f6f8f316c15a5919b047188c6c0e4286510f"
+            },
+            "after_data_sha256": "77f71b498da176c7bf92b4b022b335a7d5a85bca0a81e4eac47252acdc682891",
+            "projection_family": "sentence-structure-practice-compact-v1",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "1235eda1abe9752dbcb51e4b053a2db1a90a1a03ed60302d7219f5a6df58920d",
+                        "source_index": null,
+                        "instruction_uk": "Укажи повну дію, яку можна опустити після заперечення.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "Lena can translate the abstract, but Max can't ___."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "label"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "163698c178e770f9aace09764646bc332fc2c1fa65875a459ed5be14514bc0b2",
+                        "source_index": null,
+                        "instruction_uk": "Заміни повтор незлічуваного іменника.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "We need reliable information. Do you have ___?"
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "label"
+                        ]
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "775ad6da82cc340d71f4767dd04d927a12fafbf5d3774dfec2ff6bf5145524d1",
+                        "source_index": null,
+                        "instruction_uk": "Обери природні короткі заперечні відповіді.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "Will the inspection cause another delay?"
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt"
+                        ],
+                        "option_labels": {
+                            "a": "I hope not. I don't think so.",
+                            "b": "I don't hope so. I think so not."
+                        }
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "664676da37d8f11bbf896a70ac590581dcf1afb44e05c17e0517b1e6cad9b4d5",
+                        "source_index": null,
+                        "instruction_uk": "Обери пару: заміна дії та пропуск після зв’язки.",
+                        "stimuli": [],
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt"
+                        ],
+                        "option_labels": {
+                            "a": "The curator promised to check the labels and did so before opening. The first display is clear, and the second is too.",
+                            "b": "The curator promised to check the labels and was so before opening. The first display is clear, and the second does so."
+                        }
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "e1aff7fcc050295a162b387ba8e4d85f02e67dcf008e8e8ba10952022dd2c566",
+                        "source_index": null,
+                        "instruction_uk": "Склади речення з перемішаних груп слів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Порівнювали онлайнсемінар і друкований посібник. Зручність звернення саме до посібника зробила його корисним для повторення."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Відсилання стосується зручності користування посібником, не онлайнсемінару; збережи причину його корисності."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "332c307b03fbc6ef731b3f01acfe5a31c2ea3cc1f8ba5992e49011a7ade9e153",
+                        "source_index": null,
+                        "instruction_uk": "Склади речення з перемішаних груп слів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Олена сказала Марті, що загубилися саме Оленині нотатки. Усунь неоднозначність власниці."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Олена повідомляє Марті про власні нотатки; не приписуй їх Марті."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 2,
+                        "source_item_sha256": "f3c1cc066c59b5b5c7132d71e564ea2ad448c2d69601206d147cb3a1fa31e93a",
+                        "source_index": null,
+                        "instruction_uk": "Уведи всю відсутню частину.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "The proofreader corrected the headings, and the editor ____ too."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Минула стверджувальна дія: заміни повтор повної дії відповідним допоміжним дієсловом."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 3,
+                        "source_item_sha256": "98754b8aa193ecf0e54ec937d86c2e21210a4ea2003c09a84a0b1d96401a8547",
+                        "source_index": null,
+                        "instruction_uk": "Уведи всю відсутню частину.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "I prefer the plain notebook to the decorated ____."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Заміни повтор назви одного злічуваного предмета; не додавай назву зошита вдруге."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 4,
+                        "source_item_sha256": "2fd919eed2fbe6d05975693e02f4af1db92c3a7a0ef6789c671b677bfb820b43",
+                        "source_index": null,
+                        "instruction_uk": "Переклади речення англійською.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Мій брат уміє плавати, і я теж. Не повторюй назву дії в другій частині."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Почни з уміння брата, потім додай моє таке саме вміння без повтору основного дієслова."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 5,
+                        "source_item_sha256": "e99c5e19577569fc4d52933cacfe4705d6c8b5d907af0c1fdbbcbb334cf9b387",
+                        "source_index": null,
+                        "instruction_uk": "Переклади речення англійською.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Якщо вам потрібні ці рукавички, візьміть сині. Заміни друге називання рукавичок."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Умова стосується конкретних рукавичок; у другій частині назву предметів заміни формою множини."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "ssq-native-ellipsis-substitution-and-reference-selects-0",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери правильну форму",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "ssq-native-ellipsis-substitution-and-reference-choices-0",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери правильну відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "ssq-native-ellipsis-substitution-and-reference-inputs-0",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Введи речення вручну або натискай на перемішані групи слів."
+                },
+                {
+                    "key": "ssq-native-ellipsis-substitution-and-reference-inputs-2",
+                    "kind": "inputs",
+                    "indices": [
+                        2,
+                        3
+                    ],
+                    "title": "Заповни пропуски",
+                    "instruction": "Уведи лише пропущену частину; наведені слова не повторюй."
+                },
+                {
+                    "key": "ssq-native-ellipsis-substitution-and-reference-inputs-4",
+                    "kind": "inputs",
+                    "indices": [
+                        4,
+                        5
+                    ],
+                    "title": "Переклади речення",
+                    "instruction": "Відповідай вручну або складай речення з груп слів."
+                }
+            ]
+        },
+        {
+            "topic": "complex-noun-phrases",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\SentenceStructure\\ComplexNounPhrasesTheorySeeder",
+                "locale": "uk",
+                "uuid": "656dbbdc-4419-5b75-ab28-fba87426c34b",
+                "sort_order": 9,
+                "page_id": 312,
+                "page_category_id": 53,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C2",
+                "css_class": null,
+                "body_sha256": "d0195b98a4ad53c3eca787a91e57c96ddb554ed940ea5fd72c679f65612eafc3"
+            },
+            "after_data_sha256": "b5147e4d2916bcd4a481af18dd94c7b4b25cb49c2c1657c2e66188aea6e96ea1",
+            "projection_family": "sentence-structure-practice-compact-v1",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "d3b9cdce549665b0048593acb4a83a44a7a1299913943d1b6e22f1dca001384b",
+                        "source_index": null,
+                        "instruction_uk": "Назви головне слово іменникової групи.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "those three carefully edited policy reports"
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "a367320f96ebff30eab02cae00e4b86f5c51dfa50399eddca02dd3106a3dd631",
+                        "source_index": null,
+                        "instruction_uk": "Заповни обидва пропуски за числом головного слова.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "The description of the experimental procedures ___ incomplete. The descriptions of the experimental procedures ___ incomplete."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "label",
+                            "options"
+                        ]
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "1931d706ce7bf3e555fa777b8689c45c28ce33125b05cb73fd7871760c87968d",
+                        "source_index": null,
+                        "instruction_uk": "Розрізни зміст твердження та ознаку предмета.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "the claim that the device saves energy; the device that the engineers tested"
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt"
+                        ],
+                        "option_labels": {
+                            "a": "Перша частина передає зміст claim; друга ідентифікує device.",
+                            "b": "Перша ідентифікує claim; друга передає зміст device."
+                        }
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "d41da3a40b854677598c3985a1af41af0df75ba5cdb8b9d9e3d5563144801d88",
+                        "source_index": null,
+                        "instruction_uk": "Розрізни: технік на малюнку чи ми під час розгляду. Обери пару прочитань.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "We examined the drawing of the technician in the workshop."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "label",
+                            "prompt"
+                        ],
+                        "option_labels": {
+                            "a": "We examined the drawing showing the technician in the workshop. / While we were in the workshop, we examined the drawing of the technician.",
+                            "b": "We examined the drawing showing the technician in the workshop. / We examined the drawing of the technician who was in the workshop."
+                        }
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "5c9615363dc784d5610ae5316ec76a08faa73ce36fbb37986d2ffbcc8ad8fc4b",
+                        "source_index": null,
+                        "instruction_uk": "Склади речення з перемішаних груп слів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Лейла, координаторка проєкту, схвалила зміну. Посада — додаткова довідка про вже названу особу."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Збережи Лейлу виконавицею, її посаду додатковою довідкою та схвалення конкретної зміни."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "50640de74eb37edb9eb63442df78904bcd340e8bfb1955a7e04ce2eff17d9df3",
+                        "source_index": null,
+                        "instruction_uk": "Склади речення з перемішаних груп слів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Нам потрібен план навчання нових працівників. Саме навчання почнеться в травні."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "План стосується навчання нових працівників; у травні починається навчання, не новий план."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before"
+                        ]
+                    },
+                    {
+                        "index": 2,
+                        "source_item_sha256": "0450ff6ed86a91007214da0250b8914d27d104990a4a29720ca4c552ec90ffac",
+                        "source_index": null,
+                        "instruction_uk": "Уведи всю відсутню частину.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "The collection of ancient coins ____ kept in a locked cabinet."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Теперішній стан: узгодь допоміжне дієслово з назвою колекції, а не монет; збережи пасив."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 3,
+                        "source_item_sha256": "fe93c70e39f94741ef2c9f0841a7c309add78e8e036b7fffc5edf2bb3180ed3d",
+                        "source_index": null,
+                        "instruction_uk": "Уведи всю відсутню частину.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "Two descriptions of the damaged mural ____ missing from the catalogue."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Теперішній стан: встав дієслово-зв’язку за кількістю описів, не за числом назви розпису."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 4,
+                        "source_item_sha256": "d4344fbab1ac7c7cb258cbfda77abee2817e60145b0795573d50a1b6b263a7cd",
+                        "source_index": null,
+                        "instruction_uk": "Переклади речення англійською.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Обидві пропозиції щодо ремонту даху потребують перегляду."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Почни з обох пропозицій; ремонт стосується даху, а перегляду потребують самі пропозиції."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 5,
+                        "source_item_sha256": "f4bd90ebccf5a9da2e36fbd6d3473b09b22351d982b484670829c73687e66b9c",
+                        "source_index": null,
+                        "instruction_uk": "Переклади речення англійською.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Звіт про причини затримки готовий до публікації."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Головне слово називає один звіт; збережи причини конкретної затримки та готовність до публікації."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "ssq-native-complex-noun-phrases-selects-0",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери правильну форму",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "ssq-native-complex-noun-phrases-choices-0",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери правильну відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "ssq-native-complex-noun-phrases-inputs-0",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Введи речення вручну або натискай на перемішані групи слів."
+                },
+                {
+                    "key": "ssq-native-complex-noun-phrases-inputs-2",
+                    "kind": "inputs",
+                    "indices": [
+                        2,
+                        3
+                    ],
+                    "title": "Заповни пропуски",
+                    "instruction": "Уведи лише пропущену частину; наведені слова не повторюй."
+                },
+                {
+                    "key": "ssq-native-complex-noun-phrases-inputs-4",
+                    "kind": "inputs",
+                    "indices": [
+                        4,
+                        5
+                    ],
+                    "title": "Переклади речення",
+                    "instruction": "Відповідай вручну або складай речення з груп слів."
+                }
+            ]
+        }
+    ]
+}

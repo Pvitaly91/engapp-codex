@@ -1,0 +1,304 @@
+{
+    "schema_version": 1,
+    "package": "m26-ppc-interactive-practice-v1",
+    "locale": "uk",
+    "source_master_sha256": "2aeb5d65b07f05dc540e8d35fb6779a8775ac8f364a1b906d2d93a4cdac891d0",
+    "purpose": "Adapt the six approved M26 practice cases per lesson to the existing interactive practice-set renderer without changing the immutable author master or any test bank.",
+    "targets": [
+        {
+            "key": "forms",
+            "identity": "Database\\Seeders\\Page_V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousFormsTheorySeeder",
+            "definition_path": "database/seeders/Page_V3/Tenses/PastPerfectContinuous/PastPerfectContinuousFormsTheorySeeder/definition.json",
+            "slug": "past-perfect-continuous-forms",
+            "authored_case_mapping": {
+                "selects": ["forms-q1", "forms-q2"],
+                "choices": ["forms-q3", "forms-q4"],
+                "inputs": ["forms-q5", "forms-q6"]
+            },
+            "practice": {
+                "type": "practice-set",
+                "column": "left",
+                "level": "A2–B1",
+                "uuid_key": "m26-ppc-forms-practice-v1",
+                "heading": null,
+                "body_data": {
+                    "title": "5. Практика",
+                    "select_title": "Вправа 1. Заповни пропуск",
+                    "select_intro": "Обери форму Past Perfect Continuous відповідно до ситуації та дієслова в дужках.",
+                    "selects": [
+                        {
+                            "label": "Міла почала перевіряти квитки о 14:00 і ще перевіряла їх о 15:00. By three, Mila ____ the tickets for an hour. (check)",
+                            "prompt": "Яка форма завершує речення?",
+                            "answer": "had been checking"
+                        },
+                        {
+                            "label": "Вони готували кімнату до приходу гостей. Розкрий скорочення They’d been preparing, не змінюючи часу: They ____ the room before the guests arrived.",
+                            "prompt": "Яка повна форма відповідає They’d been preparing?",
+                            "answer": "had been preparing"
+                        }
+                    ],
+                    "options": ["had been checking", "had been preparing"],
+                    "choice_title": "Вправа 2. Обери правильне твердження",
+                    "choice_intro": "Перевір форму V-ing та відмінність між процесом у певний момент і його тривалістю до цього моменту.",
+                    "choices": [
+                        {
+                            "label": "Потрібно описати процес у Past Perfect Continuous. a) She had been write for an hour before lunch. / b) She had been writing for an hour before lunch.",
+                            "prompt": "Який варіант правильний?",
+                            "answer": "b"
+                        },
+                        {
+                            "label": "Яке речення прямо повідомляє тривалість пакування до дев’ятої? a) By nine, I had been packing for an hour. / b) At nine, I was packing.",
+                            "prompt": "Який варіант відповідає умові?",
+                            "answer": "a"
+                        }
+                    ],
+                    "choice_options": ["a", "b"],
+                    "input_title": "Вправа 3. Побудуй речення",
+                    "input_intro": "Постав групи слів у правильному порядку. У першому реченні тривалість не доводить завершення дії; у другому know описує стан, тому потрібне had known.",
+                    "inputs": [
+                        {
+                            "before": "the chairs / for twenty minutes / Den / At six, / had been arranging",
+                            "after": "→",
+                            "answer": "At six, Den had been arranging the chairs for twenty minutes."
+                        },
+                        {
+                            "before": "Lev / for five years / had known / By 2020, / Anna",
+                            "after": "→",
+                            "answer": "By 2020, Anna had known Lev for five years."
+                        }
+                    ],
+                    "linked_practice": {
+                        "source": "theory_links",
+                        "question_types": ["4"],
+                        "seeder_classes": ["Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousFormsAllLevelsLessonSeeder"],
+                        "title": "Вправа 4. Побудуй речення",
+                        "intro": "Склади англійське речення за українським, клікаючи на слова.",
+                        "footer": "Завдання підібрані лише для цієї теми."
+                    }
+                }
+            }
+        },
+        {
+            "key": "negatives",
+            "identity": "Database\\Seeders\\Page_V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousNegativesTheorySeeder",
+            "definition_path": "database/seeders/Page_V3/Tenses/PastPerfectContinuous/PastPerfectContinuousNegativesTheorySeeder/definition.json",
+            "slug": "past-perfect-continuous-negatives",
+            "authored_case_mapping": {
+                "selects": ["neg-q1", "neg-q2"],
+                "choices": ["neg-q3", "neg-q5"],
+                "inputs": ["neg-q4", "neg-q6"]
+            },
+            "practice": {
+                "type": "practice-set",
+                "column": "left",
+                "level": "A2–B1",
+                "uuid_key": "m26-ppc-negatives-practice-v1",
+                "heading": null,
+                "body_data": {
+                    "title": "5. Практика",
+                    "select_title": "Вправа 1. Заповни пропуск",
+                    "select_intro": "Обери заперечну форму Past Perfect Continuous. Не загуби слова, які уточнюють зміст.",
+                    "selects": [
+                        {
+                            "label": "Перед приходом Тараса Олена читала, а не слухала музику. Olena ____ to music before Taras arrived. (listen)",
+                            "prompt": "Яка повна заперечна форма завершує речення?",
+                            "answer": "had not been listening"
+                        },
+                        {
+                            "label": "Коли прийшов гід, ми чекали ще недовго. Скороти had not, зберігаючи long: We ____ long when the guide arrived. (wait)",
+                            "prompt": "Яка скорочена заперечна форма завершує речення?",
+                            "answer": "hadn't been waiting"
+                        }
+                    ],
+                    "options": ["had not been listening", "hadn't been waiting"],
+                    "choice_title": "Вправа 2. Обери правильне твердження",
+                    "choice_intro": "Перевір значення заперечення зі словами long та well: вони не означають повної відсутності дії.",
+                    "choices": [
+                        {
+                            "label": "Люди стали в чергу о 10:00, двері відчинилися о 10:03. They hadn’t been waiting long означає: a) Вони зовсім не чекали. / b) Вони чекали лише кілька хвилин.",
+                            "prompt": "Який варіант відповідає ситуації?",
+                            "answer": "b"
+                        },
+                        {
+                            "label": "Eva hadn’t been sleeping well in the week before the trip. a) Ева погано спала протягом тижня перед поїздкою. / b) Ева весь тиждень зовсім не спала.",
+                            "prompt": "Який варіант точно передає зміст?",
+                            "answer": "a"
+                        }
+                    ],
+                    "choice_options": ["a", "b"],
+                    "input_title": "Вправа 3. Побудуй речення",
+                    "input_intro": "Постав групи слів у правильному порядку. Приймаються повні й скорочені заперечні форми. У другому реченні обов’язково збережи long.",
+                    "inputs": [
+                        {
+                            "before": "the tablet / before the lesson / using / I / had not been",
+                            "after": "→",
+                            "answer": "I had not been using the tablet before the lesson.",
+                            "accepted": ["I had not been using the tablet before the lesson.", "I hadn't been using the tablet before the lesson."]
+                        },
+                        {
+                            "before": "the evening manager / long / working / He / when he became / had not been / in the café",
+                            "after": "→",
+                            "answer": "He had not been working in the café long when he became the evening manager.",
+                            "accepted": ["He had not been working in the café long when he became the evening manager.", "He hadn't been working in the café long when he became the evening manager."]
+                        }
+                    ],
+                    "linked_practice": {
+                        "source": "theory_links",
+                        "question_types": ["4"],
+                        "seeder_classes": ["Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousNegativesAllLevelsLessonSeeder"],
+                        "title": "Вправа 4. Побудуй речення",
+                        "intro": "Склади англійське речення за українським, клікаючи на слова.",
+                        "footer": "Завдання підібрані лише для цієї теми."
+                    }
+                }
+            }
+        },
+        {
+            "key": "questions",
+            "identity": "Database\\Seeders\\Page_V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousQuestionsTheorySeeder",
+            "definition_path": "database/seeders/Page_V3/Tenses/PastPerfectContinuous/PastPerfectContinuousQuestionsTheorySeeder/definition.json",
+            "slug": "past-perfect-continuous-questions",
+            "authored_case_mapping": {
+                "selects": ["questions-q3", "questions-q4"],
+                "choices": ["questions-q5", "questions-q6"],
+                "inputs": ["questions-q1", "questions-q2"]
+            },
+            "practice": {
+                "type": "practice-set",
+                "column": "left",
+                "level": "A2–B1",
+                "uuid_key": "m26-ppc-questions-practice-v1",
+                "heading": null,
+                "body_data": {
+                    "title": "5. Практика",
+                    "select_title": "Вправа 1. Заповни пропуск",
+                    "select_intro": "Заверши коротку відповідь за умовою. Повторюй had, а не did.",
+                    "selects": [
+                        {
+                            "label": "Запитують саме тебе; за умовою — так. Had you been practising before the lesson? — Yes, I ____.",
+                            "prompt": "Яка форма завершує стверджувальну відповідь?",
+                            "answer": "had"
+                        },
+                        {
+                            "label": "За умовою Марко не працював перед зустріччю. Had Marko been working before the meeting? — No, he ____.",
+                            "prompt": "Яка форма завершує заперечну відповідь?",
+                            "answer": "hadn't"
+                        }
+                    ],
+                    "options": ["had", "did", "hadn't", "didn't"],
+                    "choice_title": "Вправа 2. Обери правильне твердження",
+                    "choice_intro": "Перевір порядок слів із How long та значення короткої відповіді в конкретній ситуації.",
+                    "choices": [
+                        {
+                            "label": "Потрібне звичайне питання про тривалість. a) How long did you had been studying before the break? / b) How long had you been studying before the break?",
+                            "prompt": "Який варіант правильний?",
+                            "answer": "b"
+                        },
+                        {
+                            "label": "Друзі стали в чергу о 14:00, їх запросили о 14:04. Had they been waiting long? — No, they hadn’t. a) Вони чекали недовго — чотири хвилини. / b) Вони зовсім не чекали.",
+                            "prompt": "Який варіант відповідає ситуації?",
+                            "answer": "a"
+                        }
+                    ],
+                    "choice_options": ["a", "b"],
+                    "input_title": "Вправа 3. Побудуй речення",
+                    "input_intro": "Постав групи слів у правильному порядку: спочатку загальне питання, потім питання про тривалість із How long.",
+                    "inputs": [
+                        {
+                            "before": "before the show / for an hour / they / Had / been rehearsing",
+                            "after": "→",
+                            "answer": "Had they been rehearsing for an hour before the show?"
+                        },
+                        {
+                            "before": "the bus arrived / been waiting / How long / when / had Lea",
+                            "after": "→",
+                            "answer": "How long had Lea been waiting when the bus arrived?"
+                        }
+                    ],
+                    "linked_practice": {
+                        "source": "theory_links",
+                        "question_types": ["4"],
+                        "seeder_classes": ["Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousQuestionsAllLevelsLessonSeeder"],
+                        "title": "Вправа 4. Побудуй речення",
+                        "intro": "Склади англійське речення за українським, клікаючи на слова.",
+                        "footer": "Завдання підібрані лише для цієї теми."
+                    }
+                }
+            }
+        },
+        {
+            "key": "time-expressions",
+            "identity": "Database\\Seeders\\Page_V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousTimeExpressionsTheorySeeder",
+            "definition_path": "database/seeders/Page_V3/Tenses/PastPerfectContinuous/PastPerfectContinuousTimeExpressionsTheorySeeder/definition.json",
+            "slug": "past-perfect-continuous-time-expressions",
+            "authored_case_mapping": {
+                "selects": ["time-q1", "time-q2"],
+                "choices": ["time-q5", "time-q6"],
+                "inputs": ["time-q3", "time-q4"]
+            },
+            "practice": {
+                "type": "practice-set",
+                "column": "left",
+                "level": "A2–B1",
+                "uuid_key": "m26-ppc-time-expressions-practice-v1",
+                "heading": null,
+                "body_data": {
+                    "title": "5. Практика",
+                    "select_title": "Вправа 1. Заповни пропуск",
+                    "select_intro": "Марта почала працювати о 8:00 і ще працювала об 11:00. Обери for для тривалості або since для початкової точки.",
+                    "selects": [
+                        {
+                            "label": "By eleven, Marta had been working ____ three hours.",
+                            "prompt": "Яке слово вказує на тривалість?",
+                            "answer": "for"
+                        },
+                        {
+                            "label": "By eleven, Marta had been working ____ eight.",
+                            "prompt": "Яке слово вказує на початкову точку?",
+                            "answer": "since"
+                        }
+                    ],
+                    "options": ["for", "since"],
+                    "choice_title": "Вправа 2. Обери правильне твердження",
+                    "choice_intro": "Визнач минулу точку відліку та не додавай до речення відомостей, яких у ньому немає.",
+                    "choices": [
+                        {
+                            "label": "The power came back at five. Until then, we had been working by the window. До якого часу відсилає then? a) До п’ятої, коли відновилося електропостачання. / b) До теперішнього моменту.",
+                            "prompt": "Який варіант відповідає контексту?",
+                            "answer": "a"
+                        },
+                        {
+                            "label": "At noon, we took a break. We had been rehearsing all morning. a) Репетиція точно почалася о 6:00 й тривала без жодної короткої паузи. / b) Точного початку й відсутності будь-яких пауз не зазначено.",
+                            "prompt": "Який висновок обґрунтований?",
+                            "answer": "b"
+                        }
+                    ],
+                    "choice_options": ["a", "b"],
+                    "input_title": "Вправа 3. Побудуй речення",
+                    "input_intro": "Постав групи слів у правильному порядку. Збережи тривалість та минулу точку відліку; ninety можна також записати як 90.",
+                    "inputs": [
+                        {
+                            "before": "for ninety minutes / the bus arrived / Lesia / when / had been waiting",
+                            "after": "Леся почала чекати о 8:30, автобус приїхав о 10:00. →",
+                            "answer": "Lesia had been waiting for ninety minutes when the bus arrived.",
+                            "accepted": ["Lesia had been waiting for ninety minutes when the bus arrived.", "Lesia had been waiting for 90 minutes when the bus arrived."]
+                        },
+                        {
+                            "before": "for ten minutes / we / the guide arrived, / had been waiting / By the time",
+                            "after": "Почни речення з By the time. →",
+                            "answer": "By the time the guide arrived, we had been waiting for ten minutes."
+                        }
+                    ],
+                    "linked_practice": {
+                        "source": "theory_links",
+                        "question_types": ["4"],
+                        "seeder_classes": ["Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousTimeExpressionsAllLevelsLessonSeeder"],
+                        "title": "Вправа 4. Побудуй речення",
+                        "intro": "Склади англійське речення за українським, клікаючи на слова.",
+                        "footer": "Завдання підібрані лише для цієї теми."
+                    }
+                }
+            }
+        }
+    ]
+}

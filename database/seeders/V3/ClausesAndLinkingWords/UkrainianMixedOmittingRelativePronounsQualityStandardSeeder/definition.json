@@ -1,0 +1,601 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/omitting-relative-pronouns.v1.json",
+        "sha256": "1f48cabbd6d6e4330384826ae90844cd8f3152e818eda636b52e9952ac598173"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\UkrainianMixedOmittingRelativePronounsQualityStandardSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-omitting-relative-pronouns-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "clauses_linking_words_quality_omitting_relative_pronouns": {
+            "name": "Clauses and Linking Words Quality: Omitting Relative Pronouns"
+        }
+    },
+    "tags": {
+        "omitting_relative_pronouns": {
+            "name": "Omitting Relative Pronouns",
+            "category": "clauses_and_linking_words"
+        },
+        "object_omission": {
+            "name": "Object pronoun omission",
+            "category": "topic"
+        },
+        "subject_not_omitted": {
+            "name": "Subject pronoun not omitted",
+            "category": "topic"
+        },
+        "defining_only": {
+            "name": "Defining clauses only",
+            "category": "topic"
+        },
+        "not_non_defining": {
+            "name": "Not in non-defining clauses",
+            "category": "topic"
+        },
+        "object_who_which_that": {
+            "name": "Who, which, that as object",
+            "category": "topic"
+        },
+        "contact_clauses": {
+            "name": "Contact clauses",
+            "category": "topic"
+        },
+        "object_vs_subject": {
+            "name": "Object vs subject distinction",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "omitting_relative_pronouns"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-omitting-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The toy {a1} is small.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Іграшка, яку я хочу, маленька.",
+            "target_text": "The toy I want is small.",
+            "markers": {
+                "a1": {
+                    "answer": "I want",
+                    "options": [
+                        "I want",
+                        "want I",
+                        "I wants"
+                    ],
+                    "verb_hint": "Я хочу; назви виконавця перед дієсловом, без окремого відносного слова."
+                }
+            },
+            "verb_hint": "Я хочу; назви виконавця перед дієсловом, без окремого відносного слова.",
+            "accepted_target_texts": [
+                "The toy I want is small."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The toy",
+                "I want",
+                "is small."
+            ],
+            "token_groups": [
+                "The toy",
+                "I want",
+                "is small."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "clq-omitting-a1-g02",
+            "author_id": "A1-g02",
+            "question": "This is the song {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Це пісня, яка нам подобається.",
+            "target_text": "This is the song we like.",
+            "markers": {
+                "a1": {
+                    "answer": "we like",
+                    "options": [
+                        "we like",
+                        "we likes",
+                        "us like"
+                    ],
+                    "verb_hint": "Ми любимо; у підрядній частині залиш підмет і дієслово без відносного слова."
+                }
+            },
+            "verb_hint": "Ми любимо; у підрядній частині залиш підмет і дієслово без відносного слова.",
+            "accepted_target_texts": [
+                "This is the song we like."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This is",
+                "the song",
+                "we like."
+            ],
+            "token_groups": [
+                "This is",
+                "the song",
+                "we like."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "clq-omitting-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The scarf {a1} is on the chair.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Шарф, який ти забув, на стільці.",
+            "target_text": "The scarf you forgot is on the chair.",
+            "markers": {
+                "a1": {
+                    "answer": "you forgot",
+                    "options": [
+                        "you forgot",
+                        "you forgetted",
+                        "forgot you"
+                    ],
+                    "verb_hint": "Ти забув; постав підмет перед правильною минулою формою без відносного слова."
+                }
+            },
+            "verb_hint": "Ти забув; постав підмет перед правильною минулою формою без відносного слова.",
+            "accepted_target_texts": [
+                "The scarf you forgot is on the chair."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The scarf",
+                "you forgot",
+                "is",
+                "on the chair."
+            ],
+            "token_groups": [
+                "The scarf",
+                "you forgot",
+                "is",
+                "on the chair."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "clq-omitting-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The sandwiches {a1} were delicious.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Бутерброди, які мама приготувала, були смачні.",
+            "target_text": "The sandwiches Mum made were delicious.",
+            "markers": {
+                "a1": {
+                    "answer": "Mum made",
+                    "options": [
+                        "Mum made",
+                        "Mum make",
+                        "made Mum"
+                    ],
+                    "verb_hint": "Мама приготувала; відносне слово пропущено, але виконавець дії залишається."
+                }
+            },
+            "verb_hint": "Мама приготувала; відносне слово пропущено, але виконавець дії залишається.",
+            "accepted_target_texts": [
+                "The sandwiches Mum made were delicious."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The sandwiches",
+                "Mum made",
+                "were delicious."
+            ],
+            "token_groups": [
+                "The sandwiches",
+                "Mum made",
+                "were delicious."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "clq-omitting-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The documentary {a1} last night changed my view.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Документальний фільм, який ми подивилися вчора ввечері, змінив мій погляд.",
+            "target_text": "The documentary we watched last night changed my view.",
+            "markers": {
+                "a1": {
+                    "answer": "we watched",
+                    "options": [
+                        "we watched",
+                        "watched us",
+                        "we watching"
+                    ],
+                    "verb_hint": "Ми подивилися; у скороченому зв’язку залиш особове минуле дієслово й підмет."
+                }
+            },
+            "verb_hint": "Ми подивилися; у скороченому зв’язку залиш особове минуле дієслово й підмет.",
+            "accepted_target_texts": [
+                "The documentary we watched last night changed my view.",
+                "The documentary we saw last night changed my view."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "we saw"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "we saw"
+                ]
+            },
+            "reorder_groups": [
+                "The documentary",
+                "we watched",
+                "last night",
+                "changed my view."
+            ],
+            "token_groups": [
+                "The documentary",
+                "we watched",
+                "last night",
+                "changed my view."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "clq-omitting-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The colleague {a1} about has just arrived.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Колега, про якого я тобі розповідав, щойно прийшов.",
+            "target_text": "The colleague I told you about has just arrived.",
+            "markers": {
+                "a1": {
+                    "answer": "I told you",
+                    "options": [
+                        "I told you",
+                        "I told to",
+                        "told you I"
+                    ],
+                    "verb_hint": "Я тобі розповідав; пропусти відносний займенник, а наведений прийменник залиш у кінці."
+                }
+            },
+            "verb_hint": "Я тобі розповідав; пропусти відносний займенник, а наведений прийменник залиш у кінці.",
+            "accepted_target_texts": [
+                "The colleague I told you about has just arrived."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The colleague",
+                "I told you",
+                "about",
+                "has just arrived."
+            ],
+            "token_groups": [
+                "The colleague",
+                "I told you",
+                "about",
+                "has just arrived."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "clq-omitting-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The conditions {a1} to were stricter than expected.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Умови, на які вони погодилися, були суворішими, ніж очікували.",
+            "target_text": "The conditions they had agreed to were stricter than expected.",
+            "markers": {
+                "a1": {
+                    "answer": "they had agreed",
+                    "options": [
+                        "they had agreed",
+                        "they had agree",
+                        "had they agreed"
+                    ],
+                    "verb_hint": "Вони раніше погодилися; потрібен підмет перед доконаною формою, а прийменник уже наведено."
+                }
+            },
+            "verb_hint": "Вони раніше погодилися; потрібен підмет перед доконаною формою, а прийменник уже наведено.",
+            "accepted_target_texts": [
+                "The conditions they had agreed to were stricter than expected."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The conditions",
+                "they had agreed",
+                "to",
+                "were stricter",
+                "than expected."
+            ],
+            "token_groups": [
+                "The conditions",
+                "they had agreed",
+                "to",
+                "were stricter",
+                "than expected."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "clq-omitting-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The evidence {a1} on proved unreliable.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Докази, на які покладалася команда, виявилися ненадійними.",
+            "target_text": "The evidence the team relied on proved unreliable.",
+            "markers": {
+                "a1": {
+                    "answer": "the team relied",
+                    "options": [
+                        "the team relied",
+                        "the team rely",
+                        "relied the team"
+                    ],
+                    "verb_hint": "Команда покладалася; без відносного слова збережи звичайний порядок підрядної частини."
+                }
+            },
+            "verb_hint": "Команда покладалася; без відносного слова збережи звичайний порядок підрядної частини.",
+            "accepted_target_texts": [
+                "The evidence the team relied on proved unreliable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The evidence",
+                "the team relied",
+                "on",
+                "proved unreliable."
+            ],
+            "token_groups": [
+                "The evidence",
+                "the team relied",
+                "on",
+                "proved unreliable."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "clq-omitting-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The interpretation {a1} upon rests on a mistranslation.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Тлумачення, на якому зійшлися редактори, ґрунтується на помилковому перекладі.",
+            "target_text": "The interpretation the editors settled upon rests on a mistranslation.",
+            "markers": {
+                "a1": {
+                    "answer": "the editors settled",
+                    "options": [
+                        "the editors settled",
+                        "the editors settling",
+                        "settled the editors"
+                    ],
+                    "verb_hint": "Редактори зійшлися; відносне слово пропущене, наведений прийменник лишається після дієслова."
+                }
+            },
+            "verb_hint": "Редактори зійшлися; відносне слово пропущене, наведений прийменник лишається після дієслова.",
+            "accepted_target_texts": [
+                "The interpretation the editors settled upon rests on a mistranslation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The interpretation",
+                "the editors settled",
+                "upon",
+                "rests",
+                "on a mistranslation."
+            ],
+            "token_groups": [
+                "The interpretation",
+                "the editors settled",
+                "upon",
+                "rests",
+                "on a mistranslation."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "clq-omitting-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The qualification {a1} from the draft was crucial.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Застереження, яке автор вилучив із проєкту, було істотним.",
+            "target_text": "The qualification the author omitted from the draft was crucial.",
+            "markers": {
+                "a1": {
+                    "answer": "the author omitted",
+                    "options": [
+                        "the author omitted",
+                        "the author omit",
+                        "omitted the author"
+                    ],
+                    "verb_hint": "Автор вилучив; виконавець має передувати минулому дієслову без відносного займенника."
+                }
+            },
+            "verb_hint": "Автор вилучив; виконавець має передувати минулому дієслову без відносного займенника.",
+            "accepted_target_texts": [
+                "The qualification the author omitted from the draft was crucial."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The qualification",
+                "the author omitted",
+                "from the draft",
+                "was crucial."
+            ],
+            "token_groups": [
+                "The qualification",
+                "the author omitted",
+                "from the draft",
+                "was crucial."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "clq-omitting-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The inference {a1} to draw exceeded the available evidence.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Висновок, який трибунал відмовився робити, виходив за межі наявних доказів.",
+            "target_text": "The inference the tribunal declined to draw exceeded the available evidence.",
+            "markers": {
+                "a1": {
+                    "answer": "the tribunal declined",
+                    "options": [
+                        "the tribunal declined",
+                        "the tribunal decline",
+                        "declined the tribunal"
+                    ],
+                    "verb_hint": "Трибунал відмовився; після пропуску вже наведено інфінітив, тому не повторюй його."
+                }
+            },
+            "verb_hint": "Трибунал відмовився; після пропуску вже наведено інфінітив, тому не повторюй його.",
+            "accepted_target_texts": [
+                "The inference the tribunal declined to draw exceeded the available evidence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inference",
+                "the tribunal declined",
+                "to draw",
+                "exceeded",
+                "the available evidence."
+            ],
+            "token_groups": [
+                "The inference",
+                "the tribunal declined",
+                "to draw",
+                "exceeded",
+                "the available evidence."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "clq-omitting-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The discrepancy {a1} over later undermined the reconstruction.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Розбіжність, яку виклад замовчав, згодом підірвала реконструкцію.",
+            "target_text": "The discrepancy the account glossed over later undermined the reconstruction.",
+            "markers": {
+                "a1": {
+                    "answer": "the account glossed",
+                    "options": [
+                        "the account glossed",
+                        "the account gloss",
+                        "glossed the account"
+                    ],
+                    "verb_hint": "Виклад замовчав; збережи особову минулу форму, а наведену частку не повторюй."
+                }
+            },
+            "verb_hint": "Виклад замовчав; збережи особову минулу форму, а наведену частку не повторюй.",
+            "accepted_target_texts": [
+                "The discrepancy the account glossed over later undermined the reconstruction."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The discrepancy",
+                "the account glossed",
+                "over",
+                "later undermined",
+                "the reconstruction."
+            ],
+            "token_groups": [
+                "The discrepancy",
+                "the account glossed",
+                "over",
+                "later undermined",
+                "the reconstruction."
+            ],
+            "quality_revision": "clq-v1"
+        }
+    ]
+}

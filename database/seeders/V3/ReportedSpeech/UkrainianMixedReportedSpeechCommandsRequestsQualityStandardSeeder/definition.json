@@ -1,0 +1,1682 @@
+{
+    "schema_version": 1,
+    "quality_revision": "rsq-v1",
+    "compiled_from": {
+        "path": "docs/content/reported-speech-quality/reported-commands-and-requests.v1.json",
+        "sha256": "5dba880c830368cf8a430afd0a67526c61baba0acfba7916b516cb04303f6347"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechCommandsRequestsQualityStandardSeeder",
+        "uuid_namespace": "reported-speech-quality-reported-commands-and-requests-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Reported Speech"
+    },
+    "sources": {
+        "reported_speech_quality_reported_commands_and_requests": {
+            "name": "Reported Speech Quality: Reported Commands and Requests"
+        }
+    },
+    "tags": {
+        "reported_speech_commands_requests_all_levels": {
+            "name": "reported speech commands requests all levels",
+            "category": "reported_speech"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "object_to_infinitive": {
+            "name": "Object To Infinitive",
+            "category": "topic"
+        },
+        "not_to_do": {
+            "name": "Not To Do",
+            "category": "topic"
+        },
+        "asked_someone_to": {
+            "name": "Asked Someone To",
+            "category": "topic"
+        },
+        "told_ordered_someone_to": {
+            "name": "Told Ordered Someone To",
+            "category": "topic"
+        },
+        "advised_someone_to": {
+            "name": "Advised Someone To",
+            "category": "topic"
+        },
+        "object_infinitive_pattern": {
+            "name": "Object Infinitive Pattern",
+            "category": "topic"
+        },
+        "no_quotation_marks": {
+            "name": "No Quotation Marks",
+            "category": "topic"
+        },
+        "pronoun_changes": {
+            "name": "Pronoun Changes",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rsq-commands-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Mother tells me {a1} my boots.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Мати каже мені почистити мої черевики.",
+            "target_text": "Mother tells me to clean my boots.",
+            "markers": {
+                "a1": {
+                    "answer": "to clean",
+                    "options": [
+                        "to clean",
+                        "cleaning",
+                        "to cleaning"
+                    ],
+                    "verb_hint": "Почистити; після названого адресата потрібен інфінітив із часткою."
+                }
+            },
+            "verb_hint": "Почистити; після названого адресата потрібен інфінітив із часткою.",
+            "accepted_target_texts": [
+                "Mother tells me to clean my boots."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Mother tells me",
+                "to clean",
+                "my boots."
+            ],
+            "token_groups": [
+                "Mother tells me",
+                "to clean",
+                "my boots."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "rsq-commands-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The teacher asks us to {a1} page ten.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Учитель просить нас відкрити десяту сторінку.",
+            "target_text": "The teacher asks us to open page ten.",
+            "markers": {
+                "a1": {
+                    "answer": "open",
+                    "options": [
+                        "open",
+                        "opening",
+                        "opened"
+                    ],
+                    "verb_hint": "Відкрити; частка інфінітива вже стоїть перед пропуском."
+                }
+            },
+            "verb_hint": "Відкрити; частка інфінітива вже стоїть перед пропуском.",
+            "accepted_target_texts": [
+                "The teacher asks us to open page ten."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The teacher",
+                "asks us",
+                "to open",
+                "page ten."
+            ],
+            "token_groups": [
+                "The teacher",
+                "asks us",
+                "to open",
+                "page ten."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "rsq-commands-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Dad tells Leo {a1} the cat.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Тато каже Лео нагодувати кота.",
+            "target_text": "Dad tells Leo to feed the cat.",
+            "markers": {
+                "a1": {
+                    "answer": "to feed",
+                    "options": [
+                        "to feed",
+                        "feeding",
+                        "to fed"
+                    ],
+                    "verb_hint": "Нагодувати; названий адресат має виконати дію."
+                }
+            },
+            "verb_hint": "Нагодувати; названий адресат має виконати дію.",
+            "accepted_target_texts": [
+                "Dad tells Leo to feed the cat."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Dad tells Leo",
+                "to feed",
+                "the cat."
+            ],
+            "token_groups": [
+                "Dad tells Leo",
+                "to feed",
+                "the cat."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "rsq-commands-a1-g04",
+            "author_id": "A1-g04",
+            "question": "Mum tells me {a1} on the sofa.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Мама каже мені не стрибати на дивані.",
+            "target_text": "Mum tells me not to jump on the sofa.",
+            "markers": {
+                "a1": {
+                    "answer": "not to jump",
+                    "options": [
+                        "not to jump",
+                        "to not jumped",
+                        "not jumping"
+                    ],
+                    "verb_hint": "Не стрибати; заперечення стосується наказаної дії."
+                }
+            },
+            "verb_hint": "Не стрибати; заперечення стосується наказаної дії.",
+            "accepted_target_texts": [
+                "Mum tells me not to jump on the sofa."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Mum tells me",
+                "not to jump",
+                "on the sofa."
+            ],
+            "token_groups": [
+                "Mum tells me",
+                "not to jump",
+                "on the sofa."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "rsq-commands-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Sam asks Ella {a1} the cup.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Сем просить Еллу передати йому чашку.",
+            "target_text": "Sam asks Ella to pass him the cup.",
+            "markers": {
+                "a1": {
+                    "answer": "to pass him",
+                    "options": [
+                        "to pass him",
+                        "passing him",
+                        "to passed him"
+                    ],
+                    "verb_hint": "Передати йому; одержувач чашки є тим, хто висловив прохання."
+                }
+            },
+            "verb_hint": "Передати йому; одержувач чашки є тим, хто висловив прохання.",
+            "accepted_target_texts": [
+                "Sam asks Ella to pass him the cup."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Sam asks Ella",
+                "to pass him",
+                "the cup."
+            ],
+            "token_groups": [
+                "Sam asks Ella",
+                "to pass him",
+                "the cup."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "rsq-commands-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Rita tells Jo {a1} the door.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Ріта каже Джо зачинити двері.",
+            "target_text": "Rita tells Jo to close the door.",
+            "markers": {
+                "a1": {
+                    "answer": "to close",
+                    "options": [
+                        "to close",
+                        "closing",
+                        "to closed"
+                    ],
+                    "verb_hint": "Зачинити; після адресата потрібна повна інфінітивна група."
+                }
+            },
+            "verb_hint": "Зачинити; після адресата потрібна повна інфінітивна група.",
+            "accepted_target_texts": [
+                "Rita tells Jo to close the door.",
+                "Rita tells Jo to shut the door."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to shut"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to shut"
+                ]
+            },
+            "reorder_groups": [
+                "Rita tells Jo",
+                "to close",
+                "the door."
+            ],
+            "token_groups": [
+                "Rita tells Jo",
+                "to close",
+                "the door."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "rsq-commands-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The doctor told Mark {a1} more water.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Лікар сказав Маркові пити більше води.",
+            "target_text": "The doctor told Mark to drink more water.",
+            "markers": {
+                "a1": {
+                    "answer": "to drink",
+                    "options": [
+                        "to drink",
+                        "drinking",
+                        "to drank"
+                    ],
+                    "verb_hint": "Пити; минула форма повідомлення не змінює інфінітива."
+                }
+            },
+            "verb_hint": "Пити; минула форма повідомлення не змінює інфінітива.",
+            "accepted_target_texts": [
+                "The doctor told Mark to drink more water."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The doctor",
+                "told Mark",
+                "to drink",
+                "more water."
+            ],
+            "token_groups": [
+                "The doctor",
+                "told Mark",
+                "to drink",
+                "more water."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "rsq-commands-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The librarian asked the boys {a1} quietly.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Бібліотекарка попросила хлопців говорити тихо.",
+            "target_text": "The librarian asked the boys to speak quietly.",
+            "markers": {
+                "a1": {
+                    "answer": "to speak",
+                    "options": [
+                        "to speak",
+                        "speaking",
+                        "to spoke"
+                    ],
+                    "verb_hint": "Говорити; виконавці дії вже названі як адресати прохання."
+                }
+            },
+            "verb_hint": "Говорити; виконавці дії вже названі як адресати прохання.",
+            "accepted_target_texts": [
+                "The librarian asked the boys to speak quietly."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The librarian",
+                "asked the boys",
+                "to speak quietly."
+            ],
+            "token_groups": [
+                "The librarian",
+                "asked the boys",
+                "to speak quietly."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "rsq-commands-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Olena told her son {a1} his wet coat inside.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Олена сказала синові не заносити мокре пальто всередину.",
+            "target_text": "Olena told her son not to bring his wet coat inside.",
+            "markers": {
+                "a1": {
+                    "answer": "not to bring",
+                    "options": [
+                        "not to bring",
+                        "not bringing",
+                        "not to brought"
+                    ],
+                    "verb_hint": "Не заносити; збережи заперечення саме в переданій вказівці."
+                }
+            },
+            "verb_hint": "Не заносити; збережи заперечення саме в переданій вказівці.",
+            "accepted_target_texts": [
+                "Olena told her son not to bring his wet coat inside."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Olena",
+                "told her son",
+                "not to bring",
+                "his wet coat",
+                "inside."
+            ],
+            "token_groups": [
+                "Olena",
+                "told her son",
+                "not to bring",
+                "his wet coat",
+                "inside."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "rsq-commands-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The waiter asked us {a1} near the window.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Офіціант попросив нас сісти біля вікна.",
+            "target_text": "The waiter asked us to sit near the window.",
+            "markers": {
+                "a1": {
+                    "answer": "to sit",
+                    "options": [
+                        "to sit",
+                        "sitting",
+                        "to sat"
+                    ],
+                    "verb_hint": "Сісти; не замінюй інфінітив минулою формою після прохання."
+                }
+            },
+            "verb_hint": "Сісти; не замінюй інфінітив минулою формою після прохання.",
+            "accepted_target_texts": [
+                "The waiter asked us to sit near the window."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The waiter",
+                "asked us",
+                "to sit",
+                "near the window."
+            ],
+            "token_groups": [
+                "The waiter",
+                "asked us",
+                "to sit",
+                "near the window."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "rsq-commands-a2-g05",
+            "author_id": "A2-g05",
+            "question": "My uncle told me {a1} my address clearly.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Мій дядько сказав мені чітко написати мою адресу.",
+            "target_text": "My uncle told me to write my address clearly.",
+            "markers": {
+                "a1": {
+                    "answer": "to write",
+                    "options": [
+                        "to write",
+                        "writing",
+                        "to wrote"
+                    ],
+                    "verb_hint": "Написати; потрібен інфінітив, а не форма процесу."
+                }
+            },
+            "verb_hint": "Написати; потрібен інфінітив, а не форма процесу.",
+            "accepted_target_texts": [
+                "My uncle told me to write my address clearly."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My uncle",
+                "told me",
+                "to write",
+                "my address",
+                "clearly."
+            ],
+            "token_groups": [
+                "My uncle",
+                "told me",
+                "to write",
+                "my address",
+                "clearly."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "rsq-commands-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The driver asked the passengers {a1} the rear door.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Водій попросив пасажирів не користуватися задніми дверима.",
+            "target_text": "The driver asked the passengers not to use the rear door.",
+            "markers": {
+                "a1": {
+                    "answer": "not to use",
+                    "options": [
+                        "not to use",
+                        "not using",
+                        "not to used"
+                    ],
+                    "verb_hint": "Не користуватися; постав заперечення перед інфінітивом."
+                }
+            },
+            "verb_hint": "Не користуватися; постав заперечення перед інфінітивом.",
+            "accepted_target_texts": [
+                "The driver asked the passengers not to use the rear door."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The driver",
+                "asked the passengers",
+                "not to use",
+                "the rear door."
+            ],
+            "token_groups": [
+                "The driver",
+                "asked the passengers",
+                "not to use",
+                "the rear door."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "rsq-commands-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The instructor warned the climbers {a1} the loose stones.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Інструктор попередив альпіністів не торкатися нестійкого каміння.",
+            "target_text": "The instructor warned the climbers not to touch the loose stones.",
+            "markers": {
+                "a1": {
+                    "answer": "not to touch",
+                    "options": [
+                        "not to touch",
+                        "not touching",
+                        "not to touched"
+                    ],
+                    "verb_hint": "Не торкатися; передай попередження про заборонену дію."
+                }
+            },
+            "verb_hint": "Не торкатися; передай попередження про заборонену дію.",
+            "accepted_target_texts": [
+                "The instructor warned the climbers not to touch the loose stones."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The instructor",
+                "warned the climbers",
+                "not to touch",
+                "the loose stones."
+            ],
+            "token_groups": [
+                "The instructor",
+                "warned the climbers",
+                "not to touch",
+                "the loose stones."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "rsq-commands-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The host reminded the guests {a1} their umbrellas.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Господар нагадав гостям забрати їхні парасолі.",
+            "target_text": "The host reminded the guests to take their umbrellas.",
+            "markers": {
+                "a1": {
+                    "answer": "to take",
+                    "options": [
+                        "to take",
+                        "taking",
+                        "to took"
+                    ],
+                    "verb_hint": "Забрати; нагадування адресоване людям, які мають виконати дію."
+                }
+            },
+            "verb_hint": "Забрати; нагадування адресоване людям, які мають виконати дію.",
+            "accepted_target_texts": [
+                "The host reminded the guests to take their umbrellas."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The host",
+                "reminded the guests",
+                "to take",
+                "their umbrellas."
+            ],
+            "token_groups": [
+                "The host",
+                "reminded the guests",
+                "to take",
+                "their umbrellas."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "rsq-commands-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The engineer instructed the team {a1} the power before repairs.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Інженер дав команді вказівку відключити живлення перед ремонтом.",
+            "target_text": "The engineer instructed the team to disconnect the power before repairs.",
+            "markers": {
+                "a1": {
+                    "answer": "to disconnect",
+                    "options": [
+                        "to disconnect",
+                        "disconnecting",
+                        "to disconnected"
+                    ],
+                    "verb_hint": "Відключити; після адресата технічної вказівки потрібен інфінітив."
+                }
+            },
+            "verb_hint": "Відключити; після адресата технічної вказівки потрібен інфінітив.",
+            "accepted_target_texts": [
+                "The engineer instructed the team to disconnect the power before repairs."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The engineer",
+                "instructed the team",
+                "to disconnect",
+                "the power",
+                "before repairs."
+            ],
+            "token_groups": [
+                "The engineer",
+                "instructed the team",
+                "to disconnect",
+                "the power",
+                "before repairs."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "rsq-commands-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The organiser asked the speakers {a1} the agreed time limit.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Організатор попросив доповідачів дотримуватися погодженого обмеження часу.",
+            "target_text": "The organiser asked the speakers to respect the agreed time limit.",
+            "markers": {
+                "a1": {
+                    "answer": "to respect",
+                    "options": [
+                        "to respect",
+                        "respecting",
+                        "to respected"
+                    ],
+                    "verb_hint": "Дотримуватися; не змінюй інфінітив через минулий момент прохання."
+                }
+            },
+            "verb_hint": "Дотримуватися; не змінюй інфінітив через минулий момент прохання.",
+            "accepted_target_texts": [
+                "The organiser asked the speakers to respect the agreed time limit."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The organiser",
+                "asked the speakers",
+                "to respect",
+                "the agreed",
+                "time limit."
+            ],
+            "token_groups": [
+                "The organiser",
+                "asked the speakers",
+                "to respect",
+                "the agreed",
+                "time limit."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "rsq-commands-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The warden told us {a1} any food behind.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Наглядач сказав нам не залишати жодної їжі.",
+            "target_text": "The warden told us not to leave any food behind.",
+            "markers": {
+                "a1": {
+                    "answer": "not to leave",
+                    "options": [
+                        "not to leave",
+                        "not leaving",
+                        "not to left"
+                    ],
+                    "verb_hint": "Не залишати; збережи повну заперечну інфінітивну групу."
+                }
+            },
+            "verb_hint": "Не залишати; збережи повну заперечну інфінітивну групу.",
+            "accepted_target_texts": [
+                "The warden told us not to leave any food behind."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The warden",
+                "told us",
+                "not to leave",
+                "any food behind."
+            ],
+            "token_groups": [
+                "The warden",
+                "told us",
+                "not to leave",
+                "any food behind."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "rsq-commands-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The producer asked the singer {a1} the final line.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Продюсер попросив співачку повторити останній рядок.",
+            "target_text": "The producer asked the singer to repeat the final line.",
+            "markers": {
+                "a1": {
+                    "answer": "to repeat",
+                    "options": [
+                        "to repeat",
+                        "repeating",
+                        "to repeated"
+                    ],
+                    "verb_hint": "Повторити; співачка є адресаткою й виконавицею прохання."
+                }
+            },
+            "verb_hint": "Повторити; співачка є адресаткою й виконавицею прохання.",
+            "accepted_target_texts": [
+                "The producer asked the singer to repeat the final line."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The producer",
+                "asked the singer",
+                "to repeat",
+                "the final line."
+            ],
+            "token_groups": [
+                "The producer",
+                "asked the singer",
+                "to repeat",
+                "the final line."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "rsq-commands-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The solicitor advised the client {a1} the agreement without clarification.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Адвокат порадив клієнтові не підписувати угоду без уточнення.",
+            "target_text": "The solicitor advised the client not to sign the agreement without clarification.",
+            "markers": {
+                "a1": {
+                    "answer": "not to sign",
+                    "options": [
+                        "not to sign",
+                        "not signing",
+                        "not to signed"
+                    ],
+                    "verb_hint": "Не підписувати; збережи заперечення в пораді, а не в дієслові повідомлення."
+                }
+            },
+            "verb_hint": "Не підписувати; збережи заперечення в пораді, а не в дієслові повідомлення.",
+            "accepted_target_texts": [
+                "The solicitor advised the client not to sign the agreement without clarification."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The solicitor",
+                "advised the client",
+                "not to sign",
+                "the agreement",
+                "without clarification."
+            ],
+            "token_groups": [
+                "The solicitor",
+                "advised the client",
+                "not to sign",
+                "the agreement",
+                "without clarification."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "rsq-commands-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The chair urged the delegates {a1} personal attacks.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Голова закликав делегатів уникати особистих нападів.",
+            "target_text": "The chair urged the delegates to avoid personal attacks.",
+            "markers": {
+                "a1": {
+                    "answer": "to avoid",
+                    "options": [
+                        "to avoid",
+                        "avoiding",
+                        "to avoided"
+                    ],
+                    "verb_hint": "Уникати; після названих адресатів заклику потрібен інфінітив."
+                }
+            },
+            "verb_hint": "Уникати; після названих адресатів заклику потрібен інфінітив.",
+            "accepted_target_texts": [
+                "The chair urged the delegates to avoid personal attacks."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The chair",
+                "urged the delegates",
+                "to avoid",
+                "personal attacks."
+            ],
+            "token_groups": [
+                "The chair",
+                "urged the delegates",
+                "to avoid",
+                "personal attacks."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "rsq-commands-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The supervisor reminded the assistants {a1} each sample separately.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Керівниця нагадала помічникам позначити кожен зразок окремо.",
+            "target_text": "The supervisor reminded the assistants to label each sample separately.",
+            "markers": {
+                "a1": {
+                    "answer": "to label",
+                    "options": [
+                        "to label",
+                        "labelling",
+                        "to labelled"
+                    ],
+                    "verb_hint": "Позначити; збережи нагадування про обов’язкову дію."
+                }
+            },
+            "verb_hint": "Позначити; збережи нагадування про обов’язкову дію.",
+            "accepted_target_texts": [
+                "The supervisor reminded the assistants to label each sample separately."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The supervisor",
+                "reminded the assistants",
+                "to label",
+                "each sample",
+                "separately."
+            ],
+            "token_groups": [
+                "The supervisor",
+                "reminded the assistants",
+                "to label",
+                "each sample",
+                "separately."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "rsq-commands-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The inspector warned the staff {a1} the damaged barrier.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Інспектор попередив персонал не переходити пошкоджену огорожу.",
+            "target_text": "The inspector warned the staff not to cross the damaged barrier.",
+            "markers": {
+                "a1": {
+                    "answer": "not to cross",
+                    "options": [
+                        "not to cross",
+                        "not crossing",
+                        "not to crossed"
+                    ],
+                    "verb_hint": "Не переходити; потрібна повна група забороненої дії."
+                }
+            },
+            "verb_hint": "Не переходити; потрібна повна група забороненої дії.",
+            "accepted_target_texts": [
+                "The inspector warned the staff not to cross the damaged barrier."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inspector",
+                "warned the staff",
+                "not to cross",
+                "the damaged barrier."
+            ],
+            "token_groups": [
+                "The inspector",
+                "warned the staff",
+                "not to cross",
+                "the damaged barrier."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "rsq-commands-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The director instructed the archivist {a1} the original sequence.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Директор дав архівістові вказівку зберегти початкову послідовність.",
+            "target_text": "The director instructed the archivist to preserve the original sequence.",
+            "markers": {
+                "a1": {
+                    "answer": "to preserve",
+                    "options": [
+                        "to preserve",
+                        "preserving",
+                        "to preserved"
+                    ],
+                    "verb_hint": "Зберегти; адресат вказівки має виконати дію над послідовністю."
+                }
+            },
+            "verb_hint": "Зберегти; адресат вказівки має виконати дію над послідовністю.",
+            "accepted_target_texts": [
+                "The director instructed the archivist to preserve the original sequence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The director",
+                "instructed the archivist",
+                "to preserve",
+                "the original sequence."
+            ],
+            "token_groups": [
+                "The director",
+                "instructed the archivist",
+                "to preserve",
+                "the original sequence."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "rsq-commands-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The editor asked the translator {a1} the disputed term unchanged.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Редактор попросив перекладача залишити спірний термін без змін.",
+            "target_text": "The editor asked the translator to leave the disputed term unchanged.",
+            "markers": {
+                "a1": {
+                    "answer": "to leave",
+                    "options": [
+                        "to leave",
+                        "leaving",
+                        "to left"
+                    ],
+                    "verb_hint": "Залишити; не перетворюй прохання на повідомлення про вже виконану дію."
+                }
+            },
+            "verb_hint": "Залишити; не перетворюй прохання на повідомлення про вже виконану дію.",
+            "accepted_target_texts": [
+                "The editor asked the translator to leave the disputed term unchanged."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The editor",
+                "asked the translator",
+                "to leave",
+                "the disputed term",
+                "unchanged."
+            ],
+            "token_groups": [
+                "The editor",
+                "asked the translator",
+                "to leave",
+                "the disputed term",
+                "unchanged."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "rsq-commands-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The counsel cautioned the witness {a1} motives from incomplete notes.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Радник застеріг свідка не робити висновків про мотиви з неповних нотаток.",
+            "target_text": "The counsel cautioned the witness not to infer motives from incomplete notes.",
+            "markers": {
+                "a1": {
+                    "answer": "not to infer",
+                    "options": [
+                        "not to infer",
+                        "not inferring",
+                        "not to inferred"
+                    ],
+                    "verb_hint": "Не виводити мотиви; передай застереження через заперечний інфінітив."
+                }
+            },
+            "verb_hint": "Не виводити мотиви; передай застереження через заперечний інфінітив.",
+            "accepted_target_texts": [
+                "The counsel cautioned the witness not to infer motives from incomplete notes."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The counsel",
+                "cautioned the witness",
+                "not to infer",
+                "motives",
+                "from incomplete notes."
+            ],
+            "token_groups": [
+                "The counsel",
+                "cautioned the witness",
+                "not to infer",
+                "motives",
+                "from incomplete notes."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "rsq-commands-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The investigator instructed the analysts {a1} observation from interpretation.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Керівник розслідування дав аналітикам вказівку розрізняти спостереження й тлумачення.",
+            "target_text": "The investigator instructed the analysts to distinguish observation from interpretation.",
+            "markers": {
+                "a1": {
+                    "answer": "to distinguish",
+                    "options": [
+                        "to distinguish",
+                        "distinguishing",
+                        "to distinguished"
+                    ],
+                    "verb_hint": "Розрізняти; обидва поняття вже наведені, додай лише інфінітивну дію."
+                }
+            },
+            "verb_hint": "Розрізняти; обидва поняття вже наведені, додай лише інфінітивну дію.",
+            "accepted_target_texts": [
+                "The investigator instructed the analysts to distinguish observation from interpretation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The investigator",
+                "instructed the analysts",
+                "to distinguish",
+                "observation",
+                "from interpretation."
+            ],
+            "token_groups": [
+                "The investigator",
+                "instructed the analysts",
+                "to distinguish",
+                "observation",
+                "from interpretation."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "rsq-commands-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The chair implored the parties {a1} negotiations prematurely.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Голова благав сторони не припиняти переговорів передчасно.",
+            "target_text": "The chair implored the parties not to abandon negotiations prematurely.",
+            "markers": {
+                "a1": {
+                    "answer": "not to abandon",
+                    "options": [
+                        "not to abandon",
+                        "not abandoning",
+                        "not to abandoned"
+                    ],
+                    "verb_hint": "Не припиняти; збережи заперечення в наполегливому проханні."
+                }
+            },
+            "verb_hint": "Не припиняти; збережи заперечення в наполегливому проханні.",
+            "accepted_target_texts": [
+                "The chair implored the parties not to abandon negotiations prematurely."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The chair",
+                "implored the parties",
+                "not to abandon",
+                "negotiations prematurely."
+            ],
+            "token_groups": [
+                "The chair",
+                "implored the parties",
+                "not to abandon",
+                "negotiations prematurely."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "rsq-commands-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The reviewer urged the author {a1} the claim appropriately.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Рецензент наполегливо порадив авторові додати доречні застереження до твердження.",
+            "target_text": "The reviewer urged the author to qualify the claim appropriately.",
+            "markers": {
+                "a1": {
+                    "answer": "to qualify",
+                    "options": [
+                        "to qualify",
+                        "qualifying",
+                        "to qualified"
+                    ],
+                    "verb_hint": "Зазначити межі твердження; передай заклик до обмеження, не до підтвердження."
+                }
+            },
+            "verb_hint": "Зазначити межі твердження; передай заклик до обмеження, не до підтвердження.",
+            "accepted_target_texts": [
+                "The reviewer urged the author to qualify the claim appropriately."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The reviewer",
+                "urged the author",
+                "to qualify",
+                "the claim",
+                "appropriately."
+            ],
+            "token_groups": [
+                "The reviewer",
+                "urged the author",
+                "to qualify",
+                "the claim",
+                "appropriately."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "rsq-commands-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The conservator advised the owner {a1} the varnish before testing.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Реставратор порадив власникові не знімати лак до перевірки.",
+            "target_text": "The conservator advised the owner not to remove the varnish before testing.",
+            "markers": {
+                "a1": {
+                    "answer": "not to remove",
+                    "options": [
+                        "not to remove",
+                        "not removing",
+                        "not to removed"
+                    ],
+                    "verb_hint": "Не знімати; порада забороняє дію до попередньої перевірки."
+                }
+            },
+            "verb_hint": "Не знімати; порада забороняє дію до попередньої перевірки.",
+            "accepted_target_texts": [
+                "The conservator advised the owner not to remove the varnish before testing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The conservator",
+                "advised the owner",
+                "not to remove",
+                "the varnish",
+                "before testing."
+            ],
+            "token_groups": [
+                "The conservator",
+                "advised the owner",
+                "not to remove",
+                "the varnish",
+                "before testing."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "rsq-commands-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The rapporteur requested the delegates {a1} their reservations in writing.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Доповідач офіційно попросив делегатів подати свої застереження письмово.",
+            "target_text": "The rapporteur requested the delegates to submit their reservations in writing.",
+            "markers": {
+                "a1": {
+                    "answer": "to submit",
+                    "options": [
+                        "to submit",
+                        "submitting",
+                        "to submitted"
+                    ],
+                    "verb_hint": "Подати; збережи офіційне прохання й інфінітив після адресата."
+                }
+            },
+            "verb_hint": "Подати; збережи офіційне прохання й інфінітив після адресата.",
+            "accepted_target_texts": [
+                "The rapporteur requested the delegates to submit their reservations in writing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The rapporteur",
+                "requested the delegates",
+                "to submit",
+                "their reservations",
+                "in writing."
+            ],
+            "token_groups": [
+                "The rapporteur",
+                "requested the delegates",
+                "to submit",
+                "their reservations",
+                "in writing."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "rsq-commands-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The adjudicator enjoined the panel {a1} prejudicial assumptions.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Арбітр суворо наказав колегії відкинути упереджені припущення.",
+            "target_text": "The adjudicator enjoined the panel to disregard prejudicial assumptions.",
+            "markers": {
+                "a1": {
+                    "answer": "to disregard",
+                    "options": [
+                        "to disregard",
+                        "disregarding",
+                        "to disregarded"
+                    ],
+                    "verb_hint": "Відкинути; формальне дієслово наказу керує адресатом та інфінітивом."
+                }
+            },
+            "verb_hint": "Відкинути; формальне дієслово наказу керує адресатом та інфінітивом.",
+            "accepted_target_texts": [
+                "The adjudicator enjoined the panel to disregard prejudicial assumptions."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The adjudicator",
+                "enjoined the panel",
+                "to disregard",
+                "prejudicial assumptions."
+            ],
+            "token_groups": [
+                "The adjudicator",
+                "enjoined the panel",
+                "to disregard",
+                "prejudicial assumptions."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "rsq-commands-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The counsel warned the drafter {a1} the exception by implication.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Радник застеріг укладача не розширювати виняток непрямим чином.",
+            "target_text": "The counsel warned the drafter not to broaden the exception by implication.",
+            "markers": {
+                "a1": {
+                    "answer": "not to broaden",
+                    "options": [
+                        "not to broaden",
+                        "not broadening",
+                        "not to broadened"
+                    ],
+                    "verb_hint": "Не розширювати; збережи сферу застереження в інфінітивній групі."
+                }
+            },
+            "verb_hint": "Не розширювати; збережи сферу застереження в інфінітивній групі.",
+            "accepted_target_texts": [
+                "The counsel warned the drafter not to broaden the exception by implication.",
+                "The counsel warned the drafter not to widen the exception by implication."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "not to widen"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "not to widen"
+                ]
+            },
+            "reorder_groups": [
+                "The counsel",
+                "warned the drafter",
+                "not to broaden",
+                "the exception",
+                "by implication."
+            ],
+            "token_groups": [
+                "The counsel",
+                "warned the drafter",
+                "not to broaden",
+                "the exception",
+                "by implication."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "rsq-commands-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The commissioner directed the investigators {a1} every exculpatory lead.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Уповноважений дав слідчим вказівку перевірити кожну версію на користь невинуватості.",
+            "target_text": "The commissioner directed the investigators to pursue every exculpatory lead.",
+            "markers": {
+                "a1": {
+                    "answer": "to pursue",
+                    "options": [
+                        "to pursue",
+                        "pursuing",
+                        "to pursued"
+                    ],
+                    "verb_hint": "Перевірити кожну версію; потрібен інфінітив після офіційної вказівки."
+                }
+            },
+            "verb_hint": "Перевірити кожну версію; потрібен інфінітив після офіційної вказівки.",
+            "accepted_target_texts": [
+                "The commissioner directed the investigators to pursue every exculpatory lead."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The commissioner",
+                "directed the investigators",
+                "to pursue",
+                "every exculpatory lead."
+            ],
+            "token_groups": [
+                "The commissioner",
+                "directed the investigators",
+                "to pursue",
+                "every exculpatory lead."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "rsq-commands-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The archivist reminded the cataloguer {a1} conjecture from transcription.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Архівіст нагадав каталогізаторові відокремити припущення від транскрипції.",
+            "target_text": "The archivist reminded the cataloguer to separate conjecture from transcription.",
+            "markers": {
+                "a1": {
+                    "answer": "to separate",
+                    "options": [
+                        "to separate",
+                        "separating",
+                        "to separated"
+                    ],
+                    "verb_hint": "Відокремити; нагадування не означає, що дія вже виконана."
+                }
+            },
+            "verb_hint": "Відокремити; нагадування не означає, що дія вже виконана.",
+            "accepted_target_texts": [
+                "The archivist reminded the cataloguer to separate conjecture from transcription."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The archivist",
+                "reminded the cataloguer",
+                "to separate",
+                "conjecture",
+                "from transcription."
+            ],
+            "token_groups": [
+                "The archivist",
+                "reminded the cataloguer",
+                "to separate",
+                "conjecture",
+                "from transcription."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "rsq-commands-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The advocate entreated the tribunal {a1} a waiver from mere delay.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Адвокат благав суд не припускати відмови від права лише через затримку.",
+            "target_text": "The advocate entreated the tribunal not to presume a waiver from mere delay.",
+            "markers": {
+                "a1": {
+                    "answer": "not to presume",
+                    "options": [
+                        "not to presume",
+                        "not presuming",
+                        "not to presumed"
+                    ],
+                    "verb_hint": "Не припускати; заперечення стосується висновку, який просять не робити."
+                }
+            },
+            "verb_hint": "Не припускати; заперечення стосується висновку, який просять не робити.",
+            "accepted_target_texts": [
+                "The advocate entreated the tribunal not to presume a waiver from mere delay."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The advocate",
+                "entreated the tribunal",
+                "not to presume",
+                "a waiver",
+                "from mere delay."
+            ],
+            "token_groups": [
+                "The advocate",
+                "entreated the tribunal",
+                "not to presume",
+                "a waiver",
+                "from mere delay."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "rsq-commands-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The theorist exhorted the audience {a1} the seductive analogy.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Теоретик закликав аудиторію поставити під сумнів привабливу аналогію.",
+            "target_text": "The theorist exhorted the audience to question the seductive analogy.",
+            "markers": {
+                "a1": {
+                    "answer": "to question",
+                    "options": [
+                        "to question",
+                        "questioning",
+                        "to questioned"
+                    ],
+                    "verb_hint": "Поставити під сумнів; передай заклик, а не вже здійснене заперечення."
+                }
+            },
+            "verb_hint": "Поставити під сумнів; передай заклик, а не вже здійснене заперечення.",
+            "accepted_target_texts": [
+                "The theorist exhorted the audience to question the seductive analogy."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The theorist",
+                "exhorted the audience",
+                "to question",
+                "the seductive analogy."
+            ],
+            "token_groups": [
+                "The theorist",
+                "exhorted the audience",
+                "to question",
+                "the seductive analogy."
+            ],
+            "quality_revision": "rsq-v1"
+        }
+    ]
+}

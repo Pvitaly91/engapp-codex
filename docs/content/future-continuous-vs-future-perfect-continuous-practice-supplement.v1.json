@@ -1,0 +1,2100 @@
+{
+    "schema_version": 1,
+    "local_url": "http://gramlyze.loc/theory/maibutni-formy/future-continuous-vs-future-perfect-continuous",
+    "definition": "database/seeders/Page_V3/FutureForms/FutureFormsFutureContinuousVsFuturePerfectContinuousTheorySeeder/definition.json",
+    "definition_sha256": "6144dea584c226a4271c0372a9d12270da412ce188ecd848f65fd0248936ff9c",
+    "release": "database/content-patches/m45-authored-future-comparisons.v1.0.0.json",
+    "release_sha256": "209a0bdb62716eb5cd35718b0496d31eda6616f951c6a14c94f087092dc8ca19",
+    "master": "docs/content/m45-authored-future-comparisons.v1.0.0.json",
+    "master_sha256": "333b39ead3e5bb20c2bcde9c42878cf98f176158d7ae6324d0c6510b09b2afb7",
+    "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsFutureContinuousVsFuturePerfectContinuousTheorySeeder",
+        "page_id": 59,
+        "page_category_id": 12,
+        "locale": "uk",
+        "uuid": "79b8a425-a798-5270-9813-072a7c5294d3",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 8,
+        "level": "B2",
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "5aae03fff51885ef4594afb70b677023bf7e1d75fb358e9011449df7391d250d"
+    },
+    "before_data_sha256": "5aae03fff51885ef4594afb70b677023bf7e1d75fb358e9011449df7391d250d",
+    "after_data_sha256": "ce01ef31d0b898de4bd727e79fa6f67ad68a743bce339dce0b549485511c9b9e",
+    "before_data": {
+        "title": "Практика",
+        "m45_v1": {
+            "revision": "1.0.0",
+            "master_sha256": "333b39ead3e5bb20c2bcde9c42878cf98f176158d7ae6324d0c6510b09b2afb7",
+            "lesson_key": "future-continuous-vs-future-perfect-continuous",
+            "role": "practice",
+            "slot": 7
+        },
+        "author_practice": [
+            {
+                "id": "m45-c-q1",
+                "title": "Що буде на розкопках об 11:00?",
+                "prompt_uk": "Археологи почнуть копати завтра о 7:00 і ще працюватимуть об 11:00. Гід повідомляє лише, що вони робитимуть об 11:00, без підрахунку годин. Обери форму поданого дієслова зі значенням «копати».",
+                "controls": [
+                    {
+                        "id": "m45-c-q1-form",
+                        "kind": "select",
+                        "label_uk": "Форма для процесу в цей момент",
+                        "stimulus_en": "At 11 tomorrow, the team ___ at the site. (dig)",
+                        "stimulus_uk": "Завтра об одинадцятій команда ... на місці розкопок. («копати»)",
+                        "options": [
+                            {
+                                "value": "fc",
+                                "label_uk": "will be digging"
+                            },
+                            {
+                                "value": "fpc",
+                                "label_uk": "will have been digging"
+                            }
+                        ],
+                        "correct_value": "fc",
+                        "required": true
+                    }
+                ],
+                "feedback": {
+                    "paragraphs_uk": [
+                        "Потрібен Future Continuous: гід показує процес об 11:00. Future Perfect Continuous додав би погляд на попередній період роботи, якого це повідомлення не ставить у центр."
+                    ],
+                    "answer_examples": [
+                        {
+                            "en": "At 11 tomorrow, the team will be digging at the site.",
+                            "uk": "Завтра об одинадцятій команда копатиме на місці розкопок."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "m45-c-q2",
+                "title": "Три години радіоефіру",
+                "prompt_uk": "Завтра ведуча почне вести ефір о 6:00 і ще вестиме його о 9:00. Напиши англійською повідомлення про три години, накопичені до дев’ятої. Почни речення з поданого початку; використай Future Perfect Continuous та подане дієслово зі значенням «вести ефір».",
+                "controls": [
+                    {
+                        "id": "m45-c-q2-sentence",
+                        "kind": "manual",
+                        "label_uk": "Повне речення про тривалість до дев’ятої",
+                        "stimulus_en": "By 9 tomorrow, she ... (broadcast)",
+                        "stimulus_uk": "До дев’ятої завтра вона ... («вести ефір»)",
+                        "canonical_answer": "By 9 tomorrow, she will have been broadcasting for three hours.",
+                        "accepted_answers": [
+                            "By 9 tomorrow, she'll have been broadcasting for three hours.",
+                            "By nine tomorrow, she will have been broadcasting for three hours.",
+                            "By nine tomorrow, she'll have been broadcasting for three hours.",
+                            "By 9 tomorrow, she will have been broadcasting for 3 hours.",
+                            "By 9 tomorrow, she'll have been broadcasting for 3 hours."
+                        ],
+                        "required": true
+                    }
+                ],
+                "feedback": {
+                    "paragraphs_uk": [
+                        "Від 6:00 до 9:00 — три години. Will have been broadcasting показує цей період із майбутньої точки відліку. Початок теж у майбутньому; час завершення ефіру не задано."
+                    ],
+                    "answer_examples": [
+                        {
+                            "en": "By 9 tomorrow, she will have been broadcasting for three hours.",
+                            "uk": "До дев’ятої завтра вона вестиме ефір уже три години."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "m45-c-q3",
+                "title": "Тимчасовий офіс на час ремонту",
+                "prompt_uk": "У листопаді офіс закриють на ремонт. Працівники описують тимчасову організацію роботи. Що означає зазначений тиждень у цьому повідомленні?",
+                "controls": [
+                    {
+                        "id": "m45-c-q3-meaning",
+                        "kind": "choice",
+                        "label_uk": "Значення тривалості",
+                        "stimulus_en": "In November, we will be using a temporary office for a week.",
+                        "stimulus_uk": "У листопаді ми протягом тижня користуватимемося тимчасовим офісом.",
+                        "options": [
+                            {
+                                "value": "accumulated",
+                                "label_uk": "Тиждень користування офісом уже мине до початку листопада."
+                            },
+                            {
+                                "value": "planned",
+                                "label_uk": "Це тривалість запланованого користування тимчасовим офісом у листопаді."
+                            },
+                            {
+                                "value": "past",
+                                "label_uk": "Тиждень користування офісом уже завершився."
+                            }
+                        ],
+                        "correct_value": "planned",
+                        "required": true
+                    }
+                ],
+                "feedback": {
+                    "paragraphs_uk": [
+                        "Тиждень — це тривалість майбутнього тимчасового плану, а не час, накопичений до початку листопада. Future Continuous описує організацію роботи на період ремонту; зазначена тривалість не вимагає Future Perfect Continuous."
+                    ],
+                    "answer_examples": [
+                        {
+                            "en": "In November, we will be using a temporary office for a week.",
+                            "uk": "У листопаді ми протягом тижня користуватимемося тимчасовим офісом."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "m45-c-q4",
+                "title": "Що обговорюватимуть о 14:00?",
+                "prompt_uk": "Завтра вдень команда матиме нараду. Потрібно запитати, що вони обговорюватимуть саме о 14:00, а не як довго вже триватиме нарада. Склади питання з усіх токенів у Future Continuous.",
+                "controls": [
+                    {
+                        "id": "m45-c-q4-question",
+                        "kind": "tokens",
+                        "label_uk": "Питання про процес у майбутній момент",
+                        "tokens": [
+                            "discussing",
+                            "they",
+                            "p.m.",
+                            "What",
+                            "tomorrow?",
+                            "at",
+                            "will",
+                            "2",
+                            "be"
+                        ],
+                        "canonical_answer": "What will they be discussing at 2 p.m. tomorrow?",
+                        "accepted_answers": [],
+                        "required": true
+                    }
+                ],
+                "feedback": {
+                    "paragraphs_uk": [
+                        "Після what ставимо will, потім підмет they і be discussing. Future Continuous питає про процес саме о 14:00; питання не рахує години, накопичені до цього моменту."
+                    ],
+                    "answer_examples": [
+                        {
+                            "en": "What will they be discussing at 2 p.m. tomorrow?",
+                            "uk": "Що вони обговорюватимуть завтра о другій годині дня?"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "m45-c-q5",
+                "title": "Віднови допоміжне дієслово",
+                "prompt_uk": "У наведеному англійському реченні пропущено одне допоміжне дієслово. Український рядок передає задуманий зміст. Перепиши повне речення правильно у Future Perfect Continuous, зберігши решту змісту.",
+                "controls": [
+                    {
+                        "id": "m45-c-q5-correction",
+                        "kind": "manual",
+                        "label_uk": "Виправлене повне речення",
+                        "stimulus_en": "By Friday, we will have training together for a month.",
+                        "stimulus_uk": "До п’ятниці ми тренуватимемося разом уже місяць.",
+                        "canonical_answer": "By Friday, we will have been training together for a month.",
+                        "accepted_answers": [
+                            "By Friday, we'll have been training together for a month."
+                        ],
+                        "required": true
+                    }
+                ],
+                "feedback": {
+                    "paragraphs_uk": [
+                        "Між have та training потрібне been. Це виправлення форми will have been + V-ing, а не механічна реакція на by Friday або for a month."
+                    ],
+                    "answer_examples": [
+                        {
+                            "en": "By Friday, we will have been training together for a month.",
+                            "uk": "До п’ятниці ми тренуватимемося разом уже місяць."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "m45-c-q6",
+                "title": "Чого не повідомляє тривалість?",
+                "prompt_uk": "Завтра команда почне фарбувати стіну о 9:00 і ще працюватиме опівдні. Прочитай повідомлення про тривалість. Якого висновку ситуація та речення не дозволяють зробити?",
+                "controls": [
+                    {
+                        "id": "m45-c-q6-inference",
+                        "kind": "choice",
+                        "label_uk": "Висновок без достатніх підстав",
+                        "stimulus_en": "By noon, they will have been painting the wall for three hours.",
+                        "stimulus_uk": "До полудня вони фарбуватимуть стіну вже три години.",
+                        "options": [
+                            {
+                                "value": "start",
+                                "label_uk": "Вони почнуть фарбувати о 9:00."
+                            },
+                            {
+                                "value": "duration",
+                                "label_uk": "До полудня минуть три години від початку роботи."
+                            },
+                            {
+                                "value": "finish",
+                                "label_uk": "Вони завершать фарбування рівно опівдні."
+                            }
+                        ],
+                        "correct_value": "finish",
+                        "required": true
+                    }
+                ],
+                "feedback": {
+                    "paragraphs_uk": [
+                        "Час початку задано в ситуації, а три години до полудня названо в реченні. Час завершення не задано: Future Perfect Continuous не перетворює точку відліку на обов’язковий кінець роботи."
+                    ],
+                    "answer_examples": [
+                        {
+                            "en": "By noon, they will have been painting the wall for three hours.",
+                            "uk": "До полудня вони фарбуватимуть стіну вже три години."
+                        }
+                    ]
+                }
+            }
+        ],
+        "author_self_check": {
+            "title": "Відповідь і пояснення",
+            "intro": "<p lang=\"uk\">Виконай шість завдань. Відповідь і пояснення відкриються після перевірки.</p>",
+            "prompts": [
+                "<h4>Що буде на розкопках об 11:00?</h4><p lang=\"uk\" class=\"text-base text-muted-foreground mt-1 leading-relaxed\" data-practice-instruction>Археологи почнуть копати завтра о 7:00 і ще працюватимуть об 11:00. Гід повідомляє лише, що вони робитимуть об 11:00, без підрахунку годин. Обери форму поданого дієслова зі значенням «копати».</p>",
+                "<h4>Три години радіоефіру</h4><p lang=\"uk\" class=\"text-base text-muted-foreground mt-1 leading-relaxed\" data-practice-instruction>Завтра ведуча почне вести ефір о 6:00 і ще вестиме його о 9:00. Напиши англійською повідомлення про три години, накопичені до дев’ятої. Почни речення з поданого початку; використай Future Perfect Continuous та подане дієслово зі значенням «вести ефір».</p>",
+                "<h4>Тимчасовий офіс на час ремонту</h4><p lang=\"uk\" class=\"text-base text-muted-foreground mt-1 leading-relaxed\" data-practice-instruction>У листопаді офіс закриють на ремонт. Працівники описують тимчасову організацію роботи. Що означає зазначений тиждень у цьому повідомленні?</p>",
+                "<h4>Що обговорюватимуть о 14:00?</h4><p lang=\"uk\" class=\"text-base text-muted-foreground mt-1 leading-relaxed\" data-practice-instruction>Завтра вдень команда матиме нараду. Потрібно запитати, що вони обговорюватимуть саме о 14:00, а не як довго вже триватиме нарада. Склади питання з усіх токенів у Future Continuous.</p>",
+                "<h4>Віднови допоміжне дієслово</h4><p lang=\"uk\" class=\"text-base text-muted-foreground mt-1 leading-relaxed\" data-practice-instruction>У наведеному англійському реченні пропущено одне допоміжне дієслово. Український рядок передає задуманий зміст. Перепиши повне речення правильно у Future Perfect Continuous, зберігши решту змісту.</p>",
+                "<h4>Чого не повідомляє тривалість?</h4><p lang=\"uk\" class=\"text-base text-muted-foreground mt-1 leading-relaxed\" data-practice-instruction>Завтра команда почне фарбувати стіну о 9:00 і ще працюватиме опівдні. Прочитай повідомлення про тривалість. Якого висновку ситуація та речення не дозволяють зробити?</p>"
+            ],
+            "answers": [
+                "<p lang=\"uk\">Потрібен Future Continuous: гід показує процес об 11:00. Future Perfect Continuous додав би погляд на попередній період роботи, якого це повідомлення не ставить у центр.</p><div class=\"theory-example flex items-start gap-3\"><span aria-hidden=\"true\" data-theory-ui class=\"flex-shrink-0 text-lg\">💬</span><div class=\"min-w-0 flex-1\"><p lang=\"en\" class=\"font-medium text-foreground\">At 11 tomorrow, the team will be digging at the site.</p><p lang=\"uk\" class=\"theory-translation\">Завтра об одинадцятій команда копатиме на місці розкопок.</p></div></div>",
+                "<p lang=\"uk\">Від 6:00 до 9:00 — три години. Will have been broadcasting показує цей період із майбутньої точки відліку. Початок теж у майбутньому; час завершення ефіру не задано.</p><div class=\"theory-example flex items-start gap-3\"><span aria-hidden=\"true\" data-theory-ui class=\"flex-shrink-0 text-lg\">💬</span><div class=\"min-w-0 flex-1\"><p lang=\"en\" class=\"font-medium text-foreground\">By 9 tomorrow, she will have been broadcasting for three hours.</p><p lang=\"uk\" class=\"theory-translation\">До дев’ятої завтра вона вестиме ефір уже три години.</p></div></div>",
+                "<p lang=\"uk\">Тиждень — це тривалість майбутнього тимчасового плану, а не час, накопичений до початку листопада. Future Continuous описує організацію роботи на період ремонту; зазначена тривалість не вимагає Future Perfect Continuous.</p><div class=\"theory-example flex items-start gap-3\"><span aria-hidden=\"true\" data-theory-ui class=\"flex-shrink-0 text-lg\">💬</span><div class=\"min-w-0 flex-1\"><p lang=\"en\" class=\"font-medium text-foreground\">In November, we will be using a temporary office for a week.</p><p lang=\"uk\" class=\"theory-translation\">У листопаді ми протягом тижня користуватимемося тимчасовим офісом.</p></div></div>",
+                "<p lang=\"uk\">Після what ставимо will, потім підмет they і be discussing. Future Continuous питає про процес саме о 14:00; питання не рахує години, накопичені до цього моменту.</p><div class=\"theory-example flex items-start gap-3\"><span aria-hidden=\"true\" data-theory-ui class=\"flex-shrink-0 text-lg\">💬</span><div class=\"min-w-0 flex-1\"><p lang=\"en\" class=\"font-medium text-foreground\">What will they be discussing at 2 p.m. tomorrow?</p><p lang=\"uk\" class=\"theory-translation\">Що вони обговорюватимуть завтра о другій годині дня?</p></div></div>",
+                "<p lang=\"uk\">Між have та training потрібне been. Це виправлення форми will have been + V-ing, а не механічна реакція на by Friday або for a month.</p><div class=\"theory-example flex items-start gap-3\"><span aria-hidden=\"true\" data-theory-ui class=\"flex-shrink-0 text-lg\">💬</span><div class=\"min-w-0 flex-1\"><p lang=\"en\" class=\"font-medium text-foreground\">By Friday, we will have been training together for a month.</p><p lang=\"uk\" class=\"theory-translation\">До п’ятниці ми тренуватимемося разом уже місяць.</p></div></div>",
+                "<p lang=\"uk\">Час початку задано в ситуації, а три години до полудня названо в реченні. Час завершення не задано: Future Perfect Continuous не перетворює точку відліку на обов’язковий кінець роботи.</p><div class=\"theory-example flex items-start gap-3\"><span aria-hidden=\"true\" data-theory-ui class=\"flex-shrink-0 text-lg\">💬</span><div class=\"min-w-0 flex-1\"><p lang=\"en\" class=\"font-medium text-foreground\">By noon, they will have been painting the wall for three hours.</p><p lang=\"uk\" class=\"theory-translation\">До полудня вони фарбуватимуть стіну вже три години.</p></div></div>"
+            ]
+        },
+        "cases": [
+            {
+                "id": "m45-c-q1",
+                "source_index": 1,
+                "scoring": "all_required_controls",
+                "interaction": "select",
+                "controls": [
+                    {
+                        "id": "m45-c-q1-form",
+                        "kind": "select",
+                        "source_kind": "select",
+                        "label": "Форма для процесу в цей момент",
+                        "required": true,
+                        "stimulus_en": "At 11 tomorrow, the team ___ at the site. (dig)",
+                        "stimulus_uk": "Завтра об одинадцятій команда ... на місці розкопок. («копати»)",
+                        "options": [
+                            {
+                                "value": "fc",
+                                "label": "will be digging"
+                            },
+                            {
+                                "value": "fpc",
+                                "label": "will have been digging"
+                            }
+                        ],
+                        "answer": "fc"
+                    }
+                ]
+            },
+            {
+                "id": "m45-c-q2",
+                "source_index": 2,
+                "scoring": "all_required_controls",
+                "interaction": "manual",
+                "controls": [
+                    {
+                        "id": "m45-c-q2-sentence",
+                        "kind": "manual",
+                        "source_kind": "manual",
+                        "label": "Повне речення про тривалість до дев’ятої",
+                        "required": true,
+                        "stimulus_en": "By 9 tomorrow, she ... (broadcast)",
+                        "stimulus_uk": "До дев’ятої завтра вона ... («вести ефір»)",
+                        "options": [],
+                        "answer": "By 9 tomorrow, she will have been broadcasting for three hours.",
+                        "accepted": [
+                            "By 9 tomorrow, she will have been broadcasting for three hours.",
+                            "By 9 tomorrow, she'll have been broadcasting for three hours.",
+                            "By nine tomorrow, she will have been broadcasting for three hours.",
+                            "By nine tomorrow, she'll have been broadcasting for three hours.",
+                            "By 9 tomorrow, she will have been broadcasting for 3 hours.",
+                            "By 9 tomorrow, she'll have been broadcasting for 3 hours."
+                        ],
+                        "tokens": []
+                    }
+                ]
+            },
+            {
+                "id": "m45-c-q3",
+                "source_index": 3,
+                "scoring": "all_required_controls",
+                "interaction": "choice",
+                "controls": [
+                    {
+                        "id": "m45-c-q3-meaning",
+                        "kind": "choice",
+                        "source_kind": "choice",
+                        "label": "Значення тривалості",
+                        "required": true,
+                        "stimulus_en": "In November, we will be using a temporary office for a week.",
+                        "stimulus_uk": "У листопаді ми протягом тижня користуватимемося тимчасовим офісом.",
+                        "options": [
+                            {
+                                "value": "accumulated",
+                                "label": "Тиждень користування офісом уже мине до початку листопада."
+                            },
+                            {
+                                "value": "planned",
+                                "label": "Це тривалість запланованого користування тимчасовим офісом у листопаді."
+                            },
+                            {
+                                "value": "past",
+                                "label": "Тиждень користування офісом уже завершився."
+                            }
+                        ],
+                        "answer": "planned"
+                    }
+                ]
+            },
+            {
+                "id": "m45-c-q4",
+                "source_index": 4,
+                "scoring": "all_required_controls",
+                "interaction": "manual",
+                "controls": [
+                    {
+                        "id": "m45-c-q4-question",
+                        "kind": "manual",
+                        "source_kind": "tokens",
+                        "label": "Питання про процес у майбутній момент",
+                        "required": true,
+                        "options": [],
+                        "answer": "What will they be discussing at 2 p.m. tomorrow?",
+                        "accepted": [
+                            "What will they be discussing at 2 p.m. tomorrow?"
+                        ],
+                        "tokens": [
+                            "discussing",
+                            "they",
+                            "p.m.",
+                            "What",
+                            "tomorrow?",
+                            "at",
+                            "will",
+                            "2",
+                            "be"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "m45-c-q5",
+                "source_index": 5,
+                "scoring": "all_required_controls",
+                "interaction": "manual",
+                "controls": [
+                    {
+                        "id": "m45-c-q5-correction",
+                        "kind": "manual",
+                        "source_kind": "manual",
+                        "label": "Виправлене повне речення",
+                        "required": true,
+                        "stimulus_en": "By Friday, we will have training together for a month.",
+                        "stimulus_uk": "До п’ятниці ми тренуватимемося разом уже місяць.",
+                        "options": [],
+                        "answer": "By Friday, we will have been training together for a month.",
+                        "accepted": [
+                            "By Friday, we will have been training together for a month.",
+                            "By Friday, we'll have been training together for a month."
+                        ],
+                        "tokens": []
+                    }
+                ]
+            },
+            {
+                "id": "m45-c-q6",
+                "source_index": 6,
+                "scoring": "all_required_controls",
+                "interaction": "choice",
+                "controls": [
+                    {
+                        "id": "m45-c-q6-inference",
+                        "kind": "choice",
+                        "source_kind": "choice",
+                        "label": "Висновок без достатніх підстав",
+                        "required": true,
+                        "stimulus_en": "By noon, they will have been painting the wall for three hours.",
+                        "stimulus_uk": "До полудня вони фарбуватимуть стіну вже три години.",
+                        "options": [
+                            {
+                                "value": "start",
+                                "label": "Вони почнуть фарбувати о 9:00."
+                            },
+                            {
+                                "value": "duration",
+                                "label": "До полудня минуть три години від початку роботи."
+                            },
+                            {
+                                "value": "finish",
+                                "label": "Вони завершать фарбування рівно опівдні."
+                            }
+                        ],
+                        "answer": "finish"
+                    }
+                ]
+            }
+        ],
+        "linked_practice": {
+            "source": "theory_links",
+            "question_types": [
+                "4"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder"
+            ]
+        }
+    },
+    "after_data": {
+        "title": "Практика",
+        "m45_v1": {
+            "revision": "1.0.0",
+            "master_sha256": "333b39ead3e5bb20c2bcde9c42878cf98f176158d7ae6324d0c6510b09b2afb7",
+            "lesson_key": "future-continuous-vs-future-perfect-continuous",
+            "role": "practice",
+            "slot": 7
+        },
+        "author_practice": [
+            {
+                "id": "m45-c-q1",
+                "title": "Що буде на розкопках об 11:00?",
+                "prompt_uk": "Археологи почнуть копати завтра о 7:00 і ще працюватимуть об 11:00. Гід повідомляє лише, що вони робитимуть об 11:00, без підрахунку годин. Обери форму поданого дієслова зі значенням «копати».",
+                "controls": [
+                    {
+                        "id": "m45-c-q1-form",
+                        "kind": "select",
+                        "label_uk": "Форма для процесу в цей момент",
+                        "stimulus_en": "At 11 tomorrow, the team ___ at the site. (dig)",
+                        "stimulus_uk": "Завтра об одинадцятій команда ... на місці розкопок. («копати»)",
+                        "options": [
+                            {
+                                "value": "fc",
+                                "label_uk": "will be digging"
+                            },
+                            {
+                                "value": "fpc",
+                                "label_uk": "will have been digging"
+                            }
+                        ],
+                        "correct_value": "fc",
+                        "required": true
+                    }
+                ],
+                "feedback": {
+                    "paragraphs_uk": [
+                        "Потрібен Future Continuous: гід показує процес об 11:00. Future Perfect Continuous додав би погляд на попередній період роботи, якого це повідомлення не ставить у центр."
+                    ],
+                    "answer_examples": [
+                        {
+                            "en": "At 11 tomorrow, the team will be digging at the site.",
+                            "uk": "Завтра об одинадцятій команда копатиме на місці розкопок."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "m45-c-q2",
+                "title": "Три години радіоефіру",
+                "prompt_uk": "Завтра ведуча почне вести ефір о 6:00 і ще вестиме його о 9:00. Напиши англійською повідомлення про три години, накопичені до дев’ятої. Почни речення з поданого початку; використай Future Perfect Continuous та подане дієслово зі значенням «вести ефір».",
+                "controls": [
+                    {
+                        "id": "m45-c-q2-sentence",
+                        "kind": "manual",
+                        "label_uk": "Повне речення про тривалість до дев’ятої",
+                        "stimulus_en": "By 9 tomorrow, she ... (broadcast)",
+                        "stimulus_uk": "До дев’ятої завтра вона ... («вести ефір»)",
+                        "canonical_answer": "By 9 tomorrow, she will have been broadcasting for three hours.",
+                        "accepted_answers": [
+                            "By 9 tomorrow, she'll have been broadcasting for three hours.",
+                            "By nine tomorrow, she will have been broadcasting for three hours.",
+                            "By nine tomorrow, she'll have been broadcasting for three hours.",
+                            "By 9 tomorrow, she will have been broadcasting for 3 hours.",
+                            "By 9 tomorrow, she'll have been broadcasting for 3 hours."
+                        ],
+                        "required": true
+                    }
+                ],
+                "feedback": {
+                    "paragraphs_uk": [
+                        "Від 6:00 до 9:00 — три години. Will have been broadcasting показує цей період із майбутньої точки відліку. Початок теж у майбутньому; час завершення ефіру не задано."
+                    ],
+                    "answer_examples": [
+                        {
+                            "en": "By 9 tomorrow, she will have been broadcasting for three hours.",
+                            "uk": "До дев’ятої завтра вона вестиме ефір уже три години."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "m45-c-q3",
+                "title": "Тимчасовий офіс на час ремонту",
+                "prompt_uk": "У листопаді офіс закриють на ремонт. Працівники описують тимчасову організацію роботи. Що означає зазначений тиждень у цьому повідомленні?",
+                "controls": [
+                    {
+                        "id": "m45-c-q3-meaning",
+                        "kind": "choice",
+                        "label_uk": "Значення тривалості",
+                        "stimulus_en": "In November, we will be using a temporary office for a week.",
+                        "stimulus_uk": "У листопаді ми протягом тижня користуватимемося тимчасовим офісом.",
+                        "options": [
+                            {
+                                "value": "accumulated",
+                                "label_uk": "Тиждень користування офісом уже мине до початку листопада."
+                            },
+                            {
+                                "value": "planned",
+                                "label_uk": "Це тривалість запланованого користування тимчасовим офісом у листопаді."
+                            },
+                            {
+                                "value": "past",
+                                "label_uk": "Тиждень користування офісом уже завершився."
+                            }
+                        ],
+                        "correct_value": "planned",
+                        "required": true
+                    }
+                ],
+                "feedback": {
+                    "paragraphs_uk": [
+                        "Тиждень — це тривалість майбутнього тимчасового плану, а не час, накопичений до початку листопада. Future Continuous описує організацію роботи на період ремонту; зазначена тривалість не вимагає Future Perfect Continuous."
+                    ],
+                    "answer_examples": [
+                        {
+                            "en": "In November, we will be using a temporary office for a week.",
+                            "uk": "У листопаді ми протягом тижня користуватимемося тимчасовим офісом."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "m45-c-q4",
+                "title": "Що обговорюватимуть о 14:00?",
+                "prompt_uk": "Завтра вдень команда матиме нараду. Потрібно запитати, що вони обговорюватимуть саме о 14:00, а не як довго вже триватиме нарада. Склади питання з усіх токенів у Future Continuous.",
+                "controls": [
+                    {
+                        "id": "m45-c-q4-question",
+                        "kind": "tokens",
+                        "label_uk": "Питання про процес у майбутній момент",
+                        "tokens": [
+                            "discussing",
+                            "they",
+                            "p.m.",
+                            "What",
+                            "tomorrow?",
+                            "at",
+                            "will",
+                            "2",
+                            "be"
+                        ],
+                        "canonical_answer": "What will they be discussing at 2 p.m. tomorrow?",
+                        "accepted_answers": [],
+                        "required": true
+                    }
+                ],
+                "feedback": {
+                    "paragraphs_uk": [
+                        "Після what ставимо will, потім підмет they і be discussing. Future Continuous питає про процес саме о 14:00; питання не рахує години, накопичені до цього моменту."
+                    ],
+                    "answer_examples": [
+                        {
+                            "en": "What will they be discussing at 2 p.m. tomorrow?",
+                            "uk": "Що вони обговорюватимуть завтра о другій годині дня?"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "m45-c-q5",
+                "title": "Віднови допоміжне дієслово",
+                "prompt_uk": "У наведеному англійському реченні пропущено одне допоміжне дієслово. Український рядок передає задуманий зміст. Перепиши повне речення правильно у Future Perfect Continuous, зберігши решту змісту.",
+                "controls": [
+                    {
+                        "id": "m45-c-q5-correction",
+                        "kind": "manual",
+                        "label_uk": "Виправлене повне речення",
+                        "stimulus_en": "By Friday, we will have training together for a month.",
+                        "stimulus_uk": "До п’ятниці ми тренуватимемося разом уже місяць.",
+                        "canonical_answer": "By Friday, we will have been training together for a month.",
+                        "accepted_answers": [
+                            "By Friday, we'll have been training together for a month."
+                        ],
+                        "required": true
+                    }
+                ],
+                "feedback": {
+                    "paragraphs_uk": [
+                        "Між have та training потрібне been. Це виправлення форми will have been + V-ing, а не механічна реакція на by Friday або for a month."
+                    ],
+                    "answer_examples": [
+                        {
+                            "en": "By Friday, we will have been training together for a month.",
+                            "uk": "До п’ятниці ми тренуватимемося разом уже місяць."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "m45-c-q6",
+                "title": "Чого не повідомляє тривалість?",
+                "prompt_uk": "Завтра команда почне фарбувати стіну о 9:00 і ще працюватиме опівдні. Прочитай повідомлення про тривалість. Якого висновку ситуація та речення не дозволяють зробити?",
+                "controls": [
+                    {
+                        "id": "m45-c-q6-inference",
+                        "kind": "choice",
+                        "label_uk": "Висновок без достатніх підстав",
+                        "stimulus_en": "By noon, they will have been painting the wall for three hours.",
+                        "stimulus_uk": "До полудня вони фарбуватимуть стіну вже три години.",
+                        "options": [
+                            {
+                                "value": "start",
+                                "label_uk": "Вони почнуть фарбувати о 9:00."
+                            },
+                            {
+                                "value": "duration",
+                                "label_uk": "До полудня минуть три години від початку роботи."
+                            },
+                            {
+                                "value": "finish",
+                                "label_uk": "Вони завершать фарбування рівно опівдні."
+                            }
+                        ],
+                        "correct_value": "finish",
+                        "required": true
+                    }
+                ],
+                "feedback": {
+                    "paragraphs_uk": [
+                        "Час початку задано в ситуації, а три години до полудня названо в реченні. Час завершення не задано: Future Perfect Continuous не перетворює точку відліку на обов’язковий кінець роботи."
+                    ],
+                    "answer_examples": [
+                        {
+                            "en": "By noon, they will have been painting the wall for three hours.",
+                            "uk": "До полудня вони фарбуватимуть стіну вже три години."
+                        }
+                    ]
+                }
+            }
+        ],
+        "author_self_check": {
+            "title": "Відповідь і пояснення",
+            "intro": "<p lang=\"uk\">Виконай завдання й натисни «Перевірити».</p>",
+            "prompts": [
+                "<h4>Процес об одинадцятій</h4><p lang=\"uk\" data-practice-instruction>Обери форму для процесу саме об одинадцятій.</p><p lang=\"uk\">Завтра археологи копатимуть від сьомої ранку. Гід описує лише те, що відбуватиметься об одинадцятій.</p>",
+                "<h4>Три години радіоефіру</h4><p lang=\"uk\" data-practice-instruction>Переклади повне речення, починаючи з терміну.</p><p lang=\"uk\">Завтра ефір почнеться о шостій і ще триватиме о дев’ятій.</p>",
+                "<h4>Тимчасовий офіс</h4><p lang=\"uk\" data-practice-instruction>Обери, що означає названий тиждень.</p><p lang=\"uk\">У листопаді основний офіс закриють на ремонт.</p>",
+                "<h4>Питання про процес</h4><p lang=\"uk\" data-practice-instruction>Склади питання з усіх груп слів або введи його вручну.</p>",
+                "<h4>Виправ форму</h4><p lang=\"uk\" data-practice-instruction>Перепиши повне речення, відновивши пропущене допоміжне дієслово.</p>",
+                "<h4>Чи відомий кінець роботи?</h4><p lang=\"uk\" data-practice-instruction>Обери висновок, якого зробити не можна.</p><p lang=\"uk\">Завтра фарбування почнеться о дев’ятій і ще триватиме опівдні.</p>",
+                "<h4>Доповни речення</h4><p lang=\"uk\" data-practice-instruction>Введи лише пропущену дієслівну форму.</p>",
+                "<h4>Переклади речення</h4><p lang=\"uk\" data-practice-instruction>Склади англійське речення з токенів або введи його повністю.</p>",
+                "<h4>Упорядкуй слова</h4><p lang=\"uk\" data-practice-instruction>Склади речення з груп слів або введи його вручну.</p>"
+            ],
+            "answers": [
+                "<p lang=\"uk\">Потрібен Future Continuous: гід показує процес об 11:00. Future Perfect Continuous додав би погляд на попередній період роботи, якого це повідомлення не ставить у центр.</p><div class=\"theory-example flex items-start gap-3\"><span aria-hidden=\"true\" data-theory-ui class=\"flex-shrink-0 text-lg\">💬</span><div class=\"min-w-0 flex-1\"><p lang=\"en\" class=\"font-medium text-foreground\">At 11 tomorrow, the team will be digging at the site.</p><p lang=\"uk\" class=\"theory-translation\">Завтра об одинадцятій команда копатиме на місці розкопок.</p></div></div>",
+                "<p lang=\"uk\">Від 6:00 до 9:00 — три години. Will have been broadcasting показує цей період із майбутньої точки відліку. Початок теж у майбутньому; час завершення ефіру не задано.</p><div class=\"theory-example flex items-start gap-3\"><span aria-hidden=\"true\" data-theory-ui class=\"flex-shrink-0 text-lg\">💬</span><div class=\"min-w-0 flex-1\"><p lang=\"en\" class=\"font-medium text-foreground\">By 9 tomorrow, she will have been broadcasting for three hours.</p><p lang=\"uk\" class=\"theory-translation\">До дев’ятої завтра вона вестиме ефір уже три години.</p></div></div>",
+                "<p lang=\"uk\">Тиждень — це тривалість майбутнього тимчасового плану, а не час, накопичений до початку листопада. Future Continuous описує організацію роботи на період ремонту; зазначена тривалість не вимагає Future Perfect Continuous.</p><div class=\"theory-example flex items-start gap-3\"><span aria-hidden=\"true\" data-theory-ui class=\"flex-shrink-0 text-lg\">💬</span><div class=\"min-w-0 flex-1\"><p lang=\"en\" class=\"font-medium text-foreground\">In November, we will be using a temporary office for a week.</p><p lang=\"uk\" class=\"theory-translation\">У листопаді ми протягом тижня користуватимемося тимчасовим офісом.</p></div></div>",
+                "<p lang=\"uk\">Після what ставимо will, потім підмет they і be discussing. Future Continuous питає про процес саме о 14:00; питання не рахує години, накопичені до цього моменту.</p><div class=\"theory-example flex items-start gap-3\"><span aria-hidden=\"true\" data-theory-ui class=\"flex-shrink-0 text-lg\">💬</span><div class=\"min-w-0 flex-1\"><p lang=\"en\" class=\"font-medium text-foreground\">What will they be discussing at 2 p.m. tomorrow?</p><p lang=\"uk\" class=\"theory-translation\">Що вони обговорюватимуть завтра о другій годині дня?</p></div></div>",
+                "<p lang=\"uk\">Між have та training потрібне been. Це виправлення форми will have been + V-ing, а не механічна реакція на by Friday або for a month.</p><div class=\"theory-example flex items-start gap-3\"><span aria-hidden=\"true\" data-theory-ui class=\"flex-shrink-0 text-lg\">💬</span><div class=\"min-w-0 flex-1\"><p lang=\"en\" class=\"font-medium text-foreground\">By Friday, we will have been training together for a month.</p><p lang=\"uk\" class=\"theory-translation\">До п’ятниці ми тренуватимемося разом уже місяць.</p></div></div>",
+                "<p lang=\"uk\">Час початку задано в ситуації, а три години до полудня названо в реченні. Час завершення не задано: Future Perfect Continuous не перетворює точку відліку на обов’язковий кінець роботи.</p><div class=\"theory-example flex items-start gap-3\"><span aria-hidden=\"true\" data-theory-ui class=\"flex-shrink-0 text-lg\">💬</span><div class=\"min-w-0 flex-1\"><p lang=\"en\" class=\"font-medium text-foreground\">By noon, they will have been painting the wall for three hours.</p><p lang=\"uk\" class=\"theory-translation\">До полудня вони фарбуватимуть стіну вже три години.</p></div></div>",
+                "<p lang=\"uk\">У першому реченні показано процес у майбутній момент: will be examining (або will be inspecting). У другому рахуємо його тривалість до півночі: will have been searching.</p>",
+                "<p lang=\"uk\">Процес опівдні: At noon tomorrow, the neighbours (neighbors) will be planting roses. Накопичена тривалість: By Sunday, I will have been restoring this violin for a month.</p>",
+                "<p lang=\"uk\">До майбутнього моменту вже мине шість годин роботи: By sunset, the volunteers will have been clearing (cleaning) the beach for six hours.</p>"
+            ]
+        },
+        "cases": [
+            {
+                "id": "m45-c-q1",
+                "source_index": 1,
+                "scoring": "all_required_controls",
+                "interaction": "select",
+                "controls": [
+                    {
+                        "id": "m45-c-q1-form",
+                        "kind": "select",
+                        "source_kind": "select",
+                        "label": "Форма для процесу в цей момент",
+                        "required": true,
+                        "stimulus_en": "At 11 tomorrow, the team ___ at the site.",
+                        "stimulus_uk": "Завтра об одинадцятій команда ... на місці розкопок. («копати»)",
+                        "options": [
+                            {
+                                "value": "fc",
+                                "label": "will be digging"
+                            },
+                            {
+                                "value": "fpc",
+                                "label": "will have been digging"
+                            }
+                        ],
+                        "answer": "fc"
+                    }
+                ]
+            },
+            {
+                "id": "m45-c-q2",
+                "source_index": 2,
+                "scoring": "all_required_controls",
+                "interaction": "manual",
+                "controls": [
+                    {
+                        "id": "m45-c-q2-sentence",
+                        "kind": "manual",
+                        "source_kind": "manual",
+                        "label": "Повне речення про тривалість до дев’ятої",
+                        "required": true,
+                        "stimulus_uk": "До дев’ятої завтра вона вестиме радіоефір уже три години.",
+                        "options": [],
+                        "answer": "By 9 tomorrow, she will have been broadcasting for three hours.",
+                        "accepted": [
+                            "By 9 tomorrow, she will have been broadcasting for three hours.",
+                            "By 9 tomorrow, she'll have been broadcasting for three hours.",
+                            "By nine tomorrow, she will have been broadcasting for three hours.",
+                            "By nine tomorrow, she'll have been broadcasting for three hours.",
+                            "By 9 tomorrow, she will have been broadcasting for 3 hours.",
+                            "By 9 tomorrow, she'll have been broadcasting for 3 hours."
+                        ],
+                        "tokens": [
+                            "By 9 tomorrow,",
+                            "she",
+                            "will have been",
+                            "broadcasting",
+                            "for three hours."
+                        ],
+                        "practice_kind": "translation",
+                        "verb_hint": "Почни з терміну до дев’ятої завтра. Збережи подану лексику про ефір і передай вже накопичені три години."
+                    }
+                ]
+            },
+            {
+                "id": "m45-c-q3",
+                "source_index": 3,
+                "scoring": "all_required_controls",
+                "interaction": "choice",
+                "controls": [
+                    {
+                        "id": "m45-c-q3-meaning",
+                        "kind": "choice",
+                        "source_kind": "choice",
+                        "label": "Значення тривалості",
+                        "required": true,
+                        "stimulus_en": "In November, we will be using a temporary office for a week.",
+                        "stimulus_uk": "У листопаді ми протягом тижня користуватимемося тимчасовим офісом.",
+                        "options": [
+                            {
+                                "value": "accumulated",
+                                "label": "Тиждень користування офісом уже мине до початку листопада."
+                            },
+                            {
+                                "value": "planned",
+                                "label": "Це тривалість запланованого користування тимчасовим офісом у листопаді."
+                            },
+                            {
+                                "value": "past",
+                                "label": "Тиждень користування офісом уже завершився."
+                            }
+                        ],
+                        "answer": "planned"
+                    }
+                ]
+            },
+            {
+                "id": "m45-c-q4",
+                "source_index": 4,
+                "scoring": "all_required_controls",
+                "interaction": "manual",
+                "controls": [
+                    {
+                        "id": "m45-c-q4-question",
+                        "kind": "manual",
+                        "source_kind": "tokens",
+                        "label": "Питання про процес у майбутній момент",
+                        "required": true,
+                        "options": [],
+                        "answer": "What will they be discussing at 2 p.m. tomorrow?",
+                        "accepted": [
+                            "What will they be discussing at 2 p.m. tomorrow?",
+                            "What will they be discussing tomorrow at 2 p.m.?",
+                            "What will they be discussing at 2 pm tomorrow?",
+                            "What will they be discussing tomorrow at 2 pm?"
+                        ],
+                        "tokens": [
+                            "What",
+                            "will they",
+                            "be discussing",
+                            "at 2 pm",
+                            "tomorrow?"
+                        ],
+                        "practice_kind": "order",
+                        "stimulus_uk": "Що вони обговорюватимуть завтра о другій годині дня?",
+                        "verb_hint": "Запитай про обговорення саме в цей майбутній момент; постав питальне слово на початку."
+                    }
+                ]
+            },
+            {
+                "id": "m45-c-q5",
+                "source_index": 5,
+                "scoring": "all_required_controls",
+                "interaction": "manual",
+                "controls": [
+                    {
+                        "id": "m45-c-q5-correction",
+                        "kind": "manual",
+                        "source_kind": "manual",
+                        "label": "Виправлене повне речення",
+                        "required": true,
+                        "stimulus_en": "By Friday, we will have training together for a month.",
+                        "stimulus_uk": "До п’ятниці ми тренуватимемося разом уже місяць.",
+                        "options": [],
+                        "answer": "By Friday, we will have been training together for a month.",
+                        "accepted": [
+                            "By Friday, we will have been training together for a month.",
+                            "By Friday, we'll have been training together for a month."
+                        ],
+                        "tokens": [],
+                        "verb_hint": "Віднови ланцюжок допоміжних дієслів для тривалості тренування до п’ятниці; решту слів збережи."
+                    }
+                ]
+            },
+            {
+                "id": "m45-c-q6",
+                "source_index": 6,
+                "scoring": "all_required_controls",
+                "interaction": "choice",
+                "controls": [
+                    {
+                        "id": "m45-c-q6-inference",
+                        "kind": "choice",
+                        "source_kind": "choice",
+                        "label": "Висновок без достатніх підстав",
+                        "required": true,
+                        "stimulus_en": "By noon, they will have been painting the wall for three hours.",
+                        "stimulus_uk": "До полудня вони фарбуватимуть стіну вже три години.",
+                        "options": [
+                            {
+                                "value": "start",
+                                "label": "Вони почнуть фарбувати о 9:00."
+                            },
+                            {
+                                "value": "duration",
+                                "label": "До полудня минуть три години від початку роботи."
+                            },
+                            {
+                                "value": "finish",
+                                "label": "Вони завершать фарбування рівно опівдні."
+                            }
+                        ],
+                        "answer": "finish"
+                    }
+                ]
+            },
+            {
+                "id": "fc-fpc-native-gaps",
+                "source_index": 7,
+                "scoring": "all_required_controls",
+                "interaction": "compound",
+                "controls": [
+                    {
+                        "id": "fc-fpc-native-gap-1",
+                        "kind": "manual",
+                        "source_kind": "manual",
+                        "practice_kind": "gap",
+                        "label": "Процес о восьмій",
+                        "required": true,
+                        "stimulus_en": "At eight tomorrow, the curator ____ the vase.",
+                        "verb_hint": "Оглядати, уважно перевіряти: передай процес саме о цій майбутній годині, без підрахунку попереднього часу.",
+                        "options": [],
+                        "answer": "will be examining",
+                        "accepted": [
+                            "will be examining",
+                            "will be inspecting"
+                        ],
+                        "tokens": []
+                    },
+                    {
+                        "id": "fc-fpc-native-gap-2",
+                        "kind": "manual",
+                        "source_kind": "manual",
+                        "practice_kind": "gap",
+                        "label": "Дванадцять годин до півночі",
+                        "required": true,
+                        "stimulus_en": "By midnight, the rescue team ____ for twelve hours.",
+                        "verb_hint": "Шукати: передай дванадцять годин, які вже минуть до півночі; введи всі потрібні допоміжні дієслова.",
+                        "options": [],
+                        "answer": "will have been searching",
+                        "accepted": [
+                            "will have been searching"
+                        ],
+                        "tokens": []
+                    }
+                ]
+            },
+            {
+                "id": "fc-fpc-native-translations",
+                "source_index": 8,
+                "scoring": "all_required_controls",
+                "interaction": "compound",
+                "controls": [
+                    {
+                        "id": "fc-fpc-native-translation-1",
+                        "kind": "manual",
+                        "source_kind": "manual",
+                        "practice_kind": "translation",
+                        "label": "Процес завтра опівдні",
+                        "required": true,
+                        "stimulus_uk": "Завтра опівдні сусіди висаджуватимуть троянди. Почни з часу.",
+                        "verb_hint": "Висаджувати троянди: покажи процес саме опівдні, не його накопичену тривалість; обидва звичайні написання назви сусідів приймаються.",
+                        "options": [],
+                        "answer": "At noon tomorrow, the neighbours will be planting roses.",
+                        "accepted": [
+                            "At noon tomorrow, the neighbours will be planting roses.",
+                            "At noon tomorrow, the neighbors will be planting roses.",
+                            "Tomorrow at noon, the neighbours will be planting roses.",
+                            "Tomorrow at noon, the neighbors will be planting roses."
+                        ],
+                        "tokens": [
+                            "At noon tomorrow,",
+                            "the neighbours",
+                            "will be planting",
+                            "roses."
+                        ]
+                    },
+                    {
+                        "id": "fc-fpc-native-translation-2",
+                        "kind": "manual",
+                        "source_kind": "manual",
+                        "practice_kind": "translation",
+                        "label": "Місяць реставрації до неділі",
+                        "required": true,
+                        "stimulus_uk": "До неділі я реставруватиму цю скрипку вже місяць. Почни з терміну.",
+                        "verb_hint": "Реставрувати цю скрипку: передай місяць роботи до неділі; можна скоротити допоміжне дієслово після займенника.",
+                        "options": [],
+                        "answer": "By Sunday, I will have been restoring this violin for a month.",
+                        "accepted": [
+                            "By Sunday, I will have been restoring this violin for a month.",
+                            "By Sunday, I'll have been restoring this violin for a month.",
+                            "By Sunday, I will have been restoring this violin for one month.",
+                            "By Sunday, I'll have been restoring this violin for one month."
+                        ],
+                        "tokens": [
+                            "By Sunday,",
+                            "I",
+                            "will have been",
+                            "restoring this violin",
+                            "for a month."
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "fc-fpc-native-order",
+                "source_index": 9,
+                "scoring": "all_required_controls",
+                "interaction": "manual",
+                "controls": [
+                    {
+                        "id": "fc-fpc-native-order-1",
+                        "kind": "manual",
+                        "source_kind": "tokens",
+                        "practice_kind": "order",
+                        "label": "Шість годин до заходу сонця",
+                        "required": true,
+                        "stimulus_uk": "До заходу сонця волонтери прибиратимуть пляж уже шість годин. Почни з часу.",
+                        "verb_hint": "Прибирати пляж: назви період роботи до заходу сонця; звичайний синонім прибирання також приймається.",
+                        "options": [],
+                        "answer": "By sunset, the volunteers will have been clearing the beach for six hours.",
+                        "accepted": [
+                            "By sunset, the volunteers will have been clearing the beach for six hours.",
+                            "By sunset, the volunteers will have been cleaning the beach for six hours.",
+                            "By sunset, the volunteers will have been clearing the beach for 6 hours.",
+                            "By sunset, the volunteers will have been cleaning the beach for 6 hours."
+                        ],
+                        "tokens": [
+                            "By sunset,",
+                            "the volunteers",
+                            "will have been",
+                            "clearing the beach",
+                            "for six hours."
+                        ]
+                    }
+                ]
+            }
+        ],
+        "linked_practice": {
+            "source": "theory_links",
+            "question_types": [
+                "4"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder"
+            ]
+        },
+        "future_continuous_comparison_native": {
+            "revision": "v1",
+            "old_cases": 6,
+            "added_controls": 5
+        }
+    },
+    "added_control_ids": [
+        "fc-fpc-native-gap-1",
+        "fc-fpc-native-gap-2",
+        "fc-fpc-native-translation-1",
+        "fc-fpc-native-translation-2",
+        "fc-fpc-native-order-1"
+    ],
+    "widget_bindings": "docs/content/future-continuous-comparison-widget-bindings.v1.json",
+    "widget_bindings_sha256": "80f5d9e2dc18686aa735c52da3395df084c82aa90ff33c03b805919168abc214",
+    "widgets": [
+        {
+            "id": 26739,
+            "uuid": "fcvfpc-poly-b2-01",
+            "seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder",
+            "type": "4",
+            "level": "B2",
+            "question": "Завтра о шостій я працюватиму",
+            "answers": [
+                {
+                    "marker": "a1",
+                    "option_id": 90,
+                    "option": "at"
+                },
+                {
+                    "marker": "a2",
+                    "option_id": 302,
+                    "option": "six"
+                },
+                {
+                    "marker": "a3",
+                    "option_id": 136,
+                    "option": "tomorrow"
+                },
+                {
+                    "marker": "a4",
+                    "option_id": 1,
+                    "option": "I"
+                },
+                {
+                    "marker": "a5",
+                    "option_id": 88,
+                    "option": "will"
+                },
+                {
+                    "marker": "a6",
+                    "option_id": 207,
+                    "option": "be"
+                },
+                {
+                    "marker": "a7",
+                    "option_id": 310,
+                    "option": "working"
+                }
+            ],
+            "block_uuid": "79b8a425-a798-5270-9813-072a7c5294d3",
+            "definition": "database/seeders/V3/Polyglot/PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder/definition.json",
+            "definition_sha256": "c74fa87b00b104af469cd807def9394a6d1c6d0b2a8d45d2de8132568e2afd4d",
+            "correct_tokens": [
+                "At",
+                "six",
+                "tomorrow",
+                "I",
+                "will",
+                "be",
+                "working"
+            ],
+            "hint_uk": "Працюватиму саме о шостій завтра: покажи процес у цей момент, не попередні години роботи.",
+            "accepted_sentences": [
+                "At six tomorrow I will be working",
+                "I will be working at six tomorrow",
+                "I will be working tomorrow at six",
+                "Tomorrow at six I will be working",
+                "Tomorrow I will be working at six"
+            ],
+            "added_options": [],
+            "token_labels": []
+        },
+        {
+            "id": 26740,
+            "uuid": "fcvfpc-poly-b2-02",
+            "seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder",
+            "type": "4",
+            "level": "B2",
+            "question": "До шостої завтра я працюватиму вже вісім годин",
+            "answers": [
+                {
+                    "marker": "a1",
+                    "option_id": 156,
+                    "option": "by"
+                },
+                {
+                    "marker": "a2",
+                    "option_id": 302,
+                    "option": "six"
+                },
+                {
+                    "marker": "a3",
+                    "option_id": 136,
+                    "option": "tomorrow"
+                },
+                {
+                    "marker": "a4",
+                    "option_id": 1,
+                    "option": "I"
+                },
+                {
+                    "marker": "a5",
+                    "option_id": 88,
+                    "option": "will"
+                },
+                {
+                    "marker": "a6",
+                    "option_id": 2,
+                    "option": "have"
+                },
+                {
+                    "marker": "a7",
+                    "option_id": 23,
+                    "option": "been"
+                },
+                {
+                    "marker": "a8",
+                    "option_id": 310,
+                    "option": "working"
+                },
+                {
+                    "marker": "a9",
+                    "option_id": 235,
+                    "option": "for"
+                },
+                {
+                    "marker": "a10",
+                    "option_id": 300,
+                    "option": "eight"
+                },
+                {
+                    "marker": "a11",
+                    "option_id": 80,
+                    "option": "hours"
+                }
+            ],
+            "block_uuid": "79b8a425-a798-5270-9813-072a7c5294d3",
+            "definition": "database/seeders/V3/Polyglot/PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder/definition.json",
+            "definition_sha256": "c74fa87b00b104af469cd807def9394a6d1c6d0b2a8d45d2de8132568e2afd4d",
+            "correct_tokens": [
+                "By",
+                "six",
+                "tomorrow",
+                "I",
+                "will",
+                "have",
+                "been",
+                "working",
+                "for",
+                "eight",
+                "hours"
+            ],
+            "hint_uk": "До шостої завтра вже мине вісім годин роботи: передай накопичену тривалість.",
+            "accepted_sentences": [
+                "By six tomorrow I will have been working for eight hours",
+                "I will have been working for eight hours by six tomorrow",
+                "By tomorrow at six I will have been working for eight hours",
+                "Tomorrow by six I will have been working for eight hours"
+            ],
+            "added_options": [
+                "at"
+            ],
+            "token_labels": []
+        },
+        {
+            "id": 26741,
+            "uuid": "fcvfpc-poly-b2-03",
+            "seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder",
+            "type": "4",
+            "level": "B2",
+            "question": "Наступного тижня в цей час ми подорожуватимемо",
+            "answers": [
+                {
+                    "marker": "a1",
+                    "option_id": 34,
+                    "option": "this"
+                },
+                {
+                    "marker": "a2",
+                    "option_id": 110,
+                    "option": "time"
+                },
+                {
+                    "marker": "a3",
+                    "option_id": 138,
+                    "option": "next"
+                },
+                {
+                    "marker": "a4",
+                    "option_id": 70,
+                    "option": "week"
+                },
+                {
+                    "marker": "a5",
+                    "option_id": 14,
+                    "option": "We"
+                },
+                {
+                    "marker": "a6",
+                    "option_id": 88,
+                    "option": "will"
+                },
+                {
+                    "marker": "a7",
+                    "option_id": 207,
+                    "option": "be"
+                },
+                {
+                    "marker": "a8",
+                    "option_id": 158,
+                    "option": "travelling"
+                }
+            ],
+            "block_uuid": "79b8a425-a798-5270-9813-072a7c5294d3",
+            "definition": "database/seeders/V3/Polyglot/PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder/definition.json",
+            "definition_sha256": "c74fa87b00b104af469cd807def9394a6d1c6d0b2a8d45d2de8132568e2afd4d",
+            "correct_tokens": [
+                "This",
+                "time",
+                "next",
+                "week",
+                "we",
+                "will",
+                "be",
+                "travelling"
+            ],
+            "hint_uk": "Подорожуватимемо саме о цій порі наступного тижня; обидва звичайні написання дієслова приймаються.",
+            "accepted_sentences": [
+                "This time next week we will be travelling",
+                "We will be travelling this time next week",
+                "This time next week we will be traveling",
+                "We will be traveling this time next week",
+                "At this time next week we will be travelling",
+                "At this time next week we will be traveling",
+                "Next week at this time we will be travelling",
+                "Next week at this time we will be traveling"
+            ],
+            "added_options": [
+                "traveling",
+                "At"
+            ],
+            "token_labels": {
+                "travelling": "travelling (traveling)"
+            }
+        },
+        {
+            "id": 26742,
+            "uuid": "fcvfpc-poly-b2-04",
+            "seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder",
+            "type": "4",
+            "level": "B2",
+            "question": "До цього часу наступного тижня ми подорожуватимемо вже три дні",
+            "answers": [
+                {
+                    "marker": "a1",
+                    "option_id": 156,
+                    "option": "by"
+                },
+                {
+                    "marker": "a2",
+                    "option_id": 34,
+                    "option": "this"
+                },
+                {
+                    "marker": "a3",
+                    "option_id": 110,
+                    "option": "time"
+                },
+                {
+                    "marker": "a4",
+                    "option_id": 138,
+                    "option": "next"
+                },
+                {
+                    "marker": "a5",
+                    "option_id": 70,
+                    "option": "week"
+                },
+                {
+                    "marker": "a6",
+                    "option_id": 14,
+                    "option": "We"
+                },
+                {
+                    "marker": "a7",
+                    "option_id": 88,
+                    "option": "will"
+                },
+                {
+                    "marker": "a8",
+                    "option_id": 2,
+                    "option": "have"
+                },
+                {
+                    "marker": "a9",
+                    "option_id": 23,
+                    "option": "been"
+                },
+                {
+                    "marker": "a10",
+                    "option_id": 158,
+                    "option": "travelling"
+                },
+                {
+                    "marker": "a11",
+                    "option_id": 235,
+                    "option": "for"
+                },
+                {
+                    "marker": "a12",
+                    "option_id": 357,
+                    "option": "three"
+                },
+                {
+                    "marker": "a13",
+                    "option_id": 7342,
+                    "option": "days"
+                }
+            ],
+            "block_uuid": "79b8a425-a798-5270-9813-072a7c5294d3",
+            "definition": "database/seeders/V3/Polyglot/PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder/definition.json",
+            "definition_sha256": "c74fa87b00b104af469cd807def9394a6d1c6d0b2a8d45d2de8132568e2afd4d",
+            "correct_tokens": [
+                "By",
+                "this",
+                "time",
+                "next",
+                "week",
+                "we",
+                "will",
+                "have",
+                "been",
+                "travelling",
+                "for",
+                "three",
+                "days"
+            ],
+            "hint_uk": "До цієї пори наступного тижня подорож уже триватиме три дні; передай саме цей накопичений період.",
+            "accepted_sentences": [
+                "By this time next week we will have been travelling for three days",
+                "We will have been travelling for three days by this time next week",
+                "By this time next week we will have been traveling for three days",
+                "We will have been traveling for three days by this time next week"
+            ],
+            "added_options": [
+                "traveling"
+            ],
+            "token_labels": {
+                "travelling": "travelling (traveling)"
+            }
+        },
+        {
+            "id": 26743,
+            "uuid": "fcvfpc-poly-b2-05",
+            "seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder",
+            "type": "4",
+            "level": "B2",
+            "question": "Опівдні вона складатиме іспит",
+            "answers": [
+                {
+                    "marker": "a1",
+                    "option_id": 90,
+                    "option": "at"
+                },
+                {
+                    "marker": "a2",
+                    "option_id": 2833,
+                    "option": "noon"
+                },
+                {
+                    "marker": "a3",
+                    "option_id": 9,
+                    "option": "She"
+                },
+                {
+                    "marker": "a4",
+                    "option_id": 88,
+                    "option": "will"
+                },
+                {
+                    "marker": "a5",
+                    "option_id": 207,
+                    "option": "be"
+                },
+                {
+                    "marker": "a6",
+                    "option_id": 4797,
+                    "option": "taking"
+                },
+                {
+                    "marker": "a7",
+                    "option_id": 8,
+                    "option": "the"
+                },
+                {
+                    "marker": "a8",
+                    "option_id": 103,
+                    "option": "exam"
+                }
+            ],
+            "block_uuid": "79b8a425-a798-5270-9813-072a7c5294d3",
+            "definition": "database/seeders/V3/Polyglot/PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder/definition.json",
+            "definition_sha256": "c74fa87b00b104af469cd807def9394a6d1c6d0b2a8d45d2de8132568e2afd4d",
+            "correct_tokens": [
+                "At",
+                "noon",
+                "she",
+                "will",
+                "be",
+                "taking",
+                "the",
+                "exam"
+            ],
+            "hint_uk": "Складатиме вже названий іспит саме опівдні: покажи процес, а не завершений результат; звичайні синоніми складання іспиту приймаються.",
+            "accepted_sentences": [
+                "At noon she will be taking the exam",
+                "She will be taking the exam at noon",
+                "At noon she will be sitting the exam",
+                "She will be sitting the exam at noon",
+                "At noon she will be sitting for the exam",
+                "She will be sitting for the exam at noon"
+            ],
+            "added_options": [
+                "sitting",
+                "for"
+            ],
+            "token_labels": {
+                "taking": "taking (sitting)"
+            }
+        },
+        {
+            "id": 26744,
+            "uuid": "fcvfpc-poly-b2-06",
+            "seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder",
+            "type": "4",
+            "level": "B2",
+            "question": "До полудня вона складатиме іспит уже дві години",
+            "answers": [
+                {
+                    "marker": "a1",
+                    "option_id": 156,
+                    "option": "by"
+                },
+                {
+                    "marker": "a2",
+                    "option_id": 2833,
+                    "option": "noon"
+                },
+                {
+                    "marker": "a3",
+                    "option_id": 9,
+                    "option": "She"
+                },
+                {
+                    "marker": "a4",
+                    "option_id": 88,
+                    "option": "will"
+                },
+                {
+                    "marker": "a5",
+                    "option_id": 2,
+                    "option": "have"
+                },
+                {
+                    "marker": "a6",
+                    "option_id": 23,
+                    "option": "been"
+                },
+                {
+                    "marker": "a7",
+                    "option_id": 4797,
+                    "option": "taking"
+                },
+                {
+                    "marker": "a8",
+                    "option_id": 8,
+                    "option": "the"
+                },
+                {
+                    "marker": "a9",
+                    "option_id": 103,
+                    "option": "exam"
+                },
+                {
+                    "marker": "a10",
+                    "option_id": 235,
+                    "option": "for"
+                },
+                {
+                    "marker": "a11",
+                    "option_id": 79,
+                    "option": "two"
+                },
+                {
+                    "marker": "a12",
+                    "option_id": 80,
+                    "option": "hours"
+                }
+            ],
+            "block_uuid": "79b8a425-a798-5270-9813-072a7c5294d3",
+            "definition": "database/seeders/V3/Polyglot/PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder/definition.json",
+            "definition_sha256": "c74fa87b00b104af469cd807def9394a6d1c6d0b2a8d45d2de8132568e2afd4d",
+            "correct_tokens": [
+                "By",
+                "noon",
+                "she",
+                "will",
+                "have",
+                "been",
+                "taking",
+                "the",
+                "exam",
+                "for",
+                "two",
+                "hours"
+            ],
+            "hint_uk": "До полудня складання вже названого іспиту триватиме дві години; передай тривалість, не завершення іспиту.",
+            "accepted_sentences": [
+                "By noon she will have been taking the exam for two hours",
+                "She will have been taking the exam for two hours by noon",
+                "By noon she will have been sitting the exam for two hours",
+                "She will have been sitting the exam for two hours by noon",
+                "By noon she will have been sitting for the exam for two hours",
+                "She will have been sitting for the exam for two hours by noon"
+            ],
+            "added_options": [
+                "sitting"
+            ],
+            "token_labels": {
+                "taking": "taking (sitting)"
+            }
+        },
+        {
+            "id": 26745,
+            "uuid": "fcvfpc-poly-b2-07",
+            "seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder",
+            "type": "4",
+            "level": "B2",
+            "question": "До п’ятниці він тренуватиметься вже місяць",
+            "answers": [
+                {
+                    "marker": "a1",
+                    "option_id": 156,
+                    "option": "by"
+                },
+                {
+                    "marker": "a2",
+                    "option_id": 7075,
+                    "option": "Friday"
+                },
+                {
+                    "marker": "a3",
+                    "option_id": 18,
+                    "option": "He"
+                },
+                {
+                    "marker": "a4",
+                    "option_id": 88,
+                    "option": "will"
+                },
+                {
+                    "marker": "a5",
+                    "option_id": 2,
+                    "option": "have"
+                },
+                {
+                    "marker": "a6",
+                    "option_id": 23,
+                    "option": "been"
+                },
+                {
+                    "marker": "a7",
+                    "option_id": 16431,
+                    "option": "training"
+                },
+                {
+                    "marker": "a8",
+                    "option_id": 235,
+                    "option": "for"
+                },
+                {
+                    "marker": "a9",
+                    "option_id": 11,
+                    "option": "a"
+                },
+                {
+                    "marker": "a10",
+                    "option_id": 75,
+                    "option": "month"
+                }
+            ],
+            "block_uuid": "79b8a425-a798-5270-9813-072a7c5294d3",
+            "definition": "database/seeders/V3/Polyglot/PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder/definition.json",
+            "definition_sha256": "c74fa87b00b104af469cd807def9394a6d1c6d0b2a8d45d2de8132568e2afd4d",
+            "correct_tokens": [
+                "By",
+                "Friday",
+                "he",
+                "will",
+                "have",
+                "been",
+                "training",
+                "for",
+                "a",
+                "month"
+            ],
+            "hint_uk": "До п’ятниці вже мине місяць тренувань; передай накопичений період. Звичайні синоніми тренування приймаються.",
+            "accepted_sentences": [
+                "By Friday he will have been training for a month",
+                "He will have been training for a month by Friday",
+                "By Friday he will have been practising for a month",
+                "He will have been practising for a month by Friday",
+                "By Friday he will have been practicing for a month",
+                "He will have been practicing for a month by Friday"
+            ],
+            "added_options": [
+                "practising",
+                "practicing"
+            ],
+            "token_labels": {
+                "training": "training (practising / practicing)"
+            }
+        },
+        {
+            "id": 26746,
+            "uuid": "fcvfpc-poly-b2-08",
+            "seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder",
+            "type": "4",
+            "level": "B2",
+            "question": "У п’ятницю він тренуватиметься з командою",
+            "answers": [
+                {
+                    "marker": "a1",
+                    "option_id": 109,
+                    "option": "on"
+                },
+                {
+                    "marker": "a2",
+                    "option_id": 7075,
+                    "option": "Friday"
+                },
+                {
+                    "marker": "a3",
+                    "option_id": 18,
+                    "option": "He"
+                },
+                {
+                    "marker": "a4",
+                    "option_id": 88,
+                    "option": "will"
+                },
+                {
+                    "marker": "a5",
+                    "option_id": 207,
+                    "option": "be"
+                },
+                {
+                    "marker": "a6",
+                    "option_id": 16431,
+                    "option": "training"
+                },
+                {
+                    "marker": "a7",
+                    "option_id": 323,
+                    "option": "with"
+                },
+                {
+                    "marker": "a8",
+                    "option_id": 8,
+                    "option": "the"
+                },
+                {
+                    "marker": "a9",
+                    "option_id": 2643,
+                    "option": "team"
+                }
+            ],
+            "block_uuid": "79b8a425-a798-5270-9813-072a7c5294d3",
+            "definition": "database/seeders/V3/Polyglot/PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder/definition.json",
+            "definition_sha256": "c74fa87b00b104af469cd807def9394a6d1c6d0b2a8d45d2de8132568e2afd4d",
+            "correct_tokens": [
+                "On",
+                "Friday",
+                "he",
+                "will",
+                "be",
+                "training",
+                "with",
+                "the",
+                "team"
+            ],
+            "hint_uk": "Тренуватиметься з уже названою командою в п’ятницю: покажи процес у цей день, без підрахунку попередньої тривалості.",
+            "accepted_sentences": [
+                "On Friday he will be training with the team",
+                "He will be training with the team on Friday",
+                "On Friday he will be practising with the team",
+                "He will be practising with the team on Friday",
+                "On Friday he will be practicing with the team",
+                "He will be practicing with the team on Friday"
+            ],
+            "added_options": [
+                "practising",
+                "practicing"
+            ],
+            "token_labels": {
+                "training": "training (practising / practicing)"
+            }
+        },
+        {
+            "id": 26747,
+            "uuid": "fcvfpc-poly-b2-09",
+            "seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder",
+            "type": "4",
+            "level": "B2",
+            "question": "О дев’ятій я чекатиму надворі",
+            "answers": [
+                {
+                    "marker": "a1",
+                    "option_id": 90,
+                    "option": "at"
+                },
+                {
+                    "marker": "a2",
+                    "option_id": 319,
+                    "option": "nine"
+                },
+                {
+                    "marker": "a3",
+                    "option_id": 1,
+                    "option": "I"
+                },
+                {
+                    "marker": "a4",
+                    "option_id": 88,
+                    "option": "will"
+                },
+                {
+                    "marker": "a5",
+                    "option_id": 207,
+                    "option": "be"
+                },
+                {
+                    "marker": "a6",
+                    "option_id": 262,
+                    "option": "waiting"
+                },
+                {
+                    "marker": "a7",
+                    "option_id": 290,
+                    "option": "outside"
+                }
+            ],
+            "block_uuid": "79b8a425-a798-5270-9813-072a7c5294d3",
+            "definition": "database/seeders/V3/Polyglot/PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder/definition.json",
+            "definition_sha256": "c74fa87b00b104af469cd807def9394a6d1c6d0b2a8d45d2de8132568e2afd4d",
+            "correct_tokens": [
+                "At",
+                "nine",
+                "I",
+                "will",
+                "be",
+                "waiting",
+                "outside"
+            ],
+            "hint_uk": "Чекатиму надворі саме о дев’ятій: покажи процес у цей момент; обидва звичайні позначення перебування надворі приймаються.",
+            "accepted_sentences": [
+                "At nine I will be waiting outside",
+                "I will be waiting outside at nine",
+                "At nine I will be waiting outdoors",
+                "I will be waiting outdoors at nine"
+            ],
+            "added_options": [
+                "outdoors"
+            ],
+            "token_labels": {
+                "outside": "outside (outdoors)"
+            }
+        },
+        {
+            "id": 26748,
+            "uuid": "fcvfpc-poly-b2-10",
+            "seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder",
+            "type": "4",
+            "level": "B2",
+            "question": "До дев’ятої я чекатиму вже тридцять хвилин",
+            "answers": [
+                {
+                    "marker": "a1",
+                    "option_id": 156,
+                    "option": "by"
+                },
+                {
+                    "marker": "a2",
+                    "option_id": 319,
+                    "option": "nine"
+                },
+                {
+                    "marker": "a3",
+                    "option_id": 1,
+                    "option": "I"
+                },
+                {
+                    "marker": "a4",
+                    "option_id": 88,
+                    "option": "will"
+                },
+                {
+                    "marker": "a5",
+                    "option_id": 2,
+                    "option": "have"
+                },
+                {
+                    "marker": "a6",
+                    "option_id": 23,
+                    "option": "been"
+                },
+                {
+                    "marker": "a7",
+                    "option_id": 262,
+                    "option": "waiting"
+                },
+                {
+                    "marker": "a8",
+                    "option_id": 235,
+                    "option": "for"
+                },
+                {
+                    "marker": "a9",
+                    "option_id": 21098,
+                    "option": "thirty"
+                },
+                {
+                    "marker": "a10",
+                    "option_id": 264,
+                    "option": "minutes"
+                }
+            ],
+            "block_uuid": "79b8a425-a798-5270-9813-072a7c5294d3",
+            "definition": "database/seeders/V3/Polyglot/PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder/definition.json",
+            "definition_sha256": "c74fa87b00b104af469cd807def9394a6d1c6d0b2a8d45d2de8132568e2afd4d",
+            "correct_tokens": [
+                "By",
+                "nine",
+                "I",
+                "will",
+                "have",
+                "been",
+                "waiting",
+                "for",
+                "thirty",
+                "minutes"
+            ],
+            "hint_uk": "До дев’ятої вже мине тридцять хвилин очікування; назви цей накопичений період.",
+            "accepted_sentences": [
+                "By nine I will have been waiting for thirty minutes",
+                "I will have been waiting for thirty minutes by nine"
+            ],
+            "added_options": [],
+            "token_labels": []
+        },
+        {
+            "id": 26749,
+            "uuid": "fcvfpc-poly-b2-11",
+            "seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder",
+            "type": "4",
+            "level": "B2",
+            "question": "Під час зустрічі я представлятиму результати",
+            "answers": [
+                {
+                    "marker": "a1",
+                    "option_id": 2822,
+                    "option": "during"
+                },
+                {
+                    "marker": "a2",
+                    "option_id": 8,
+                    "option": "the"
+                },
+                {
+                    "marker": "a3",
+                    "option_id": 178,
+                    "option": "meeting"
+                },
+                {
+                    "marker": "a4",
+                    "option_id": 1,
+                    "option": "I"
+                },
+                {
+                    "marker": "a5",
+                    "option_id": 88,
+                    "option": "will"
+                },
+                {
+                    "marker": "a6",
+                    "option_id": 207,
+                    "option": "be"
+                },
+                {
+                    "marker": "a7",
+                    "option_id": 21099,
+                    "option": "presenting"
+                },
+                {
+                    "marker": "a8",
+                    "option_id": 8,
+                    "option": "the"
+                },
+                {
+                    "marker": "a9",
+                    "option_id": 6661,
+                    "option": "results"
+                }
+            ],
+            "block_uuid": "79b8a425-a798-5270-9813-072a7c5294d3",
+            "definition": "database/seeders/V3/Polyglot/PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder/definition.json",
+            "definition_sha256": "c74fa87b00b104af469cd807def9394a6d1c6d0b2a8d45d2de8132568e2afd4d",
+            "correct_tokens": [
+                "During",
+                "the",
+                "meeting",
+                "I",
+                "will",
+                "be",
+                "presenting",
+                "the",
+                "results"
+            ],
+            "hint_uk": "Представлятиму вже відомі результати під час зустрічі: покажи процес; звичайні синоніми представлення приймаються.",
+            "accepted_sentences": [
+                "During the meeting I will be presenting the results",
+                "I will be presenting the results during the meeting",
+                "During the meeting I will be showing the results",
+                "I will be showing the results during the meeting",
+                "During the meeting I will be reporting the results",
+                "I will be reporting the results during the meeting"
+            ],
+            "added_options": [
+                "showing",
+                "reporting"
+            ],
+            "token_labels": {
+                "presenting": "presenting (showing / reporting)"
+            }
+        },
+        {
+            "id": 26750,
+            "uuid": "fcvfpc-poly-b2-12",
+            "seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder",
+            "type": "4",
+            "level": "B2",
+            "question": "До зустрічі я готуватимуся вже два тижні",
+            "answers": [
+                {
+                    "marker": "a1",
+                    "option_id": 156,
+                    "option": "by"
+                },
+                {
+                    "marker": "a2",
+                    "option_id": 8,
+                    "option": "the"
+                },
+                {
+                    "marker": "a3",
+                    "option_id": 178,
+                    "option": "meeting"
+                },
+                {
+                    "marker": "a4",
+                    "option_id": 1,
+                    "option": "I"
+                },
+                {
+                    "marker": "a5",
+                    "option_id": 88,
+                    "option": "will"
+                },
+                {
+                    "marker": "a6",
+                    "option_id": 2,
+                    "option": "have"
+                },
+                {
+                    "marker": "a7",
+                    "option_id": 23,
+                    "option": "been"
+                },
+                {
+                    "marker": "a8",
+                    "option_id": 16283,
+                    "option": "preparing"
+                },
+                {
+                    "marker": "a9",
+                    "option_id": 235,
+                    "option": "for"
+                },
+                {
+                    "marker": "a10",
+                    "option_id": 79,
+                    "option": "two"
+                },
+                {
+                    "marker": "a11",
+                    "option_id": 15418,
+                    "option": "weeks"
+                }
+            ],
+            "block_uuid": "79b8a425-a798-5270-9813-072a7c5294d3",
+            "definition": "database/seeders/V3/Polyglot/PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder/definition.json",
+            "definition_sha256": "c74fa87b00b104af469cd807def9394a6d1c6d0b2a8d45d2de8132568e2afd4d",
+            "correct_tokens": [
+                "By",
+                "the",
+                "meeting",
+                "I",
+                "will",
+                "have",
+                "been",
+                "preparing",
+                "for",
+                "two",
+                "weeks"
+            ],
+            "hint_uk": "До зустрічі підготовка вже триватиме два тижні; передай накопичений період. Звичайний синонім підготовки приймається.",
+            "accepted_sentences": [
+                "By the meeting I will have been preparing for two weeks",
+                "I will have been preparing for two weeks by the meeting",
+                "By the meeting I will have been getting ready for two weeks",
+                "I will have been getting ready for two weeks by the meeting"
+            ],
+            "added_options": [
+                "getting",
+                "ready"
+            ],
+            "token_labels": {
+                "preparing": "preparing (getting ready)"
+            }
+        }
+    ]
+}

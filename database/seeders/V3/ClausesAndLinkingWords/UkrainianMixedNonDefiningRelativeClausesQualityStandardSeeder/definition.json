@@ -1,0 +1,618 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/non-defining-relative-clauses.v1.json",
+        "sha256": "f47cea1c3bbcfa756583e4d09243cb730fc63dfe660cb21b18478bad02e0d5af"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\UkrainianMixedNonDefiningRelativeClausesQualityStandardSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-non-defining-relative-clauses-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "clauses_linking_words_quality_non_defining_relative_clauses": {
+            "name": "Clauses and Linking Words Quality: Non-defining Relative Clauses"
+        }
+    },
+    "tags": {
+        "non_defining_relative_clauses": {
+            "name": "Non-defining Relative Clauses",
+            "category": "clauses_and_linking_words"
+        },
+        "extra_information": {
+            "name": "Extra information",
+            "category": "topic"
+        },
+        "commas": {
+            "name": "Commas",
+            "category": "topic"
+        },
+        "who_people": {
+            "name": "Who for people",
+            "category": "topic"
+        },
+        "which_things": {
+            "name": "Which for things",
+            "category": "topic"
+        },
+        "which_whole_clause": {
+            "name": "Which for whole clause",
+            "category": "topic"
+        },
+        "where_places": {
+            "name": "Where for places",
+            "category": "topic"
+        },
+        "whose_possession": {
+            "name": "Whose possession",
+            "category": "topic"
+        },
+        "no_that": {
+            "name": "No that",
+            "category": "topic"
+        },
+        "cannot_omit": {
+            "name": "Cannot omit pronoun",
+            "category": "topic"
+        },
+        "defining_vs_non_defining": {
+            "name": "Defining vs non-defining",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "non_defining_relative_clauses"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-nondefining-a1-g01",
+            "author_id": "A1-g01",
+            "question": "My mum, {a1} a teacher, likes music.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_non_defining_relative_clauses",
+            "translation_uk": "Моя мама, яка працює вчителькою, любить музику.",
+            "target_text": "My mum, who is a teacher, likes music.",
+            "markers": {
+                "a1": {
+                    "answer": "who is",
+                    "options": [
+                        "who is",
+                        "which is",
+                        "who are"
+                    ],
+                    "verb_hint": "Яка є; додай відомості про вже названу маму, узгодивши одну людину."
+                }
+            },
+            "verb_hint": "Яка є; додай відомості про вже названу маму, узгодивши одну людину.",
+            "accepted_target_texts": [
+                "My mum, who is a teacher, likes music."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My mum,",
+                "who is",
+                "a teacher,",
+                "likes music."
+            ],
+            "token_groups": [
+                "My mum,",
+                "who is",
+                "a teacher,",
+                "likes music."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "clq-nondefining-a1-g02",
+            "author_id": "A1-g02",
+            "question": "My bike, {a1} red, is outside.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_non_defining_relative_clauses",
+            "translation_uk": "Мій велосипед, який червоний, стоїть надворі.",
+            "target_text": "My bike, which is red, is outside.",
+            "markers": {
+                "a1": {
+                    "answer": "which is",
+                    "options": [
+                        "which is",
+                        "who is",
+                        "which are"
+                    ],
+                    "verb_hint": "Який є; додаткова ознака стосується однієї речі."
+                }
+            },
+            "verb_hint": "Який є; додаткова ознака стосується однієї речі.",
+            "accepted_target_texts": [
+                "My bike, which is red, is outside."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My bike,",
+                "which is",
+                "red,",
+                "is outside."
+            ],
+            "token_groups": [
+                "My bike,",
+                "which is",
+                "red,",
+                "is outside."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "clq-nondefining-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Lena, {a1} sits beside me, loves drawing.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_non_defining_relative_clauses",
+            "translation_uk": "Лена, яка сидить поряд зі мною, любить малювати.",
+            "target_text": "Lena, who sits beside me, loves drawing.",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "whose",
+                        "which"
+                    ],
+                    "verb_hint": "Яка сидить; відносне слово саме є виконавцем і додає відомості про Лену."
+                }
+            },
+            "verb_hint": "Яка сидить; відносне слово саме є виконавцем і додає відомості про Лену.",
+            "accepted_target_texts": [
+                "Lena, who sits beside me, loves drawing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Lena,",
+                "who",
+                "sits beside me,",
+                "loves drawing."
+            ],
+            "token_groups": [
+                "Lena,",
+                "who",
+                "sits beside me,",
+                "loves drawing."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "clq-nondefining-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Our piano, {a1} belonged to Grandma, is very old.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_non_defining_relative_clauses",
+            "translation_uk": "Наше піаніно, яке належало бабусі, дуже старе.",
+            "target_text": "Our piano, which belonged to Grandma, is very old.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Яке належало; додаткова частина описує річ, а не людину."
+                }
+            },
+            "verb_hint": "Яке належало; додаткова частина описує річ, а не людину.",
+            "accepted_target_texts": [
+                "Our piano, which belonged to Grandma, is very old."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our piano,",
+                "which",
+                "belonged to Grandma,",
+                "is very old."
+            ],
+            "token_groups": [
+                "Our piano,",
+                "which",
+                "belonged to Grandma,",
+                "is very old."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "clq-nondefining-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Bristol, {a1} we spent a weekend, has a busy harbour.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_non_defining_relative_clauses",
+            "translation_uk": "Бристоль, де ми провели вихідні, має жвавий порт.",
+            "target_text": "Bristol, where we spent a weekend, has a busy harbour.",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Де провели; додаткова частина називає місце вже названої події."
+                }
+            },
+            "verb_hint": "Де провели; додаткова частина називає місце вже названої події.",
+            "accepted_target_texts": [
+                "Bristol, where we spent a weekend, has a busy harbour."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Bristol,",
+                "where",
+                "we spent",
+                "a weekend,",
+                "has",
+                "a busy harbour."
+            ],
+            "token_groups": [
+                "Bristol,",
+                "where",
+                "we spent",
+                "a weekend,",
+                "has",
+                "a busy harbour."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "clq-nondefining-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Ruth, {a1} passport was missing, called the embassy.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_non_defining_relative_clauses",
+            "translation_uk": "Рут, чий паспорт зник, зателефонувала до посольства.",
+            "target_text": "Ruth, whose passport was missing, called the embassy.",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "whom"
+                    ],
+                    "verb_hint": "Чий паспорт; зв’яжи відому власницю з названим документом."
+                }
+            },
+            "verb_hint": "Чий паспорт; зв’яжи відому власницю з названим документом.",
+            "accepted_target_texts": [
+                "Ruth, whose passport was missing, called the embassy."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Ruth,",
+                "whose passport",
+                "was missing,",
+                "called the embassy."
+            ],
+            "token_groups": [
+                "Ruth,",
+                "whose passport",
+                "was missing,",
+                "called the embassy."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "clq-nondefining-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The festival was cancelled, {a1} disappointed the local traders.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_non_defining_relative_clauses",
+            "translation_uk": "Фестиваль скасували, що розчарувало місцевих торговців.",
+            "target_text": "The festival was cancelled, which disappointed the local traders.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "what"
+                    ],
+                    "verb_hint": "Що розчарувало; відносне слово коментує весь факт скасування."
+                }
+            },
+            "verb_hint": "Що розчарувало; відносне слово коментує весь факт скасування.",
+            "accepted_target_texts": [
+                "The festival was cancelled, which disappointed the local traders."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The festival",
+                "was cancelled,",
+                "which",
+                "disappointed",
+                "the local traders."
+            ],
+            "token_groups": [
+                "The festival",
+                "was cancelled,",
+                "which",
+                "disappointed",
+                "the local traders."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "clq-nondefining-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Dr Shah, {a1} I had already spoken, joined the call.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_non_defining_relative_clauses",
+            "translation_uk": "Доктор Шах, з якою я вже поговорив, долучилася до дзвінка.",
+            "target_text": "Dr Shah, to whom I had already spoken, joined the call.",
+            "markers": {
+                "a1": {
+                    "answer": "to whom",
+                    "options": [
+                        "to whom",
+                        "to that",
+                        "to whose"
+                    ],
+                    "verb_hint": "З якою; після винесеного прийменника використай об’єктну форму для людини."
+                }
+            },
+            "verb_hint": "З якою; після винесеного прийменника використай об’єктну форму для людини.",
+            "accepted_target_texts": [
+                "Dr Shah, to whom I had already spoken, joined the call."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Dr Shah,",
+                "to whom",
+                "I had",
+                "already spoken,",
+                "joined the call."
+            ],
+            "token_groups": [
+                "Dr Shah,",
+                "to whom",
+                "I had",
+                "already spoken,",
+                "joined the call."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "clq-nondefining-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The survey included twelve villages, {a1} had reliable electricity.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_non_defining_relative_clauses",
+            "translation_uk": "Опитування охопило дванадцять сіл, жодне з яких не мало надійного електропостачання.",
+            "target_text": "The survey included twelve villages, none of which had reliable electricity.",
+            "markers": {
+                "a1": {
+                    "answer": "none of which",
+                    "options": [
+                        "none of which",
+                        "none of that",
+                        "none of whom"
+                    ],
+                    "verb_hint": "Жодне з яких; часткова відносна група стосується сіл, не людей."
+                }
+            },
+            "verb_hint": "Жодне з яких; часткова відносна група стосується сіл, не людей.",
+            "accepted_target_texts": [
+                "The survey included twelve villages, none of which had reliable electricity."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The survey",
+                "included twelve villages,",
+                "none of which",
+                "had reliable electricity."
+            ],
+            "token_groups": [
+                "The survey",
+                "included twelve villages,",
+                "none of which",
+                "had reliable electricity."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "clq-nondefining-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The agreement, {a1} scope remained disputed, was never implemented.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_non_defining_relative_clauses",
+            "translation_uk": "Угоду, сфера дії якої залишалася спірною, так і не виконали.",
+            "target_text": "The agreement, whose scope remained disputed, was never implemented.",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "which",
+                        "whom"
+                    ],
+                    "verb_hint": "Сфера дії якої; присвійна форма може відсилати й до неживого документа."
+                }
+            },
+            "verb_hint": "Сфера дії якої; присвійна форма може відсилати й до неживого документа.",
+            "accepted_target_texts": [
+                "The agreement, whose scope remained disputed, was never implemented."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The agreement,",
+                "whose scope",
+                "remained disputed,",
+                "was never implemented."
+            ],
+            "token_groups": [
+                "The agreement,",
+                "whose scope",
+                "remained disputed,",
+                "was never implemented."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "clq-nondefining-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The excavations exposed six seals, {a1} owners remain unidentified.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_non_defining_relative_clauses",
+            "translation_uk": "Розкопки відкрили шість печаток, власники двох із яких залишаються невідомими.",
+            "target_text": "The excavations exposed six seals, two of whose owners remain unidentified.",
+            "markers": {
+                "a1": {
+                    "answer": "two of whose",
+                    "options": [
+                        "two of whose",
+                        "two of which",
+                        "two of whom"
+                    ],
+                    "verb_hint": "Власники двох із яких; після часткової присвійної групи стоїть назва власників печаток."
+                }
+            },
+            "verb_hint": "Власники двох із яких; після часткової присвійної групи стоїть назва власників печаток.",
+            "accepted_target_texts": [
+                "The excavations exposed six seals, two of whose owners remain unidentified."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The excavations",
+                "exposed six seals,",
+                "two of whose",
+                "owners",
+                "remain unidentified."
+            ],
+            "token_groups": [
+                "The excavations",
+                "exposed six seals,",
+                "two of whose",
+                "owners",
+                "remain unidentified."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "clq-nondefining-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The panel reversed its earlier finding, {a1} rendered the appeal moot.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_non_defining_relative_clauses",
+            "translation_uk": "Колегія змінила попередній висновок, що позбавило апеляцію предмета.",
+            "target_text": "The panel reversed its earlier finding, which rendered the appeal moot.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "what",
+                        "that"
+                    ],
+                    "verb_hint": "Що спричинило; додаткова частина оцінює наслідок цілого попереднього рішення."
+                }
+            },
+            "verb_hint": "Що спричинило; додаткова частина оцінює наслідок цілого попереднього рішення.",
+            "accepted_target_texts": [
+                "The panel reversed its earlier finding, which rendered the appeal moot."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The panel",
+                "reversed",
+                "its earlier finding,",
+                "which",
+                "rendered the appeal",
+                "moot."
+            ],
+            "token_groups": [
+                "The panel",
+                "reversed",
+                "its earlier finding,",
+                "which",
+                "rendered the appeal",
+                "moot."
+            ],
+            "quality_revision": "clq-v1"
+        }
+    ]
+}

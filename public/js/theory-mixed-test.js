@@ -8,6 +8,7 @@ const questions = Array.isArray(config.questions) ? config.questions : [];
 const completion = config.completion || {};
 const i18n = config.i18n || {};
 const courseI18n = config.courseI18n || {};
+const helpI18n = config.helpI18n || {};
 const store = TheoryCourseProgress.createStore(course.slug, lessons);
 
 const root = document.querySelector('[data-theory-mixed-root]');
@@ -110,6 +111,7 @@ function normalizeComposeQuestion(question) {
         wrong: false,
         done: false,
         feedback: '',
+        composeHelpOpen: false,
     };
 }
 
@@ -218,6 +220,32 @@ function renderStandardQuestion(item) {
     `;
 }
 
+function composeHelpMarkup(item) {
+    const hint = item?.showPreAnswerHint === true && String(item?.type) === '4'
+        ? String(item.hintUk || '').trim()
+        : '';
+    if (hint === '') {
+        return '';
+    }
+    const open = item.composeHelpOpen === true;
+    const label = open ? (helpI18n.hide_help || 'Hide help') : (helpI18n.show_help || 'Show help');
+
+    return `<div data-theory-compose-help>
+        <button type="button" data-compose-help-toggle aria-controls="theory-mixed-compose-help" aria-expanded="${open ? 'true' : 'false'}" class="rounded-full border px-4 py-2 text-sm font-bold" style="border-color: var(--line);">${html(label)}</button>
+        <p id="theory-mixed-compose-help" data-theory-compose-hint${open ? '' : ' hidden'} class="mt-3 text-sm font-semibold" style="color: var(--muted); white-space: pre-line; overflow-wrap: anywhere;">${html(hint)}</p>
+    </div>`;
+}
+
+function toggleComposeHelp() {
+    const item = currentItem();
+    if (!item || item.renderer !== 'compose' || item.showPreAnswerHint !== true
+        || String(item.type) !== '4' || String(item.hintUk || '').trim() === '') {
+        return;
+    }
+    item.composeHelpOpen = item.composeHelpOpen !== true;
+    render();
+}
+
 function renderComposeQuestion(item) {
     const tokenMap = Object.fromEntries((item.tokenBank || []).map((token) => [token.id, token]));
     const answerTokens = item.selectedTokenIds.map((tokenId) => tokenMap[tokenId]).filter(Boolean);
@@ -239,6 +267,7 @@ function renderComposeQuestion(item) {
                 <div class="mt-3 text-2xl font-extrabold leading-[1.35]">${html(item.sourceTextUk || item.question)}</div>
                 <p class="mt-2 text-xs font-semibold uppercase tracking-[0.16em]" style="color: var(--muted);">${html(sourceLabel(item))}</p>
             </div>
+            ${composeHelpMarkup(item)}
             <section class="rounded-[20px] border p-4 surface-card" style="border-color: var(--line);">
                 <p class="text-[11px] font-extrabold uppercase tracking-[0.18em]" style="color: var(--muted);">${html(text('build_translation', 'Build the translation'))}</p>
                 <div class="mt-4 flex min-h-[5rem] flex-wrap content-start gap-2 rounded-[18px] border border-dashed p-3" style="border-color: var(--line);">${answerMarkup}<span class="rounded-xl border px-3 py-2 text-sm font-bold" style="border-color: var(--line); color: var(--muted);">${html(item.punctuation || '.')}</span></div>
@@ -475,6 +504,11 @@ function boot() {
 }
 
 card?.addEventListener('click', (event) => {
+    if (event.target.closest('[data-compose-help-toggle]')) {
+        toggleComposeHelp();
+        return;
+    }
+
     const standardOption = event.target.closest('[data-standard-option]');
     if (standardOption) {
         standardChoose(standardOption.getAttribute('data-standard-option') || '');

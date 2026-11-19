@@ -1,0 +1,1665 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mrq-v1",
+    "compiled_from": {
+        "path": "docs/content/mixed-revision-quality/a2-mixed-revision.v1.json",
+        "sha256": "6afdc00d1e5c334b283bcd259ba8be223aee7563e138f45d864d0f56f7eb70be"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedMrqA2MixedRevisionQualityBuilderSeeder",
+        "uuid_namespace": "mixed-revision-quality-a2-mixed-revision-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Mixed Revision"
+    },
+    "sources": {
+        "mixed_revision_quality_a2_mixed_revision": {
+            "name": "Mixed Revision Quality: A2 Mixed Revision"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mrq-a2-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Моя сестра носить фіолетові окуляри.",
+            "level": "A1",
+            "type": 4,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Моя сестра носить фіолетові окуляри.",
+            "target_text": "My sister wears purple glasses.",
+            "markers": {
+                "a1": {
+                    "answer": "My",
+                    "verb_hint": "Почни з моєї сестри, додай дієслово звичної дії з закінченням третьої особи та назви колір окулярів.",
+                    "options": [
+                        "My",
+                        "Ours",
+                        "Theirs",
+                        "Whose"
+                    ]
+                },
+                "a2": {
+                    "answer": "sister",
+                    "verb_hint": "Почни з моєї сестри, додай дієслово звичної дії з закінченням третьої особи та назви колір окулярів.",
+                    "options": [
+                        "sister",
+                        "neighbour",
+                        "uncle",
+                        "aunt"
+                    ]
+                },
+                "a3": {
+                    "answer": "wears",
+                    "verb_hint": "Почни з моєї сестри, додай дієслово звичної дії з закінченням третьої особи та назви колір окулярів.",
+                    "options": [
+                        "wears",
+                        "sells",
+                        "paints",
+                        "repairs"
+                    ]
+                },
+                "a4": {
+                    "answer": "purple",
+                    "verb_hint": "Почни з моєї сестри, додай дієслово звичної дії з закінченням третьої особи та назви колір окулярів.",
+                    "options": [
+                        "purple",
+                        "golden",
+                        "brown",
+                        "pink"
+                    ]
+                },
+                "a5": {
+                    "answer": "glasses.",
+                    "verb_hint": "Почни з моєї сестри, додай дієслово звичної дії з закінченням третьої особи та назви колір окулярів.",
+                    "options": [
+                        "glasses",
+                        "gloves",
+                        "shoes",
+                        "boots"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з моєї сестри, додай дієслово звичної дії з закінченням третьої особи та назви колір окулярів.",
+            "accepted_target_texts": [
+                "My sister wears purple glasses.",
+                "My sister wears violet glasses.",
+                "My sister wears purple spectacles.",
+                "My sister wears violet spectacles."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "violet"
+                ],
+                "a5": [
+                    "spectacles."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "violet"
+                ],
+                "a5": [
+                    "spectacles."
+                ]
+            },
+            "reorder_groups": [
+                "My sister",
+                "wears",
+                "purple glasses."
+            ],
+            "token_groups": [
+                "My sister",
+                "wears",
+                "purple glasses."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "My",
+                "sister",
+                "wears",
+                "purple",
+                "glasses."
+            ],
+            "options": [
+                "My",
+                "Ours",
+                "Theirs",
+                "Whose",
+                "sister",
+                "neighbour",
+                "uncle",
+                "aunt",
+                "wears",
+                "sells",
+                "paints",
+                "repairs",
+                "purple",
+                "golden",
+                "brown",
+                "pink",
+                "glasses",
+                "gloves",
+                "shoes",
+                "boots"
+            ],
+            "source_text_uk": "Моя сестра носить фіолетові окуляри.",
+            "options_by_marker": {
+                "a1": [
+                    "My",
+                    "Ours",
+                    "Theirs",
+                    "Whose"
+                ],
+                "a2": [
+                    "sister",
+                    "neighbour",
+                    "uncle",
+                    "aunt"
+                ],
+                "a3": [
+                    "wears",
+                    "sells",
+                    "paints",
+                    "repairs"
+                ],
+                "a4": [
+                    "purple",
+                    "golden",
+                    "brown",
+                    "pink"
+                ],
+                "a5": [
+                    "glasses",
+                    "gloves",
+                    "shoes",
+                    "boots"
+                ]
+            },
+            "slot_roles": {
+                "a1": "family_subject",
+                "a2": "family_subject",
+                "a3": "personal_present",
+                "a4": "colour_accessory",
+                "a5": "colour_accessory"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "mrq-a2-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Барабанщик щойно знайшов свою зниклу сумку.",
+            "level": "A2",
+            "type": 4,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Барабанщик щойно знайшов свою зниклу сумку.",
+            "target_text": "The drummer has just found his missing bag.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай щойно завершену дію з результатом зараз; після допоміжного дієслова назви знахідку третьою формою та збережи власника сумки.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "drummer",
+                    "verb_hint": "Передай щойно завершену дію з результатом зараз; після допоміжного дієслова назви знахідку третьою формою та збережи власника сумки.",
+                    "options": [
+                        "drummer",
+                        "cellist",
+                        "violinist",
+                        "guitarist"
+                    ]
+                },
+                "a3": {
+                    "answer": "has",
+                    "verb_hint": "Передай щойно завершену дію з результатом зараз; після допоміжного дієслова назви знахідку третьою формою та збережи власника сумки.",
+                    "options": [
+                        "has",
+                        "doesn't",
+                        "didn't",
+                        "have"
+                    ]
+                },
+                "a4": {
+                    "answer": "just",
+                    "verb_hint": "Передай щойно завершену дію з результатом зараз; після допоміжного дієслова назви знахідку третьою формою та збережи власника сумки.",
+                    "options": [
+                        "just",
+                        "also",
+                        "usually",
+                        "rarely"
+                    ]
+                },
+                "a5": {
+                    "answer": "found",
+                    "verb_hint": "Передай щойно завершену дію з результатом зараз; після допоміжного дієслова назви знахідку третьою формою та збережи власника сумки.",
+                    "options": [
+                        "found",
+                        "carried",
+                        "borrowed",
+                        "packed"
+                    ]
+                },
+                "a6": {
+                    "answer": "his",
+                    "verb_hint": "Передай щойно завершену дію з результатом зараз; після допоміжного дієслова назви знахідку третьою формою та збережи власника сумки.",
+                    "options": [
+                        "his",
+                        "mine",
+                        "yours",
+                        "hers"
+                    ]
+                },
+                "a7": {
+                    "answer": "missing",
+                    "verb_hint": "Передай щойно завершену дію з результатом зараз; після допоміжного дієслова назви знахідку третьою формою та збережи власника сумки.",
+                    "options": [
+                        "missing",
+                        "walking",
+                        "opening",
+                        "closing"
+                    ]
+                },
+                "a8": {
+                    "answer": "bag.",
+                    "verb_hint": "Передай щойно завершену дію з результатом зараз; після допоміжного дієслова назви знахідку третьою формою та збережи власника сумки.",
+                    "options": [
+                        "bag",
+                        "purse",
+                        "scarf",
+                        "wallet"
+                    ]
+                }
+            },
+            "verb_hint": "Передай щойно завершену дію з результатом зараз; після допоміжного дієслова назви знахідку третьою формою та збережи власника сумки.",
+            "accepted_target_texts": [
+                "The drummer has just found his missing bag.",
+                "The drummer has just located his missing bag.",
+                "The drummer has just found his lost bag.",
+                "The drummer has just located his lost bag."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "located"
+                ],
+                "a7": [
+                    "lost"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "located"
+                ],
+                "a7": [
+                    "lost"
+                ]
+            },
+            "reorder_groups": [
+                "The drummer",
+                "has just found",
+                "his missing bag."
+            ],
+            "token_groups": [
+                "The drummer",
+                "has just found",
+                "his missing bag."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "The",
+                "drummer",
+                "has",
+                "just",
+                "found",
+                "his",
+                "missing",
+                "bag."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "drummer",
+                "cellist",
+                "violinist",
+                "guitarist",
+                "has",
+                "doesn't",
+                "didn't",
+                "have",
+                "just",
+                "also",
+                "usually",
+                "rarely",
+                "found",
+                "carried",
+                "borrowed",
+                "packed",
+                "his",
+                "mine",
+                "yours",
+                "hers",
+                "missing",
+                "walking",
+                "opening",
+                "closing",
+                "bag",
+                "purse",
+                "scarf",
+                "wallet"
+            ],
+            "source_text_uk": "Барабанщик щойно знайшов свою зниклу сумку.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "drummer",
+                    "cellist",
+                    "violinist",
+                    "guitarist"
+                ],
+                "a3": [
+                    "has",
+                    "doesn't",
+                    "didn't",
+                    "have"
+                ],
+                "a4": [
+                    "just",
+                    "also",
+                    "usually",
+                    "rarely"
+                ],
+                "a5": [
+                    "found",
+                    "carried",
+                    "borrowed",
+                    "packed"
+                ],
+                "a6": [
+                    "his",
+                    "mine",
+                    "yours",
+                    "hers"
+                ],
+                "a7": [
+                    "missing",
+                    "walking",
+                    "opening",
+                    "closing"
+                ],
+                "a8": [
+                    "bag",
+                    "purse",
+                    "scarf",
+                    "wallet"
+                ]
+            },
+            "slot_roles": {
+                "a1": "music_person",
+                "a2": "music_person",
+                "a3": "recent_action",
+                "a4": "recent_action",
+                "a5": "recent_action",
+                "a6": "personal_missing_object",
+                "a7": "personal_missing_object",
+                "a8": "personal_missing_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "mrq-a2-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Хоча дорогу затопило, доставка прибула вчасно.",
+            "level": "B1",
+            "type": 4,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Хоча дорогу затопило, доставка прибула вчасно.",
+            "target_text": "Although the road was flooded, the delivery arrived on time.",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "verb_hint": "Почни з допустової частини про затоплену дорогу; головна частина має зберегти своєчасне прибуття доставки всупереч перешкоді.",
+                    "options": [
+                        "Although",
+                        "Because",
+                        "Unless",
+                        "Whereas"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з допустової частини про затоплену дорогу; головна частина має зберегти своєчасне прибуття доставки всупереч перешкоді.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a3": {
+                    "answer": "road",
+                    "verb_hint": "Почни з допустової частини про затоплену дорогу; головна частина має зберегти своєчасне прибуття доставки всупереч перешкоді.",
+                    "options": [
+                        "road",
+                        "track",
+                        "route",
+                        "passage"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Почни з допустової частини про затоплену дорогу; головна частина має зберегти своєчасне прибуття доставки всупереч перешкоді.",
+                    "options": [
+                        "was",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a5": {
+                    "answer": "flooded,",
+                    "verb_hint": "Почни з допустової частини про затоплену дорогу; головна частина має зберегти своєчасне прибуття доставки всупереч перешкоді.",
+                    "options": [
+                        "flooded",
+                        "repaired",
+                        "closed",
+                        "blocked"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з допустової частини про затоплену дорогу; головна частина має зберегти своєчасне прибуття доставки всупереч перешкоді.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a7": {
+                    "answer": "delivery",
+                    "verb_hint": "Почни з допустової частини про затоплену дорогу; головна частина має зберегти своєчасне прибуття доставки всупереч перешкоді.",
+                    "options": [
+                        "delivery",
+                        "order",
+                        "driver",
+                        "parcel"
+                    ]
+                },
+                "a8": {
+                    "answer": "arrived",
+                    "verb_hint": "Почни з допустової частини про затоплену дорогу; головна частина має зберегти своєчасне прибуття доставки всупереч перешкоді.",
+                    "options": [
+                        "arrived",
+                        "waited",
+                        "changed",
+                        "returned"
+                    ]
+                },
+                "a9": {
+                    "answer": "on",
+                    "verb_hint": "Почни з допустової частини про затоплену дорогу; головна частина має зберегти своєчасне прибуття доставки всупереч перешкоді.",
+                    "options": [
+                        "on",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a10": {
+                    "answer": "time.",
+                    "verb_hint": "Почни з допустової частини про затоплену дорогу; головна частина має зберегти своєчасне прибуття доставки всупереч перешкоді.",
+                    "options": [
+                        "time",
+                        "sunset",
+                        "midnight",
+                        "late"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з допустової частини про затоплену дорогу; головна частина має зберегти своєчасне прибуття доставки всупереч перешкоді.",
+            "accepted_target_texts": [
+                "Although the road was flooded, the delivery arrived on time.",
+                "Though the road was flooded, the delivery arrived on time.",
+                "Although the road was flooded, the delivery arrived punctually.",
+                "Though the road was flooded, the delivery arrived punctually."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Though"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Though"
+                ]
+            },
+            "reorder_groups": [
+                "Although the road",
+                "was flooded,",
+                "the delivery arrived",
+                "on time."
+            ],
+            "token_groups": [
+                "Although the road",
+                "was flooded,",
+                "the delivery arrived",
+                "on time."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Although",
+                "the",
+                "road",
+                "was",
+                "flooded,",
+                "the",
+                "delivery",
+                "arrived",
+                "on",
+                "time."
+            ],
+            "options": [
+                "Although",
+                "Because",
+                "Unless",
+                "Whereas",
+                "the",
+                "every",
+                "no",
+                "another",
+                "road",
+                "track",
+                "route",
+                "passage",
+                "was",
+                "wasn't",
+                "weren't",
+                "am",
+                "flooded",
+                "repaired",
+                "closed",
+                "blocked",
+                "either",
+                "neither",
+                "all",
+                "delivery",
+                "order",
+                "driver",
+                "parcel",
+                "arrived",
+                "waited",
+                "changed",
+                "returned",
+                "on",
+                "across",
+                "between",
+                "among",
+                "time",
+                "sunset",
+                "midnight",
+                "late"
+            ],
+            "source_text_uk": "Хоча дорогу затопило, доставка прибула вчасно.",
+            "options_by_marker": {
+                "a1": [
+                    "Although",
+                    "Because",
+                    "Unless",
+                    "Whereas"
+                ],
+                "a2": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a3": [
+                    "road",
+                    "track",
+                    "route",
+                    "passage"
+                ],
+                "a4": [
+                    "was",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a5": [
+                    "flooded",
+                    "repaired",
+                    "closed",
+                    "blocked"
+                ],
+                "a6": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a7": [
+                    "delivery",
+                    "order",
+                    "driver",
+                    "parcel"
+                ],
+                "a8": [
+                    "arrived",
+                    "waited",
+                    "changed",
+                    "returned"
+                ],
+                "a9": [
+                    "on",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a10": [
+                    "time",
+                    "sunset",
+                    "midnight",
+                    "late"
+                ]
+            },
+            "slot_roles": {
+                "a1": "concessive_subject",
+                "a2": "concessive_subject",
+                "a3": "concessive_subject",
+                "a4": "past_road_state",
+                "a5": "past_road_state",
+                "a6": "delivery_event",
+                "a7": "delivery_event",
+                "a8": "delivery_event",
+                "a9": "delivery_time",
+                "a10": "delivery_time"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "mrq-a2-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Якби організатор попередив нас, ми б принесли сюди непромокальні плащі.",
+            "level": "B2",
+            "type": 4,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Якби організатор попередив нас, ми б принесли сюди непромокальні плащі.",
+            "target_text": "Had the organiser warned us, we would have brought waterproof coats.",
+            "markers": {
+                "a1": {
+                    "answer": "Had",
+                    "verb_hint": "Передай нездійснену минулу умову з допоміжним дієсловом перед організатором; наслідок має позначати нездійснене принесення плащів сюди.",
+                    "options": [
+                        "Had",
+                        "Didn't",
+                        "Has",
+                        "Haven't"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Передай нездійснену минулу умову з допоміжним дієсловом перед організатором; наслідок має позначати нездійснене принесення плащів сюди.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a3": {
+                    "answer": "organiser",
+                    "verb_hint": "Передай нездійснену минулу умову з допоміжним дієсловом перед організатором; наслідок має позначати нездійснене принесення плащів сюди.",
+                    "options": [
+                        "organiser",
+                        "coach",
+                        "steward",
+                        "cousin"
+                    ]
+                },
+                "a4": {
+                    "answer": "warned",
+                    "verb_hint": "Передай нездійснену минулу умову з допоміжним дієсловом перед організатором; наслідок має позначати нездійснене принесення плащів сюди.",
+                    "options": [
+                        "warned",
+                        "contacted",
+                        "cancelled",
+                        "ignored"
+                    ]
+                },
+                "a5": {
+                    "answer": "us,",
+                    "verb_hint": "Передай нездійснену минулу умову з допоміжним дієсловом перед організатором; наслідок має позначати нездійснене принесення плащів сюди.",
+                    "options": [
+                        "us",
+                        "she",
+                        "it",
+                        "they"
+                    ]
+                },
+                "a6": {
+                    "answer": "we",
+                    "verb_hint": "Передай нездійснену минулу умову з допоміжним дієсловом перед організатором; наслідок має позначати нездійснене принесення плащів сюди.",
+                    "options": [
+                        "we",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a7": {
+                    "answer": "would",
+                    "verb_hint": "Передай нездійснену минулу умову з допоміжним дієсловом перед організатором; наслідок має позначати нездійснене принесення плащів сюди.",
+                    "options": [
+                        "would",
+                        "could",
+                        "will",
+                        "shall"
+                    ]
+                },
+                "a8": {
+                    "answer": "have",
+                    "verb_hint": "Передай нездійснену минулу умову з допоміжним дієсловом перед організатором; наслідок має позначати нездійснене принесення плащів сюди.",
+                    "options": [
+                        "have",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a9": {
+                    "answer": "brought",
+                    "verb_hint": "Передай нездійснену минулу умову з допоміжним дієсловом перед організатором; наслідок має позначати нездійснене принесення плащів сюди.",
+                    "options": [
+                        "brought",
+                        "carried",
+                        "prepared",
+                        "packed"
+                    ]
+                },
+                "a10": {
+                    "answer": "waterproof",
+                    "verb_hint": "Передай нездійснену минулу умову з допоміжним дієсловом перед організатором; наслідок має позначати нездійснене принесення плащів сюди.",
+                    "options": [
+                        "waterproof",
+                        "our",
+                        "separate",
+                        "empty"
+                    ]
+                },
+                "a11": {
+                    "answer": "coats.",
+                    "verb_hint": "Передай нездійснену минулу умову з допоміжним дієсловом перед організатором; наслідок має позначати нездійснене принесення плащів сюди.",
+                    "options": [
+                        "coats",
+                        "chairs",
+                        "bottles",
+                        "drinks"
+                    ]
+                }
+            },
+            "verb_hint": "Передай нездійснену минулу умову з допоміжним дієсловом перед організатором; наслідок має позначати нездійснене принесення плащів сюди.",
+            "accepted_target_texts": [
+                "Had the organiser warned us, we would have brought waterproof coats.",
+                "Had the organizer warned us, we would have brought waterproof coats.",
+                "Had the organiser alerted us, we would have brought waterproof coats.",
+                "Had the organiser warned us, we would have brought raincoats.",
+                "Had the organizer alerted us, we would have brought waterproof coats.",
+                "Had the organizer warned us, we would have brought raincoats.",
+                "Had the organiser alerted us, we would have brought raincoats.",
+                "Had the organizer alerted us, we would have brought raincoats."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "organizer"
+                ],
+                "a4": [
+                    "alerted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "organizer"
+                ],
+                "a4": [
+                    "alerted"
+                ]
+            },
+            "reorder_groups": [
+                "Had the organiser",
+                "warned us,",
+                "we would have",
+                "brought waterproof coats."
+            ],
+            "token_groups": [
+                "Had the organiser",
+                "warned us,",
+                "we would have",
+                "brought waterproof coats."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Had",
+                "the",
+                "organiser",
+                "warned",
+                "us,",
+                "we",
+                "would",
+                "have",
+                "brought",
+                "waterproof",
+                "coats."
+            ],
+            "options": [
+                "Had",
+                "Didn't",
+                "Has",
+                "Haven't",
+                "the",
+                "that",
+                "these",
+                "those",
+                "organiser",
+                "coach",
+                "steward",
+                "cousin",
+                "warned",
+                "contacted",
+                "cancelled",
+                "ignored",
+                "us",
+                "she",
+                "it",
+                "they",
+                "we",
+                "myself",
+                "yourself",
+                "herself",
+                "would",
+                "could",
+                "will",
+                "shall",
+                "have",
+                "hadn't",
+                "do",
+                "does",
+                "brought",
+                "carried",
+                "prepared",
+                "packed",
+                "waterproof",
+                "our",
+                "separate",
+                "empty",
+                "coats",
+                "chairs",
+                "bottles",
+                "drinks"
+            ],
+            "source_text_uk": "Якби організатор попередив нас, ми б принесли сюди непромокальні плащі.",
+            "options_by_marker": {
+                "a1": [
+                    "Had",
+                    "Didn't",
+                    "Has",
+                    "Haven't"
+                ],
+                "a2": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a3": [
+                    "organiser",
+                    "coach",
+                    "steward",
+                    "cousin"
+                ],
+                "a4": [
+                    "warned",
+                    "contacted",
+                    "cancelled",
+                    "ignored"
+                ],
+                "a5": [
+                    "us",
+                    "she",
+                    "it",
+                    "they"
+                ],
+                "a6": [
+                    "we",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a7": [
+                    "would",
+                    "could",
+                    "will",
+                    "shall"
+                ],
+                "a8": [
+                    "have",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a9": [
+                    "brought",
+                    "carried",
+                    "prepared",
+                    "packed"
+                ],
+                "a10": [
+                    "waterproof",
+                    "our",
+                    "separate",
+                    "empty"
+                ],
+                "a11": [
+                    "coats",
+                    "chairs",
+                    "bottles",
+                    "drinks"
+                ]
+            },
+            "slot_roles": {
+                "a1": "counterfactual_organiser",
+                "a2": "counterfactual_organiser",
+                "a3": "counterfactual_organiser",
+                "a4": "past_notification",
+                "a5": "past_notification",
+                "a6": "conditional_perfect_subject",
+                "a7": "conditional_perfect_subject",
+                "a8": "conditional_perfect_subject",
+                "a9": "past_preparation",
+                "a10": "past_preparation",
+                "a11": "past_preparation"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "mrq-a2-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Вважають, що зникле обладнання викрали під час антракту.",
+            "level": "C1",
+            "type": 4,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Вважають, що зникле обладнання викрали під час антракту.",
+            "target_text": "The missing equipment is believed to have been stolen during the interval.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Після пасивного дієслова повідомлення передай попереднє викрадення перфектним пасивним інфінітивом; збережи час події.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "missing",
+                    "verb_hint": "Після пасивного дієслова повідомлення передай попереднє викрадення перфектним пасивним інфінітивом; збережи час події.",
+                    "options": [
+                        "missing",
+                        "cooking",
+                        "riding",
+                        "driving"
+                    ]
+                },
+                "a3": {
+                    "answer": "equipment",
+                    "verb_hint": "Після пасивного дієслова повідомлення передай попереднє викрадення перфектним пасивним інфінітивом; збережи час події.",
+                    "options": [
+                        "equipment",
+                        "keyboard",
+                        "transmitter",
+                        "instrument"
+                    ]
+                },
+                "a4": {
+                    "answer": "is",
+                    "verb_hint": "Після пасивного дієслова повідомлення передай попереднє викрадення перфектним пасивним інфінітивом; збережи час події.",
+                    "options": [
+                        "is",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "believed",
+                    "verb_hint": "Після пасивного дієслова повідомлення передай попереднє викрадення перфектним пасивним інфінітивом; збережи час події.",
+                    "options": [
+                        "believed",
+                        "reported",
+                        "assumed",
+                        "understood"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Після пасивного дієслова повідомлення передай попереднє викрадення перфектним пасивним інфінітивом; збережи час події.",
+                    "options": [
+                        "to",
+                        "among",
+                        "about",
+                        "from"
+                    ]
+                },
+                "a7": {
+                    "answer": "have",
+                    "verb_hint": "Після пасивного дієслова повідомлення передай попереднє викрадення перфектним пасивним інфінітивом; збережи час події.",
+                    "options": [
+                        "have",
+                        "didn't",
+                        "has",
+                        "had"
+                    ]
+                },
+                "a8": {
+                    "answer": "been",
+                    "verb_hint": "Після пасивного дієслова повідомлення передай попереднє викрадення перфектним пасивним інфінітивом; збережи час події.",
+                    "options": [
+                        "been",
+                        "be",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a9": {
+                    "answer": "stolen",
+                    "verb_hint": "Після пасивного дієслова повідомлення передай попереднє викрадення перфектним пасивним інфінітивом; збережи час події.",
+                    "options": [
+                        "stolen",
+                        "replaced",
+                        "removed",
+                        "inspected"
+                    ]
+                },
+                "a10": {
+                    "answer": "during",
+                    "verb_hint": "Після пасивного дієслова повідомлення передай попереднє викрадення перфектним пасивним інфінітивом; збережи час події.",
+                    "options": [
+                        "during",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a11": {
+                    "answer": "the",
+                    "verb_hint": "Після пасивного дієслова повідомлення передай попереднє викрадення перфектним пасивним інфінітивом; збережи час події.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a12": {
+                    "answer": "interval.",
+                    "verb_hint": "Після пасивного дієслова повідомлення передай попереднє викрадення перфектним пасивним інфінітивом; збережи час події.",
+                    "options": [
+                        "interval",
+                        "inspection",
+                        "ceremony",
+                        "festival"
+                    ]
+                }
+            },
+            "verb_hint": "Після пасивного дієслова повідомлення передай попереднє викрадення перфектним пасивним інфінітивом; збережи час події.",
+            "accepted_target_texts": [
+                "The missing equipment is believed to have been stolen during the interval.",
+                "The missing equipment is thought to have been stolen during the interval.",
+                "The missing equipment is believed to have been stolen during the intermission.",
+                "The missing equipment is thought to have been stolen during the intermission."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "thought"
+                ],
+                "a12": [
+                    "intermission."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "thought"
+                ],
+                "a12": [
+                    "intermission."
+                ]
+            },
+            "reorder_groups": [
+                "The missing equipment",
+                "is believed",
+                "to have been",
+                "stolen",
+                "during the interval."
+            ],
+            "token_groups": [
+                "The missing equipment",
+                "is believed",
+                "to have been",
+                "stolen",
+                "during the interval."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "The",
+                "missing",
+                "equipment",
+                "is",
+                "believed",
+                "to",
+                "have",
+                "been",
+                "stolen",
+                "during",
+                "the",
+                "interval."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "missing",
+                "cooking",
+                "riding",
+                "driving",
+                "equipment",
+                "keyboard",
+                "transmitter",
+                "instrument",
+                "is",
+                "being",
+                "isn't",
+                "aren't",
+                "believed",
+                "reported",
+                "assumed",
+                "understood",
+                "to",
+                "among",
+                "about",
+                "from",
+                "have",
+                "didn't",
+                "has",
+                "had",
+                "been",
+                "be",
+                "wasn't",
+                "weren't",
+                "stolen",
+                "replaced",
+                "removed",
+                "inspected",
+                "during",
+                "for",
+                "of",
+                "in",
+                "the",
+                "an",
+                "some",
+                "any",
+                "interval",
+                "inspection",
+                "ceremony",
+                "festival"
+            ],
+            "source_text_uk": "Вважають, що зникле обладнання викрали під час антракту.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "missing",
+                    "cooking",
+                    "riding",
+                    "driving"
+                ],
+                "a3": [
+                    "equipment",
+                    "keyboard",
+                    "transmitter",
+                    "instrument"
+                ],
+                "a4": [
+                    "is",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a5": [
+                    "believed",
+                    "reported",
+                    "assumed",
+                    "understood"
+                ],
+                "a6": [
+                    "to",
+                    "among",
+                    "about",
+                    "from"
+                ],
+                "a7": [
+                    "have",
+                    "didn't",
+                    "has",
+                    "had"
+                ],
+                "a8": [
+                    "been",
+                    "be",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a9": [
+                    "stolen",
+                    "replaced",
+                    "removed",
+                    "inspected"
+                ],
+                "a10": [
+                    "during",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a11": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a12": [
+                    "interval",
+                    "inspection",
+                    "ceremony",
+                    "festival"
+                ]
+            },
+            "slot_roles": {
+                "a1": "missing_item",
+                "a2": "missing_item",
+                "a3": "missing_item",
+                "a4": "reporting_predicate",
+                "a5": "reporting_predicate",
+                "a6": "perfect_passive_infinitive",
+                "a7": "perfect_passive_infinitive",
+                "a8": "perfect_passive_infinitive",
+                "a9": "equipment_participle",
+                "a10": "during_event",
+                "a11": "during_event",
+                "a12": "during_event"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "mrq-a2-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Якби дотрималися обмежень щодо шуму, від запису не довелося б відмовлятися.",
+            "level": "C2",
+            "type": 4,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Якби дотрималися обмежень щодо шуму, від запису не довелося б відмовлятися.",
+            "target_text": "Had noise restrictions been observed, the recording need not have been abandoned.",
+            "markers": {
+                "a1": {
+                    "answer": "Had",
+                    "verb_hint": "Постав минулу пасивну умову з інверсією на початок; у наслідку передай відсутність необхідності перфектною пасивною модальною групою.",
+                    "options": [
+                        "Had",
+                        "Hasn't",
+                        "Hadn't",
+                        "Do"
+                    ]
+                },
+                "a2": {
+                    "answer": "noise",
+                    "verb_hint": "Постав минулу пасивну умову з інверсією на початок; у наслідку передай відсутність необхідності перфектною пасивною модальною групою.",
+                    "options": [
+                        "noise",
+                        "weight",
+                        "height",
+                        "budget"
+                    ]
+                },
+                "a3": {
+                    "answer": "restrictions",
+                    "verb_hint": "Постав минулу пасивну умову з інверсією на початок; у наслідку передай відсутність необхідності перфектною пасивною модальною групою.",
+                    "options": [
+                        "restrictions",
+                        "limits",
+                        "regulations",
+                        "cars"
+                    ]
+                },
+                "a4": {
+                    "answer": "been",
+                    "verb_hint": "Постав минулу пасивну умову з інверсією на початок; у наслідку передай відсутність необхідності перфектною пасивною модальною групою.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "observed,",
+                    "verb_hint": "Постав минулу пасивну умову з інверсією на початок; у наслідку передай відсутність необхідності перфектною пасивною модальною групою.",
+                    "options": [
+                        "observed",
+                        "exceeded",
+                        "ignored",
+                        "revised"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Постав минулу пасивну умову з інверсією на початок; у наслідку передай відсутність необхідності перфектною пасивною модальною групою.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a7": {
+                    "answer": "recording",
+                    "verb_hint": "Постав минулу пасивну умову з інверсією на початок; у наслідку передай відсутність необхідності перфектною пасивною модальною групою.",
+                    "options": [
+                        "recording",
+                        "driving",
+                        "studying",
+                        "living"
+                    ]
+                },
+                "a8": {
+                    "answer": "need",
+                    "verb_hint": "Постав минулу пасивну умову з інверсією на початок; у наслідку передай відсутність необхідності перфектною пасивною модальною групою.",
+                    "options": [
+                        "need",
+                        "saw",
+                        "needed",
+                        "liked"
+                    ]
+                },
+                "a9": {
+                    "answer": "not",
+                    "verb_hint": "Постав минулу пасивну умову з інверсією на початок; у наслідку передай відсутність необхідності перфектною пасивною модальною групою.",
+                    "options": [
+                        "not",
+                        "also",
+                        "usually",
+                        "rarely"
+                    ]
+                },
+                "a10": {
+                    "answer": "have",
+                    "verb_hint": "Постав минулу пасивну умову з інверсією на початок; у наслідку передай відсутність необхідності перфектною пасивною модальною групою.",
+                    "options": [
+                        "have",
+                        "has",
+                        "haven't",
+                        "does"
+                    ]
+                },
+                "a11": {
+                    "answer": "been",
+                    "verb_hint": "Постав минулу пасивну умову з інверсією на початок; у наслідку передай відсутність необхідності перфектною пасивною модальною групою.",
+                    "options": [
+                        "been",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a12": {
+                    "answer": "abandoned.",
+                    "verb_hint": "Постав минулу пасивну умову з інверсією на початок; у наслідку передай відсутність необхідності перфектною пасивною модальною групою.",
+                    "options": [
+                        "abandoned",
+                        "approved",
+                        "interrupted",
+                        "delayed"
+                    ]
+                }
+            },
+            "verb_hint": "Постав минулу пасивну умову з інверсією на початок; у наслідку передай відсутність необхідності перфектною пасивною модальною групою.",
+            "accepted_target_texts": [
+                "Had noise restrictions been observed, the recording need not have been abandoned.",
+                "Had noise restrictions been respected, the recording need not have been abandoned.",
+                "Had noise restrictions been observed, the recording need not have been scrapped.",
+                "Had noise restrictions been respected, the recording need not have been scrapped."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "respected,"
+                ],
+                "a12": [
+                    "scrapped."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "respected,"
+                ],
+                "a12": [
+                    "scrapped."
+                ]
+            },
+            "reorder_groups": [
+                "Had",
+                "noise restrictions",
+                "been observed,",
+                "the recording",
+                "need not have",
+                "been abandoned."
+            ],
+            "token_groups": [
+                "Had",
+                "noise restrictions",
+                "been observed,",
+                "the recording",
+                "need not have",
+                "been abandoned."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Had",
+                "noise",
+                "restrictions",
+                "been",
+                "observed,",
+                "the",
+                "recording",
+                "need",
+                "not",
+                "have",
+                "been",
+                "abandoned."
+            ],
+            "options": [
+                "Had",
+                "Hasn't",
+                "Hadn't",
+                "Do",
+                "noise",
+                "weight",
+                "height",
+                "budget",
+                "restrictions",
+                "limits",
+                "regulations",
+                "cars",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "observed",
+                "exceeded",
+                "ignored",
+                "revised",
+                "the",
+                "all",
+                "both",
+                "a",
+                "recording",
+                "driving",
+                "studying",
+                "living",
+                "need",
+                "saw",
+                "needed",
+                "liked",
+                "not",
+                "also",
+                "usually",
+                "rarely",
+                "have",
+                "has",
+                "haven't",
+                "does",
+                "wasn't",
+                "weren't",
+                "am",
+                "abandoned",
+                "approved",
+                "interrupted",
+                "delayed"
+            ],
+            "source_text_uk": "Якби дотрималися обмежень щодо шуму, від запису не довелося б відмовлятися.",
+            "options_by_marker": {
+                "a1": [
+                    "Had",
+                    "Hasn't",
+                    "Hadn't",
+                    "Do"
+                ],
+                "a2": [
+                    "noise",
+                    "weight",
+                    "height",
+                    "budget"
+                ],
+                "a3": [
+                    "restrictions",
+                    "limits",
+                    "regulations",
+                    "cars"
+                ],
+                "a4": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a5": [
+                    "observed",
+                    "exceeded",
+                    "ignored",
+                    "revised"
+                ],
+                "a6": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a7": [
+                    "recording",
+                    "driving",
+                    "studying",
+                    "living"
+                ],
+                "a8": [
+                    "need",
+                    "saw",
+                    "needed",
+                    "liked"
+                ],
+                "a9": [
+                    "not",
+                    "also",
+                    "usually",
+                    "rarely"
+                ],
+                "a10": [
+                    "have",
+                    "has",
+                    "haven't",
+                    "does"
+                ],
+                "a11": [
+                    "been",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a12": [
+                    "abandoned",
+                    "approved",
+                    "interrupted",
+                    "delayed"
+                ]
+            },
+            "slot_roles": {
+                "a1": "inverted_auxiliary",
+                "a2": "specified_regulation",
+                "a3": "specified_regulation",
+                "a4": "regulation_passive",
+                "a5": "regulation_passive",
+                "a6": "recording_subject",
+                "a7": "recording_subject",
+                "a8": "negative_modal_perfect",
+                "a9": "negative_modal_perfect",
+                "a10": "negative_modal_perfect",
+                "a11": "passive_outcome",
+                "a12": "passive_outcome"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60475,
+        "uuid": "beq-past-a2-g06",
+        "question": "Our tickets {a1} valid for that train.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 13,
+        "source_id": 424,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\VerbToBe\\UkrainianMixedVerbToBePastQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "were not",
+                "was not",
+                "am not"
+            ]
+        },
+        "theory_text_block_uuid": "698cf7f9-f58b-5fea-8051-9f39cad6a849",
+        "created_at": "2026-10-27T13:05:17.000000Z",
+        "updated_at": "2026-10-27T13:05:17.000000Z"
+    },
+    "category": {
+        "id": 13,
+        "name": "Базова граматика / Verb to Be",
+        "created_at": "2026-04-23T14:42:10.000000Z",
+        "updated_at": "2026-04-23T14:42:10.000000Z"
+    },
+    "source": {
+        "id": 424,
+        "name": "Verb to Be Quality: Минулі форми дієслова бути",
+        "created_at": "2026-10-27T13:05:16.000000Z",
+        "updated_at": "2026-10-27T13:05:16.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 97,
+                "name": "Verb to Be: Past Forms",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60475,
+                "tag_id": 97,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 5386,
+                "option": "am not",
+                "created_at": "2026-04-23T14:41:47.000000Z",
+                "updated_at": "2026-04-23T14:41:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 60475,
+                "option_id": 5386,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 8346,
+                "option": "was not",
+                "created_at": "2026-04-23T14:49:40.000000Z",
+                "updated_at": "2026-04-23T14:49:40.000000Z"
+            },
+            "pivot": {
+                "question_id": 60475,
+                "option_id": 8346,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 18284,
+                "option": "were not",
+                "created_at": "2026-05-16T20:29:23.000000Z",
+                "updated_at": "2026-05-16T20:29:23.000000Z"
+            },
+            "pivot": {
+                "question_id": 60475,
+                "option_id": 18284,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325051,
+                "question_id": 60475,
+                "marker": "a1",
+                "option_id": 18284,
+                "created_at": "2026-10-27T13:05:17.000000Z",
+                "updated_at": "2026-10-27T13:05:17.000000Z"
+            },
+            "option": {
+                "id": 18284,
+                "option": "were not",
+                "created_at": "2026-05-16T20:29:23.000000Z",
+                "updated_at": "2026-05-16T20:29:23.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 42385,
+                "question_id": 60475,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 52869,
+                "created_at": "2026-10-27T13:05:17.000000Z",
+                "updated_at": "2026-10-27T13:05:17.000000Z"
+            },
+            "option": {
+                "id": 52869,
+                "option": "Запереч минулу чинність кількох квитків, не змінюючи названий потяг.",
+                "created_at": "2026-10-27T13:05:17.000000Z",
+                "updated_at": "2026-10-27T13:05:17.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52490,
+            "question_id": 60475,
+            "text": "Our tickets {a1} valid for that train.",
+            "created_at": "2026-10-27T13:05:17.000000Z",
+            "updated_at": "2026-10-27T13:05:17.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

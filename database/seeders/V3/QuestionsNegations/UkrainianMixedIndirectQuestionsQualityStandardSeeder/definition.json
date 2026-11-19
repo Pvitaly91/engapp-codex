@@ -1,0 +1,1680 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/indirect.v1.json",
+        "sha256": "ae9eb89547325f3b46c2986509cd67363e29014ff570fb8e3d48389df48cdec7"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedIndirectQuestionsQualityStandardSeeder",
+        "uuid_namespace": "questions-negations-quality-indirect-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "questions_negations_quality_indirect": {
+            "name": "Questions and Negations Quality: Indirect Questions: ввічливі непрямі питання"
+        }
+    },
+    "tags": {
+        "indirect_questions": {
+            "name": "Indirect Questions",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "polite_frame": {
+            "name": "Polite Frame",
+            "category": "topic"
+        },
+        "could_you_tell_me": {
+            "name": "Could You Tell Me",
+            "category": "topic"
+        },
+        "do_you_know": {
+            "name": "Do You Know",
+            "category": "topic"
+        },
+        "statement_word_order": {
+            "name": "Statement Word Order",
+            "category": "topic"
+        },
+        "indirect_wh": {
+            "name": "Indirect Wh",
+            "category": "topic"
+        },
+        "indirect_if_whether": {
+            "name": "Indirect If Whether",
+            "category": "topic"
+        },
+        "no_extra_auxiliary": {
+            "name": "No Extra Auxiliary",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "indirect_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-indirect-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Can you tell me where {a1}?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можеш сказати мені, де банк?",
+            "target_text": "Can you tell me where the bank is?",
+            "markers": {
+                "a1": {
+                    "answer": "the bank is",
+                    "options": [
+                        "the bank is",
+                        "is the bank",
+                        "the bank be"
+                    ],
+                    "verb_hint": "Назви заклад і дієслово бути у прямому порядку після слова місця."
+                }
+            },
+            "verb_hint": "Назви заклад і дієслово бути у прямому порядку після слова місця.",
+            "accepted_target_texts": [
+                "Can you tell me where the bank is?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Can you",
+                "tell me",
+                "where",
+                "the bank is?"
+            ],
+            "token_groups": [
+                "Can you",
+                "tell me",
+                "where",
+                "the bank is?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-indirect-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Could you tell me what {a1}?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можеш сказати мені, що означає це слово?",
+            "target_text": "Could you tell me what this word means?",
+            "markers": {
+                "a1": {
+                    "answer": "this word means",
+                    "options": [
+                        "this word means",
+                        "does this word",
+                        "means this word"
+                    ],
+                    "verb_hint": "У ввічливому внутрішньому питанні не додавай допоміжного питального дієслова."
+                }
+            },
+            "verb_hint": "У ввічливому внутрішньому питанні не додавай допоміжного питального дієслова.",
+            "accepted_target_texts": [
+                "Could you tell me what this word means?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you",
+                "tell me",
+                "what",
+                "this word means?"
+            ],
+            "token_groups": [
+                "Could you",
+                "tell me",
+                "what",
+                "this word means?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-indirect-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Do you know when {a1}?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Ти знаєш, коли приїздить автобус?",
+            "target_text": "Do you know when the bus comes?",
+            "markers": {
+                "a1": {
+                    "answer": "the bus comes",
+                    "options": [
+                        "the bus comes",
+                        "does the bus",
+                        "comes the bus"
+                    ],
+                    "verb_hint": "Додай назву транспорту та дієслово у прямому порядку теперішнього часу."
+                }
+            },
+            "verb_hint": "Додай назву транспорту та дієслово у прямому порядку теперішнього часу.",
+            "accepted_target_texts": [
+                "Do you know when the bus comes?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do you know",
+                "when",
+                "the bus comes?"
+            ],
+            "token_groups": [
+                "Do you know",
+                "when",
+                "the bus comes?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-indirect-a1-g04",
+            "author_id": "A1-g04",
+            "question": "Please tell me how {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Будь ласка, скажи мені, як я можу допомогти.",
+            "target_text": "Please tell me how I can help.",
+            "markers": {
+                "a1": {
+                    "answer": "I can help",
+                    "options": [
+                        "I can help",
+                        "can I help",
+                        "do I help"
+                    ],
+                    "verb_hint": "Після слова способу дії займенник ставиться перед модальним дієсловом."
+                }
+            },
+            "verb_hint": "Після слова способу дії займенник ставиться перед модальним дієсловом.",
+            "accepted_target_texts": [
+                "Please tell me how I can help."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please tell me",
+                "how",
+                "I can help."
+            ],
+            "token_groups": [
+                "Please tell me",
+                "how",
+                "I can help."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-indirect-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Can you tell me if {a1} free?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можеш сказати мені, чи це місце вільне?",
+            "target_text": "Can you tell me if this seat is free?",
+            "markers": {
+                "a1": {
+                    "answer": "this seat is",
+                    "options": [
+                        "this seat is",
+                        "is this seat",
+                        "does this seat"
+                    ],
+                    "verb_hint": "Використай прямий порядок підмета й зв’язки після сполучника невизначеного вибору."
+                }
+            },
+            "verb_hint": "Використай прямий порядок підмета й зв’язки після сполучника невизначеного вибору.",
+            "accepted_target_texts": [
+                "Can you tell me if this seat is free?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Can you",
+                "tell me",
+                "if",
+                "this seat is",
+                "free?"
+            ],
+            "token_groups": [
+                "Can you",
+                "tell me",
+                "if",
+                "this seat is",
+                "free?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-indirect-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Do you know who {a1}?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Ти знаєш, хто володіє тією крамницею?",
+            "target_text": "Do you know who owns that shop?",
+            "markers": {
+                "a1": {
+                    "answer": "owns that shop",
+                    "options": [
+                        "owns that shop",
+                        "does own shop",
+                        "own that shop"
+                    ],
+                    "verb_hint": "Питальне слово є підметом; додай дієслово однини та названий об’єкт."
+                }
+            },
+            "verb_hint": "Питальне слово є підметом; додай дієслово однини та названий об’єкт.",
+            "accepted_target_texts": [
+                "Do you know who owns that shop?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do you know",
+                "who",
+                "owns that shop?"
+            ],
+            "token_groups": [
+                "Do you know",
+                "who",
+                "owns that shop?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-indirect-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Could you explain why {a1}?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можеш пояснити, чому змінилося бронювання?",
+            "target_text": "Could you explain why the booking changed?",
+            "markers": {
+                "a1": {
+                    "answer": "the booking changed",
+                    "options": [
+                        "the booking changed",
+                        "did the booking",
+                        "changed the booking"
+                    ],
+                    "verb_hint": "У непрямому питанні постав підмет перед звичайним минулим дієсловом."
+                }
+            },
+            "verb_hint": "У непрямому питанні постав підмет перед звичайним минулим дієсловом.",
+            "accepted_target_texts": [
+                "Could you explain why the booking changed?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you",
+                "explain why",
+                "the booking changed?"
+            ],
+            "token_groups": [
+                "Could you",
+                "explain why",
+                "the booking changed?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-indirect-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Do you happen to know where {a1} from?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Ти випадково не знаєш, звідки відправляється міжміський автобус?",
+            "target_text": "Do you happen to know where the coach leaves from?",
+            "markers": {
+                "a1": {
+                    "answer": "the coach leaves",
+                    "options": [
+                        "the coach leaves",
+                        "does the coach",
+                        "leaves the coach"
+                    ],
+                    "verb_hint": "Внутрішня частина зберігає прямий порядок; кінцевий прийменник уже наведено."
+                }
+            },
+            "verb_hint": "Внутрішня частина зберігає прямий порядок; кінцевий прийменник уже наведено.",
+            "accepted_target_texts": [
+                "Do you happen to know where the coach leaves from?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do you happen",
+                "to know",
+                "where",
+                "the coach leaves",
+                "from?"
+            ],
+            "token_groups": [
+                "Do you happen",
+                "to know",
+                "where",
+                "the coach leaves",
+                "from?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-indirect-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Could you tell me whether {a1}?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можеш сказати мені, чи включено сніданок?",
+            "target_text": "Could you tell me whether breakfast is included?",
+            "markers": {
+                "a1": {
+                    "answer": "breakfast is included",
+                    "options": [
+                        "breakfast is included",
+                        "is breakfast included",
+                        "does breakfast include"
+                    ],
+                    "verb_hint": "Збережи пасивну форму та прямий порядок після сполучника."
+                }
+            },
+            "verb_hint": "Збережи пасивну форму та прямий порядок після сполучника.",
+            "accepted_target_texts": [
+                "Could you tell me whether breakfast is included?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you",
+                "tell me",
+                "whether",
+                "breakfast is included?"
+            ],
+            "token_groups": [
+                "Could you",
+                "tell me",
+                "whether",
+                "breakfast is included?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-indirect-a2-g04",
+            "author_id": "A2-g04",
+            "question": "May I ask how long {a1}?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можна запитати, скільки триває подорож?",
+            "target_text": "May I ask how long the journey takes?",
+            "markers": {
+                "a1": {
+                    "answer": "the journey takes",
+                    "options": [
+                        "the journey takes",
+                        "does the journey",
+                        "takes the journey"
+                    ],
+                    "verb_hint": "Після групи тривалості потрібен підмет і теперішнє дієслово."
+                }
+            },
+            "verb_hint": "Після групи тривалості потрібен підмет і теперішнє дієслово.",
+            "accepted_target_texts": [
+                "May I ask how long the journey takes?",
+                "May I ask how long the journey lasts?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the journey lasts"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the journey lasts"
+                ]
+            },
+            "reorder_groups": [
+                "May I ask",
+                "how long",
+                "the journey takes?"
+            ],
+            "token_groups": [
+                "May I ask",
+                "how long",
+                "the journey takes?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-indirect-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Could you tell me whose {a1}?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можеш сказати мені, чия це парасоля?",
+            "target_text": "Could you tell me whose umbrella this is?",
+            "markers": {
+                "a1": {
+                    "answer": "umbrella this is",
+                    "options": [
+                        "umbrella this is",
+                        "is this umbrella",
+                        "does umbrella this"
+                    ],
+                    "verb_hint": "Слово належності стоїть перед назвою предмета; далі збережи прямий порядок."
+                }
+            },
+            "verb_hint": "Слово належності стоїть перед назвою предмета; далі збережи прямий порядок.",
+            "accepted_target_texts": [
+                "Could you tell me whose umbrella this is?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you",
+                "tell me",
+                "whose",
+                "umbrella this is?"
+            ],
+            "token_groups": [
+                "Could you",
+                "tell me",
+                "whose",
+                "umbrella this is?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-indirect-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Would you tell me when {a1}?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Скажеш мені, коли прибула посилка?",
+            "target_text": "Would you tell me when the parcel arrived?",
+            "markers": {
+                "a1": {
+                    "answer": "the parcel arrived",
+                    "options": [
+                        "the parcel arrived",
+                        "did the parcel",
+                        "arrived the parcel"
+                    ],
+                    "verb_hint": "У внутрішньому питанні про минулу подію не використовуй інверсію."
+                }
+            },
+            "verb_hint": "У внутрішньому питанні про минулу подію не використовуй інверсію.",
+            "accepted_target_texts": [
+                "Would you tell me when the parcel arrived?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would you",
+                "tell me",
+                "when",
+                "the parcel arrived?"
+            ],
+            "token_groups": [
+                "Would you",
+                "tell me",
+                "when",
+                "the parcel arrived?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-indirect-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Could you let me know whether {a1} been confirmed?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можеш повідомити мені, чи місце проведення вже підтвердили?",
+            "target_text": "Could you let me know whether the venue has been confirmed?",
+            "markers": {
+                "a1": {
+                    "answer": "the venue has",
+                    "options": [
+                        "the venue has",
+                        "has the venue",
+                        "does the venue"
+                    ],
+                    "verb_hint": "Підмет передує допоміжному дієслову внутрішнього доконаного пасиву."
+                }
+            },
+            "verb_hint": "Підмет передує допоміжному дієслову внутрішнього доконаного пасиву.",
+            "accepted_target_texts": [
+                "Could you let me know whether the venue has been confirmed?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you",
+                "let me know",
+                "whether",
+                "the venue has",
+                "been confirmed?"
+            ],
+            "token_groups": [
+                "Could you",
+                "let me know",
+                "whether",
+                "the venue has",
+                "been confirmed?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-indirect-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Would you mind explaining how {a1}?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Ти не проти пояснити, як працює пристрій?",
+            "target_text": "Would you mind explaining how the device works?",
+            "markers": {
+                "a1": {
+                    "answer": "the device works",
+                    "options": [
+                        "the device works",
+                        "does the device",
+                        "works the device"
+                    ],
+                    "verb_hint": "Після ввічливого вступу й слова способу дії потрібен прямий порядок слів."
+                }
+            },
+            "verb_hint": "Після ввічливого вступу й слова способу дії потрібен прямий порядок слів.",
+            "accepted_target_texts": [
+                "Would you mind explaining how the device works?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would you mind",
+                "explaining how",
+                "the device works?"
+            ],
+            "token_groups": [
+                "Would you mind",
+                "explaining how",
+                "the device works?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-indirect-b1-g03",
+            "author_id": "B1-g03",
+            "question": "I was wondering if {a1} the appointment.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Я хотів би дізнатися, чи могли б ми перенести зустріч.",
+            "target_text": "I was wondering if we could reschedule the appointment.",
+            "markers": {
+                "a1": {
+                    "answer": "we could reschedule",
+                    "options": [
+                        "we could reschedule",
+                        "could we reschedule",
+                        "did we reschedule"
+                    ],
+                    "verb_hint": "Ввічливе прохання оформлюється як внутрішня частина з модальним дієсловом після займенника."
+                }
+            },
+            "verb_hint": "Ввічливе прохання оформлюється як внутрішня частина з модальним дієсловом після займенника.",
+            "accepted_target_texts": [
+                "I was wondering if we could reschedule the appointment."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I was wondering",
+                "if",
+                "we could reschedule",
+                "the appointment."
+            ],
+            "token_groups": [
+                "I was wondering",
+                "if",
+                "we could reschedule",
+                "the appointment."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-indirect-b1-g04",
+            "author_id": "B1-g04",
+            "question": "Could you clarify why {a1} last year?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можеш уточнити, чому плату підвищили минулого року?",
+            "target_text": "Could you clarify why the fee increased last year?",
+            "markers": {
+                "a1": {
+                    "answer": "the fee increased",
+                    "options": [
+                        "the fee increased",
+                        "did the fee",
+                        "increased the fee"
+                    ],
+                    "verb_hint": "Внутрішнє питання про названу минулу подію має прямий порядок."
+                }
+            },
+            "verb_hint": "Внутрішнє питання про названу минулу подію має прямий порядок.",
+            "accepted_target_texts": [
+                "Could you clarify why the fee increased last year?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you",
+                "clarify why",
+                "the fee increased",
+                "last year?"
+            ],
+            "token_groups": [
+                "Could you",
+                "clarify why",
+                "the fee increased",
+                "last year?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-indirect-b1-g05",
+            "author_id": "B1-g05",
+            "question": "May I ask which {a1}?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можна запитати, яка платформа нам потрібна?",
+            "target_text": "May I ask which platform we need?",
+            "markers": {
+                "a1": {
+                    "answer": "platform we need",
+                    "options": [
+                        "platform we need",
+                        "do platform need",
+                        "need we platform"
+                    ],
+                    "verb_hint": "Після слова вибору назви об’єкт, займенник і звичайне дієслово."
+                }
+            },
+            "verb_hint": "Після слова вибору назви об’єкт, займенник і звичайне дієслово.",
+            "accepted_target_texts": [
+                "May I ask which platform we need?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "May I ask",
+                "which",
+                "platform we need?"
+            ],
+            "token_groups": [
+                "May I ask",
+                "which",
+                "platform we need?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-indirect-b1-g06",
+            "author_id": "B1-g06",
+            "question": "Could you tell me where {a1} staying?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можеш сказати мені, де мешкали гості?",
+            "target_text": "Could you tell me where the guests were staying?",
+            "markers": {
+                "a1": {
+                    "answer": "the guests were",
+                    "options": [
+                        "the guests were",
+                        "were the guests",
+                        "did the guests"
+                    ],
+                    "verb_hint": "Підмет множини стоїть перед допоміжним дієсловом минулого тривалого часу."
+                }
+            },
+            "verb_hint": "Підмет множини стоїть перед допоміжним дієсловом минулого тривалого часу.",
+            "accepted_target_texts": [
+                "Could you tell me where the guests were staying?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you",
+                "tell me",
+                "where",
+                "the guests were",
+                "staying?"
+            ],
+            "token_groups": [
+                "Could you",
+                "tell me",
+                "where",
+                "the guests were",
+                "staying?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "qnq-indirect-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Would you be able to explain why {a1}?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Чи зміг би ти пояснити, чому апеляція була невдалою?",
+            "target_text": "Would you be able to explain why the appeal failed?",
+            "markers": {
+                "a1": {
+                    "answer": "the appeal failed",
+                    "options": [
+                        "the appeal failed",
+                        "did the appeal",
+                        "failed the appeal"
+                    ],
+                    "verb_hint": "Непряме питання не зберігає допоміжного дієслова прямого питання."
+                }
+            },
+            "verb_hint": "Непряме питання не зберігає допоміжного дієслова прямого питання.",
+            "accepted_target_texts": [
+                "Would you be able to explain why the appeal failed?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would you",
+                "be able to",
+                "explain why",
+                "the appeal failed?"
+            ],
+            "token_groups": [
+                "Would you",
+                "be able to",
+                "explain why",
+                "the appeal failed?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "qnq-indirect-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Could you specify how much {a1} allocated?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можеш уточнити, скільки коштів виділили?",
+            "target_text": "Could you specify how much funding has been allocated?",
+            "markers": {
+                "a1": {
+                    "answer": "funding has been",
+                    "options": [
+                        "funding has been",
+                        "has funding been",
+                        "does funding be"
+                    ],
+                    "verb_hint": "Питальна група кількості є підметом; збережи доконаний пасив."
+                }
+            },
+            "verb_hint": "Питальна група кількості є підметом; збережи доконаний пасив.",
+            "accepted_target_texts": [
+                "Could you specify how much funding has been allocated?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you",
+                "specify how much",
+                "funding has been",
+                "allocated?"
+            ],
+            "token_groups": [
+                "Could you",
+                "specify how much",
+                "funding has been",
+                "allocated?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "qnq-indirect-b2-g03",
+            "author_id": "B2-g03",
+            "question": "I would appreciate knowing whether {a1} temporary staff.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Я був би вдячний за інформацію, чи поширюється політика на тимчасових працівників.",
+            "target_text": "I would appreciate knowing whether the policy covers temporary staff.",
+            "markers": {
+                "a1": {
+                    "answer": "the policy covers",
+                    "options": [
+                        "the policy covers",
+                        "does the policy",
+                        "covers the policy"
+                    ],
+                    "verb_hint": "Внутрішня частина після ввічливого вступу має прямий порядок."
+                }
+            },
+            "verb_hint": "Внутрішня частина після ввічливого вступу має прямий порядок.",
+            "accepted_target_texts": [
+                "I would appreciate knowing whether the policy covers temporary staff."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I would appreciate",
+                "knowing whether",
+                "the policy covers",
+                "temporary staff."
+            ],
+            "token_groups": [
+                "I would appreciate",
+                "knowing whether",
+                "the policy covers",
+                "temporary staff."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "qnq-indirect-b2-g04",
+            "author_id": "B2-g04",
+            "question": "Would you care to explain how {a1} detection?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Чи не поясниш, як помилка залишилася непоміченою?",
+            "target_text": "Would you care to explain how the error escaped detection?",
+            "markers": {
+                "a1": {
+                    "answer": "the error escaped",
+                    "options": [
+                        "the error escaped",
+                        "did the error",
+                        "escaped the error"
+                    ],
+                    "verb_hint": "Не став допоміжне питальне дієслово перед підметом внутрішньої частини."
+                }
+            },
+            "verb_hint": "Не став допоміжне питальне дієслово перед підметом внутрішньої частини.",
+            "accepted_target_texts": [
+                "Would you care to explain how the error escaped detection?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would you",
+                "care to explain",
+                "how",
+                "the error escaped",
+                "detection?"
+            ],
+            "token_groups": [
+                "Would you",
+                "care to explain",
+                "how",
+                "the error escaped",
+                "detection?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "qnq-indirect-b2-g05",
+            "author_id": "B2-g05",
+            "question": "Could you confirm whether {a1} been signed before submission?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можеш підтвердити, чи документи підписали до подання?",
+            "target_text": "Could you confirm whether the documents had been signed before submission?",
+            "markers": {
+                "a1": {
+                    "answer": "the documents had",
+                    "options": [
+                        "the documents had",
+                        "had the documents",
+                        "did the documents"
+                    ],
+                    "verb_hint": "Підкресли передування минулій події та прямий порядок у пасиві."
+                }
+            },
+            "verb_hint": "Підкресли передування минулій події та прямий порядок у пасиві.",
+            "accepted_target_texts": [
+                "Could you confirm whether the documents had been signed before submission?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you",
+                "confirm whether",
+                "the documents had",
+                "been signed",
+                "before submission?"
+            ],
+            "token_groups": [
+                "Could you",
+                "confirm whether",
+                "the documents had",
+                "been signed",
+                "before submission?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "qnq-indirect-b2-g06",
+            "author_id": "B2-g06",
+            "question": "May I enquire why {a1} suspended?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Дозвольте поцікавитися, чому дію ліцензії призупинили.",
+            "target_text": "May I enquire why the licence was suspended?",
+            "markers": {
+                "a1": {
+                    "answer": "the licence was",
+                    "options": [
+                        "the licence was",
+                        "was the licence",
+                        "did the licence"
+                    ],
+                    "verb_hint": "Після формального вступу збережи прямий порядок минулого пасиву."
+                }
+            },
+            "verb_hint": "Після формального вступу збережи прямий порядок минулого пасиву.",
+            "accepted_target_texts": [
+                "May I enquire why the licence was suspended?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "May I enquire",
+                "why",
+                "the licence was",
+                "suspended?"
+            ],
+            "token_groups": [
+                "May I enquire",
+                "why",
+                "the licence was",
+                "suspended?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "qnq-indirect-c1-g01",
+            "author_id": "C1-g01",
+            "question": "Would you be so kind as to clarify on what grounds {a1} rejected?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Будьте ласкаві уточнити, на яких підставах відхилили заявку.",
+            "target_text": "Would you be so kind as to clarify on what grounds the bid was rejected?",
+            "markers": {
+                "a1": {
+                    "answer": "the bid was",
+                    "options": [
+                        "the bid was",
+                        "was the bid",
+                        "did the bid"
+                    ],
+                    "verb_hint": "Після складної питальної групи підмет передує допоміжному дієслову пасиву."
+                }
+            },
+            "verb_hint": "Після складної питальної групи підмет передує допоміжному дієслову пасиву.",
+            "accepted_target_texts": [
+                "Would you be so kind as to clarify on what grounds the bid was rejected?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would you",
+                "be so kind",
+                "as to clarify",
+                "on what grounds",
+                "the bid was",
+                "rejected?"
+            ],
+            "token_groups": [
+                "Would you",
+                "be so kind",
+                "as to clarify",
+                "on what grounds",
+                "the bid was",
+                "rejected?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "qnq-indirect-c1-g02",
+            "author_id": "C1-g02",
+            "question": "Might I ask to what extent {a1} your concerns?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Дозвольте запитати, якою мірою зміни враховують ваші зауваження.",
+            "target_text": "Might I ask to what extent the revisions address your concerns?",
+            "markers": {
+                "a1": {
+                    "answer": "the revisions address",
+                    "options": [
+                        "the revisions address",
+                        "do the revisions",
+                        "address the revisions"
+                    ],
+                    "verb_hint": "Внутрішня частина зберігає множину та прямий порядок теперішнього часу."
+                }
+            },
+            "verb_hint": "Внутрішня частина зберігає множину та прямий порядок теперішнього часу.",
+            "accepted_target_texts": [
+                "Might I ask to what extent the revisions address your concerns?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Might I ask",
+                "to what extent",
+                "the revisions address",
+                "your concerns?"
+            ],
+            "token_groups": [
+                "Might I ask",
+                "to what extent",
+                "the revisions address",
+                "your concerns?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "qnq-indirect-c1-g03",
+            "author_id": "C1-g03",
+            "question": "I should be grateful if you could indicate whether any exemptions {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Я був би вдячний, якби ви вказали, чи залишаються чинними якісь винятки.",
+            "target_text": "I should be grateful if you could indicate whether any exemptions remain applicable.",
+            "markers": {
+                "a1": {
+                    "answer": "remain applicable",
+                    "options": [
+                        "remain applicable",
+                        "do remain applicable",
+                        "remaining applicable"
+                    ],
+                    "verb_hint": "Підмет уже наведено; додай лише присудок внутрішньої частини без інверсії."
+                }
+            },
+            "verb_hint": "Підмет уже наведено; додай лише присудок внутрішньої частини без інверсії.",
+            "accepted_target_texts": [
+                "I should be grateful if you could indicate whether any exemptions remain applicable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I should be",
+                "grateful if you",
+                "could indicate",
+                "whether any exemptions",
+                "remain applicable."
+            ],
+            "token_groups": [
+                "I should be",
+                "grateful if you",
+                "could indicate",
+                "whether any exemptions",
+                "remain applicable."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "qnq-indirect-c1-g04",
+            "author_id": "C1-g04",
+            "question": "Could you elaborate on how {a1} determined?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можете докладніше пояснити, як визначили порогове значення?",
+            "target_text": "Could you elaborate on how the threshold was determined?",
+            "markers": {
+                "a1": {
+                    "answer": "the threshold was",
+                    "options": [
+                        "the threshold was",
+                        "was the threshold",
+                        "did the threshold"
+                    ],
+                    "verb_hint": "Після прийменника та питального слова збережи прямий порядок пасивної частини."
+                }
+            },
+            "verb_hint": "Після прийменника та питального слова збережи прямий порядок пасивної частини.",
+            "accepted_target_texts": [
+                "Could you elaborate on how the threshold was determined?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you",
+                "elaborate on how",
+                "the threshold was",
+                "determined?"
+            ],
+            "token_groups": [
+                "Could you",
+                "elaborate on how",
+                "the threshold was",
+                "determined?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "qnq-indirect-c1-g05",
+            "author_id": "C1-g05",
+            "question": "Would it be possible to establish whose {a1} followed?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Чи можна встановити, чиєї поради дотрималася рада?",
+            "target_text": "Would it be possible to establish whose advice the board followed?",
+            "markers": {
+                "a1": {
+                    "answer": "advice the board",
+                    "options": [
+                        "advice the board",
+                        "did advice board",
+                        "the board advice"
+                    ],
+                    "verb_hint": "Після слова належності постав назву поради й підмет перед уже наведеним дієсловом."
+                }
+            },
+            "verb_hint": "Після слова належності постав назву поради й підмет перед уже наведеним дієсловом.",
+            "accepted_target_texts": [
+                "Would it be possible to establish whose advice the board followed?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would it be",
+                "possible to establish",
+                "whose",
+                "advice the board",
+                "followed?"
+            ],
+            "token_groups": [
+                "Would it be",
+                "possible to establish",
+                "whose",
+                "advice the board",
+                "followed?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "qnq-indirect-c1-g06",
+            "author_id": "C1-g06",
+            "question": "May I enquire as to whether {a1} to subcontractors?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Дозвольте поцікавитися, чи поширюється зобов’язання на субпідрядників.",
+            "target_text": "May I enquire as to whether the undertaking extends to subcontractors?",
+            "markers": {
+                "a1": {
+                    "answer": "the undertaking extends",
+                    "options": [
+                        "the undertaking extends",
+                        "does the undertaking",
+                        "extends the undertaking"
+                    ],
+                    "verb_hint": "Формальний вступ до непрямого питання не змінює прямого порядку підмета й дієслова."
+                }
+            },
+            "verb_hint": "Формальний вступ до непрямого питання не змінює прямого порядку підмета й дієслова.",
+            "accepted_target_texts": [
+                "May I enquire as to whether the undertaking extends to subcontractors?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "May I enquire",
+                "as to whether",
+                "the undertaking extends",
+                "to subcontractors?"
+            ],
+            "token_groups": [
+                "May I enquire",
+                "as to whether",
+                "the undertaking extends",
+                "to subcontractors?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "qnq-indirect-c2-g01",
+            "author_id": "C2-g01",
+            "question": "Might you clarify in what respect {a1} on the present dispute?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Чи могли б ви уточнити, у чому прецедент стосується нинішньої суперечки?",
+            "target_text": "Might you clarify in what respect the precedent bears on the present dispute?",
+            "markers": {
+                "a1": {
+                    "answer": "the precedent bears",
+                    "options": [
+                        "the precedent bears",
+                        "does the precedent",
+                        "bears the precedent"
+                    ],
+                    "verb_hint": "Після складної питальної групи використай прямий порядок теперішньої частини."
+                }
+            },
+            "verb_hint": "Після складної питальної групи використай прямий порядок теперішньої частини.",
+            "accepted_target_texts": [
+                "Might you clarify in what respect the precedent bears on the present dispute?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Might you clarify",
+                "in what respect",
+                "the precedent bears",
+                "on the present",
+                "dispute?"
+            ],
+            "token_groups": [
+                "Might you clarify",
+                "in what respect",
+                "the precedent bears",
+                "on the present",
+                "dispute?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "qnq-indirect-c2-g02",
+            "author_id": "C2-g02",
+            "question": "I would welcome an explanation of why {a1} been preserved.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Я був би вдячний за пояснення, чому це розрізнення зберегли.",
+            "target_text": "I would welcome an explanation of why the distinction has been preserved.",
+            "markers": {
+                "a1": {
+                    "answer": "the distinction has",
+                    "options": [
+                        "the distinction has",
+                        "has the distinction",
+                        "does the distinction"
+                    ],
+                    "verb_hint": "У внутрішньому доконаному пасиві підмет стоїть перед першим допоміжним дієсловом."
+                }
+            },
+            "verb_hint": "У внутрішньому доконаному пасиві підмет стоїть перед першим допоміжним дієсловом.",
+            "accepted_target_texts": [
+                "I would welcome an explanation of why the distinction has been preserved."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I would welcome",
+                "an explanation",
+                "of why",
+                "the distinction has",
+                "been preserved."
+            ],
+            "token_groups": [
+                "I would welcome",
+                "an explanation",
+                "of why",
+                "the distinction has",
+                "been preserved."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "qnq-indirect-c2-g03",
+            "author_id": "C2-g03",
+            "question": "Would you care to indicate how far {a1} the undertaking?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Чи не вкажете ви, якою мірою застереження обмежує зобов’язання?",
+            "target_text": "Would you care to indicate how far the qualification limits the undertaking?",
+            "markers": {
+                "a1": {
+                    "answer": "the qualification limits",
+                    "options": [
+                        "the qualification limits",
+                        "does the qualification",
+                        "limits the qualification"
+                    ],
+                    "verb_hint": "Збережи прямий порядок після питальної групи міри обмеження."
+                }
+            },
+            "verb_hint": "Збережи прямий порядок після питальної групи міри обмеження.",
+            "accepted_target_texts": [
+                "Would you care to indicate how far the qualification limits the undertaking?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would you care",
+                "to indicate",
+                "how far",
+                "the qualification limits",
+                "the undertaking?"
+            ],
+            "token_groups": [
+                "Would you care",
+                "to indicate",
+                "how far",
+                "the qualification limits",
+                "the undertaking?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "qnq-indirect-c2-g04",
+            "author_id": "C2-g04",
+            "question": "Might I enquire on whose authority {a1} invoked?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Дозвольте поцікавитися, з чийого дозволу застосували виняток.",
+            "target_text": "Might I enquire on whose authority the exception was invoked?",
+            "markers": {
+                "a1": {
+                    "answer": "the exception was",
+                    "options": [
+                        "the exception was",
+                        "was the exception",
+                        "did the exception"
+                    ],
+                    "verb_hint": "Після групи належності повноважень підмет передує дієслову пасиву."
+                }
+            },
+            "verb_hint": "Після групи належності повноважень підмет передує дієслову пасиву.",
+            "accepted_target_texts": [
+                "Might I enquire on whose authority the exception was invoked?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Might I enquire",
+                "on whose authority",
+                "the exception was",
+                "invoked?"
+            ],
+            "token_groups": [
+                "Might I enquire",
+                "on whose authority",
+                "the exception was",
+                "invoked?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "qnq-indirect-c2-g05",
+            "author_id": "C2-g05",
+            "question": "I should appreciate clarification of whether {a1} that counterexample.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Я був би вдячний за уточнення, чи залишається висновок чинним попри цей контрприклад.",
+            "target_text": "I should appreciate clarification of whether the inference survives that counterexample.",
+            "markers": {
+                "a1": {
+                    "answer": "the inference survives",
+                    "options": [
+                        "the inference survives",
+                        "does the inference",
+                        "survives the inference"
+                    ],
+                    "verb_hint": "Формальне прохання містить непряме питання з прямим порядком звичайного дієслова."
+                }
+            },
+            "verb_hint": "Формальне прохання містить непряме питання з прямим порядком звичайного дієслова.",
+            "accepted_target_texts": [
+                "I should appreciate clarification of whether the inference survives that counterexample."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I should appreciate",
+                "clarification of whether",
+                "the inference survives",
+                "that counterexample."
+            ],
+            "token_groups": [
+                "I should appreciate",
+                "clarification of whether",
+                "the inference survives",
+                "that counterexample."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "qnq-indirect-c2-g06",
+            "author_id": "C2-g06",
+            "question": "Could you elucidate how {a1} without assuming bad faith?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Могли б ви пояснити, як виникла розбіжність, не припускаючи недобросовісності?",
+            "target_text": "Could you elucidate how the divergence arose without assuming bad faith?",
+            "markers": {
+                "a1": {
+                    "answer": "the divergence arose",
+                    "options": [
+                        "the divergence arose",
+                        "did the divergence",
+                        "arose the divergence"
+                    ],
+                    "verb_hint": "Внутрішнє питання про минулу появу розбіжності не потребує інверсії."
+                }
+            },
+            "verb_hint": "Внутрішнє питання про минулу появу розбіжності не потребує інверсії.",
+            "accepted_target_texts": [
+                "Could you elucidate how the divergence arose without assuming bad faith?",
+                "Could you elucidate how the divergence emerged without assuming bad faith?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the divergence emerged"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the divergence emerged"
+                ]
+            },
+            "reorder_groups": [
+                "Could you elucidate",
+                "how",
+                "the divergence arose",
+                "without assuming bad",
+                "faith?"
+            ],
+            "token_groups": [
+                "Could you elucidate",
+                "how",
+                "the divergence arose",
+                "without assuming bad",
+                "faith?"
+            ],
+            "quality_revision": "qnq-v1"
+        }
+    ]
+}

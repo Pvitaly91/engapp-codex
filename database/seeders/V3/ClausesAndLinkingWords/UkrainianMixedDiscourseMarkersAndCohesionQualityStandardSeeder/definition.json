@@ -1,0 +1,646 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/discourse-markers-and-cohesion.v1.json",
+        "sha256": "b3131b9451a4636634ce825167245b604c5d9bd4774faac0b1f152897d4d6b58"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\UkrainianMixedDiscourseMarkersAndCohesionQualityStandardSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-discourse-markers-and-cohesion-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "clauses_linking_words_quality_discourse_markers_and_cohesion": {
+            "name": "Clauses and Linking Words Quality: Discourse Markers and Cohesion"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-discourse-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I have a brother {a1} two sisters.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "У мене є брат і дві сестри.",
+            "target_text": "I have a brother and two sisters.",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "because"
+                    ],
+                    "verb_hint": "Додай ще одну частину сімейного переліку."
+                }
+            },
+            "verb_hint": "Додай ще одну частину сімейного переліку.",
+            "accepted_target_texts": [
+                "I have a brother and two sisters."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I have",
+                "a brother",
+                "and",
+                "two sisters."
+            ],
+            "token_groups": [
+                "I have",
+                "a brother",
+                "and",
+                "two sisters."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "clq-discourse-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The plate is hot, {a1} use a towel.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Тарілка гаряча, тож візьми рушник.",
+            "target_text": "The plate is hot, so use a towel.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Подай інструкцію як наслідок температури тарілки."
+                }
+            },
+            "verb_hint": "Подай інструкцію як наслідок температури тарілки.",
+            "accepted_target_texts": [
+                "The plate is hot, so use a towel."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The plate",
+                "is hot,",
+                "so",
+                "use a towel."
+            ],
+            "token_groups": [
+                "The plate",
+                "is hot,",
+                "so",
+                "use a towel."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "clq-discourse-a2-g01",
+            "author_id": "A2-g01",
+            "question": "{a1}, rinse the rice; then add fresh water.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Спершу промий рис, потім додай свіжої води.",
+            "target_text": "First, rinse the rice; then add fresh water.",
+            "markers": {
+                "a1": {
+                    "answer": "First",
+                    "options": [
+                        "First",
+                        "However",
+                        "Finally"
+                    ],
+                    "verb_hint": "Познач перший крок послідовності, а не підсумок чи протиставлення."
+                }
+            },
+            "verb_hint": "Познач перший крок послідовності, а не підсумок чи протиставлення.",
+            "accepted_target_texts": [
+                "First, rinse the rice; then add fresh water.",
+                "Firstly, rinse the rice; then add fresh water.",
+                "To begin with, rinse the rice; then add fresh water."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Firstly",
+                    "To begin with"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Firstly",
+                    "To begin with"
+                ]
+            },
+            "reorder_groups": [
+                "First,",
+                "rinse the rice;",
+                "then",
+                "add fresh water."
+            ],
+            "token_groups": [
+                "First,",
+                "rinse the rice;",
+                "then",
+                "add fresh water."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "clq-discourse-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The shoes are comfortable; {a1}, they are easy to clean.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Взуття зручне; до того ж його легко чистити.",
+            "target_text": "The shoes are comfortable; also, they are easy to clean.",
+            "markers": {
+                "a1": {
+                    "answer": "also",
+                    "options": [
+                        "also",
+                        "however",
+                        "otherwise"
+                    ],
+                    "verb_hint": "Додай ще одну перевагу, не подаючи її як протиставлення."
+                }
+            },
+            "verb_hint": "Додай ще одну перевагу, не подаючи її як протиставлення.",
+            "accepted_target_texts": [
+                "The shoes are comfortable; also, they are easy to clean.",
+                "The shoes are comfortable; moreover, they are easy to clean.",
+                "The shoes are comfortable; furthermore, they are easy to clean.",
+                "The shoes are comfortable; in addition, they are easy to clean."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "moreover",
+                    "furthermore",
+                    "in addition"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "moreover",
+                    "furthermore",
+                    "in addition"
+                ]
+            },
+            "reorder_groups": [
+                "The shoes",
+                "are comfortable;",
+                "also,",
+                "they are",
+                "easy to clean."
+            ],
+            "token_groups": [
+                "The shoes",
+                "are comfortable;",
+                "also,",
+                "they are",
+                "easy to clean."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "clq-discourse-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Several crops tolerate shade; {a1}, spinach grows well beneath the trellis.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Кілька культур переносять тінь; наприклад, шпинат добре росте під шпалерою.",
+            "target_text": "Several crops tolerate shade; for example, spinach grows well beneath the trellis.",
+            "markers": {
+                "a1": {
+                    "answer": "for example",
+                    "options": [
+                        "for example",
+                        "therefore",
+                        "nevertheless"
+                    ],
+                    "verb_hint": "Введи конкретний приклад до загального твердження."
+                }
+            },
+            "verb_hint": "Введи конкретний приклад до загального твердження.",
+            "accepted_target_texts": [
+                "Several crops tolerate shade; for example, spinach grows well beneath the trellis.",
+                "Several crops tolerate shade; for instance, spinach grows well beneath the trellis."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "for instance"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "for instance"
+                ]
+            },
+            "reorder_groups": [
+                "Several crops",
+                "tolerate shade;",
+                "for example,",
+                "spinach grows well",
+                "beneath the trellis."
+            ],
+            "token_groups": [
+                "Several crops",
+                "tolerate shade;",
+                "for example,",
+                "spinach grows well",
+                "beneath the trellis."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "clq-discourse-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The booking is flexible; {a1}, you can change the date.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Бронювання гнучке; іншими словами, дату можна змінити.",
+            "target_text": "The booking is flexible; in other words, you can change the date.",
+            "markers": {
+                "a1": {
+                    "answer": "in other words",
+                    "options": [
+                        "in other words",
+                        "for example",
+                        "by contrast"
+                    ],
+                    "verb_hint": "Поясни значення попередньої характеристики, не наведи окремий приклад."
+                }
+            },
+            "verb_hint": "Поясни значення попередньої характеристики, не наведи окремий приклад.",
+            "accepted_target_texts": [
+                "The booking is flexible; in other words, you can change the date.",
+                "The booking is flexible; that is, you can change the date."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "that is"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "that is"
+                ]
+            },
+            "reorder_groups": [
+                "The booking",
+                "is flexible;",
+                "in other words,",
+                "you can change",
+                "the date."
+            ],
+            "token_groups": [
+                "The booking",
+                "is flexible;",
+                "in other words,",
+                "you can change",
+                "the date."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "clq-discourse-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The proposal reduces waste; {a1}, it improves water quality.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Пропозиція зменшує відходи; що важливіше, вона поліпшує якість води.",
+            "target_text": "The proposal reduces waste; more importantly, it improves water quality.",
+            "markers": {
+                "a1": {
+                    "answer": "more importantly",
+                    "options": [
+                        "more importantly",
+                        "in other words",
+                        "on the contrary"
+                    ],
+                    "verb_hint": "Другу перевагу подай як вагомішу, не як перефразування першої."
+                }
+            },
+            "verb_hint": "Другу перевагу подай як вагомішу, не як перефразування першої.",
+            "accepted_target_texts": [
+                "The proposal reduces waste; more importantly, it improves water quality."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The proposal",
+                "reduces waste;",
+                "more importantly,",
+                "it improves",
+                "water quality."
+            ],
+            "token_groups": [
+                "The proposal",
+                "reduces waste;",
+                "more importantly,",
+                "it improves",
+                "water quality."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "clq-discourse-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The figures are estimates; {a1}, they provide a useful baseline.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Цифри є оцінками; утім, вони дають корисну вихідну основу.",
+            "target_text": "The figures are estimates; that said, they provide a useful baseline.",
+            "markers": {
+                "a1": {
+                    "answer": "that said",
+                    "options": [
+                        "that said",
+                        "therefore",
+                        "for instance"
+                    ],
+                    "verb_hint": "Після застереження визнай обмежену, але реальну користь."
+                }
+            },
+            "verb_hint": "Після застереження визнай обмежену, але реальну користь.",
+            "accepted_target_texts": [
+                "The figures are estimates; that said, they provide a useful baseline.",
+                "The figures are estimates; nevertheless, they provide a useful baseline.",
+                "The figures are estimates; nonetheless, they provide a useful baseline.",
+                "The figures are estimates; even so, they provide a useful baseline.",
+                "The figures are estimates; however, they provide a useful baseline."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "nevertheless",
+                    "nonetheless",
+                    "even so",
+                    "however"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "nevertheless",
+                    "nonetheless",
+                    "even so",
+                    "however"
+                ]
+            },
+            "reorder_groups": [
+                "The figures",
+                "are estimates;",
+                "that said,",
+                "they provide",
+                "a useful baseline."
+            ],
+            "token_groups": [
+                "The figures",
+                "are estimates;",
+                "that said,",
+                "they provide",
+                "a useful baseline."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "clq-discourse-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The distinction is conceptual; {a1}, it concerns the status of the claim.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Відмінність поняттєва; точніше, вона стосується статусу твердження.",
+            "target_text": "The distinction is conceptual; more precisely, it concerns the status of the claim.",
+            "markers": {
+                "a1": {
+                    "answer": "more precisely",
+                    "options": [
+                        "more precisely",
+                        "by contrast",
+                        "consequently"
+                    ],
+                    "verb_hint": "Звузь і уточни попереднє формулювання, не протиставляючи новий факт."
+                }
+            },
+            "verb_hint": "Звузь і уточни попереднє формулювання, не протиставляючи новий факт.",
+            "accepted_target_texts": [
+                "The distinction is conceptual; more precisely, it concerns the status of the claim.",
+                "The distinction is conceptual; more specifically, it concerns the status of the claim.",
+                "The distinction is conceptual; specifically, it concerns the status of the claim."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "more specifically",
+                    "specifically"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "more specifically",
+                    "specifically"
+                ]
+            },
+            "reorder_groups": [
+                "The distinction",
+                "is conceptual;",
+                "more precisely,",
+                "it concerns",
+                "the status",
+                "of the claim."
+            ],
+            "token_groups": [
+                "The distinction",
+                "is conceptual;",
+                "more precisely,",
+                "it concerns",
+                "the status",
+                "of the claim."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "clq-discourse-c1-g02",
+            "author_id": "C1-g02",
+            "question": "{a1} the second objection, the cost estimates require closer scrutiny.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Переходячи до другого заперечення, слід уважніше розглянути оцінки витрат.",
+            "target_text": "Turning to the second objection, the cost estimates require closer scrutiny.",
+            "markers": {
+                "a1": {
+                    "answer": "Turning to",
+                    "options": [
+                        "Turning to",
+                        "Despite",
+                        "As a result of"
+                    ],
+                    "verb_hint": "Познач перехід до нової частини обговорення перед уже названою темою."
+                }
+            },
+            "verb_hint": "Познач перехід до нової частини обговорення перед уже названою темою.",
+            "accepted_target_texts": [
+                "Turning to the second objection, the cost estimates require closer scrutiny."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Turning to",
+                "the second objection,",
+                "the cost estimates",
+                "require closer scrutiny."
+            ],
+            "token_groups": [
+                "Turning to",
+                "the second objection,",
+                "the cost estimates",
+                "require closer scrutiny."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "clq-discourse-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The rule appears categorical; {a1}, its scope is carefully delimited.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Правило здається категоричним; при уважнішому розгляді його сферу чітко обмежено.",
+            "target_text": "The rule appears categorical; on closer inspection, its scope is carefully delimited.",
+            "markers": {
+                "a1": {
+                    "answer": "on closer inspection",
+                    "options": [
+                        "on closer inspection",
+                        "as a consequence",
+                        "for instance"
+                    ],
+                    "verb_hint": "Познач перехід від першого враження до уважного аналізу."
+                }
+            },
+            "verb_hint": "Познач перехід від першого враження до уважного аналізу.",
+            "accepted_target_texts": [
+                "The rule appears categorical; on closer inspection, its scope is carefully delimited."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The rule",
+                "appears categorical;",
+                "on closer inspection,",
+                "its scope",
+                "is carefully delimited."
+            ],
+            "token_groups": [
+                "The rule",
+                "appears categorical;",
+                "on closer inspection,",
+                "its scope",
+                "is carefully delimited."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "clq-discourse-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The earlier account conflates two issues; {a1}, it mistakes sequence for causation.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Попередній виклад змішує два питання; інакше кажучи, він помилково приймає послідовність за причинність.",
+            "target_text": "The earlier account conflates two issues; to put it differently, it mistakes sequence for causation.",
+            "markers": {
+                "a1": {
+                    "answer": "to put it differently",
+                    "options": [
+                        "to put it differently",
+                        "on the contrary",
+                        "as a result"
+                    ],
+                    "verb_hint": "Переформулюй уже названий недолік іншими словами, не додавай новий приклад."
+                }
+            },
+            "verb_hint": "Переформулюй уже названий недолік іншими словами, не додавай новий приклад.",
+            "accepted_target_texts": [
+                "The earlier account conflates two issues; to put it differently, it mistakes sequence for causation.",
+                "The earlier account conflates two issues; in other words, it mistakes sequence for causation.",
+                "The earlier account conflates two issues; that is, it mistakes sequence for causation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "in other words",
+                    "that is"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "in other words",
+                    "that is"
+                ]
+            },
+            "reorder_groups": [
+                "The earlier account",
+                "conflates two issues;",
+                "to put",
+                "it differently,",
+                "it mistakes sequence",
+                "for causation."
+            ],
+            "token_groups": [
+                "The earlier account",
+                "conflates two issues;",
+                "to put",
+                "it differently,",
+                "it mistakes sequence",
+                "for causation."
+            ],
+            "quality_revision": "clq-v1"
+        }
+    ]
+}

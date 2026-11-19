@@ -1,0 +1,4142 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/formation.v1.json",
+        "sha256": "03eb8e8cb9cf7a2a1b761abf61b71387d80a32a2d0aa3413301bfe0c7a4e4a9f"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedPassiveVoiceFormationRulesQualityBuilderSeeder",
+        "uuid_namespace": "passive-voice-quality-formation-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "passive_voice_quality_formation": {
+            "name": "Passive Voice Quality: Правила утворення пасиву"
+        }
+    },
+    "tags": {
+        "polyglot_passive_voice_formation_rules": {
+            "name": "Passive Voice Formation Rules",
+            "category": "passive_voice"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "be_v3": {
+            "name": "Be V3",
+            "category": "topic"
+        },
+        "active_to_passive": {
+            "name": "Active To Passive",
+            "category": "topic"
+        },
+        "object_subject": {
+            "name": "Object Subject",
+            "category": "topic"
+        },
+        "subject_by_agent": {
+            "name": "Subject By Agent",
+            "category": "topic"
+        },
+        "by_phrase": {
+            "name": "By Phrase",
+            "category": "topic"
+        },
+        "be_by_tense": {
+            "name": "Be By Tense",
+            "category": "topic"
+        },
+        "participles": {
+            "name": "Participles",
+            "category": "topic"
+        },
+        "passive_use": {
+            "name": "Passive Use",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-formation-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Іграшковий потяг тримають нагорі.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Іграшковий потяг тримають нагорі.",
+            "target_text": "The toy train is kept upstairs.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з іграшкового потяга; передай теперішню дію зберігання й назви місце наприкінці.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "toy",
+                    "verb_hint": "Почни з іграшкового потяга; передай теперішню дію зберігання й назви місце наприкінці.",
+                    "options": [
+                        "toy",
+                        "wool",
+                        "fresh",
+                        "clay"
+                    ]
+                },
+                "a3": {
+                    "answer": "train",
+                    "verb_hint": "Почни з іграшкового потяга; передай теперішню дію зберігання й назви місце наприкінці.",
+                    "options": [
+                        "train",
+                        "ship",
+                        "bike",
+                        "car"
+                    ]
+                },
+                "a4": {
+                    "answer": "is",
+                    "verb_hint": "Почни з іграшкового потяга; передай теперішню дію зберігання й назви місце наприкінці.",
+                    "options": [
+                        "is",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a5": {
+                    "answer": "kept",
+                    "verb_hint": "Почни з іграшкового потяга; передай теперішню дію зберігання й назви місце наприкінці.",
+                    "options": [
+                        "kept",
+                        "delivered",
+                        "reconstructed",
+                        "conserved"
+                    ]
+                },
+                "a6": {
+                    "answer": "upstairs.",
+                    "verb_hint": "Почни з іграшкового потяга; передай теперішню дію зберігання й назви місце наприкінці.",
+                    "options": [
+                        "upstairs",
+                        "hats",
+                        "windows",
+                        "phones"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з іграшкового потяга; передай теперішню дію зберігання й назви місце наприкінці.",
+            "accepted_target_texts": [
+                "The toy train is kept upstairs."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The toy train",
+                "is",
+                "kept",
+                "upstairs."
+            ],
+            "token_groups": [
+                "The toy train",
+                "is",
+                "kept",
+                "upstairs."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "toy",
+                "train",
+                "is",
+                "kept",
+                "upstairs."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "toy",
+                "wool",
+                "fresh",
+                "clay",
+                "train",
+                "ship",
+                "bike",
+                "car",
+                "is",
+                "wasn't",
+                "weren't",
+                "am",
+                "kept",
+                "delivered",
+                "reconstructed",
+                "conserved",
+                "upstairs",
+                "hats",
+                "windows",
+                "phones"
+            ],
+            "source_text_uk": "Іграшковий потяг тримають нагорі.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "toy",
+                    "wool",
+                    "fresh",
+                    "clay"
+                ],
+                "a3": [
+                    "train",
+                    "ship",
+                    "bike",
+                    "car"
+                ],
+                "a4": [
+                    "is",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a5": [
+                    "kept",
+                    "delivered",
+                    "reconstructed",
+                    "conserved"
+                ],
+                "a6": [
+                    "upstairs",
+                    "hats",
+                    "windows",
+                    "phones"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-formation-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Помаранчевий кошик занесли всередину.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Помаранчевий кошик занесли всередину.",
+            "target_text": "The orange basket was carried inside.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з кошика; передай завершену минулу дію перенесення в пасиві.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "orange",
+                    "verb_hint": "Почни з кошика; передай завершену минулу дію перенесення в пасиві.",
+                    "options": [
+                        "orange",
+                        "purple",
+                        "red",
+                        "blue"
+                    ]
+                },
+                "a3": {
+                    "answer": "basket",
+                    "verb_hint": "Почни з кошика; передай завершену минулу дію перенесення в пасиві.",
+                    "options": [
+                        "basket",
+                        "base",
+                        "provenance",
+                        "pigment"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Почни з кошика; передай завершену минулу дію перенесення в пасиві.",
+                    "options": [
+                        "was",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "carried",
+                    "verb_hint": "Почни з кошика; передай завершену минулу дію перенесення в пасиві.",
+                    "options": [
+                        "carried",
+                        "polished",
+                        "cut",
+                        "weighed"
+                    ]
+                },
+                "a6": {
+                    "answer": "inside.",
+                    "verb_hint": "Почни з кошика; передай завершену минулу дію перенесення в пасиві.",
+                    "options": [
+                        "inside",
+                        "wool",
+                        "hand",
+                        "toy"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з кошика; передай завершену минулу дію перенесення в пасиві.",
+            "accepted_target_texts": [
+                "The orange basket was carried inside."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The orange basket",
+                "was",
+                "carried",
+                "inside."
+            ],
+            "token_groups": [
+                "The orange basket",
+                "was",
+                "carried",
+                "inside."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "orange",
+                "basket",
+                "was",
+                "carried",
+                "inside."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "orange",
+                "purple",
+                "red",
+                "blue",
+                "basket",
+                "base",
+                "provenance",
+                "pigment",
+                "was",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "carried",
+                "polished",
+                "cut",
+                "weighed",
+                "inside",
+                "wool",
+                "hand",
+                "toy"
+            ],
+            "source_text_uk": "Помаранчевий кошик занесли всередину.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "orange",
+                    "purple",
+                    "red",
+                    "blue"
+                ],
+                "a3": [
+                    "basket",
+                    "base",
+                    "provenance",
+                    "pigment"
+                ],
+                "a4": [
+                    "was",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a5": [
+                    "carried",
+                    "polished",
+                    "cut",
+                    "weighed"
+                ],
+                "a6": [
+                    "inside",
+                    "wool",
+                    "hand",
+                    "toy"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-formation-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Ці вовняні шапки в'яжуть вручну.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Ці вовняні шапки в'яжуть вручну.",
+            "target_text": "These wool hats are knitted by hand.",
+            "markers": {
+                "a1": {
+                    "answer": "These",
+                    "verb_hint": "Почни з шапок у множині; передай регулярну пасивну дію та спосіб виконання.",
+                    "options": [
+                        "These",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "wool",
+                    "verb_hint": "Почни з шапок у множині; передай регулярну пасивну дію та спосіб виконання.",
+                    "options": [
+                        "wool",
+                        "toy",
+                        "orange",
+                        "fresh"
+                    ]
+                },
+                "a3": {
+                    "answer": "hats",
+                    "verb_hint": "Почни з шапок у множині; передай регулярну пасивну дію та спосіб виконання.",
+                    "options": [
+                        "hats",
+                        "figures",
+                        "tools",
+                        "banners"
+                    ]
+                },
+                "a4": {
+                    "answer": "are",
+                    "verb_hint": "Почни з шапок у множині; передай регулярну пасивну дію та спосіб виконання.",
+                    "options": [
+                        "are",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "knitted",
+                    "verb_hint": "Почни з шапок у множині; передай регулярну пасивну дію та спосіб виконання.",
+                    "options": [
+                        "knitted",
+                        "negotiated",
+                        "painted",
+                        "cleaned"
+                    ]
+                },
+                "a6": {
+                    "answer": "by",
+                    "verb_hint": "Почни з шапок у множині; передай регулярну пасивну дію та спосіб виконання.",
+                    "options": [
+                        "by",
+                        "during",
+                        "to",
+                        "from"
+                    ]
+                },
+                "a7": {
+                    "answer": "hand.",
+                    "verb_hint": "Почни з шапок у множині; передай регулярну пасивну дію та спосіб виконання.",
+                    "options": [
+                        "hand",
+                        "rehearsal",
+                        "basket",
+                        "inside"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з шапок у множині; передай регулярну пасивну дію та спосіб виконання.",
+            "accepted_target_texts": [
+                "These wool hats are knitted by hand."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "These wool hats",
+                "are",
+                "knitted",
+                "by hand."
+            ],
+            "token_groups": [
+                "These wool hats",
+                "are",
+                "knitted",
+                "by hand."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "These",
+                "wool",
+                "hats",
+                "are",
+                "knitted",
+                "by",
+                "hand."
+            ],
+            "options": [
+                "These",
+                "Either",
+                "Neither",
+                "All",
+                "wool",
+                "toy",
+                "orange",
+                "fresh",
+                "hats",
+                "figures",
+                "tools",
+                "banners",
+                "are",
+                "been",
+                "being",
+                "isn't",
+                "knitted",
+                "negotiated",
+                "painted",
+                "cleaned",
+                "by",
+                "during",
+                "to",
+                "from",
+                "hand",
+                "rehearsal",
+                "basket",
+                "inside"
+            ],
+            "source_text_uk": "Ці вовняні шапки в'яжуть вручну.",
+            "options_by_marker": {
+                "a1": [
+                    "These",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "wool",
+                    "toy",
+                    "orange",
+                    "fresh"
+                ],
+                "a3": [
+                    "hats",
+                    "figures",
+                    "tools",
+                    "banners"
+                ],
+                "a4": [
+                    "are",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a5": [
+                    "knitted",
+                    "negotiated",
+                    "painted",
+                    "cleaned"
+                ],
+                "a6": [
+                    "by",
+                    "during",
+                    "to",
+                    "from"
+                ],
+                "a7": [
+                    "hand",
+                    "rehearsal",
+                    "basket",
+                    "inside"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-formation-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Свіжу глину формують дерев'яними інструментами.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Свіжу глину формують дерев'яними інструментами.",
+            "target_text": "The fresh clay is shaped with wooden tools.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з глини; назви теперішню пасивну дію формування й інструменти наприкінці.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "fresh",
+                    "verb_hint": "Почни з глини; назви теперішню пасивну дію формування й інструменти наприкінці.",
+                    "options": [
+                        "fresh",
+                        "toy",
+                        "orange",
+                        "wool"
+                    ]
+                },
+                "a3": {
+                    "answer": "clay",
+                    "verb_hint": "Почни з глини; назви теперішню пасивну дію формування й інструменти наприкінці.",
+                    "options": [
+                        "clay",
+                        "base",
+                        "provenance",
+                        "pigment"
+                    ]
+                },
+                "a4": {
+                    "answer": "is",
+                    "verb_hint": "Почни з глини; назви теперішню пасивну дію формування й інструменти наприкінці.",
+                    "options": [
+                        "is",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "shaped",
+                    "verb_hint": "Почни з глини; назви теперішню пасивну дію формування й інструменти наприкінці.",
+                    "options": [
+                        "shaped",
+                        "negotiated",
+                        "painted",
+                        "cleaned"
+                    ]
+                },
+                "a6": {
+                    "answer": "with",
+                    "verb_hint": "Почни з глини; назви теперішню пасивну дію формування й інструменти наприкінці.",
+                    "options": [
+                        "with",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a7": {
+                    "answer": "wooden",
+                    "verb_hint": "Почни з глини; назви теперішню пасивну дію формування й інструменти наприкінці.",
+                    "options": [
+                        "wooden",
+                        "controlled",
+                        "garden",
+                        "watched"
+                    ]
+                },
+                "a8": {
+                    "answer": "tools.",
+                    "verb_hint": "Почни з глини; назви теперішню пасивну дію формування й інструменти наприкінці.",
+                    "options": [
+                        "tools",
+                        "grounds",
+                        "discoveries",
+                        "volunteers"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з глини; назви теперішню пасивну дію формування й інструменти наприкінці.",
+            "accepted_target_texts": [
+                "The fresh clay is shaped with wooden tools."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The fresh clay",
+                "is",
+                "shaped",
+                "with wooden tools."
+            ],
+            "token_groups": [
+                "The fresh clay",
+                "is",
+                "shaped",
+                "with wooden tools."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "fresh",
+                "clay",
+                "is",
+                "shaped",
+                "with",
+                "wooden",
+                "tools."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "fresh",
+                "toy",
+                "orange",
+                "wool",
+                "clay",
+                "base",
+                "provenance",
+                "pigment",
+                "is",
+                "been",
+                "being",
+                "isn't",
+                "shaped",
+                "negotiated",
+                "painted",
+                "cleaned",
+                "with",
+                "of",
+                "in",
+                "on",
+                "wooden",
+                "controlled",
+                "garden",
+                "watched",
+                "tools",
+                "grounds",
+                "discoveries",
+                "volunteers"
+            ],
+            "source_text_uk": "Свіжу глину формують дерев'яними інструментами.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "fresh",
+                    "toy",
+                    "orange",
+                    "wool"
+                ],
+                "a3": [
+                    "clay",
+                    "base",
+                    "provenance",
+                    "pigment"
+                ],
+                "a4": [
+                    "is",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a5": [
+                    "shaped",
+                    "negotiated",
+                    "painted",
+                    "cleaned"
+                ],
+                "a6": [
+                    "with",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a7": [
+                    "wooden",
+                    "controlled",
+                    "garden",
+                    "watched"
+                ],
+                "a8": [
+                    "tools",
+                    "grounds",
+                    "discoveries",
+                    "volunteers"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-formation-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Загублену флейту повернули після репетиції.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Загублену флейту повернули після репетиції.",
+            "target_text": "The missing flute was returned after rehearsal.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з флейти; збережи минулий час та обставину повернення.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "missing",
+                    "verb_hint": "Почни з флейти; збережи минулий час та обставину повернення.",
+                    "options": [
+                        "missing",
+                        "carving",
+                        "working",
+                        "playing"
+                    ]
+                },
+                "a3": {
+                    "answer": "flute",
+                    "verb_hint": "Почни з флейти; збережи минулий час та обставину повернення.",
+                    "options": [
+                        "flute",
+                        "inference",
+                        "clay",
+                        "train"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Почни з флейти; збережи минулий час та обставину повернення.",
+                    "options": [
+                        "was",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "returned",
+                    "verb_hint": "Почни з флейти; збережи минулий час та обставину повернення.",
+                    "options": [
+                        "returned",
+                        "sharpened",
+                        "kept",
+                        "carried"
+                    ]
+                },
+                "a6": {
+                    "answer": "after",
+                    "verb_hint": "Почни з флейти; збережи минулий час та обставину повернення.",
+                    "options": [
+                        "after",
+                        "by",
+                        "local",
+                        "fresh"
+                    ]
+                },
+                "a7": {
+                    "answer": "rehearsal.",
+                    "verb_hint": "Почни з флейти; збережи минулий час та обставину повернення.",
+                    "options": [
+                        "rehearsal",
+                        "hand",
+                        "table",
+                        "ticket"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з флейти; збережи минулий час та обставину повернення.",
+            "accepted_target_texts": [
+                "The missing flute was returned after rehearsal."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The missing flute",
+                "was",
+                "returned",
+                "after rehearsal."
+            ],
+            "token_groups": [
+                "The missing flute",
+                "was",
+                "returned",
+                "after rehearsal."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "missing",
+                "flute",
+                "was",
+                "returned",
+                "after",
+                "rehearsal."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "missing",
+                "carving",
+                "working",
+                "playing",
+                "flute",
+                "inference",
+                "clay",
+                "train",
+                "was",
+                "been",
+                "being",
+                "isn't",
+                "returned",
+                "sharpened",
+                "kept",
+                "carried",
+                "after",
+                "by",
+                "local",
+                "fresh",
+                "rehearsal",
+                "hand",
+                "table",
+                "ticket"
+            ],
+            "source_text_uk": "Загублену флейту повернули після репетиції.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "missing",
+                    "carving",
+                    "working",
+                    "playing"
+                ],
+                "a3": [
+                    "flute",
+                    "inference",
+                    "clay",
+                    "train"
+                ],
+                "a4": [
+                    "was",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a5": [
+                    "returned",
+                    "sharpened",
+                    "kept",
+                    "carried"
+                ],
+                "a6": [
+                    "after",
+                    "by",
+                    "local",
+                    "fresh"
+                ],
+                "a7": [
+                    "rehearsal",
+                    "hand",
+                    "table",
+                    "ticket"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-formation-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Садові лавки збудували місцеві волонтери.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Садові лавки збудували місцеві волонтери.",
+            "target_text": "The garden benches were built by local volunteers.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з лавок; назви минулу пасивну дію, а виконавців постав наприкінці.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "garden",
+                    "verb_hint": "Почни з лавок; назви минулу пасивну дію, а виконавців постав наприкінці.",
+                    "options": [
+                        "garden",
+                        "contested",
+                        "engraved",
+                        "wooden"
+                    ]
+                },
+                "a3": {
+                    "answer": "benches",
+                    "verb_hint": "Почни з лавок; назви минулу пасивну дію, а виконавців постав наприкінці.",
+                    "options": [
+                        "benches",
+                        "hats",
+                        "figures",
+                        "tools"
+                    ]
+                },
+                "a4": {
+                    "answer": "were",
+                    "verb_hint": "Почни з лавок; назви минулу пасивну дію, а виконавців постав наприкінці.",
+                    "options": [
+                        "were",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a5": {
+                    "answer": "built",
+                    "verb_hint": "Почни з лавок; назви минулу пасивну дію, а виконавців постав наприкінці.",
+                    "options": [
+                        "built",
+                        "reconstructed",
+                        "conserved",
+                        "catalogued"
+                    ]
+                },
+                "a6": {
+                    "answer": "by",
+                    "verb_hint": "Почни з лавок; назви минулу пасивну дію, а виконавців постав наприкінці.",
+                    "options": [
+                        "by",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a7": {
+                    "answer": "local",
+                    "verb_hint": "Почни з лавок; назви минулу пасивну дію, а виконавців постав наприкінці.",
+                    "options": [
+                        "local",
+                        "an",
+                        "subsequent",
+                        "any"
+                    ]
+                },
+                "a8": {
+                    "answer": "volunteers.",
+                    "verb_hint": "Почни з лавок; назви минулу пасивну дію, а виконавців постав наприкінці.",
+                    "options": [
+                        "volunteers",
+                        "grounds",
+                        "discoveries",
+                        "letters"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з лавок; назви минулу пасивну дію, а виконавців постав наприкінці.",
+            "accepted_target_texts": [
+                "The garden benches were built by local volunteers."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The garden benches",
+                "were",
+                "built",
+                "by local volunteers."
+            ],
+            "token_groups": [
+                "The garden benches",
+                "were",
+                "built",
+                "by local volunteers."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "garden",
+                "benches",
+                "were",
+                "built",
+                "by",
+                "local",
+                "volunteers."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "garden",
+                "contested",
+                "engraved",
+                "wooden",
+                "benches",
+                "hats",
+                "figures",
+                "tools",
+                "were",
+                "be",
+                "been",
+                "being",
+                "built",
+                "reconstructed",
+                "conserved",
+                "catalogued",
+                "by",
+                "about",
+                "during",
+                "to",
+                "local",
+                "an",
+                "subsequent",
+                "any",
+                "volunteers",
+                "grounds",
+                "discoveries",
+                "letters"
+            ],
+            "source_text_uk": "Садові лавки збудували місцеві волонтери.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "garden",
+                    "contested",
+                    "engraved",
+                    "wooden"
+                ],
+                "a3": [
+                    "benches",
+                    "hats",
+                    "figures",
+                    "tools"
+                ],
+                "a4": [
+                    "were",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a5": [
+                    "built",
+                    "reconstructed",
+                    "conserved",
+                    "catalogued"
+                ],
+                "a6": [
+                    "by",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a7": [
+                    "local",
+                    "an",
+                    "subsequent",
+                    "any"
+                ],
+                "a8": [
+                    "volunteers",
+                    "grounds",
+                    "discoveries",
+                    "letters"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-formation-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Глиняні фігурки зараз сушать у студії.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Глиняні фігурки зараз сушать у студії.",
+            "target_text": "The clay figures are being dried in the studio.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з фігурок у множині; передай поточну пасивну дію сушіння.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "clay",
+                    "verb_hint": "Почни з фігурок у множині; передай поточну пасивну дію сушіння.",
+                    "options": [
+                        "clay",
+                        "fresh",
+                        "silk",
+                        "restitution"
+                    ]
+                },
+                "a3": {
+                    "answer": "figures",
+                    "verb_hint": "Почни з фігурок у множині; передай поточну пасивну дію сушіння.",
+                    "options": [
+                        "figures",
+                        "tools",
+                        "hats",
+                        "benches"
+                    ]
+                },
+                "a4": {
+                    "answer": "are",
+                    "verb_hint": "Почни з фігурок у множині; передай поточну пасивну дію сушіння.",
+                    "options": [
+                        "are",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a5": {
+                    "answer": "being",
+                    "verb_hint": "Почни з фігурок у множині; передай поточну пасивну дію сушіння.",
+                    "options": [
+                        "being",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a6": {
+                    "answer": "dried",
+                    "verb_hint": "Почни з фігурок у множині; передай поточну пасивну дію сушіння.",
+                    "options": [
+                        "dried",
+                        "reconstructed",
+                        "conserved",
+                        "catalogued"
+                    ]
+                },
+                "a7": {
+                    "answer": "in",
+                    "verb_hint": "Почни з фігурок у множині; передай поточну пасивну дію сушіння.",
+                    "options": [
+                        "in",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з фігурок у множині; передай поточну пасивну дію сушіння.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a9": {
+                    "answer": "studio.",
+                    "verb_hint": "Почни з фігурок у множині; передай поточну пасивну дію сушіння.",
+                    "options": [
+                        "studio",
+                        "damage",
+                        "afternoon",
+                        "annex"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з фігурок у множині; передай поточну пасивну дію сушіння.",
+            "accepted_target_texts": [
+                "The clay figures are being dried in the studio."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The clay figures",
+                "are being",
+                "dried",
+                "in the studio."
+            ],
+            "token_groups": [
+                "The clay figures",
+                "are being",
+                "dried",
+                "in the studio."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "clay",
+                "figures",
+                "are",
+                "being",
+                "dried",
+                "in",
+                "the",
+                "studio."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "clay",
+                "fresh",
+                "silk",
+                "restitution",
+                "figures",
+                "tools",
+                "hats",
+                "benches",
+                "are",
+                "weren't",
+                "am",
+                "is",
+                "being",
+                "was",
+                "were",
+                "be",
+                "dried",
+                "reconstructed",
+                "conserved",
+                "catalogued",
+                "in",
+                "into",
+                "onto",
+                "over",
+                "the",
+                "an",
+                "some",
+                "any",
+                "studio",
+                "damage",
+                "afternoon",
+                "annex"
+            ],
+            "source_text_uk": "Глиняні фігурки зараз сушать у студії.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "clay",
+                    "fresh",
+                    "silk",
+                    "restitution"
+                ],
+                "a3": [
+                    "figures",
+                    "tools",
+                    "hats",
+                    "benches"
+                ],
+                "a4": [
+                    "are",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a5": [
+                    "being",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a6": [
+                    "dried",
+                    "reconstructed",
+                    "conserved",
+                    "catalogued"
+                ],
+                "a7": [
+                    "in",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a8": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a9": [
+                    "studio",
+                    "damage",
+                    "afternoon",
+                    "annex"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "auxiliary",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-formation-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Різьбярські інструменти вже нагострили для заняття.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Різьбярські інструменти вже нагострили для заняття.",
+            "target_text": "The carving tools have been sharpened for the workshop.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з інструментів; передай теперішній результат заточування.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "carving",
+                    "verb_hint": "Почни з інструментів; передай теперішній результат заточування.",
+                    "options": [
+                        "carving",
+                        "missing",
+                        "closing",
+                        "helping"
+                    ]
+                },
+                "a3": {
+                    "answer": "tools",
+                    "verb_hint": "Почни з інструментів; передай теперішній результат заточування.",
+                    "options": [
+                        "tools",
+                        "banners",
+                        "panels",
+                        "conditions"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Почни з інструментів; передай теперішній результат заточування.",
+                    "options": [
+                        "have",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Почни з інструментів; передай теперішній результат заточування.",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "sharpened",
+                    "verb_hint": "Почни з інструментів; передай теперішній результат заточування.",
+                    "options": [
+                        "sharpened",
+                        "delivered",
+                        "dried",
+                        "kept"
+                    ]
+                },
+                "a7": {
+                    "answer": "for",
+                    "verb_hint": "Почни з інструментів; передай теперішній результат заточування.",
+                    "options": [
+                        "for",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з інструментів; передай теперішній результат заточування.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a9": {
+                    "answer": "workshop.",
+                    "verb_hint": "Почни з інструментів; передай теперішній результат заточування.",
+                    "options": [
+                        "workshop",
+                        "afternoon",
+                        "annex",
+                        "damage"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з інструментів; передай теперішній результат заточування.",
+            "accepted_target_texts": [
+                "The carving tools have been sharpened for the workshop."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The carving tools",
+                "have been",
+                "sharpened",
+                "for the workshop."
+            ],
+            "token_groups": [
+                "The carving tools",
+                "have been",
+                "sharpened",
+                "for the workshop."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "carving",
+                "tools",
+                "have",
+                "been",
+                "sharpened",
+                "for",
+                "the",
+                "workshop."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "carving",
+                "missing",
+                "closing",
+                "helping",
+                "tools",
+                "banners",
+                "panels",
+                "conditions",
+                "have",
+                "does",
+                "did",
+                "don't",
+                "been",
+                "be",
+                "being",
+                "isn't",
+                "sharpened",
+                "delivered",
+                "dried",
+                "kept",
+                "for",
+                "between",
+                "among",
+                "about",
+                "the",
+                "every",
+                "no",
+                "another",
+                "workshop",
+                "afternoon",
+                "annex",
+                "damage"
+            ],
+            "source_text_uk": "Різьбярські інструменти вже нагострили для заняття.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "carving",
+                    "missing",
+                    "closing",
+                    "helping"
+                ],
+                "a3": [
+                    "tools",
+                    "banners",
+                    "panels",
+                    "conditions"
+                ],
+                "a4": [
+                    "have",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a5": [
+                    "been",
+                    "be",
+                    "being",
+                    "isn't"
+                ],
+                "a6": [
+                    "sharpened",
+                    "delivered",
+                    "dried",
+                    "kept"
+                ],
+                "a7": [
+                    "for",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a8": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a9": [
+                    "workshop",
+                    "afternoon",
+                    "annex",
+                    "damage"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "auxiliary",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-formation-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Мармурову основу доставили без пошкоджень.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Мармурову основу доставили без пошкоджень.",
+            "target_text": "The marble base was delivered without any damage.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з основи; збережи минулу пасивну дію та відсутність пошкоджень.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "marble",
+                    "verb_hint": "Почни з основи; збережи минулу пасивну дію та відсутність пошкоджень.",
+                    "options": [
+                        "marble",
+                        "toy",
+                        "wool",
+                        "fresh"
+                    ]
+                },
+                "a3": {
+                    "answer": "base",
+                    "verb_hint": "Почни з основи; збережи минулу пасивну дію та відсутність пошкоджень.",
+                    "options": [
+                        "base",
+                        "clay",
+                        "flute",
+                        "provenance"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Почни з основи; збережи минулу пасивну дію та відсутність пошкоджень.",
+                    "options": [
+                        "was",
+                        "are",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a5": {
+                    "answer": "delivered",
+                    "verb_hint": "Почни з основи; збережи минулу пасивну дію та відсутність пошкоджень.",
+                    "options": [
+                        "delivered",
+                        "catalogued",
+                        "identified",
+                        "negotiated"
+                    ]
+                },
+                "a6": {
+                    "answer": "without",
+                    "verb_hint": "Почни з основи; збережи минулу пасивну дію та відсутність пошкоджень.",
+                    "options": [
+                        "without",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a7": {
+                    "answer": "any",
+                    "verb_hint": "Почни з основи; збережи минулу пасивну дію та відсутність пошкоджень.",
+                    "options": [
+                        "any",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "damage.",
+                    "verb_hint": "Почни з основи; збережи минулу пасивну дію та відсутність пошкоджень.",
+                    "options": [
+                        "damage",
+                        "annex",
+                        "studio",
+                        "workshop"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з основи; збережи минулу пасивну дію та відсутність пошкоджень.",
+            "accepted_target_texts": [
+                "The marble base was delivered without any damage."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The marble base",
+                "was",
+                "delivered",
+                "without any damage."
+            ],
+            "token_groups": [
+                "The marble base",
+                "was",
+                "delivered",
+                "without any damage."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "marble",
+                "base",
+                "was",
+                "delivered",
+                "without",
+                "any",
+                "damage."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "This",
+                "That",
+                "marble",
+                "toy",
+                "wool",
+                "fresh",
+                "base",
+                "clay",
+                "flute",
+                "provenance",
+                "was",
+                "are",
+                "were",
+                "be",
+                "delivered",
+                "catalogued",
+                "identified",
+                "negotiated",
+                "without",
+                "into",
+                "onto",
+                "over",
+                "any",
+                "no",
+                "another",
+                "either",
+                "damage",
+                "annex",
+                "studio",
+                "workshop"
+            ],
+            "source_text_uk": "Мармурову основу доставили без пошкоджень.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "marble",
+                    "toy",
+                    "wool",
+                    "fresh"
+                ],
+                "a3": [
+                    "base",
+                    "clay",
+                    "flute",
+                    "provenance"
+                ],
+                "a4": [
+                    "was",
+                    "are",
+                    "were",
+                    "be"
+                ],
+                "a5": [
+                    "delivered",
+                    "catalogued",
+                    "identified",
+                    "negotiated"
+                ],
+                "a6": [
+                    "without",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a7": [
+                    "any",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a8": [
+                    "damage",
+                    "annex",
+                    "studio",
+                    "workshop"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-formation-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Історію походження відновили за приватними листами.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Історію походження відновили за приватними листами.",
+            "target_text": "The missing provenance was reconstructed from private letters.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з історії походження; назви минулу пасивну дію відновлення та джерело відомостей.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "missing",
+                    "verb_hint": "Почни з історії походження; назви минулу пасивну дію відновлення та джерело відомостей.",
+                    "options": [
+                        "missing",
+                        "carving",
+                        "reading",
+                        "writing"
+                    ]
+                },
+                "a3": {
+                    "answer": "provenance",
+                    "verb_hint": "Почни з історії походження; назви минулу пасивну дію відновлення та джерело відомостей.",
+                    "options": [
+                        "provenance",
+                        "train",
+                        "basket",
+                        "clay"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Почни з історії походження; назви минулу пасивну дію відновлення та джерело відомостей.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a5": {
+                    "answer": "reconstructed",
+                    "verb_hint": "Почни з історії походження; назви минулу пасивну дію відновлення та джерело відомостей.",
+                    "options": [
+                        "reconstructed",
+                        "negotiated",
+                        "painted",
+                        "cleaned"
+                    ]
+                },
+                "a6": {
+                    "answer": "from",
+                    "verb_hint": "Почни з історії походження; назви минулу пасивну дію відновлення та джерело відомостей.",
+                    "options": [
+                        "from",
+                        "during",
+                        "to",
+                        "for"
+                    ]
+                },
+                "a7": {
+                    "answer": "private",
+                    "verb_hint": "Почни з історії походження; назви минулу пасивну дію відновлення та джерело відомостей.",
+                    "options": [
+                        "private",
+                        "local",
+                        "an",
+                        "subsequent"
+                    ]
+                },
+                "a8": {
+                    "answer": "letters.",
+                    "verb_hint": "Почни з історії походження; назви минулу пасивну дію відновлення та джерело відомостей.",
+                    "options": [
+                        "letters",
+                        "conditions",
+                        "tools",
+                        "volunteers"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з історії походження; назви минулу пасивну дію відновлення та джерело відомостей.",
+            "accepted_target_texts": [
+                "The missing provenance was reconstructed from private letters."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The missing provenance",
+                "was",
+                "reconstructed",
+                "from private letters."
+            ],
+            "token_groups": [
+                "The missing provenance",
+                "was",
+                "reconstructed",
+                "from private letters."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "missing",
+                "provenance",
+                "was",
+                "reconstructed",
+                "from",
+                "private",
+                "letters."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "missing",
+                "carving",
+                "reading",
+                "writing",
+                "provenance",
+                "train",
+                "basket",
+                "clay",
+                "was",
+                "were",
+                "be",
+                "been",
+                "reconstructed",
+                "negotiated",
+                "painted",
+                "cleaned",
+                "from",
+                "during",
+                "to",
+                "for",
+                "private",
+                "local",
+                "an",
+                "subsequent",
+                "letters",
+                "conditions",
+                "tools",
+                "volunteers"
+            ],
+            "source_text_uk": "Історію походження відновили за приватними листами.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "missing",
+                    "carving",
+                    "reading",
+                    "writing"
+                ],
+                "a3": [
+                    "provenance",
+                    "train",
+                    "basket",
+                    "clay"
+                ],
+                "a4": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a5": [
+                    "reconstructed",
+                    "negotiated",
+                    "painted",
+                    "cleaned"
+                ],
+                "a6": [
+                    "from",
+                    "during",
+                    "to",
+                    "for"
+                ],
+                "a7": [
+                    "private",
+                    "local",
+                    "an",
+                    "subsequent"
+                ],
+                "a8": [
+                    "letters",
+                    "conditions",
+                    "tools",
+                    "volunteers"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-formation-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Шовкові прапори законсервували в контрольованих умовах.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Шовкові прапори законсервували в контрольованих умовах.",
+            "target_text": "The silk banners have been conserved under controlled conditions.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з прапорів; передай перфектний пасив із теперішнім результатом.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "silk",
+                    "verb_hint": "Почни з прапорів; передай перфектний пасив із теперішнім результатом.",
+                    "options": [
+                        "silk",
+                        "toy",
+                        "orange",
+                        "wool"
+                    ]
+                },
+                "a3": {
+                    "answer": "banners",
+                    "verb_hint": "Почни з прапорів; передай перфектний пасив із теперішнім результатом.",
+                    "options": [
+                        "banners",
+                        "panels",
+                        "hats",
+                        "benches"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Почни з прапорів; передай перфектний пасив із теперішнім результатом.",
+                    "options": [
+                        "have",
+                        "didn't",
+                        "has",
+                        "had"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Почни з прапорів; передай перфектний пасив із теперішнім результатом.",
+                    "options": [
+                        "been",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a6": {
+                    "answer": "conserved",
+                    "verb_hint": "Почни з прапорів; передай перфектний пасив із теперішнім результатом.",
+                    "options": [
+                        "conserved",
+                        "built",
+                        "dried",
+                        "sharpened"
+                    ]
+                },
+                "a7": {
+                    "answer": "under",
+                    "verb_hint": "Почни з прапорів; передай перфектний пасив із теперішнім результатом.",
+                    "options": [
+                        "under",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a8": {
+                    "answer": "controlled",
+                    "verb_hint": "Почни з прапорів; передай перфектний пасив із теперішнім результатом.",
+                    "options": [
+                        "controlled",
+                        "wooden",
+                        "engraved",
+                        "left"
+                    ]
+                },
+                "a9": {
+                    "answer": "conditions.",
+                    "verb_hint": "Почни з прапорів; передай перфектний пасив із теперішнім результатом.",
+                    "options": [
+                        "conditions",
+                        "discoveries",
+                        "letters",
+                        "tools"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з прапорів; передай перфектний пасив із теперішнім результатом.",
+            "accepted_target_texts": [
+                "The silk banners have been conserved under controlled conditions."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The silk banners",
+                "have been",
+                "conserved",
+                "under controlled conditions."
+            ],
+            "token_groups": [
+                "The silk banners",
+                "have been",
+                "conserved",
+                "under controlled conditions."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "silk",
+                "banners",
+                "have",
+                "been",
+                "conserved",
+                "under",
+                "controlled",
+                "conditions."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "silk",
+                "toy",
+                "orange",
+                "wool",
+                "banners",
+                "panels",
+                "hats",
+                "benches",
+                "have",
+                "didn't",
+                "has",
+                "had",
+                "been",
+                "am",
+                "is",
+                "are",
+                "conserved",
+                "built",
+                "dried",
+                "sharpened",
+                "under",
+                "of",
+                "in",
+                "on",
+                "controlled",
+                "wooden",
+                "engraved",
+                "left",
+                "conditions",
+                "discoveries",
+                "letters",
+                "tools"
+            ],
+            "source_text_uk": "Шовкові прапори законсервували в контрольованих умовах.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "silk",
+                    "toy",
+                    "orange",
+                    "wool"
+                ],
+                "a3": [
+                    "banners",
+                    "panels",
+                    "hats",
+                    "benches"
+                ],
+                "a4": [
+                    "have",
+                    "didn't",
+                    "has",
+                    "had"
+                ],
+                "a5": [
+                    "been",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a6": [
+                    "conserved",
+                    "built",
+                    "dried",
+                    "sharpened"
+                ],
+                "a7": [
+                    "under",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a8": [
+                    "controlled",
+                    "wooden",
+                    "engraved",
+                    "left"
+                ],
+                "a9": [
+                    "conditions",
+                    "discoveries",
+                    "letters",
+                    "tools"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "auxiliary",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-formation-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Гравіровані панелі каталогізували протягом усього дня після полудня.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Гравіровані панелі каталогізували протягом усього дня після полудня.",
+            "target_text": "The engraved panels were being catalogued throughout the afternoon.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з панелей; передай тривалу минулу дію каталогізації.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "engraved",
+                    "verb_hint": "Почни з панелей; передай тривалу минулу дію каталогізації.",
+                    "options": [
+                        "engraved",
+                        "contested",
+                        "garden",
+                        "controlled"
+                    ]
+                },
+                "a3": {
+                    "answer": "panels",
+                    "verb_hint": "Почни з панелей; передай тривалу минулу дію каталогізації.",
+                    "options": [
+                        "panels",
+                        "banners",
+                        "hats",
+                        "benches"
+                    ]
+                },
+                "a4": {
+                    "answer": "were",
+                    "verb_hint": "Почни з панелей; передай тривалу минулу дію каталогізації.",
+                    "options": [
+                        "were",
+                        "be",
+                        "been",
+                        "isn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "being",
+                    "verb_hint": "Почни з панелей; передай тривалу минулу дію каталогізації.",
+                    "options": [
+                        "being",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a6": {
+                    "answer": "catalogued",
+                    "verb_hint": "Почни з панелей; передай тривалу минулу дію каталогізації.",
+                    "options": [
+                        "catalogued",
+                        "built",
+                        "dried",
+                        "sharpened"
+                    ]
+                },
+                "a7": {
+                    "answer": "throughout",
+                    "verb_hint": "Почни з панелей; передай тривалу минулу дію каталогізації.",
+                    "options": [
+                        "throughout",
+                        "under",
+                        "with",
+                        "by"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з панелей; передай тривалу минулу дію каталогізації.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a9": {
+                    "answer": "afternoon.",
+                    "verb_hint": "Почни з панелей; передай тривалу минулу дію каталогізації.",
+                    "options": [
+                        "afternoon",
+                        "evening",
+                        "night",
+                        "day"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з панелей; передай тривалу минулу дію каталогізації.",
+            "accepted_target_texts": [
+                "The engraved panels were being catalogued throughout the afternoon."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The engraved panels",
+                "were being",
+                "catalogued",
+                "throughout the afternoon."
+            ],
+            "token_groups": [
+                "The engraved panels",
+                "were being",
+                "catalogued",
+                "throughout the afternoon."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "engraved",
+                "panels",
+                "were",
+                "being",
+                "catalogued",
+                "throughout",
+                "the",
+                "afternoon."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "engraved",
+                "contested",
+                "garden",
+                "controlled",
+                "panels",
+                "banners",
+                "hats",
+                "benches",
+                "were",
+                "be",
+                "been",
+                "isn't",
+                "being",
+                "wasn't",
+                "weren't",
+                "am",
+                "catalogued",
+                "built",
+                "dried",
+                "sharpened",
+                "throughout",
+                "under",
+                "with",
+                "by",
+                "the",
+                "each",
+                "every",
+                "no",
+                "afternoon",
+                "evening",
+                "night",
+                "day"
+            ],
+            "source_text_uk": "Гравіровані панелі каталогізували протягом усього дня після полудня.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "engraved",
+                    "contested",
+                    "garden",
+                    "controlled"
+                ],
+                "a3": [
+                    "panels",
+                    "banners",
+                    "hats",
+                    "benches"
+                ],
+                "a4": [
+                    "were",
+                    "be",
+                    "been",
+                    "isn't"
+                ],
+                "a5": [
+                    "being",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a6": [
+                    "catalogued",
+                    "built",
+                    "dried",
+                    "sharpened"
+                ],
+                "a7": [
+                    "throughout",
+                    "under",
+                    "with",
+                    "by"
+                ],
+                "a8": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a9": [
+                    "afternoon",
+                    "evening",
+                    "night",
+                    "day"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "auxiliary",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-formation-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Спірний опис майна ретельно звірили з транспортними документами.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Спірний опис майна ретельно звірили з транспортними документами.",
+            "target_text": "The contested inventory was meticulously crosschecked against shipping records.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з опису майна; передай минулу пасивну дію ретельного звіряння.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "contested",
+                    "verb_hint": "Почни з опису майна; передай минулу пасивну дію ретельного звіряння.",
+                    "options": [
+                        "contested",
+                        "garden",
+                        "engraved",
+                        "met"
+                    ]
+                },
+                "a3": {
+                    "answer": "inventory",
+                    "verb_hint": "Почни з опису майна; передай минулу пасивну дію ретельного звіряння.",
+                    "options": [
+                        "inventory",
+                        "anomalous",
+                        "spectroscopic",
+                        "intermediary"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Почни з опису майна; передай минулу пасивну дію ретельного звіряння.",
+                    "options": [
+                        "was",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "meticulously",
+                    "verb_hint": "Почни з опису майна; передай минулу пасивну дію ретельного звіряння.",
+                    "options": [
+                        "meticulously",
+                        "negotiated",
+                        "identified",
+                        "played"
+                    ]
+                },
+                "a6": {
+                    "answer": "crosschecked",
+                    "verb_hint": "Почни з опису майна; передай минулу пасивну дію ретельного звіряння.",
+                    "options": [
+                        "crosschecked",
+                        "enumerated",
+                        "qualified",
+                        "built"
+                    ]
+                },
+                "a7": {
+                    "answer": "against",
+                    "verb_hint": "Почни з опису майна; передай минулу пасивну дію ретельного звіряння.",
+                    "options": [
+                        "against",
+                        "with",
+                        "in",
+                        "for"
+                    ]
+                },
+                "a8": {
+                    "answer": "shipping",
+                    "verb_hint": "Почни з опису майна; передай минулу пасивну дію ретельного звіряння.",
+                    "options": [
+                        "shipping",
+                        "calling",
+                        "walking",
+                        "opening"
+                    ]
+                },
+                "a9": {
+                    "answer": "records.",
+                    "verb_hint": "Почни з опису майна; передай минулу пасивну дію ретельного звіряння.",
+                    "options": [
+                        "records",
+                        "analysis",
+                        "grounds",
+                        "tools"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з опису майна; передай минулу пасивну дію ретельного звіряння.",
+            "accepted_target_texts": [
+                "The contested inventory was meticulously crosschecked against shipping records."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The contested inventory",
+                "was",
+                "meticulously crosschecked",
+                "against shipping records."
+            ],
+            "token_groups": [
+                "The contested inventory",
+                "was",
+                "meticulously crosschecked",
+                "against shipping records."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "contested",
+                "inventory",
+                "was",
+                "meticulously",
+                "crosschecked",
+                "against",
+                "shipping",
+                "records."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "contested",
+                "garden",
+                "engraved",
+                "met",
+                "inventory",
+                "anomalous",
+                "spectroscopic",
+                "intermediary",
+                "was",
+                "been",
+                "being",
+                "isn't",
+                "meticulously",
+                "negotiated",
+                "identified",
+                "played",
+                "crosschecked",
+                "enumerated",
+                "qualified",
+                "built",
+                "against",
+                "with",
+                "in",
+                "for",
+                "shipping",
+                "calling",
+                "walking",
+                "opening",
+                "records",
+                "analysis",
+                "grounds",
+                "tools"
+            ],
+            "source_text_uk": "Спірний опис майна ретельно звірили з транспортними документами.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "contested",
+                    "garden",
+                    "engraved",
+                    "met"
+                ],
+                "a3": [
+                    "inventory",
+                    "anomalous",
+                    "spectroscopic",
+                    "intermediary"
+                ],
+                "a4": [
+                    "was",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a5": [
+                    "meticulously",
+                    "negotiated",
+                    "identified",
+                    "played"
+                ],
+                "a6": [
+                    "crosschecked",
+                    "enumerated",
+                    "qualified",
+                    "built"
+                ],
+                "a7": [
+                    "against",
+                    "with",
+                    "in",
+                    "for"
+                ],
+                "a8": [
+                    "shipping",
+                    "calling",
+                    "walking",
+                    "opening"
+                ],
+                "a9": [
+                    "records",
+                    "analysis",
+                    "grounds",
+                    "tools"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-formation-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Аномальний пігмент визначили за допомогою спектроскопічного аналізу.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Аномальний пігмент визначили за допомогою спектроскопічного аналізу.",
+            "target_text": "The anomalous pigment has been identified by spectroscopic analysis.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з пігменту; збережи перфектний пасив і спосіб визначення.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "anomalous",
+                    "verb_hint": "Почни з пігменту; збережи перфектний пасив і спосіб визначення.",
+                    "options": [
+                        "anomalous",
+                        "irretrievable",
+                        "intermediary",
+                        "inventory"
+                    ]
+                },
+                "a3": {
+                    "answer": "pigment",
+                    "verb_hint": "Почни з пігменту; збережи перфектний пасив і спосіб визначення.",
+                    "options": [
+                        "pigment",
+                        "train",
+                        "basket",
+                        "clay"
+                    ]
+                },
+                "a4": {
+                    "answer": "has",
+                    "verb_hint": "Почни з пігменту; збережи перфектний пасив і спосіб визначення.",
+                    "options": [
+                        "has",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Почни з пігменту; збережи перфектний пасив і спосіб визначення.",
+                    "options": [
+                        "been",
+                        "is",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a6": {
+                    "answer": "identified",
+                    "verb_hint": "Почни з пігменту; збережи перфектний пасив і спосіб визначення.",
+                    "options": [
+                        "identified",
+                        "negotiated",
+                        "conserved",
+                        "kept"
+                    ]
+                },
+                "a7": {
+                    "answer": "by",
+                    "verb_hint": "Почни з пігменту; збережи перфектний пасив і спосіб визначення.",
+                    "options": [
+                        "by",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a8": {
+                    "answer": "spectroscopic",
+                    "verb_hint": "Почни з пігменту; збережи перфектний пасив і спосіб визначення.",
+                    "options": [
+                        "spectroscopic",
+                        "equitable",
+                        "dirty",
+                        "good"
+                    ]
+                },
+                "a9": {
+                    "answer": "analysis.",
+                    "verb_hint": "Почни з пігменту; збережи перфектний пасив і спосіб визначення.",
+                    "options": [
+                        "analysis",
+                        "records",
+                        "volunteers",
+                        "tools"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з пігменту; збережи перфектний пасив і спосіб визначення.",
+            "accepted_target_texts": [
+                "The anomalous pigment has been identified by spectroscopic analysis."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The anomalous pigment",
+                "has been",
+                "identified",
+                "by spectroscopic analysis."
+            ],
+            "token_groups": [
+                "The anomalous pigment",
+                "has been",
+                "identified",
+                "by spectroscopic analysis."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "anomalous",
+                "pigment",
+                "has",
+                "been",
+                "identified",
+                "by",
+                "spectroscopic",
+                "analysis."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "anomalous",
+                "irretrievable",
+                "intermediary",
+                "inventory",
+                "pigment",
+                "train",
+                "basket",
+                "clay",
+                "has",
+                "hasn't",
+                "hadn't",
+                "do",
+                "been",
+                "is",
+                "are",
+                "was",
+                "identified",
+                "negotiated",
+                "conserved",
+                "kept",
+                "by",
+                "between",
+                "among",
+                "about",
+                "spectroscopic",
+                "equitable",
+                "dirty",
+                "good",
+                "analysis",
+                "records",
+                "volunteers",
+                "tools"
+            ],
+            "source_text_uk": "Аномальний пігмент визначили за допомогою спектроскопічного аналізу.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "anomalous",
+                    "irretrievable",
+                    "intermediary",
+                    "inventory"
+                ],
+                "a3": [
+                    "pigment",
+                    "train",
+                    "basket",
+                    "clay"
+                ],
+                "a4": [
+                    "has",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a5": [
+                    "been",
+                    "is",
+                    "are",
+                    "was"
+                ],
+                "a6": [
+                    "identified",
+                    "negotiated",
+                    "conserved",
+                    "kept"
+                ],
+                "a7": [
+                    "by",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a8": [
+                    "spectroscopic",
+                    "equitable",
+                    "dirty",
+                    "good"
+                ],
+                "a9": [
+                    "analysis",
+                    "records",
+                    "volunteers",
+                    "tools"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "auxiliary",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-formation-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Умови позикодавця узгоджували через посередника.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Умови позикодавця узгоджували через посередника.",
+            "target_text": "The lender's conditions were being negotiated through an intermediary.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з умов позикодавця; передай тривалу минулу дію узгодження.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "lender's",
+                    "verb_hint": "Почни з умов позикодавця; передай тривалу минулу дію узгодження.",
+                    "options": [
+                        "lender's",
+                        "records",
+                        "analysis",
+                        "maps"
+                    ]
+                },
+                "a3": {
+                    "answer": "conditions",
+                    "verb_hint": "Почни з умов позикодавця; передай тривалу минулу дію узгодження.",
+                    "options": [
+                        "conditions",
+                        "hats",
+                        "benches",
+                        "figures"
+                    ]
+                },
+                "a4": {
+                    "answer": "were",
+                    "verb_hint": "Почни з умов позикодавця; передай тривалу минулу дію узгодження.",
+                    "options": [
+                        "were",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "being",
+                    "verb_hint": "Почни з умов позикодавця; передай тривалу минулу дію узгодження.",
+                    "options": [
+                        "being",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a6": {
+                    "answer": "negotiated",
+                    "verb_hint": "Почни з умов позикодавця; передай тривалу минулу дію узгодження.",
+                    "options": [
+                        "negotiated",
+                        "restored",
+                        "identified",
+                        "kept"
+                    ]
+                },
+                "a7": {
+                    "answer": "through",
+                    "verb_hint": "Почни з умов позикодавця; передай тривалу минулу дію узгодження.",
+                    "options": [
+                        "through",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a8": {
+                    "answer": "an",
+                    "verb_hint": "Почни з умов позикодавця; передай тривалу минулу дію узгодження.",
+                    "options": [
+                        "an",
+                        "a",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a9": {
+                    "answer": "intermediary.",
+                    "verb_hint": "Почни з умов позикодавця; передай тривалу минулу дію узгодження.",
+                    "options": [
+                        "intermediary",
+                        "inventory",
+                        "anomalous",
+                        "spectroscopic"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з умов позикодавця; передай тривалу минулу дію узгодження.",
+            "accepted_target_texts": [
+                "The lender's conditions were being negotiated through an intermediary."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The lender's conditions",
+                "were being",
+                "negotiated",
+                "through an intermediary."
+            ],
+            "token_groups": [
+                "The lender's conditions",
+                "were being",
+                "negotiated",
+                "through an intermediary."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "lender's",
+                "conditions",
+                "were",
+                "being",
+                "negotiated",
+                "through",
+                "an",
+                "intermediary."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "lender's",
+                "records",
+                "analysis",
+                "maps",
+                "conditions",
+                "hats",
+                "benches",
+                "figures",
+                "were",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "being",
+                "weren't",
+                "am",
+                "is",
+                "negotiated",
+                "restored",
+                "identified",
+                "kept",
+                "through",
+                "in",
+                "on",
+                "at",
+                "an",
+                "a",
+                "some",
+                "any",
+                "intermediary",
+                "inventory",
+                "anomalous",
+                "spectroscopic"
+            ],
+            "source_text_uk": "Умови позикодавця узгоджували через посередника.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "lender's",
+                    "records",
+                    "analysis",
+                    "maps"
+                ],
+                "a3": [
+                    "conditions",
+                    "hats",
+                    "benches",
+                    "figures"
+                ],
+                "a4": [
+                    "were",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a5": [
+                    "being",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a6": [
+                    "negotiated",
+                    "restored",
+                    "identified",
+                    "kept"
+                ],
+                "a7": [
+                    "through",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a8": [
+                    "an",
+                    "a",
+                    "some",
+                    "any"
+                ],
+                "a9": [
+                    "intermediary",
+                    "inventory",
+                    "anomalous",
+                    "spectroscopic"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "auxiliary",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-formation-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Вимогу про повернення згодом підтримали з міркувань справедливості.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Вимогу про повернення згодом підтримали з міркувань справедливості.",
+            "target_text": "The restitution claim was subsequently upheld on equitable grounds.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з вимоги про повернення; передай минулу пасивну дію та збережи підставу.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "restitution",
+                    "verb_hint": "Почни з вимоги про повернення; передай минулу пасивну дію та збережи підставу.",
+                    "options": [
+                        "restitution",
+                        "marble",
+                        "silk",
+                        "curatorial"
+                    ]
+                },
+                "a3": {
+                    "answer": "claim",
+                    "verb_hint": "Почни з вимоги про повернення; передай минулу пасивну дію та збережи підставу.",
+                    "options": [
+                        "claim",
+                        "basket",
+                        "clay",
+                        "base"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Почни з вимоги про повернення; передай минулу пасивну дію та збережи підставу.",
+                    "options": [
+                        "was",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "subsequently",
+                    "verb_hint": "Почни з вимоги про повернення; передай минулу пасивну дію та збережи підставу.",
+                    "options": [
+                        "subsequently",
+                        "exhaustively",
+                        "enumerated",
+                        "substantially"
+                    ]
+                },
+                "a6": {
+                    "answer": "upheld",
+                    "verb_hint": "Почни з вимоги про повернення; передай минулу пасивну дію та збережи підставу.",
+                    "options": [
+                        "upheld",
+                        "qualified",
+                        "crosschecked",
+                        "worked"
+                    ]
+                },
+                "a7": {
+                    "answer": "on",
+                    "verb_hint": "Почни з вимоги про повернення; передай минулу пасивну дію та збережи підставу.",
+                    "options": [
+                        "on",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a8": {
+                    "answer": "equitable",
+                    "verb_hint": "Почни з вимоги про повернення; передай минулу пасивну дію та збережи підставу.",
+                    "options": [
+                        "equitable",
+                        "spectroscopic",
+                        "irretrievable",
+                        "bright"
+                    ]
+                },
+                "a9": {
+                    "answer": "grounds.",
+                    "verb_hint": "Почни з вимоги про повернення; передай минулу пасивну дію та збережи підставу.",
+                    "options": [
+                        "grounds",
+                        "discoveries",
+                        "records",
+                        "tools"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з вимоги про повернення; передай минулу пасивну дію та збережи підставу.",
+            "accepted_target_texts": [
+                "The restitution claim was subsequently upheld on equitable grounds."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The restitution claim",
+                "was",
+                "subsequently upheld",
+                "on equitable grounds."
+            ],
+            "token_groups": [
+                "The restitution claim",
+                "was",
+                "subsequently upheld",
+                "on equitable grounds."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "restitution",
+                "claim",
+                "was",
+                "subsequently",
+                "upheld",
+                "on",
+                "equitable",
+                "grounds."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "restitution",
+                "marble",
+                "silk",
+                "curatorial",
+                "claim",
+                "basket",
+                "clay",
+                "base",
+                "was",
+                "been",
+                "being",
+                "isn't",
+                "subsequently",
+                "exhaustively",
+                "enumerated",
+                "substantially",
+                "upheld",
+                "qualified",
+                "crosschecked",
+                "worked",
+                "on",
+                "without",
+                "into",
+                "onto",
+                "equitable",
+                "spectroscopic",
+                "irretrievable",
+                "bright",
+                "grounds",
+                "discoveries",
+                "records",
+                "tools"
+            ],
+            "source_text_uk": "Вимогу про повернення згодом підтримали з міркувань справедливості.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "restitution",
+                    "marble",
+                    "silk",
+                    "curatorial"
+                ],
+                "a3": [
+                    "claim",
+                    "basket",
+                    "clay",
+                    "base"
+                ],
+                "a4": [
+                    "was",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a5": [
+                    "subsequently",
+                    "exhaustively",
+                    "enumerated",
+                    "substantially"
+                ],
+                "a6": [
+                    "upheld",
+                    "qualified",
+                    "crosschecked",
+                    "worked"
+                ],
+                "a7": [
+                    "on",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a8": [
+                    "equitable",
+                    "spectroscopic",
+                    "irretrievable",
+                    "bright"
+                ],
+                "a9": [
+                    "grounds",
+                    "discoveries",
+                    "records",
+                    "tools"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-formation-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Кураторський висновок суттєво уточнили подальші відкриття.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Кураторський висновок суттєво уточнили подальші відкриття.",
+            "target_text": "The curatorial inference has been substantially qualified by subsequent discoveries.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з висновку; передай перфектний пасив зі значенням суттєвого уточнення.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "curatorial",
+                    "verb_hint": "Почни з висновку; передай перфектний пасив зі значенням суттєвого уточнення.",
+                    "options": [
+                        "curatorial",
+                        "toy",
+                        "orange",
+                        "wool"
+                    ]
+                },
+                "a3": {
+                    "answer": "inference",
+                    "verb_hint": "Почни з висновку; передай перфектний пасив зі значенням суттєвого уточнення.",
+                    "options": [
+                        "inference",
+                        "flute",
+                        "base",
+                        "provenance"
+                    ]
+                },
+                "a4": {
+                    "answer": "has",
+                    "verb_hint": "Почни з висновку; передай перфектний пасив зі значенням суттєвого уточнення.",
+                    "options": [
+                        "has",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Почни з висновку; передай перфектний пасив зі значенням суттєвого уточнення.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "substantially",
+                    "verb_hint": "Почни з висновку; передай перфектний пасив зі значенням суттєвого уточнення.",
+                    "options": [
+                        "substantially",
+                        "enumerated",
+                        "subsequently",
+                        "upheld"
+                    ]
+                },
+                "a7": {
+                    "answer": "qualified",
+                    "verb_hint": "Почни з висновку; передай перфектний пасив зі значенням суттєвого уточнення.",
+                    "options": [
+                        "qualified",
+                        "crosschecked",
+                        "exhaustively",
+                        "found"
+                    ]
+                },
+                "a8": {
+                    "answer": "by",
+                    "verb_hint": "Почни з висновку; передай перфектний пасив зі значенням суттєвого уточнення.",
+                    "options": [
+                        "by",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a9": {
+                    "answer": "subsequent",
+                    "verb_hint": "Почни з висновку; передай перфектний пасив зі значенням суттєвого уточнення.",
+                    "options": [
+                        "subsequent",
+                        "local",
+                        "any",
+                        "private"
+                    ]
+                },
+                "a10": {
+                    "answer": "discoveries.",
+                    "verb_hint": "Почни з висновку; передай перфектний пасив зі значенням суттєвого уточнення.",
+                    "options": [
+                        "discoveries",
+                        "grounds",
+                        "tools",
+                        "volunteers"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з висновку; передай перфектний пасив зі значенням суттєвого уточнення.",
+            "accepted_target_texts": [
+                "The curatorial inference has been substantially qualified by subsequent discoveries."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The curatorial inference",
+                "has been",
+                "substantially qualified",
+                "by subsequent discoveries."
+            ],
+            "token_groups": [
+                "The curatorial inference",
+                "has been",
+                "substantially qualified",
+                "by subsequent discoveries."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "curatorial",
+                "inference",
+                "has",
+                "been",
+                "substantially",
+                "qualified",
+                "by",
+                "subsequent",
+                "discoveries."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "curatorial",
+                "toy",
+                "orange",
+                "wool",
+                "inference",
+                "flute",
+                "base",
+                "provenance",
+                "has",
+                "don't",
+                "doesn't",
+                "didn't",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "substantially",
+                "enumerated",
+                "subsequently",
+                "upheld",
+                "qualified",
+                "crosschecked",
+                "exhaustively",
+                "found",
+                "by",
+                "under",
+                "through",
+                "across",
+                "subsequent",
+                "local",
+                "any",
+                "private",
+                "discoveries",
+                "grounds",
+                "tools",
+                "volunteers"
+            ],
+            "source_text_uk": "Кураторський висновок суттєво уточнили подальші відкриття.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "curatorial",
+                    "toy",
+                    "orange",
+                    "wool"
+                ],
+                "a3": [
+                    "inference",
+                    "flute",
+                    "base",
+                    "provenance"
+                ],
+                "a4": [
+                    "has",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a5": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a6": [
+                    "substantially",
+                    "enumerated",
+                    "subsequently",
+                    "upheld"
+                ],
+                "a7": [
+                    "qualified",
+                    "crosschecked",
+                    "exhaustively",
+                    "found"
+                ],
+                "a8": [
+                    "by",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a9": [
+                    "subsequent",
+                    "local",
+                    "any",
+                    "private"
+                ],
+                "a10": [
+                    "discoveries",
+                    "grounds",
+                    "tools",
+                    "volunteers"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "auxiliary",
+                "a6": "participle",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-formation-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Невідновні втрати вичерпно перелічили в додатку.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Невідновні втрати вичерпно перелічили в додатку.",
+            "target_text": "The irretrievable losses were exhaustively enumerated in the annex.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з втрат у множині; передай завершену минулу дію вичерпного переліку.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "irretrievable",
+                    "verb_hint": "Почни з втрат у множині; передай завершену минулу дію вичерпного переліку.",
+                    "options": [
+                        "irretrievable",
+                        "anomalous",
+                        "equitable",
+                        "helpful"
+                    ]
+                },
+                "a3": {
+                    "answer": "losses",
+                    "verb_hint": "Почни з втрат у множині; передай завершену минулу дію вичерпного переліку.",
+                    "options": [
+                        "losses",
+                        "conditions",
+                        "hats",
+                        "benches"
+                    ]
+                },
+                "a4": {
+                    "answer": "were",
+                    "verb_hint": "Почни з втрат у множині; передай завершену минулу дію вичерпного переліку.",
+                    "options": [
+                        "were",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "exhaustively",
+                    "verb_hint": "Почни з втрат у множині; передай завершену минулу дію вичерпного переліку.",
+                    "options": [
+                        "exhaustively",
+                        "qualified",
+                        "subsequently",
+                        "upheld"
+                    ]
+                },
+                "a6": {
+                    "answer": "enumerated",
+                    "verb_hint": "Почни з втрат у множині; передай завершену минулу дію вичерпного переліку.",
+                    "options": [
+                        "enumerated",
+                        "crosschecked",
+                        "substantially",
+                        "driven"
+                    ]
+                },
+                "a7": {
+                    "answer": "in",
+                    "verb_hint": "Почни з втрат у множині; передай завершену минулу дію вичерпного переліку.",
+                    "options": [
+                        "in",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з втрат у множині; передай завершену минулу дію вичерпного переліку.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a9": {
+                    "answer": "annex.",
+                    "verb_hint": "Почни з втрат у множині; передай завершену минулу дію вичерпного переліку.",
+                    "options": [
+                        "annex",
+                        "studio",
+                        "workshop",
+                        "damage"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з втрат у множині; передай завершену минулу дію вичерпного переліку.",
+            "accepted_target_texts": [
+                "The irretrievable losses were exhaustively enumerated in the annex."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The irretrievable losses",
+                "were",
+                "exhaustively enumerated",
+                "in the annex."
+            ],
+            "token_groups": [
+                "The irretrievable losses",
+                "were",
+                "exhaustively enumerated",
+                "in the annex."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "irretrievable",
+                "losses",
+                "were",
+                "exhaustively",
+                "enumerated",
+                "in",
+                "the",
+                "annex."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "irretrievable",
+                "anomalous",
+                "equitable",
+                "helpful",
+                "losses",
+                "conditions",
+                "hats",
+                "benches",
+                "were",
+                "being",
+                "isn't",
+                "aren't",
+                "exhaustively",
+                "qualified",
+                "subsequently",
+                "upheld",
+                "enumerated",
+                "crosschecked",
+                "substantially",
+                "driven",
+                "in",
+                "among",
+                "about",
+                "during",
+                "the",
+                "both",
+                "a",
+                "an",
+                "annex",
+                "studio",
+                "workshop",
+                "damage"
+            ],
+            "source_text_uk": "Невідновні втрати вичерпно перелічили в додатку.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "irretrievable",
+                    "anomalous",
+                    "equitable",
+                    "helpful"
+                ],
+                "a3": [
+                    "losses",
+                    "conditions",
+                    "hats",
+                    "benches"
+                ],
+                "a4": [
+                    "were",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a5": [
+                    "exhaustively",
+                    "qualified",
+                    "subsequently",
+                    "upheld"
+                ],
+                "a6": [
+                    "enumerated",
+                    "crosschecked",
+                    "substantially",
+                    "driven"
+                ],
+                "a7": [
+                    "in",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a8": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a9": [
+                    "annex",
+                    "studio",
+                    "workshop",
+                    "damage"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

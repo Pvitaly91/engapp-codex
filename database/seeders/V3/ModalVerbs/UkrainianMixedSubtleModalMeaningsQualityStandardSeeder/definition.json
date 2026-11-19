@@ -1,0 +1,1872 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mvq-v1",
+    "compiled_from": {
+        "path": "docs/content/modal-verbs-quality/subtle-modal-meanings.v1.json",
+        "sha256": "75c3153ed86102252f1ff1b26bdcfd72553acc0ccff6bb3a9155c5d3c9cce0c0"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ModalVerbs\\UkrainianMixedSubtleModalMeaningsQualityStandardSeeder",
+        "uuid_namespace": "modal-verbs-quality-subtle-modal-meanings-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Modal Verbs"
+    },
+    "sources": {
+        "modal_verbs_quality_subtle_modal_meanings": {
+            "name": "Modal Verbs Quality: Тонкі значення модальних конструкцій"
+        }
+    },
+    "tags": {
+        "modal_subtle_modal_meanings": {
+            "name": "Subtle Modal Meanings",
+            "category": "modal-verbs"
+        },
+        "weak_possibility": {
+            "name": "Weak Possibility",
+            "category": "topic"
+        },
+        "general_possibility": {
+            "name": "General Possibility",
+            "category": "topic"
+        },
+        "hypothetical_would": {
+            "name": "Hypothetical Would",
+            "category": "topic"
+        },
+        "should_expectation": {
+            "name": "Should Expectation",
+            "category": "topic"
+        },
+        "must_deduction": {
+            "name": "Must Deduction",
+            "category": "topic"
+        },
+        "modal_strength": {
+            "name": "Modal Strength",
+            "category": "topic"
+        },
+        "hedging": {
+            "name": "Hedging",
+            "category": "topic"
+        },
+        "formal_nuance": {
+            "name": "Formal Nuance",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "modal_subtle_modal_meanings"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mvq-subtle-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Ben {a1} at home now.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Можливо, Бен зараз удома.",
+            "target_text": "Ben may be at home now.",
+            "markers": {
+                "a1": {
+                    "answer": "may be",
+                    "options": [
+                        "may be",
+                        "must be",
+                        "may being"
+                    ],
+                    "verb_hint": "Можливо, зараз удома; передай непевне припущення."
+                }
+            },
+            "verb_hint": "Можливо, зараз удома; передай непевне припущення.",
+            "accepted_target_texts": [
+                "Ben may be at home now.",
+                "Ben might be at home now."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might be"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might be"
+                ]
+            },
+            "reorder_groups": [
+                "Ben",
+                "may be",
+                "at home",
+                "now."
+            ],
+            "token_groups": [
+                "Ben",
+                "may be",
+                "at home",
+                "now."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "mvq-subtle-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The bell {a1} soon.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Можливо, дзвінок скоро задзвонить.",
+            "target_text": "The bell might ring soon.",
+            "markers": {
+                "a1": {
+                    "answer": "might ring",
+                    "options": [
+                        "might ring",
+                        "will ringing",
+                        "might rings"
+                    ],
+                    "verb_hint": "Може задзвонити незабаром; це можливість, не обіцянка."
+                }
+            },
+            "verb_hint": "Може задзвонити незабаром; це можливість, не обіцянка.",
+            "accepted_target_texts": [
+                "The bell might ring soon.",
+                "The bell may ring soon."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "may ring"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "may ring"
+                ]
+            },
+            "reorder_groups": [
+                "The bell",
+                "might ring",
+                "soon."
+            ],
+            "token_groups": [
+                "The bell",
+                "might ring",
+                "soon."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "mvq-subtle-a1-g03",
+            "author_id": "A1-g03",
+            "question": "You {a1} a seat by the fire.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Можеш сісти біля вогню.",
+            "target_text": "You may take a seat by the fire.",
+            "markers": {
+                "a1": {
+                    "answer": "may take",
+                    "options": [
+                        "may take",
+                        "may taking",
+                        "must to take"
+                    ],
+                    "verb_hint": "Надай дозвіл сісти; не оцінюй імовірності."
+                }
+            },
+            "verb_hint": "Надай дозвіл сісти; не оцінюй імовірності.",
+            "accepted_target_texts": [
+                "You may take a seat by the fire."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You",
+                "may take",
+                "a seat",
+                "by the fire."
+            ],
+            "token_groups": [
+                "You",
+                "may take",
+                "a seat",
+                "by the fire."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "mvq-subtle-a1-g04",
+            "author_id": "A1-g04",
+            "question": "That {a1} our dog; our dog is white.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Це не може бути наш собака: наш собака білий.",
+            "target_text": "That cannot be our dog; our dog is white.",
+            "markers": {
+                "a1": {
+                    "answer": "cannot be",
+                    "options": [
+                        "cannot be",
+                        "must not being",
+                        "cannot being"
+                    ],
+                    "verb_hint": "Відкинь можливість через відомий колір; не забороняй дію."
+                }
+            },
+            "verb_hint": "Відкинь можливість через відомий колір; не забороняй дію.",
+            "accepted_target_texts": [
+                "That cannot be our dog; our dog is white.",
+                "That can't be our dog; our dog is white."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "can't be"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "can't be"
+                ]
+            },
+            "reorder_groups": [
+                "That",
+                "cannot be",
+                "our dog;",
+                "our dog",
+                "is white."
+            ],
+            "token_groups": [
+                "That",
+                "cannot be",
+                "our dog;",
+                "our dog",
+                "is white."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "mvq-subtle-a1-g05",
+            "author_id": "A1-g05",
+            "question": "{a1} your coat?",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Можна мені пересунути твоє пальто?",
+            "target_text": "May I move your coat?",
+            "markers": {
+                "a1": {
+                    "answer": "May I move",
+                    "options": [
+                        "May I move",
+                        "May I moving",
+                        "I may move"
+                    ],
+                    "verb_hint": "Ввічливо попроси дозволу пересунути пальто; додай «я»."
+                }
+            },
+            "verb_hint": "Ввічливо попроси дозволу пересунути пальто; додай «я».",
+            "accepted_target_texts": [
+                "May I move your coat?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "May I move",
+                "your coat?"
+            ],
+            "token_groups": [
+                "May I move",
+                "your coat?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "mvq-subtle-a1-g06",
+            "author_id": "A1-g06",
+            "question": "We {a1} here until five.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Ми можемо почекати тут до п’ятої.",
+            "target_text": "We can wait here until five.",
+            "markers": {
+                "a1": {
+                    "answer": "can wait",
+                    "options": [
+                        "can wait",
+                        "can waiting",
+                        "can to wait"
+                    ],
+                    "verb_hint": "Є можливість почекати; потрібна проста теперішня форма здатності."
+                }
+            },
+            "verb_hint": "Є можливість почекати; потрібна проста теперішня форма здатності.",
+            "accepted_target_texts": [
+                "We can wait here until five."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "can wait",
+                "here",
+                "until five."
+            ],
+            "token_groups": [
+                "We",
+                "can wait",
+                "here",
+                "until five."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "mvq-subtle-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The path is closed; we {a1} to camp.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Стежку закрито, тож нам залишається хіба повернутися до табору.",
+            "target_text": "The path is closed; we might as well return to camp.",
+            "markers": {
+                "a1": {
+                    "answer": "might as well return",
+                    "options": [
+                        "might as well return",
+                        "might well return",
+                        "must have returned"
+                    ],
+                    "verb_hint": "Кращого доступного варіанта немає; запропонуй практичне повернення."
+                }
+            },
+            "verb_hint": "Кращого доступного варіанта немає; запропонуй практичне повернення.",
+            "accepted_target_texts": [
+                "The path is closed; we might as well return to camp.",
+                "The path is closed; we might as well go back to camp."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might as well go back"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might as well go back"
+                ]
+            },
+            "reorder_groups": [
+                "The path",
+                "is closed;",
+                "we",
+                "might as well",
+                "return",
+                "to camp."
+            ],
+            "token_groups": [
+                "The path",
+                "is closed;",
+                "we",
+                "might as well",
+                "return",
+                "to camp."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "mvq-subtle-a2-g02",
+            "author_id": "A2-g02",
+            "question": "I {a1} a short rest after that walk.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Мені не завадив би короткий відпочинок після тієї прогулянки.",
+            "target_text": "I could use a short rest after that walk.",
+            "markers": {
+                "a1": {
+                    "answer": "could use",
+                    "options": [
+                        "could use",
+                        "could using",
+                        "must have used"
+                    ],
+                    "verb_hint": "М’яко вислови потребу у відпочинку, не наказ."
+                }
+            },
+            "verb_hint": "М’яко вислови потребу у відпочинку, не наказ.",
+            "accepted_target_texts": [
+                "I could use a short rest after that walk.",
+                "I could do with a short rest after that walk."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "could do with"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "could do with"
+                ]
+            },
+            "reorder_groups": [
+                "I",
+                "could use",
+                "a short rest",
+                "after that walk."
+            ],
+            "token_groups": [
+                "I",
+                "could use",
+                "a short rest",
+                "after that walk."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "mvq-subtle-a2-g03",
+            "author_id": "A2-g03",
+            "question": "You {a1} right about the date.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Ти цілком можеш мати рацію щодо дати.",
+            "target_text": "You may well be right about the date.",
+            "markers": {
+                "a1": {
+                    "answer": "may well be",
+                    "options": [
+                        "may well be",
+                        "must always be",
+                        "may as well be"
+                    ],
+                    "verb_hint": "Допусти правдоподібну думку без повної впевненості."
+                }
+            },
+            "verb_hint": "Допусти правдоподібну думку без повної впевненості.",
+            "accepted_target_texts": [
+                "You may well be right about the date.",
+                "You might well be right about the date.",
+                "You could well be right about the date."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might well be",
+                    "could well be"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might well be",
+                    "could well be"
+                ]
+            },
+            "reorder_groups": [
+                "You",
+                "may well be",
+                "right",
+                "about the date."
+            ],
+            "token_groups": [
+                "You",
+                "may well be",
+                "right",
+                "about the date."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "mvq-subtle-a2-g04",
+            "author_id": "A2-g04",
+            "question": "She {a1} walk than wait for a taxi.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Вона радше пішла б пішки, ніж чекала на таксі.",
+            "target_text": "She would rather walk than wait for a taxi.",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "would better",
+                        "had rather to"
+                    ],
+                    "verb_hint": "Передай перевагу однієї дії перед іншою."
+                }
+            },
+            "verb_hint": "Передай перевагу однієї дії перед іншою.",
+            "accepted_target_texts": [
+                "She would rather walk than wait for a taxi."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She",
+                "would rather",
+                "walk",
+                "than wait",
+                "for a taxi."
+            ],
+            "token_groups": [
+                "She",
+                "would rather",
+                "walk",
+                "than wait",
+                "for a taxi."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "mvq-subtle-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The train {a1} here in ten minutes.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "За очікуванням, потяг має бути тут за десять хвилин.",
+            "target_text": "The train should be here in ten minutes.",
+            "markers": {
+                "a1": {
+                    "answer": "should be",
+                    "options": [
+                        "should be",
+                        "should being",
+                        "ought be"
+                    ],
+                    "verb_hint": "Передай очікуваний час прибуття, не наказ потягу."
+                }
+            },
+            "verb_hint": "Передай очікуваний час прибуття, не наказ потягу.",
+            "accepted_target_texts": [
+                "The train should be here in ten minutes.",
+                "The train ought to be here in ten minutes."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to be"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to be"
+                ]
+            },
+            "reorder_groups": [
+                "The train",
+                "should be",
+                "here",
+                "in ten minutes."
+            ],
+            "token_groups": [
+                "The train",
+                "should be",
+                "here",
+                "in ten minutes."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "mvq-subtle-a2-g06",
+            "author_id": "A2-g06",
+            "question": "We {a1}; the film starts at eight.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Нам не потрібно поспішати: фільм починається о восьмій.",
+            "target_text": "We need not rush; the film starts at eight.",
+            "markers": {
+                "a1": {
+                    "answer": "need not rush",
+                    "options": [
+                        "need not rush",
+                        "must not rush",
+                        "need not rushing"
+                    ],
+                    "verb_hint": "Поспішати необов’язково; це не заборона поспішати."
+                }
+            },
+            "verb_hint": "Поспішати необов’язково; це не заборона поспішати.",
+            "accepted_target_texts": [
+                "We need not rush; the film starts at eight.",
+                "We needn't rush; the film starts at eight.",
+                "We do not need to rush; the film starts at eight.",
+                "We don't need to rush; the film starts at eight."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "needn't rush",
+                    "do not need to rush",
+                    "don't need to rush"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "needn't rush",
+                    "do not need to rush",
+                    "don't need to rush"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "need not rush;",
+                "the film",
+                "starts at eight."
+            ],
+            "token_groups": [
+                "We",
+                "need not rush;",
+                "the film",
+                "starts at eight."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "mvq-subtle-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Mia {a1} the answer to that riddle.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Мія цілком може знати відповідь на ту загадку.",
+            "target_text": "Mia may well know the answer to that riddle.",
+            "markers": {
+                "a1": {
+                    "answer": "may well know",
+                    "options": [
+                        "may well know",
+                        "must certainly know",
+                        "may as well know"
+                    ],
+                    "verb_hint": "Правдоподібне припущення про знання, не встановлений факт."
+                }
+            },
+            "verb_hint": "Правдоподібне припущення про знання, не встановлений факт.",
+            "accepted_target_texts": [
+                "Mia may well know the answer to that riddle.",
+                "Mia might well know the answer to that riddle.",
+                "Mia could well know the answer to that riddle."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might well know",
+                    "could well know"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might well know",
+                    "could well know"
+                ]
+            },
+            "reorder_groups": [
+                "Mia",
+                "may well know",
+                "the answer",
+                "to that riddle."
+            ],
+            "token_groups": [
+                "Mia",
+                "may well know",
+                "the answer",
+                "to that riddle."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "mvq-subtle-b1-g02",
+            "author_id": "B1-g02",
+            "question": "There is no bus until noon; we {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "До полудня автобуса немає, тож нам залишається хіба пообідати.",
+            "target_text": "There is no bus until noon; we might as well have lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "might as well have lunch",
+                    "options": [
+                        "might as well have lunch",
+                        "might well have lunch",
+                        "must have had lunch"
+                    ],
+                    "verb_hint": "Запропонуй практичне використання часу за браком кращої альтернативи."
+                }
+            },
+            "verb_hint": "Запропонуй практичне використання часу за браком кращої альтернативи.",
+            "accepted_target_texts": [
+                "There is no bus until noon; we might as well have lunch."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "no bus",
+                "until noon;",
+                "we",
+                "might as well",
+                "have lunch."
+            ],
+            "token_groups": [
+                "There is",
+                "no bus",
+                "until noon;",
+                "we",
+                "might as well",
+                "have lunch."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "mvq-subtle-b1-g03",
+            "author_id": "B1-g03",
+            "question": "Your proposal {a1} if everyone agrees.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Твоя пропозиція могла б спрацювати, якщо всі погодяться.",
+            "target_text": "Your proposal could work if everyone agrees.",
+            "markers": {
+                "a1": {
+                    "answer": "could work",
+                    "options": [
+                        "could work",
+                        "could working",
+                        "could to work"
+                    ],
+                    "verb_hint": "Обережно оціни можливий успіх за зазначеної умови."
+                }
+            },
+            "verb_hint": "Обережно оціни можливий успіх за зазначеної умови.",
+            "accepted_target_texts": [
+                "Your proposal could work if everyone agrees."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Your proposal",
+                "could work",
+                "if everyone",
+                "agrees."
+            ],
+            "token_groups": [
+                "Your proposal",
+                "could work",
+                "if everyone",
+                "agrees."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "mvq-subtle-b1-g04",
+            "author_id": "B1-g04",
+            "question": "I {a1} the price in public.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Я волів би не обговорювати ціну прилюдно.",
+            "target_text": "I would rather not discuss the price in public.",
+            "markers": {
+                "a1": {
+                    "answer": "would rather not discuss",
+                    "options": [
+                        "would rather not discuss",
+                        "would rather not discussing",
+                        "would not rather to discuss"
+                    ],
+                    "verb_hint": "Передай особисту перевагу утриматися від обговорення, не заборону іншим."
+                }
+            },
+            "verb_hint": "Передай особисту перевагу утриматися від обговорення, не заборону іншим.",
+            "accepted_target_texts": [
+                "I would rather not discuss the price in public."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "would rather",
+                "not discuss",
+                "the price",
+                "in public."
+            ],
+            "token_groups": [
+                "I",
+                "would rather",
+                "not discuss",
+                "the price",
+                "in public."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "mvq-subtle-b1-g05",
+            "author_id": "B1-g05",
+            "question": "It {a1} a loose cable, not a broken screen.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Можливо, це лише нещільно під’єднаний кабель, а не зламаний екран.",
+            "target_text": "It may just be a loose cable, not a broken screen.",
+            "markers": {
+                "a1": {
+                    "answer": "may just be",
+                    "options": [
+                        "may just be",
+                        "must definitely be",
+                        "may just being"
+                    ],
+                    "verb_hint": "Запропонуй простіше можливе пояснення, не підтверджений діагноз."
+                }
+            },
+            "verb_hint": "Запропонуй простіше можливе пояснення, не підтверджений діагноз.",
+            "accepted_target_texts": [
+                "It may just be a loose cable, not a broken screen.",
+                "It might just be a loose cable, not a broken screen."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might just be"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might just be"
+                ]
+            },
+            "reorder_groups": [
+                "It",
+                "may just be",
+                "a loose cable,",
+                "not a broken",
+                "screen."
+            ],
+            "token_groups": [
+                "It",
+                "may just be",
+                "a loose cable,",
+                "not a broken",
+                "screen."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "mvq-subtle-b1-g06",
+            "author_id": "B1-g06",
+            "question": "You {a1} an extra charger; there are three here.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Ти даремно приніс додатковий зарядний пристрій: тут уже є три.",
+            "target_text": "You need not have brought an extra charger; there are three here.",
+            "markers": {
+                "a1": {
+                    "answer": "need not have brought",
+                    "options": [
+                        "need not have brought",
+                        "must not have brought",
+                        "need not have bring"
+                    ],
+                    "verb_hint": "Пристрій уже принесли, хоча потреби не було; передай непотрібну виконану дію."
+                }
+            },
+            "verb_hint": "Пристрій уже принесли, хоча потреби не було; передай непотрібну виконану дію.",
+            "accepted_target_texts": [
+                "You need not have brought an extra charger; there are three here.",
+                "You needn't have brought an extra charger; there are three here."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "needn't have brought"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "needn't have brought"
+                ]
+            },
+            "reorder_groups": [
+                "You",
+                "need not have",
+                "brought",
+                "an extra charger;",
+                "there are",
+                "three here."
+            ],
+            "token_groups": [
+                "You",
+                "need not have",
+                "brought",
+                "an extra charger;",
+                "there are",
+                "three here."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "mvq-subtle-b2-g01",
+            "author_id": "B2-g01",
+            "question": "That delay {a1} the mismatch between the records.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Та затримка цілком може пояснювати розбіжність між записами.",
+            "target_text": "That delay may well explain the mismatch between the records.",
+            "markers": {
+                "a1": {
+                    "answer": "may well explain",
+                    "options": [
+                        "may well explain",
+                        "must conclusively explain",
+                        "may as well explain"
+                    ],
+                    "verb_hint": "Правдоподібна причина розбіжності, але ще не доведений факт."
+                }
+            },
+            "verb_hint": "Правдоподібна причина розбіжності, але ще не доведений факт.",
+            "accepted_target_texts": [
+                "That delay may well explain the mismatch between the records.",
+                "That delay might well explain the mismatch between the records.",
+                "That delay could well explain the mismatch between the records.",
+                "That delay may well account for the mismatch between the records.",
+                "That delay might well account for the mismatch between the records.",
+                "That delay could well account for the mismatch between the records."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might well explain",
+                    "could well explain",
+                    "may well account for",
+                    "might well account for",
+                    "could well account for"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might well explain",
+                    "could well explain",
+                    "may well account for",
+                    "might well account for",
+                    "could well account for"
+                ]
+            },
+            "reorder_groups": [
+                "That delay",
+                "may well explain",
+                "the mismatch",
+                "between the records."
+            ],
+            "token_groups": [
+                "That delay",
+                "may well explain",
+                "the mismatch",
+                "between the records."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "mvq-subtle-b2-g02",
+            "author_id": "B2-g02",
+            "question": "With no venue or speakers left, we {a1} this year's event.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Коли не лишилося ані місця, ані доповідачів, нам залишається хіба відмовитися від цьогорічного заходу.",
+            "target_text": "With no venue or speakers left, we might as well abandon this year's event.",
+            "markers": {
+                "a1": {
+                    "answer": "might as well abandon",
+                    "options": [
+                        "might as well abandon",
+                        "might well abandon",
+                        "must have abandoned"
+                    ],
+                    "verb_hint": "Вислови практичний висновок за браком життєздатної альтернативи."
+                }
+            },
+            "verb_hint": "Вислови практичний висновок за браком життєздатної альтернативи.",
+            "accepted_target_texts": [
+                "With no venue or speakers left, we might as well abandon this year's event."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "With no venue",
+                "or speakers left,",
+                "we",
+                "might as well",
+                "abandon",
+                "this year's event."
+            ],
+            "token_groups": [
+                "With no venue",
+                "or speakers left,",
+                "we",
+                "might as well",
+                "abandon",
+                "this year's event."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "mvq-subtle-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The clerk {a1} a warning covering the screen.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Не може бути, щоб службовець не помітив попередження на весь екран.",
+            "target_text": "The clerk cannot possibly have overlooked a warning covering the screen.",
+            "markers": {
+                "a1": {
+                    "answer": "cannot possibly have overlooked",
+                    "options": [
+                        "cannot possibly have overlooked",
+                        "may possibly have overlooked",
+                        "cannot possibly have overlook"
+                    ],
+                    "verb_hint": "Відкинь правдоподібність минулого недогляду через помітність попередження."
+                }
+            },
+            "verb_hint": "Відкинь правдоподібність минулого недогляду через помітність попередження.",
+            "accepted_target_texts": [
+                "The clerk cannot possibly have overlooked a warning covering the screen.",
+                "The clerk can't possibly have overlooked a warning covering the screen."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "can't possibly have overlooked"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "can't possibly have overlooked"
+                ]
+            },
+            "reorder_groups": [
+                "The clerk",
+                "cannot possibly",
+                "have overlooked",
+                "a warning",
+                "covering the screen."
+            ],
+            "token_groups": [
+                "The clerk",
+                "cannot possibly",
+                "have overlooked",
+                "a warning",
+                "covering the screen."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "mvq-subtle-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The proposal {a1} a way to reopen negotiations.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Можливо, ця пропозиція — лише спосіб відновити переговори.",
+            "target_text": "The proposal could just be a way to reopen negotiations.",
+            "markers": {
+                "a1": {
+                    "answer": "could just be",
+                    "options": [
+                        "could just be",
+                        "must definitely be",
+                        "could just being"
+                    ],
+                    "verb_hint": "Не відкидай простого можливого пояснення мотиву."
+                }
+            },
+            "verb_hint": "Не відкидай простого можливого пояснення мотиву.",
+            "accepted_target_texts": [
+                "The proposal could just be a way to reopen negotiations.",
+                "The proposal might just be a way to reopen negotiations.",
+                "The proposal may just be a way to reopen negotiations."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might just be",
+                    "may just be"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might just be",
+                    "may just be"
+                ]
+            },
+            "reorder_groups": [
+                "The proposal",
+                "could just be",
+                "a way",
+                "to reopen",
+                "negotiations."
+            ],
+            "token_groups": [
+                "The proposal",
+                "could just be",
+                "a way",
+                "to reopen",
+                "negotiations."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "mvq-subtle-b2-g05",
+            "author_id": "B2-g05",
+            "question": "I {a1} the schedule than omit the safety check.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Я радше переглянув би розклад, ніж пропустив перевірку безпеки.",
+            "target_text": "I would sooner revise the schedule than omit the safety check.",
+            "markers": {
+                "a1": {
+                    "answer": "would sooner revise",
+                    "options": [
+                        "would sooner revise",
+                        "would sooner revising",
+                        "would sooner to revise"
+                    ],
+                    "verb_hint": "Надай перевагу перегляду розкладу, а не пропуску перевірки."
+                }
+            },
+            "verb_hint": "Надай перевагу перегляду розкладу, а не пропуску перевірки.",
+            "accepted_target_texts": [
+                "I would sooner revise the schedule than omit the safety check."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "would sooner revise",
+                "the schedule",
+                "than omit",
+                "the safety check."
+            ],
+            "token_groups": [
+                "I",
+                "would sooner revise",
+                "the schedule",
+                "than omit",
+                "the safety check."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "mvq-subtle-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The team {a1} the initial survey.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "За очікуванням, команда вже мала завершити початкове обстеження.",
+            "target_text": "The team should by now have completed the initial survey.",
+            "markers": {
+                "a1": {
+                    "answer": "should by now have completed",
+                    "options": [
+                        "should by now have completed",
+                        "should by now have complete",
+                        "must by now has completed"
+                    ],
+                    "verb_hint": "Передай очікуваний результат до цього моменту, не стверджуй факту завершення."
+                }
+            },
+            "verb_hint": "Передай очікуваний результат до цього моменту, не стверджуй факту завершення.",
+            "accepted_target_texts": [
+                "The team should by now have completed the initial survey."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The team",
+                "should by now",
+                "have completed",
+                "the initial survey."
+            ],
+            "token_groups": [
+                "The team",
+                "should by now",
+                "have completed",
+                "the initial survey."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "mvq-subtle-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The assurance {a1} less reliable than expected.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Запевнення ще може виявитися менш надійним, ніж очікували.",
+            "target_text": "The assurance may yet prove less reliable than expected.",
+            "markers": {
+                "a1": {
+                    "answer": "may yet prove",
+                    "options": [
+                        "may yet prove",
+                        "must already prove",
+                        "may yet proving"
+                    ],
+                    "verb_hint": "Збережи можливість майбутнього повороту попри теперішні очікування."
+                }
+            },
+            "verb_hint": "Збережи можливість майбутнього повороту попри теперішні очікування.",
+            "accepted_target_texts": [
+                "The assurance may yet prove less reliable than expected.",
+                "The assurance might yet prove less reliable than expected.",
+                "The assurance could yet prove less reliable than expected."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might yet prove",
+                    "could yet prove"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might yet prove",
+                    "could yet prove"
+                ]
+            },
+            "reorder_groups": [
+                "The assurance",
+                "may yet prove",
+                "less reliable",
+                "than expected."
+            ],
+            "token_groups": [
+                "The assurance",
+                "may yet prove",
+                "less reliable",
+                "than expected."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "mvq-subtle-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The wording {a1} as a limited concession.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Це формулювання цілком можна обґрунтовано витлумачити як обмежену поступку.",
+            "target_text": "The wording might reasonably be read as a limited concession.",
+            "markers": {
+                "a1": {
+                    "answer": "might reasonably be read",
+                    "options": [
+                        "might reasonably be read",
+                        "might reasonably be reading",
+                        "must reasonably has read"
+                    ],
+                    "verb_hint": "Запропонуй обґрунтоване можливе тлумачення, не єдиний доведений зміст."
+                }
+            },
+            "verb_hint": "Запропонуй обґрунтоване можливе тлумачення, не єдиний доведений зміст.",
+            "accepted_target_texts": [
+                "The wording might reasonably be read as a limited concession.",
+                "The wording may reasonably be read as a limited concession.",
+                "The wording could reasonably be read as a limited concession."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "may reasonably be read",
+                    "could reasonably be read"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "may reasonably be read",
+                    "could reasonably be read"
+                ]
+            },
+            "reorder_groups": [
+                "The wording",
+                "might reasonably",
+                "be read",
+                "as a limited",
+                "concession."
+            ],
+            "token_groups": [
+                "The wording",
+                "might reasonably",
+                "be read",
+                "as a limited",
+                "concession."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "mvq-subtle-c1-g03",
+            "author_id": "C1-g03",
+            "question": "Such a discrepancy {a1} as rounding noise.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Таку розбіжність не можна просто відкинути як похибку округлення.",
+            "target_text": "Such a discrepancy cannot simply be dismissed as rounding noise.",
+            "markers": {
+                "a1": {
+                    "answer": "cannot simply be dismissed",
+                    "options": [
+                        "cannot simply be dismissed",
+                        "cannot simply being dismissed",
+                        "can simply be dismiss"
+                    ],
+                    "verb_hint": "Запереч можливість легковажно відмахнутися від розбіжності; потрібен пасив."
+                }
+            },
+            "verb_hint": "Запереч можливість легковажно відмахнутися від розбіжності; потрібен пасив.",
+            "accepted_target_texts": [
+                "Such a discrepancy cannot simply be dismissed as rounding noise.",
+                "Such a discrepancy can't simply be dismissed as rounding noise."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "can't simply be dismissed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "can't simply be dismissed"
+                ]
+            },
+            "reorder_groups": [
+                "Such a discrepancy",
+                "cannot simply",
+                "be dismissed",
+                "as rounding noise."
+            ],
+            "token_groups": [
+                "Such a discrepancy",
+                "cannot simply",
+                "be dismissed",
+                "as rounding noise."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "mvq-subtle-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The committee {a1} evidence from institutional preference.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Комітету було б розумно відрізняти докази від інституційної переваги.",
+            "target_text": "The committee would do well to distinguish evidence from institutional preference.",
+            "markers": {
+                "a1": {
+                    "answer": "would do well to distinguish",
+                    "options": [
+                        "would do well to distinguish",
+                        "would do good to distinguish",
+                        "would do well distinguishing"
+                    ],
+                    "verb_hint": "Порадь корисний крок без категоричного обов’язку; після оцінки дії потрібен інфінітив."
+                }
+            },
+            "verb_hint": "Порадь корисний крок без категоричного обов’язку; після оцінки дії потрібен інфінітив.",
+            "accepted_target_texts": [
+                "The committee would do well to distinguish evidence from institutional preference."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The committee",
+                "would do well",
+                "to distinguish",
+                "evidence from",
+                "institutional preference."
+            ],
+            "token_groups": [
+                "The committee",
+                "would do well",
+                "to distinguish",
+                "evidence from",
+                "institutional preference."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "mvq-subtle-c1-g05",
+            "author_id": "C1-g05",
+            "question": "With the central premise disproved, we {a1} this point.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Коли центральний засновок спростовано, нам залишається хіба визнати цей пункт.",
+            "target_text": "With the central premise disproved, we might as well concede this point.",
+            "markers": {
+                "a1": {
+                    "answer": "might as well concede",
+                    "options": [
+                        "might as well concede",
+                        "might well concede",
+                        "must have conceded"
+                    ],
+                    "verb_hint": "Передай практичне визнання позиції за браком переконливої альтернативи."
+                }
+            },
+            "verb_hint": "Передай практичне визнання позиції за браком переконливої альтернативи.",
+            "accepted_target_texts": [
+                "With the central premise disproved, we might as well concede this point."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "With the central",
+                "premise disproved,",
+                "we",
+                "might as well",
+                "concede",
+                "this point."
+            ],
+            "token_groups": [
+                "With the central",
+                "premise disproved,",
+                "we",
+                "might as well",
+                "concede",
+                "this point."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "mvq-subtle-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The contractor {a1} a second audit; the first remained valid.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Підрядник даремно замовив другий аудит: перший залишався чинним.",
+            "target_text": "The contractor need not have commissioned a second audit; the first remained valid.",
+            "markers": {
+                "a1": {
+                    "answer": "need not have commissioned",
+                    "options": [
+                        "need not have commissioned",
+                        "must not have commissioned",
+                        "need not have commission"
+                    ],
+                    "verb_hint": "Другий аудит уже замовили без потреби; не заперечуй факту замовлення."
+                }
+            },
+            "verb_hint": "Другий аудит уже замовили без потреби; не заперечуй факту замовлення.",
+            "accepted_target_texts": [
+                "The contractor need not have commissioned a second audit; the first remained valid.",
+                "The contractor needn't have commissioned a second audit; the first remained valid."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "needn't have commissioned"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "needn't have commissioned"
+                ]
+            },
+            "reorder_groups": [
+                "The contractor",
+                "need not have",
+                "commissioned",
+                "a second audit;",
+                "the first remained",
+                "valid."
+            ],
+            "token_groups": [
+                "The contractor",
+                "need not have",
+                "commissioned",
+                "a second audit;",
+                "the first remained",
+                "valid."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "mvq-subtle-c2-g01",
+            "author_id": "C2-g01",
+            "question": "A seemingly innocuous exclusion {a1} the counterfactual baseline.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "На позір невинне виключення все ж могло спотворити контрфактичну вихідну основу.",
+            "target_text": "A seemingly innocuous exclusion may nonetheless have distorted the counterfactual baseline.",
+            "markers": {
+                "a1": {
+                    "answer": "may nonetheless have distorted",
+                    "options": [
+                        "may nonetheless have distorted",
+                        "must nonetheless has distorted",
+                        "may nonetheless have distort"
+                    ],
+                    "verb_hint": "Попри зовнішню невинність припусти можливий минулий наслідок без певності."
+                }
+            },
+            "verb_hint": "Попри зовнішню невинність припусти можливий минулий наслідок без певності.",
+            "accepted_target_texts": [
+                "A seemingly innocuous exclusion may nonetheless have distorted the counterfactual baseline.",
+                "A seemingly innocuous exclusion might nonetheless have distorted the counterfactual baseline.",
+                "A seemingly innocuous exclusion could nonetheless have distorted the counterfactual baseline."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might nonetheless have distorted",
+                    "could nonetheless have distorted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might nonetheless have distorted",
+                    "could nonetheless have distorted"
+                ]
+            },
+            "reorder_groups": [
+                "A seemingly",
+                "innocuous exclusion",
+                "may nonetheless",
+                "have distorted",
+                "the counterfactual baseline."
+            ],
+            "token_groups": [
+                "A seemingly",
+                "innocuous exclusion",
+                "may nonetheless",
+                "have distorted",
+                "the counterfactual baseline."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "mvq-subtle-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The concession {a1} a deeper jurisdictional disagreement.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Можна припустити, що поступка приховує глибшу юрисдикційну розбіжність.",
+            "target_text": "The concession might conceivably conceal a deeper jurisdictional disagreement.",
+            "markers": {
+                "a1": {
+                    "answer": "might conceivably conceal",
+                    "options": [
+                        "might conceivably conceal",
+                        "must conclusively conceal",
+                        "might conceivably conceals"
+                    ],
+                    "verb_hint": "Лиши пояснення лише припустимим, а не правдоподібним доведеним висновком."
+                }
+            },
+            "verb_hint": "Лиши пояснення лише припустимим, а не правдоподібним доведеним висновком.",
+            "accepted_target_texts": [
+                "The concession might conceivably conceal a deeper jurisdictional disagreement.",
+                "The concession may conceivably conceal a deeper jurisdictional disagreement.",
+                "The concession could conceivably conceal a deeper jurisdictional disagreement."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "may conceivably conceal",
+                    "could conceivably conceal"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "may conceivably conceal",
+                    "could conceivably conceal"
+                ]
+            },
+            "reorder_groups": [
+                "The concession",
+                "might conceivably",
+                "conceal",
+                "a deeper",
+                "jurisdictional disagreement."
+            ],
+            "token_groups": [
+                "The concession",
+                "might conceivably",
+                "conceal",
+                "a deeper",
+                "jurisdictional disagreement."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "mvq-subtle-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The assurance {a1} as an unconditional guarantee.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Навряд чи це запевнення можна було б сприйняти як безумовну гарантію.",
+            "target_text": "The assurance could hardly be taken as an unconditional guarantee.",
+            "markers": {
+                "a1": {
+                    "answer": "could hardly be taken",
+                    "options": [
+                        "could hardly be taken",
+                        "could hardly being taken",
+                        "could hardly be take"
+                    ],
+                    "verb_hint": "Майже відкинь таке тлумачення через обережну заперечну оцінку; потрібен пасив."
+                }
+            },
+            "verb_hint": "Майже відкинь таке тлумачення через обережну заперечну оцінку; потрібен пасив.",
+            "accepted_target_texts": [
+                "The assurance could hardly be taken as an unconditional guarantee."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The assurance",
+                "could hardly",
+                "be taken",
+                "as an unconditional",
+                "guarantee."
+            ],
+            "token_groups": [
+                "The assurance",
+                "could hardly",
+                "be taken",
+                "as an unconditional",
+                "guarantee."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "mvq-subtle-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The tribunal {a1} the hearing than endorse a flawed inference.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Суд радше відновив би слухання, ніж підтримав хибний висновок.",
+            "target_text": "The tribunal would sooner reopen the hearing than endorse a flawed inference.",
+            "markers": {
+                "a1": {
+                    "answer": "would sooner reopen",
+                    "options": [
+                        "would sooner reopen",
+                        "would sooner reopening",
+                        "would sooner to reopen"
+                    ],
+                    "verb_hint": "Передай виразну перевагу однієї інституційної дії перед іншою."
+                }
+            },
+            "verb_hint": "Передай виразну перевагу однієї інституційної дії перед іншою.",
+            "accepted_target_texts": [
+                "The tribunal would sooner reopen the hearing than endorse a flawed inference."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The tribunal",
+                "would sooner reopen",
+                "the hearing",
+                "than endorse",
+                "a flawed inference."
+            ],
+            "token_groups": [
+                "The tribunal",
+                "would sooner reopen",
+                "the hearing",
+                "than endorse",
+                "a flawed inference."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "mvq-subtle-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The issue {a1} in a different procedural guise.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Питання ще може знову постати в іншій процесуальній формі.",
+            "target_text": "The issue may yet resurface in a different procedural guise.",
+            "markers": {
+                "a1": {
+                    "answer": "may yet resurface",
+                    "options": [
+                        "may yet resurface",
+                        "must already resurfaced",
+                        "may yet resurfacing"
+                    ],
+                    "verb_hint": "Збережи відкритою майбутню можливість повернення питання."
+                }
+            },
+            "verb_hint": "Збережи відкритою майбутню можливість повернення питання.",
+            "accepted_target_texts": [
+                "The issue may yet resurface in a different procedural guise.",
+                "The issue might yet resurface in a different procedural guise.",
+                "The issue could yet resurface in a different procedural guise."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "might yet resurface",
+                    "could yet resurface"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "might yet resurface",
+                    "could yet resurface"
+                ]
+            },
+            "reorder_groups": [
+                "The issue",
+                "may yet resurface",
+                "in a different",
+                "procedural guise."
+            ],
+            "token_groups": [
+                "The issue",
+                "may yet resurface",
+                "in a different",
+                "procedural guise."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "mvq-subtle-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The delegation {a1} the premise before scrutinising its implications.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_subtle_modal_meanings",
+            "translation_uk": "Делегація даремно визнала засновок, перш ніж перевірила його наслідки.",
+            "target_text": "The delegation need not have conceded the premise before scrutinising its implications.",
+            "markers": {
+                "a1": {
+                    "answer": "need not have conceded",
+                    "options": [
+                        "need not have conceded",
+                        "must not have conceded",
+                        "need not have concede"
+                    ],
+                    "verb_hint": "Засновок уже визнали без потреби; передай ретроспективну оцінку виконаної дії."
+                }
+            },
+            "verb_hint": "Засновок уже визнали без потреби; передай ретроспективну оцінку виконаної дії.",
+            "accepted_target_texts": [
+                "The delegation need not have conceded the premise before scrutinising its implications.",
+                "The delegation needn't have conceded the premise before scrutinising its implications."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "needn't have conceded"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "needn't have conceded"
+                ]
+            },
+            "reorder_groups": [
+                "The delegation",
+                "need not have",
+                "conceded",
+                "the premise",
+                "before scrutinising",
+                "its implications."
+            ],
+            "token_groups": [
+                "The delegation",
+                "need not have",
+                "conceded",
+                "the premise",
+                "before scrutinising",
+                "its implications."
+            ],
+            "quality_revision": "mvq-v1"
+        }
+    ]
+}

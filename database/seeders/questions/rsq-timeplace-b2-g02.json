@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66315,
+        "uuid": "rsq-timeplace-b2-g02",
+        "question": "The envoy said that the talks would resume {a1}.",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 62,
+        "source_id": 532,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechTimePlaceChangesQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "two days later",
+                "two days earlier",
+                "the day before"
+            ]
+        },
+        "theory_text_block_uuid": "74bcc2b8-fbaa-5065-8932-37743234726a",
+        "created_at": "2026-11-01T20:05:01.000000Z",
+        "updated_at": "2026-11-01T20:05:01.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 532,
+        "name": "Reported Speech Quality: Time and Place Changes",
+        "created_at": "2026-11-01T20:05:00.000000Z",
+        "updated_at": "2026-11-01T20:05:00.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 68698,
+                "option": "the day before",
+                "created_at": "2026-11-01T20:05:00.000000Z",
+                "updated_at": "2026-11-01T20:05:00.000000Z"
+            },
+            "pivot": {
+                "question_id": 66315,
+                "option_id": 68698,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68709,
+                "option": "two days earlier",
+                "created_at": "2026-11-01T20:05:00.000000Z",
+                "updated_at": "2026-11-01T20:05:00.000000Z"
+            },
+            "pivot": {
+                "question_id": 66315,
+                "option_id": 68709,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68711,
+                "option": "two days later",
+                "created_at": "2026-11-01T20:05:00.000000Z",
+                "updated_at": "2026-11-01T20:05:00.000000Z"
+            },
+            "pivot": {
+                "question_id": 66315,
+                "option_id": 68711,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 341219,
+                "question_id": 66315,
+                "marker": "a1",
+                "option_id": 68711,
+                "created_at": "2026-11-01T20:05:01.000000Z",
+                "updated_at": "2026-11-01T20:05:01.000000Z"
+            },
+            "option": {
+                "id": 68711,
+                "option": "two days later",
+                "created_at": "2026-11-01T20:05:00.000000Z",
+                "updated_at": "2026-11-01T20:05:00.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58553,
+                "question_id": 66315,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68734,
+                "created_at": "2026-11-01T20:05:01.000000Z",
+                "updated_at": "2026-11-01T20:05:01.000000Z"
+            },
+            "option": {
+                "id": 68734,
+                "option": "Два дні відраховуємо вперед від його минулих слів, не від нинішнього дня.",
+                "created_at": "2026-11-01T20:05:01.000000Z",
+                "updated_at": "2026-11-01T20:05:01.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58330,
+            "question_id": 66315,
+            "text": "The envoy said that the talks would resume {a1}.",
+            "created_at": "2026-11-01T20:05:01.000000Z",
+            "updated_at": "2026-11-01T20:05:01.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

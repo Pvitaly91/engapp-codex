@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66367,
+        "uuid": "rsq-saytell-b1-g06",
+        "question": "Did the mechanic {a1} you how much the repair would cost?",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 62,
+        "source_id": 533,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechSayTellAskQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "tell",
+                "say",
+                "ask for"
+            ]
+        },
+        "theory_text_block_uuid": "2ab6da7e-79fd-5048-be78-5bee9400128b",
+        "created_at": "2026-11-01T20:05:07.000000Z",
+        "updated_at": "2026-11-01T20:05:07.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 533,
+        "name": "Reported Speech Quality: Say, Tell and Ask",
+        "created_at": "2026-11-01T20:05:06.000000Z",
+        "updated_at": "2026-11-01T20:05:06.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 120,
+                "option": "tell",
+                "created_at": "2026-04-23T11:40:01.000000Z",
+                "updated_at": "2026-04-23T11:40:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 66367,
+                "option_id": 120,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2536,
+                "option": "say",
+                "created_at": "2026-04-23T14:18:07.000000Z",
+                "updated_at": "2026-04-23T14:18:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 66367,
+                "option_id": 2536,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68888,
+                "option": "ask for",
+                "created_at": "2026-11-01T20:05:07.000000Z",
+                "updated_at": "2026-11-01T20:05:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 66367,
+                "option_id": 68888,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 341326,
+                "question_id": 66367,
+                "marker": "a1",
+                "option_id": 120,
+                "created_at": "2026-11-01T20:05:07.000000Z",
+                "updated_at": "2026-11-01T20:05:07.000000Z"
+            },
+            "option": {
+                "id": 120,
+                "option": "tell",
+                "created_at": "2026-04-23T11:40:01.000000Z",
+                "updated_at": "2026-04-23T11:40:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58660,
+                "question_id": 66367,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68887,
+                "created_at": "2026-11-01T20:05:07.000000Z",
+                "updated_at": "2026-11-01T20:05:07.000000Z"
+            },
+            "option": {
+                "id": 68887,
+                "option": "Повідомити тобі; допоміжне дієслово зовнішнього питання вже наведено.",
+                "created_at": "2026-11-01T20:05:07.000000Z",
+                "updated_at": "2026-11-01T20:05:07.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58382,
+            "question_id": 66367,
+            "text": "Did the mechanic {a1} you how much the repair would cost?",
+            "created_at": "2026-11-01T20:05:07.000000Z",
+            "updated_at": "2026-11-01T20:05:07.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

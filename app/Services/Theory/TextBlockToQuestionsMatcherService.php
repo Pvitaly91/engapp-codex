@@ -35,6 +35,44 @@ class TextBlockToQuestionsMatcherService
         $linkedPractice = $this->linkedPracticeConfig($block);
 
         if (($linkedPractice['source'] ?? null) === 'theory_links') {
+            $excludeQuestionIds = \App\Support\M56BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M59BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M60BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M61BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M62BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M63BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M64BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M65BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M66BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M67BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M68BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M69BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M70BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M71BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M72BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M73BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M74BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M75BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M76BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M77BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M78BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M79BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M80BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M81BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M82BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M83BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M84BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M85BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M86BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M87BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M88BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M89BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M90BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M91BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M92BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M93BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\M94BuilderSelectionPresentation::exclusions($block, $linkedPractice, $excludeQuestionIds);
+            $excludeQuestionIds = \App\Support\ModalVerbsWidgetHints::exclusions($block, $linkedPractice, $excludeQuestionIds);
             return $this->loadExplicitlyLinkedQuestions(
                 $block,
                 $limit,
@@ -195,7 +233,9 @@ class TextBlockToQuestionsMatcherService
             $query->whereIn('questions.seeder', $seederClasses);
         }
 
-        if ($block->level && $this->hasQuestionLevelColumn()) {
+        // A native block may carry a display range such as A2–B1. Only an
+        // exact CEFR level is a question-bank filter; ranges are not stored levels.
+        if (preg_match('/^[ABC][12]$/', (string) $block->level) === 1 && $this->hasQuestionLevelColumn()) {
             $query->where('questions.level', $block->level);
         }
 

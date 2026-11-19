@@ -1,0 +1,292 @@
+{
+    "schema_version": 1,
+    "package": "vocabulary-collocations-native-practice-supplement",
+    "status": "frozen",
+    "source": {
+        "path": "docs/content/vocabulary-collocations-practice-source.v1.json",
+        "sha256": "fb9ffb21d64678fe0ff4c97cea3078507cdd7c56f69393b4b4215db8c34baf61"
+    },
+    "targets": [
+        {
+            "topic": "advanced-collocation-and-lexical-choice",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\VocabularyAndCollocations\\AdvancedCollocationAndLexicalChoiceTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/vocabulary-and-collocations/advanced-collocation-and-lexical-choice",
+            "definition": "database/seeders/Page_V3/VocabularyAndCollocations/AdvancedCollocationAndLexicalChoiceTheorySeeder/definition.json",
+            "definition_sha256": "32965ac481f18fa9701beb5946898fe8dd575003a98fa5fc0c5c7d8541ad043f",
+            "release": "database/content-patches/m38-m22-articles-collocations.v1.json",
+            "release_sha256": "2ed4141f775de86e6554409cfcc48feef08f84252cbf5fe3f92cb6ae3da572a3",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\VocabularyAndCollocations\\AdvancedCollocationAndLexicalChoiceTheorySeeder",
+                "locale": "uk",
+                "uuid": "bb18751c-6d38-54f1-bb5f-aa7b50db4e85",
+                "sort_order": 8,
+                "page_id": 316,
+                "page_category_id": 58,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C2",
+                "css_class": null,
+                "body_sha256": "8a18e03de6c617f5de469da6d1e969c45799301f66df8b612c5889b0f64b0629"
+            },
+            "design": {
+                "source_index": 7,
+                "uuid": "bb18751c-6d38-54f1-bb5f-aa7b50db4e85",
+                "sort_order": 8,
+                "body_sha256": "8a18e03de6c617f5de469da6d1e969c45799301f66df8b612c5889b0f64b0629",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 7,
+            "before_data_sha256": "8a18e03de6c617f5de469da6d1e969c45799301f66df8b612c5889b0f64b0629",
+            "after_data_sha256": "647821dd6be150c957d13679e103fb9f26c7e89d4ba5f7560def8a4dfa944a2e",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "a",
+                        "small difference"
+                    ],
+                    "condition_uk": "План — 1 000 одиниць, витрати — 1 002. Різницю прямо оцінено як малу й практично неважливу. Склади фразу та перевір статистичний висновок.",
+                    "hint_uk": "Потрібна мала, практично неважлива різниця; окремо не видавай описову оцінку за статистичний висновок."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "The team",
+                        "faces a challenge",
+                        "in using",
+                        "the cramped store.",
+                        "The note",
+                        "raises a question",
+                        "about storage",
+                        "but does not",
+                        "answer it.",
+                        "One dated invoice",
+                        "provides documentary evidence",
+                        "of the purchase,",
+                        "not a complete",
+                        "account of",
+                        "the object’s history."
+                    ],
+                    "condition_uk": "Команді важко користуватися тісним складом. Нотатка порушує питання зберігання без відповіді. Один датований рахунок свідчить про купівлю, а не повну історію предмета.",
+                    "hint_uk": "Збережи труднощі, не неможливість; питання без відповіді; один рахунок як свідчення купівлі, не доказ усієї історії."
+                }
+            ],
+            "added": [
+                {
+                    "id": "vcq-native-advanced-collocation-and-lexical-choice-gap-1",
+                    "kind": "gap",
+                    "condition": "The new testimony {a1} doubt on the witness's claim.",
+                    "answer": "casts",
+                    "accepted": [
+                        "casts",
+                        "throws"
+                    ],
+                    "hint_uk": "Передай поставлення під сумнів наведеного твердження; встав дієслово теперішнього часу, решту сполучення вже наведено.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "answer_display": "casts (throws)",
+                    "index": 2
+                },
+                {
+                    "id": "vcq-native-advanced-collocation-and-lexical-choice-gap-2",
+                    "kind": "gap",
+                    "condition": "Before authorising the loan, the bank carried out a thorough {a1} of the risks.",
+                    "answer": "assessment",
+                    "accepted": [
+                        "assessment",
+                        "evaluation",
+                        "appraisal",
+                        "analysis",
+                        "review",
+                        "examination"
+                    ],
+                    "hint_uk": "Оцінювання, аналіз або перегляд ризиків: потрібен іменник після вже наведеного прикметника; підмет не повторюй.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "answer_display": "assessment (evaluation / appraisal / analysis / review / examination)",
+                    "index": 3
+                },
+                {
+                    "id": "vcq-native-advanced-collocation-and-lexical-choice-translate-1",
+                    "kind": "translation",
+                    "condition": "Перед підписанням договору оренди орендар звернувся по юридичну пораду.",
+                    "answer": "Before signing the lease, the tenant sought legal advice.",
+                    "accepted": [
+                        "Before signing the lease, the tenant sought legal advice.",
+                        "Before signing the lease, the tenant sought legal counsel.",
+                        "Before signing the lease, the tenant requested legal advice.",
+                        "Before signing the lease, the tenant requested legal counsel.",
+                        "Before signing the lease, the tenant asked for legal advice.",
+                        "Before signing the lease, the tenant asked for legal counsel.",
+                        "Before signing the lease, the renter sought legal advice.",
+                        "Before signing the lease, the renter sought legal counsel.",
+                        "Before signing the lease, the renter requested legal advice.",
+                        "Before signing the lease, the renter requested legal counsel.",
+                        "Before signing the lease, the renter asked for legal advice.",
+                        "Before signing the lease, the renter asked for legal counsel.",
+                        "Before signing the rental agreement, the tenant sought legal advice.",
+                        "Before signing the rental agreement, the tenant sought legal counsel.",
+                        "Before signing the rental agreement, the tenant requested legal advice.",
+                        "Before signing the rental agreement, the tenant requested legal counsel.",
+                        "Before signing the rental agreement, the tenant asked for legal advice.",
+                        "Before signing the rental agreement, the tenant asked for legal counsel.",
+                        "Before signing the rental agreement, the renter sought legal advice.",
+                        "Before signing the rental agreement, the renter sought legal counsel.",
+                        "Before signing the rental agreement, the renter requested legal advice.",
+                        "Before signing the rental agreement, the renter requested legal counsel.",
+                        "Before signing the rental agreement, the renter asked for legal advice.",
+                        "Before signing the rental agreement, the renter asked for legal counsel."
+                    ],
+                    "hint_uk": "Почни з дії перед підписанням; орендар просив поради, але її одержання тут не встановлене.",
+                    "ordered_groups": [
+                        "Before signing",
+                        "the lease,",
+                        "the tenant",
+                        "sought legal advice."
+                    ],
+                    "shuffled_groups": [
+                        "the tenant",
+                        "Before signing",
+                        "the lease,",
+                        "sought legal advice."
+                    ],
+                    "token_labels": {
+                        "sought legal advice.": "sought legal advice (asked for legal advice)",
+                        "the tenant": "the tenant (the renter)",
+                        "the lease,": "the lease (the rental agreement)"
+                    },
+                    "answer_display": null,
+                    "index": 4
+                },
+                {
+                    "id": "vcq-native-advanced-collocation-and-lexical-choice-translate-2",
+                    "kind": "translation",
+                    "condition": "Експерти дійшли згоди щодо основних причин витоку.",
+                    "answer": "The experts reached agreement on the main causes of the leak.",
+                    "accepted": [
+                        "The experts reached agreement on the main causes of the leak.",
+                        "The experts reached agreement on the main reasons for the leak.",
+                        "The experts reached agreement on the principal causes of the leak.",
+                        "The experts reached agreement on the principal reasons for the leak.",
+                        "The experts reached agreement on the primary causes of the leak.",
+                        "The experts reached agreement on the primary reasons for the leak.",
+                        "The experts reached an agreement on the main causes of the leak.",
+                        "The experts reached an agreement on the main reasons for the leak.",
+                        "The experts reached an agreement on the principal causes of the leak.",
+                        "The experts reached an agreement on the principal reasons for the leak.",
+                        "The experts reached an agreement on the primary causes of the leak.",
+                        "The experts reached an agreement on the primary reasons for the leak.",
+                        "The experts came to an agreement on the main causes of the leak.",
+                        "The experts came to an agreement on the main reasons for the leak.",
+                        "The experts came to an agreement on the principal causes of the leak.",
+                        "The experts came to an agreement on the principal reasons for the leak.",
+                        "The experts came to an agreement on the primary causes of the leak.",
+                        "The experts came to an agreement on the primary reasons for the leak.",
+                        "The experts reached consensus on the main causes of the leak.",
+                        "The experts reached consensus on the main reasons for the leak.",
+                        "The experts reached consensus on the principal causes of the leak.",
+                        "The experts reached consensus on the principal reasons for the leak.",
+                        "The experts reached consensus on the primary causes of the leak.",
+                        "The experts reached consensus on the primary reasons for the leak.",
+                        "The experts reached a consensus on the main causes of the leak.",
+                        "The experts reached a consensus on the main reasons for the leak.",
+                        "The experts reached a consensus on the principal causes of the leak.",
+                        "The experts reached a consensus on the principal reasons for the leak.",
+                        "The experts reached a consensus on the primary causes of the leak.",
+                        "The experts reached a consensus on the primary reasons for the leak.",
+                        "The experts agreed on the main causes of the leak.",
+                        "The experts agreed on the main reasons for the leak.",
+                        "The experts agreed on the principal causes of the leak.",
+                        "The experts agreed on the principal reasons for the leak.",
+                        "The experts agreed on the primary causes of the leak.",
+                        "The experts agreed on the primary reasons for the leak.",
+                        "The specialists reached agreement on the main causes of the leak.",
+                        "The specialists reached agreement on the main reasons for the leak.",
+                        "The specialists reached agreement on the principal causes of the leak.",
+                        "The specialists reached agreement on the principal reasons for the leak.",
+                        "The specialists reached agreement on the primary causes of the leak.",
+                        "The specialists reached agreement on the primary reasons for the leak.",
+                        "The specialists reached an agreement on the main causes of the leak.",
+                        "The specialists reached an agreement on the main reasons for the leak.",
+                        "The specialists reached an agreement on the principal causes of the leak.",
+                        "The specialists reached an agreement on the principal reasons for the leak.",
+                        "The specialists reached an agreement on the primary causes of the leak.",
+                        "The specialists reached an agreement on the primary reasons for the leak.",
+                        "The specialists came to an agreement on the main causes of the leak.",
+                        "The specialists came to an agreement on the main reasons for the leak.",
+                        "The specialists came to an agreement on the principal causes of the leak.",
+                        "The specialists came to an agreement on the principal reasons for the leak.",
+                        "The specialists came to an agreement on the primary causes of the leak.",
+                        "The specialists came to an agreement on the primary reasons for the leak.",
+                        "The specialists reached consensus on the main causes of the leak.",
+                        "The specialists reached consensus on the main reasons for the leak.",
+                        "The specialists reached consensus on the principal causes of the leak.",
+                        "The specialists reached consensus on the principal reasons for the leak.",
+                        "The specialists reached consensus on the primary causes of the leak.",
+                        "The specialists reached consensus on the primary reasons for the leak.",
+                        "The specialists reached a consensus on the main causes of the leak.",
+                        "The specialists reached a consensus on the main reasons for the leak.",
+                        "The specialists reached a consensus on the principal causes of the leak.",
+                        "The specialists reached a consensus on the principal reasons for the leak.",
+                        "The specialists reached a consensus on the primary causes of the leak.",
+                        "The specialists reached a consensus on the primary reasons for the leak.",
+                        "The specialists agreed on the main causes of the leak.",
+                        "The specialists agreed on the main reasons for the leak.",
+                        "The specialists agreed on the principal causes of the leak.",
+                        "The specialists agreed on the principal reasons for the leak.",
+                        "The specialists agreed on the primary causes of the leak.",
+                        "The specialists agreed on the primary reasons for the leak."
+                    ],
+                    "hint_uk": "Почни з експертів; вони погодилися щодо причин конкретного витоку, не обов’язково усунули його.",
+                    "ordered_groups": [
+                        "The experts",
+                        "reached agreement",
+                        "on the",
+                        "main causes",
+                        "of the leak."
+                    ],
+                    "shuffled_groups": [
+                        "on the",
+                        "of the leak.",
+                        "main causes",
+                        "The experts",
+                        "reached agreement"
+                    ],
+                    "token_labels": {
+                        "main causes": "main causes (principal causes)",
+                        "reached agreement": "reached agreement (agreed)",
+                        "The experts": "The experts (the specialists)"
+                    },
+                    "answer_display": null,
+                    "index": 5
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": {
+                    "of the purchase,": "of the purchase, (of the purchase but)"
+                },
+                "4": {
+                    "sought legal advice.": "sought legal advice (asked for legal advice)",
+                    "the tenant": "the tenant (the renter)",
+                    "the lease,": "the lease (the rental agreement)"
+                },
+                "5": {
+                    "main causes": "main causes (principal causes)",
+                    "reached agreement": "reached agreement (agreed)",
+                    "The experts": "The experts (the specialists)"
+                }
+            }
+        }
+    ]
+}

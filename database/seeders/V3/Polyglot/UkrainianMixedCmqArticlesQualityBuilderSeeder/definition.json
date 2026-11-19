@@ -1,0 +1,1289 @@
+{
+    "schema_version": 1,
+    "quality_revision": "cmq-v1",
+    "compiled_from": {
+        "path": "docs/content/common-mistakes-quality/articles-common-mistakes.v1.json",
+        "sha256": "da7a1fb15595ff0d73b80a2287ffb582b9b371a840292cd6736ff9cf5e2a8c2c"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedCmqArticlesQualityBuilderSeeder",
+        "uuid_namespace": "common-mistakes-quality-articles-common-mistakes-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "common_mistakes_quality_articles_common_mistakes": {
+            "name": "Common Mistakes Quality: Articles: Common Mistakes"
+        }
+    },
+    "tags": {
+        "common_mistakes_articles_common_mistakes_all_levels": {
+            "name": "common mistakes articles common mistakes all levels",
+            "category": "common_mistakes"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "a_an": {
+            "name": "A An",
+            "category": "topic"
+        },
+        "an_vowel_sound": {
+            "name": "An Vowel Sound",
+            "category": "topic"
+        },
+        "the_specific": {
+            "name": "The Specific",
+            "category": "topic"
+        },
+        "zero_general_plural": {
+            "name": "Zero General Plural",
+            "category": "topic"
+        },
+        "zero_uncountable": {
+            "name": "Zero Uncountable",
+            "category": "topic"
+        },
+        "first_second_mention": {
+            "name": "First Second Mention",
+            "category": "topic"
+        },
+        "generic_reference": {
+            "name": "Generic Reference",
+            "category": "topic"
+        },
+        "jobs_roles": {
+            "name": "Jobs Roles",
+            "category": "topic"
+        },
+        "geographical_names": {
+            "name": "Geographical Names",
+            "category": "topic"
+        },
+        "fixed_expressions": {
+            "name": "Fixed Expressions",
+            "category": "topic"
+        },
+        "overusing_the": {
+            "name": "Overusing The",
+            "category": "topic"
+        },
+        "missing_article": {
+            "name": "Missing Article",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_common_mistakes_articles_common_mistakes_all_levels": {
+            "name": "Articles: Common Mistakes",
+            "category": "common_mistakes"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cmq-articles-a1-c01",
+            "author_id": "A1-c01",
+            "question": "У Ліди є синя сумка.",
+            "level": "A1",
+            "type": 4,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "У Ліди є синя сумка.",
+            "target_text": "Lida has a blue bag.",
+            "markers": {
+                "a1": {
+                    "answer": "Lida",
+                    "verb_hint": "Почни з імені; назви одну сумку без попередньої згадки.",
+                    "options": [
+                        "Lida",
+                        "Danylo",
+                        "Sofiia",
+                        "Nazar"
+                    ]
+                },
+                "a2": {
+                    "answer": "has",
+                    "verb_hint": "Почни з імені; назви одну сумку без попередньої згадки.",
+                    "options": [
+                        "has",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Почни з імені; назви одну сумку без попередньої згадки.",
+                    "options": [
+                        "a",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "blue",
+                    "verb_hint": "Почни з імені; назви одну сумку без попередньої згадки.",
+                    "options": [
+                        "blue",
+                        "orange",
+                        "red",
+                        "green"
+                    ]
+                },
+                "a5": {
+                    "answer": "bag.",
+                    "verb_hint": "Почни з імені; назви одну сумку без попередньої згадки.",
+                    "options": [
+                        "bag",
+                        "dog",
+                        "room",
+                        "cup"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з імені; назви одну сумку без попередньої згадки.",
+            "accepted_target_texts": [
+                "Lida has a blue bag.",
+                "Lida has a blue handbag."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "handbag."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "handbag."
+                ]
+            },
+            "reorder_groups": [
+                "Lida",
+                "has",
+                "a blue bag."
+            ],
+            "token_groups": [
+                "Lida",
+                "has",
+                "a blue bag."
+            ],
+            "quality_revision": "cmq-v1",
+            "tokens_correct": [
+                "Lida",
+                "has",
+                "a",
+                "blue",
+                "bag."
+            ],
+            "options": [
+                "Lida",
+                "Danylo",
+                "Sofiia",
+                "Nazar",
+                "has",
+                "does",
+                "did",
+                "don't",
+                "a",
+                "each",
+                "every",
+                "no",
+                "blue",
+                "orange",
+                "red",
+                "green",
+                "bag",
+                "dog",
+                "room",
+                "cup"
+            ],
+            "source_text_uk": "У Ліди є синя сумка.",
+            "options_by_marker": {
+                "a1": [
+                    "Lida",
+                    "Danylo",
+                    "Sofiia",
+                    "Nazar"
+                ],
+                "a2": [
+                    "has",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a3": [
+                    "a",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "blue",
+                    "orange",
+                    "red",
+                    "green"
+                ],
+                "a5": [
+                    "bag",
+                    "dog",
+                    "room",
+                    "cup"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "transitive_verb",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "cmq-articles-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Ми живемо біля якогось аеропорту.",
+            "level": "A2",
+            "type": 4,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Ми живемо біля якогось аеропорту.",
+            "target_text": "We live near an airport.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з нас; уперше згадай один невизначений аеропорт.",
+                    "options": [
+                        "We",
+                        "Themselves",
+                        "I",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "live",
+                    "verb_hint": "Почни з нас; уперше згадай один невизначений аеропорт.",
+                    "options": [
+                        "live",
+                        "sad",
+                        "easy",
+                        "difficult"
+                    ]
+                },
+                "a3": {
+                    "answer": "near",
+                    "verb_hint": "Почни з нас; уперше згадай один невизначений аеропорт.",
+                    "options": [
+                        "near",
+                        "through",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a4": {
+                    "answer": "an",
+                    "verb_hint": "Почни з нас; уперше згадай один невизначений аеропорт.",
+                    "options": [
+                        "an",
+                        "the",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a5": {
+                    "answer": "airport.",
+                    "verb_hint": "Почни з нас; уперше згадай один невизначений аеропорт.",
+                    "options": [
+                        "airport",
+                        "music",
+                        "food",
+                        "bike"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з нас; уперше згадай один невизначений аеропорт.",
+            "accepted_target_texts": [
+                "We live near an airport.",
+                "We live close to an airport."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "live",
+                "near",
+                "an airport."
+            ],
+            "token_groups": [
+                "We",
+                "live",
+                "near",
+                "an airport."
+            ],
+            "quality_revision": "cmq-v1",
+            "tokens_correct": [
+                "We",
+                "live",
+                "near",
+                "an",
+                "airport."
+            ],
+            "options": [
+                "We",
+                "Themselves",
+                "I",
+                "You",
+                "live",
+                "sad",
+                "easy",
+                "difficult",
+                "near",
+                "through",
+                "in",
+                "on",
+                "an",
+                "the",
+                "some",
+                "any",
+                "airport",
+                "music",
+                "food",
+                "bike"
+            ],
+            "source_text_uk": "Ми живемо біля якогось аеропорту.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Themselves",
+                    "I",
+                    "You"
+                ],
+                "a2": [
+                    "live",
+                    "sad",
+                    "easy",
+                    "difficult"
+                ],
+                "a3": [
+                    "near",
+                    "through",
+                    "in",
+                    "on"
+                ],
+                "a4": [
+                    "an",
+                    "the",
+                    "some",
+                    "any"
+                ],
+                "a5": [
+                    "airport",
+                    "music",
+                    "food",
+                    "bike"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "base_intransitive_verb",
+                "a3": "preposition_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "cmq-articles-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Таня грає на скрипці щовечора.",
+            "level": "B1",
+            "type": 4,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Таня грає на скрипці щовечора.",
+            "target_text": "Tania plays the violin every evening.",
+            "markers": {
+                "a1": {
+                    "answer": "Tania",
+                    "verb_hint": "Почни з імені; назви інструмент і регулярний час.",
+                    "options": [
+                        "Tania",
+                        "Sofiia",
+                        "Oleh",
+                        "Nina"
+                    ]
+                },
+                "a2": {
+                    "answer": "plays",
+                    "verb_hint": "Почни з імені; назви інструмент і регулярний час.",
+                    "options": [
+                        "plays",
+                        "uses",
+                        "likes",
+                        "buys"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з імені; назви інструмент і регулярний час.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a4": {
+                    "answer": "violin",
+                    "verb_hint": "Почни з імені; назви інструмент і регулярний час.",
+                    "options": [
+                        "violin",
+                        "phone",
+                        "train",
+                        "bus"
+                    ]
+                },
+                "a5": {
+                    "answer": "every",
+                    "verb_hint": "Почни з імені; назви інструмент і регулярний час.",
+                    "options": [
+                        "every",
+                        "those",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a6": {
+                    "answer": "evening.",
+                    "verb_hint": "Почни з імені; назви інструмент і регулярний час.",
+                    "options": [
+                        "evening",
+                        "month",
+                        "year",
+                        "hour"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з імені; назви інструмент і регулярний час.",
+            "accepted_target_texts": [
+                "Tania plays the violin every evening.",
+                "Tania plays the violin each evening.",
+                "Tania plays violin every evening.",
+                "Tania plays violin each evening."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "each"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "each"
+                ]
+            },
+            "reorder_groups": [
+                "Tania",
+                "plays",
+                "the violin",
+                "every evening."
+            ],
+            "token_groups": [
+                "Tania",
+                "plays",
+                "the violin",
+                "every evening."
+            ],
+            "quality_revision": "cmq-v1",
+            "tokens_correct": [
+                "Tania",
+                "plays",
+                "the",
+                "violin",
+                "every",
+                "evening."
+            ],
+            "options": [
+                "Tania",
+                "Sofiia",
+                "Oleh",
+                "Nina",
+                "plays",
+                "uses",
+                "likes",
+                "buys",
+                "the",
+                "this",
+                "that",
+                "these",
+                "violin",
+                "phone",
+                "train",
+                "bus",
+                "every",
+                "those",
+                "no",
+                "another",
+                "evening",
+                "month",
+                "year",
+                "hour"
+            ],
+            "source_text_uk": "Таня грає на скрипці щовечора.",
+            "options_by_marker": {
+                "a1": [
+                    "Tania",
+                    "Sofiia",
+                    "Oleh",
+                    "Nina"
+                ],
+                "a2": [
+                    "plays",
+                    "uses",
+                    "likes",
+                    "buys"
+                ],
+                "a3": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a4": [
+                    "violin",
+                    "phone",
+                    "train",
+                    "bus"
+                ],
+                "a5": [
+                    "every",
+                    "those",
+                    "no",
+                    "another"
+                ],
+                "a6": [
+                    "evening",
+                    "month",
+                    "year",
+                    "hour"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "transitive_verb",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "adverbial_phrase",
+                "a6": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "cmq-articles-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Потерпілі отримали медичну допомогу.",
+            "level": "B2",
+            "type": 4,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Потерпілі отримали медичну допомогу.",
+            "target_text": "The injured received medical help.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з групи постраждалих; передай її прикметником з артиклем.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "injured",
+                    "verb_hint": "Почни з групи постраждалих; передай її прикметником з артиклем.",
+                    "options": [
+                        "injured",
+                        "garden",
+                        "said",
+                        "met"
+                    ]
+                },
+                "a3": {
+                    "answer": "received",
+                    "verb_hint": "Почни з групи постраждалих; передай її прикметником з артиклем.",
+                    "options": [
+                        "received",
+                        "checked",
+                        "chose",
+                        "opened"
+                    ]
+                },
+                "a4": {
+                    "answer": "medical",
+                    "verb_hint": "Почни з групи постраждалих; передай її прикметником з артиклем.",
+                    "options": [
+                        "medical",
+                        "cold",
+                        "old",
+                        "new"
+                    ]
+                },
+                "a5": {
+                    "answer": "help.",
+                    "verb_hint": "Почни з групи постраждалих; передай її прикметником з артиклем.",
+                    "options": [
+                        "help",
+                        "like",
+                        "know",
+                        "want"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з групи постраждалих; передай її прикметником з артиклем.",
+            "accepted_target_texts": [
+                "The injured received medical help.",
+                "The injured received medical assistance.",
+                "The injured received medical care.",
+                "The injured got medical help.",
+                "The injured got medical assistance.",
+                "The injured got medical care."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "assistance.",
+                    "care."
+                ],
+                "a3": [
+                    "got"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "assistance.",
+                    "care."
+                ],
+                "a3": [
+                    "got"
+                ]
+            },
+            "reorder_groups": [
+                "The injured",
+                "received",
+                "medical help."
+            ],
+            "token_groups": [
+                "The injured",
+                "received",
+                "medical help."
+            ],
+            "quality_revision": "cmq-v1",
+            "tokens_correct": [
+                "The",
+                "injured",
+                "received",
+                "medical",
+                "help."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "injured",
+                "garden",
+                "said",
+                "met",
+                "received",
+                "checked",
+                "chose",
+                "opened",
+                "medical",
+                "cold",
+                "old",
+                "new",
+                "help",
+                "like",
+                "know",
+                "want"
+            ],
+            "source_text_uk": "Потерпілі отримали медичну допомогу.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "injured",
+                    "garden",
+                    "said",
+                    "met"
+                ],
+                "a3": [
+                    "received",
+                    "checked",
+                    "chose",
+                    "opened"
+                ],
+                "a4": [
+                    "medical",
+                    "cold",
+                    "old",
+                    "new"
+                ],
+                "a5": [
+                    "help",
+                    "like",
+                    "know",
+                    "want"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun_phrase",
+                "a2": "noun_phrase",
+                "a3": "past_verb_phrase",
+                "a4": "bare_noun_phrase",
+                "a5": "bare_noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "cmq-articles-c1-c01",
+            "author_id": "C1-c01",
+            "question": "У вересні вона стала директоркою школи.",
+            "level": "C1",
+            "type": 4,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "У вересні вона стала директоркою школи.",
+            "target_text": "She became head of the school in September.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Почни з жінки; назви набуту посаду, школу й місяць.",
+                    "options": [
+                        "She",
+                        "Themselves",
+                        "I",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "became",
+                    "verb_hint": "Почни з жінки; назви набуту посаду, школу й місяць.",
+                    "options": [
+                        "became",
+                        "remained",
+                        "worked",
+                        "played"
+                    ]
+                },
+                "a3": {
+                    "answer": "head",
+                    "verb_hint": "Почни з жінки; назви набуту посаду, школу й місяць.",
+                    "options": [
+                        "head",
+                        "basket",
+                        "bottle",
+                        "camera"
+                    ]
+                },
+                "a4": {
+                    "answer": "of",
+                    "verb_hint": "Почни з жінки; назви набуту посаду, школу й місяць.",
+                    "options": [
+                        "of",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з жінки; назви набуту посаду, школу й місяць.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a6": {
+                    "answer": "school",
+                    "verb_hint": "Почни з жінки; назви набуту посаду, школу й місяць.",
+                    "options": [
+                        "school",
+                        "room",
+                        "book",
+                        "plan"
+                    ]
+                },
+                "a7": {
+                    "answer": "in",
+                    "verb_hint": "Почни з жінки; назви набуту посаду, школу й місяць.",
+                    "options": [
+                        "in",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a8": {
+                    "answer": "September.",
+                    "verb_hint": "Почни з жінки; назви набуту посаду, школу й місяць.",
+                    "options": [
+                        "September",
+                        "Chair",
+                        "Table",
+                        "Ticket"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з жінки; назви набуту посаду, школу й місяць.",
+            "accepted_target_texts": [
+                "She became head of the school in September.",
+                "She became the head of the school in September."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She",
+                "became",
+                "head",
+                "of the school",
+                "in September."
+            ],
+            "token_groups": [
+                "She",
+                "became",
+                "head",
+                "of the school",
+                "in September."
+            ],
+            "quality_revision": "cmq-v1",
+            "tokens_correct": [
+                "She",
+                "became",
+                "head",
+                "of",
+                "the",
+                "school",
+                "in",
+                "September."
+            ],
+            "options": [
+                "She",
+                "Themselves",
+                "I",
+                "You",
+                "became",
+                "remained",
+                "worked",
+                "played",
+                "head",
+                "basket",
+                "bottle",
+                "camera",
+                "of",
+                "under",
+                "through",
+                "across",
+                "the",
+                "each",
+                "every",
+                "no",
+                "school",
+                "room",
+                "book",
+                "plan",
+                "in",
+                "among",
+                "about",
+                "during",
+                "September",
+                "Chair",
+                "Table",
+                "Ticket"
+            ],
+            "source_text_uk": "У вересні вона стала директоркою школи.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "Themselves",
+                    "I",
+                    "You"
+                ],
+                "a2": [
+                    "became",
+                    "remained",
+                    "worked",
+                    "played"
+                ],
+                "a3": [
+                    "head",
+                    "basket",
+                    "bottle",
+                    "camera"
+                ],
+                "a4": [
+                    "of",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a5": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a6": [
+                    "school",
+                    "room",
+                    "book",
+                    "plan"
+                ],
+                "a7": [
+                    "in",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a8": [
+                    "September",
+                    "Chair",
+                    "Table",
+                    "Ticket"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "linking_verb",
+                "a3": "noun_singular",
+                "a4": "noun_complement_phrase",
+                "a5": "noun_complement_phrase",
+                "a6": "noun_complement_phrase",
+                "a7": "closed_prepositional_phrase",
+                "a8": "closed_prepositional_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "cmq-articles-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Він не стільки дослідник, скільки вправний популяризатор.",
+            "level": "C2",
+            "type": 4,
+            "source": "common_mistakes_quality_articles_common_mistakes",
+            "translation_uk": "Він не стільки дослідник, скільки вправний популяризатор.",
+            "target_text": "He is less a researcher than a skilled populariser.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Почни з чоловіка; зістав дві ролі через конструкцію меншою мірою одне, ніж інше.",
+                    "options": [
+                        "He",
+                        "She",
+                        "It",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Почни з чоловіка; зістав дві ролі через конструкцію меншою мірою одне, ніж інше.",
+                    "options": [
+                        "is",
+                        "weren't",
+                        "am",
+                        "are"
+                    ]
+                },
+                "a3": {
+                    "answer": "less",
+                    "verb_hint": "Почни з чоловіка; зістав дві ролі через конструкцію меншою мірою одне, ніж інше.",
+                    "options": [
+                        "less",
+                        "happy",
+                        "sad",
+                        "easy"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Почни з чоловіка; зістав дві ролі через конструкцію меншою мірою одне, ніж інше.",
+                    "options": [
+                        "a",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a5": {
+                    "answer": "researcher",
+                    "verb_hint": "Почни з чоловіка; зістав дві ролі через конструкцію меншою мірою одне, ніж інше.",
+                    "options": [
+                        "researcher",
+                        "water",
+                        "bread",
+                        "milk"
+                    ]
+                },
+                "a6": {
+                    "answer": "than",
+                    "verb_hint": "Почни з чоловіка; зістав дві ролі через конструкцію меншою мірою одне, ніж інше.",
+                    "options": [
+                        "than",
+                        "so",
+                        "since",
+                        "because"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Почни з чоловіка; зістав дві ролі через конструкцію меншою мірою одне, ніж інше.",
+                    "options": [
+                        "a",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a8": {
+                    "answer": "skilled",
+                    "verb_hint": "Почни з чоловіка; зістав дві ролі через конструкцію меншою мірою одне, ніж інше.",
+                    "options": [
+                        "skilled",
+                        "green",
+                        "red",
+                        "worked"
+                    ]
+                },
+                "a9": {
+                    "answer": "populariser.",
+                    "verb_hint": "Почни з чоловіка; зістав дві ролі через конструкцію меншою мірою одне, ніж інше.",
+                    "options": [
+                        "populariser",
+                        "coat",
+                        "cup",
+                        "box"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з чоловіка; зістав дві ролі через конструкцію меншою мірою одне, ніж інше.",
+            "accepted_target_texts": [
+                "He is less a researcher than a skilled populariser.",
+                "He is less a researcher than a skilled popularizer.",
+                "He is less a researcher than an able populariser.",
+                "He is less a researcher than an able popularizer.",
+                "He is less a scholar than a skilled populariser.",
+                "He is less a scholar than a skilled popularizer.",
+                "He is less a scholar than an able populariser.",
+                "He is less a scholar than an able popularizer."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "popularizer."
+                ],
+                "a7": [
+                    "an"
+                ],
+                "a8": [
+                    "able"
+                ],
+                "a5": [
+                    "scholar"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "popularizer."
+                ],
+                "a7": [
+                    "an"
+                ],
+                "a8": [
+                    "able"
+                ],
+                "a5": [
+                    "scholar"
+                ]
+            },
+            "reorder_groups": [
+                "He",
+                "is less",
+                "a researcher",
+                "than",
+                "a skilled populariser."
+            ],
+            "token_groups": [
+                "He",
+                "is less",
+                "a researcher",
+                "than",
+                "a skilled populariser."
+            ],
+            "quality_revision": "cmq-v1",
+            "tokens_correct": [
+                "He",
+                "is",
+                "less",
+                "a",
+                "researcher",
+                "than",
+                "a",
+                "skilled",
+                "populariser."
+            ],
+            "options": [
+                "He",
+                "She",
+                "It",
+                "We",
+                "is",
+                "weren't",
+                "am",
+                "are",
+                "less",
+                "happy",
+                "sad",
+                "easy",
+                "a",
+                "this",
+                "that",
+                "these",
+                "researcher",
+                "water",
+                "bread",
+                "milk",
+                "than",
+                "so",
+                "since",
+                "because",
+                "those",
+                "each",
+                "every",
+                "skilled",
+                "green",
+                "red",
+                "worked",
+                "populariser",
+                "coat",
+                "cup",
+                "box"
+            ],
+            "source_text_uk": "Він не стільки дослідник, скільки вправний популяризатор.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "She",
+                    "It",
+                    "We"
+                ],
+                "a2": [
+                    "is",
+                    "weren't",
+                    "am",
+                    "are"
+                ],
+                "a3": [
+                    "less",
+                    "happy",
+                    "sad",
+                    "easy"
+                ],
+                "a4": [
+                    "a",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a5": [
+                    "researcher",
+                    "water",
+                    "bread",
+                    "milk"
+                ],
+                "a6": [
+                    "than",
+                    "so",
+                    "since",
+                    "because"
+                ],
+                "a7": [
+                    "a",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a8": [
+                    "skilled",
+                    "green",
+                    "red",
+                    "worked"
+                ],
+                "a9": [
+                    "populariser",
+                    "coat",
+                    "cup",
+                    "box"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "comparative_copula",
+                "a3": "comparative_copula",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "conjunction_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62530,
+        "uuid": "qnq-tags-b1-g03",
+        "question": "I am on the guest list, {a1}?",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 60,
+        "source_id": 462,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedQuestionTagsDisjunctiveQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "aren't I",
+                "am not I",
+                "don't I"
+            ]
+        },
+        "theory_text_block_uuid": "3d3c00b9-03cd-5348-bc97-b50bdbf6a62f",
+        "created_at": "2026-10-30T13:52:59.000000Z",
+        "updated_at": "2026-10-30T13:52:59.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 462,
+        "name": "Questions and Negations Quality: Question Tags: підтвердження та уточнення",
+        "created_at": "2026-10-30T13:52:57.000000Z",
+        "updated_at": "2026-10-30T13:52:57.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 288,
+                "name": "Question Tags",
+                "category": null,
+                "created_at": "2026-04-23T14:33:01.000000Z",
+                "updated_at": "2026-04-23T14:33:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 62530,
+                "tag_id": 288,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 5737,
+                "option": "aren't I",
+                "created_at": "2026-04-23T14:43:03.000000Z",
+                "updated_at": "2026-04-23T14:43:03.000000Z"
+            },
+            "pivot": {
+                "question_id": 62530,
+                "option_id": 5737,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 5740,
+                "option": "don't I",
+                "created_at": "2026-04-23T14:43:03.000000Z",
+                "updated_at": "2026-04-23T14:43:03.000000Z"
+            },
+            "pivot": {
+                "question_id": 62530,
+                "option_id": 5740,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57001,
+                "option": "am not I",
+                "created_at": "2026-10-30T13:52:59.000000Z",
+                "updated_at": "2026-10-30T13:52:59.000000Z"
+            },
+            "pivot": {
+                "question_id": 62530,
+                "option_id": 57001,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332147,
+                "question_id": 62530,
+                "marker": "a1",
+                "option_id": 5737,
+                "created_at": "2026-10-30T13:52:59.000000Z",
+                "updated_at": "2026-10-30T13:52:59.000000Z"
+            },
+            "option": {
+                "id": 5737,
+                "option": "aren't I",
+                "created_at": "2026-04-23T14:43:03.000000Z",
+                "updated_at": "2026-04-23T14:43:03.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49481,
+                "question_id": 62530,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 57000,
+                "created_at": "2026-10-30T13:52:59.000000Z",
+                "updated_at": "2026-10-30T13:52:59.000000Z"
+            },
+            "option": {
+                "id": 57000,
+                "option": "Застосуй усталений виняток для заперечного хвостика від першої особи.",
+                "created_at": "2026-10-30T13:52:59.000000Z",
+                "updated_at": "2026-10-30T13:52:59.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54545,
+            "question_id": 62530,
+            "text": "I am on the guest list, {a1}?",
+            "created_at": "2026-10-30T13:52:59.000000Z",
+            "updated_at": "2026-10-30T13:52:59.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

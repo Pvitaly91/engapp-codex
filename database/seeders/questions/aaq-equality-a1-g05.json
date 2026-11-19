@@ -1,0 +1,157 @@
+{
+    "question": {
+        "id": 63006,
+        "uuid": "aaq-equality-a1-g05",
+        "question": "This chair is as {a1} as that one.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 6,
+        "source_id": 471,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\Adjectives\\UkrainianMixedEqualityComparisonAsAsNotAsAsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "comfortable",
+                "more comfortable",
+                "most comfortable"
+            ]
+        },
+        "theory_text_block_uuid": "da05c96b-bfb4-5a73-a551-9159f0e1fedf",
+        "created_at": "2026-10-30T16:07:38.000000Z",
+        "updated_at": "2026-10-30T16:07:38.000000Z"
+    },
+    "category": {
+        "id": 6,
+        "name": "Adjectives and Adverbs",
+        "created_at": "2026-04-23T14:17:03.000000Z",
+        "updated_at": "2026-04-23T14:17:03.000000Z"
+    },
+    "source": {
+        "id": 471,
+        "name": "Adjectives and Adverbs Quality: Порівняння рівності: as … as / not as … as",
+        "created_at": "2026-10-30T16:07:38.000000Z",
+        "updated_at": "2026-10-30T16:07:38.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 167,
+                "name": "As ... as Equality",
+                "category": null,
+                "created_at": "2026-04-23T14:15:34.000000Z",
+                "updated_at": "2026-04-23T14:15:34.000000Z"
+            },
+            "pivot": {
+                "question_id": 63006,
+                "tag_id": 167,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 195,
+                "name": "equality comparison",
+                "category": null,
+                "created_at": "2026-04-23T14:15:43.000000Z",
+                "updated_at": "2026-04-23T14:15:43.000000Z"
+            },
+            "pivot": {
+                "question_id": 63006,
+                "tag_id": 195,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 503,
+                "option": "comfortable",
+                "created_at": "2026-04-23T11:41:56.000000Z",
+                "updated_at": "2026-04-23T11:41:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 63006,
+                "option_id": 503,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 1911,
+                "option": "most comfortable",
+                "created_at": "2026-04-23T14:17:19.000000Z",
+                "updated_at": "2026-04-23T14:17:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 63006,
+                "option_id": 1911,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 1912,
+                "option": "more comfortable",
+                "created_at": "2026-04-23T14:17:19.000000Z",
+                "updated_at": "2026-04-23T14:17:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 63006,
+                "option_id": 1912,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 333113,
+                "question_id": 63006,
+                "marker": "a1",
+                "option_id": 503,
+                "created_at": "2026-10-30T16:07:38.000000Z",
+                "updated_at": "2026-10-30T16:07:38.000000Z"
+            },
+            "option": {
+                "id": 503,
+                "option": "comfortable",
+                "created_at": "2026-04-23T11:41:56.000000Z",
+                "updated_at": "2026-04-23T11:41:56.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 50447,
+                "question_id": 63006,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 58525,
+                "created_at": "2026-10-30T16:07:38.000000Z",
+                "updated_at": "2026-10-30T16:07:38.000000Z"
+            },
+            "option": {
+                "id": 58525,
+                "option": "Зручний: порівняй однаковий рівень комфорту без вищого ступеня.",
+                "created_at": "2026-10-30T16:07:38.000000Z",
+                "updated_at": "2026-10-30T16:07:38.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 55021,
+            "question_id": 63006,
+            "text": "This chair is as {a1} as that one.",
+            "created_at": "2026-10-30T16:07:38.000000Z",
+            "updated_at": "2026-10-30T16:07:38.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

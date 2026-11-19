@@ -1,0 +1,1679 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/get.v1.json",
+        "sha256": "158df8ec29b163f6169366e6357c0fce1e90ea63adef375f36d07a6b029a5541"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoiceGetPassiveQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-get-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_get": {
+            "name": "Passive Voice Quality: Розмовний пасив із дієсловом набуття стану"
+        }
+    },
+    "tags": {
+        "passive_voice_get_passive": {
+            "name": "Get Passive",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "get_v3": {
+            "name": "Get V3",
+            "category": "topic"
+        },
+        "informal_passive": {
+            "name": "Informal Passive",
+            "category": "topic"
+        },
+        "unexpected_events": {
+            "name": "Unexpected Events",
+            "category": "topic"
+        },
+        "change_of_state": {
+            "name": "Change Of State",
+            "category": "topic"
+        },
+        "negative_emotional": {
+            "name": "Negative Emotional",
+            "category": "topic"
+        },
+        "common_get_passives": {
+            "name": "Common Get Passives",
+            "category": "topic"
+        },
+        "get_vs_be_passive": {
+            "name": "Get Vs Be Passive",
+            "category": "topic"
+        },
+        "natural_use": {
+            "name": "Natural Use",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-get-a1-g01",
+            "author_id": "A1-g01",
+            "question": "My socks {a1} in the rain.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Мої шкарпетки намокли під дощем.",
+            "target_text": "My socks got soaked in the rain.",
+            "markers": {
+                "a1": {
+                    "answer": "got soaked",
+                    "options": [
+                        "got soaked",
+                        "gets soaked",
+                        "will get soaked"
+                    ],
+                    "verb_hint": "Передай минулу небажану зміну стану через дієслово зі значенням «стати» та ознаку вологості."
+                }
+            },
+            "verb_hint": "Передай минулу небажану зміну стану через дієслово зі значенням «стати» та ознаку вологості.",
+            "accepted_target_texts": [
+                "My socks got soaked in the rain."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My socks",
+                "got",
+                "soaked",
+                "in the rain."
+            ],
+            "token_groups": [
+                "My socks",
+                "got",
+                "soaked",
+                "in the rain."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-get-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The blue kite {a1} in a tree.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Синій повітряний змій зачепився за дерево.",
+            "target_text": "The blue kite got caught in a tree.",
+            "markers": {
+                "a1": {
+                    "answer": "got caught",
+                    "options": [
+                        "got caught",
+                        "gets caught",
+                        "will get caught"
+                    ],
+                    "verb_hint": "Передай завершену минулу подію потрапляння в пастку через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай завершену минулу подію потрапляння в пастку через розмовний пасив.",
+            "accepted_target_texts": [
+                "The blue kite got caught in a tree."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The blue kite",
+                "got",
+                "caught",
+                "in a tree."
+            ],
+            "token_groups": [
+                "The blue kite",
+                "got",
+                "caught",
+                "in a tree."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-get-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Her finger {a1} in the door.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Її палець затиснуло дверима.",
+            "target_text": "Her finger got trapped in the door.",
+            "markers": {
+                "a1": {
+                    "answer": "got trapped",
+                    "options": [
+                        "got trapped",
+                        "gets trapped",
+                        "will get trapped"
+                    ],
+                    "verb_hint": "Передай небажану завершену подію затискання через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажану завершену подію затискання через розмовний пасив.",
+            "accepted_target_texts": [
+                "Her finger got trapped in the door."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Her finger",
+                "got",
+                "trapped",
+                "in the door."
+            ],
+            "token_groups": [
+                "Her finger",
+                "got",
+                "trapped",
+                "in the door."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-get-a1-g04",
+            "author_id": "A1-g04",
+            "question": "Our sandwiches {a1} before lunch.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Наші бутерброди з'їли до обіду.",
+            "target_text": "Our sandwiches got eaten before lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "got eaten",
+                    "options": [
+                        "got eaten",
+                        "gets eaten",
+                        "will get eaten"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію «з'їсти» через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію «з'їсти» через розмовний пасив.",
+            "accepted_target_texts": [
+                "Our sandwiches got eaten before lunch."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our sandwiches",
+                "got",
+                "eaten",
+                "before lunch."
+            ],
+            "token_groups": [
+                "Our sandwiches",
+                "got",
+                "eaten",
+                "before lunch."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-get-a1-g05",
+            "author_id": "A1-g05",
+            "question": "The paper boat {a1} in my bag.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Паперовий кораблик зім'явся в моїй сумці.",
+            "target_text": "The paper boat got crushed in my bag.",
+            "markers": {
+                "a1": {
+                    "answer": "got crushed",
+                    "options": [
+                        "got crushed",
+                        "gets crushed",
+                        "will get crushed"
+                    ],
+                    "verb_hint": "Передай небажану завершену подію роздавлювання через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажану завершену подію роздавлювання через розмовний пасив.",
+            "accepted_target_texts": [
+                "The paper boat got crushed in my bag."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The paper boat",
+                "got",
+                "crushed",
+                "in my bag."
+            ],
+            "token_groups": [
+                "The paper boat",
+                "got",
+                "crushed",
+                "in my bag."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-get-a1-g06",
+            "author_id": "A1-g06",
+            "question": "My little cousin {a1} to the picnic.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Мого маленького двоюрідного брата запросили на пікнік.",
+            "target_text": "My little cousin got invited to the picnic.",
+            "markers": {
+                "a1": {
+                    "answer": "got invited",
+                    "options": [
+                        "got invited",
+                        "gets invited",
+                        "will get invited"
+                    ],
+                    "verb_hint": "Передай завершене минуле запрошення через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай завершене минуле запрошення через розмовний пасив.",
+            "accepted_target_texts": [
+                "My little cousin got invited to the picnic."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My little cousin",
+                "got",
+                "invited",
+                "to the picnic."
+            ],
+            "token_groups": [
+                "My little cousin",
+                "got",
+                "invited",
+                "to the picnic."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-get-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The last biscuit {a1} on the floor.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Останнє печиво впустили на підлогу.",
+            "target_text": "The last biscuit got dropped on the floor.",
+            "markers": {
+                "a1": {
+                    "answer": "got dropped",
+                    "options": [
+                        "got dropped",
+                        "gets dropped",
+                        "will get dropped"
+                    ],
+                    "verb_hint": "Передай випадкову завершену минулу дію через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай випадкову завершену минулу дію через розмовний пасив.",
+            "accepted_target_texts": [
+                "The last biscuit got dropped on the floor."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The last biscuit",
+                "got",
+                "dropped",
+                "on the floor."
+            ],
+            "token_groups": [
+                "The last biscuit",
+                "got",
+                "dropped",
+                "on the floor."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-get-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Our tent {a1} across the field.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Наш намет знесло через поле.",
+            "target_text": "Our tent got blown across the field.",
+            "markers": {
+                "a1": {
+                    "answer": "got blown",
+                    "options": [
+                        "got blown",
+                        "gets blown",
+                        "will get blown"
+                    ],
+                    "verb_hint": "Передай небажаний минулий результат сильного вітру через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажаний минулий результат сильного вітру через розмовний пасив.",
+            "accepted_target_texts": [
+                "Our tent got blown across the field."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our tent",
+                "got",
+                "blown",
+                "across the field."
+            ],
+            "token_groups": [
+                "Our tent",
+                "got",
+                "blown",
+                "across the field."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-get-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The wrong suitcase {a1} onto the coach.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Не ту валізу завантажили в автобус.",
+            "target_text": "The wrong suitcase got loaded onto the coach.",
+            "markers": {
+                "a1": {
+                    "answer": "got loaded",
+                    "options": [
+                        "got loaded",
+                        "gets loaded",
+                        "will get loaded"
+                    ],
+                    "verb_hint": "Передай помилкову завершену дію завантаження через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай помилкову завершену дію завантаження через розмовний пасив.",
+            "accepted_target_texts": [
+                "The wrong suitcase got loaded onto the coach."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The wrong suitcase",
+                "got",
+                "loaded",
+                "onto the coach."
+            ],
+            "token_groups": [
+                "The wrong suitcase",
+                "got",
+                "loaded",
+                "onto the coach."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-get-a2-g04",
+            "author_id": "A2-g04",
+            "question": "His school project {a1} during the journey.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Його шкільний проєкт пошкодили під час подорожі.",
+            "target_text": "His school project got damaged during the journey.",
+            "markers": {
+                "a1": {
+                    "answer": "got damaged",
+                    "options": [
+                        "got damaged",
+                        "gets damaged",
+                        "will get damaged"
+                    ],
+                    "verb_hint": "Передай небажане минуле пошкодження через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажане минуле пошкодження через розмовний пасив.",
+            "accepted_target_texts": [
+                "His school project got damaged during the journey."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "His school project",
+                "got",
+                "damaged",
+                "during the journey."
+            ],
+            "token_groups": [
+                "His school project",
+                "got",
+                "damaged",
+                "during the journey."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-get-a2-g05",
+            "author_id": "A2-g05",
+            "question": "My old phone {a1} at the fair.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Мій старий телефон украли на ярмарку.",
+            "target_text": "My old phone got stolen at the fair.",
+            "markers": {
+                "a1": {
+                    "answer": "got stolen",
+                    "options": [
+                        "got stolen",
+                        "gets stolen",
+                        "will get stolen"
+                    ],
+                    "verb_hint": "Передай завершену минулу крадіжку через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай завершену минулу крадіжку через розмовний пасив.",
+            "accepted_target_texts": [
+                "My old phone got stolen at the fair."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My old phone",
+                "got",
+                "stolen",
+                "at the fair."
+            ],
+            "token_groups": [
+                "My old phone",
+                "got",
+                "stolen",
+                "at the fair."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-get-a2-g06",
+            "author_id": "A2-g06",
+            "question": "One puppy {a1} behind by accident.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Одне цуценя випадково залишили позаду.",
+            "target_text": "One puppy got left behind by accident.",
+            "markers": {
+                "a1": {
+                    "answer": "got left",
+                    "options": [
+                        "got left",
+                        "gets left",
+                        "will get left"
+                    ],
+                    "verb_hint": "Передай небажане завершене залишення позаду через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажане завершене залишення позаду через розмовний пасив.",
+            "accepted_target_texts": [
+                "One puppy got left behind by accident."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "One puppy",
+                "got left behind",
+                "by accident."
+            ],
+            "token_groups": [
+                "One puppy",
+                "got left behind",
+                "by accident."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-get-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The apprentice {a1} after six months.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Учня підвищили через шість місяців.",
+            "target_text": "The apprentice got promoted after six months.",
+            "markers": {
+                "a1": {
+                    "answer": "got promoted",
+                    "options": [
+                        "got promoted",
+                        "gets promoted",
+                        "will get promoted"
+                    ],
+                    "verb_hint": "Передай позитивний завершений результат підвищення через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай позитивний завершений результат підвищення через розмовний пасив.",
+            "accepted_target_texts": [
+                "The apprentice got promoted after six months."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The apprentice",
+                "got",
+                "promoted",
+                "after six months."
+            ],
+            "token_groups": [
+                "The apprentice",
+                "got",
+                "promoted",
+                "after six months."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-get-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Our reservation {a1} without any explanation.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Наше бронювання скасували без жодних пояснень.",
+            "target_text": "Our reservation got cancelled without any explanation.",
+            "markers": {
+                "a1": {
+                    "answer": "got cancelled",
+                    "options": [
+                        "got cancelled",
+                        "gets cancelled",
+                        "will get cancelled"
+                    ],
+                    "verb_hint": "Передай несподіване минуле скасування через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай несподіване минуле скасування через розмовний пасив.",
+            "accepted_target_texts": [
+                "Our reservation got cancelled without any explanation.",
+                "Our reservation got canceled without any explanation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "got canceled"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "got canceled"
+                ]
+            },
+            "reorder_groups": [
+                "Our reservation",
+                "got",
+                "cancelled",
+                "without any explanation."
+            ],
+            "token_groups": [
+                "Our reservation",
+                "got",
+                "cancelled",
+                "without any explanation."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-get-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The referee {a1} by angry supporters.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Суддю оточили розлючені вболівальники.",
+            "target_text": "The referee got surrounded by angry supporters.",
+            "markers": {
+                "a1": {
+                    "answer": "got surrounded",
+                    "options": [
+                        "got surrounded",
+                        "gets surrounded",
+                        "will get surrounded"
+                    ],
+                    "verb_hint": "Передай небажану завершену минулу подію оточення через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажану завершену минулу подію оточення через розмовний пасив.",
+            "accepted_target_texts": [
+                "The referee got surrounded by angry supporters."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The referee",
+                "got",
+                "surrounded",
+                "by angry supporters."
+            ],
+            "token_groups": [
+                "The referee",
+                "got",
+                "surrounded",
+                "by angry supporters."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-get-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The smaller parcels {a1} from the main shipment.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Менші посилки відокремили від основного відправлення.",
+            "target_text": "The smaller parcels got separated from the main shipment.",
+            "markers": {
+                "a1": {
+                    "answer": "got separated",
+                    "options": [
+                        "got separated",
+                        "gets separated",
+                        "will get separated"
+                    ],
+                    "verb_hint": "Передай несподіване завершене відокремлення через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай несподіване завершене відокремлення через розмовний пасив.",
+            "accepted_target_texts": [
+                "The smaller parcels got separated from the main shipment."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The smaller parcels",
+                "got separated",
+                "from",
+                "the main shipment."
+            ],
+            "token_groups": [
+                "The smaller parcels",
+                "got separated",
+                "from",
+                "the main shipment."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-get-b1-g05",
+            "author_id": "B1-g05",
+            "question": "She nearly {a1} off her bicycle.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Її мало не збили з велосипеда.",
+            "target_text": "She nearly got knocked off her bicycle.",
+            "markers": {
+                "a1": {
+                    "answer": "got knocked",
+                    "options": [
+                        "got knocked",
+                        "gets knocked",
+                        "will get knocked"
+                    ],
+                    "verb_hint": "Передай майже здійснену небажану минулу подію через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай майже здійснену небажану минулу подію через розмовний пасив.",
+            "accepted_target_texts": [
+                "She nearly got knocked off her bicycle."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She nearly",
+                "got knocked off",
+                "her bicycle."
+            ],
+            "token_groups": [
+                "She nearly",
+                "got knocked off",
+                "her bicycle."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-get-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The back gate {a1} while we were outside.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Задню хвіртку замкнули, поки ми були надворі.",
+            "target_text": "The back gate got locked while we were outside.",
+            "markers": {
+                "a1": {
+                    "answer": "got locked",
+                    "options": [
+                        "got locked",
+                        "gets locked",
+                        "will get locked"
+                    ],
+                    "verb_hint": "Передай завершене минуле замикання через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай завершене минуле замикання через розмовний пасив.",
+            "accepted_target_texts": [
+                "The back gate got locked while we were outside."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The back gate",
+                "got locked",
+                "while",
+                "we were outside."
+            ],
+            "token_groups": [
+                "The back gate",
+                "got locked",
+                "while",
+                "we were outside."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-get-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The witness {a1} before giving evidence.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Свідка залякали перед наданням свідчень.",
+            "target_text": "The witness got intimidated before giving evidence.",
+            "markers": {
+                "a1": {
+                    "answer": "got intimidated",
+                    "options": [
+                        "got intimidated",
+                        "gets intimidated",
+                        "will get intimidated"
+                    ],
+                    "verb_hint": "Передай небажану завершену дію залякування через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажану завершену дію залякування через розмовний пасив.",
+            "accepted_target_texts": [
+                "The witness got intimidated before giving evidence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The witness",
+                "got",
+                "intimidated",
+                "before giving evidence."
+            ],
+            "token_groups": [
+                "The witness",
+                "got",
+                "intimidated",
+                "before giving evidence."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-get-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The promising trainee {a1} when the shortlist was drawn up.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Перспективного стажера обійшли увагою під час укладання короткого списку.",
+            "target_text": "The promising trainee got overlooked when the shortlist was drawn up.",
+            "markers": {
+                "a1": {
+                    "answer": "got overlooked",
+                    "options": [
+                        "got overlooked",
+                        "gets overlooked",
+                        "will get overlooked"
+                    ],
+                    "verb_hint": "Передай небажаний завершений результат ігнорування через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажаний завершений результат ігнорування через розмовний пасив.",
+            "accepted_target_texts": [
+                "The promising trainee got overlooked when the shortlist was drawn up."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The promising trainee",
+                "got",
+                "overlooked",
+                "when the shortlist",
+                "was drawn up."
+            ],
+            "token_groups": [
+                "The promising trainee",
+                "got",
+                "overlooked",
+                "when the shortlist",
+                "was drawn up."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-get-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The confidential attachment {a1} to the entire department.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Конфіденційний додаток переслали всьому відділу.",
+            "target_text": "The confidential attachment got forwarded to the entire department.",
+            "markers": {
+                "a1": {
+                    "answer": "got forwarded",
+                    "options": [
+                        "got forwarded",
+                        "gets forwarded",
+                        "will get forwarded"
+                    ],
+                    "verb_hint": "Передай випадкову завершену дію пересилання через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай випадкову завершену дію пересилання через розмовний пасив.",
+            "accepted_target_texts": [
+                "The confidential attachment got forwarded to the entire department."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The confidential attachment",
+                "got forwarded",
+                "to",
+                "the entire department."
+            ],
+            "token_groups": [
+                "The confidential attachment",
+                "got forwarded",
+                "to",
+                "the entire department."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-get-b2-g04",
+            "author_id": "B2-g04",
+            "question": "Their original proposal {a1} during the final negotiations.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Їхню початкову пропозицію відсунули вбік під час остаточних переговорів.",
+            "target_text": "Their original proposal got sidelined during the final negotiations.",
+            "markers": {
+                "a1": {
+                    "answer": "got sidelined",
+                    "options": [
+                        "got sidelined",
+                        "gets sidelined",
+                        "will get sidelined"
+                    ],
+                    "verb_hint": "Передай небажаний минулий результат відсунення на другий план через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажаний минулий результат відсунення на другий план через розмовний пасив.",
+            "accepted_target_texts": [
+                "Their original proposal got sidelined during the final negotiations."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Their original proposal",
+                "got sidelined",
+                "during",
+                "the final negotiations."
+            ],
+            "token_groups": [
+                "Their original proposal",
+                "got sidelined",
+                "during",
+                "the final negotiations."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-get-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The team captain {a1} for repeatedly breaking the rules.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Капітана команди відсторонили за неодноразове порушення правил.",
+            "target_text": "The team captain got suspended for repeatedly breaking the rules.",
+            "markers": {
+                "a1": {
+                    "answer": "got suspended",
+                    "options": [
+                        "got suspended",
+                        "gets suspended",
+                        "will get suspended"
+                    ],
+                    "verb_hint": "Передай завершене дисциплінарне відсторонення через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай завершене дисциплінарне відсторонення через розмовний пасив.",
+            "accepted_target_texts": [
+                "The team captain got suspended for repeatedly breaking the rules."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The team captain",
+                "got",
+                "suspended",
+                "for repeatedly breaking",
+                "the rules."
+            ],
+            "token_groups": [
+                "The team captain",
+                "got",
+                "suspended",
+                "for repeatedly breaking",
+                "the rules."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-get-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The carefully prepared speech {a1} by a fire alarm.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Ретельно підготовлену промову перервав пожежний сигнал.",
+            "target_text": "The carefully prepared speech got interrupted by a fire alarm.",
+            "markers": {
+                "a1": {
+                    "answer": "got interrupted",
+                    "options": [
+                        "got interrupted",
+                        "gets interrupted",
+                        "will get interrupted"
+                    ],
+                    "verb_hint": "Передай несподіване завершене переривання через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай несподіване завершене переривання через розмовний пасив.",
+            "accepted_target_texts": [
+                "The carefully prepared speech got interrupted by a fire alarm."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The",
+                "carefully prepared speech",
+                "got interrupted",
+                "by",
+                "a fire alarm."
+            ],
+            "token_groups": [
+                "The",
+                "carefully prepared speech",
+                "got interrupted",
+                "by",
+                "a fire alarm."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-get-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The dissenting representative {a1} after challenging the leadership.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Представника з окремою думкою відтіснили на узбіччя після критики керівництва.",
+            "target_text": "The dissenting representative got marginalised after challenging the leadership.",
+            "markers": {
+                "a1": {
+                    "answer": "got marginalised",
+                    "options": [
+                        "got marginalised",
+                        "gets marginalised",
+                        "will get marginalised"
+                    ],
+                    "verb_hint": "Передай небажаний завершений результат маргіналізації через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажаний завершений результат маргіналізації через розмовний пасив.",
+            "accepted_target_texts": [
+                "The dissenting representative got marginalised after challenging the leadership."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dissenting representative",
+                "got marginalised",
+                "after challenging",
+                "the leadership."
+            ],
+            "token_groups": [
+                "The dissenting representative",
+                "got marginalised",
+                "after challenging",
+                "the leadership."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-get-c1-g02",
+            "author_id": "C1-g02",
+            "question": "Her tentative observation {a1} as an unequivocal endorsement.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Її обережне спостереження спотворено подали як беззаперечну підтримку.",
+            "target_text": "Her tentative observation got misrepresented as an unequivocal endorsement.",
+            "markers": {
+                "a1": {
+                    "answer": "got misrepresented",
+                    "options": [
+                        "got misrepresented",
+                        "gets misrepresented",
+                        "will get misrepresented"
+                    ],
+                    "verb_hint": "Передай завершене спотворення змісту через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай завершене спотворення змісту через розмовний пасив.",
+            "accepted_target_texts": [
+                "Her tentative observation got misrepresented as an unequivocal endorsement."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Her tentative observation",
+                "got misrepresented",
+                "as",
+                "an unequivocal endorsement."
+            ],
+            "token_groups": [
+                "Her tentative observation",
+                "got misrepresented",
+                "as",
+                "an unequivocal endorsement."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-get-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The whistleblower's identity {a1} despite repeated assurances of confidentiality.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Особу викривача розкрили попри неодноразові запевнення в конфіденційності.",
+            "target_text": "The whistleblower's identity got disclosed despite repeated assurances of confidentiality.",
+            "markers": {
+                "a1": {
+                    "answer": "got disclosed",
+                    "options": [
+                        "got disclosed",
+                        "gets disclosed",
+                        "will get disclosed"
+                    ],
+                    "verb_hint": "Передай небажане завершене розкриття через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажане завершене розкриття через розмовний пасив.",
+            "accepted_target_texts": [
+                "The whistleblower's identity got disclosed despite repeated assurances of confidentiality."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The whistleblower's identity",
+                "got",
+                "disclosed",
+                "despite repeated assurances",
+                "of confidentiality."
+            ],
+            "token_groups": [
+                "The whistleblower's identity",
+                "got",
+                "disclosed",
+                "despite repeated assurances",
+                "of confidentiality."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-get-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The provisional arrangement {a1} before a replacement had been agreed.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Тимчасову домовленість зруйнували до погодження заміни.",
+            "target_text": "The provisional arrangement got dismantled before a replacement had been agreed.",
+            "markers": {
+                "a1": {
+                    "answer": "got dismantled",
+                    "options": [
+                        "got dismantled",
+                        "gets dismantled",
+                        "will get dismantled"
+                    ],
+                    "verb_hint": "Передай небажаний завершений результат руйнування домовленості через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажаний завершений результат руйнування домовленості через розмовний пасив.",
+            "accepted_target_texts": [
+                "The provisional arrangement got dismantled before a replacement had been agreed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The provisional arrangement",
+                "got",
+                "dismantled",
+                "before a replacement",
+                "had been agreed."
+            ],
+            "token_groups": [
+                "The provisional arrangement",
+                "got",
+                "dismantled",
+                "before a replacement",
+                "had been agreed."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-get-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The crucial qualification {a1} from the published summary.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Суттєве застереження пропустили в опублікованому резюме.",
+            "target_text": "The crucial qualification got omitted from the published summary.",
+            "markers": {
+                "a1": {
+                    "answer": "got omitted",
+                    "options": [
+                        "got omitted",
+                        "gets omitted",
+                        "will get omitted"
+                    ],
+                    "verb_hint": "Передай небажане завершене пропущення через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажане завершене пропущення через розмовний пасив.",
+            "accepted_target_texts": [
+                "The crucial qualification got omitted from the published summary."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The crucial qualification",
+                "got omitted",
+                "from",
+                "the published summary."
+            ],
+            "token_groups": [
+                "The crucial qualification",
+                "got omitted",
+                "from",
+                "the published summary."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-get-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The returning researcher {a1} to an unrelated investigation.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Дослідника, який повернувся, перепризначили на не пов'язане з темою розслідування.",
+            "target_text": "The returning researcher got reassigned to an unrelated investigation.",
+            "markers": {
+                "a1": {
+                    "answer": "got reassigned",
+                    "options": [
+                        "got reassigned",
+                        "gets reassigned",
+                        "will get reassigned"
+                    ],
+                    "verb_hint": "Передай несподіване завершене перепризначення через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай несподіване завершене перепризначення через розмовний пасив.",
+            "accepted_target_texts": [
+                "The returning researcher got reassigned to an unrelated investigation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The returning researcher",
+                "got reassigned",
+                "to",
+                "an unrelated investigation."
+            ],
+            "token_groups": [
+                "The returning researcher",
+                "got reassigned",
+                "to",
+                "an unrelated investigation."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-get-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The carefully delimited exception {a1} as a blanket exemption.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Ретельно обмежений виняток витлумачили як загальне звільнення.",
+            "target_text": "The carefully delimited exception got construed as a blanket exemption.",
+            "markers": {
+                "a1": {
+                    "answer": "got construed",
+                    "options": [
+                        "got construed",
+                        "gets construed",
+                        "will get construed"
+                    ],
+                    "verb_hint": "Передай небажане завершене тлумачення через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажане завершене тлумачення через розмовний пасив.",
+            "accepted_target_texts": [
+                "The carefully delimited exception got construed as a blanket exemption."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The",
+                "carefully delimited exception",
+                "got construed",
+                "as",
+                "a blanket exemption."
+            ],
+            "token_groups": [
+                "The",
+                "carefully delimited exception",
+                "got construed",
+                "as",
+                "a blanket exemption."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-get-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The original undertaking {a1} with a non-binding expression of intent.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Початкове зобов'язання змішали з необов'язковим висловленням наміру.",
+            "target_text": "The original undertaking got conflated with a non-binding expression of intent.",
+            "markers": {
+                "a1": {
+                    "answer": "got conflated",
+                    "options": [
+                        "got conflated",
+                        "gets conflated",
+                        "will get conflated"
+                    ],
+                    "verb_hint": "Передай небажане завершене змішування різних понять через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажане завершене змішування різних понять через розмовний пасив.",
+            "accepted_target_texts": [
+                "The original undertaking got conflated with a non-binding expression of intent."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The original undertaking",
+                "got conflated",
+                "with",
+                "a non-binding expression",
+                "of intent."
+            ],
+            "token_groups": [
+                "The original undertaking",
+                "got conflated",
+                "with",
+                "a non-binding expression",
+                "of intent."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-get-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The supposedly ring-fenced allocation {a1} into the general operating budget.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Нібито захищене цільове фінансування поглинув загальний операційний бюджет.",
+            "target_text": "The supposedly ring-fenced allocation got absorbed into the general operating budget.",
+            "markers": {
+                "a1": {
+                    "answer": "got absorbed",
+                    "options": [
+                        "got absorbed",
+                        "gets absorbed",
+                        "will get absorbed"
+                    ],
+                    "verb_hint": "Передай небажаний завершений результат поглинання через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажаний завершений результат поглинання через розмовний пасив.",
+            "accepted_target_texts": [
+                "The supposedly ring-fenced allocation got absorbed into the general operating budget."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The",
+                "supposedly ring-fenced allocation",
+                "got absorbed",
+                "into",
+                "the general",
+                "operating budget."
+            ],
+            "token_groups": [
+                "The",
+                "supposedly ring-fenced allocation",
+                "got absorbed",
+                "into",
+                "the general",
+                "operating budget."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-get-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The complainant's legitimate concerns {a1} in a dismissive public statement.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Обґрунтовані побоювання скаржника применшили в зневажливій публічній заяві.",
+            "target_text": "The complainant's legitimate concerns got trivialised in a dismissive public statement.",
+            "markers": {
+                "a1": {
+                    "answer": "got trivialised",
+                    "options": [
+                        "got trivialised",
+                        "gets trivialised",
+                        "will get trivialised"
+                    ],
+                    "verb_hint": "Передай небажане завершене применшення через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажане завершене применшення через розмовний пасив.",
+            "accepted_target_texts": [
+                "The complainant's legitimate concerns got trivialised in a dismissive public statement."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The complainant's",
+                "legitimate concerns",
+                "got trivialised",
+                "in",
+                "a dismissive",
+                "public statement."
+            ],
+            "token_groups": [
+                "The complainant's",
+                "legitimate concerns",
+                "got trivialised",
+                "in",
+                "a dismissive",
+                "public statement."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-get-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The painstakingly negotiated safeguard {a1} through successive informal amendments.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Ретельно узгоджену гарантію послабили послідовними неформальними змінами.",
+            "target_text": "The painstakingly negotiated safeguard got diluted through successive informal amendments.",
+            "markers": {
+                "a1": {
+                    "answer": "got diluted",
+                    "options": [
+                        "got diluted",
+                        "gets diluted",
+                        "will get diluted"
+                    ],
+                    "verb_hint": "Передай небажаний завершений результат послаблення через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажаний завершений результат послаблення через розмовний пасив.",
+            "accepted_target_texts": [
+                "The painstakingly negotiated safeguard got diluted through successive informal amendments."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The",
+                "painstakingly negotiated safeguard",
+                "got diluted",
+                "through",
+                "successive informal amendments."
+            ],
+            "token_groups": [
+                "The",
+                "painstakingly negotiated safeguard",
+                "got diluted",
+                "through",
+                "successive informal amendments."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-get-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The evidential distinction {a1} in the rush to publish.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Доказову відмінність розмили через поспіх із публікацією.",
+            "target_text": "The evidential distinction got blurred in the rush to publish.",
+            "markers": {
+                "a1": {
+                    "answer": "got blurred",
+                    "options": [
+                        "got blurred",
+                        "gets blurred",
+                        "will get blurred"
+                    ],
+                    "verb_hint": "Передай небажане завершене розмивання відмінності через розмовний пасив."
+                }
+            },
+            "verb_hint": "Передай небажане завершене розмивання відмінності через розмовний пасив.",
+            "accepted_target_texts": [
+                "The evidential distinction got blurred in the rush to publish."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The evidential distinction",
+                "got",
+                "blurred",
+                "in the rush",
+                "to publish."
+            ],
+            "token_groups": [
+                "The evidential distinction",
+                "got",
+                "blurred",
+                "in the rush",
+                "to publish."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

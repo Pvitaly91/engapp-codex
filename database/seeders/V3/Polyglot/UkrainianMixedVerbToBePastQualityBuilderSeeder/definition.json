@@ -1,0 +1,4385 @@
+{
+    "schema_version": 1,
+    "quality_revision": "verb-to-be-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-to-be-quality/past.v1.json",
+        "sha256": "dd77a8935999cc7d28125a74c0d4ff4a62a1b8361edffcdf6b0d96d592093074"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedVerbToBePastQualityBuilderSeeder",
+        "uuid_namespace": "verb-to-be-quality-past-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "verb_to_be_quality_past": {
+            "name": "Verb to Be Quality: Минулі форми дієслова бути"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_verb_to_be_past": {
+            "name": "Verb to Be: Past Forms",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_verb_to_be_past"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "beq-past-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Учора собака був на подвір'ї.",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Учора собака був на подвір'ї.",
+            "target_text": "The dog was in the yard yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з собаки й назви місце та вчорашній час.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "dog",
+                    "verb_hint": "Почни з собаки й назви місце та вчорашній час.",
+                    "options": [
+                        "dog",
+                        "bird",
+                        "horse",
+                        "cow"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Почни з собаки й назви місце та вчорашній час.",
+                    "options": [
+                        "was",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "in",
+                    "verb_hint": "Почни з собаки й назви місце та вчорашній час.",
+                    "options": [
+                        "in",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з собаки й назви місце та вчорашній час.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a6": {
+                    "answer": "yard",
+                    "verb_hint": "Почни з собаки й назви місце та вчорашній час.",
+                    "options": [
+                        "yard",
+                        "last",
+                        "party",
+                        "picture"
+                    ]
+                },
+                "a7": {
+                    "answer": "yesterday.",
+                    "verb_hint": "Почни з собаки й назви місце та вчорашній час.",
+                    "options": [
+                        "yesterday",
+                        "sister",
+                        "brother",
+                        "friend"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з собаки й назви місце та вчорашній час.",
+            "accepted_target_texts": [
+                "The dog was in the yard yesterday."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dog",
+                "was",
+                "in the yard",
+                "yesterday."
+            ],
+            "token_groups": [
+                "The dog",
+                "was",
+                "in the yard",
+                "yesterday."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "dog",
+                "was",
+                "in",
+                "the",
+                "yard",
+                "yesterday."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "dog",
+                "bird",
+                "horse",
+                "cow",
+                "was",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "in",
+                "without",
+                "into",
+                "onto",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "yard",
+                "last",
+                "party",
+                "picture",
+                "yesterday",
+                "sister",
+                "brother",
+                "friend"
+            ],
+            "source_text_uk": "Учора собака був на подвір'ї.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "dog",
+                    "bird",
+                    "horse",
+                    "cow"
+                ],
+                "a3": [
+                    "was",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a4": [
+                    "in",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a5": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a6": [
+                    "yard",
+                    "last",
+                    "party",
+                    "picture"
+                ],
+                "a7": [
+                    "yesterday",
+                    "sister",
+                    "brother",
+                    "friend"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "beq-past-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Минулої ночі вікна були відчинені.",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Минулої ночі вікна були відчинені.",
+            "target_text": "The windows were open last night.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з вікон у множині й передай їхній минулий стан.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "windows",
+                    "verb_hint": "Почни з вікон у множині й передай їхній минулий стан.",
+                    "options": [
+                        "windows",
+                        "people",
+                        "men",
+                        "women"
+                    ]
+                },
+                "a3": {
+                    "answer": "were",
+                    "verb_hint": "Почни з вікон у множині й передай їхній минулий стан.",
+                    "options": [
+                        "were",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a4": {
+                    "answer": "open",
+                    "verb_hint": "Почни з вікон у множині й передай їхній минулий стан.",
+                    "options": [
+                        "open",
+                        "checked",
+                        "sent",
+                        "done"
+                    ]
+                },
+                "a5": {
+                    "answer": "last",
+                    "verb_hint": "Почни з вікон у множині й передай їхній минулий стан.",
+                    "options": [
+                        "last",
+                        "yard",
+                        "yesterday",
+                        "party"
+                    ]
+                },
+                "a6": {
+                    "answer": "night.",
+                    "verb_hint": "Почни з вікон у множині й передай їхній минулий стан.",
+                    "options": [
+                        "night",
+                        "day",
+                        "week",
+                        "month"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з вікон у множині й передай їхній минулий стан.",
+            "accepted_target_texts": [
+                "The windows were open last night."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The windows",
+                "were",
+                "open last night."
+            ],
+            "token_groups": [
+                "The windows",
+                "were",
+                "open last night."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "windows",
+                "were",
+                "open",
+                "last",
+                "night."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "windows",
+                "people",
+                "men",
+                "women",
+                "were",
+                "am",
+                "is",
+                "are",
+                "open",
+                "checked",
+                "sent",
+                "done",
+                "last",
+                "yard",
+                "yesterday",
+                "party",
+                "night",
+                "day",
+                "week",
+                "month"
+            ],
+            "source_text_uk": "Минулої ночі вікна були відчинені.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "windows",
+                    "people",
+                    "men",
+                    "women"
+                ],
+                "a3": [
+                    "were",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a4": [
+                    "open",
+                    "checked",
+                    "sent",
+                    "done"
+                ],
+                "a5": [
+                    "last",
+                    "yard",
+                    "yesterday",
+                    "party"
+                ],
+                "a6": [
+                    "night",
+                    "day",
+                    "week",
+                    "month"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "beq-past-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Ти був на вечірці?",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Ти був на вечірці?",
+            "target_text": "Were you at the party?",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "verb_hint": "Постав минулу форму «бути» перед співрозмовником і запитай про вечірку.",
+                    "options": [
+                        "Were",
+                        "Being",
+                        "Isn't",
+                        "Aren't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Постав минулу форму «бути» перед співрозмовником і запитай про вечірку.",
+                    "options": [
+                        "you",
+                        "us",
+                        "them",
+                        "myself"
+                    ]
+                },
+                "a3": {
+                    "answer": "at",
+                    "verb_hint": "Постав минулу форму «бути» перед співрозмовником і запитай про вечірку.",
+                    "options": [
+                        "at",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Постав минулу форму «бути» перед співрозмовником і запитай про вечірку.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a5": {
+                    "answer": "party?",
+                    "verb_hint": "Постав минулу форму «бути» перед співрозмовником і запитай про вечірку.",
+                    "options": [
+                        "party",
+                        "yesterday",
+                        "last",
+                        "yard"
+                    ]
+                }
+            },
+            "verb_hint": "Постав минулу форму «бути» перед співрозмовником і запитай про вечірку.",
+            "accepted_target_texts": [
+                "Were you at the party?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Were you",
+                "at the party?"
+            ],
+            "token_groups": [
+                "Were you",
+                "at the party?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Were",
+                "you",
+                "at",
+                "the",
+                "party?"
+            ],
+            "options": [
+                "Were",
+                "Being",
+                "Isn't",
+                "Aren't",
+                "you",
+                "us",
+                "them",
+                "myself",
+                "at",
+                "into",
+                "onto",
+                "over",
+                "the",
+                "this",
+                "that",
+                "these",
+                "party",
+                "yesterday",
+                "last",
+                "yard"
+            ],
+            "source_text_uk": "Ти був на вечірці?",
+            "options_by_marker": {
+                "a1": [
+                    "Were",
+                    "Being",
+                    "Isn't",
+                    "Aren't"
+                ],
+                "a2": [
+                    "you",
+                    "us",
+                    "them",
+                    "myself"
+                ],
+                "a3": [
+                    "at",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a4": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a5": [
+                    "party",
+                    "yesterday",
+                    "last",
+                    "yard"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "beq-past-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Минулої ночі вулиці були тихі.",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Минулої ночі вулиці були тихі.",
+            "target_text": "The streets were quiet last night.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з уже відомих вулиць і передай їхній спокійний стан минулої ночі.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "streets",
+                    "verb_hint": "Почни з уже відомих вулиць і передай їхній спокійний стан минулої ночі.",
+                    "options": [
+                        "streets",
+                        "dentist's",
+                        "windows",
+                        "phones"
+                    ]
+                },
+                "a3": {
+                    "answer": "were",
+                    "verb_hint": "Почни з уже відомих вулиць і передай їхній спокійний стан минулої ночі.",
+                    "options": [
+                        "were",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "quiet",
+                    "verb_hint": "Почни з уже відомих вулиць і передай їхній спокійний стан минулої ночі.",
+                    "options": [
+                        "quiet",
+                        "clear",
+                        "safe",
+                        "useful"
+                    ]
+                },
+                "a5": {
+                    "answer": "last",
+                    "verb_hint": "Почни з уже відомих вулиць і передай їхній спокійний стан минулої ночі.",
+                    "options": [
+                        "last",
+                        "uncle",
+                        "June",
+                        "Tuesday"
+                    ]
+                },
+                "a6": {
+                    "answer": "night.",
+                    "verb_hint": "Почни з уже відомих вулиць і передай їхній спокійний стан минулої ночі.",
+                    "options": [
+                        "night",
+                        "day",
+                        "week",
+                        "month"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з уже відомих вулиць і передай їхній спокійний стан минулої ночі.",
+            "accepted_target_texts": [
+                "The streets were quiet last night."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The streets",
+                "were",
+                "quiet last night."
+            ],
+            "token_groups": [
+                "The streets",
+                "were",
+                "quiet last night."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "streets",
+                "were",
+                "quiet",
+                "last",
+                "night."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "streets",
+                "dentist's",
+                "windows",
+                "phones",
+                "were",
+                "been",
+                "being",
+                "isn't",
+                "quiet",
+                "clear",
+                "safe",
+                "useful",
+                "last",
+                "uncle",
+                "June",
+                "Tuesday",
+                "night",
+                "day",
+                "week",
+                "month"
+            ],
+            "source_text_uk": "Минулої ночі вулиці були тихі.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "streets",
+                    "dentist's",
+                    "windows",
+                    "phones"
+                ],
+                "a3": [
+                    "were",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a4": [
+                    "quiet",
+                    "clear",
+                    "safe",
+                    "useful"
+                ],
+                "a5": [
+                    "last",
+                    "uncle",
+                    "June",
+                    "Tuesday"
+                ],
+                "a6": [
+                    "night",
+                    "day",
+                    "week",
+                    "month"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "beq-past-a2-c02",
+            "author_id": "A2-c02",
+            "question": "У вівторок я був у стоматолога.",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "У вівторок я був у стоматолога.",
+            "target_text": "I was at the dentist's on Tuesday.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з мовця та назви місце відвідування і день.",
+                    "options": [
+                        "I",
+                        "Themselves",
+                        "You",
+                        "He"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Почни з мовця та назви місце відвідування і день.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a3": {
+                    "answer": "at",
+                    "verb_hint": "Почни з мовця та назви місце відвідування і день.",
+                    "options": [
+                        "at",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з мовця та назви місце відвідування і день.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a5": {
+                    "answer": "dentist's",
+                    "verb_hint": "Почни з мовця та назви місце відвідування і день.",
+                    "options": [
+                        "dentist's",
+                        "streets",
+                        "books",
+                        "boxes"
+                    ]
+                },
+                "a6": {
+                    "answer": "on",
+                    "verb_hint": "Почни з мовця та назви місце відвідування і день.",
+                    "options": [
+                        "on",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a7": {
+                    "answer": "Tuesday.",
+                    "verb_hint": "Почни з мовця та назви місце відвідування і день.",
+                    "options": [
+                        "Tuesday",
+                        "Uncle",
+                        "June",
+                        "Last"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з мовця та назви місце відвідування і день.",
+            "accepted_target_texts": [
+                "I was at the dentist's on Tuesday.",
+                "I was at the dentist's office on Tuesday."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I was",
+                "at the dentist's",
+                "on Tuesday."
+            ],
+            "token_groups": [
+                "I was",
+                "at the dentist's",
+                "on Tuesday."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "I",
+                "was",
+                "at",
+                "the",
+                "dentist's",
+                "on",
+                "Tuesday."
+            ],
+            "options": [
+                "I",
+                "Themselves",
+                "You",
+                "He",
+                "was",
+                "were",
+                "be",
+                "been",
+                "at",
+                "from",
+                "for",
+                "of",
+                "the",
+                "a",
+                "an",
+                "some",
+                "dentist's",
+                "streets",
+                "books",
+                "boxes",
+                "on",
+                "without",
+                "into",
+                "onto",
+                "Tuesday",
+                "Uncle",
+                "June",
+                "Last"
+            ],
+            "source_text_uk": "У вівторок я був у стоматолога.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Themselves",
+                    "You",
+                    "He"
+                ],
+                "a2": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a3": [
+                    "at",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a4": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a5": [
+                    "dentist's",
+                    "streets",
+                    "books",
+                    "boxes"
+                ],
+                "a6": [
+                    "on",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a7": [
+                    "Tuesday",
+                    "Uncle",
+                    "June",
+                    "Last"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "beq-past-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Твій дядько був у Києві в червні?",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Твій дядько був у Києві в червні?",
+            "target_text": "Was your uncle in Kyiv in June?",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "verb_hint": "Склади пряме питання про минуле місце перебування дядька в названому місяці.",
+                    "options": [
+                        "Was",
+                        "Be",
+                        "Been",
+                        "Being"
+                    ]
+                },
+                "a2": {
+                    "answer": "your",
+                    "verb_hint": "Склади пряме питання про минуле місце перебування дядька в названому місяці.",
+                    "options": [
+                        "your",
+                        "my",
+                        "his",
+                        "her"
+                    ]
+                },
+                "a3": {
+                    "answer": "uncle",
+                    "verb_hint": "Склади пряме питання про минуле місце перебування дядька в названому місяці.",
+                    "options": [
+                        "uncle",
+                        "last",
+                        "Tuesday",
+                        "train"
+                    ]
+                },
+                "a4": {
+                    "answer": "in",
+                    "verb_hint": "Склади пряме питання про минуле місце перебування дядька в названому місяці.",
+                    "options": [
+                        "in",
+                        "during",
+                        "to",
+                        "from"
+                    ]
+                },
+                "a5": {
+                    "answer": "Kyiv",
+                    "verb_hint": "Склади пряме питання про минуле місце перебування дядька в названому місяці.",
+                    "options": [
+                        "Kyiv",
+                        "London",
+                        "Paris",
+                        "Berlin"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Склади пряме питання про минуле місце перебування дядька в названому місяці.",
+                    "options": [
+                        "in",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a7": {
+                    "answer": "June?",
+                    "verb_hint": "Склади пряме питання про минуле місце перебування дядька в названому місяці.",
+                    "options": [
+                        "June",
+                        "Cup",
+                        "Door",
+                        "Key"
+                    ]
+                }
+            },
+            "verb_hint": "Склади пряме питання про минуле місце перебування дядька в названому місяці.",
+            "accepted_target_texts": [
+                "Was your uncle in Kyiv in June?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Was your uncle",
+                "in Kyiv",
+                "in June?"
+            ],
+            "token_groups": [
+                "Was your uncle",
+                "in Kyiv",
+                "in June?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Was",
+                "your",
+                "uncle",
+                "in",
+                "Kyiv",
+                "in",
+                "June?"
+            ],
+            "options": [
+                "Was",
+                "Be",
+                "Been",
+                "Being",
+                "your",
+                "my",
+                "his",
+                "her",
+                "uncle",
+                "last",
+                "Tuesday",
+                "train",
+                "in",
+                "during",
+                "to",
+                "from",
+                "Kyiv",
+                "London",
+                "Paris",
+                "Berlin",
+                "with",
+                "without",
+                "into",
+                "June",
+                "Cup",
+                "Door",
+                "Key"
+            ],
+            "source_text_uk": "Твій дядько був у Києві в червні?",
+            "options_by_marker": {
+                "a1": [
+                    "Was",
+                    "Be",
+                    "Been",
+                    "Being"
+                ],
+                "a2": [
+                    "your",
+                    "my",
+                    "his",
+                    "her"
+                ],
+                "a3": [
+                    "uncle",
+                    "last",
+                    "Tuesday",
+                    "train"
+                ],
+                "a4": [
+                    "in",
+                    "during",
+                    "to",
+                    "from"
+                ],
+                "a5": [
+                    "Kyiv",
+                    "London",
+                    "Paris",
+                    "Berlin"
+                ],
+                "a6": [
+                    "in",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a7": [
+                    "June",
+                    "Cup",
+                    "Door",
+                    "Key"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "beq-past-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Кімната була світліша, ніж я пам'ятав.",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Кімната була світліша, ніж я пам'ятав.",
+            "target_text": "The room was brighter than I remembered.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи минулу оцінку кімнати та порівняння зі спогадом.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "room",
+                    "verb_hint": "Збережи минулу оцінку кімнати та порівняння зі спогадом.",
+                    "options": [
+                        "room",
+                        "enough",
+                        "everyone",
+                        "away"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Збережи минулу оцінку кімнати та порівняння зі спогадом.",
+                    "options": [
+                        "was",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "brighter",
+                    "verb_hint": "Збережи минулу оцінку кімнати та порівняння зі спогадом.",
+                    "options": [
+                        "brighter",
+                        "leak",
+                        "bread",
+                        "milk"
+                    ]
+                },
+                "a5": {
+                    "answer": "than",
+                    "verb_hint": "Збережи минулу оцінку кімнати та порівняння зі спогадом.",
+                    "options": [
+                        "than",
+                        "dog",
+                        "cat",
+                        "person"
+                    ]
+                },
+                "a6": {
+                    "answer": "I",
+                    "verb_hint": "Збережи минулу оцінку кімнати та порівняння зі спогадом.",
+                    "options": [
+                        "I",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a7": {
+                    "answer": "remembered.",
+                    "verb_hint": "Збережи минулу оцінку кімнати та порівняння зі спогадом.",
+                    "options": [
+                        "remembered",
+                        "started",
+                        "opened",
+                        "closed"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи минулу оцінку кімнати та порівняння зі спогадом.",
+            "accepted_target_texts": [
+                "The room was brighter than I remembered."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The room",
+                "was brighter",
+                "than I",
+                "remembered."
+            ],
+            "token_groups": [
+                "The room",
+                "was brighter",
+                "than I",
+                "remembered."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "room",
+                "was",
+                "brighter",
+                "than",
+                "I",
+                "remembered."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "room",
+                "enough",
+                "everyone",
+                "away",
+                "was",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "brighter",
+                "leak",
+                "bread",
+                "milk",
+                "than",
+                "dog",
+                "cat",
+                "person",
+                "I",
+                "Us",
+                "Them",
+                "Myself",
+                "remembered",
+                "started",
+                "opened",
+                "closed"
+            ],
+            "source_text_uk": "Кімната була світліша, ніж я пам'ятав.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "room",
+                    "enough",
+                    "everyone",
+                    "away"
+                ],
+                "a3": [
+                    "was",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a4": [
+                    "brighter",
+                    "leak",
+                    "bread",
+                    "milk"
+                ],
+                "a5": [
+                    "than",
+                    "dog",
+                    "cat",
+                    "person"
+                ],
+                "a6": [
+                    "I",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a7": [
+                    "remembered",
+                    "started",
+                    "opened",
+                    "closed"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "beq-past-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Інструкції були достатньо зрозумілими для всіх?",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Інструкції були достатньо зрозумілими для всіх?",
+            "target_text": "Were the instructions clear enough for everyone?",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "verb_hint": "Склади минуле пряме питання й збережи ступінь зрозумілості для всіх.",
+                    "options": [
+                        "Were",
+                        "Was",
+                        "Be",
+                        "Been"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Склади минуле пряме питання й збережи ступінь зрозумілості для всіх.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a3": {
+                    "answer": "instructions",
+                    "verb_hint": "Склади минуле пряме питання й збережи ступінь зрозумілості для всіх.",
+                    "options": [
+                        "instructions",
+                        "neighbours",
+                        "cats",
+                        "people"
+                    ]
+                },
+                "a4": {
+                    "answer": "clear",
+                    "verb_hint": "Склади минуле пряме питання й збережи ступінь зрозумілості для всіх.",
+                    "options": [
+                        "clear",
+                        "new",
+                        "old",
+                        "young"
+                    ]
+                },
+                "a5": {
+                    "answer": "enough",
+                    "verb_hint": "Склади минуле пряме питання й збережи ступінь зрозумілості для всіх.",
+                    "options": [
+                        "enough",
+                        "than",
+                        "away",
+                        "leak"
+                    ]
+                },
+                "a6": {
+                    "answer": "for",
+                    "verb_hint": "Склади минуле пряме питання й збережи ступінь зрозумілості для всіх.",
+                    "options": [
+                        "for",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a7": {
+                    "answer": "everyone?",
+                    "verb_hint": "Склади минуле пряме питання й збережи ступінь зрозумілості для всіх.",
+                    "options": [
+                        "everyone",
+                        "room",
+                        "brighter",
+                        "bag"
+                    ]
+                }
+            },
+            "verb_hint": "Склади минуле пряме питання й збережи ступінь зрозумілості для всіх.",
+            "accepted_target_texts": [
+                "Were the instructions clear enough for everyone?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Were the instructions",
+                "clear enough",
+                "for everyone?"
+            ],
+            "token_groups": [
+                "Were the instructions",
+                "clear enough",
+                "for everyone?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Were",
+                "the",
+                "instructions",
+                "clear",
+                "enough",
+                "for",
+                "everyone?"
+            ],
+            "options": [
+                "Were",
+                "Was",
+                "Be",
+                "Been",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "instructions",
+                "neighbours",
+                "cats",
+                "people",
+                "clear",
+                "new",
+                "old",
+                "young",
+                "enough",
+                "than",
+                "away",
+                "leak",
+                "for",
+                "at",
+                "by",
+                "with",
+                "everyone",
+                "room",
+                "brighter",
+                "bag"
+            ],
+            "source_text_uk": "Інструкції були достатньо зрозумілими для всіх?",
+            "options_by_marker": {
+                "a1": [
+                    "Were",
+                    "Was",
+                    "Be",
+                    "Been"
+                ],
+                "a2": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a3": [
+                    "instructions",
+                    "neighbours",
+                    "cats",
+                    "people"
+                ],
+                "a4": [
+                    "clear",
+                    "new",
+                    "old",
+                    "young"
+                ],
+                "a5": [
+                    "enough",
+                    "than",
+                    "away",
+                    "leak"
+                ],
+                "a6": [
+                    "for",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a7": [
+                    "everyone",
+                    "room",
+                    "brighter",
+                    "bag"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "beq-past-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Наших сусідів не було вдома, коли почалося протікання.",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Наших сусідів не було вдома, коли почалося протікання.",
+            "target_text": "Our neighbours were away when the leak started.",
+            "markers": {
+                "a1": {
+                    "answer": "Our",
+                    "verb_hint": "Передай минулу відсутність сусідів у момент початку події.",
+                    "options": [
+                        "Our",
+                        "Her",
+                        "Its",
+                        "Their"
+                    ]
+                },
+                "a2": {
+                    "answer": "neighbours",
+                    "verb_hint": "Передай минулу відсутність сусідів у момент початку події.",
+                    "options": [
+                        "neighbours",
+                        "instructions",
+                        "maps",
+                        "letters"
+                    ]
+                },
+                "a3": {
+                    "answer": "were",
+                    "verb_hint": "Передай минулу відсутність сусідів у момент початку події.",
+                    "options": [
+                        "were",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "away",
+                    "verb_hint": "Передай минулу відсутність сусідів у момент початку події.",
+                    "options": [
+                        "away",
+                        "room",
+                        "brighter",
+                        "than"
+                    ]
+                },
+                "a5": {
+                    "answer": "when",
+                    "verb_hint": "Передай минулу відсутність сусідів у момент початку події.",
+                    "options": [
+                        "when",
+                        "where",
+                        "why",
+                        "how"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Передай минулу відсутність сусідів у момент початку події.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a7": {
+                    "answer": "leak",
+                    "verb_hint": "Передай минулу відсутність сусідів у момент початку події.",
+                    "options": [
+                        "leak",
+                        "everyone",
+                        "enough",
+                        "person"
+                    ]
+                },
+                "a8": {
+                    "answer": "started.",
+                    "verb_hint": "Передай минулу відсутність сусідів у момент початку події.",
+                    "options": [
+                        "started",
+                        "remembered",
+                        "walked",
+                        "opened"
+                    ]
+                }
+            },
+            "verb_hint": "Передай минулу відсутність сусідів у момент початку події.",
+            "accepted_target_texts": [
+                "Our neighbours were away when the leak started."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our neighbours",
+                "were away",
+                "when the leak",
+                "started."
+            ],
+            "token_groups": [
+                "Our neighbours",
+                "were away",
+                "when the leak",
+                "started."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Our",
+                "neighbours",
+                "were",
+                "away",
+                "when",
+                "the",
+                "leak",
+                "started."
+            ],
+            "options": [
+                "Our",
+                "Her",
+                "Its",
+                "Their",
+                "neighbours",
+                "instructions",
+                "maps",
+                "letters",
+                "were",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "away",
+                "room",
+                "brighter",
+                "than",
+                "when",
+                "where",
+                "why",
+                "how",
+                "the",
+                "both",
+                "a",
+                "an",
+                "leak",
+                "everyone",
+                "enough",
+                "person",
+                "started",
+                "remembered",
+                "walked",
+                "opened"
+            ],
+            "source_text_uk": "Наших сусідів не було вдома, коли почалося протікання.",
+            "options_by_marker": {
+                "a1": [
+                    "Our",
+                    "Her",
+                    "Its",
+                    "Their"
+                ],
+                "a2": [
+                    "neighbours",
+                    "instructions",
+                    "maps",
+                    "letters"
+                ],
+                "a3": [
+                    "were",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a4": [
+                    "away",
+                    "room",
+                    "brighter",
+                    "than"
+                ],
+                "a5": [
+                    "when",
+                    "where",
+                    "why",
+                    "how"
+                ],
+                "a6": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a7": [
+                    "leak",
+                    "everyone",
+                    "enough",
+                    "person"
+                ],
+                "a8": [
+                    "started",
+                    "remembered",
+                    "walked",
+                    "opened"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "beq-past-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Різниця між помилкою й недбалістю була вирішальна для рішення суду.",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Різниця між помилкою й недбалістю була вирішальна для рішення суду.",
+            "target_text": "The distinction between error and negligence was crucial to the judgement.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з різниці та збережи її роль у минулому судовому рішенні.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "distinction",
+                    "verb_hint": "Почни з різниці та збережи її роль у минулому судовому рішенні.",
+                    "options": [
+                        "distinction",
+                        "matter",
+                        "discussion",
+                        "proposal"
+                    ]
+                },
+                "a3": {
+                    "answer": "between",
+                    "verb_hint": "Почни з різниці та збережи її роль у минулому судовому рішенні.",
+                    "options": [
+                        "between",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a4": {
+                    "answer": "error",
+                    "verb_hint": "Почни з різниці та збережи її роль у минулому судовому рішенні.",
+                    "options": [
+                        "error",
+                        "sound",
+                        "unfortunate",
+                        "relevant"
+                    ]
+                },
+                "a5": {
+                    "answer": "and",
+                    "verb_hint": "Почни з різниці та збережи її роль у минулому судовому рішенні.",
+                    "options": [
+                        "and",
+                        "if",
+                        "whether",
+                        "but"
+                    ]
+                },
+                "a6": {
+                    "answer": "negligence",
+                    "verb_hint": "Почни з різниці та збережи її роль у минулому судовому рішенні.",
+                    "options": [
+                        "negligence",
+                        "person",
+                        "water",
+                        "bread"
+                    ]
+                },
+                "a7": {
+                    "answer": "was",
+                    "verb_hint": "Почни з різниці та збережи її роль у минулому судовому рішенні.",
+                    "options": [
+                        "was",
+                        "are",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a8": {
+                    "answer": "crucial",
+                    "verb_hint": "Почни з різниці та збережи її роль у минулому судовому рішенні.",
+                    "options": [
+                        "crucial",
+                        "box",
+                        "chair",
+                        "table"
+                    ]
+                },
+                "a9": {
+                    "answer": "to",
+                    "verb_hint": "Почни з різниці та збережи її роль у минулому судовому рішенні.",
+                    "options": [
+                        "to",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Почни з різниці та збережи її роль у минулому судовому рішенні.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a11": {
+                    "answer": "judgement.",
+                    "verb_hint": "Почни з різниці та збережи її роль у минулому судовому рішенні.",
+                    "options": [
+                        "judgement",
+                        "ticket",
+                        "cup",
+                        "door"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з різниці та збережи її роль у минулому судовому рішенні.",
+            "accepted_target_texts": [
+                "The distinction between error and negligence was crucial to the judgement."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The distinction",
+                "between error",
+                "and negligence",
+                "was crucial",
+                "to the judgement."
+            ],
+            "token_groups": [
+                "The distinction",
+                "between error",
+                "and negligence",
+                "was crucial",
+                "to the judgement."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "distinction",
+                "between",
+                "error",
+                "and",
+                "negligence",
+                "was",
+                "crucial",
+                "to",
+                "the",
+                "judgement."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "distinction",
+                "matter",
+                "discussion",
+                "proposal",
+                "between",
+                "by",
+                "with",
+                "without",
+                "error",
+                "sound",
+                "unfortunate",
+                "relevant",
+                "and",
+                "if",
+                "whether",
+                "but",
+                "negligence",
+                "person",
+                "water",
+                "bread",
+                "was",
+                "are",
+                "were",
+                "be",
+                "crucial",
+                "box",
+                "chair",
+                "table",
+                "to",
+                "onto",
+                "over",
+                "under",
+                "the",
+                "an",
+                "some",
+                "any",
+                "judgement",
+                "ticket",
+                "cup",
+                "door"
+            ],
+            "source_text_uk": "Різниця між помилкою й недбалістю була вирішальна для рішення суду.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "distinction",
+                    "matter",
+                    "discussion",
+                    "proposal"
+                ],
+                "a3": [
+                    "between",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a4": [
+                    "error",
+                    "sound",
+                    "unfortunate",
+                    "relevant"
+                ],
+                "a5": [
+                    "and",
+                    "if",
+                    "whether",
+                    "but"
+                ],
+                "a6": [
+                    "negligence",
+                    "person",
+                    "water",
+                    "bread"
+                ],
+                "a7": [
+                    "was",
+                    "are",
+                    "were",
+                    "be"
+                ],
+                "a8": [
+                    "crucial",
+                    "box",
+                    "chair",
+                    "table"
+                ],
+                "a9": [
+                    "to",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a10": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a11": [
+                    "judgement",
+                    "ticket",
+                    "cup",
+                    "door"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "beq-past-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Ті заперечення стосувалися питання, яке обговорювали?",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Ті заперечення стосувалися питання, яке обговорювали?",
+            "target_text": "Were those objections relevant to the matter under discussion?",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "verb_hint": "Постав минулу форму перед запереченнями в множині й збережи предмет обговорення.",
+                    "options": [
+                        "Were",
+                        "Aren't",
+                        "Wasn't",
+                        "Weren't"
+                    ]
+                },
+                "a2": {
+                    "answer": "those",
+                    "verb_hint": "Постав минулу форму перед запереченнями в множині й збережи предмет обговорення.",
+                    "options": [
+                        "those",
+                        "these",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a3": {
+                    "answer": "objections",
+                    "verb_hint": "Постав минулу форму перед запереченнями в множині й збережи предмет обговорення.",
+                    "options": [
+                        "objections",
+                        "books",
+                        "boxes",
+                        "chairs"
+                    ]
+                },
+                "a4": {
+                    "answer": "relevant",
+                    "verb_hint": "Постав минулу форму перед запереченнями в множині й збережи предмет обговорення.",
+                    "options": [
+                        "relevant",
+                        "negligence",
+                        "crucial",
+                        "judgement"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Постав минулу форму перед запереченнями в множині й збережи предмет обговорення.",
+                    "options": [
+                        "to",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Постав минулу форму перед запереченнями в множині й збережи предмет обговорення.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a7": {
+                    "answer": "matter",
+                    "verb_hint": "Постав минулу форму перед запереченнями в множині й збережи предмет обговорення.",
+                    "options": [
+                        "matter",
+                        "unfortunate",
+                        "distinction",
+                        "error"
+                    ]
+                },
+                "a8": {
+                    "answer": "under",
+                    "verb_hint": "Постав минулу форму перед запереченнями в множині й збережи предмет обговорення.",
+                    "options": [
+                        "under",
+                        "through",
+                        "across",
+                        "during"
+                    ]
+                },
+                "a9": {
+                    "answer": "discussion?",
+                    "verb_hint": "Постав минулу форму перед запереченнями в множині й збережи предмет обговорення.",
+                    "options": [
+                        "discussion",
+                        "proposal",
+                        "sound",
+                        "table"
+                    ]
+                }
+            },
+            "verb_hint": "Постав минулу форму перед запереченнями в множині й збережи предмет обговорення.",
+            "accepted_target_texts": [
+                "Were those objections relevant to the matter under discussion?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Were those objections",
+                "relevant to",
+                "the matter",
+                "under discussion?"
+            ],
+            "token_groups": [
+                "Were those objections",
+                "relevant to",
+                "the matter",
+                "under discussion?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Were",
+                "those",
+                "objections",
+                "relevant",
+                "to",
+                "the",
+                "matter",
+                "under",
+                "discussion?"
+            ],
+            "options": [
+                "Were",
+                "Aren't",
+                "Wasn't",
+                "Weren't",
+                "those",
+                "these",
+                "each",
+                "every",
+                "objections",
+                "books",
+                "boxes",
+                "chairs",
+                "relevant",
+                "negligence",
+                "crucial",
+                "judgement",
+                "to",
+                "between",
+                "among",
+                "about",
+                "the",
+                "no",
+                "another",
+                "either",
+                "matter",
+                "unfortunate",
+                "distinction",
+                "error",
+                "under",
+                "through",
+                "across",
+                "during",
+                "discussion",
+                "proposal",
+                "sound",
+                "table"
+            ],
+            "source_text_uk": "Ті заперечення стосувалися питання, яке обговорювали?",
+            "options_by_marker": {
+                "a1": [
+                    "Were",
+                    "Aren't",
+                    "Wasn't",
+                    "Weren't"
+                ],
+                "a2": [
+                    "those",
+                    "these",
+                    "each",
+                    "every"
+                ],
+                "a3": [
+                    "objections",
+                    "books",
+                    "boxes",
+                    "chairs"
+                ],
+                "a4": [
+                    "relevant",
+                    "negligence",
+                    "crucial",
+                    "judgement"
+                ],
+                "a5": [
+                    "to",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a6": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a7": [
+                    "matter",
+                    "unfortunate",
+                    "distinction",
+                    "error"
+                ],
+                "a8": [
+                    "under",
+                    "through",
+                    "across",
+                    "during"
+                ],
+                "a9": [
+                    "discussion",
+                    "proposal",
+                    "sound",
+                    "table"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "beq-past-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Пропозиція була обґрунтована, але час був невдалий.",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Пропозиція була обґрунтована, але час був невдалий.",
+            "target_text": "The proposal was sound, but the timing was unfortunate.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи два минулі стани та протиставлення якості й часу.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "proposal",
+                    "verb_hint": "Збережи два минулі стани та протиставлення якості й часу.",
+                    "options": [
+                        "proposal",
+                        "matter",
+                        "discussion",
+                        "distinction"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Збережи два минулі стани та протиставлення якості й часу.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "sound,",
+                    "verb_hint": "Збережи два минулі стани та протиставлення якості й часу.",
+                    "options": [
+                        "sound",
+                        "error",
+                        "negligence",
+                        "crucial"
+                    ]
+                },
+                "a5": {
+                    "answer": "but",
+                    "verb_hint": "Збережи два минулі стани та протиставлення якості й часу.",
+                    "options": [
+                        "but",
+                        "whereas",
+                        "while",
+                        "if"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Збережи два минулі стани та протиставлення якості й часу.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "either"
+                    ]
+                },
+                "a7": {
+                    "answer": "timing",
+                    "verb_hint": "Збережи два минулі стани та протиставлення якості й часу.",
+                    "options": [
+                        "timing",
+                        "going",
+                        "taking",
+                        "working"
+                    ]
+                },
+                "a8": {
+                    "answer": "was",
+                    "verb_hint": "Збережи два минулі стани та протиставлення якості й часу.",
+                    "options": [
+                        "was",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a9": {
+                    "answer": "unfortunate.",
+                    "verb_hint": "Збережи два минулі стани та протиставлення якості й часу.",
+                    "options": [
+                        "unfortunate",
+                        "judgement",
+                        "relevant",
+                        "brother"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи два минулі стани та протиставлення якості й часу.",
+            "accepted_target_texts": [
+                "The proposal was sound, but the timing was unfortunate."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The proposal",
+                "was sound,",
+                "but the timing",
+                "was unfortunate."
+            ],
+            "token_groups": [
+                "The proposal",
+                "was sound,",
+                "but the timing",
+                "was unfortunate."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "proposal",
+                "was",
+                "sound,",
+                "but",
+                "the",
+                "timing",
+                "was",
+                "unfortunate."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "proposal",
+                "matter",
+                "discussion",
+                "distinction",
+                "was",
+                "were",
+                "be",
+                "been",
+                "sound",
+                "error",
+                "negligence",
+                "crucial",
+                "but",
+                "whereas",
+                "while",
+                "if",
+                "the",
+                "those",
+                "each",
+                "either",
+                "timing",
+                "going",
+                "taking",
+                "working",
+                "being",
+                "isn't",
+                "aren't",
+                "unfortunate",
+                "judgement",
+                "relevant",
+                "brother"
+            ],
+            "source_text_uk": "Пропозиція була обґрунтована, але час був невдалий.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "proposal",
+                    "matter",
+                    "discussion",
+                    "distinction"
+                ],
+                "a3": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a4": [
+                    "sound",
+                    "error",
+                    "negligence",
+                    "crucial"
+                ],
+                "a5": [
+                    "but",
+                    "whereas",
+                    "while",
+                    "if"
+                ],
+                "a6": [
+                    "the",
+                    "those",
+                    "each",
+                    "either"
+                ],
+                "a7": [
+                    "timing",
+                    "going",
+                    "taking",
+                    "working"
+                ],
+                "a8": [
+                    "was",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a9": [
+                    "unfortunate",
+                    "judgement",
+                    "relevant",
+                    "brother"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "beq-past-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Оскаржували саме обсяг повноважень, а не їхню тривалість.",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Оскаржували саме обсяг повноважень, а не їхню тривалість.",
+            "target_text": "It was the scope of the mandate, rather than its duration, that was disputed.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Побудуй минулу конструкцію виділення та збережи протиставлення обсягу й тривалості.",
+                    "options": [
+                        "It",
+                        "We",
+                        "They",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Побудуй минулу конструкцію виділення та збережи протиставлення обсягу й тривалості.",
+                    "options": [
+                        "was",
+                        "are",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй минулу конструкцію виділення та збережи протиставлення обсягу й тривалості.",
+                    "options": [
+                        "the",
+                        "this",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a4": {
+                    "answer": "scope",
+                    "verb_hint": "Побудуй минулу конструкцію виділення та збережи протиставлення обсягу й тривалості.",
+                    "options": [
+                        "scope",
+                        "aware",
+                        "arrangement",
+                        "apparent"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Побудуй минулу конструкцію виділення та збережи протиставлення обсягу й тривалості.",
+                    "options": [
+                        "of",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй минулу конструкцію виділення та збережи протиставлення обсягу й тривалості.",
+                    "options": [
+                        "the",
+                        "any",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "mandate,",
+                    "verb_hint": "Побудуй минулу конструкцію виділення та збережи протиставлення обсягу й тривалості.",
+                    "options": [
+                        "mandate",
+                        "more",
+                        "fragile",
+                        "person"
+                    ]
+                },
+                "a8": {
+                    "answer": "rather",
+                    "verb_hint": "Побудуй минулу конструкцію виділення та збережи протиставлення обсягу й тривалості.",
+                    "options": [
+                        "rather",
+                        "music",
+                        "food",
+                        "bike"
+                    ]
+                },
+                "a9": {
+                    "answer": "than",
+                    "verb_hint": "Побудуй минулу конструкцію виділення та збережи протиставлення обсягу й тривалості.",
+                    "options": [
+                        "than",
+                        "chair",
+                        "table",
+                        "ticket"
+                    ]
+                },
+                "a10": {
+                    "answer": "its",
+                    "verb_hint": "Побудуй минулу конструкцію виділення та збережи протиставлення обсягу й тривалості.",
+                    "options": [
+                        "its",
+                        "mine",
+                        "yours",
+                        "hers"
+                    ]
+                },
+                "a11": {
+                    "answer": "duration,",
+                    "verb_hint": "Побудуй минулу конструкцію виділення та збережи протиставлення обсягу й тривалості.",
+                    "options": [
+                        "duration",
+                        "friend",
+                        "dog",
+                        "cat"
+                    ]
+                },
+                "a12": {
+                    "answer": "that",
+                    "verb_hint": "Побудуй минулу конструкцію виділення та збережи протиставлення обсягу й тривалості.",
+                    "options": [
+                        "that",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a13": {
+                    "answer": "was",
+                    "verb_hint": "Побудуй минулу конструкцію виділення та збережи протиставлення обсягу й тривалості.",
+                    "options": [
+                        "was",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a14": {
+                    "answer": "disputed.",
+                    "verb_hint": "Побудуй минулу конструкцію виділення та збережи протиставлення обсягу й тривалості.",
+                    "options": [
+                        "disputed",
+                        "known",
+                        "broken",
+                        "built"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй минулу конструкцію виділення та збережи протиставлення обсягу й тривалості.",
+            "accepted_target_texts": [
+                "It was the scope of the mandate, rather than its duration, that was disputed."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "the scope",
+                "of the mandate,",
+                "rather than",
+                "its duration,",
+                "that was disputed."
+            ],
+            "token_groups": [
+                "It was",
+                "the scope",
+                "of the mandate,",
+                "rather than",
+                "its duration,",
+                "that was disputed."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "It",
+                "was",
+                "the",
+                "scope",
+                "of",
+                "the",
+                "mandate,",
+                "rather",
+                "than",
+                "its",
+                "duration,",
+                "that",
+                "was",
+                "disputed."
+            ],
+            "options": [
+                "It",
+                "We",
+                "They",
+                "Me",
+                "was",
+                "are",
+                "were",
+                "be",
+                "the",
+                "this",
+                "these",
+                "those",
+                "scope",
+                "aware",
+                "arrangement",
+                "apparent",
+                "of",
+                "over",
+                "under",
+                "through",
+                "any",
+                "each",
+                "every",
+                "mandate",
+                "more",
+                "fragile",
+                "person",
+                "rather",
+                "music",
+                "food",
+                "bike",
+                "than",
+                "chair",
+                "table",
+                "ticket",
+                "its",
+                "mine",
+                "yours",
+                "hers",
+                "duration",
+                "friend",
+                "dog",
+                "cat",
+                "that",
+                "all",
+                "both",
+                "a",
+                "been",
+                "being",
+                "isn't",
+                "disputed",
+                "known",
+                "broken",
+                "built"
+            ],
+            "source_text_uk": "Оскаржували саме обсяг повноважень, а не їхню тривалість.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "We",
+                    "They",
+                    "Me"
+                ],
+                "a2": [
+                    "was",
+                    "are",
+                    "were",
+                    "be"
+                ],
+                "a3": [
+                    "the",
+                    "this",
+                    "these",
+                    "those"
+                ],
+                "a4": [
+                    "scope",
+                    "aware",
+                    "arrangement",
+                    "apparent"
+                ],
+                "a5": [
+                    "of",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a6": [
+                    "the",
+                    "any",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "mandate",
+                    "more",
+                    "fragile",
+                    "person"
+                ],
+                "a8": [
+                    "rather",
+                    "music",
+                    "food",
+                    "bike"
+                ],
+                "a9": [
+                    "than",
+                    "chair",
+                    "table",
+                    "ticket"
+                ],
+                "a10": [
+                    "its",
+                    "mine",
+                    "yours",
+                    "hers"
+                ],
+                "a11": [
+                    "duration",
+                    "friend",
+                    "dog",
+                    "cat"
+                ],
+                "a12": [
+                    "that",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a13": [
+                    "was",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a14": [
+                    "disputed",
+                    "known",
+                    "broken",
+                    "built"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "beq-past-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Сторони усвідомлювали, наскільки хиткою насправді була ця домовленість?",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Сторони усвідомлювали, наскільки хиткою насправді була ця домовленість?",
+            "target_text": "Were the parties aware of how precarious the arrangement actually was?",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "verb_hint": "Склади пряме питання минулого часу з непрямим питанням усередині.",
+                    "options": [
+                        "Were",
+                        "Weren't",
+                        "Am",
+                        "Is"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Склади пряме питання минулого часу з непрямим питанням усередині.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a3": {
+                    "answer": "parties",
+                    "verb_hint": "Склади пряме питання минулого часу з непрямим питанням усередині.",
+                    "options": [
+                        "parties",
+                        "consensus",
+                        "accounts",
+                        "books"
+                    ]
+                },
+                "a4": {
+                    "answer": "aware",
+                    "verb_hint": "Склади пряме питання минулого часу з непрямим питанням усередині.",
+                    "options": [
+                        "aware",
+                        "scope",
+                        "mandate",
+                        "rather"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Склади пряме питання минулого часу з непрямим питанням усередині.",
+                    "options": [
+                        "of",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a6": {
+                    "answer": "how",
+                    "verb_hint": "Склади пряме питання минулого часу з непрямим питанням усередині.",
+                    "options": [
+                        "how",
+                        "why",
+                        "whoever",
+                        "whatever"
+                    ]
+                },
+                "a7": {
+                    "answer": "precarious",
+                    "verb_hint": "Склади пряме питання минулого часу з непрямим питанням усередині.",
+                    "options": [
+                        "precarious",
+                        "contemporary",
+                        "helpful",
+                        "different"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Склади пряме питання минулого часу з непрямим питанням усередині.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a9": {
+                    "answer": "arrangement",
+                    "verb_hint": "Склади пряме питання минулого часу з непрямим питанням усередині.",
+                    "options": [
+                        "arrangement",
+                        "fragile",
+                        "than",
+                        "duration"
+                    ]
+                },
+                "a10": {
+                    "answer": "actually",
+                    "verb_hint": "Склади пряме питання минулого часу з непрямим питанням усередині.",
+                    "options": [
+                        "actually",
+                        "politely",
+                        "loudly",
+                        "quietly"
+                    ]
+                },
+                "a11": {
+                    "answer": "was?",
+                    "verb_hint": "Склади пряме питання минулого часу з непрямим питанням усередині.",
+                    "options": [
+                        "was",
+                        "aren't",
+                        "wasn't",
+                        "are"
+                    ]
+                }
+            },
+            "verb_hint": "Склади пряме питання минулого часу з непрямим питанням усередині.",
+            "accepted_target_texts": [
+                "Were the parties aware of how precarious the arrangement actually was?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Were the parties",
+                "aware of",
+                "how precarious",
+                "the arrangement",
+                "actually was?"
+            ],
+            "token_groups": [
+                "Were the parties",
+                "aware of",
+                "how precarious",
+                "the arrangement",
+                "actually was?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Were",
+                "the",
+                "parties",
+                "aware",
+                "of",
+                "how",
+                "precarious",
+                "the",
+                "arrangement",
+                "actually",
+                "was?"
+            ],
+            "options": [
+                "Were",
+                "Weren't",
+                "Am",
+                "Is",
+                "the",
+                "each",
+                "every",
+                "no",
+                "parties",
+                "consensus",
+                "accounts",
+                "books",
+                "aware",
+                "scope",
+                "mandate",
+                "rather",
+                "of",
+                "between",
+                "among",
+                "about",
+                "how",
+                "why",
+                "whoever",
+                "whatever",
+                "precarious",
+                "contemporary",
+                "helpful",
+                "different",
+                "another",
+                "either",
+                "neither",
+                "arrangement",
+                "fragile",
+                "than",
+                "duration",
+                "actually",
+                "politely",
+                "loudly",
+                "quietly",
+                "was",
+                "aren't",
+                "wasn't",
+                "are"
+            ],
+            "source_text_uk": "Сторони усвідомлювали, наскільки хиткою насправді була ця домовленість?",
+            "options_by_marker": {
+                "a1": [
+                    "Were",
+                    "Weren't",
+                    "Am",
+                    "Is"
+                ],
+                "a2": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a3": [
+                    "parties",
+                    "consensus",
+                    "accounts",
+                    "books"
+                ],
+                "a4": [
+                    "aware",
+                    "scope",
+                    "mandate",
+                    "rather"
+                ],
+                "a5": [
+                    "of",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a6": [
+                    "how",
+                    "why",
+                    "whoever",
+                    "whatever"
+                ],
+                "a7": [
+                    "precarious",
+                    "contemporary",
+                    "helpful",
+                    "different"
+                ],
+                "a8": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a9": [
+                    "arrangement",
+                    "fragile",
+                    "than",
+                    "duration"
+                ],
+                "a10": [
+                    "actually",
+                    "politely",
+                    "loudly",
+                    "quietly"
+                ],
+                "a11": [
+                    "was",
+                    "aren't",
+                    "wasn't",
+                    "are"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "beq-past-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Позірний консенсус був крихкіший, ніж випливало з тогочасних свідчень.",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Позірний консенсус був крихкіший, ніж випливало з тогочасних свідчень.",
+            "target_text": "The apparent consensus was more fragile than contemporary accounts implied.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи минуле порівняння реальної крихкості з враженням від тогочасних описів.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "apparent",
+                    "verb_hint": "Збережи минуле порівняння реальної крихкості з враженням від тогочасних описів.",
+                    "options": [
+                        "apparent",
+                        "scope",
+                        "mandate",
+                        "rather"
+                    ]
+                },
+                "a3": {
+                    "answer": "consensus",
+                    "verb_hint": "Збережи минуле порівняння реальної крихкості з враженням від тогочасних описів.",
+                    "options": [
+                        "consensus",
+                        "parties",
+                        "teachers",
+                        "schools"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Збережи минуле порівняння реальної крихкості з враженням від тогочасних описів.",
+                    "options": [
+                        "was",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "more",
+                    "verb_hint": "Збережи минуле порівняння реальної крихкості з враженням від тогочасних описів.",
+                    "options": [
+                        "more",
+                        "arrangement",
+                        "duration",
+                        "aware"
+                    ]
+                },
+                "a6": {
+                    "answer": "fragile",
+                    "verb_hint": "Збережи минуле порівняння реальної крихкості з враженням від тогочасних описів.",
+                    "options": [
+                        "fragile",
+                        "music",
+                        "food",
+                        "bike"
+                    ]
+                },
+                "a7": {
+                    "answer": "than",
+                    "verb_hint": "Збережи минуле порівняння реальної крихкості з враженням від тогочасних описів.",
+                    "options": [
+                        "than",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a8": {
+                    "answer": "contemporary",
+                    "verb_hint": "Збережи минуле порівняння реальної крихкості з враженням від тогочасних описів.",
+                    "options": [
+                        "contemporary",
+                        "precarious",
+                        "clear",
+                        "safe"
+                    ]
+                },
+                "a9": {
+                    "answer": "accounts",
+                    "verb_hint": "Збережи минуле порівняння реальної крихкості з враженням від тогочасних описів.",
+                    "options": [
+                        "accounts",
+                        "letters",
+                        "windows",
+                        "phones"
+                    ]
+                },
+                "a10": {
+                    "answer": "implied.",
+                    "verb_hint": "Збережи минуле порівняння реальної крихкості з враженням від тогочасних описів.",
+                    "options": [
+                        "implied",
+                        "drove",
+                        "gave",
+                        "made"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи минуле порівняння реальної крихкості з враженням від тогочасних описів.",
+            "accepted_target_texts": [
+                "The apparent consensus was more fragile than contemporary accounts implied."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The apparent consensus",
+                "was more fragile",
+                "than contemporary accounts",
+                "implied."
+            ],
+            "token_groups": [
+                "The apparent consensus",
+                "was more fragile",
+                "than contemporary accounts",
+                "implied."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "apparent",
+                "consensus",
+                "was",
+                "more",
+                "fragile",
+                "than",
+                "contemporary",
+                "accounts",
+                "implied."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "apparent",
+                "scope",
+                "mandate",
+                "rather",
+                "consensus",
+                "parties",
+                "teachers",
+                "schools",
+                "was",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "more",
+                "arrangement",
+                "duration",
+                "aware",
+                "fragile",
+                "music",
+                "food",
+                "bike",
+                "than",
+                "school",
+                "sister",
+                "brother",
+                "contemporary",
+                "precarious",
+                "clear",
+                "safe",
+                "accounts",
+                "letters",
+                "windows",
+                "phones",
+                "implied",
+                "drove",
+                "gave",
+                "made"
+            ],
+            "source_text_uk": "Позірний консенсус був крихкіший, ніж випливало з тогочасних свідчень.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "apparent",
+                    "scope",
+                    "mandate",
+                    "rather"
+                ],
+                "a3": [
+                    "consensus",
+                    "parties",
+                    "teachers",
+                    "schools"
+                ],
+                "a4": [
+                    "was",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a5": [
+                    "more",
+                    "arrangement",
+                    "duration",
+                    "aware"
+                ],
+                "a6": [
+                    "fragile",
+                    "music",
+                    "food",
+                    "bike"
+                ],
+                "a7": [
+                    "than",
+                    "school",
+                    "sister",
+                    "brother"
+                ],
+                "a8": [
+                    "contemporary",
+                    "precarious",
+                    "clear",
+                    "safe"
+                ],
+                "a9": [
+                    "accounts",
+                    "letters",
+                    "windows",
+                    "phones"
+                ],
+                "a10": [
+                    "implied",
+                    "drove",
+                    "gave",
+                    "made"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "beq-past-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Заперечення полягало не в незаконності процедури, а в тому, що її законність не стосувалася суті.",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Заперечення полягало не в незаконності процедури, а в тому, що її законність не стосувалася суті.",
+            "target_text": "The objection was not that the procedure was unlawful, but that its legality was beside the point.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "objection",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "objection",
+                        "absence",
+                        "dissent",
+                        "most"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "was",
+                        "are",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "not",
+                        "also",
+                        "usually",
+                        "rarely"
+                    ]
+                },
+                "a5": {
+                    "answer": "that",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "that",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "the",
+                        "another",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a7": {
+                    "answer": "procedure",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "procedure",
+                        "significant",
+                        "institution",
+                        "consequential"
+                    ]
+                },
+                "a8": {
+                    "answer": "was",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "was",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a9": {
+                    "answer": "unlawful,",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "unlawful",
+                        "hungry",
+                        "thirsty",
+                        "clear"
+                    ]
+                },
+                "a10": {
+                    "answer": "but",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "but",
+                        "because",
+                        "although",
+                        "though"
+                    ]
+                },
+                "a11": {
+                    "answer": "that",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "that",
+                        "this",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a12": {
+                    "answer": "its",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "its",
+                        "his",
+                        "her",
+                        "our"
+                    ]
+                },
+                "a13": {
+                    "answer": "legality",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "legality",
+                        "practice",
+                        "bike",
+                        "car"
+                    ]
+                },
+                "a14": {
+                    "answer": "was",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "was",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a15": {
+                    "answer": "beside",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "beside",
+                        "sister",
+                        "brother",
+                        "friend"
+                    ]
+                },
+                "a16": {
+                    "answer": "the",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a17": {
+                    "answer": "point.",
+                    "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+                    "options": [
+                        "point",
+                        "letter",
+                        "window",
+                        "phone"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи точне протиставлення двох тлумачень заперечення в минулому.",
+            "accepted_target_texts": [
+                "The objection was not that the procedure was unlawful, but that its legality was beside the point."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The objection",
+                "was not",
+                "that the procedure",
+                "was unlawful,",
+                "but that",
+                "its legality",
+                "was beside",
+                "the point."
+            ],
+            "token_groups": [
+                "The objection",
+                "was not",
+                "that the procedure",
+                "was unlawful,",
+                "but that",
+                "its legality",
+                "was beside",
+                "the point."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "objection",
+                "was",
+                "not",
+                "that",
+                "the",
+                "procedure",
+                "was",
+                "unlawful,",
+                "but",
+                "that",
+                "its",
+                "legality",
+                "was",
+                "beside",
+                "the",
+                "point."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "objection",
+                "absence",
+                "dissent",
+                "most",
+                "was",
+                "are",
+                "were",
+                "be",
+                "not",
+                "also",
+                "usually",
+                "rarely",
+                "that",
+                "an",
+                "some",
+                "any",
+                "the",
+                "another",
+                "both",
+                "a",
+                "procedure",
+                "significant",
+                "institution",
+                "consequential",
+                "wasn't",
+                "weren't",
+                "am",
+                "unlawful",
+                "hungry",
+                "thirsty",
+                "clear",
+                "but",
+                "because",
+                "although",
+                "though",
+                "this",
+                "these",
+                "those",
+                "its",
+                "his",
+                "her",
+                "our",
+                "legality",
+                "practice",
+                "bike",
+                "car",
+                "been",
+                "being",
+                "isn't",
+                "beside",
+                "sister",
+                "brother",
+                "friend",
+                "each",
+                "every",
+                "no",
+                "point",
+                "letter",
+                "window",
+                "phone"
+            ],
+            "source_text_uk": "Заперечення полягало не в незаконності процедури, а в тому, що її законність не стосувалася суті.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "objection",
+                    "absence",
+                    "dissent",
+                    "most"
+                ],
+                "a3": [
+                    "was",
+                    "are",
+                    "were",
+                    "be"
+                ],
+                "a4": [
+                    "not",
+                    "also",
+                    "usually",
+                    "rarely"
+                ],
+                "a5": [
+                    "that",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a6": [
+                    "the",
+                    "another",
+                    "both",
+                    "a"
+                ],
+                "a7": [
+                    "procedure",
+                    "significant",
+                    "institution",
+                    "consequential"
+                ],
+                "a8": [
+                    "was",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a9": [
+                    "unlawful",
+                    "hungry",
+                    "thirsty",
+                    "clear"
+                ],
+                "a10": [
+                    "but",
+                    "because",
+                    "although",
+                    "though"
+                ],
+                "a11": [
+                    "that",
+                    "this",
+                    "these",
+                    "those"
+                ],
+                "a12": [
+                    "its",
+                    "his",
+                    "her",
+                    "our"
+                ],
+                "a13": [
+                    "legality",
+                    "practice",
+                    "bike",
+                    "car"
+                ],
+                "a14": [
+                    "was",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a15": [
+                    "beside",
+                    "sister",
+                    "brother",
+                    "friend"
+                ],
+                "a16": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a17": [
+                    "point",
+                    "letter",
+                    "window",
+                    "phone"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "beq-past-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Поступки мали такий самий вагомий практичний вплив, як і символічне значення?",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Поступки мали такий самий вагомий практичний вплив, як і символічне значення?",
+            "target_text": "Were the concessions as consequential in practice as they were symbolically significant?",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "verb_hint": "Побудуй минуле питання зі співвіднесенням практичної ваги й символічного значення.",
+                    "options": [
+                        "Were",
+                        "Being",
+                        "Isn't",
+                        "Aren't"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй минуле питання зі співвіднесенням практичної ваги й символічного значення.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a3": {
+                    "answer": "concessions",
+                    "verb_hint": "Побудуй минуле питання зі співвіднесенням практичної ваги й символічного значення.",
+                    "options": [
+                        "concessions",
+                        "maps",
+                        "letters",
+                        "windows"
+                    ]
+                },
+                "a4": {
+                    "answer": "as",
+                    "verb_hint": "Побудуй минуле питання зі співвіднесенням практичної ваги й символічного значення.",
+                    "options": [
+                        "as",
+                        "keys",
+                        "rooms",
+                        "phones"
+                    ]
+                },
+                "a5": {
+                    "answer": "consequential",
+                    "verb_hint": "Побудуй минуле питання зі співвіднесенням практичної ваги й символічного значення.",
+                    "options": [
+                        "consequential",
+                        "absence",
+                        "dissent",
+                        "most"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Побудуй минуле питання зі співвіднесенням практичної ваги й символічного значення.",
+                    "options": [
+                        "in",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a7": {
+                    "answer": "practice",
+                    "verb_hint": "Побудуй минуле питання зі співвіднесенням практичної ваги й символічного значення.",
+                    "options": [
+                        "practice",
+                        "institution",
+                        "objection",
+                        "procedure"
+                    ]
+                },
+                "a8": {
+                    "answer": "as",
+                    "verb_hint": "Побудуй минуле питання зі співвіднесенням практичної ваги й символічного значення.",
+                    "options": [
+                        "as",
+                        "children",
+                        "teachers",
+                        "schools"
+                    ]
+                },
+                "a9": {
+                    "answer": "they",
+                    "verb_hint": "Побудуй минуле питання зі співвіднесенням практичної ваги й символічного значення.",
+                    "options": [
+                        "they",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                },
+                "a10": {
+                    "answer": "were",
+                    "verb_hint": "Побудуй минуле питання зі співвіднесенням практичної ваги й символічного значення.",
+                    "options": [
+                        "were",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a11": {
+                    "answer": "symbolically",
+                    "verb_hint": "Побудуй минуле питання зі співвіднесенням практичної ваги й символічного значення.",
+                    "options": [
+                        "symbolically",
+                        "precisely",
+                        "badly",
+                        "clearly"
+                    ]
+                },
+                "a12": {
+                    "answer": "significant?",
+                    "verb_hint": "Побудуй минуле питання зі співвіднесенням практичної ваги й символічного значення.",
+                    "options": [
+                        "significant",
+                        "point",
+                        "legality",
+                        "beside"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй минуле питання зі співвіднесенням практичної ваги й символічного значення.",
+            "accepted_target_texts": [
+                "Were the concessions as consequential in practice as they were symbolically significant?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Were the concessions",
+                "as consequential",
+                "in practice",
+                "as they were",
+                "symbolically significant?"
+            ],
+            "token_groups": [
+                "Were the concessions",
+                "as consequential",
+                "in practice",
+                "as they were",
+                "symbolically significant?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Were",
+                "the",
+                "concessions",
+                "as",
+                "consequential",
+                "in",
+                "practice",
+                "as",
+                "they",
+                "were",
+                "symbolically",
+                "significant?"
+            ],
+            "options": [
+                "Were",
+                "Being",
+                "Isn't",
+                "Aren't",
+                "the",
+                "those",
+                "each",
+                "every",
+                "concessions",
+                "maps",
+                "letters",
+                "windows",
+                "as",
+                "keys",
+                "rooms",
+                "phones",
+                "consequential",
+                "absence",
+                "dissent",
+                "most",
+                "in",
+                "over",
+                "under",
+                "through",
+                "practice",
+                "institution",
+                "objection",
+                "procedure",
+                "children",
+                "teachers",
+                "schools",
+                "they",
+                "them",
+                "myself",
+                "yourself",
+                "were",
+                "am",
+                "is",
+                "are",
+                "symbolically",
+                "precisely",
+                "badly",
+                "clearly",
+                "significant",
+                "point",
+                "legality",
+                "beside"
+            ],
+            "source_text_uk": "Поступки мали такий самий вагомий практичний вплив, як і символічне значення?",
+            "options_by_marker": {
+                "a1": [
+                    "Were",
+                    "Being",
+                    "Isn't",
+                    "Aren't"
+                ],
+                "a2": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a3": [
+                    "concessions",
+                    "maps",
+                    "letters",
+                    "windows"
+                ],
+                "a4": [
+                    "as",
+                    "keys",
+                    "rooms",
+                    "phones"
+                ],
+                "a5": [
+                    "consequential",
+                    "absence",
+                    "dissent",
+                    "most"
+                ],
+                "a6": [
+                    "in",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a7": [
+                    "practice",
+                    "institution",
+                    "objection",
+                    "procedure"
+                ],
+                "a8": [
+                    "as",
+                    "children",
+                    "teachers",
+                    "schools"
+                ],
+                "a9": [
+                    "they",
+                    "them",
+                    "myself",
+                    "yourself"
+                ],
+                "a10": [
+                    "were",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a11": [
+                    "symbolically",
+                    "precisely",
+                    "badly",
+                    "clearly"
+                ],
+                "a12": [
+                    "significant",
+                    "point",
+                    "legality",
+                    "beside"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "beq-past-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Саме відсутність відкритої незгоди найбільше тривожила тих, хто знав цю установу.",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_to_be_quality_past",
+            "translation_uk": "Саме відсутність відкритої незгоди найбільше тривожила тих, хто знав цю установу.",
+            "target_text": "It was precisely the absence of open dissent that was most unsettling to those who knew the institution.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "It",
+                        "Ourselves",
+                        "Themselves",
+                        "I"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "was",
+                        "are",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a3": {
+                    "answer": "precisely",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "precisely",
+                        "symbolically",
+                        "loudly",
+                        "quietly"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a5": {
+                    "answer": "absence",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "absence",
+                        "legality",
+                        "beside",
+                        "point"
+                    ]
+                },
+                "a6": {
+                    "answer": "of",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "of",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a7": {
+                    "answer": "open",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "open",
+                        "met",
+                        "went",
+                        "saw"
+                    ]
+                },
+                "a8": {
+                    "answer": "dissent",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "dissent",
+                        "objection",
+                        "procedure",
+                        "consequential"
+                    ]
+                },
+                "a9": {
+                    "answer": "that",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "that",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a10": {
+                    "answer": "was",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "was",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a11": {
+                    "answer": "most",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "most",
+                        "practice",
+                        "significant",
+                        "picture"
+                    ]
+                },
+                "a12": {
+                    "answer": "unsettling",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "unsettling",
+                        "working",
+                        "playing",
+                        "reading"
+                    ]
+                },
+                "a13": {
+                    "answer": "to",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "to",
+                        "during",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a14": {
+                    "answer": "those",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "those",
+                        "these",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a15": {
+                    "answer": "who",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "who",
+                        "when",
+                        "why",
+                        "how"
+                    ]
+                },
+                "a16": {
+                    "answer": "knew",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "knew",
+                        "wanted",
+                        "worked",
+                        "played"
+                    ]
+                },
+                "a17": {
+                    "answer": "the",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "the",
+                        "an",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a18": {
+                    "answer": "institution.",
+                    "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+                    "options": [
+                        "institution",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи минуле виділення причини тривоги та означення людей, яких вона стосувалася.",
+            "accepted_target_texts": [
+                "It was precisely the absence of open dissent that was most unsettling to those who knew the institution."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "precisely the absence",
+                "of open dissent",
+                "that was",
+                "most unsettling",
+                "to those",
+                "who knew",
+                "the institution."
+            ],
+            "token_groups": [
+                "It was",
+                "precisely the absence",
+                "of open dissent",
+                "that was",
+                "most unsettling",
+                "to those",
+                "who knew",
+                "the institution."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "It",
+                "was",
+                "precisely",
+                "the",
+                "absence",
+                "of",
+                "open",
+                "dissent",
+                "that",
+                "was",
+                "most",
+                "unsettling",
+                "to",
+                "those",
+                "who",
+                "knew",
+                "the",
+                "institution."
+            ],
+            "options": [
+                "It",
+                "Ourselves",
+                "Themselves",
+                "I",
+                "was",
+                "are",
+                "were",
+                "be",
+                "precisely",
+                "symbolically",
+                "loudly",
+                "quietly",
+                "the",
+                "some",
+                "any",
+                "this",
+                "absence",
+                "legality",
+                "beside",
+                "point",
+                "of",
+                "over",
+                "under",
+                "through",
+                "open",
+                "met",
+                "went",
+                "saw",
+                "dissent",
+                "objection",
+                "procedure",
+                "consequential",
+                "that",
+                "all",
+                "both",
+                "a",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "most",
+                "practice",
+                "significant",
+                "picture",
+                "unsettling",
+                "working",
+                "playing",
+                "reading",
+                "to",
+                "during",
+                "from",
+                "for",
+                "those",
+                "these",
+                "each",
+                "every",
+                "who",
+                "when",
+                "why",
+                "how",
+                "knew",
+                "wanted",
+                "worked",
+                "played",
+                "an",
+                "no",
+                "another",
+                "institution",
+                "school",
+                "sister",
+                "brother"
+            ],
+            "source_text_uk": "Саме відсутність відкритої незгоди найбільше тривожила тих, хто знав цю установу.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "Ourselves",
+                    "Themselves",
+                    "I"
+                ],
+                "a2": [
+                    "was",
+                    "are",
+                    "were",
+                    "be"
+                ],
+                "a3": [
+                    "precisely",
+                    "symbolically",
+                    "loudly",
+                    "quietly"
+                ],
+                "a4": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a5": [
+                    "absence",
+                    "legality",
+                    "beside",
+                    "point"
+                ],
+                "a6": [
+                    "of",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a7": [
+                    "open",
+                    "met",
+                    "went",
+                    "saw"
+                ],
+                "a8": [
+                    "dissent",
+                    "objection",
+                    "procedure",
+                    "consequential"
+                ],
+                "a9": [
+                    "that",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a10": [
+                    "was",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a11": [
+                    "most",
+                    "practice",
+                    "significant",
+                    "picture"
+                ],
+                "a12": [
+                    "unsettling",
+                    "working",
+                    "playing",
+                    "reading"
+                ],
+                "a13": [
+                    "to",
+                    "during",
+                    "from",
+                    "for"
+                ],
+                "a14": [
+                    "those",
+                    "these",
+                    "each",
+                    "every"
+                ],
+                "a15": [
+                    "who",
+                    "when",
+                    "why",
+                    "how"
+                ],
+                "a16": [
+                    "knew",
+                    "wanted",
+                    "worked",
+                    "played"
+                ],
+                "a17": [
+                    "the",
+                    "an",
+                    "no",
+                    "another"
+                ],
+                "a18": [
+                    "institution",
+                    "school",
+                    "sister",
+                    "brother"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

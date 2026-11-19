@@ -1,0 +1,687 @@
+{
+    "schema_version": 1,
+    "quality_revision": "aeq-v1",
+    "compiled_from": {
+        "path": "docs/content/academic-english-quality/argumentation-and-academic-tone.v1.json",
+        "sha256": "02f99d420293c0b85a5b7e10bd8d7d50713fdb69d86970f6f1afe09be1dc0b5c"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AcademicEnglish\\UkrainianMixedAeqArgumentationAndAcademicToneQualityStandardSeeder",
+        "uuid_namespace": "academic-english-quality-argumentation-and-academic-tone-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Academic English"
+    },
+    "sources": {
+        "academic_english_quality_argumentation_and_academic_tone": {
+            "name": "Academic English Quality: Argumentation and Academic Tone"
+        }
+    },
+    "tags": {
+        "aat_topic": {
+            "name": "argumentation and academic tone",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "academic_argumentation": {
+            "name": "academic argumentation",
+            "category": "academic-english"
+        },
+        "claim_evidence_reasoning": {
+            "name": "claim evidence reasoning",
+            "category": "academic-english"
+        },
+        "qualifying_claims": {
+            "name": "qualifying claims",
+            "category": "academic-english"
+        },
+        "counterargument_concession": {
+            "name": "counterargument and concession",
+            "category": "academic-english"
+        },
+        "contrastive_links": {
+            "name": "contrastive argument links",
+            "category": "academic-english"
+        },
+        "conclusion_links": {
+            "name": "result and conclusion links",
+            "category": "academic-english"
+        },
+        "avoid_unsupported_claims": {
+            "name": "avoiding unsupported claims",
+            "category": "academic-english"
+        },
+        "avoid_emotional_tone": {
+            "name": "avoiding emotional tone",
+            "category": "academic-english"
+        },
+        "logical_flow": {
+            "name": "logical flow",
+            "category": "academic-english"
+        },
+        "formal_argumentative_style": {
+            "name": "formal argumentative style",
+            "category": "academic-english"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "academic-english"
+        }
+    },
+    "default_tag_keys": [
+        "aat_topic"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "aeq-arg-a1-g01",
+            "author_id": "A1-g01",
+            "question": "We stayed inside {a1} it was cold.",
+            "level": "A1",
+            "type": 0,
+            "source": "academic_english_quality_argumentation_and_academic_tone",
+            "translation_uk": "Ми залишилися всередині, бо було холодно.",
+            "target_text": "We stayed inside because it was cold.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "but"
+                    ],
+                    "verb_hint": "Поєднай рішення з його причиною; обидві частини речення вже наведені."
+                }
+            },
+            "verb_hint": "Поєднай рішення з його причиною; обидві частини речення вже наведені.",
+            "accepted_target_texts": [
+                "We stayed inside because it was cold."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We stayed inside",
+                "because",
+                "it was cold."
+            ],
+            "token_groups": [
+                "We stayed inside",
+                "because",
+                "it was cold."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "aeq-arg-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The road is wet, {a1} walk carefully.",
+            "level": "A1",
+            "type": 0,
+            "source": "academic_english_quality_argumentation_and_academic_tone",
+            "translation_uk": "Дорога мокра, тому йди обережно.",
+            "target_text": "The road is wet, so walk carefully.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Після названої причини передай практичний наслідок простим сполучником."
+                }
+            },
+            "verb_hint": "Після названої причини передай практичний наслідок простим сполучником.",
+            "accepted_target_texts": [
+                "The road is wet, so walk carefully."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The road",
+                "is wet,",
+                "so walk carefully."
+            ],
+            "token_groups": [
+                "The road",
+                "is wet,",
+                "so walk carefully."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "aeq-arg-a2-g01",
+            "author_id": "A2-g01",
+            "question": "We need another {a1} to support this idea.",
+            "level": "A2",
+            "type": 0,
+            "source": "academic_english_quality_argumentation_and_academic_tone",
+            "translation_uk": "Нам потрібен ще один аргумент на користь цієї думки.",
+            "target_text": "We need another reason to support this idea.",
+            "markers": {
+                "a1": {
+                    "answer": "reason",
+                    "options": [
+                        "reason",
+                        "reasoned",
+                        "reasonable"
+                    ],
+                    "verb_hint": "Назви додаткову підставу на підтримку думки; після вже наведеного означення потрібен іменник в однині."
+                }
+            },
+            "verb_hint": "Назви додаткову підставу на підтримку думки; після вже наведеного означення потрібен іменник в однині.",
+            "accepted_target_texts": [
+                "We need another reason to support this idea.",
+                "We need another argument to support this idea."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "argument"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "argument"
+                ]
+            },
+            "reorder_groups": [
+                "We need",
+                "another reason",
+                "to support",
+                "this idea."
+            ],
+            "token_groups": [
+                "We need",
+                "another reason",
+                "to support",
+                "this idea."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "aeq-arg-a2-g02",
+            "author_id": "A2-g02",
+            "question": "This example is useful, {a1} it does not settle the question.",
+            "level": "A2",
+            "type": 0,
+            "source": "academic_english_quality_argumentation_and_academic_tone",
+            "translation_uk": "Цей приклад корисний, але він не дає остаточної відповіді на запитання.",
+            "target_text": "This example is useful, but it does not settle the question.",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "therefore",
+                        "because"
+                    ],
+                    "verb_hint": "Поєднай користь прикладу з обмеженням його доказової сили протиставним сполучником."
+                }
+            },
+            "verb_hint": "Поєднай користь прикладу з обмеженням його доказової сили протиставним сполучником.",
+            "accepted_target_texts": [
+                "This example is useful, but it does not settle the question.",
+                "This example is useful, yet it does not settle the question."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "reorder_groups": [
+                "This example",
+                "is useful,",
+                "but it",
+                "does not settle",
+                "the question."
+            ],
+            "token_groups": [
+                "This example",
+                "is useful,",
+                "but it",
+                "does not settle",
+                "the question."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "aeq-arg-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The claim needs evidence rather {a1} repetition.",
+            "level": "B1",
+            "type": 0,
+            "source": "academic_english_quality_argumentation_and_academic_tone",
+            "translation_uk": "Твердження потребує доказів, а не повторення.",
+            "target_text": "The claim needs evidence rather than repetition.",
+            "markers": {
+                "a1": {
+                    "answer": "than",
+                    "options": [
+                        "than",
+                        "then",
+                        "as"
+                    ],
+                    "verb_hint": "Доповни сталу сполуку протиставлення двох іменників; не додавай нової частини речення."
+                }
+            },
+            "verb_hint": "Доповни сталу сполуку протиставлення двох іменників; не додавай нової частини речення.",
+            "accepted_target_texts": [
+                "The claim needs evidence rather than repetition."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The claim",
+                "needs evidence",
+                "rather than",
+                "repetition."
+            ],
+            "token_groups": [
+                "The claim",
+                "needs evidence",
+                "rather than",
+                "repetition."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "aeq-arg-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Her conclusion does not {a1} from the facts listed above.",
+            "level": "B1",
+            "type": 0,
+            "source": "academic_english_quality_argumentation_and_academic_tone",
+            "translation_uk": "Її висновок не випливає з наведених вище фактів.",
+            "target_text": "Her conclusion does not follow from the facts listed above.",
+            "markers": {
+                "a1": {
+                    "answer": "follow",
+                    "options": [
+                        "follow",
+                        "follows",
+                        "followed"
+                    ],
+                    "verb_hint": "Назви логічне випливання початковою формою після вже наведеного заперечення; прийменник стоїть далі."
+                }
+            },
+            "verb_hint": "Назви логічне випливання початковою формою після вже наведеного заперечення; прийменник стоїть далі.",
+            "accepted_target_texts": [
+                "Her conclusion does not follow from the facts listed above."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Her conclusion",
+                "does not follow",
+                "from the facts",
+                "listed above."
+            ],
+            "token_groups": [
+                "Her conclusion",
+                "does not follow",
+                "from the facts",
+                "listed above."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "aeq-arg-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The objection challenges the {a1}, not the accuracy of the figures.",
+            "level": "B2",
+            "type": 0,
+            "source": "academic_english_quality_argumentation_and_academic_tone",
+            "translation_uk": "Заперечення стосується висновку з даних, а не точності цифр.",
+            "target_text": "The objection challenges the conclusion, not the accuracy of the figures.",
+            "markers": {
+                "a1": {
+                    "answer": "conclusion",
+                    "options": [
+                        "conclusion",
+                        "citation",
+                        "description"
+                    ],
+                    "verb_hint": "Назви саме логічний висновок, проти якого висувають заперечення; не підмінюй його якістю вимірювання."
+                }
+            },
+            "verb_hint": "Назви саме логічний висновок, проти якого висувають заперечення; не підмінюй його якістю вимірювання.",
+            "accepted_target_texts": [
+                "The objection challenges the conclusion, not the accuracy of the figures.",
+                "The objection challenges the inference, not the accuracy of the figures."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "inference"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "inference"
+                ]
+            },
+            "reorder_groups": [
+                "The objection",
+                "challenges the conclusion,",
+                "not the accuracy",
+                "of the figures."
+            ],
+            "token_groups": [
+                "The objection",
+                "challenges the conclusion,",
+                "not the accuracy",
+                "of the figures."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "aeq-arg-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The writer concedes the cost but maintains {a1} the benefit is greater.",
+            "level": "B2",
+            "type": 0,
+            "source": "academic_english_quality_argumentation_and_academic_tone",
+            "translation_uk": "Автор визнає витрати, але наполягає, що користь більша.",
+            "target_text": "The writer concedes the cost but maintains that the benefit is greater.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "what",
+                        "which"
+                    ],
+                    "verb_hint": "Введи сполучник перед повним твердженням про користь; не повторюй уже наведені слова."
+                }
+            },
+            "verb_hint": "Введи сполучник перед повним твердженням про користь; не повторюй уже наведені слова.",
+            "accepted_target_texts": [
+                "The writer concedes the cost but maintains that the benefit is greater."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The writer concedes",
+                "the cost",
+                "but maintains that",
+                "the benefit",
+                "is greater."
+            ],
+            "token_groups": [
+                "The writer concedes",
+                "the cost",
+                "but maintains that",
+                "the benefit",
+                "is greater."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "aeq-arg-c1-g01",
+            "author_id": "C1-g01",
+            "question": "A correlation, however stable, does not {a1} establish causation.",
+            "level": "C1",
+            "type": 0,
+            "source": "academic_english_quality_argumentation_and_academic_tone",
+            "translation_uk": "Кореляція, хай якою стабільною вона є, сама собою не встановлює причинності.",
+            "target_text": "A correlation, however stable, does not in itself establish causation.",
+            "markers": {
+                "a1": {
+                    "answer": "in itself",
+                    "options": [
+                        "in itself",
+                        "at least",
+                        "in return"
+                    ],
+                    "verb_hint": "Передай обмеження «сама собою»; стійкість зв’язку не стає окремим доказом причинності."
+                }
+            },
+            "verb_hint": "Передай обмеження «сама собою»; стійкість зв’язку не стає окремим доказом причинності.",
+            "accepted_target_texts": [
+                "A correlation, however stable, does not in itself establish causation.",
+                "A correlation, however stable, does not by itself establish causation.",
+                "A correlation, however stable, does not on its own establish causation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "by itself",
+                    "on its own"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "by itself",
+                    "on its own"
+                ]
+            },
+            "reorder_groups": [
+                "A correlation,",
+                "however stable,",
+                "does not",
+                "in itself",
+                "establish causation."
+            ],
+            "token_groups": [
+                "A correlation,",
+                "however stable,",
+                "does not",
+                "in itself",
+                "establish causation."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "aeq-arg-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The counterexample undermines the claim's {a1} without disproving every instance.",
+            "level": "C1",
+            "type": 0,
+            "source": "academic_english_quality_argumentation_and_academic_tone",
+            "translation_uk": "Контрприклад підриває претензію твердження на всезагальність, не спростовуючи кожного окремого випадку.",
+            "target_text": "The counterexample undermines the claim's universality without disproving every instance.",
+            "markers": {
+                "a1": {
+                    "answer": "universality",
+                    "options": [
+                        "universality",
+                        "universally",
+                        "universal"
+                    ],
+                    "verb_hint": "Назви всезагальність твердження іменником; один контрприклад обмежує загальне правило, а не доводить хибність усіх випадків."
+                }
+            },
+            "verb_hint": "Назви всезагальність твердження іменником; один контрприклад обмежує загальне правило, а не доводить хибність усіх випадків.",
+            "accepted_target_texts": [
+                "The counterexample undermines the claim's universality without disproving every instance."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The counterexample",
+                "undermines the claim's",
+                "universality",
+                "without disproving",
+                "every instance."
+            ],
+            "token_groups": [
+                "The counterexample",
+                "undermines the claim's",
+                "universality",
+                "without disproving",
+                "every instance."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "aeq-arg-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The conclusion remains {a1} the warrant linking these observations to the claim.",
+            "level": "C2",
+            "type": 0,
+            "source": "academic_english_quality_argumentation_and_academic_tone",
+            "translation_uk": "Висновок залишається залежним від логічної опори, що пов’язує ці спостереження з твердженням.",
+            "target_text": "The conclusion remains contingent on the warrant linking these observations to the claim.",
+            "markers": {
+                "a1": {
+                    "answer": "contingent on",
+                    "options": [
+                        "contingent on",
+                        "independent of",
+                        "unrelated to"
+                    ],
+                    "verb_hint": "Уведи повну сполуку залежності з прийменником; не перетворюй логічну опору на незалежний факт."
+                }
+            },
+            "verb_hint": "Уведи повну сполуку залежності з прийменником; не перетворюй логічну опору на незалежний факт.",
+            "accepted_target_texts": [
+                "The conclusion remains contingent on the warrant linking these observations to the claim.",
+                "The conclusion remains dependent on the warrant linking these observations to the claim.",
+                "The conclusion remains conditional upon the warrant linking these observations to the claim.",
+                "The conclusion remains conditional on the warrant linking these observations to the claim."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "dependent on",
+                    "conditional upon",
+                    "conditional on"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "dependent on",
+                    "conditional upon",
+                    "conditional on"
+                ]
+            },
+            "reorder_groups": [
+                "The conclusion",
+                "remains contingent on",
+                "the warrant",
+                "linking these observations",
+                "to the claim."
+            ],
+            "token_groups": [
+                "The conclusion",
+                "remains contingent on",
+                "the warrant",
+                "linking these observations",
+                "to the claim."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "aeq-arg-c2-g02",
+            "author_id": "C2-g02",
+            "question": "Whether the argument succeeds hinges {a1} whether the unstated premise is defensible.",
+            "level": "C2",
+            "type": 0,
+            "source": "academic_english_quality_argumentation_and_academic_tone",
+            "translation_uk": "Успіх аргументації залежить від того, чи можна обґрунтувати невисловлену передумову.",
+            "target_text": "Whether the argument succeeds hinges on whether the unstated premise is defensible.",
+            "markers": {
+                "a1": {
+                    "answer": "on",
+                    "options": [
+                        "on",
+                        "of",
+                        "at"
+                    ],
+                    "verb_hint": "Після вже наведеного дієслова залежності потрібен прийменник перед непрямим запитанням про передумову."
+                }
+            },
+            "verb_hint": "Після вже наведеного дієслова залежності потрібен прийменник перед непрямим запитанням про передумову.",
+            "accepted_target_texts": [
+                "Whether the argument succeeds hinges on whether the unstated premise is defensible.",
+                "Whether the argument succeeds hinges upon whether the unstated premise is defensible."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "upon"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "upon"
+                ]
+            },
+            "reorder_groups": [
+                "Whether the argument",
+                "succeeds hinges on",
+                "whether",
+                "the unstated premise",
+                "is defensible."
+            ],
+            "token_groups": [
+                "Whether the argument",
+                "succeeds hinges on",
+                "whether",
+                "the unstated premise",
+                "is defensible."
+            ],
+            "quality_revision": "aeq-v1"
+        }
+    ]
+}

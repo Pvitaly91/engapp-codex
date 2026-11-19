@@ -1,0 +1,1711 @@
+{
+    "schema_version": 1,
+    "quality_revision": "rsq-v1",
+    "compiled_from": {
+        "path": "docs/content/reported-speech-quality/reported-questions.v1.json",
+        "sha256": "85cbe1a11498813d28175548ca963ba9b4a0b0ce8e9b1ea81c79522255ba8a9d"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechQuestionsQualityStandardSeeder",
+        "uuid_namespace": "reported-speech-quality-reported-questions-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Reported Speech"
+    },
+    "sources": {
+        "reported_speech_quality_reported_questions": {
+            "name": "Reported Speech Quality: Reported Questions"
+        }
+    },
+    "tags": {
+        "reported_speech_questions_all_levels": {
+            "name": "reported speech questions all levels",
+            "category": "reported_speech"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "if_whether_questions": {
+            "name": "If Whether Questions",
+            "category": "topic"
+        },
+        "wh_reported_questions": {
+            "name": "Wh Reported Questions",
+            "category": "topic"
+        },
+        "no_inversion": {
+            "name": "No Inversion",
+            "category": "topic"
+        },
+        "statement_word_order": {
+            "name": "Statement Word Order",
+            "category": "topic"
+        },
+        "reporting_verbs": {
+            "name": "Reporting Verbs",
+            "category": "topic"
+        },
+        "pronoun_changes": {
+            "name": "Pronoun Changes",
+            "category": "topic"
+        },
+        "question_backshift": {
+            "name": "Question Backshift",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rsq-questions-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Mum asks where {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Мама питає, де м’яч.",
+            "target_text": "Mum asks where the ball is.",
+            "markers": {
+                "a1": {
+                    "answer": "the ball is",
+                    "options": [
+                        "the ball is",
+                        "is the ball",
+                        "the ball are"
+                    ],
+                    "verb_hint": "Де м’яч; після питального слова збережи порядок підмета й зв’язки."
+                }
+            },
+            "verb_hint": "Де м’яч; після питального слова збережи порядок підмета й зв’язки.",
+            "accepted_target_texts": [
+                "Mum asks where the ball is."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Mum asks",
+                "where",
+                "the ball is."
+            ],
+            "token_groups": [
+                "Mum asks",
+                "where",
+                "the ball is."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "rsq-questions-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Tom asks if {a1} a pen.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Том питає, чи маю я ручку.",
+            "target_text": "Tom asks if I have a pen.",
+            "markers": {
+                "a1": {
+                    "answer": "I have",
+                    "options": [
+                        "I have",
+                        "do I have",
+                        "me have"
+                    ],
+                    "verb_hint": "Чи маю я; у непрямому питанні не додавай допоміжного слова прямого питання."
+                }
+            },
+            "verb_hint": "Чи маю я; у непрямому питанні не додавай допоміжного слова прямого питання.",
+            "accepted_target_texts": [
+                "Tom asks if I have a pen."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Tom asks",
+                "if",
+                "I have",
+                "a pen."
+            ],
+            "token_groups": [
+                "Tom asks",
+                "if",
+                "I have",
+                "a pen."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "rsq-questions-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Kim asks what {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Кім питає, чого ми хочемо.",
+            "target_text": "Kim asks what we want.",
+            "markers": {
+                "a1": {
+                    "answer": "we want",
+                    "options": [
+                        "we want",
+                        "do we want",
+                        "us want"
+                    ],
+                    "verb_hint": "Чого хочемо; після питального слова потрібна звичайна підметова група."
+                }
+            },
+            "verb_hint": "Чого хочемо; після питального слова потрібна звичайна підметова група.",
+            "accepted_target_texts": [
+                "Kim asks what we want."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Kim asks",
+                "what",
+                "we want."
+            ],
+            "token_groups": [
+                "Kim asks",
+                "what",
+                "we want."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "rsq-questions-a1-g04",
+            "author_id": "A1-g04",
+            "question": "Dad asks how {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Тато питає, як працює гра.",
+            "target_text": "Dad asks how the game works.",
+            "markers": {
+                "a1": {
+                    "answer": "the game works",
+                    "options": [
+                        "the game works",
+                        "does the game",
+                        "the game work"
+                    ],
+                    "verb_hint": "Як працює; збережи підмет перед дієсловом і узгодь одну гру."
+                }
+            },
+            "verb_hint": "Як працює; збережи підмет перед дієсловом і узгодь одну гру.",
+            "accepted_target_texts": [
+                "Dad asks how the game works."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Dad asks",
+                "how",
+                "the game works."
+            ],
+            "token_groups": [
+                "Dad asks",
+                "how",
+                "the game works."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "rsq-questions-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Ana asks if {a1} ready.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Ана питає, чи вони готові.",
+            "target_text": "Ana asks if they are ready.",
+            "markers": {
+                "a1": {
+                    "answer": "they are",
+                    "options": [
+                        "they are",
+                        "are they",
+                        "them are"
+                    ],
+                    "verb_hint": "Чи готові; після сполучника не переставляй зв’язку перед підметом."
+                }
+            },
+            "verb_hint": "Чи готові; після сполучника не переставляй зв’язку перед підметом.",
+            "accepted_target_texts": [
+                "Ana asks if they are ready."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Ana asks",
+                "if",
+                "they are",
+                "ready."
+            ],
+            "token_groups": [
+                "Ana asks",
+                "if",
+                "they are",
+                "ready."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "rsq-questions-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Ben asks who {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Бен питає, хто надворі.",
+            "target_text": "Ben asks who is outside.",
+            "markers": {
+                "a1": {
+                    "answer": "is outside",
+                    "options": [
+                        "is outside",
+                        "does outside",
+                        "outside is"
+                    ],
+                    "verb_hint": "Хто надворі; питальне слово саме називає невідомого виконавця."
+                }
+            },
+            "verb_hint": "Хто надворі; питальне слово саме називає невідомого виконавця.",
+            "accepted_target_texts": [
+                "Ben asks who is outside."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Ben asks",
+                "who",
+                "is outside."
+            ],
+            "token_groups": [
+                "Ben asks",
+                "who",
+                "is outside."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "rsq-questions-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Lucy asked where Sam {a1} his lunch that day.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Люсі спитала, де Сем того дня їв свій обід.",
+            "target_text": "Lucy asked where Sam ate his lunch that day.",
+            "markers": {
+                "a1": {
+                    "answer": "ate",
+                    "options": [
+                        "ate",
+                        "did eat",
+                        "eats"
+                    ],
+                    "verb_hint": "Де їв у той день; не перенось допоміжне слово прямого питання."
+                }
+            },
+            "verb_hint": "Де їв у той день; не перенось допоміжне слово прямого питання.",
+            "accepted_target_texts": [
+                "Lucy asked where Sam ate his lunch that day."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Lucy asked",
+                "where",
+                "Sam ate",
+                "his lunch",
+                "that day."
+            ],
+            "token_groups": [
+                "Lucy asked",
+                "where",
+                "Sam ate",
+                "his lunch",
+                "that day."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "rsq-questions-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The nurse asked how I {a1} then.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Медсестра спитала, як я тоді почувався.",
+            "target_text": "The nurse asked how I felt then.",
+            "markers": {
+                "a1": {
+                    "answer": "felt",
+                    "options": [
+                        "felt",
+                        "did feel",
+                        "feel"
+                    ],
+                    "verb_hint": "Як почувався тоді; після підмета потрібна особова минула форма."
+                }
+            },
+            "verb_hint": "Як почувався тоді; після підмета потрібна особова минула форма.",
+            "accepted_target_texts": [
+                "The nurse asked how I felt then."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The nurse",
+                "asked how",
+                "I felt",
+                "then."
+            ],
+            "token_groups": [
+                "The nurse",
+                "asked how",
+                "I felt",
+                "then."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "rsq-questions-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Maksym asked when the shop {a1} that evening.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Максим спитав, коли магазин того вечора зачинявся.",
+            "target_text": "Maksym asked when the shop closed that evening.",
+            "markers": {
+                "a1": {
+                    "answer": "closed",
+                    "options": [
+                        "closed",
+                        "did close",
+                        "closing"
+                    ],
+                    "verb_hint": "Коли зачинявся; потрібне минуле дієслово після вже названого підмета."
+                }
+            },
+            "verb_hint": "Коли зачинявся; потрібне минуле дієслово після вже названого підмета.",
+            "accepted_target_texts": [
+                "Maksym asked when the shop closed that evening."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Maksym asked",
+                "when",
+                "the shop closed",
+                "that evening."
+            ],
+            "token_groups": [
+                "Maksym asked",
+                "when",
+                "the shop closed",
+                "that evening."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "rsq-questions-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The teacher asked {a1} the window was open.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Учитель спитав, чи вікно було відчинене.",
+            "target_text": "The teacher asked if the window was open.",
+            "markers": {
+                "a1": {
+                    "answer": "if",
+                    "options": [
+                        "if",
+                        "what",
+                        "that"
+                    ],
+                    "verb_hint": "Чи було; потрібен сполучник загального непрямого питання."
+                }
+            },
+            "verb_hint": "Чи було; потрібен сполучник загального непрямого питання.",
+            "accepted_target_texts": [
+                "The teacher asked if the window was open.",
+                "The teacher asked whether the window was open."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "whether"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "whether"
+                ]
+            },
+            "reorder_groups": [
+                "The teacher",
+                "asked if",
+                "the window",
+                "was open."
+            ],
+            "token_groups": [
+                "The teacher",
+                "asked if",
+                "the window",
+                "was open."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "rsq-questions-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Iryna asked why the children {a1} quiet.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Ірина спитала, чому діти були тихими.",
+            "target_text": "Iryna asked why the children were quiet.",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "was",
+                        "did"
+                    ],
+                    "verb_hint": "Були тихими; узгодь минулу зв’язку з кількома дітьми."
+                }
+            },
+            "verb_hint": "Були тихими; узгодь минулу зв’язку з кількома дітьми.",
+            "accepted_target_texts": [
+                "Iryna asked why the children were quiet."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Iryna asked",
+                "why",
+                "the children",
+                "were quiet."
+            ],
+            "token_groups": [
+                "Iryna asked",
+                "why",
+                "the children",
+                "were quiet."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "rsq-questions-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Leah asked what {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Ліа спитала, що означало оголошення.",
+            "target_text": "Leah asked what the notice meant.",
+            "markers": {
+                "a1": {
+                    "answer": "the notice meant",
+                    "options": [
+                        "the notice meant",
+                        "did the notice",
+                        "the notice mean"
+                    ],
+                    "verb_hint": "Що означало; названий текст має стояти перед минулим дієсловом."
+                }
+            },
+            "verb_hint": "Що означало; названий текст має стояти перед минулим дієсловом.",
+            "accepted_target_texts": [
+                "Leah asked what the notice meant."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Leah asked",
+                "what",
+                "the notice meant."
+            ],
+            "token_groups": [
+                "Leah asked",
+                "what",
+                "the notice meant."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "rsq-questions-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The mechanic asked why the engine {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Механік спитав, чому двигун перед тим зупинився.",
+            "target_text": "The mechanic asked why the engine had stopped.",
+            "markers": {
+                "a1": {
+                    "answer": "had stopped",
+                    "options": [
+                        "had stopped",
+                        "had stop",
+                        "has stop"
+                    ],
+                    "verb_hint": "Зупинився до розмови; збережи попередність події."
+                }
+            },
+            "verb_hint": "Зупинився до розмови; збережи попередність події.",
+            "accepted_target_texts": [
+                "The mechanic asked why the engine had stopped."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The mechanic",
+                "asked why",
+                "the engine",
+                "had stopped."
+            ],
+            "token_groups": [
+                "The mechanic",
+                "asked why",
+                "the engine",
+                "had stopped."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "rsq-questions-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The ranger asked if the walkers {a1} the path.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Лісничий спитав, чи мандрівники тоді могли бачити стежку.",
+            "target_text": "The ranger asked if the walkers could see the path.",
+            "markers": {
+                "a1": {
+                    "answer": "could see",
+                    "options": [
+                        "could see",
+                        "could saw",
+                        "could to see"
+                    ],
+                    "verb_hint": "Могли бачити; після модальної форми потрібне незмінене дієслово."
+                }
+            },
+            "verb_hint": "Могли бачити; після модальної форми потрібне незмінене дієслово.",
+            "accepted_target_texts": [
+                "The ranger asked if the walkers could see the path."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ranger",
+                "asked if",
+                "the walkers",
+                "could see",
+                "the path."
+            ],
+            "token_groups": [
+                "The ranger",
+                "asked if",
+                "the walkers",
+                "could see",
+                "the path."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "rsq-questions-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The cashier asked which card {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Касир спитав, якій картці я тоді надавав перевагу.",
+            "target_text": "The cashier asked which card I preferred.",
+            "markers": {
+                "a1": {
+                    "answer": "I preferred",
+                    "options": [
+                        "I preferred",
+                        "did I prefer",
+                        "I prefer"
+                    ],
+                    "verb_hint": "Якій надавав перевагу; не додавай інверсії після питальної групи."
+                }
+            },
+            "verb_hint": "Якій надавав перевагу; не додавай інверсії після питальної групи.",
+            "accepted_target_texts": [
+                "The cashier asked which card I preferred."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cashier",
+                "asked",
+                "which card",
+                "I preferred."
+            ],
+            "token_groups": [
+                "The cashier",
+                "asked",
+                "which card",
+                "I preferred."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "rsq-questions-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The receptionist asked how long we {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Адміністраторка спитала, як довго ми планували залишитися після тієї розмови.",
+            "target_text": "The receptionist asked how long we would stay.",
+            "markers": {
+                "a1": {
+                    "answer": "would stay",
+                    "options": [
+                        "would stay",
+                        "would stayed",
+                        "will stayed"
+                    ],
+                    "verb_hint": "Залишимося надалі; передай майбутню дію з минулої перспективи."
+                }
+            },
+            "verb_hint": "Залишимося надалі; передай майбутню дію з минулої перспективи.",
+            "accepted_target_texts": [
+                "The receptionist asked how long we would stay."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The receptionist",
+                "asked",
+                "how long",
+                "we would stay."
+            ],
+            "token_groups": [
+                "The receptionist",
+                "asked",
+                "how long",
+                "we would stay."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "rsq-questions-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The guide asked who {a1} the gate before dawn.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Гід спитав, хто замкнув ворота до світанку.",
+            "target_text": "The guide asked who had locked the gate before dawn.",
+            "markers": {
+                "a1": {
+                    "answer": "had locked",
+                    "options": [
+                        "had locked",
+                        "had lock",
+                        "has lock"
+                    ],
+                    "verb_hint": "Замкнув раніше; невідомий виконавець уже названий питальним словом."
+                }
+            },
+            "verb_hint": "Замкнув раніше; невідомий виконавець уже названий питальним словом.",
+            "accepted_target_texts": [
+                "The guide asked who had locked the gate before dawn."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guide",
+                "asked who",
+                "had locked",
+                "the gate",
+                "before dawn."
+            ],
+            "token_groups": [
+                "The guide",
+                "asked who",
+                "had locked",
+                "the gate",
+                "before dawn."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "rsq-questions-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The dentist asked {a1} I had taken any painkillers.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Стоматолог спитав, чи я перед тим приймав знеболювальні.",
+            "target_text": "The dentist asked whether I had taken any painkillers.",
+            "markers": {
+                "a1": {
+                    "answer": "whether",
+                    "options": [
+                        "whether",
+                        "why did",
+                        "that"
+                    ],
+                    "verb_hint": "Чи приймав; передай загальне питання без зміни порядку слів."
+                }
+            },
+            "verb_hint": "Чи приймав; передай загальне питання без зміни порядку слів.",
+            "accepted_target_texts": [
+                "The dentist asked whether I had taken any painkillers.",
+                "The dentist asked if I had taken any painkillers."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "if"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "if"
+                ]
+            },
+            "reorder_groups": [
+                "The dentist",
+                "asked whether",
+                "I had taken",
+                "any painkillers."
+            ],
+            "token_groups": [
+                "The dentist",
+                "asked whether",
+                "I had taken",
+                "any painkillers."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "rsq-questions-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The inspector asked who {a1} for the alarm at that time.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Інспектор спитав, хто в той час відповідав за сигналізацію.",
+            "target_text": "The inspector asked who was responsible for the alarm at that time.",
+            "markers": {
+                "a1": {
+                    "answer": "was responsible",
+                    "options": [
+                        "was responsible",
+                        "did responsible",
+                        "were responsible"
+                    ],
+                    "verb_hint": "Хто відповідав; питальне слово виконує роль підмета."
+                }
+            },
+            "verb_hint": "Хто відповідав; питальне слово виконує роль підмета.",
+            "accepted_target_texts": [
+                "The inspector asked who was responsible for the alarm at that time."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inspector",
+                "asked who",
+                "was responsible",
+                "for the alarm",
+                "at that time."
+            ],
+            "token_groups": [
+                "The inspector",
+                "asked who",
+                "was responsible",
+                "for the alarm",
+                "at that time."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "rsq-questions-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The conductor asked why the rehearsal {a1} without him.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Диригент спитав, чому репетиція перед тим почалася без нього.",
+            "target_text": "The conductor asked why the rehearsal had begun without him.",
+            "markers": {
+                "a1": {
+                    "answer": "had begun",
+                    "options": [
+                        "had begun",
+                        "had began",
+                        "has begun"
+                    ],
+                    "verb_hint": "Почалася раніше; збережи третю форму після допоміжного слова."
+                }
+            },
+            "verb_hint": "Почалася раніше; збережи третю форму після допоміжного слова.",
+            "accepted_target_texts": [
+                "The conductor asked why the rehearsal had begun without him.",
+                "The conductor asked why the rehearsal had started without him."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had started"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had started"
+                ]
+            },
+            "reorder_groups": [
+                "The conductor",
+                "asked why",
+                "the rehearsal",
+                "had begun",
+                "without him."
+            ],
+            "token_groups": [
+                "The conductor",
+                "asked why",
+                "the rehearsal",
+                "had begun",
+                "without him."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "rsq-questions-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The manager asked which proposals {a1} by the previous panel.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Керівник спитав, які пропозиції відхилила попередня комісія.",
+            "target_text": "The manager asked which proposals had been rejected by the previous panel.",
+            "markers": {
+                "a1": {
+                    "answer": "had been rejected",
+                    "options": [
+                        "had been rejected",
+                        "had rejected",
+                        "were been rejected"
+                    ],
+                    "verb_hint": "Були відхилені раніше; пропозиції зазнали дії."
+                }
+            },
+            "verb_hint": "Були відхилені раніше; пропозиції зазнали дії.",
+            "accepted_target_texts": [
+                "The manager asked which proposals had been rejected by the previous panel."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The manager",
+                "asked",
+                "which proposals",
+                "had been rejected",
+                "by",
+                "the previous panel."
+            ],
+            "token_groups": [
+                "The manager",
+                "asked",
+                "which proposals",
+                "had been rejected",
+                "by",
+                "the previous panel."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "rsq-questions-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The journalist asked how the figures {a1} before publication.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Журналіст спитав, як перевірили цифри до публікації.",
+            "target_text": "The journalist asked how the figures had been checked before publication.",
+            "markers": {
+                "a1": {
+                    "answer": "had been checked",
+                    "options": [
+                        "had been checked",
+                        "had checked",
+                        "has been checked"
+                    ],
+                    "verb_hint": "Були перевірені раніше; потрібен минулий доконаний пасив."
+                }
+            },
+            "verb_hint": "Були перевірені раніше; потрібен минулий доконаний пасив.",
+            "accepted_target_texts": [
+                "The journalist asked how the figures had been checked before publication."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The journalist",
+                "asked how",
+                "the figures",
+                "had been checked",
+                "before publication."
+            ],
+            "token_groups": [
+                "The journalist",
+                "asked how",
+                "the figures",
+                "had been checked",
+                "before publication."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "rsq-questions-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The supervisor asked if anyone {a1} the replacement procedure.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Керівниця спитала, чи хтось до того пояснив порядок заміни.",
+            "target_text": "The supervisor asked if anyone had explained the replacement procedure.",
+            "markers": {
+                "a1": {
+                    "answer": "had explained",
+                    "options": [
+                        "had explained",
+                        "had explain",
+                        "has explain"
+                    ],
+                    "verb_hint": "Пояснив до питання; невизначений виконавець уже названий у реченні."
+                }
+            },
+            "verb_hint": "Пояснив до питання; невизначений виконавець уже названий у реченні.",
+            "accepted_target_texts": [
+                "The supervisor asked if anyone had explained the replacement procedure."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The supervisor",
+                "asked if",
+                "anyone had explained",
+                "the replacement procedure."
+            ],
+            "token_groups": [
+                "The supervisor",
+                "asked if",
+                "anyone had explained",
+                "the replacement procedure."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "rsq-questions-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The technician asked what {a1} if the connection failed again.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Технік спитав, що ми робили б, якби з’єднання знову відмовило.",
+            "target_text": "The technician asked what we would do if the connection failed again.",
+            "markers": {
+                "a1": {
+                    "answer": "we would do",
+                    "options": [
+                        "we would do",
+                        "would we do",
+                        "we would did"
+                    ],
+                    "verb_hint": "Що робили б; збережи звичайний порядок підмета й умовної форми."
+                }
+            },
+            "verb_hint": "Що робили б; збережи звичайний порядок підмета й умовної форми.",
+            "accepted_target_texts": [
+                "The technician asked what we would do if the connection failed again."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The technician",
+                "asked what",
+                "we would do",
+                "if the connection",
+                "failed again."
+            ],
+            "token_groups": [
+                "The technician",
+                "asked what",
+                "we would do",
+                "if the connection",
+                "failed again."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "rsq-questions-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The assessor asked to what extent the revision {a1} the original objection.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Оцінювач спитав, наскільки редакція до того врахувала початкове заперечення.",
+            "target_text": "The assessor asked to what extent the revision had addressed the original objection.",
+            "markers": {
+                "a1": {
+                    "answer": "had addressed",
+                    "options": [
+                        "had addressed",
+                        "had address",
+                        "has addressing"
+                    ],
+                    "verb_hint": "Урахувала раніше; збережи ступінь, про який питають, і попередність."
+                }
+            },
+            "verb_hint": "Урахувала раніше; збережи ступінь, про який питають, і попередність.",
+            "accepted_target_texts": [
+                "The assessor asked to what extent the revision had addressed the original objection."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The assessor",
+                "asked",
+                "to what extent",
+                "the revision",
+                "had addressed",
+                "the original objection."
+            ],
+            "token_groups": [
+                "The assessor",
+                "asked",
+                "to what extent",
+                "the revision",
+                "had addressed",
+                "the original objection."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "rsq-questions-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The chair asked whether the distinction {a1} consistently throughout the analysis.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Голова спитав, чи в усьому аналізі послідовно зберегли це розрізнення.",
+            "target_text": "The chair asked whether the distinction had been maintained consistently throughout the analysis.",
+            "markers": {
+                "a1": {
+                    "answer": "had been maintained",
+                    "options": [
+                        "had been maintained",
+                        "had maintained",
+                        "was been maintained"
+                    ],
+                    "verb_hint": "Було збережене раніше; розрізнення є предметом дії."
+                }
+            },
+            "verb_hint": "Було збережене раніше; розрізнення є предметом дії.",
+            "accepted_target_texts": [
+                "The chair asked whether the distinction had been maintained consistently throughout the analysis."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The chair",
+                "asked whether",
+                "the distinction",
+                "had been maintained",
+                "consistently",
+                "throughout the analysis."
+            ],
+            "token_groups": [
+                "The chair",
+                "asked whether",
+                "the distinction",
+                "had been maintained",
+                "consistently",
+                "throughout the analysis."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "rsq-questions-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The consultant asked why the projections {a1} so sharply.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Консультант спитав, чому прогнози до того так сильно розійшлися.",
+            "target_text": "The consultant asked why the projections had diverged so sharply.",
+            "markers": {
+                "a1": {
+                    "answer": "had diverged",
+                    "options": [
+                        "had diverged",
+                        "had diverge",
+                        "have diverge"
+                    ],
+                    "verb_hint": "Розійшлися до питання; не додавай питального допоміжного слова."
+                }
+            },
+            "verb_hint": "Розійшлися до питання; не додавай питального допоміжного слова.",
+            "accepted_target_texts": [
+                "The consultant asked why the projections had diverged so sharply."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The consultant",
+                "asked why",
+                "the projections",
+                "had diverged",
+                "so sharply."
+            ],
+            "token_groups": [
+                "The consultant",
+                "asked why",
+                "the projections",
+                "had diverged",
+                "so sharply."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "rsq-questions-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The examiner asked which assumption the counterexample {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Екзаменатор спитав, яке припущення тоді ставив під сумнів контрприклад.",
+            "target_text": "The examiner asked which assumption the counterexample was challenging.",
+            "markers": {
+                "a1": {
+                    "answer": "was challenging",
+                    "options": [
+                        "was challenging",
+                        "were challenging",
+                        "was challenge"
+                    ],
+                    "verb_hint": "Ставив під сумнів у той момент; збережи одну річ як виконавця дії."
+                }
+            },
+            "verb_hint": "Ставив під сумнів у той момент; збережи одну річ як виконавця дії.",
+            "accepted_target_texts": [
+                "The examiner asked which assumption the counterexample was challenging."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The examiner",
+                "asked",
+                "which assumption",
+                "the counterexample",
+                "was challenging."
+            ],
+            "token_groups": [
+                "The examiner",
+                "asked",
+                "which assumption",
+                "the counterexample",
+                "was challenging."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "rsq-questions-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The delegate asked whether the undertaking {a1} under revised terms.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Делегат спитав, чи зобов’язання залишиться обов’язковим за змінених умов.",
+            "target_text": "The delegate asked whether the undertaking would remain binding under revised terms.",
+            "markers": {
+                "a1": {
+                    "answer": "would remain binding",
+                    "options": [
+                        "would remain binding",
+                        "would remained binding",
+                        "will remained binding"
+                    ],
+                    "verb_hint": "Залишиться обов’язковим надалі; потрібна майбутня перспектива минулого питання."
+                }
+            },
+            "verb_hint": "Залишиться обов’язковим надалі; потрібна майбутня перспектива минулого питання.",
+            "accepted_target_texts": [
+                "The delegate asked whether the undertaking would remain binding under revised terms."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The delegate",
+                "asked whether",
+                "the undertaking",
+                "would remain binding",
+                "under revised terms."
+            ],
+            "token_groups": [
+                "The delegate",
+                "asked whether",
+                "the undertaking",
+                "would remain binding",
+                "under revised terms."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "rsq-questions-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The conservator asked how the surface {a1} so extensively.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Реставратор спитав, як поверхня могла до того настільки зіпсуватися.",
+            "target_text": "The conservator asked how the surface could have deteriorated so extensively.",
+            "markers": {
+                "a1": {
+                    "answer": "could have deteriorated",
+                    "options": [
+                        "could have deteriorated",
+                        "could have deteriorate",
+                        "could deteriorated"
+                    ],
+                    "verb_hint": "Могла зіпсуватися раніше; збережи модальне припущення про попередню дію."
+                }
+            },
+            "verb_hint": "Могла зіпсуватися раніше; збережи модальне припущення про попередню дію.",
+            "accepted_target_texts": [
+                "The conservator asked how the surface could have deteriorated so extensively."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The conservator",
+                "asked how",
+                "the surface",
+                "could have deteriorated",
+                "so extensively."
+            ],
+            "token_groups": [
+                "The conservator",
+                "asked how",
+                "the surface",
+                "could have deteriorated",
+                "so extensively."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "rsq-questions-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The adjudicator asked on what grounds the exemption {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Арбітр спитав, на яких підставах раніше послалися на звільнення від вимоги.",
+            "target_text": "The adjudicator asked on what grounds the exemption had been invoked.",
+            "markers": {
+                "a1": {
+                    "answer": "had been invoked",
+                    "options": [
+                        "had been invoked",
+                        "had invoked",
+                        "was been invoked"
+                    ],
+                    "verb_hint": "Було застосовано раніше; збережи підставу й пасивну роль звільнення."
+                }
+            },
+            "verb_hint": "Було застосовано раніше; збережи підставу й пасивну роль звільнення.",
+            "accepted_target_texts": [
+                "The adjudicator asked on what grounds the exemption had been invoked."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The adjudicator",
+                "asked",
+                "on what grounds",
+                "the exemption",
+                "had been invoked."
+            ],
+            "token_groups": [
+                "The adjudicator",
+                "asked",
+                "on what grounds",
+                "the exemption",
+                "had been invoked."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "rsq-questions-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The epistemologist asked whether the inference {a1} under the weaker premise.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Епістемолог спитав, чи висновок усе ще був би чинним за слабшої передумови.",
+            "target_text": "The epistemologist asked whether the inference would still hold under the weaker premise.",
+            "markers": {
+                "a1": {
+                    "answer": "would still hold",
+                    "options": [
+                        "would still hold",
+                        "would still held",
+                        "will still held"
+                    ],
+                    "verb_hint": "Залишався б чинним; потрібна умовна група без інверсії підмета."
+                }
+            },
+            "verb_hint": "Залишався б чинним; потрібна умовна група без інверсії підмета.",
+            "accepted_target_texts": [
+                "The epistemologist asked whether the inference would still hold under the weaker premise."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The epistemologist",
+                "asked whether",
+                "the inference",
+                "would still hold",
+                "under",
+                "the weaker premise."
+            ],
+            "token_groups": [
+                "The epistemologist",
+                "asked whether",
+                "the inference",
+                "would still hold",
+                "under",
+                "the weaker premise."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "rsq-questions-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The counsel asked whose interests the disclosure {a1} to protect.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Радник спитав, чиї інтереси раніше мали намір захистити розкриттям інформації.",
+            "target_text": "The counsel asked whose interests the disclosure had been intended to protect.",
+            "markers": {
+                "a1": {
+                    "answer": "had been intended",
+                    "options": [
+                        "had been intended",
+                        "had intended",
+                        "has been intended"
+                    ],
+                    "verb_hint": "Було задумане раніше; збережи пасив наміру після вже названого підмета."
+                }
+            },
+            "verb_hint": "Було задумане раніше; збережи пасив наміру після вже названого підмета.",
+            "accepted_target_texts": [
+                "The counsel asked whose interests the disclosure had been intended to protect."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The counsel",
+                "asked",
+                "whose interests",
+                "the disclosure",
+                "had been intended",
+                "to protect."
+            ],
+            "token_groups": [
+                "The counsel",
+                "asked",
+                "whose interests",
+                "the disclosure",
+                "had been intended",
+                "to protect."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "rsq-questions-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The theorist asked why the qualification {a1} as an afterthought.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Теоретик спитав, чому застереження раніше вважали пізнім доповненням.",
+            "target_text": "The theorist asked why the qualification had been treated as an afterthought.",
+            "markers": {
+                "a1": {
+                    "answer": "had been treated",
+                    "options": [
+                        "had been treated",
+                        "had treated",
+                        "was been treated"
+                    ],
+                    "verb_hint": "Було трактоване раніше; збережи предмет трактування в пасиві."
+                }
+            },
+            "verb_hint": "Було трактоване раніше; збережи предмет трактування в пасиві.",
+            "accepted_target_texts": [
+                "The theorist asked why the qualification had been treated as an afterthought."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The theorist",
+                "asked why",
+                "the qualification",
+                "had been treated",
+                "as an afterthought."
+            ],
+            "token_groups": [
+                "The theorist",
+                "asked why",
+                "the qualification",
+                "had been treated",
+                "as an afterthought."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "rsq-questions-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The philologist asked which reading the damaged fragment {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Філолог спитав, яке прочитання пошкоджений фрагмент міг обґрунтовано підтримувати.",
+            "target_text": "The philologist asked which reading the damaged fragment could legitimately support.",
+            "markers": {
+                "a1": {
+                    "answer": "could legitimately support",
+                    "options": [
+                        "could legitimately support",
+                        "could legitimately supported",
+                        "could to support"
+                    ],
+                    "verb_hint": "Міг обґрунтовано підтримувати; не перетворюй можливість на певність."
+                }
+            },
+            "verb_hint": "Міг обґрунтовано підтримувати; не перетворюй можливість на певність.",
+            "accepted_target_texts": [
+                "The philologist asked which reading the damaged fragment could legitimately support."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The philologist",
+                "asked",
+                "which reading",
+                "the damaged fragment",
+                "could legitimately support."
+            ],
+            "token_groups": [
+                "The philologist",
+                "asked",
+                "which reading",
+                "the damaged fragment",
+                "could legitimately support."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "rsq-questions-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The rapporteur asked whether the concession {a1} the wider argument.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Доповідач спитав, чи поступка раніше ненавмисно послабила ширший аргумент.",
+            "target_text": "The rapporteur asked whether the concession had inadvertently weakened the wider argument.",
+            "markers": {
+                "a1": {
+                    "answer": "had inadvertently weakened",
+                    "options": [
+                        "had inadvertently weakened",
+                        "had inadvertently weaken",
+                        "has inadvertently weakened"
+                    ],
+                    "verb_hint": "Ненавмисно послабила раніше; збережи попередність і ненавмисність."
+                }
+            },
+            "verb_hint": "Ненавмисно послабила раніше; збережи попередність і ненавмисність.",
+            "accepted_target_texts": [
+                "The rapporteur asked whether the concession had inadvertently weakened the wider argument."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The rapporteur",
+                "asked whether",
+                "the concession",
+                "had inadvertently weakened",
+                "the wider argument."
+            ],
+            "token_groups": [
+                "The rapporteur",
+                "asked whether",
+                "the concession",
+                "had inadvertently weakened",
+                "the wider argument."
+            ],
+            "quality_revision": "rsq-v1"
+        }
+    ]
+}

@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66149,
+        "uuid": "rsq-questions-b1-g04",
+        "question": "The receptionist asked how long we {a1}.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 62,
+        "source_id": 529,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "would stay",
+                "would stayed",
+                "will stayed"
+            ]
+        },
+        "theory_text_block_uuid": "18c44d6a-938f-590a-b7be-ad91b970972d",
+        "created_at": "2026-11-01T20:04:40.000000Z",
+        "updated_at": "2026-11-01T20:04:40.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 529,
+        "name": "Reported Speech Quality: Reported Questions",
+        "created_at": "2026-11-01T20:04:39.000000Z",
+        "updated_at": "2026-11-01T20:04:39.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 8400,
+                "option": "would stay",
+                "created_at": "2026-04-23T14:49:42.000000Z",
+                "updated_at": "2026-04-23T14:49:42.000000Z"
+            },
+            "pivot": {
+                "question_id": 66149,
+                "option_id": 8400,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 66502,
+                "option": "would stayed",
+                "created_at": "2026-11-01T17:04:21.000000Z",
+                "updated_at": "2026-11-01T17:04:21.000000Z"
+            },
+            "pivot": {
+                "question_id": 66149,
+                "option_id": 66502,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68170,
+                "option": "will stayed",
+                "created_at": "2026-11-01T20:04:40.000000Z",
+                "updated_at": "2026-11-01T20:04:40.000000Z"
+            },
+            "pivot": {
+                "question_id": 66149,
+                "option_id": 68170,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 340838,
+                "question_id": 66149,
+                "marker": "a1",
+                "option_id": 8400,
+                "created_at": "2026-11-01T20:04:40.000000Z",
+                "updated_at": "2026-11-01T20:04:40.000000Z"
+            },
+            "option": {
+                "id": 8400,
+                "option": "would stay",
+                "created_at": "2026-04-23T14:49:42.000000Z",
+                "updated_at": "2026-04-23T14:49:42.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58172,
+                "question_id": 66149,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68169,
+                "created_at": "2026-11-01T20:04:40.000000Z",
+                "updated_at": "2026-11-01T20:04:40.000000Z"
+            },
+            "option": {
+                "id": 68169,
+                "option": "Залишимося надалі; передай майбутню дію з минулої перспективи.",
+                "created_at": "2026-11-01T20:04:40.000000Z",
+                "updated_at": "2026-11-01T20:04:40.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58164,
+            "question_id": 66149,
+            "text": "The receptionist asked how long we {a1}.",
+            "created_at": "2026-11-01T20:04:40.000000Z",
+            "updated_at": "2026-11-01T20:04:40.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

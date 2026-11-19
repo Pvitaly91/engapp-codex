@@ -1,70 +1,81 @@
 {
     "question": {
-        "id": 248,
+        "id": 50998,
         "uuid": "pv-fut-simple-v3-b1-08",
-        "question": "The prizes {a1} after the concert in this context.",
+        "question": "How will travel expenses {a1} during the expedition?",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 1,
-        "source_id": 4,
+        "category_id": 10,
+        "source_id": 345,
         "flag": 2,
-        "created_at": "2026-05-26T15:07:44.000000Z",
-        "updated_at": "2026-05-26T15:08:15.000000Z"
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceFutureSimpleAllLevelsV3Seeder",
+        "options_by_marker": {
+            "a1": [
+                "be recorded",
+                "being recorded",
+                "been recorded",
+                "recorded"
+            ]
+        },
+        "theory_text_block_uuid": "7fc50efc-974f-5768-b97c-d429ac56a5d3",
+        "created_at": "2026-05-26T11:06:47.000000Z",
+        "updated_at": "2026-10-21T21:57:16.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 10,
         "name": "Passive Voice",
-        "created_at": "2026-05-26T15:07:37.000000Z",
-        "updated_at": "2026-05-26T15:07:37.000000Z"
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
     },
     "source": {
-        "id": 4,
+        "id": 345,
         "name": "Passive Voice Future Simple",
-        "created_at": "2026-05-26T15:07:44.000000Z",
-        "updated_at": "2026-05-26T15:07:44.000000Z"
+        "created_at": "2026-05-21T18:54:33.000000Z",
+        "updated_at": "2026-05-21T18:54:33.000000Z"
     },
     "tags": [
         {
             "tag": {
-                "id": 5,
+                "id": 81,
                 "name": "B1",
                 "category": null,
-                "created_at": "2026-05-26T15:07:32.000000Z",
-                "updated_at": "2026-05-26T15:07:32.000000Z"
+                "created_at": "2026-04-23T12:59:15.000000Z",
+                "updated_at": "2026-04-23T12:59:15.000000Z"
             },
             "pivot": {
-                "question_id": 248,
-                "tag_id": 5,
+                "question_id": 50998,
+                "tag_id": 81,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 38,
+                "id": 2717,
                 "name": "Passive Voice Future Simple",
                 "category": "passive_voice",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "created_at": "2026-05-21T18:54:33.000000Z",
+                "updated_at": "2026-05-21T18:54:33.000000Z"
             },
             "pivot": {
-                "question_id": 248,
-                "tag_id": 38,
+                "question_id": 50998,
+                "tag_id": 2717,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 40,
-                "name": "Future Passive",
+                "id": 2718,
+                "name": "Will Be V3",
                 "category": "topic",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "created_at": "2026-05-21T18:54:33.000000Z",
+                "updated_at": "2026-05-21T18:54:33.000000Z"
             },
             "pivot": {
-                "question_id": 248,
-                "tag_id": 40,
+                "question_id": 50998,
+                "tag_id": 2718,
                 "created_at": null,
                 "updated_at": null
             }
@@ -73,53 +84,53 @@
     "options": [
         {
             "option": {
-                "id": 127,
-                "option": "will be given",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "id": 16934,
+                "option": "recorded",
+                "created_at": "2026-04-29T20:50:06.000000Z",
+                "updated_at": "2026-04-29T20:50:06.000000Z"
             },
             "pivot": {
-                "question_id": 248,
-                "option_id": 127,
+                "question_id": 50998,
+                "option_id": 16934,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 128,
-                "option": "will give",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "id": 53804,
+                "option": "be recorded",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
             },
             "pivot": {
-                "question_id": 248,
-                "option_id": 128,
+                "question_id": 50998,
+                "option_id": 53804,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 129,
-                "option": "are given",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "id": 53805,
+                "option": "being recorded",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
             },
             "pivot": {
-                "question_id": 248,
-                "option_id": 129,
+                "question_id": 50998,
+                "option_id": 53805,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 130,
-                "option": "were given",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "id": 53806,
+                "option": "been recorded",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
             },
             "pivot": {
-                "question_id": 248,
-                "option_id": 130,
+                "question_id": 50998,
+                "option_id": 53806,
                 "flag": null
             }
         }
@@ -127,29 +138,47 @@
     "answers": [
         {
             "answer": {
-                "id": 248,
-                "question_id": 248,
+                "id": 321554,
+                "question_id": 50998,
                 "marker": "a1",
-                "option_id": 127,
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "option_id": 53804,
+                "created_at": "2026-10-21T21:57:16.000000Z",
+                "updated_at": "2026-10-21T21:57:16.000000Z"
             },
             "option": {
-                "id": 127,
-                "option": "will be given",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "id": 53804,
+                "option": "be recorded",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
             }
         }
     ],
-    "verb_hints": [],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 39028,
+                "question_id": 50998,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53807,
+                "created_at": "2026-10-21T21:57:16.000000Z",
+                "updated_at": "2026-10-21T21:57:16.000000Z"
+            },
+            "option": {
+                "id": 53807,
+                "option": "Обліковуватимуть: додай лише два слова пасивної форми від «фіксувати, записувати, документувати»; початок питання вже наведено.",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
+            }
+        }
+    ],
     "variants": [
         {
-            "id": 248,
-            "question_id": 248,
-            "text": "The prizes {a1} after the concert in this context.",
-            "created_at": "2026-05-26T15:07:44.000000Z",
-            "updated_at": "2026-05-26T15:07:44.000000Z"
+            "id": 51658,
+            "question_id": 50998,
+            "text": "How will travel expenses {a1} during the expedition?",
+            "created_at": "2026-10-21T21:57:16.000000Z",
+            "updated_at": "2026-10-21T21:57:16.000000Z"
         }
     ],
     "hints": [],

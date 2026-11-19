@@ -1,0 +1,1736 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/alternative.v1.json",
+        "sha256": "33212b313dba62634beb82ef41ad1b492abe0b9743610bc387552403585d0413"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedAlternativeQuestionsQualityStandardSeeder",
+        "uuid_namespace": "questions-negations-quality-alternative-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "questions_negations_quality_alternative": {
+            "name": "Questions and Negations Quality: Alternative Questions"
+        }
+    },
+    "tags": {
+        "alternative_questions": {
+            "name": "Alternative Questions",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "choice_between_options": {
+            "name": "Choice Between Options",
+            "category": "topic"
+        },
+        "or_questions": {
+            "name": "Or In Questions",
+            "category": "topic"
+        },
+        "tea_or_coffee": {
+            "name": "Tea Or Coffee",
+            "category": "topic"
+        },
+        "do_you_want_a_or_b": {
+            "name": "Do You Want A Or B",
+            "category": "topic"
+        },
+        "transport_alternative": {
+            "name": "Transport Alternative",
+            "category": "topic"
+        },
+        "alternative_vs_yes_no": {
+            "name": "Alternative Vs Yes No",
+            "category": "topic"
+        },
+        "answer_with_option": {
+            "name": "Answer With Option",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "alternative_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-alternative-a1-g01",
+            "author_id": "A1-g01",
+            "question": "{a1} your bicycle green or black?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Твій велосипед зелений чи чорний?",
+            "target_text": "Is your bicycle green or black?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does"
+                    ],
+                    "verb_hint": "Запитай про одну з двох ознак однієї речі."
+                }
+            },
+            "verb_hint": "Запитай про одну з двох ознак однієї речі.",
+            "accepted_target_texts": [
+                "Is your bicycle green or black?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "your bicycle",
+                "green or black?"
+            ],
+            "token_groups": [
+                "Is",
+                "your bicycle",
+                "green or black?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-alternative-a1-g02",
+            "author_id": "A1-g02",
+            "question": "{a1} you want an apple or a pear?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ти хочеш яблуко чи грушу?",
+            "target_text": "Do you want an apple or a pear?",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Are"
+                    ],
+                    "verb_hint": "Запитай про вибір між двома фруктами."
+                }
+            },
+            "verb_hint": "Запитай про вибір між двома фруктами.",
+            "accepted_target_texts": [
+                "Do you want an apple or a pear?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do",
+                "you want",
+                "an apple",
+                "or a pear?"
+            ],
+            "token_groups": [
+                "Do",
+                "you want",
+                "an apple",
+                "or a pear?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-alternative-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Does your cat {a1} indoors or outside?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Твій кіт спить у приміщенні чи надворі?",
+            "target_text": "Does your cat sleep indoors or outside?",
+            "markers": {
+                "a1": {
+                    "answer": "sleep",
+                    "options": [
+                        "sleep",
+                        "sleeps",
+                        "sleeping"
+                    ],
+                    "verb_hint": "Спати: запит про звичне місце вже має допоміжне дієслово."
+                }
+            },
+            "verb_hint": "Спати: запит про звичне місце вже має допоміжне дієслово.",
+            "accepted_target_texts": [
+                "Does your cat sleep indoors or outside?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Does",
+                "your cat",
+                "sleep indoors",
+                "or outside?"
+            ],
+            "token_groups": [
+                "Does",
+                "your cat",
+                "sleep indoors",
+                "or outside?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-alternative-a1-g04",
+            "author_id": "A1-g04",
+            "question": "{a1} these socks yours or mine?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ці шкарпетки твої чи мої?",
+            "target_text": "Are these socks yours or mine?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Do"
+                    ],
+                    "verb_hint": "Запитай про власника кількох речей."
+                }
+            },
+            "verb_hint": "Запитай про власника кількох речей.",
+            "accepted_target_texts": [
+                "Are these socks yours or mine?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are",
+                "these socks",
+                "yours or mine?"
+            ],
+            "token_groups": [
+                "Are",
+                "these socks",
+                "yours or mine?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-alternative-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Can Nina {a1} or dance?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ніна вміє співати чи танцювати?",
+            "target_text": "Can Nina sing or dance?",
+            "markers": {
+                "a1": {
+                    "answer": "sing",
+                    "options": [
+                        "sing",
+                        "sings",
+                        "singing"
+                    ],
+                    "verb_hint": "Співати: після модального потрібна початкова форма; обери між двома вміннями."
+                }
+            },
+            "verb_hint": "Співати: після модального потрібна початкова форма; обери між двома вміннями.",
+            "accepted_target_texts": [
+                "Can Nina sing or dance?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Can",
+                "Nina",
+                "sing or dance?"
+            ],
+            "token_groups": [
+                "Can",
+                "Nina",
+                "sing or dance?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-alternative-a1-g06",
+            "author_id": "A1-g06",
+            "question": "{a1} the puppy under the chair or behind it?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Цуценя під стільцем чи позаду нього?",
+            "target_text": "Is the puppy under the chair or behind it?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Do"
+                    ],
+                    "verb_hint": "Запитай про одне з двох місць однієї тварини."
+                }
+            },
+            "verb_hint": "Запитай про одне з двох місць однієї тварини.",
+            "accepted_target_texts": [
+                "Is the puppy under the chair or behind it?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "the puppy",
+                "under the chair",
+                "or behind it?"
+            ],
+            "token_groups": [
+                "Is",
+                "the puppy",
+                "under the chair",
+                "or behind it?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-alternative-a2-g01",
+            "author_id": "A2-g01",
+            "question": "{a1} you buy the striped shirt or the plain one?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ти купив смугасту сорочку чи однотонну?",
+            "target_text": "Did you buy the striped shirt or the plain one?",
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Were",
+                        "Have"
+                    ],
+                    "verb_hint": "Запитай про один із двох завершених минулих виборів."
+                }
+            },
+            "verb_hint": "Запитай про один із двох завершених минулих виборів.",
+            "accepted_target_texts": [
+                "Did you buy the striped shirt or the plain one?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Did",
+                "you buy",
+                "the striped shirt",
+                "or",
+                "the plain one?"
+            ],
+            "token_groups": [
+                "Did",
+                "you buy",
+                "the striped shirt",
+                "or",
+                "the plain one?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-alternative-a2-g02",
+            "author_id": "A2-g02",
+            "question": "{a1} the meeting on Tuesday or Wednesday?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Зустріч у вівторок чи в середу?",
+            "target_text": "Is the meeting on Tuesday or Wednesday?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Are"
+                    ],
+                    "verb_hint": "Запитай про вибір одного дня запланованої події."
+                }
+            },
+            "verb_hint": "Запитай про вибір одного дня запланованої події.",
+            "accepted_target_texts": [
+                "Is the meeting on Tuesday or Wednesday?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "the meeting",
+                "on Tuesday",
+                "or Wednesday?"
+            ],
+            "token_groups": [
+                "Is",
+                "the meeting",
+                "on Tuesday",
+                "or Wednesday?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-alternative-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Will your uncle {a1} by car or by train?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Твій дядько приїде автомобілем чи потягом?",
+            "target_text": "Will your uncle come by car or by train?",
+            "markers": {
+                "a1": {
+                    "answer": "come",
+                    "options": [
+                        "come",
+                        "comes",
+                        "coming"
+                    ],
+                    "verb_hint": "Приїхати: після допоміжного майбутнього потрібна початкова форма."
+                }
+            },
+            "verb_hint": "Приїхати: після допоміжного майбутнього потрібна початкова форма.",
+            "accepted_target_texts": [
+                "Will your uncle come by car or by train?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will",
+                "your uncle",
+                "come",
+                "by car",
+                "or by train?"
+            ],
+            "token_groups": [
+                "Will",
+                "your uncle",
+                "come",
+                "by car",
+                "or by train?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-alternative-a2-g04",
+            "author_id": "A2-g04",
+            "question": "{a1} you cooking soup or baking bread?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ти готуєш суп чи печеш хліб?",
+            "target_text": "Are you cooking soup or baking bread?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Do",
+                        "Have"
+                    ],
+                    "verb_hint": "Запитай про вибір між двома поточними діями."
+                }
+            },
+            "verb_hint": "Запитай про вибір між двома поточними діями.",
+            "accepted_target_texts": [
+                "Are you cooking soup or baking bread?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are",
+                "you cooking soup",
+                "or baking bread?"
+            ],
+            "token_groups": [
+                "Are",
+                "you cooking soup",
+                "or baking bread?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-alternative-a2-g05",
+            "author_id": "A2-g05",
+            "question": "{a1} the museum busy or quiet when you visited?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Коли ти був у музеї, там було людно чи тихо?",
+            "target_text": "Was the museum busy or quiet when you visited?",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Did"
+                    ],
+                    "verb_hint": "Запитай про одну з двох ознак місця в минулому."
+                }
+            },
+            "verb_hint": "Запитай про одну з двох ознак місця в минулому.",
+            "accepted_target_texts": [
+                "Was the museum busy or quiet when you visited?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Was",
+                "the museum",
+                "busy or quiet",
+                "when you visited?"
+            ],
+            "token_groups": [
+                "Was",
+                "the museum",
+                "busy or quiet",
+                "when you visited?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-alternative-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Have you {a1} the front door or the back one?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ти замкнув передні двері чи задні?",
+            "target_text": "Have you locked the front door or the back one?",
+            "markers": {
+                "a1": {
+                    "answer": "locked",
+                    "options": [
+                        "locked",
+                        "lock",
+                        "locking"
+                    ],
+                    "verb_hint": "Замкнути: допоміжне вже наведено, потрібна форма завершеної дії."
+                }
+            },
+            "verb_hint": "Замкнути: допоміжне вже наведено, потрібна форма завершеної дії.",
+            "accepted_target_texts": [
+                "Have you locked the front door or the back one?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Have",
+                "you locked",
+                "the front door",
+                "or",
+                "the back one?"
+            ],
+            "token_groups": [
+                "Have",
+                "you locked",
+                "the front door",
+                "or",
+                "the back one?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-alternative-b1-g01",
+            "author_id": "B1-g01",
+            "question": "{a1} the parcel delivered to your home or your office?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Посилку доставили тобі додому чи в офіс?",
+            "target_text": "Was the parcel delivered to your home or your office?",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Did",
+                        "Has"
+                    ],
+                    "verb_hint": "Запитай про два можливі місця минулої пасивної дії."
+                }
+            },
+            "verb_hint": "Запитай про два можливі місця минулої пасивної дії.",
+            "accepted_target_texts": [
+                "Was the parcel delivered to your home or your office?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Was",
+                "the parcel",
+                "delivered",
+                "to your home",
+                "or your office?"
+            ],
+            "token_groups": [
+                "Was",
+                "the parcel",
+                "delivered",
+                "to your home",
+                "or your office?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-alternative-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Would you {a1} to stay here or move upstairs?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ти волів би залишитися тут чи перейти нагору?",
+            "target_text": "Would you prefer to stay here or move upstairs?",
+            "markers": {
+                "a1": {
+                    "answer": "prefer",
+                    "options": [
+                        "prefer",
+                        "preferred",
+                        "preferring"
+                    ],
+                    "verb_hint": "Воліти: після модального потрібна початкова форма, а частку перед інфінітивом уже подано."
+                }
+            },
+            "verb_hint": "Воліти: після модального потрібна початкова форма, а частку перед інфінітивом уже подано.",
+            "accepted_target_texts": [
+                "Would you prefer to stay here or move upstairs?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would",
+                "you prefer",
+                "to stay here",
+                "or move upstairs?"
+            ],
+            "token_groups": [
+                "Would",
+                "you prefer",
+                "to stay here",
+                "or move upstairs?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-alternative-b1-g03",
+            "author_id": "B1-g03",
+            "question": "{a1} the neighbours repaired the fence or replaced it?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Сусіди полагодили паркан чи замінили його?",
+            "target_text": "Have the neighbours repaired the fence or replaced it?",
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Did",
+                        "Are"
+                    ],
+                    "verb_hint": "Запитай про отриманий результат одного з двох видів роботи."
+                }
+            },
+            "verb_hint": "Запитай про отриманий результат одного з двох видів роботи.",
+            "accepted_target_texts": [
+                "Have the neighbours repaired the fence or replaced it?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Have",
+                "the neighbours",
+                "repaired the fence",
+                "or replaced it?"
+            ],
+            "token_groups": [
+                "Have",
+                "the neighbours",
+                "repaired the fence",
+                "or replaced it?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-alternative-b1-g04",
+            "author_id": "B1-g04",
+            "question": "Will the children {a1} collected at school or at the library?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Дітей заберуть зі школи чи з бібліотеки?",
+            "target_text": "Will the children be collected at school or at the library?",
+            "markers": {
+                "a1": {
+                    "answer": "be",
+                    "options": [
+                        "be",
+                        "been",
+                        "being"
+                    ],
+                    "verb_hint": "Пасивна майбутня дія: після показника майбутнього додай інфінітив допоміжного."
+                }
+            },
+            "verb_hint": "Пасивна майбутня дія: після показника майбутнього додай інфінітив допоміжного.",
+            "accepted_target_texts": [
+                "Will the children be collected at school or at the library?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will",
+                "the children",
+                "be collected",
+                "at school",
+                "or",
+                "at the library?"
+            ],
+            "token_groups": [
+                "Will",
+                "the children",
+                "be collected",
+                "at school",
+                "or",
+                "at the library?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-alternative-b1-g05",
+            "author_id": "B1-g05",
+            "question": "{a1} your colleague been working remotely or commuting every day?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Твій колега працює віддалено чи щодня їздить на роботу?",
+            "target_text": "Has your colleague been working remotely or commuting every day?",
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Is",
+                        "Does"
+                    ],
+                    "verb_hint": "Запитай про процес, що триває від минулого донині."
+                }
+            },
+            "verb_hint": "Запитай про процес, що триває від минулого донині.",
+            "accepted_target_texts": [
+                "Has your colleague been working remotely or commuting every day?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Has",
+                "your colleague",
+                "been working remotely",
+                "or commuting",
+                "every day?"
+            ],
+            "token_groups": [
+                "Has",
+                "your colleague",
+                "been working remotely",
+                "or commuting",
+                "every day?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-alternative-b1-g06",
+            "author_id": "B1-g06",
+            "question": "{a1} we book separate rooms or share a larger one?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Нам варто забронювати окремі кімнати чи ділити одну більшу?",
+            "target_text": "Should we book separate rooms or share a larger one?",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Have",
+                        "Are"
+                    ],
+                    "verb_hint": "Запитай про доречність двох можливих рішень."
+                }
+            },
+            "verb_hint": "Запитай про доречність двох можливих рішень.",
+            "accepted_target_texts": [
+                "Should we book separate rooms or share a larger one?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Should",
+                "we",
+                "book separate rooms",
+                "or share",
+                "a larger one?"
+            ],
+            "token_groups": [
+                "Should",
+                "we",
+                "book separate rooms",
+                "or share",
+                "a larger one?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "qnq-alternative-b2-g01",
+            "author_id": "B2-g01",
+            "question": "{a1} the fault been traced to the wiring or to the software?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Несправність пов’язали з проводкою чи з програмним забезпеченням?",
+            "target_text": "Has the fault been traced to the wiring or to the software?",
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Did",
+                        "Is"
+                    ],
+                    "verb_hint": "Запитай про вже встановлену причину в перфектному пасиві."
+                }
+            },
+            "verb_hint": "Запитай про вже встановлену причину в перфектному пасиві.",
+            "accepted_target_texts": [
+                "Has the fault been traced to the wiring or to the software?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Has",
+                "the fault",
+                "been traced",
+                "to the wiring",
+                "or",
+                "to the software?"
+            ],
+            "token_groups": [
+                "Has",
+                "the fault",
+                "been traced",
+                "to the wiring",
+                "or",
+                "to the software?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "qnq-alternative-b2-g02",
+            "author_id": "B2-g02",
+            "question": "{a1} the board have approved the merger or sought further advice?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Рада схвалила б злиття чи звернулася б за додатковою порадою?",
+            "target_text": "Would the board have approved the merger or sought further advice?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "options": [
+                        "Would",
+                        "Did",
+                        "Was"
+                    ],
+                    "verb_hint": "Запитай про два уявні минулі рішення; основні форми вже наведено."
+                }
+            },
+            "verb_hint": "Запитай про два уявні минулі рішення; основні форми вже наведено.",
+            "accepted_target_texts": [
+                "Would the board have approved the merger or sought further advice?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would",
+                "the board",
+                "have approved",
+                "the merger",
+                "or sought",
+                "further advice?"
+            ],
+            "token_groups": [
+                "Would",
+                "the board",
+                "have approved",
+                "the merger",
+                "or sought",
+                "further advice?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "qnq-alternative-b2-g03",
+            "author_id": "B2-g03",
+            "question": "{a1} the interviews being recorded or transcribed live?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Співбесіди зараз записують чи відразу розшифровують?",
+            "target_text": "Are the interviews being recorded or transcribed live?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Do",
+                        "Have"
+                    ],
+                    "verb_hint": "Запитай про два способи поточної пасивної дії над кількома співбесідами."
+                }
+            },
+            "verb_hint": "Запитай про два способи поточної пасивної дії над кількома співбесідами.",
+            "accepted_target_texts": [
+                "Are the interviews being recorded or transcribed live?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are",
+                "the interviews",
+                "being recorded",
+                "or transcribed live?"
+            ],
+            "token_groups": [
+                "Are",
+                "the interviews",
+                "being recorded",
+                "or transcribed live?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "qnq-alternative-b2-g04",
+            "author_id": "B2-g04",
+            "question": "{a1} you have completed the analysis or still be gathering data by Friday?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "До п’ятниці ти вже завершиш аналіз чи ще збиратимеш дані?",
+            "target_text": "Will you have completed the analysis or still be gathering data by Friday?",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Have",
+                        "Did"
+                    ],
+                    "verb_hint": "Запитай про два різні стани роботи в майбутньому; один спільний показник майбутнього керує обома."
+                }
+            },
+            "verb_hint": "Запитай про два різні стани роботи в майбутньому; один спільний показник майбутнього керує обома.",
+            "accepted_target_texts": [
+                "Will you have completed the analysis or still be gathering data by Friday?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will",
+                "you",
+                "have completed",
+                "the analysis",
+                "or still be",
+                "gathering data",
+                "by Friday?"
+            ],
+            "token_groups": [
+                "Will",
+                "you",
+                "have completed",
+                "the analysis",
+                "or still be",
+                "gathering data",
+                "by Friday?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "qnq-alternative-b2-g05",
+            "author_id": "B2-g05",
+            "question": "{a1} the delay have been caused by understaffing or by poor coordination?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Затримку могли спричинити нестача персоналу чи погана координація?",
+            "target_text": "Could the delay have been caused by understaffing or by poor coordination?",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "options": [
+                        "Could",
+                        "Did",
+                        "Was"
+                    ],
+                    "verb_hint": "Запитай про дві можливі минулі причини у пасиві."
+                }
+            },
+            "verb_hint": "Запитай про дві можливі минулі причини у пасиві.",
+            "accepted_target_texts": [
+                "Could the delay have been caused by understaffing or by poor coordination?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could",
+                "the delay",
+                "have been caused",
+                "by understaffing",
+                "or",
+                "by poor coordination?"
+            ],
+            "token_groups": [
+                "Could",
+                "the delay",
+                "have been caused",
+                "by understaffing",
+                "or",
+                "by poor coordination?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "qnq-alternative-b2-g06",
+            "author_id": "B2-g06",
+            "question": "{a1} the supplier entitled to revise the price or merely to renegotiate it?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Постачальник має право переглянути ціну чи лише повторно узгодити її?",
+            "target_text": "Is the supplier entitled to revise the price or merely to renegotiate it?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Has"
+                    ],
+                    "verb_hint": "Запитай про межу чинного права; не додавай допоміжного дієслова дії."
+                }
+            },
+            "verb_hint": "Запитай про межу чинного права; не додавай допоміжного дієслова дії.",
+            "accepted_target_texts": [
+                "Is the supplier entitled to revise the price or merely to renegotiate it?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "the supplier",
+                "entitled",
+                "to revise",
+                "the price",
+                "or merely",
+                "to renegotiate it?"
+            ],
+            "token_groups": [
+                "Is",
+                "the supplier",
+                "entitled",
+                "to revise",
+                "the price",
+                "or merely",
+                "to renegotiate it?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "qnq-alternative-c1-g01",
+            "author_id": "C1-g01",
+            "question": "{a1} the amendment intended to clarify the duty or to narrow its scope?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Поправка покликана прояснити обов’язок чи звузити його сферу?",
+            "target_text": "Is the amendment intended to clarify the duty or to narrow its scope?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Has"
+                    ],
+                    "verb_hint": "Запитай про два можливі задуми пасивної конструкції."
+                }
+            },
+            "verb_hint": "Запитай про два можливі задуми пасивної конструкції.",
+            "accepted_target_texts": [
+                "Is the amendment intended to clarify the duty or to narrow its scope?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "the amendment",
+                "intended",
+                "to clarify",
+                "the duty",
+                "or to narrow",
+                "its scope?"
+            ],
+            "token_groups": [
+                "Is",
+                "the amendment",
+                "intended",
+                "to clarify",
+                "the duty",
+                "or to narrow",
+                "its scope?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "qnq-alternative-c1-g02",
+            "author_id": "C1-g02",
+            "question": "{a1} the tribunal have excluded the evidence or admitted it conditionally?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Трибунал мав виключити цей доказ чи умовно допустити його?",
+            "target_text": "Should the tribunal have excluded the evidence or admitted it conditionally?",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Did",
+                        "Was"
+                    ],
+                    "verb_hint": "Запитай про два можливі належні рішення в минулому."
+                }
+            },
+            "verb_hint": "Запитай про два можливі належні рішення в минулому.",
+            "accepted_target_texts": [
+                "Should the tribunal have excluded the evidence or admitted it conditionally?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Should",
+                "the tribunal",
+                "have excluded",
+                "the evidence",
+                "or admitted",
+                "it conditionally?"
+            ],
+            "token_groups": [
+                "Should",
+                "the tribunal",
+                "have excluded",
+                "the evidence",
+                "or admitted",
+                "it conditionally?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "qnq-alternative-c1-g03",
+            "author_id": "C1-g03",
+            "question": "{a1} the change attributable to market pressure or to regulatory intervention?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Зміну можна пояснити тиском ринку чи втручанням регулятора?",
+            "target_text": "Is the change attributable to market pressure or to regulatory intervention?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Has"
+                    ],
+                    "verb_hint": "Запитай про дві можливі причини як характеристики зміни."
+                }
+            },
+            "verb_hint": "Запитай про дві можливі причини як характеристики зміни.",
+            "accepted_target_texts": [
+                "Is the change attributable to market pressure or to regulatory intervention?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "the change",
+                "attributable",
+                "to market pressure",
+                "or",
+                "to regulatory intervention?"
+            ],
+            "token_groups": [
+                "Is",
+                "the change",
+                "attributable",
+                "to market pressure",
+                "or",
+                "to regulatory intervention?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "qnq-alternative-c1-g04",
+            "author_id": "C1-g04",
+            "question": "{a1} the safeguards been strengthened or merely reworded?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Гарантії посилили чи лише переформулювали?",
+            "target_text": "Have the safeguards been strengthened or merely reworded?",
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Did",
+                        "Are"
+                    ],
+                    "verb_hint": "Запитай про два вже отримані пасивні результати над кількома гарантіями."
+                }
+            },
+            "verb_hint": "Запитай про два вже отримані пасивні результати над кількома гарантіями.",
+            "accepted_target_texts": [
+                "Have the safeguards been strengthened or merely reworded?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Have",
+                "the safeguards",
+                "been strengthened",
+                "or merely reworded?"
+            ],
+            "token_groups": [
+                "Have",
+                "the safeguards",
+                "been strengthened",
+                "or merely reworded?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "qnq-alternative-c1-g05",
+            "author_id": "C1-g05",
+            "question": "{a1} the delegates have reached agreement or abandoned the talks had the deadline been extended?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Делегати досягли б згоди чи припинили б переговори, якби термін продовжили?",
+            "target_text": "Would the delegates have reached agreement or abandoned the talks had the deadline been extended?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "options": [
+                        "Would",
+                        "Did",
+                        "Were"
+                    ],
+                    "verb_hint": "Запитай про два нереальні минулі результати; умову вже передано інверсією."
+                }
+            },
+            "verb_hint": "Запитай про два нереальні минулі результати; умову вже передано інверсією.",
+            "accepted_target_texts": [
+                "Would the delegates have reached agreement or abandoned the talks had the deadline been extended?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would",
+                "the delegates",
+                "have reached agreement",
+                "or abandoned",
+                "the talks",
+                "had the deadline",
+                "been extended?"
+            ],
+            "token_groups": [
+                "Would",
+                "the delegates",
+                "have reached agreement",
+                "or abandoned",
+                "the talks",
+                "had the deadline",
+                "been extended?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "qnq-alternative-c1-g06",
+            "author_id": "C1-g06",
+            "question": "{a1} the findings be interpreted as evidence of causation or merely of association?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Чи можна тлумачити ці результати як доказ причинності чи лише зв’язку?",
+            "target_text": "Can the findings be interpreted as evidence of causation or merely of association?",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "options": [
+                        "Can",
+                        "Do",
+                        "Have"
+                    ],
+                    "verb_hint": "Запитай про дві можливі інтерпретації в модальному пасиві."
+                }
+            },
+            "verb_hint": "Запитай про дві можливі інтерпретації в модальному пасиві.",
+            "accepted_target_texts": [
+                "Can the findings be interpreted as evidence of causation or merely of association?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Can",
+                "the findings",
+                "be interpreted",
+                "as evidence",
+                "of causation",
+                "or merely",
+                "of association?"
+            ],
+            "token_groups": [
+                "Can",
+                "the findings",
+                "be interpreted",
+                "as evidence",
+                "of causation",
+                "or merely",
+                "of association?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "qnq-alternative-c2-g01",
+            "author_id": "C2-g01",
+            "question": "{a1} the omission be construed as acquiescence or as a reservation of rights?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Це упущення слід тлумачити як мовчазну згоду чи як збереження прав?",
+            "target_text": "Should the omission be construed as acquiescence or as a reservation of rights?",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Does",
+                        "Has"
+                    ],
+                    "verb_hint": "Запитай про дві нормативні інтерпретації в модальному пасиві."
+                }
+            },
+            "verb_hint": "Запитай про дві нормативні інтерпретації в модальному пасиві.",
+            "accepted_target_texts": [
+                "Should the omission be construed as acquiescence or as a reservation of rights?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Should",
+                "the omission",
+                "be construed",
+                "as acquiescence",
+                "or as",
+                "a reservation",
+                "of rights?"
+            ],
+            "token_groups": [
+                "Should",
+                "the omission",
+                "be construed",
+                "as acquiescence",
+                "or as",
+                "a reservation",
+                "of rights?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "qnq-alternative-c2-g02",
+            "author_id": "C2-g02",
+            "question": "{a1} the consensus have reflected genuine convergence or merely strategic ambiguity?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Згода могла відображати справжнє зближення позицій чи лише стратегічну неоднозначність?",
+            "target_text": "Might the consensus have reflected genuine convergence or merely strategic ambiguity?",
+            "markers": {
+                "a1": {
+                    "answer": "Might",
+                    "options": [
+                        "Might",
+                        "Did",
+                        "Was"
+                    ],
+                    "verb_hint": "Запитай про дві можливі минулі основи згоди, не встановлюючи жодної напевно."
+                }
+            },
+            "verb_hint": "Запитай про дві можливі минулі основи згоди, не встановлюючи жодної напевно.",
+            "accepted_target_texts": [
+                "Might the consensus have reflected genuine convergence or merely strategic ambiguity?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Might",
+                "the consensus",
+                "have reflected",
+                "genuine convergence",
+                "or merely",
+                "strategic ambiguity?"
+            ],
+            "token_groups": [
+                "Might",
+                "the consensus",
+                "have reflected",
+                "genuine convergence",
+                "or merely",
+                "strategic ambiguity?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "qnq-alternative-c2-g03",
+            "author_id": "C2-g03",
+            "question": "{a1} the exception apply retrospectively or only to claims arising after commencement?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Виняток діє ретроспективно чи лише щодо вимог, які виникають після набрання чинності?",
+            "target_text": "Does the exception apply retrospectively or only to claims arising after commencement?",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Is",
+                        "Has"
+                    ],
+                    "verb_hint": "Запитай про сферу застосування чинного правила."
+                }
+            },
+            "verb_hint": "Запитай про сферу застосування чинного правила.",
+            "accepted_target_texts": [
+                "Does the exception apply retrospectively or only to claims arising after commencement?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Does",
+                "the exception",
+                "apply retrospectively",
+                "or only",
+                "to claims",
+                "arising after commencement?"
+            ],
+            "token_groups": [
+                "Does",
+                "the exception",
+                "apply retrospectively",
+                "or only",
+                "to claims",
+                "arising after commencement?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "qnq-alternative-c2-g04",
+            "author_id": "C2-g04",
+            "question": "{a1} the limitation have been defensible on proportionality grounds or solely on administrative convenience?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Чи можна було б виправдати це обмеження пропорційністю чи лише адміністративною зручністю?",
+            "target_text": "Would the limitation have been defensible on proportionality grounds or solely on administrative convenience?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "options": [
+                        "Would",
+                        "Did",
+                        "Was"
+                    ],
+                    "verb_hint": "Запитай про альтернативні підстави нереальної минулої оцінки."
+                }
+            },
+            "verb_hint": "Запитай про альтернативні підстави нереальної минулої оцінки.",
+            "accepted_target_texts": [
+                "Would the limitation have been defensible on proportionality grounds or solely on administrative convenience?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would",
+                "the limitation",
+                "have been defensible",
+                "on proportionality grounds",
+                "or solely",
+                "on administrative convenience?"
+            ],
+            "token_groups": [
+                "Would",
+                "the limitation",
+                "have been defensible",
+                "on proportionality grounds",
+                "or solely",
+                "on administrative convenience?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "qnq-alternative-c2-g05",
+            "author_id": "C2-g05",
+            "question": "{a1} the divergence best understood as conceptual incompatibility or as a difference in evidential thresholds?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Цю розбіжність найкраще розуміти як концептуальну несумісність чи як різницю в доказових порогах?",
+            "target_text": "Is the divergence best understood as conceptual incompatibility or as a difference in evidential thresholds?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Has"
+                    ],
+                    "verb_hint": "Запитай про дві аналітичні інтерпретації наявного розрізнення."
+                }
+            },
+            "verb_hint": "Запитай про дві аналітичні інтерпретації наявного розрізнення.",
+            "accepted_target_texts": [
+                "Is the divergence best understood as conceptual incompatibility or as a difference in evidential thresholds?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "the divergence",
+                "best understood",
+                "as conceptual incompatibility",
+                "or as",
+                "a difference",
+                "in evidential thresholds?"
+            ],
+            "token_groups": [
+                "Is",
+                "the divergence",
+                "best understood",
+                "as conceptual incompatibility",
+                "or as",
+                "a difference",
+                "in evidential thresholds?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "qnq-alternative-c2-g06",
+            "author_id": "C2-g06",
+            "question": "{a1} the claim have survived intact or been substantially narrowed had the contrary evidence emerged earlier?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ця вимога могла б зберегтися повністю чи її істотно звузили б, якби протилежні докази з’явилися раніше?",
+            "target_text": "Could the claim have survived intact or been substantially narrowed had the contrary evidence emerged earlier?",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "options": [
+                        "Could",
+                        "Did",
+                        "Was"
+                    ],
+                    "verb_hint": "Запитай про два можливі нереалізовані результати; після спільного допоміжного збережи активну й пасивну альтернативи."
+                }
+            },
+            "verb_hint": "Запитай про два можливі нереалізовані результати; після спільного допоміжного збережи активну й пасивну альтернативи.",
+            "accepted_target_texts": [
+                "Could the claim have survived intact or been substantially narrowed had the contrary evidence emerged earlier?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could",
+                "the claim",
+                "have survived intact",
+                "or been",
+                "substantially narrowed",
+                "had the contrary",
+                "evidence emerged earlier?"
+            ],
+            "token_groups": [
+                "Could",
+                "the claim",
+                "have survived intact",
+                "or been",
+                "substantially narrowed",
+                "had the contrary",
+                "evidence emerged earlier?"
+            ],
+            "quality_revision": "qnq-v1"
+        }
+    ]
+}

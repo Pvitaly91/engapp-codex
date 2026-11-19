@@ -1,0 +1,1156 @@
+{
+    "schema_version": 1,
+    "package": "formal-english-native-practice-supplement",
+    "status": "frozen",
+    "source": {
+        "path": "docs/content/formal-english-practice-source.v1.json",
+        "sha256": "120297b0549eb0a1802620fbf082a69625cf448cb7c908fbf52c208dcefb727a"
+    },
+    "targets": [
+        {
+            "topic": "formal-register-and-nominalisation-basics",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\FormalEnglish\\FormalRegisterAndNominalisationBasicsTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/formal-english/formal-register-and-nominalisation-basics",
+            "definition": "database/seeders/Page_V3/FormalEnglish/FormalRegisterAndNominalisationBasicsTheorySeeder/definition.json",
+            "definition_sha256": "e547b441f90ee253798a94d7f426e18bb5bf17f580c5bf133647dc7711e9498b",
+            "release": "database/content-patches/m32-m16-formal-english.v1.json",
+            "release_sha256": "e904174d5a530673e1f1a1732f10b09a5b9530d6a8f7ae8f6eb090bd817294d8",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\FormalEnglish\\FormalRegisterAndNominalisationBasicsTheorySeeder",
+                "locale": "uk",
+                "uuid": "701a09e5-fa5c-5cc6-b5ac-5cfbc86367d3",
+                "sort_order": 8,
+                "page_id": 291,
+                "page_category_id": 55,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "B2",
+                "css_class": null,
+                "body_sha256": "bbb5e71647815f1cc584b0106d95071568932cda211ae30360049af038fcf61e"
+            },
+            "design": {
+                "source_index": 7,
+                "uuid": "701a09e5-fa5c-5cc6-b5ac-5cfbc86367d3",
+                "sort_order": 8,
+                "body_sha256": "bbb5e71647815f1cc584b0106d95071568932cda211ae30360049af038fcf61e",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 7,
+            "before_data_sha256": "bbb5e71647815f1cc584b0106d95071568932cda211ae30360049af038fcf61e",
+            "after_data_sha256": "005571b28ff5f143349842626de709d2546ed93c0b13900eb648320b874e6910",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "We made",
+                        "a decision",
+                        "on Monday",
+                        "to invite",
+                        "two speakers."
+                    ],
+                    "condition_uk": "У понеділок ми вирішили запросити двох доповідачів. Використай іменникову конструкцію рішення.",
+                    "hint_uk": "Збережи понеділок, двох доповідачів і нас як виконавців; назви рішення через іменник."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "Could you",
+                        "send me",
+                        "the seating plan",
+                        "by noon tomorrow,",
+                        "please?",
+                        "I need it",
+                        "to prepare",
+                        "the name cards."
+                    ],
+                    "condition_uk": "Ввічливо попроси план розсадження до завтра, полудня; він потрібен для карток з іменами.",
+                    "hint_uk": "Збережи адресата, строк та причину прохання; не роби його наказом."
+                },
+                {
+                    "index": 2,
+                    "ordered_groups": [
+                        "Yesterday we decided",
+                        "to confirm",
+                        "the booking today."
+                    ],
+                    "condition_uk": "Учора ми вирішили сьогодні підтвердити бронювання. Збережи обидва часові орієнтири.",
+                    "hint_uk": "Рішення вже ухвалили вчора; підтвердження стосується сьогодні, а не вчора."
+                }
+            ],
+            "added": [
+                {
+                    "id": "feq-native-formal-register-and-nominalisation-basics-gap-1",
+                    "kind": "gap",
+                    "condition": "We would {a1} written confirmation of the appointment.",
+                    "answer": "appreciate",
+                    "accepted": [
+                        "appreciate"
+                    ],
+                    "hint_uk": "Були б вдячні за: доповни нейтральне ввічливе прохання без нового підмета.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 3
+                },
+                {
+                    "id": "feq-native-formal-register-and-nominalisation-basics-gap-2",
+                    "kind": "gap",
+                    "condition": "Please {a1} the completed form to the admissions office.",
+                    "answer": "submit",
+                    "accepted": [
+                        "submit",
+                        "send",
+                        "forward",
+                        "deliver"
+                    ],
+                    "hint_uk": "Подати (передати): використай доречне для офіційного прохання дієслово передавання документа.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 4
+                },
+                {
+                    "id": "feq-native-formal-register-and-nominalisation-basics-translate-1",
+                    "kind": "translation",
+                    "condition": "Будь ласка, повідомте нам про будь-які зміни.",
+                    "answer": "Please inform us of any changes.",
+                    "accepted": [
+                        "Please inform us of any changes.",
+                        "Please notify us of any changes.",
+                        "Please inform us about any changes.",
+                        "Please notify us about any changes."
+                    ],
+                    "hint_uk": "Почни з ввічливого звернення; збережи нас як одержувачів повідомлення та всі можливі зміни.",
+                    "ordered_groups": [
+                        "Please inform us",
+                        "of any changes."
+                    ],
+                    "shuffled_groups": [
+                        "of any changes.",
+                        "Please inform us"
+                    ],
+                    "token_labels": {
+                        "Please inform us": "Please inform us (Please notify us)",
+                        "of any changes.": "of any changes. (about any changes.)"
+                    },
+                    "index": 5
+                },
+                {
+                    "id": "feq-native-formal-register-and-nominalisation-basics-translate-2",
+                    "kind": "translation",
+                    "condition": "Офіційне підтвердження надійде електронною поштою.",
+                    "answer": "Official confirmation will arrive by email.",
+                    "accepted": [
+                        "Official confirmation will arrive by email.",
+                        "Official confirmation will be received by email.",
+                        "Official confirmation will arrive via email.",
+                        "Official confirmation will be received via email."
+                    ],
+                    "hint_uk": "Збережи офіційність підтвердження, майбутній час і спосіб отримання.",
+                    "ordered_groups": [
+                        "Official confirmation",
+                        "will arrive",
+                        "by email."
+                    ],
+                    "shuffled_groups": [
+                        "will arrive",
+                        "Official confirmation",
+                        "by email."
+                    ],
+                    "token_labels": {
+                        "will arrive": "will arrive (will be received)",
+                        "by email.": "by email. (via email.)"
+                    },
+                    "index": 6
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": [],
+                "2": [],
+                "5": {
+                    "Please inform us": "Please inform us (Please notify us)",
+                    "of any changes.": "of any changes. (about any changes.)"
+                },
+                "6": {
+                    "will arrive": "will arrive (will be received)",
+                    "by email.": "by email. (via email.)"
+                }
+            }
+        },
+        {
+            "topic": "nominalisation-formal-register",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\FormalEnglish\\NominalisationFormalRegisterTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/formal-english/nominalisation-formal-register",
+            "definition": "database/seeders/Page_V3/FormalEnglish/NominalisationFormalRegisterTheorySeeder/definition.json",
+            "definition_sha256": "95f39cef68abc3363cc6aac4ef40ee5f157f928be7a2ef6d24aa9ab419da598b",
+            "release": "database/content-patches/m32-m16-formal-english.v1.json",
+            "release_sha256": "e904174d5a530673e1f1a1732f10b09a5b9530d6a8f7ae8f6eb090bd817294d8",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\FormalEnglish\\NominalisationFormalRegisterTheorySeeder",
+                "locale": "uk",
+                "uuid": "528d3f38-e37e-5568-983c-cc2e2db44b91",
+                "sort_order": 8,
+                "page_id": 301,
+                "page_category_id": 55,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C1",
+                "css_class": null,
+                "body_sha256": "05fe8982511e549180ce13733ed385267c1488f91682056be4e63101a5497abe"
+            },
+            "design": {
+                "source_index": 7,
+                "uuid": "528d3f38-e37e-5568-983c-cc2e2db44b91",
+                "sort_order": 8,
+                "body_sha256": "05fe8982511e549180ce13733ed385267c1488f91682056be4e63101a5497abe",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 7,
+            "before_data_sha256": "05fe8982511e549180ce13733ed385267c1488f91682056be4e63101a5497abe",
+            "after_data_sha256": "07460d947b4d37d9b7195315d308925e5d732e9df96c81bceabb7006b616437e",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "The conservators’ examination",
+                        "of the mural",
+                        "is currently",
+                        "in progress."
+                    ],
+                    "condition_uk": "Реставратори зараз досліджують настінний розпис. Склади іменникову конструкцію незавершеного процесу.",
+                    "hint_uk": "Збережи виконавців і предмет; дослідження триває, а не вже завершилося."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "The editors",
+                        "reviewed the captions.",
+                        "Their review",
+                        "revealed two",
+                        "incorrect dates."
+                    ],
+                    "condition_uk": "Редактори перевірили підписи; ця перевірка виявила дві неправильні дати. Склади два речення.",
+                    "hint_uk": "Почни дієслівним реченням; у другому відсилай іменником до тієї самої перевірки."
+                },
+                {
+                    "index": 2,
+                    "ordered_groups": [
+                        "Repair of",
+                        "the gate",
+                        "by the volunteers",
+                        "next week",
+                        "is possible."
+                    ],
+                    "condition_uk": "Волонтери, можливо, відремонтують ворота наступного тижня. Почни з іменника ремонту.",
+                    "hint_uk": "Можливість не є гарантією; збережи виконавців, ворота та наступний тиждень."
+                },
+                {
+                    "index": 3,
+                    "ordered_groups": [
+                        "We conducted",
+                        "an analysis of",
+                        "the booking requests."
+                    ],
+                    "condition_uk": "Ми проаналізували запити на бронювання. Використай конструкцію «провели аналіз».",
+                    "hint_uk": "Назви нас як виконавців; аналіз стосується запитів на бронювання."
+                },
+                {
+                    "index": 4,
+                    "ordered_groups": [
+                        "It was announced",
+                        "yesterday that",
+                        "the workshop",
+                        "had been cancelled."
+                    ],
+                    "condition_uk": "Учора оголосили, що майстер-клас уже скасували. Збережи ранішу подію й час оголошення.",
+                    "hint_uk": "Оголошення було вчора; скасування передувало йому."
+                },
+                {
+                    "index": 5,
+                    "ordered_groups": [
+                        "The committee",
+                        "evaluated the",
+                        "two designs",
+                        "on Tuesday.",
+                        "This evaluation",
+                        "revealed a",
+                        "missing label.",
+                        "The committee",
+                        "plans to add",
+                        "the label",
+                        "on Friday."
+                    ],
+                    "condition_uk": "У вівторок комітет оцінив два макети й виявив відсутню етикетку. Додати її планують у п’ятницю.",
+                    "hint_uk": "Збережи два макети, вівторок і лише план на п’ятницю; відсилай до оцінювання іменником."
+                }
+            ],
+            "added": [
+                {
+                    "id": "feq-native-nominalisation-formal-register-gap-1",
+                    "kind": "gap",
+                    "condition": "The {a1} of the application took three working days.",
+                    "answer": "assessment",
+                    "accepted": [
+                        "assessment",
+                        "evaluation",
+                        "review"
+                    ],
+                    "hint_uk": "Оцінювання: утвори іменникову назву процесу перевірки заяви; наведені слова не повторюй.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 6
+                },
+                {
+                    "id": "feq-native-nominalisation-formal-register-gap-2",
+                    "kind": "gap",
+                    "condition": "Their {a1} to cooperate delayed the negotiations.",
+                    "answer": "refusal",
+                    "accepted": [
+                        "refusal"
+                    ],
+                    "hint_uk": "Відмова: назви іменником рішення не співпрацювати; не підмінюй його нездатністю.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 7
+                },
+                {
+                    "id": "feq-native-nominalisation-formal-register-translate-1",
+                    "kind": "translation",
+                    "condition": "Завершення ремонту заплановане на вересень.",
+                    "answer": "Completion of the repairs is scheduled for September.",
+                    "accepted": [
+                        "Completion of the repairs is scheduled for September.",
+                        "The completion of the repairs is scheduled for September.",
+                        "Completion of the repairs is planned for September.",
+                        "The completion of the repairs is planned for September."
+                    ],
+                    "hint_uk": "Почни з назви завершення; це план, не вже завершений ремонт.",
+                    "ordered_groups": [
+                        "Completion of",
+                        "the repairs",
+                        "is scheduled",
+                        "for September."
+                    ],
+                    "shuffled_groups": [
+                        "Completion of",
+                        "for September.",
+                        "the repairs",
+                        "is scheduled"
+                    ],
+                    "token_labels": {
+                        "Completion of": "Completion of (The completion of)",
+                        "is scheduled": "is scheduled (is planned)"
+                    },
+                    "index": 8
+                },
+                {
+                    "id": "feq-native-nominalisation-formal-register-translate-2",
+                    "kind": "translation",
+                    "condition": "Перевірка обладнання виявила два дефекти.",
+                    "answer": "Inspection of the equipment revealed two defects.",
+                    "accepted": [
+                        "Inspection of the equipment revealed two defects.",
+                        "The inspection of the equipment revealed two defects.",
+                        "Inspection of the equipment identified two defects.",
+                        "The inspection of the equipment identified two defects.",
+                        "Examination of the equipment revealed two defects.",
+                        "The examination of the equipment revealed two defects.",
+                        "Inspection of the equipment detected two defects.",
+                        "The inspection of the equipment detected two defects.",
+                        "Examination of the equipment detected two defects.",
+                        "The examination of the equipment detected two defects."
+                    ],
+                    "hint_uk": "Використай іменникову назву перевірки; збережи обладнання та рівно два виявлені дефекти.",
+                    "ordered_groups": [
+                        "Inspection of",
+                        "the equipment",
+                        "revealed two defects."
+                    ],
+                    "shuffled_groups": [
+                        "revealed two defects.",
+                        "Inspection of",
+                        "the equipment"
+                    ],
+                    "token_labels": {
+                        "Inspection of": "Inspection of (The inspection of / Examination of / The examination of)",
+                        "revealed two defects.": "revealed two defects. (identified two defects. / detected two defects.)"
+                    },
+                    "index": 9
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": [],
+                "2": {
+                    "Repair of": "Repair of (The repair of)"
+                },
+                "3": [],
+                "4": [],
+                "5": [],
+                "8": {
+                    "Completion of": "Completion of (The completion of)",
+                    "is scheduled": "is scheduled (is planned)"
+                },
+                "9": {
+                    "Inspection of": "Inspection of (The inspection of / Examination of / The examination of)",
+                    "revealed two defects.": "revealed two defects. (identified two defects. / detected two defects.)"
+                }
+            }
+        },
+        {
+            "topic": "register-tone-and-paraphrase",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/formal-english/register-tone-and-paraphrase",
+            "definition": "database/seeders/Page_V3/FormalEnglish/RegisterToneAndParaphraseTheorySeeder/definition.json",
+            "definition_sha256": "3b5643b0b5c76f4e62541c9003f3132f82c27beeb31a39532e9efdc3689ea412",
+            "release": "database/content-patches/m32-m16-formal-english.v1.json",
+            "release_sha256": "e904174d5a530673e1f1a1732f10b09a5b9530d6a8f7ae8f6eb090bd817294d8",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+                "locale": "uk",
+                "uuid": "052e7f85-5043-5be9-b95d-fd5cfb6f32b3",
+                "sort_order": 8,
+                "page_id": 307,
+                "page_category_id": 55,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C1",
+                "css_class": null,
+                "body_sha256": "fc06e83299cc30ba649894b3cd309018cce42192fc80154bbb08cd01e0a6215b"
+            },
+            "design": {
+                "source_index": 7,
+                "uuid": "052e7f85-5043-5be9-b95d-fd5cfb6f32b3",
+                "sort_order": 8,
+                "body_sha256": "fc06e83299cc30ba649894b3cd309018cce42192fc80154bbb08cd01e0a6215b",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 7,
+            "before_data_sha256": "fc06e83299cc30ba649894b3cd309018cce42192fc80154bbb08cd01e0a6215b",
+            "after_data_sha256": "c04b7af82df215080dde37250ea99d5e7771d2970f50c8a0552c2e72682d4a2e",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "The revised map",
+                        "will be sent",
+                        "to you",
+                        "by our designer",
+                        "by 4 p.m.",
+                        "on Wednesday."
+                    ],
+                    "condition_uk": "Наш дизайнер надішле вам виправлену карту до 16:00 у середу. Побудуй нейтральний пасив.",
+                    "hint_uk": "Почни з карти; збережи виконавця, адресата й кінцевий строк."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "Could you",
+                        "send me",
+                        "the invoice",
+                        "by noon tomorrow,",
+                        "please?"
+                    ],
+                    "condition_uk": "Ввічливо попроси надіслати рахунок до завтра, полудня.",
+                    "hint_uk": "Збережи адресата, рахунок і строк; обери ввічливе прохання, не наказ."
+                },
+                {
+                    "index": 2,
+                    "ordered_groups": [
+                        "If the hall",
+                        "is unavailable,",
+                        "the organiser",
+                        "may move",
+                        "only the",
+                        "Saturday workshop online.",
+                        "Friday’s session",
+                        "will still",
+                        "take place",
+                        "in person."
+                    ],
+                    "condition_uk": "Лише суботній майстер-клас можуть перенести онлайн, якщо зала недоступна. П’ятничний лишиться очним.",
+                    "hint_uk": "Збережи умову, можливість і обмеження суботою; п’ятничний захід не переноситься."
+                }
+            ],
+            "added": [
+                {
+                    "id": "feq-native-register-tone-and-paraphrase-gap-1",
+                    "kind": "gap",
+                    "condition": "We regret to {a1} you that the service is unavailable today.",
+                    "answer": "inform",
+                    "accepted": [
+                        "inform",
+                        "notify"
+                    ],
+                    "hint_uk": "Повідомити: доповни стримане офіційне повідомлення про недоступність послуги, не додаючи нового підмета.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 3
+                },
+                {
+                    "id": "feq-native-register-tone-and-paraphrase-gap-2",
+                    "kind": "gap",
+                    "condition": "Could you {a1} whether the estimate includes delivery?",
+                    "answer": "clarify",
+                    "accepted": [
+                        "clarify",
+                        "confirm"
+                    ],
+                    "hint_uk": "Уточнити: попроси пояснити межі кошторису, а не погодитися з невідомим фактом.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 4
+                },
+                {
+                    "id": "feq-native-register-tone-and-paraphrase-translate-1",
+                    "kind": "translation",
+                    "condition": "Чи могли б ви уточнити причину затримки?",
+                    "answer": "Could you clarify the reason for the delay?",
+                    "accepted": [
+                        "Could you clarify the reason for the delay?",
+                        "Could you explain the reason for the delay?",
+                        "Would you clarify the reason for the delay?",
+                        "Would you explain the reason for the delay?"
+                    ],
+                    "hint_uk": "Склади ввічливе запитання про причину; не припускай, що її вже пояснили.",
+                    "ordered_groups": [
+                        "Could you clarify",
+                        "the reason",
+                        "for the delay?"
+                    ],
+                    "shuffled_groups": [
+                        "the reason",
+                        "for the delay?",
+                        "Could you clarify"
+                    ],
+                    "token_labels": {
+                        "Could you clarify": "Could you clarify (Could you explain / Would you clarify / Would you explain)"
+                    },
+                    "index": 5
+                },
+                {
+                    "id": "feq-native-register-tone-and-paraphrase-translate-2",
+                    "kind": "translation",
+                    "condition": "Ми поки що не отримали вашої відповіді.",
+                    "answer": "We have not yet received your response.",
+                    "accepted": [
+                        "We have not yet received your response.",
+                        "We have not yet received your reply.",
+                        "We have not received your response yet.",
+                        "We have not received your reply yet."
+                    ],
+                    "hint_uk": "Збережи відсутність відповіді донині та нейтральний офіційний тон; адресат уже визначений.",
+                    "ordered_groups": [
+                        "We have not",
+                        "yet received",
+                        "your response."
+                    ],
+                    "shuffled_groups": [
+                        "yet received",
+                        "We have not",
+                        "your response."
+                    ],
+                    "token_labels": {
+                        "your response.": "your response. (your reply.)"
+                    },
+                    "index": 6
+                }
+            ],
+            "input_token_labels": {
+                "0": {
+                    "by 4 p.m.": "by 4 p.m. (by 4 p m)"
+                },
+                "1": [],
+                "2": [],
+                "5": {
+                    "Could you clarify": "Could you clarify (Could you explain / Would you clarify / Would you explain)"
+                },
+                "6": {
+                    "your response.": "your response. (your reply.)"
+                }
+            }
+        },
+        {
+            "topic": "paraphrase-and-reformulation",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\FormalEnglish\\ParaphraseAndReformulationTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/formal-english/paraphrase-and-reformulation",
+            "definition": "database/seeders/Page_V3/FormalEnglish/ParaphraseAndReformulationTheorySeeder/definition.json",
+            "definition_sha256": "ffb01631b2b57e6318d361953c292bcc3d74e68ba94a4a291f2ea4ad1927dfbd",
+            "release": "database/content-patches/m34-m18-argumentation-cohesion.v1.json",
+            "release_sha256": "20336d9cade50eac61200601af47442dcac366ac95d0c47dc16559a63e58e045",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\FormalEnglish\\ParaphraseAndReformulationTheorySeeder",
+                "locale": "uk",
+                "uuid": "21aa56fc-ed25-5521-b68c-458cccef9462",
+                "sort_order": 8,
+                "page_id": 322,
+                "page_category_id": 55,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C2",
+                "css_class": null,
+                "body_sha256": "a33c89ebd86418d5eeae2fd4e4deefc1f101cda65f786f980d4e64ebd0befbc8"
+            },
+            "design": {
+                "source_index": 7,
+                "uuid": "21aa56fc-ed25-5521-b68c-458cccef9462",
+                "sort_order": 8,
+                "body_sha256": "a33c89ebd86418d5eeae2fd4e4deefc1f101cda65f786f980d4e64ebd0befbc8",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 7,
+            "before_data_sha256": "a33c89ebd86418d5eeae2fd4e4deefc1f101cda65f786f980d4e64ebd0befbc8",
+            "after_data_sha256": "a975f787d55529e8330f6f0883f37edc3031d0c595f43ff0e5caf3eb6bd554c8",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "The organiser’s note",
+                        "says that it",
+                        "is possible for",
+                        "two volunteers to",
+                        "open the exhibition",
+                        "on Monday if",
+                        "the keys arrive",
+                        "by noon.",
+                        "It does not",
+                        "identify those volunteers."
+                    ],
+                    "condition_uk": "Записка допускає відкриття виставки двома волонтерами в понеділок за прибуття ключів до полудня; імена не вказані.",
+                    "hint_uk": "Збережи джерело, можливість, число, день, умову й невідомих виконавців; не перетворюй можливість на гарантію."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "According to",
+                        "the note,",
+                        "the museum tested",
+                        "the audio guide",
+                        "on a",
+                        "single tablet and",
+                        "did not test",
+                        "it on",
+                        "a phone.",
+                        "The note therefore",
+                        "provides no",
+                        "phone-test result;",
+                        "I cannot use",
+                        "it to claim",
+                        "either successful or",
+                        "unsuccessful phone operation."
+                    ],
+                    "condition_uk": "Музей перевірив аудіогід на одному планшеті, не на телефоні. Відділи записаний факт від невідомого результату.",
+                    "hint_uk": "Збережи один планшет і відсутність телефонного випробування; не стверджуй успіху або невдачі на телефоні."
+                }
+            ],
+            "added": [
+                {
+                    "id": "feq-native-paraphrase-and-reformulation-gap-1",
+                    "kind": "gap",
+                    "condition": "The rooms differ in size; in other {a1}, they are not equally large.",
+                    "answer": "words",
+                    "accepted": [
+                        "words"
+                    ],
+                    "hint_uk": "Словах: доповни сталий перехід до переформулювання того самого змісту.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 2
+                },
+                {
+                    "id": "feq-native-paraphrase-and-reformulation-gap-2",
+                    "kind": "gap",
+                    "condition": "The route is shorter, but this does not {a1} that the journey will be quicker.",
+                    "answer": "mean",
+                    "accepted": [
+                        "mean",
+                        "imply"
+                    ],
+                    "hint_uk": "Означати: запереч логічний висновок про швидкість, не вже названу меншу відстань.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 3
+                },
+                {
+                    "id": "feq-native-paraphrase-and-reformulation-translate-1",
+                    "kind": "translation",
+                    "condition": "Інакше кажучи, дозволено лише одну спробу.",
+                    "answer": "In other words, only one attempt is permitted.",
+                    "accepted": [
+                        "In other words, only one attempt is permitted.",
+                        "In other words, only one attempt is allowed.",
+                        "In other words, only a single attempt is permitted.",
+                        "In other words, only a single attempt is allowed."
+                    ],
+                    "hint_uk": "Почни переходом до переформулювання; збережи дозвіл рівно на одну спробу.",
+                    "ordered_groups": [
+                        "In other words,",
+                        "only one attempt",
+                        "is permitted."
+                    ],
+                    "shuffled_groups": [
+                        "only one attempt",
+                        "is permitted.",
+                        "In other words,"
+                    ],
+                    "token_labels": {
+                        "is permitted.": "is permitted. (is allowed.)",
+                        "only one attempt": "only one attempt (only a single attempt)"
+                    },
+                    "index": 4
+                },
+                {
+                    "id": "feq-native-paraphrase-and-reformulation-translate-2",
+                    "kind": "translation",
+                    "condition": "Це уточнення не змінює початкової умови.",
+                    "answer": "This clarification does not change the original condition.",
+                    "accepted": [
+                        "This clarification does not change the original condition.",
+                        "This clarification does not alter the original condition.",
+                        "This clarification does not change the initial condition.",
+                        "This clarification does not alter the initial condition."
+                    ],
+                    "hint_uk": "Збережи заперечення зміни та відсилання до конкретної початкової умови.",
+                    "ordered_groups": [
+                        "This clarification",
+                        "does not change",
+                        "the original condition."
+                    ],
+                    "shuffled_groups": [
+                        "the original condition.",
+                        "does not change",
+                        "This clarification"
+                    ],
+                    "token_labels": {
+                        "does not change": "does not change (does not alter)",
+                        "the original condition.": "the original condition. (the initial condition.)"
+                    },
+                    "index": 5
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": [],
+                "4": {
+                    "is permitted.": "is permitted. (is allowed.)",
+                    "only one attempt": "only one attempt (only a single attempt)"
+                },
+                "5": {
+                    "does not change": "does not change (does not alter)",
+                    "the original condition.": "the original condition. (the initial condition.)"
+                }
+            }
+        },
+        {
+            "topic": "subjunctive-and-formal-structures",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\FormalEnglish\\SubjunctiveAndFormalStructuresTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/formal-english/subjunctive-and-formal-structures",
+            "definition": "database/seeders/Page_V3/FormalEnglish/SubjunctiveAndFormalStructuresTheorySeeder/definition.json",
+            "definition_sha256": "6a329cec370c9e4d230087309ff87e15721f96e2124bc060223e6baae66ea398",
+            "release": "database/content-patches/m36-m20-modals-subjunctive.v1.json",
+            "release_sha256": "bcf663e413811f1fda15e02f6e89df2f6bcd091a87686a7cf623cd587767d970",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\FormalEnglish\\SubjunctiveAndFormalStructuresTheorySeeder",
+                "locale": "uk",
+                "uuid": "727f9c2b-67f8-5459-a425-013ae878d690",
+                "sort_order": 8,
+                "page_id": 304,
+                "page_category_id": 55,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C1",
+                "css_class": null,
+                "body_sha256": "497b036ce164206f50322b6c18e24400c6bac59758147891506e7236fa46fbec"
+            },
+            "design": {
+                "source_index": 7,
+                "uuid": "727f9c2b-67f8-5459-a425-013ae878d690",
+                "sort_order": 8,
+                "body_sha256": "497b036ce164206f50322b6c18e24400c6bac59758147891506e7236fa46fbec",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 7,
+            "before_data_sha256": "497b036ce164206f50322b6c18e24400c6bac59758147891506e7236fa46fbec",
+            "after_data_sha256": "2601d40e5dc9e365f4d1a0de83e921f0c103bf65a9900617a84ed1f54d57dd36",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "The coordinator recommends",
+                        "that each reviewer",
+                        "read the brief",
+                        "by Friday."
+                    ],
+                    "condition_uk": "Координатор рекомендує кожному рецензентові прочитати опис до п’ятниці. Використай базову форму без додаткового модального слова.",
+                    "hint_uk": "Не додавай закінчення третьої особи або минулий час; рекомендація не підтверджує виконання."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "She labelled",
+                        "both folders",
+                        "so that",
+                        "the reviewers",
+                        "would not",
+                        "confuse them."
+                    ],
+                    "condition_uk": "Вона позначила обидві папки, щоб рецензенти їх не переплутали. Використай сполучник мети й минулу модальну форму.",
+                    "hint_uk": "Збережи дві папки й мету запобігти плутанині, а не повідомлення про гарантований результат."
+                }
+            ],
+            "added": [
+                {
+                    "id": "feq-native-subjunctive-and-formal-structures-gap-1",
+                    "kind": "gap",
+                    "condition": "It is essential that every visitor {a1} a visible badge.",
+                    "answer": "wear",
+                    "accepted": [
+                        "wear"
+                    ],
+                    "hint_uk": "Носити: використай базову форму в офіційній вимозі без додаткового модального слова.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 2
+                },
+                {
+                    "id": "feq-native-subjunctive-and-formal-structures-gap-2",
+                    "kind": "gap",
+                    "condition": "The board requested that the meeting {a1} until all members were present.",
+                    "answer": "be postponed",
+                    "accepted": [
+                        "be postponed",
+                        "be delayed"
+                    ],
+                    "hint_uk": "Бути відкладеним: уведи повну пасивну базову форму вимоги; це не повідомлення про вже виконану дію.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 3
+                },
+                {
+                    "id": "feq-native-subjunctive-and-formal-structures-translate-1",
+                    "kind": "translation",
+                    "condition": "Важливо, щоб кожна сторінка була пронумерована.",
+                    "answer": "It is important that every page be numbered.",
+                    "accepted": [
+                        "It is important that every page be numbered.",
+                        "It is important that each page be numbered."
+                    ],
+                    "hint_uk": "Використай офіційну базову пасивну модель без додаткового модального слова; це вимога до кожної сторінки.",
+                    "ordered_groups": [
+                        "It is important",
+                        "that every page",
+                        "be numbered."
+                    ],
+                    "shuffled_groups": [
+                        "that every page",
+                        "be numbered.",
+                        "It is important"
+                    ],
+                    "token_labels": {
+                        "that every page": "that every page (that each page)"
+                    },
+                    "index": 4
+                },
+                {
+                    "id": "feq-native-subjunctive-and-formal-structures-translate-2",
+                    "kind": "translation",
+                    "condition": "Лікар рекомендував, щоб вона більше відпочивала.",
+                    "answer": "The doctor recommended that she rest more.",
+                    "accepted": [
+                        "The doctor recommended that she rest more.",
+                        "The doctor advised that she rest more."
+                    ],
+                    "hint_uk": "Використай базову форму після минулої рекомендації без додаткового модального слова; виконання не підтверджене.",
+                    "ordered_groups": [
+                        "The doctor recommended",
+                        "that she",
+                        "rest more."
+                    ],
+                    "shuffled_groups": [
+                        "that she",
+                        "The doctor recommended",
+                        "rest more."
+                    ],
+                    "token_labels": {
+                        "The doctor recommended": "The doctor recommended (The doctor advised)"
+                    },
+                    "index": 5
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": {
+                    "would not": "would not (wouldn’t)"
+                },
+                "4": {
+                    "that every page": "that every page (that each page)"
+                },
+                "5": {
+                    "The doctor recommended": "The doctor recommended (The doctor advised)"
+                }
+            }
+        },
+        {
+            "topic": "nominal-style-and-information-density",
+            "mode": "authored",
+            "identity": "Database\\Seeders\\Page_V3\\FormalEnglish\\NominalStyleAndInformationDensityTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/formal-english/nominal-style-and-information-density",
+            "definition": "database/seeders/Page_V3/FormalEnglish/NominalStyleAndInformationDensityTheorySeeder/definition.json",
+            "definition_sha256": "69a7f0fad8198c862f1268d46c70e2d21afdf26eb54d9886d87925411718e04a",
+            "release": "database/content-patches/m39-practice-ui.v1.json",
+            "release_sha256": "a155e4d53a37ced5bffd7a427305748a68c9eb6f8c8ee33c6b2b0d6e0d589e5f",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\FormalEnglish\\NominalStyleAndInformationDensityTheorySeeder",
+                "locale": "uk",
+                "uuid": "c05dd0c8-243a-5062-a30e-cb713c921c05",
+                "sort_order": 8,
+                "page_id": 321,
+                "page_category_id": 55,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C2",
+                "css_class": null,
+                "body_sha256": "f17340f73bc8f2195a6088b9edfdaeeae9c7ce1e1f81b0237594fb0e18d02f47"
+            },
+            "design": {
+                "source_index": 7,
+                "uuid": "c05dd0c8-243a-5062-a30e-cb713c921c05",
+                "sort_order": 8,
+                "body_sha256": "f17340f73bc8f2195a6088b9edfdaeeae9c7ce1e1f81b0237594fb0e18d02f47",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 7,
+            "before_data_sha256": "f17340f73bc8f2195a6088b9edfdaeeae9c7ce1e1f81b0237594fb0e18d02f47",
+            "after_data_sha256": "6526c373e1da48a99d4104ef3bb649af84a9813f9be0c1c856219b5a041bf106",
+            "input_updates": [
+                {
+                    "index": 1,
+                    "part": 0,
+                    "id": "n2-answer",
+                    "hint_uk": "Почни з іменника повторного оцінювання; збережи комітет, жовтень і лише можливість.",
+                    "ordered_groups": [
+                        "A reassessment",
+                        "of",
+                        "the exhibition plan",
+                        "by the committee",
+                        "may take place",
+                        "in October."
+                    ]
+                },
+                {
+                    "index": 2,
+                    "part": 2,
+                    "id": "n3-rewrite",
+                    "hint_uk": "Назви план скорочення часу очікування, а не вже отримане поліпшення.",
+                    "ordered_groups": [
+                        "The team",
+                        "plans",
+                        "a reduction",
+                        "in waiting times."
+                    ]
+                },
+                {
+                    "index": 3,
+                    "part": 0,
+                    "id": "n4-answer",
+                    "hint_uk": "Почни з оцінювання; збережи куратора, страхові документи та понеділок.",
+                    "ordered_groups": [
+                        "The curator’s assessment",
+                        "of",
+                        "the insurance documents",
+                        "took place",
+                        "on Monday."
+                    ]
+                },
+                {
+                    "index": 4,
+                    "part": 0,
+                    "id": "n5-answer",
+                    "hint_uk": "Почни з оцифровування; роботу волонтерів розпочато в червні, але вона ще триває.",
+                    "ordered_groups": [
+                        "The digitisation",
+                        "of the catalogue",
+                        "by the volunteers",
+                        "began in June.",
+                        "The work",
+                        "is still",
+                        "in progress."
+                    ]
+                },
+                {
+                    "index": 5,
+                    "part": 0,
+                    "id": "n6-answer",
+                    "hint_uk": "Розширення лише запропоновано; рішення та вимірювання нового часу очікування ще немає.",
+                    "ordered_groups": [
+                        "The team",
+                        "has proposed",
+                        "an expansion",
+                        "of the hall.",
+                        "No decision",
+                        "has been made,",
+                        "and",
+                        "the",
+                        "new waiting times",
+                        "have not been",
+                        "measured."
+                    ]
+                }
+            ],
+            "added": [
+                {
+                    "id": "feq-native-nominal-style-and-information-density-gap-1",
+                    "kind": "gap",
+                    "condition": "The implementation of the revised procedure {a1} subject to approval.",
+                    "answer": "is",
+                    "accepted": [
+                        "is"
+                    ],
+                    "hint_uk": "Є: узгодь теперішню форму з упровадженням як єдиним процесом, а не з частинами процедури.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 6,
+                    "part": 0
+                },
+                {
+                    "id": "feq-native-nominal-style-and-information-density-gap-2",
+                    "kind": "gap",
+                    "condition": "The report describes a proposed {a1} in annual maintenance costs.",
+                    "answer": "reduction",
+                    "accepted": [
+                        "reduction",
+                        "decrease"
+                    ],
+                    "hint_uk": "Скорочення: назви лише запропоноване зниження витрат, не вже досягнуту економію.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 6,
+                    "part": 1
+                },
+                {
+                    "id": "feq-native-nominal-style-and-information-density-translate-1",
+                    "kind": "translation",
+                    "condition": "Запропоноване збільшення місткості ще не схвалили.",
+                    "answer": "The proposed increase in capacity has not yet been approved.",
+                    "accepted": [
+                        "The proposed increase in capacity has not yet been approved.",
+                        "The proposed expansion in capacity has not yet been approved.",
+                        "The proposed increase in capacity has not been approved yet.",
+                        "The proposed expansion in capacity has not been approved yet."
+                    ],
+                    "hint_uk": "Почни з конкретного запропонованого збільшення; збережи відсутність схвалення донині.",
+                    "ordered_groups": [
+                        "The proposed increase",
+                        "in capacity",
+                        "has not yet",
+                        "been approved."
+                    ],
+                    "shuffled_groups": [
+                        "been approved.",
+                        "in capacity",
+                        "has not yet",
+                        "The proposed increase"
+                    ],
+                    "token_labels": {
+                        "The proposed increase": "The proposed increase (The proposed expansion)"
+                    },
+                    "index": 7,
+                    "part": 0
+                },
+                {
+                    "id": "feq-native-nominal-style-and-information-density-translate-2",
+                    "kind": "translation",
+                    "condition": "Оцінювання ризиків комісією ще триває.",
+                    "answer": "The commission’s assessment of the risks is still in progress.",
+                    "accepted": [
+                        "The commission’s assessment of the risks is still in progress.",
+                        "The assessment of the risks by the commission is still in progress.",
+                        "The commission’s evaluation of the risks is still in progress.",
+                        "The evaluation of the risks by the commission is still in progress.",
+                        "The committee’s assessment of the risks is still in progress.",
+                        "The assessment of the risks by the committee is still in progress.",
+                        "The committee’s evaluation of the risks is still in progress.",
+                        "The evaluation of the risks by the committee is still in progress."
+                    ],
+                    "hint_uk": "Почни з іменникової назви оцінювання; збережи комісію, ризики та незавершеність.",
+                    "ordered_groups": [
+                        "The commission’s assessment",
+                        "of the risks",
+                        "is still",
+                        "in progress."
+                    ],
+                    "shuffled_groups": [
+                        "in progress.",
+                        "is still",
+                        "The commission’s assessment",
+                        "of the risks"
+                    ],
+                    "token_labels": {
+                        "The commission’s assessment": "The commission’s assessment (The commission’s evaluation / The committee’s assessment / The committee’s evaluation)"
+                    },
+                    "index": 7,
+                    "part": 1
+                }
+            ],
+            "input_token_labels": []
+        }
+    ]
+}

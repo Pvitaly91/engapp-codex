@@ -1,0 +1,767 @@
+{
+    "schema_version": 1,
+    "topic_key": "conditionals",
+    "title": "Sentence Transformations: Conditionals",
+    "choice_pools": {
+        "conditional_person": [
+            "If he",
+            "If she",
+            "If we",
+            "If you",
+            "If they",
+            "If my brother",
+            "If our guide",
+            "If her sister"
+        ],
+        "present_state": [
+            "is ready",
+            "is absent",
+            "is busy",
+            "is tired",
+            "is hungry",
+            "is outside",
+            "is late"
+        ],
+        "plural_action": [
+            "we wait",
+            "we leave",
+            "we eat",
+            "we walk",
+            "we stop",
+            "we continue",
+            "we start"
+        ],
+        "personal_preposition": [
+            "with her",
+            "without me",
+            "near them",
+            "beside him",
+            "behind us",
+            "with you",
+            "without him"
+        ],
+        "proper_noun": [
+            "Marta",
+            "Lida",
+            "Nazar",
+            "Iryna",
+            "Taras",
+            "Danylo",
+            "Sofiia",
+            "Oleh"
+        ],
+        "negative_future_action": [
+            "will not wait",
+            "will not stay",
+            "will not help",
+            "will not agree",
+            "will not leave",
+            "will not return",
+            "will not come"
+        ],
+        "conditional_link": [
+            "if",
+            "unless",
+            "provided that",
+            "providing that",
+            "as long as",
+            "so long as",
+            "even if"
+        ],
+        "second_person_clause": [
+            "you call her",
+            "you ask him",
+            "you help us",
+            "you tell them",
+            "you find it",
+            "you invite her",
+            "you join us"
+        ],
+        "hypothetical_position": [
+            "In her position",
+            "In his position",
+            "In their position",
+            "In our position",
+            "In my position",
+            "In your place",
+            "In your position"
+        ],
+        "subject": [
+            "I",
+            "You",
+            "He",
+            "She",
+            "We",
+            "They",
+            "My sister",
+            "Our guide"
+        ],
+        "conditional_request": [
+            "would ask for",
+            "would demand",
+            "would retain",
+            "would decline",
+            "would accept",
+            "would arrange",
+            "would request"
+        ],
+        "request_object": [
+            "a receipt",
+            "an explanation",
+            "some advice",
+            "a replacement",
+            "an apology",
+            "a discount",
+            "a refund"
+        ],
+        "third_conditional_subject": [
+            "If he",
+            "If they",
+            "If we",
+            "If my brother",
+            "If you",
+            "If she",
+            "If our guide"
+        ],
+        "past_language_learning": [
+            "had studied music",
+            "had learned pottery",
+            "had practised dancing",
+            "had studied painting",
+            "had learned chess",
+            "had studied geometry",
+            "had learned fencing"
+        ],
+        "consequence_subject_verb": [
+            "she could help",
+            "he could advise",
+            "we could assist",
+            "they could explain",
+            "I could teach",
+            "you could accompany",
+            "she could guide"
+        ],
+        "plural_object": [
+            "the pupils",
+            "our neighbours",
+            "the children",
+            "her colleagues",
+            "those tourists",
+            "their guests",
+            "the visitors"
+        ],
+        "present_time": [
+            "now",
+            "today",
+            "this morning",
+            "this week",
+            "this month",
+            "at present",
+            "this afternoon"
+        ],
+        "inverted_subject": [
+            "Were the engine",
+            "Were the alarm",
+            "Were the camera",
+            "Were the lock",
+            "Were the pump",
+            "Were the sensor",
+            "Were the display"
+        ],
+        "infinitive_condition": [
+            "to stop",
+            "to break",
+            "to freeze",
+            "to malfunction",
+            "to overheat",
+            "to leak",
+            "to fail"
+        ],
+        "backup_subject": [
+            "the reserve",
+            "the generator",
+            "the safeguard",
+            "the battery",
+            "the monitor",
+            "the relay",
+            "the backup"
+        ],
+        "consequence_verb": [
+            "would start",
+            "would stop",
+            "would run",
+            "would activate",
+            "would engage",
+            "would switch on",
+            "would shut down"
+        ],
+        "manner": [
+            "immediately",
+            "automatically",
+            "silently",
+            "gradually",
+            "safely",
+            "unexpectedly",
+            "temporarily"
+        ],
+        "inverted_auxiliary_subject": [
+            "Had they",
+            "Had we",
+            "Had our guide",
+            "Had she",
+            "Had he",
+            "Had you",
+            "Had it"
+        ],
+        "negative_conditional_phrase": [
+            "not been for",
+            "not relied on",
+            "not waited for",
+            "not spoken to",
+            "not checked with",
+            "not heard from",
+            "not asked for"
+        ],
+        "possessive_event": [
+            "the chair's decision",
+            "the doctor's advice",
+            "the engineer's warning",
+            "the pilot's response",
+            "the referee's ruling",
+            "the mediator's intervention",
+            "the expert's testimony"
+        ],
+        "plural_subject": [
+            "the talks",
+            "the negotiations",
+            "the hearings",
+            "the proceedings",
+            "the discussions",
+            "the consultations",
+            "the deliberations"
+        ],
+        "conditional_perfect_outcome": [
+            "would have stalled",
+            "would have ended",
+            "would have failed",
+            "would have stopped",
+            "would have continued",
+            "would have succeeded",
+            "would have collapsed"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "If you {a1} the green button, the light comes on.",
+            "target": "If you press the green button, the light comes on.",
+            "uk": "Початкове: «Натискання зеленої кнопки завжди вмикає світло».",
+            "hint_uk": "Початкове: «Натискання зеленої кнопки завжди вмикає світло». Передай постійний наслідок умовним реченням; у пропуску лише дія натиснути.",
+            "groups": [
+                "If you press",
+                "the green button,",
+                "the light",
+                "comes on."
+            ],
+            "answer": "press",
+            "options": [
+                "press",
+                "pressed",
+                "will press"
+            ],
+            "answer_synonyms": [
+                "push"
+            ]
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "If it {a1}, wear a coat.",
+            "target": "If it is cold, wear a coat.",
+            "uk": "Початкове: «За холодної погоди вдягай пальто».",
+            "hint_uk": "Початкове: «За холодної погоди вдягай пальто». Заміни обставину погоди умовою; вжий теперішню форму зі значенням холодно.",
+            "groups": [
+                "If it",
+                "is cold,",
+                "wear a coat."
+            ],
+            "answer": "is cold",
+            "options": [
+                "is cold",
+                "was cold",
+                "will be cold"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Якщо Іван запізнюється, ми починаємо без нього.",
+            "target": "If Ivan is late, we start without him.",
+            "uk": "Якщо Іван запізнюється, ми починаємо без нього.",
+            "hint_uk": "Передай звичайний порядок дій умовним реченням; почни з умови.",
+            "groups": [
+                "If Ivan",
+                "is late,",
+                "we start",
+                "without him."
+            ],
+            "compose_slots": [
+                "If Ivan",
+                "is late,",
+                "we start",
+                "without him."
+            ],
+            "slot_roles": [
+                "conditional_person",
+                "present_state",
+                "plural_action",
+                "personal_preposition"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "If you {a1} a torch, the path will stay dark.",
+            "target": "If you do not bring a torch, the path will stay dark.",
+            "uk": "Початкове: «Без ліхтаря стежка залишиться темною».",
+            "hint_uk": "Початкове: «Без ліхтаря стежка залишиться темною». Передай майбутню умову заперечною теперішньою формою; заперечення й дію принести введи разом.",
+            "groups": [
+                "If you",
+                "do not bring",
+                "a torch,",
+                "the path",
+                "will stay dark."
+            ],
+            "answer": "do not bring",
+            "options": [
+                "do not bring",
+                "did not bring",
+                "will not bring"
+            ],
+            "answer_synonyms": [
+                "don't bring"
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "I {a1} if you need a ride.",
+            "target": "I will drive you if you need a ride.",
+            "uk": "Початкове: «Якщо тебе потрібно підвезти, я тебе підвезу».",
+            "hint_uk": "Початкове: «Якщо тебе потрібно підвезти, я тебе підвезу». Перестав наслідок на початок; передай майбутню пропозицію підвезти співрозмовника.",
+            "groups": [
+                "I",
+                "will drive you",
+                "if you need",
+                "a ride."
+            ],
+            "answer": "will drive you",
+            "options": [
+                "will drive you",
+                "drove you",
+                "will driving you"
+            ],
+            "answer_synonyms": [
+                "will give you a lift"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Марта не прийде, якщо ти її не запросиш.",
+            "target": "Marta will not come unless you invite her.",
+            "uk": "Марта не прийде, якщо ти її не запросиш.",
+            "hint_uk": "Почни з Марти; подай її неприхід як наслідок, а необхідне запрошення — через якщо не.",
+            "groups": [
+                "Marta",
+                "will not come",
+                "unless",
+                "you invite her."
+            ],
+            "compose_slots": [
+                "Marta",
+                "will not come",
+                "unless",
+                "you invite her."
+            ],
+            "slot_roles": [
+                "proper_noun",
+                "negative_future_action",
+                "conditional_link",
+                "second_person_clause"
+            ],
+            "accepted_targets": [
+                "Marta won't come unless you invite her."
+            ],
+            "display_synonyms": {
+                "will not come": [
+                    "won't come"
+                ]
+            }
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "If we {a1} a spare key, we could open the cellar.",
+            "target": "If we had a spare key, we could open the cellar.",
+            "uk": "Початкове: «У нас немає запасного ключа, тому ми не можемо відчинити підвал».",
+            "hint_uk": "Початкове: «У нас немає запасного ключа, тому ми не можемо відчинити підвал». Перебудуй нереальну теперішню ситуацію через якби; у пропуску лише форма володіння ключем.",
+            "groups": [
+                "If we had",
+                "a spare key,",
+                "we could open",
+                "the cellar."
+            ],
+            "answer": "had",
+            "options": [
+                "had",
+                "have",
+                "will have"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "You will miss the ferry {a1} you leave now.",
+            "target": "You will miss the ferry unless you leave now.",
+            "uk": "Початкове: «Якщо ти зараз не вирушиш, то пропустиш пором».",
+            "hint_uk": "Початкове: «Якщо ти зараз не вирушиш, то пропустиш пором». Почни з наслідку; збережи умову невиконаної дії одним сполучником зі значенням якщо не.",
+            "groups": [
+                "You will miss",
+                "the ferry",
+                "unless",
+                "you leave now."
+            ],
+            "answer": "unless",
+            "options": [
+                "unless",
+                "if",
+                "because"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "На твоєму місці я попросив би повернення коштів.",
+            "target": "In your position, I would request a refund.",
+            "uk": "На твоєму місці я попросив би повернення коштів.",
+            "hint_uk": "Почни зі звороту «на твоєму місці»; далі передай пораду від мовця.",
+            "groups": [
+                "In your position,",
+                "I",
+                "would request",
+                "a refund."
+            ],
+            "compose_slots": [
+                "In your position,",
+                "I",
+                "would request",
+                "a refund."
+            ],
+            "slot_roles": [
+                "hypothetical_position",
+                "subject",
+                "conditional_request",
+                "request_object"
+            ],
+            "accepted_targets": [
+                "In your position, I would ask for a refund.",
+                "In your place, I would request a refund.",
+                "In your place, I would ask for a refund."
+            ],
+            "display_synonyms": {
+                "In your position,": [
+                    "In your place,"
+                ],
+                "would request": [
+                    "would ask for"
+                ]
+            }
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "If the walkers {a1} a map, they would not have lost their way.",
+            "target": "If the walkers had carried a map, they would not have lost their way.",
+            "uk": "Початкове: «Мандрівники заблукали, бо не мали із собою карти».",
+            "hint_uk": "Початкове: «Мандрівники заблукали, бо не мали із собою карти». Перебудуй минулу причину на нереальну попередню умову; передай мали із собою.",
+            "groups": [
+                "If the walkers",
+                "had carried",
+                "a map,",
+                "they would not",
+                "have lost",
+                "their way."
+            ],
+            "answer": "had carried",
+            "options": [
+                "had carried",
+                "have carried",
+                "carried"
+            ],
+            "answer_synonyms": [
+                "had taken",
+                "had brought"
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "{a1} told me earlier, I would have reserved another seat.",
+            "target": "Had he told me earlier, I would have reserved another seat.",
+            "uk": "Початкове: «Якби він сказав мені раніше, я зарезервував би інше місце».",
+            "hint_uk": "Початкове: «Якби він сказав мені раніше, я зарезервував би інше місце». Прибери сполучник якби та почни з інверсії минулої нереальної умови; введи допоміжне дієслово й підмет.",
+            "groups": [
+                "Had he",
+                "told me earlier,",
+                "I would have",
+                "reserved",
+                "another seat."
+            ],
+            "answer": "Had he",
+            "options": [
+                "Had he",
+                "If he",
+                "Has he"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Якби вона вивчила італійську, вона могла б провести відвідувачів сьогодні.",
+            "target": "If she had learned Italian, she could guide the visitors today.",
+            "uk": "Якби вона вивчила італійську, вона могла б провести відвідувачів сьогодні.",
+            "hint_uk": "Перебудуй на змішану умову: нереальне минуле навчання та можливий теперішній наслідок.",
+            "groups": [
+                "If she",
+                "had learned Italian,",
+                "she could guide",
+                "the visitors",
+                "today."
+            ],
+            "compose_slots": [
+                "If she",
+                "had learned Italian,",
+                "she could guide",
+                "the visitors",
+                "today."
+            ],
+            "slot_roles": [
+                "third_conditional_subject",
+                "past_language_learning",
+                "consequence_subject_verb",
+                "plural_object",
+                "present_time"
+            ],
+            "accepted_targets": [
+                "If she had learnt Italian, she could guide the visitors today."
+            ],
+            "display_synonyms": {
+                "had learned Italian,": [
+                    "had learnt Italian,"
+                ]
+            }
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "But for your timely hint, I {a1} the hidden clue.",
+            "target": "But for your timely hint, I would have missed the hidden clue.",
+            "uk": "Початкове: «Лише завдяки твоїй вчасній підказці я не пропустив приховану зачіпку».",
+            "hint_uk": "Початкове: «Лише завдяки твоїй вчасній підказці я не пропустив приховану зачіпку». Почни зі значення якби не; передай нереальний наслідок у минулому, а не теперішню звичку.",
+            "groups": [
+                "But for",
+                "your timely hint,",
+                "I",
+                "would have missed",
+                "the hidden clue."
+            ],
+            "answer": "would have missed",
+            "options": [
+                "would have missed",
+                "would miss",
+                "had missed"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "Only if the claimant withdraws the suit {a1} to negotiations.",
+            "target": "Only if the claimant withdraws the suit will we return to negotiations.",
+            "uk": "Початкове: «Ми повернемося до переговорів лише тоді, коли позивач відкличе позов».",
+            "hint_uk": "Початкове: «Ми повернемося до переговорів лише тоді, коли позивач відкличе позов». Винеси обмежувальну умову на початок; у головній частині збережи майбутній час та інверсію.",
+            "groups": [
+                "Only if",
+                "the claimant withdraws",
+                "the suit",
+                "will we return",
+                "to negotiations."
+            ],
+            "answer": "will we return",
+            "options": [
+                "will we return",
+                "we will return",
+                "did we return"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Якби датчик раптом відмовив, резервна система негайно ввімкнулася б.",
+            "target": "Were the sensor to fail, the backup would engage immediately.",
+            "uk": "Якби датчик раптом відмовив, резервна система негайно ввімкнулася б.",
+            "hint_uk": "Почни з інверсії малоймовірної майбутньої умови без сполучника якби; не змінюй ступеня припущення.",
+            "groups": [
+                "Were the sensor",
+                "to fail,",
+                "the backup",
+                "would engage",
+                "immediately."
+            ],
+            "compose_slots": [
+                "Were the sensor",
+                "to fail,",
+                "the backup",
+                "would engage",
+                "immediately."
+            ],
+            "slot_roles": [
+                "inverted_subject",
+                "infinitive_condition",
+                "backup_subject",
+                "consequence_verb",
+                "manner"
+            ],
+            "accepted_targets": [
+                "Were the sensor to fail, the backup would activate immediately.",
+                "Were the sensor to fail, the backup would switch on immediately.",
+                "Were the sensor to fail, the backup would start immediately."
+            ],
+            "display_synonyms": {
+                "would engage": [
+                    "would activate",
+                    "would switch on",
+                    "would start"
+                ]
+            }
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "Supposing the licence were revoked, {a1} remain lawful?",
+            "target": "Supposing the licence were revoked, would the distribution remain lawful?",
+            "uk": "Початкове: «Припустімо, ліцензію відкликали б: чи залишалося б розповсюдження законним?».",
+            "hint_uk": "Початкове: «Припустімо, ліцензію відкликали б: чи залишалося б розповсюдження законним?». Перебудуй друге питання всередину одного умовного речення; введи умовне допоміжне дієслово й увесь підмет.",
+            "groups": [
+                "Supposing the licence",
+                "were revoked,",
+                "would the distribution",
+                "remain lawful?"
+            ],
+            "answer": "would the distribution",
+            "options": [
+                "would the distribution",
+                "the distribution would",
+                "did the distribution"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "We will accept the undertaking {a1} it does not waive any existing rights.",
+            "target": "We will accept the undertaking provided that it does not waive any existing rights.",
+            "uk": "Початкове: «Ми приймемо зобов’язання лише за умови, що воно не скасовує жодних чинних прав».",
+            "hint_uk": "Початкове: «Ми приймемо зобов’язання лише за умови, що воно не скасовує жодних чинних прав». Збережи сувору передумову прийняття; не замінюй її поступкою чи вже встановленою причиною.",
+            "groups": [
+                "We will accept",
+                "the undertaking",
+                "provided that",
+                "it does not",
+                "waive any",
+                "existing rights."
+            ],
+            "answer": "provided that",
+            "options": [
+                "provided that",
+                "even if",
+                "now that"
+            ],
+            "answer_synonyms": [
+                "providing that",
+                "as long as",
+                "so long as"
+            ]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Якби не втручання медіатора, переговори зірвалися б.",
+            "target": "Had it not been for the mediator's intervention, the talks would have collapsed.",
+            "uk": "Якби не втручання медіатора, переговори зірвалися б.",
+            "hint_uk": "Почни з інверсії якби не; подай зрив як нереальний минулий наслідок, не втрачаючи причини порятунку.",
+            "groups": [
+                "Had it",
+                "not been for",
+                "the mediator's intervention,",
+                "the talks",
+                "would have collapsed."
+            ],
+            "compose_slots": [
+                "Had it",
+                "not been for",
+                "the mediator's intervention,",
+                "the talks",
+                "would have collapsed."
+            ],
+            "slot_roles": [
+                "inverted_auxiliary_subject",
+                "negative_conditional_phrase",
+                "possessive_event",
+                "plural_subject",
+                "conditional_perfect_outcome"
+            ],
+            "accepted_targets": [
+                "Had it not been for the mediator's intervention, the negotiations would have collapsed.",
+                "Had it not been for the mediator's intervention, the talks would have failed.",
+                "Had it not been for the mediator's intervention, the negotiations would have failed."
+            ],
+            "display_synonyms": {
+                "the talks": [
+                    "the negotiations"
+                ],
+                "would have collapsed.": [
+                    "would have failed."
+                ]
+            }
+        }
+    ]
+}
+

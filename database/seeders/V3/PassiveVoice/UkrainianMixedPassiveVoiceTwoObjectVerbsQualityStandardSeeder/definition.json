@@ -1,0 +1,1680 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/two-object.v1.json",
+        "sha256": "0b0c4012b877a6ee2a2b896658a8408e365a868d247ec5cc0ee355659636876f"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoiceTwoObjectVerbsQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-two-object-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_two_object": {
+            "name": "Passive Voice Quality: Пасив дієслів із двома додатками"
+        }
+    },
+    "tags": {
+        "passive_voice_two_object_verbs": {
+            "name": "Two Object Verbs",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "two_object_verbs": {
+            "name": "Two Object Verbs",
+            "category": "topic"
+        },
+        "indirect_object_passive": {
+            "name": "Indirect Object Passive",
+            "category": "topic"
+        },
+        "direct_object_passive": {
+            "name": "Direct Object Passive",
+            "category": "topic"
+        },
+        "object_subject": {
+            "name": "Object Subject",
+            "category": "topic"
+        },
+        "to_for_pattern": {
+            "name": "To For Pattern",
+            "category": "topic"
+        },
+        "meaning_clear": {
+            "name": "Meaning Clear",
+            "category": "topic"
+        },
+        "natural_choice": {
+            "name": "Natural Choice",
+            "category": "topic"
+        },
+        "active_passive": {
+            "name": "Active Passive",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-two-object-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The little boy {a1} a red balloon.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Маленькому хлопчикові дали червону кульку.",
+            "target_text": "The little boy was given a red balloon.",
+            "markers": {
+                "a1": {
+                    "answer": "was given",
+                    "options": [
+                        "was given",
+                        "is given",
+                        "will be given"
+                    ],
+                    "verb_hint": "Передай завершене минуле отримання через пасив із людиною-отримувачем у підметі."
+                }
+            },
+            "verb_hint": "Передай завершене минуле отримання через пасив із людиною-отримувачем у підметі.",
+            "accepted_target_texts": [
+                "The little boy was given a red balloon.",
+                "The little boy was handed a red balloon."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was handed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was handed"
+                ]
+            },
+            "reorder_groups": [
+                "The little boy",
+                "was",
+                "given",
+                "a red balloon."
+            ],
+            "token_groups": [
+                "The little boy",
+                "was",
+                "given",
+                "a red balloon."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-two-object-a1-g02",
+            "author_id": "A1-g02",
+            "question": "My sister {a1} a funny picture.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Моїй сестрі показали кумедний малюнок.",
+            "target_text": "My sister was shown a funny picture.",
+            "markers": {
+                "a1": {
+                    "answer": "was shown",
+                    "options": [
+                        "was shown",
+                        "is shown",
+                        "will be shown"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію «показати» в пасиві з отримувачкою в підметі."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію «показати» в пасиві з отримувачкою в підметі.",
+            "accepted_target_texts": [
+                "My sister was shown a funny picture."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My sister",
+                "was",
+                "shown",
+                "a funny picture."
+            ],
+            "token_groups": [
+                "My sister",
+                "was",
+                "shown",
+                "a funny picture."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-two-object-a1-g03",
+            "author_id": "A1-g03",
+            "question": "The guests {a1} some orange juice.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Гостям запропонували трохи апельсинового соку.",
+            "target_text": "The guests were offered some orange juice.",
+            "markers": {
+                "a1": {
+                    "answer": "were offered",
+                    "options": [
+                        "were offered",
+                        "is offered",
+                        "was offered"
+                    ],
+                    "verb_hint": "Передай завершену минулу пропозицію через пасив із отримувачами у множині."
+                }
+            },
+            "verb_hint": "Передай завершену минулу пропозицію через пасив із отримувачами у множині.",
+            "accepted_target_texts": [
+                "The guests were offered some orange juice."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guests",
+                "were",
+                "offered",
+                "some orange juice."
+            ],
+            "token_groups": [
+                "The guests",
+                "were",
+                "offered",
+                "some orange juice."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-two-object-a1-g04",
+            "author_id": "A1-g04",
+            "question": "Our teacher {a1} a thank-you card.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Нашій учительці надіслали листівку з подякою.",
+            "target_text": "Our teacher was sent a thank-you card.",
+            "markers": {
+                "a1": {
+                    "answer": "was sent",
+                    "options": [
+                        "was sent",
+                        "is sent",
+                        "will be sent"
+                    ],
+                    "verb_hint": "Передай завершене минуле надсилання через пасив із отримувачкою в підметі."
+                }
+            },
+            "verb_hint": "Передай завершене минуле надсилання через пасив із отримувачкою в підметі.",
+            "accepted_target_texts": [
+                "Our teacher was sent a thank-you card."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our teacher",
+                "was",
+                "sent",
+                "a thank-you card."
+            ],
+            "token_groups": [
+                "Our teacher",
+                "was",
+                "sent",
+                "a thank-you card."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-two-object-a1-g05",
+            "author_id": "A1-g05",
+            "question": "The young girl {a1} a new game.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Маленьку дівчинку навчили нової гри.",
+            "target_text": "The young girl was taught a new game.",
+            "markers": {
+                "a1": {
+                    "answer": "was taught",
+                    "options": [
+                        "was taught",
+                        "is taught",
+                        "will be taught"
+                    ],
+                    "verb_hint": "Передай завершене минуле навчання через пасив із людиною в підметі."
+                }
+            },
+            "verb_hint": "Передай завершене минуле навчання через пасив із людиною в підметі.",
+            "accepted_target_texts": [
+                "The young girl was taught a new game."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The young girl",
+                "was",
+                "taught",
+                "a new game."
+            ],
+            "token_groups": [
+                "The young girl",
+                "was",
+                "taught",
+                "a new game."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-two-object-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The rabbits {a1} fresh carrots.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Кроликам принесли свіжу моркву.",
+            "target_text": "The rabbits were brought fresh carrots.",
+            "markers": {
+                "a1": {
+                    "answer": "were brought",
+                    "options": [
+                        "were brought",
+                        "is brought",
+                        "was brought"
+                    ],
+                    "verb_hint": "Передай завершене минуле принесення через пасив із отримувачами у множині."
+                }
+            },
+            "verb_hint": "Передай завершене минуле принесення через пасив із отримувачами у множині.",
+            "accepted_target_texts": [
+                "The rabbits were brought fresh carrots."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The rabbits",
+                "were",
+                "brought",
+                "fresh carrots."
+            ],
+            "token_groups": [
+                "The rabbits",
+                "were",
+                "brought",
+                "fresh carrots."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-two-object-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The passengers {a1} a printed map.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Пасажирам передали друковану карту.",
+            "target_text": "The passengers were handed a printed map.",
+            "markers": {
+                "a1": {
+                    "answer": "were handed",
+                    "options": [
+                        "were handed",
+                        "is handed",
+                        "was handed"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію вручення через пасив із отримувачами в підметі."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію вручення через пасив із отримувачами в підметі.",
+            "accepted_target_texts": [
+                "The passengers were handed a printed map."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The passengers",
+                "were",
+                "handed",
+                "a printed map."
+            ],
+            "token_groups": [
+                "The passengers",
+                "were",
+                "handed",
+                "a printed map."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-two-object-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The shop assistant {a1} an extra bonus.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Продавцеві виплатили додаткову премію.",
+            "target_text": "The shop assistant was paid an extra bonus.",
+            "markers": {
+                "a1": {
+                    "answer": "was paid",
+                    "options": [
+                        "was paid",
+                        "is paid",
+                        "will be paid"
+                    ],
+                    "verb_hint": "Передай завершену минулу виплату через пасив із отримувачем у підметі."
+                }
+            },
+            "verb_hint": "Передай завершену минулу виплату через пасив із отримувачем у підметі.",
+            "accepted_target_texts": [
+                "The shop assistant was paid an extra bonus."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The shop assistant",
+                "was",
+                "paid",
+                "an extra bonus."
+            ],
+            "token_groups": [
+                "The shop assistant",
+                "was",
+                "paid",
+                "an extra bonus."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-two-object-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Our neighbours {a1} a quieter room.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Нашим сусідам пообіцяли тихішу кімнату.",
+            "target_text": "Our neighbours were promised a quieter room.",
+            "markers": {
+                "a1": {
+                    "answer": "were promised",
+                    "options": [
+                        "were promised",
+                        "is promised",
+                        "was promised"
+                    ],
+                    "verb_hint": "Передай завершену минулу обіцянку через пасив із отримувачами в підметі."
+                }
+            },
+            "verb_hint": "Передай завершену минулу обіцянку через пасив із отримувачами в підметі.",
+            "accepted_target_texts": [
+                "Our neighbours were promised a quieter room."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our neighbours",
+                "were",
+                "promised",
+                "a quieter room."
+            ],
+            "token_groups": [
+                "Our neighbours",
+                "were",
+                "promised",
+                "a quieter room."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-two-object-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The young goalkeeper {a1} a silver trophy.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Молодому воротареві вручили срібний кубок.",
+            "target_text": "The young goalkeeper was awarded a silver trophy.",
+            "markers": {
+                "a1": {
+                    "answer": "was awarded",
+                    "options": [
+                        "was awarded",
+                        "is awarded",
+                        "will be awarded"
+                    ],
+                    "verb_hint": "Передай завершене минуле нагородження через пасив із отримувачем у підметі."
+                }
+            },
+            "verb_hint": "Передай завершене минуле нагородження через пасив із отримувачем у підметі.",
+            "accepted_target_texts": [
+                "The young goalkeeper was awarded a silver trophy."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The young goalkeeper",
+                "was",
+                "awarded",
+                "a silver trophy."
+            ],
+            "token_groups": [
+                "The young goalkeeper",
+                "was",
+                "awarded",
+                "a silver trophy."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-two-object-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The campers {a1} a hot breakfast.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Туристам у таборі подали гарячий сніданок.",
+            "target_text": "The campers were served a hot breakfast.",
+            "markers": {
+                "a1": {
+                    "answer": "were served",
+                    "options": [
+                        "were served",
+                        "is served",
+                        "was served"
+                    ],
+                    "verb_hint": "Передай завершене минуле подавання їжі через пасив із отримувачами в підметі."
+                }
+            },
+            "verb_hint": "Передай завершене минуле подавання їжі через пасив із отримувачами в підметі.",
+            "accepted_target_texts": [
+                "The campers were served a hot breakfast."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The campers",
+                "were",
+                "served",
+                "a hot breakfast."
+            ],
+            "token_groups": [
+                "The campers",
+                "were",
+                "served",
+                "a hot breakfast."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-two-object-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The new receptionist {a1} the emergency exit.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Новій адміністраторці показали аварійний вихід.",
+            "target_text": "The new receptionist was shown the emergency exit.",
+            "markers": {
+                "a1": {
+                    "answer": "was shown",
+                    "options": [
+                        "was shown",
+                        "is shown",
+                        "will be shown"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію показу через пасив із отримувачкою в підметі."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію показу через пасив із отримувачкою в підметі.",
+            "accepted_target_texts": [
+                "The new receptionist was shown the emergency exit."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The new receptionist",
+                "was",
+                "shown",
+                "the emergency exit."
+            ],
+            "token_groups": [
+                "The new receptionist",
+                "was",
+                "shown",
+                "the emergency exit."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-two-object-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The volunteers {a1} detailed instructions.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Волонтерам уже надіслали докладні інструкції.",
+            "target_text": "The volunteers have been sent detailed instructions.",
+            "markers": {
+                "a1": {
+                    "answer": "have been sent",
+                    "options": [
+                        "have been sent",
+                        "is sent",
+                        "was sent"
+                    ],
+                    "verb_hint": "Передай теперішній результат надсилання через перфектний пасив із отримувачами."
+                }
+            },
+            "verb_hint": "Передай теперішній результат надсилання через перфектний пасив із отримувачами.",
+            "accepted_target_texts": [
+                "The volunteers have been sent detailed instructions."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The volunteers",
+                "have been",
+                "sent",
+                "detailed instructions."
+            ],
+            "token_groups": [
+                "The volunteers",
+                "have been",
+                "sent",
+                "detailed instructions."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-two-object-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The tenant {a1} a temporary flat.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Орендареві запропонують тимчасову квартиру.",
+            "target_text": "The tenant will be offered a temporary flat.",
+            "markers": {
+                "a1": {
+                    "answer": "will be offered",
+                    "options": [
+                        "will be offered",
+                        "is offered",
+                        "was offered"
+                    ],
+                    "verb_hint": "Передай майбутню пропозицію через пасив із отримувачем у підметі."
+                }
+            },
+            "verb_hint": "Передай майбутню пропозицію через пасив із отримувачем у підметі.",
+            "accepted_target_texts": [
+                "The tenant will be offered a temporary flat."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The tenant",
+                "will be",
+                "offered",
+                "a temporary flat."
+            ],
+            "token_groups": [
+                "The tenant",
+                "will be",
+                "offered",
+                "a temporary flat."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-two-object-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The trainees {a1} a safer technique.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Стажерів саме навчали безпечнішої техніки.",
+            "target_text": "The trainees were being taught a safer technique.",
+            "markers": {
+                "a1": {
+                    "answer": "were being taught",
+                    "options": [
+                        "were being taught",
+                        "is taught",
+                        "was taught"
+                    ],
+                    "verb_hint": "Передай тривале минуле навчання через пасив із людьми в підметі."
+                }
+            },
+            "verb_hint": "Передай тривале минуле навчання через пасив із людьми в підметі.",
+            "accepted_target_texts": [
+                "The trainees were being taught a safer technique."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The trainees",
+                "were being",
+                "taught",
+                "a safer technique."
+            ],
+            "token_groups": [
+                "The trainees",
+                "were being",
+                "taught",
+                "a safer technique."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-two-object-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The club members {a1} a refund before the cancellation.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Членам клубу пообіцяли повернення коштів ще до скасування.",
+            "target_text": "The club members had been promised a refund before the cancellation.",
+            "markers": {
+                "a1": {
+                    "answer": "had been promised",
+                    "options": [
+                        "had been promised",
+                        "is promised",
+                        "was promised"
+                    ],
+                    "verb_hint": "Передай ранішу минулу обіцянку через перфектний пасив із отримувачами."
+                }
+            },
+            "verb_hint": "Передай ранішу минулу обіцянку через перфектний пасив із отримувачами.",
+            "accepted_target_texts": [
+                "The club members had been promised a refund before the cancellation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The club members",
+                "had been promised",
+                "a refund",
+                "before the cancellation."
+            ],
+            "token_groups": [
+                "The club members",
+                "had been promised",
+                "a refund",
+                "before the cancellation."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-two-object-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The research assistant {a1} more responsibility.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Науковому асистентові слід надати більше відповідальності.",
+            "target_text": "The research assistant should be given more responsibility.",
+            "markers": {
+                "a1": {
+                    "answer": "should be given",
+                    "options": [
+                        "should be given",
+                        "is given",
+                        "was given"
+                    ],
+                    "verb_hint": "Передай рекомендацію надання через модальний пасив із отримувачем."
+                }
+            },
+            "verb_hint": "Передай рекомендацію надання через модальний пасив із отримувачем.",
+            "accepted_target_texts": [
+                "The research assistant should be given more responsibility."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The research assistant",
+                "should be",
+                "given",
+                "more responsibility."
+            ],
+            "token_groups": [
+                "The research assistant",
+                "should be",
+                "given",
+                "more responsibility."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-two-object-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The interviewees {a1} several background questions.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Опитуваним зараз ставлять кілька запитань про їхнє минуле.",
+            "target_text": "The interviewees are being asked several background questions.",
+            "markers": {
+                "a1": {
+                    "answer": "are being asked",
+                    "options": [
+                        "are being asked",
+                        "is asked",
+                        "was asked"
+                    ],
+                    "verb_hint": "Передай поточне ставлення запитань через тривалий пасив із людьми в підметі."
+                }
+            },
+            "verb_hint": "Передай поточне ставлення запитань через тривалий пасив із людьми в підметі.",
+            "accepted_target_texts": [
+                "The interviewees are being asked several background questions."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The interviewees",
+                "are being",
+                "asked",
+                "several background questions."
+            ],
+            "token_groups": [
+                "The interviewees",
+                "are being",
+                "asked",
+                "several background questions."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-two-object-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The displaced families {a1} alternative accommodation.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Переміщеним родинам гарантували альтернативне житло.",
+            "target_text": "The displaced families have been guaranteed alternative accommodation.",
+            "markers": {
+                "a1": {
+                    "answer": "have been guaranteed",
+                    "options": [
+                        "have been guaranteed",
+                        "is guaranteed",
+                        "was guaranteed"
+                    ],
+                    "verb_hint": "Передай теперішній результат надання гарантії через перфектний пасив із отримувачами."
+                }
+            },
+            "verb_hint": "Передай теперішній результат надання гарантії через перфектний пасив із отримувачами.",
+            "accepted_target_texts": [
+                "The displaced families have been guaranteed alternative accommodation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The displaced families",
+                "have been",
+                "guaranteed",
+                "alternative accommodation."
+            ],
+            "token_groups": [
+                "The displaced families",
+                "have been",
+                "guaranteed",
+                "alternative accommodation."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-two-object-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The successful applicant {a1} a relocation allowance.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Успішному кандидатові виплатять допомогу на переїзд.",
+            "target_text": "The successful applicant will be paid a relocation allowance.",
+            "markers": {
+                "a1": {
+                    "answer": "will be paid",
+                    "options": [
+                        "will be paid",
+                        "is paid",
+                        "was paid"
+                    ],
+                    "verb_hint": "Передай майбутню виплату через пасив із отримувачем у підметі."
+                }
+            },
+            "verb_hint": "Передай майбутню виплату через пасив із отримувачем у підметі.",
+            "accepted_target_texts": [
+                "The successful applicant will be paid a relocation allowance."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The successful applicant",
+                "will be",
+                "paid",
+                "a relocation allowance."
+            ],
+            "token_groups": [
+                "The successful applicant",
+                "will be",
+                "paid",
+                "a relocation allowance."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-two-object-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The external reviewers {a1} confidential working papers.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Зовнішнім рецензентам саме показували конфіденційні робочі матеріали.",
+            "target_text": "The external reviewers were being shown confidential working papers.",
+            "markers": {
+                "a1": {
+                    "answer": "were being shown",
+                    "options": [
+                        "were being shown",
+                        "is shown",
+                        "was shown"
+                    ],
+                    "verb_hint": "Передай тривалий минулий показ через пасив із отримувачами в підметі."
+                }
+            },
+            "verb_hint": "Передай тривалий минулий показ через пасив із отримувачами в підметі.",
+            "accepted_target_texts": [
+                "The external reviewers were being shown confidential working papers."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The external reviewers",
+                "were being",
+                "shown",
+                "confidential working papers."
+            ],
+            "token_groups": [
+                "The external reviewers",
+                "were being",
+                "shown",
+                "confidential working papers."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-two-object-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The concessionaire {a1} exclusive access before the tender.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Концесіонерові надали виключний доступ ще до тендера.",
+            "target_text": "The concessionaire had been granted exclusive access before the tender.",
+            "markers": {
+                "a1": {
+                    "answer": "had been granted",
+                    "options": [
+                        "had been granted",
+                        "is granted",
+                        "was granted"
+                    ],
+                    "verb_hint": "Передай раніше минуле надання через перфектний пасив із отримувачем."
+                }
+            },
+            "verb_hint": "Передай раніше минуле надання через перфектний пасив із отримувачем.",
+            "accepted_target_texts": [
+                "The concessionaire had been granted exclusive access before the tender."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The concessionaire",
+                "had been granted",
+                "exclusive access",
+                "before the tender."
+            ],
+            "token_groups": [
+                "The concessionaire",
+                "had been granted",
+                "exclusive access",
+                "before the tender."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-two-object-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The affected customers {a1} a reasonable alternative.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Клієнтам, яких це стосується, треба запропонувати прийнятну альтернативу.",
+            "target_text": "The affected customers must be offered a reasonable alternative.",
+            "markers": {
+                "a1": {
+                    "answer": "must be offered",
+                    "options": [
+                        "must be offered",
+                        "is offered",
+                        "was offered"
+                    ],
+                    "verb_hint": "Передай обов'язкову пропозицію через модальний пасив із отримувачами."
+                }
+            },
+            "verb_hint": "Передай обов'язкову пропозицію через модальний пасив із отримувачами.",
+            "accepted_target_texts": [
+                "The affected customers must be offered a reasonable alternative."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The affected customers",
+                "must be",
+                "offered",
+                "a reasonable alternative."
+            ],
+            "token_groups": [
+                "The affected customers",
+                "must be",
+                "offered",
+                "a reasonable alternative."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-two-object-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The visiting delegates {a1} personalised briefing packs.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Запрошеним делегатам зараз вручають індивідуальні інформаційні пакети.",
+            "target_text": "The visiting delegates are being handed personalised briefing packs.",
+            "markers": {
+                "a1": {
+                    "answer": "are being handed",
+                    "options": [
+                        "are being handed",
+                        "is handed",
+                        "was handed"
+                    ],
+                    "verb_hint": "Передай поточне вручення через тривалий пасив із отримувачами в підметі."
+                }
+            },
+            "verb_hint": "Передай поточне вручення через тривалий пасив із отримувачами в підметі.",
+            "accepted_target_texts": [
+                "The visiting delegates are being handed personalised briefing packs."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The visiting delegates",
+                "are being",
+                "handed",
+                "personalised briefing packs."
+            ],
+            "token_groups": [
+                "The visiting delegates",
+                "are being",
+                "handed",
+                "personalised briefing packs."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-two-object-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The dissenting shareholders {a1} access to the underlying valuation.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Акціонерам з окремою думкою відмовили в доступі до основоположної оцінки вартості.",
+            "target_text": "The dissenting shareholders have been denied access to the underlying valuation.",
+            "markers": {
+                "a1": {
+                    "answer": "have been denied",
+                    "options": [
+                        "have been denied",
+                        "is denied",
+                        "was denied"
+                    ],
+                    "verb_hint": "Передай теперішній результат відмови через перфектний пасив із людьми в підметі."
+                }
+            },
+            "verb_hint": "Передай теперішній результат відмови через перфектний пасив із людьми в підметі.",
+            "accepted_target_texts": [
+                "The dissenting shareholders have been denied access to the underlying valuation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dissenting shareholders",
+                "have been denied",
+                "access",
+                "to",
+                "the underlying valuation."
+            ],
+            "token_groups": [
+                "The dissenting shareholders",
+                "have been denied",
+                "access",
+                "to",
+                "the underlying valuation."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-two-object-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The principal investigator {a1} additional laboratory time.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Головному дослідникові виділять додатковий лабораторний час.",
+            "target_text": "The principal investigator will be allocated additional laboratory time.",
+            "markers": {
+                "a1": {
+                    "answer": "will be allocated",
+                    "options": [
+                        "will be allocated",
+                        "is allocated",
+                        "was allocated"
+                    ],
+                    "verb_hint": "Передай майбутнє виділення через пасив із отримувачем у підметі."
+                }
+            },
+            "verb_hint": "Передай майбутнє виділення через пасив із отримувачем у підметі.",
+            "accepted_target_texts": [
+                "The principal investigator will be allocated additional laboratory time.",
+                "The principal investigator will be allotted additional laboratory time."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be allotted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be allotted"
+                ]
+            },
+            "reorder_groups": [
+                "The principal investigator",
+                "will be",
+                "allocated",
+                "additional laboratory time."
+            ],
+            "token_groups": [
+                "The principal investigator",
+                "will be",
+                "allocated",
+                "additional laboratory time."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-two-object-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The prospective buyers {a1} markedly different interest rates.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Потенційним покупцям саме називали помітно різні відсоткові ставки.",
+            "target_text": "The prospective buyers were being quoted markedly different interest rates.",
+            "markers": {
+                "a1": {
+                    "answer": "were being quoted",
+                    "options": [
+                        "were being quoted",
+                        "is quoted",
+                        "was quoted"
+                    ],
+                    "verb_hint": "Передай тривале минуле повідомлення ставок через пасив із отримувачами."
+                }
+            },
+            "verb_hint": "Передай тривале минуле повідомлення ставок через пасив із отримувачами.",
+            "accepted_target_texts": [
+                "The prospective buyers were being quoted markedly different interest rates."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The prospective buyers",
+                "were being quoted",
+                "markedly different",
+                "interest rates."
+            ],
+            "token_groups": [
+                "The prospective buyers",
+                "were being quoted",
+                "markedly different",
+                "interest rates."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-two-object-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The public broadcaster {a1} continued editorial independence.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Суспільного мовника запевнили в збереженні редакційної незалежності ще раніше.",
+            "target_text": "The public broadcaster had been assured continued editorial independence.",
+            "markers": {
+                "a1": {
+                    "answer": "had been assured",
+                    "options": [
+                        "had been assured",
+                        "is assured",
+                        "was assured"
+                    ],
+                    "verb_hint": "Передай раніше минуле запевнення через перфектний пасив."
+                }
+            },
+            "verb_hint": "Передай раніше минуле запевнення через перфектний пасив.",
+            "accepted_target_texts": [
+                "The public broadcaster had been assured continued editorial independence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The public broadcaster",
+                "had been",
+                "assured",
+                "continued editorial independence."
+            ],
+            "token_groups": [
+                "The public broadcaster",
+                "had been",
+                "assured",
+                "continued editorial independence."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-two-object-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The complainant {a1} a meaningful opportunity to respond.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Скаржникові слід надати змістовну можливість відповісти.",
+            "target_text": "The complainant should be accorded a meaningful opportunity to respond.",
+            "markers": {
+                "a1": {
+                    "answer": "should be accorded",
+                    "options": [
+                        "should be accorded",
+                        "is accorded",
+                        "was accorded"
+                    ],
+                    "verb_hint": "Передай рекомендацію надання через модальний пасив із отримувачем."
+                }
+            },
+            "verb_hint": "Передай рекомендацію надання через модальний пасив із отримувачем.",
+            "accepted_target_texts": [
+                "The complainant should be accorded a meaningful opportunity to respond."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The complainant",
+                "should be",
+                "accorded",
+                "a meaningful opportunity",
+                "to respond."
+            ],
+            "token_groups": [
+                "The complainant",
+                "should be",
+                "accorded",
+                "a meaningful opportunity",
+                "to respond."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-two-object-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The trustees {a1} a consolidated financial statement.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Опікунам зараз надсилають консолідований фінансовий звіт.",
+            "target_text": "The trustees are being sent a consolidated financial statement.",
+            "markers": {
+                "a1": {
+                    "answer": "are being sent",
+                    "options": [
+                        "are being sent",
+                        "is sent",
+                        "was sent"
+                    ],
+                    "verb_hint": "Передай поточне надсилання через тривалий пасив із отримувачами в підметі."
+                }
+            },
+            "verb_hint": "Передай поточне надсилання через тривалий пасив із отримувачами в підметі.",
+            "accepted_target_texts": [
+                "The trustees are being sent a consolidated financial statement."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The trustees",
+                "are being sent",
+                "a",
+                "consolidated financial statement."
+            ],
+            "token_groups": [
+                "The trustees",
+                "are being sent",
+                "a",
+                "consolidated financial statement."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-two-object-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The putative beneficiary {a1} the equitable relief originally contemplated.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Гаданому бенефіціарові відмовили в первісно передбаченому захисті за правом справедливості.",
+            "target_text": "The putative beneficiary has been denied the equitable relief originally contemplated.",
+            "markers": {
+                "a1": {
+                    "answer": "has been denied",
+                    "options": [
+                        "has been denied",
+                        "is denied",
+                        "was denied"
+                    ],
+                    "verb_hint": "Передай теперішній результат відмови через перфектний пасив із людиною в підметі."
+                }
+            },
+            "verb_hint": "Передай теперішній результат відмови через перфектний пасив із людиною в підметі.",
+            "accepted_target_texts": [
+                "The putative beneficiary has been denied the equitable relief originally contemplated."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The putative beneficiary",
+                "has been",
+                "denied",
+                "the equitable relief",
+                "originally contemplated."
+            ],
+            "token_groups": [
+                "The putative beneficiary",
+                "has been",
+                "denied",
+                "the equitable relief",
+                "originally contemplated."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-two-object-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The concession's successors {a1} no greater entitlement than their predecessors.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Наступникам концесії не нададуть більшого права, ніж їхнім попередникам.",
+            "target_text": "The concession's successors will be accorded no greater entitlement than their predecessors.",
+            "markers": {
+                "a1": {
+                    "answer": "will be accorded",
+                    "options": [
+                        "will be accorded",
+                        "is accorded",
+                        "was accorded"
+                    ],
+                    "verb_hint": "Передай майбутнє надання через пасив; заперечний обсяг уже наведено після пропуску."
+                }
+            },
+            "verb_hint": "Передай майбутнє надання через пасив; заперечний обсяг уже наведено після пропуску.",
+            "accepted_target_texts": [
+                "The concession's successors will be accorded no greater entitlement than their predecessors."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The concession's successors",
+                "will be",
+                "accorded",
+                "no greater entitlement",
+                "than their predecessors."
+            ],
+            "token_groups": [
+                "The concession's successors",
+                "will be",
+                "accorded",
+                "no greater entitlement",
+                "than their predecessors."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-two-object-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The respondent {a1} every reasonable opportunity to challenge the inference.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Відповідачеві саме надавали всі розумні можливості оскаржити висновок.",
+            "target_text": "The respondent was being afforded every reasonable opportunity to challenge the inference.",
+            "markers": {
+                "a1": {
+                    "answer": "was being afforded",
+                    "options": [
+                        "was being afforded",
+                        "is afforded",
+                        "was afforded"
+                    ],
+                    "verb_hint": "Передай тривале минуле надання можливості через пасив із отримувачем."
+                }
+            },
+            "verb_hint": "Передай тривале минуле надання можливості через пасив із отримувачем.",
+            "accepted_target_texts": [
+                "The respondent was being afforded every reasonable opportunity to challenge the inference."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The respondent",
+                "was being afforded",
+                "every reasonable opportunity",
+                "to challenge",
+                "the inference."
+            ],
+            "token_groups": [
+                "The respondent",
+                "was being afforded",
+                "every reasonable opportunity",
+                "to challenge",
+                "the inference."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-two-object-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The intervening creditor {a1} priority repayment under the superseded arrangement.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Кредиторові, який вступив у справу, пообіцяли пріоритетне погашення за скасованою домовленістю ще раніше.",
+            "target_text": "The intervening creditor had been promised priority repayment under the superseded arrangement.",
+            "markers": {
+                "a1": {
+                    "answer": "had been promised",
+                    "options": [
+                        "had been promised",
+                        "is promised",
+                        "was promised"
+                    ],
+                    "verb_hint": "Передай раніше минулу обіцянку через перфектний пасив із отримувачем."
+                }
+            },
+            "verb_hint": "Передай раніше минулу обіцянку через перфектний пасив із отримувачем.",
+            "accepted_target_texts": [
+                "The intervening creditor had been promised priority repayment under the superseded arrangement."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The intervening creditor",
+                "had been promised",
+                "priority repayment",
+                "under",
+                "the superseded arrangement."
+            ],
+            "token_groups": [
+                "The intervening creditor",
+                "had been promised",
+                "priority repayment",
+                "under",
+                "the superseded arrangement."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-two-object-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The dissenting commissioner {a1} unfettered access to the evidential record.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Комісарові з окремою думкою треба надати безперешкодний доступ до доказових матеріалів.",
+            "target_text": "The dissenting commissioner must be given unfettered access to the evidential record.",
+            "markers": {
+                "a1": {
+                    "answer": "must be given",
+                    "options": [
+                        "must be given",
+                        "is given",
+                        "was given"
+                    ],
+                    "verb_hint": "Передай обов'язкове надання через модальний пасив із отримувачем."
+                }
+            },
+            "verb_hint": "Передай обов'язкове надання через модальний пасив із отримувачем.",
+            "accepted_target_texts": [
+                "The dissenting commissioner must be given unfettered access to the evidential record."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dissenting commissioner",
+                "must be given",
+                "unfettered access",
+                "to",
+                "the evidential record."
+            ],
+            "token_groups": [
+                "The dissenting commissioner",
+                "must be given",
+                "unfettered access",
+                "to",
+                "the evidential record."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-two-object-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The aggrieved applicant {a1} a remedy of questionable practical efficacy.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_two_object",
+            "translation_uk": "Незадоволеному заявникові зараз пропонують засіб захисту сумнівної практичної дієвості.",
+            "target_text": "The aggrieved applicant is being offered a remedy of questionable practical efficacy.",
+            "markers": {
+                "a1": {
+                    "answer": "is being offered",
+                    "options": [
+                        "is being offered",
+                        "is offered",
+                        "was offered"
+                    ],
+                    "verb_hint": "Передай поточну пропозицію через тривалий пасив із отримувачем."
+                }
+            },
+            "verb_hint": "Передай поточну пропозицію через тривалий пасив із отримувачем.",
+            "accepted_target_texts": [
+                "The aggrieved applicant is being offered a remedy of questionable practical efficacy."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The aggrieved applicant",
+                "is being offered",
+                "a remedy",
+                "of",
+                "questionable practical efficacy."
+            ],
+            "token_groups": [
+                "The aggrieved applicant",
+                "is being offered",
+                "a remedy",
+                "of",
+                "questionable practical efficacy."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62361,
+        "uuid": "qnq-subject-a2-g02",
+        "question": "Which guests {a1} early last night?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 60,
+        "source_id": 459,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedSubjectQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "arrived",
+                "arrive",
+                "arriving"
+            ]
+        },
+        "theory_text_block_uuid": "1da24107-d9dd-526a-b639-030b3fc283b4",
+        "created_at": "2026-10-30T13:52:20.000000Z",
+        "updated_at": "2026-10-30T13:52:20.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 459,
+        "name": "Questions and Negations Quality: Subject Questions",
+        "created_at": "2026-10-30T13:52:20.000000Z",
+        "updated_at": "2026-10-30T13:52:20.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 699,
+                "name": "Subject Questions",
+                "category": null,
+                "created_at": "2026-04-23T14:37:17.000000Z",
+                "updated_at": "2026-04-23T14:37:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 62361,
+                "tag_id": 699,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 108,
+                "option": "arrive",
+                "created_at": "2026-04-23T11:40:01.000000Z",
+                "updated_at": "2026-04-23T11:40:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 62361,
+                "option_id": 108,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2539,
+                "option": "arrived",
+                "created_at": "2026-04-23T14:18:07.000000Z",
+                "updated_at": "2026-04-23T14:18:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 62361,
+                "option_id": 2539,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4594,
+                "option": "arriving",
+                "created_at": "2026-04-23T14:40:45.000000Z",
+                "updated_at": "2026-04-23T14:40:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 62361,
+                "option_id": 4594,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 331819,
+                "question_id": 62361,
+                "marker": "a1",
+                "option_id": 2539,
+                "created_at": "2026-10-30T13:52:20.000000Z",
+                "updated_at": "2026-10-30T13:52:20.000000Z"
+            },
+            "option": {
+                "id": 2539,
+                "option": "arrived",
+                "created_at": "2026-04-23T14:18:07.000000Z",
+                "updated_at": "2026-04-23T14:18:07.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49153,
+                "question_id": 62361,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 56608,
+                "created_at": "2026-10-30T13:52:20.000000Z",
+                "updated_at": "2026-10-30T13:52:20.000000Z"
+            },
+            "option": {
+                "id": 56608,
+                "option": "Прибути: запитай про виконавців минулої події без додаткового допоміжного.",
+                "created_at": "2026-10-30T13:52:20.000000Z",
+                "updated_at": "2026-10-30T13:52:20.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54376,
+            "question_id": 62361,
+            "text": "Which guests {a1} early last night?",
+            "created_at": "2026-10-30T13:52:20.000000Z",
+            "updated_at": "2026-10-30T13:52:20.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

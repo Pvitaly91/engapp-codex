@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 64681,
+        "uuid": "pvq-reporting-a1-g06",
+        "question": "This bus is expected {a1} here.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 10,
+        "source_id": 502,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveReportingStructuresQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "to stop",
+                "stop",
+                "stopping"
+            ]
+        },
+        "theory_text_block_uuid": "f319d468-3652-5702-851e-8e4412d8ff9c",
+        "created_at": "2026-10-30T20:18:51.000000Z",
+        "updated_at": "2026-10-30T20:18:51.000000Z"
+    },
+    "category": {
+        "id": 10,
+        "name": "Passive Voice",
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
+    },
+    "source": {
+        "id": 502,
+        "name": "Passive Voice Quality: Пасивні конструкції повідомлення",
+        "created_at": "2026-10-30T20:18:51.000000Z",
+        "updated_at": "2026-10-30T20:18:51.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 1688,
+                "name": "Passive Reporting Structures",
+                "category": null,
+                "created_at": "2026-04-26T00:23:33.000000Z",
+                "updated_at": "2026-04-26T00:23:33.000000Z"
+            },
+            "pivot": {
+                "question_id": 64681,
+                "tag_id": 1688,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 2836,
+                "option": "stop",
+                "created_at": "2026-04-23T14:18:37.000000Z",
+                "updated_at": "2026-04-23T14:18:37.000000Z"
+            },
+            "pivot": {
+                "question_id": 64681,
+                "option_id": 2836,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 16297,
+                "option": "stopping",
+                "created_at": "2026-04-25T13:39:42.000000Z",
+                "updated_at": "2026-04-25T13:39:42.000000Z"
+            },
+            "pivot": {
+                "question_id": 64681,
+                "option_id": 16297,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 63581,
+                "option": "to stop",
+                "created_at": "2026-10-30T20:18:51.000000Z",
+                "updated_at": "2026-10-30T20:18:51.000000Z"
+            },
+            "pivot": {
+                "question_id": 64681,
+                "option_id": 63581,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 336734,
+                "question_id": 64681,
+                "marker": "a1",
+                "option_id": 63581,
+                "created_at": "2026-10-30T20:18:51.000000Z",
+                "updated_at": "2026-10-30T20:18:51.000000Z"
+            },
+            "option": {
+                "id": 63581,
+                "option": "to stop",
+                "created_at": "2026-10-30T20:18:51.000000Z",
+                "updated_at": "2026-10-30T20:18:51.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 54068,
+                "question_id": 64681,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 63582,
+                "created_at": "2026-10-30T20:18:51.000000Z",
+                "updated_at": "2026-10-30T20:18:51.000000Z"
+            },
+            "option": {
+                "id": 63582,
+                "option": "Зупиниться тут.",
+                "created_at": "2026-10-30T20:18:51.000000Z",
+                "updated_at": "2026-10-30T20:18:51.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 56696,
+            "question_id": 64681,
+            "text": "This bus is expected {a1} here.",
+            "created_at": "2026-10-30T20:18:51.000000Z",
+            "updated_at": "2026-10-30T20:18:51.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

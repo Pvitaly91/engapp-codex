@@ -1,0 +1,1608 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/past-perfect.v1.json",
+        "sha256": "f0d2ed3f572e8d89f6a045acc041c3920655e63803e0a3a5cba1b93721687d30"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoicePastPerfectQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-past-perfect-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_past_perfect": {
+            "name": "Passive Voice Quality: Passive Voice Past Perfect"
+        }
+    },
+    "tags": {
+        "passive_voice_past_perfect": {
+            "name": "Passive Voice Past Perfect",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "had_been_v3": {
+            "name": "Had Been V3",
+            "category": "topic"
+        },
+        "completed_before_past": {
+            "name": "Completed Before Past",
+            "category": "topic"
+        },
+        "past_time_markers": {
+            "name": "Past Time Markers",
+            "category": "topic"
+        },
+        "result_before_past": {
+            "name": "Result Before Past",
+            "category": "topic"
+        },
+        "object_subject": {
+            "name": "Object Subject",
+            "category": "topic"
+        },
+        "unknown_agent": {
+            "name": "Unknown Agent",
+            "category": "topic"
+        },
+        "by_agent": {
+            "name": "By Agent",
+            "category": "topic"
+        },
+        "active_passive": {
+            "name": "Active Passive",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "passive_voice_past_perfect"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-past-perfect-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The sandwich {a1} before lunch.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Бутерброд уже з’їли до обіду.",
+            "target_text": "The sandwich had been eaten before lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "had been eaten",
+                    "options": [
+                        "had been eaten",
+                        "is eaten",
+                        "was eaten"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «з’їдати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «з’їдати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The sandwich had been eaten before lunch."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The sandwich",
+                "had been eaten",
+                "before lunch."
+            ],
+            "token_groups": [
+                "The sandwich",
+                "had been eaten",
+                "before lunch."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-past-perfect-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The candles {a1} before we arrived.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Свічки вже запалили до нашого приходу.",
+            "target_text": "The candles had been lit before we arrived.",
+            "markers": {
+                "a1": {
+                    "answer": "had been lit",
+                    "options": [
+                        "had been lit",
+                        "is lit",
+                        "was lit"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «запалювати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «запалювати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The candles had been lit before we arrived."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The candles",
+                "had been lit",
+                "before we arrived."
+            ],
+            "token_groups": [
+                "The candles",
+                "had been lit",
+                "before we arrived."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-past-perfect-a1-g03",
+            "author_id": "A1-g03",
+            "question": "The table {a1} before dinner.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Стіл уже накрили до вечері.",
+            "target_text": "The table had been laid before dinner.",
+            "markers": {
+                "a1": {
+                    "answer": "had been laid",
+                    "options": [
+                        "had been laid",
+                        "is laid",
+                        "was laid"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «накривати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «накривати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The table had been laid before dinner."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The table",
+                "had been laid",
+                "before dinner."
+            ],
+            "token_groups": [
+                "The table",
+                "had been laid",
+                "before dinner."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-past-perfect-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The balloons {a1} before the party.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Кульки вже прив’язали до початку свята.",
+            "target_text": "The balloons had been tied before the party.",
+            "markers": {
+                "a1": {
+                    "answer": "had been tied",
+                    "options": [
+                        "had been tied",
+                        "is tied",
+                        "was tied"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «прив’язувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «прив’язувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The balloons had been tied before the party."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The balloons",
+                "had been tied",
+                "before the party."
+            ],
+            "token_groups": [
+                "The balloons",
+                "had been tied",
+                "before the party."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-past-perfect-a1-g05",
+            "author_id": "A1-g05",
+            "question": "The bath {a1} before bedtime.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Ванну вже наповнили до часу сну.",
+            "target_text": "The bath had been filled before bedtime.",
+            "markers": {
+                "a1": {
+                    "answer": "had been filled",
+                    "options": [
+                        "had been filled",
+                        "is filled",
+                        "was filled"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «наповнювати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «наповнювати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The bath had been filled before bedtime."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The bath",
+                "had been filled",
+                "before bedtime."
+            ],
+            "token_groups": [
+                "The bath",
+                "had been filled",
+                "before bedtime."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-past-perfect-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The dishes {a1} before ten.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Посуд уже прибрали на місце до десятої.",
+            "target_text": "The dishes had been put away before ten.",
+            "markers": {
+                "a1": {
+                    "answer": "had been put away",
+                    "options": [
+                        "had been put away",
+                        "is put away",
+                        "was put away"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «прибирати на місце» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «прибирати на місце» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The dishes had been put away before ten."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dishes",
+                "had been put",
+                "away",
+                "before ten."
+            ],
+            "token_groups": [
+                "The dishes",
+                "had been put",
+                "away",
+                "before ten."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-past-perfect-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The parcels {a1} before the shop closed.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Пакунки вже забрали до закриття магазину.",
+            "target_text": "The parcels had been collected before the shop closed.",
+            "markers": {
+                "a1": {
+                    "answer": "had been collected",
+                    "options": [
+                        "had been collected",
+                        "is collected",
+                        "was collected"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «забирати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «забирати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The parcels had been collected before the shop closed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The parcels",
+                "had been collected",
+                "before the shop",
+                "closed."
+            ],
+            "token_groups": [
+                "The parcels",
+                "had been collected",
+                "before the shop",
+                "closed."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-past-perfect-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The sleeping bags {a1} before our trip.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Спальні мішки вже провітрили до нашої поїздки.",
+            "target_text": "The sleeping bags had been aired before our trip.",
+            "markers": {
+                "a1": {
+                    "answer": "had been aired",
+                    "options": [
+                        "had been aired",
+                        "is aired",
+                        "was aired"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «провітрювати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «провітрювати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The sleeping bags had been aired before our trip."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The sleeping bags",
+                "had been aired",
+                "before our trip."
+            ],
+            "token_groups": [
+                "The sleeping bags",
+                "had been aired",
+                "before our trip."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-past-perfect-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The garden fence {a1} before the storm.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Садову огорожу вже полагодили до бурі.",
+            "target_text": "The garden fence had been mended before the storm.",
+            "markers": {
+                "a1": {
+                    "answer": "had been mended",
+                    "options": [
+                        "had been mended",
+                        "is mended",
+                        "was mended"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «лагодити» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «лагодити» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The garden fence had been mended before the storm.",
+                "The garden fence had been repaired before the storm.",
+                "The garden fence had been fixed before the storm."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had been repaired",
+                    "had been fixed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had been repaired",
+                    "had been fixed"
+                ]
+            },
+            "reorder_groups": [
+                "The garden fence",
+                "had been mended",
+                "before the storm."
+            ],
+            "token_groups": [
+                "The garden fence",
+                "had been mended",
+                "before the storm."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-past-perfect-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The curtains {a1} before they arrived.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Штори вже вкоротили до їхнього приходу.",
+            "target_text": "The curtains had been shortened before they arrived.",
+            "markers": {
+                "a1": {
+                    "answer": "had been shortened",
+                    "options": [
+                        "had been shortened",
+                        "is shortened",
+                        "was shortened"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «вкорочувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «вкорочувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The curtains had been shortened before they arrived."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The curtains",
+                "had been shortened",
+                "before they arrived."
+            ],
+            "token_groups": [
+                "The curtains",
+                "had been shortened",
+                "before they arrived."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-past-perfect-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The application form {a1} before the deadline.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Анкету вже подали до граничного строку.",
+            "target_text": "The application form had been submitted before the deadline.",
+            "markers": {
+                "a1": {
+                    "answer": "had been submitted",
+                    "options": [
+                        "had been submitted",
+                        "is submitted",
+                        "was submitted"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «подавати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «подавати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The application form had been submitted before the deadline."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The application form",
+                "had been submitted",
+                "before the deadline."
+            ],
+            "token_groups": [
+                "The application form",
+                "had been submitted",
+                "before the deadline."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-past-perfect-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The invitation cards {a1} before Monday.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Запрошення вже відправили поштою до понеділка.",
+            "target_text": "The invitation cards had been posted before Monday.",
+            "markers": {
+                "a1": {
+                    "answer": "had been posted",
+                    "options": [
+                        "had been posted",
+                        "is posted",
+                        "was posted"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «відправляти поштою» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «відправляти поштою» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The invitation cards had been posted before Monday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The invitation cards",
+                "had been posted",
+                "before Monday."
+            ],
+            "token_groups": [
+                "The invitation cards",
+                "had been posted",
+                "before Monday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-past-perfect-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The spare generator {a1} before the blackout.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Запасний генератор уже перевірили до знеструмлення.",
+            "target_text": "The spare generator had been tested before the blackout.",
+            "markers": {
+                "a1": {
+                    "answer": "had been tested",
+                    "options": [
+                        "had been tested",
+                        "is tested",
+                        "was tested"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «перевіряти випробуванням» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «перевіряти випробуванням» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The spare generator had been tested before the blackout."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The spare generator",
+                "had been tested",
+                "before the blackout."
+            ],
+            "token_groups": [
+                "The spare generator",
+                "had been tested",
+                "before the blackout."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-past-perfect-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The hiking route {a1} before the expedition.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Пішохідний маршрут уже позначили до експедиції.",
+            "target_text": "The hiking route had been marked before the expedition.",
+            "markers": {
+                "a1": {
+                    "answer": "had been marked",
+                    "options": [
+                        "had been marked",
+                        "is marked",
+                        "was marked"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «позначати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «позначати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The hiking route had been marked before the expedition."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The hiking route",
+                "had been marked",
+                "before the expedition."
+            ],
+            "token_groups": [
+                "The hiking route",
+                "had been marked",
+                "before the expedition."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-past-perfect-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The museum exhibits {a1} before transportation.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Музейні експонати вже застрахували до перевезення.",
+            "target_text": "The museum exhibits had been insured before transportation.",
+            "markers": {
+                "a1": {
+                    "answer": "had been insured",
+                    "options": [
+                        "had been insured",
+                        "is insured",
+                        "was insured"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «страхувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «страхувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The museum exhibits had been insured before transportation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The museum exhibits",
+                "had been insured",
+                "before transportation."
+            ],
+            "token_groups": [
+                "The museum exhibits",
+                "had been insured",
+                "before transportation."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-past-perfect-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The volunteers {a1} before deployment.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Волонтерів уже підготували до початку їхньої роботи на місці.",
+            "target_text": "The volunteers had been trained before deployment.",
+            "markers": {
+                "a1": {
+                    "answer": "had been trained",
+                    "options": [
+                        "had been trained",
+                        "is trained",
+                        "was trained"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «готувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «готувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The volunteers had been trained before deployment."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The volunteers",
+                "had been trained",
+                "before deployment."
+            ],
+            "token_groups": [
+                "The volunteers",
+                "had been trained",
+                "before deployment."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-past-perfect-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The insurance claim {a1} before we appealed.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Страхову вимогу вже відхилили до нашого оскарження.",
+            "target_text": "The insurance claim had been rejected before we appealed.",
+            "markers": {
+                "a1": {
+                    "answer": "had been rejected",
+                    "options": [
+                        "had been rejected",
+                        "is rejected",
+                        "was rejected"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «відхиляти» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «відхиляти» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The insurance claim had been rejected before we appealed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The insurance claim",
+                "had been rejected",
+                "before we appealed."
+            ],
+            "token_groups": [
+                "The insurance claim",
+                "had been rejected",
+                "before we appealed."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-past-perfect-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The laboratory equipment {a1} before the inspection.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Лабораторне обладнання вже обслужили до перевірки.",
+            "target_text": "The laboratory equipment had been serviced before the inspection.",
+            "markers": {
+                "a1": {
+                    "answer": "had been serviced",
+                    "options": [
+                        "had been serviced",
+                        "is serviced",
+                        "was serviced"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «обслуговувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «обслуговувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The laboratory equipment had been serviced before the inspection."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The laboratory equipment",
+                "had been serviced",
+                "before the inspection."
+            ],
+            "token_groups": [
+                "The laboratory equipment",
+                "had been serviced",
+                "before the inspection."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-past-perfect-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The adverse reaction {a1} before the review.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Небажану реакцію вже задокументували до розгляду.",
+            "target_text": "The adverse reaction had been documented before the review.",
+            "markers": {
+                "a1": {
+                    "answer": "had been documented",
+                    "options": [
+                        "had been documented",
+                        "is documented",
+                        "was documented"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «документувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «документувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The adverse reaction had been documented before the review."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The adverse reaction",
+                "had been documented",
+                "before the review."
+            ],
+            "token_groups": [
+                "The adverse reaction",
+                "had been documented",
+                "before the review."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-past-perfect-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The technical specification {a1} before procurement began.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Технічну специфікацію вже змінили до початку закупівлі.",
+            "target_text": "The technical specification had been amended before procurement began.",
+            "markers": {
+                "a1": {
+                    "answer": "had been amended",
+                    "options": [
+                        "had been amended",
+                        "is amended",
+                        "was amended"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «змінювати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «змінювати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The technical specification had been amended before procurement began."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The technical specification",
+                "had been amended",
+                "before procurement began."
+            ],
+            "token_groups": [
+                "The technical specification",
+                "had been amended",
+                "before procurement began."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-past-perfect-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The original samples {a1} before contamination occurred.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Оригінальні проби вже зберегли до появи забруднення.",
+            "target_text": "The original samples had been preserved before contamination occurred.",
+            "markers": {
+                "a1": {
+                    "answer": "had been preserved",
+                    "options": [
+                        "had been preserved",
+                        "is preserved",
+                        "was preserved"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «зберігати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «зберігати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The original samples had been preserved before contamination occurred."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The original samples",
+                "had been preserved",
+                "before contamination occurred."
+            ],
+            "token_groups": [
+                "The original samples",
+                "had been preserved",
+                "before contamination occurred."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-past-perfect-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The budget assumptions {a1} before approval.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Припущення щодо бюджету вже оскаржили до затвердження.",
+            "target_text": "The budget assumptions had been challenged before approval.",
+            "markers": {
+                "a1": {
+                    "answer": "had been challenged",
+                    "options": [
+                        "had been challenged",
+                        "is challenged",
+                        "was challenged"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оскаржувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «оскаржувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The budget assumptions had been challenged before approval."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The budget assumptions",
+                "had been challenged",
+                "before approval."
+            ],
+            "token_groups": [
+                "The budget assumptions",
+                "had been challenged",
+                "before approval."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-past-perfect-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The access restrictions {a1} before negotiations resumed.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Обмеження доступу вже зняли до відновлення переговорів.",
+            "target_text": "The access restrictions had been lifted before negotiations resumed.",
+            "markers": {
+                "a1": {
+                    "answer": "had been lifted",
+                    "options": [
+                        "had been lifted",
+                        "is lifted",
+                        "was lifted"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «знімати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «знімати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The access restrictions had been lifted before negotiations resumed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The access restrictions",
+                "had been lifted",
+                "before negotiations resumed."
+            ],
+            "token_groups": [
+                "The access restrictions",
+                "had been lifted",
+                "before negotiations resumed."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-past-perfect-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The contractual dispute {a1} before arbitration began.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Договірний спір уже врегулювали до початку арбітражу.",
+            "target_text": "The contractual dispute had been settled before arbitration began.",
+            "markers": {
+                "a1": {
+                    "answer": "had been settled",
+                    "options": [
+                        "had been settled",
+                        "is settled",
+                        "was settled"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «врегульовувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «врегульовувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The contractual dispute had been settled before arbitration began.",
+                "The contractual dispute had been resolved before arbitration began."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had been resolved"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had been resolved"
+                ]
+            },
+            "reorder_groups": [
+                "The contractual dispute",
+                "had been settled",
+                "before arbitration began."
+            ],
+            "token_groups": [
+                "The contractual dispute",
+                "had been settled",
+                "before arbitration began."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-past-perfect-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The competing proposals {a1} before final selection.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Конкуруючі пропозиції вже ранжували до остаточного вибору.",
+            "target_text": "The competing proposals had been ranked before final selection.",
+            "markers": {
+                "a1": {
+                    "answer": "had been ranked",
+                    "options": [
+                        "had been ranked",
+                        "is ranked",
+                        "was ranked"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «ранжувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «ранжувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The competing proposals had been ranked before final selection."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The competing proposals",
+                "had been ranked",
+                "before final selection."
+            ],
+            "token_groups": [
+                "The competing proposals",
+                "had been ranked",
+                "before final selection."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-past-perfect-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The evidential gaps {a1} before cross-examination.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Прогалини в доказах уже виявили до перехресного допиту.",
+            "target_text": "The evidential gaps had been identified before cross-examination.",
+            "markers": {
+                "a1": {
+                    "answer": "had been identified",
+                    "options": [
+                        "had been identified",
+                        "is identified",
+                        "was identified"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виявляти» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «виявляти» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The evidential gaps had been identified before cross-examination."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The evidential gaps",
+                "had been identified",
+                "before cross-examination."
+            ],
+            "token_groups": [
+                "The evidential gaps",
+                "had been identified",
+                "before cross-examination."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-past-perfect-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The delegated authority {a1} before the transaction.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Делеговані повноваження вже відкликали до операції.",
+            "target_text": "The delegated authority had been revoked before the transaction.",
+            "markers": {
+                "a1": {
+                    "answer": "had been revoked",
+                    "options": [
+                        "had been revoked",
+                        "is revoked",
+                        "was revoked"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «відкликати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «відкликати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The delegated authority had been revoked before the transaction."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The delegated authority",
+                "had been revoked",
+                "before the transaction."
+            ],
+            "token_groups": [
+                "The delegated authority",
+                "had been revoked",
+                "before the transaction."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-past-perfect-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The dissenting opinion {a1} before judgment.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Окрему думку вже підготували до винесення рішення.",
+            "target_text": "The dissenting opinion had been drafted before judgment.",
+            "markers": {
+                "a1": {
+                    "answer": "had been drafted",
+                    "options": [
+                        "had been drafted",
+                        "is drafted",
+                        "was drafted"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «готувати текст» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «готувати текст» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The dissenting opinion had been drafted before judgment."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dissenting opinion",
+                "had been drafted",
+                "before judgment."
+            ],
+            "token_groups": [
+                "The dissenting opinion",
+                "had been drafted",
+                "before judgment."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-past-perfect-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The institutional risks {a1} before restructuring.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Інституційні ризики вже відобразили в систематизованій схемі до реструктуризації.",
+            "target_text": "The institutional risks had been mapped before restructuring.",
+            "markers": {
+                "a1": {
+                    "answer": "had been mapped",
+                    "options": [
+                        "had been mapped",
+                        "is mapped",
+                        "was mapped"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «систематизувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «систематизувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The institutional risks had been mapped before restructuring."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The institutional risks",
+                "had been mapped",
+                "before restructuring."
+            ],
+            "token_groups": [
+                "The institutional risks",
+                "had been mapped",
+                "before restructuring."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-past-perfect-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The underlying premises {a1} before model validation.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Базові засновки вже критично дослідили до перевірки моделі.",
+            "target_text": "The underlying premises had been interrogated before model validation.",
+            "markers": {
+                "a1": {
+                    "answer": "had been interrogated",
+                    "options": [
+                        "had been interrogated",
+                        "is interrogated",
+                        "was interrogated"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «критично досліджувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «критично досліджувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The underlying premises had been interrogated before model validation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The underlying premises",
+                "had been interrogated",
+                "before model validation."
+            ],
+            "token_groups": [
+                "The underlying premises",
+                "had been interrogated",
+                "before model validation."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-past-perfect-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The residual exposure {a1} before indemnification.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Залишковий ризик уже кількісно оцінили до відшкодування.",
+            "target_text": "The residual exposure had been quantified before indemnification.",
+            "markers": {
+                "a1": {
+                    "answer": "had been quantified",
+                    "options": [
+                        "had been quantified",
+                        "is quantified",
+                        "was quantified"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «кількісно оцінювати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «кількісно оцінювати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The residual exposure had been quantified before indemnification."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The residual exposure",
+                "had been quantified",
+                "before indemnification."
+            ],
+            "token_groups": [
+                "The residual exposure",
+                "had been quantified",
+                "before indemnification."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-past-perfect-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The restrictive covenant {a1} before enforcement proceedings.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Обмежувальну договірну умову вже витлумачили до провадження з примусового виконання.",
+            "target_text": "The restrictive covenant had been construed before enforcement proceedings.",
+            "markers": {
+                "a1": {
+                    "answer": "had been construed",
+                    "options": [
+                        "had been construed",
+                        "is construed",
+                        "was construed"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «тлумачити» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «тлумачити» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The restrictive covenant had been construed before enforcement proceedings."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The restrictive covenant",
+                "had been construed",
+                "before enforcement proceedings."
+            ],
+            "token_groups": [
+                "The restrictive covenant",
+                "had been construed",
+                "before enforcement proceedings."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-past-perfect-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The beneficial interests {a1} before judicial scrutiny.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Бенефіціарні інтереси вже розкрили до судової перевірки.",
+            "target_text": "The beneficial interests had been disclosed before judicial scrutiny.",
+            "markers": {
+                "a1": {
+                    "answer": "had been disclosed",
+                    "options": [
+                        "had been disclosed",
+                        "is disclosed",
+                        "was disclosed"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «розкривати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «розкривати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The beneficial interests had been disclosed before judicial scrutiny."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The beneficial interests",
+                "had been disclosed",
+                "before judicial scrutiny."
+            ],
+            "token_groups": [
+                "The beneficial interests",
+                "had been disclosed",
+                "before judicial scrutiny."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-past-perfect-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The countervailing evidence {a1} before the inquiry.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Докази на противагу вже приховали до розслідування.",
+            "target_text": "The countervailing evidence had been suppressed before the inquiry.",
+            "markers": {
+                "a1": {
+                    "answer": "had been suppressed",
+                    "options": [
+                        "had been suppressed",
+                        "is suppressed",
+                        "was suppressed"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «приховувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «приховувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The countervailing evidence had been suppressed before the inquiry."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The countervailing evidence",
+                "had been suppressed",
+                "before the inquiry."
+            ],
+            "token_groups": [
+                "The countervailing evidence",
+                "had been suppressed",
+                "before the inquiry."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-past-perfect-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The adjudicative framework {a1} before referral.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Основу розгляду спору вже переформулювали до передачі справи.",
+            "target_text": "The adjudicative framework had been reformulated before referral.",
+            "markers": {
+                "a1": {
+                    "answer": "had been reformulated",
+                    "options": [
+                        "had been reformulated",
+                        "is reformulated",
+                        "was reformulated"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «переформульовувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «переформульовувати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The adjudicative framework had been reformulated before referral."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The adjudicative framework",
+                "had been reformulated",
+                "before referral."
+            ],
+            "token_groups": [
+                "The adjudicative framework",
+                "had been reformulated",
+                "before referral."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-past-perfect-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The jurisdictional nexus {a1} before substantive argument.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Юрисдикційний зв’язок уже встановили до розгляду аргументів по суті.",
+            "target_text": "The jurisdictional nexus had been established before substantive argument.",
+            "markers": {
+                "a1": {
+                    "answer": "had been established",
+                    "options": [
+                        "had been established",
+                        "is established",
+                        "was established"
+                    ],
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «встановлювати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет."
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «встановлювати» через минулий доконаний пасив. Уведи всю пропущену дієслівну частину, не повторюючи підмет.",
+            "accepted_target_texts": [
+                "The jurisdictional nexus had been established before substantive argument.",
+                "The jurisdictional nexus had been created before substantive argument."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had been created"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had been created"
+                ]
+            },
+            "reorder_groups": [
+                "The jurisdictional nexus",
+                "had been established",
+                "before substantive argument."
+            ],
+            "token_groups": [
+                "The jurisdictional nexus",
+                "had been established",
+                "before substantive argument."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

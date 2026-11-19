@@ -1,0 +1,1459 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mrq-v1",
+    "compiled_from": {
+        "path": "docs/content/mixed-revision-quality/c1-mixed-revision.v1.json",
+        "sha256": "2cd86f2de6bc3b8c0ae75d2adbe30bda637515c03c6a376671524a9ceb2a2832"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedMrqC1MixedRevisionQualityBuilderSeeder",
+        "uuid_namespace": "mixed-revision-quality-c1-mixed-revision-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Mixed Revision"
+    },
+    "sources": {
+        "mixed_revision_quality_c1_mixed_revision": {
+            "name": "Mixed Revision Quality: C1 Mixed Revision"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mrq-c1-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Ліна зараз читає біля вікна.",
+            "level": "A1",
+            "type": 4,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Ліна зараз читає біля вікна.",
+            "target_text": "Lina is reading by the window now.",
+            "markers": {
+                "a1": {
+                    "answer": "Lina",
+                    "verb_hint": "Почни з імені; передай читання в цю мить тривалим теперішнім часом і збережи місце та час.",
+                    "options": [
+                        "Lina",
+                        "Anna",
+                        "Roman",
+                        "Marta"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Почни з імені; передай читання в цю мить тривалим теперішнім часом і збережи місце та час.",
+                    "options": [
+                        "is",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a3": {
+                    "answer": "reading",
+                    "verb_hint": "Почни з імені; передай читання в цю мить тривалим теперішнім часом і збережи місце та час.",
+                    "options": [
+                        "reading",
+                        "resting",
+                        "drawing",
+                        "standing"
+                    ]
+                },
+                "a4": {
+                    "answer": "by",
+                    "verb_hint": "Почни з імені; передай читання в цю мить тривалим теперішнім часом і збережи місце та час.",
+                    "options": [
+                        "by",
+                        "at",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з імені; передай читання в цю мить тривалим теперішнім часом і збережи місце та час.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a6": {
+                    "answer": "window",
+                    "verb_hint": "Почни з імені; передай читання в цю мить тривалим теперішнім часом і збережи місце та час.",
+                    "options": [
+                        "window",
+                        "tree",
+                        "gate",
+                        "house"
+                    ]
+                },
+                "a7": {
+                    "answer": "now.",
+                    "verb_hint": "Почни з імені; передай читання в цю мить тривалим теперішнім часом і збережи місце та час.",
+                    "options": [
+                        "now",
+                        "outside",
+                        "alone",
+                        "today"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з імені; передай читання в цю мить тривалим теперішнім часом і збережи місце та час.",
+            "accepted_target_texts": [
+                "Lina is reading by the window now.",
+                "Lina is reading near the window now.",
+                "Lina is reading beside the window now."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "near",
+                    "beside"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "near",
+                    "beside"
+                ]
+            },
+            "reorder_groups": [
+                "Lina",
+                "is reading",
+                "by the window",
+                "now."
+            ],
+            "token_groups": [
+                "Lina",
+                "is reading",
+                "by the window",
+                "now."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Lina",
+                "is",
+                "reading",
+                "by",
+                "the",
+                "window",
+                "now."
+            ],
+            "options": [
+                "Lina",
+                "Anna",
+                "Roman",
+                "Marta",
+                "is",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "reading",
+                "resting",
+                "drawing",
+                "standing",
+                "by",
+                "at",
+                "with",
+                "without",
+                "the",
+                "no",
+                "another",
+                "either",
+                "window",
+                "tree",
+                "gate",
+                "house",
+                "now",
+                "outside",
+                "alone",
+                "today"
+            ],
+            "source_text_uk": "Ліна зараз читає біля вікна.",
+            "options_by_marker": {
+                "a1": [
+                    "Lina",
+                    "Anna",
+                    "Roman",
+                    "Marta"
+                ],
+                "a2": [
+                    "is",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a3": [
+                    "reading",
+                    "resting",
+                    "drawing",
+                    "standing"
+                ],
+                "a4": [
+                    "by",
+                    "at",
+                    "with",
+                    "without"
+                ],
+                "a5": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a6": [
+                    "window",
+                    "tree",
+                    "gate",
+                    "house"
+                ],
+                "a7": [
+                    "now",
+                    "outside",
+                    "alone",
+                    "today"
+                ]
+            },
+            "slot_roles": {
+                "a1": "aone_role_a",
+                "a2": "aone_role_b",
+                "a3": "aone_role_b",
+                "a4": "aone_role_c",
+                "a5": "aone_role_c",
+                "a6": "aone_role_c",
+                "a7": "aone_role_d"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "mrq-c1-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Ми ніколи не чули того запису.",
+            "level": "A2",
+            "type": 4,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Ми ніколи не чули того запису.",
+            "target_text": "We have never heard that recording.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Передай відсутність такого досвіду теперішнім перфектним часом; слово зі значенням «ніколи» постав перед смисловим дієсловом.",
+                    "options": [
+                        "We",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "have",
+                    "verb_hint": "Передай відсутність такого досвіду теперішнім перфектним часом; слово зі значенням «ніколи» постав перед смисловим дієсловом.",
+                    "options": [
+                        "have",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "never",
+                    "verb_hint": "Передай відсутність такого досвіду теперішнім перфектним часом; слово зі значенням «ніколи» постав перед смисловим дієсловом.",
+                    "options": [
+                        "never",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a4": {
+                    "answer": "heard",
+                    "verb_hint": "Передай відсутність такого досвіду теперішнім перфектним часом; слово зі значенням «ніколи» постав перед смисловим дієсловом.",
+                    "options": [
+                        "heard",
+                        "finished",
+                        "found",
+                        "discussed"
+                    ]
+                },
+                "a5": {
+                    "answer": "that",
+                    "verb_hint": "Передай відсутність такого досвіду теперішнім перфектним часом; слово зі значенням «ніколи» постав перед смисловим дієсловом.",
+                    "options": [
+                        "that",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "recording.",
+                    "verb_hint": "Передай відсутність такого досвіду теперішнім перфектним часом; слово зі значенням «ніколи» постав перед смисловим дієсловом.",
+                    "options": [
+                        "recording",
+                        "working",
+                        "playing",
+                        "reading"
+                    ]
+                }
+            },
+            "verb_hint": "Передай відсутність такого досвіду теперішнім перфектним часом; слово зі значенням «ніколи» постав перед смисловим дієсловом.",
+            "accepted_target_texts": [
+                "We have never heard that recording."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We have",
+                "never heard",
+                "that recording."
+            ],
+            "token_groups": [
+                "We have",
+                "never heard",
+                "that recording."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "We",
+                "have",
+                "never",
+                "heard",
+                "that",
+                "recording."
+            ],
+            "options": [
+                "We",
+                "They",
+                "Me",
+                "Him",
+                "have",
+                "don't",
+                "doesn't",
+                "didn't",
+                "never",
+                "still",
+                "just",
+                "also",
+                "heard",
+                "finished",
+                "found",
+                "discussed",
+                "that",
+                "some",
+                "any",
+                "this",
+                "recording",
+                "working",
+                "playing",
+                "reading"
+            ],
+            "source_text_uk": "Ми ніколи не чули того запису.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "have",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a3": [
+                    "never",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a4": [
+                    "heard",
+                    "finished",
+                    "found",
+                    "discussed"
+                ],
+                "a5": [
+                    "that",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "recording",
+                    "working",
+                    "playing",
+                    "reading"
+                ]
+            },
+            "slot_roles": {
+                "a1": "atwo_role_a",
+                "a2": "atwo_role_a",
+                "a3": "atwo_role_b",
+                "a4": "atwo_role_b",
+                "a5": "atwo_role_c",
+                "a6": "atwo_role_c"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "mrq-c1-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Вони сказали нам, що студія зачинена.",
+            "level": "B1",
+            "type": 4,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Вони сказали нам, що студія зачинена.",
+            "target_text": "They told us that the studio was closed.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Почни з людей, які повідомили новину, назви нас як одержувачів і передай стан студії з узгодженням минулих часів.",
+                    "options": [
+                        "They",
+                        "Herself",
+                        "Ourselves",
+                        "Themselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "told",
+                    "verb_hint": "Почни з людей, які повідомили новину, назви нас як одержувачів і передай стан студії з узгодженням минулих часів.",
+                    "options": [
+                        "told",
+                        "notified",
+                        "warned",
+                        "reminded"
+                    ]
+                },
+                "a3": {
+                    "answer": "us",
+                    "verb_hint": "Почни з людей, які повідомили новину, назви нас як одержувачів і передай стан студії з узгодженням минулих часів.",
+                    "options": [
+                        "us",
+                        "myself",
+                        "yourself",
+                        "I"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Почни з людей, які повідомили новину, назви нас як одержувачів і передай стан студії з узгодженням минулих часів.",
+                    "options": [
+                        "that",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з людей, які повідомили новину, назви нас як одержувачів і передай стан студії з узгодженням минулих часів.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "all"
+                    ]
+                },
+                "a6": {
+                    "answer": "studio",
+                    "verb_hint": "Почни з людей, які повідомили новину, назви нас як одержувачів і передай стан студії з узгодженням минулих часів.",
+                    "options": [
+                        "studio",
+                        "gallery",
+                        "theatre",
+                        "cafe"
+                    ]
+                },
+                "a7": {
+                    "answer": "was",
+                    "verb_hint": "Почни з людей, які повідомили новину, назви нас як одержувачів і передай стан студії з узгодженням минулих часів.",
+                    "options": [
+                        "was",
+                        "are",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a8": {
+                    "answer": "closed.",
+                    "verb_hint": "Почни з людей, які повідомили новину, назви нас як одержувачів і передай стан студії з узгодженням минулих часів.",
+                    "options": [
+                        "closed",
+                        "crowded",
+                        "damaged",
+                        "played"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з людей, які повідомили новину, назви нас як одержувачів і передай стан студії з узгодженням минулих часів.",
+            "accepted_target_texts": [
+                "They told us that the studio was closed.",
+                "They informed us that the studio was closed.",
+                "They told us the studio was closed.",
+                "They informed us the studio was closed."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "informed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "informed"
+                ]
+            },
+            "reorder_groups": [
+                "They told us",
+                "that the studio",
+                "was closed."
+            ],
+            "token_groups": [
+                "They told us",
+                "that the studio",
+                "was closed."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "They",
+                "told",
+                "us",
+                "that",
+                "the",
+                "studio",
+                "was",
+                "closed."
+            ],
+            "options": [
+                "They",
+                "Herself",
+                "Ourselves",
+                "Themselves",
+                "told",
+                "notified",
+                "warned",
+                "reminded",
+                "us",
+                "myself",
+                "yourself",
+                "I",
+                "that",
+                "another",
+                "either",
+                "neither",
+                "the",
+                "every",
+                "no",
+                "all",
+                "studio",
+                "gallery",
+                "theatre",
+                "cafe",
+                "was",
+                "are",
+                "were",
+                "be",
+                "closed",
+                "crowded",
+                "damaged",
+                "played"
+            ],
+            "source_text_uk": "Вони сказали нам, що студія зачинена.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "Herself",
+                    "Ourselves",
+                    "Themselves"
+                ],
+                "a2": [
+                    "told",
+                    "notified",
+                    "warned",
+                    "reminded"
+                ],
+                "a3": [
+                    "us",
+                    "myself",
+                    "yourself",
+                    "I"
+                ],
+                "a4": [
+                    "that",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a5": [
+                    "the",
+                    "every",
+                    "no",
+                    "all"
+                ],
+                "a6": [
+                    "studio",
+                    "gallery",
+                    "theatre",
+                    "cafe"
+                ],
+                "a7": [
+                    "was",
+                    "are",
+                    "were",
+                    "be"
+                ],
+                "a8": [
+                    "closed",
+                    "crowded",
+                    "damaged",
+                    "played"
+                ]
+            },
+            "slot_roles": {
+                "a1": "bone_role_a",
+                "a2": "bone_role_a",
+                "a3": "bone_role_a",
+                "a4": "bone_role_b",
+                "a5": "bone_role_b",
+                "a6": "bone_role_b",
+                "a7": "bone_role_c",
+                "a8": "bone_role_c"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "mrq-c1-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Оператори рідко пропускають такий чіткий сигнал.",
+            "level": "B2",
+            "type": 4,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Оператори рідко пропускають такий чіткий сигнал.",
+            "target_text": "Rarely do the operators miss such a clear signal.",
+            "markers": {
+                "a1": {
+                    "answer": "Rarely",
+                    "verb_hint": "Почни зі значення «рідко», далі постав допоміжне дієслово перед операторами; смислове дієслово залиш у початковій формі.",
+                    "options": [
+                        "Rarely",
+                        "Still",
+                        "Just",
+                        "Also"
+                    ]
+                },
+                "a2": {
+                    "answer": "do",
+                    "verb_hint": "Почни зі значення «рідко», далі постав допоміжне дієслово перед операторами; смислове дієслово залиш у початковій формі.",
+                    "options": [
+                        "do",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни зі значення «рідко», далі постав допоміжне дієслово перед операторами; смислове дієслово залиш у початковій формі.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a4": {
+                    "answer": "operators",
+                    "verb_hint": "Почни зі значення «рідко», далі постав допоміжне дієслово перед операторами; смислове дієслово залиш у початковій формі.",
+                    "options": [
+                        "operators",
+                        "reviewers",
+                        "analysts",
+                        "observers"
+                    ]
+                },
+                "a5": {
+                    "answer": "miss",
+                    "verb_hint": "Почни зі значення «рідко», далі постав допоміжне дієслово перед операторами; смислове дієслово залиш у початковій формі.",
+                    "options": [
+                        "miss",
+                        "recognise",
+                        "notice",
+                        "ignore"
+                    ]
+                },
+                "a6": {
+                    "answer": "such",
+                    "verb_hint": "Почни зі значення «рідко», далі постав допоміжне дієслово перед операторами; смислове дієслово залиш у початковій формі.",
+                    "options": [
+                        "such",
+                        "car",
+                        "bag",
+                        "book"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Почни зі значення «рідко», далі постав допоміжне дієслово перед операторами; смислове дієслово залиш у початковій формі.",
+                    "options": [
+                        "a",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a8": {
+                    "answer": "clear",
+                    "verb_hint": "Почни зі значення «рідко», далі постав допоміжне дієслово перед операторами; смислове дієслово залиш у початковій формі.",
+                    "options": [
+                        "clear",
+                        "dirty",
+                        "good",
+                        "bad"
+                    ]
+                },
+                "a9": {
+                    "answer": "signal.",
+                    "verb_hint": "Почни зі значення «рідко», далі постав допоміжне дієслово перед операторами; смислове дієслово залиш у початковій формі.",
+                    "options": [
+                        "signal",
+                        "pulse",
+                        "noise",
+                        "fluctuation"
+                    ]
+                }
+            },
+            "verb_hint": "Почни зі значення «рідко», далі постав допоміжне дієслово перед операторами; смислове дієслово залиш у початковій формі.",
+            "accepted_target_texts": [
+                "Rarely do the operators miss such a clear signal.",
+                "Rarely do the operators overlook such a clear signal."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "overlook"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "overlook"
+                ]
+            },
+            "reorder_groups": [
+                "Rarely do",
+                "the operators",
+                "miss such",
+                "a clear signal."
+            ],
+            "token_groups": [
+                "Rarely do",
+                "the operators",
+                "miss such",
+                "a clear signal."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Rarely",
+                "do",
+                "the",
+                "operators",
+                "miss",
+                "such",
+                "a",
+                "clear",
+                "signal."
+            ],
+            "options": [
+                "Rarely",
+                "Still",
+                "Just",
+                "Also",
+                "do",
+                "don't",
+                "doesn't",
+                "didn't",
+                "the",
+                "that",
+                "these",
+                "those",
+                "operators",
+                "reviewers",
+                "analysts",
+                "observers",
+                "miss",
+                "recognise",
+                "notice",
+                "ignore",
+                "such",
+                "car",
+                "bag",
+                "book",
+                "a",
+                "another",
+                "either",
+                "neither",
+                "clear",
+                "dirty",
+                "good",
+                "bad",
+                "signal",
+                "pulse",
+                "noise",
+                "fluctuation"
+            ],
+            "source_text_uk": "Оператори рідко пропускають такий чіткий сигнал.",
+            "options_by_marker": {
+                "a1": [
+                    "Rarely",
+                    "Still",
+                    "Just",
+                    "Also"
+                ],
+                "a2": [
+                    "do",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a3": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a4": [
+                    "operators",
+                    "reviewers",
+                    "analysts",
+                    "observers"
+                ],
+                "a5": [
+                    "miss",
+                    "recognise",
+                    "notice",
+                    "ignore"
+                ],
+                "a6": [
+                    "such",
+                    "car",
+                    "bag",
+                    "book"
+                ],
+                "a7": [
+                    "a",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a8": [
+                    "clear",
+                    "dirty",
+                    "good",
+                    "bad"
+                ],
+                "a9": [
+                    "signal",
+                    "pulse",
+                    "noise",
+                    "fluctuation"
+                ]
+            },
+            "slot_roles": {
+                "a1": "btwo_role_a",
+                "a2": "btwo_role_a",
+                "a3": "btwo_role_b",
+                "a4": "btwo_role_b",
+                "a5": "btwo_role_c",
+                "a6": "btwo_role_c",
+                "a7": "btwo_role_d",
+                "a8": "btwo_role_d",
+                "a9": "btwo_role_d"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "mrq-c1-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Аналітики оспорюють саме надійність вимірювання.",
+            "level": "C1",
+            "type": 4,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Аналітики оспорюють саме надійність вимірювання.",
+            "target_text": "What the analysts dispute is the reliability of the measurement.",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Почни з підрядної групи «те, що аналітики оспорюють»; після дієслова-зв’язки назви виділену надійність вимірювання.",
+                    "options": [
+                        "What",
+                        "Whoever",
+                        "Whatever",
+                        "Wherever"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з підрядної групи «те, що аналітики оспорюють»; після дієслова-зв’язки назви виділену надійність вимірювання.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a3": {
+                    "answer": "analysts",
+                    "verb_hint": "Почни з підрядної групи «те, що аналітики оспорюють»; після дієслова-зв’язки назви виділену надійність вимірювання.",
+                    "options": [
+                        "analysts",
+                        "researchers",
+                        "reviewers",
+                        "witnesses"
+                    ]
+                },
+                "a4": {
+                    "answer": "dispute",
+                    "verb_hint": "Почни з підрядної групи «те, що аналітики оспорюють»; після дієслова-зв’язки назви виділену надійність вимірювання.",
+                    "options": [
+                        "dispute",
+                        "acknowledge",
+                        "recommend",
+                        "estimate"
+                    ]
+                },
+                "a5": {
+                    "answer": "is",
+                    "verb_hint": "Почни з підрядної групи «те, що аналітики оспорюють»; після дієслова-зв’язки назви виділену надійність вимірювання.",
+                    "options": [
+                        "is",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з підрядної групи «те, що аналітики оспорюють»; після дієслова-зв’язки назви виділену надійність вимірювання.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a7": {
+                    "answer": "reliability",
+                    "verb_hint": "Почни з підрядної групи «те, що аналітики оспорюють»; після дієслова-зв’язки назви виділену надійність вимірювання.",
+                    "options": [
+                        "reliability",
+                        "purpose",
+                        "significance",
+                        "relevance"
+                    ]
+                },
+                "a8": {
+                    "answer": "of",
+                    "verb_hint": "Почни з підрядної групи «те, що аналітики оспорюють»; після дієслова-зв’язки назви виділену надійність вимірювання.",
+                    "options": [
+                        "of",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Почни з підрядної групи «те, що аналітики оспорюють»; після дієслова-зв’язки назви виділену надійність вимірювання.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a10": {
+                    "answer": "measurement.",
+                    "verb_hint": "Почни з підрядної групи «те, що аналітики оспорюють»; після дієслова-зв’язки назви виділену надійність вимірювання.",
+                    "options": [
+                        "measurement",
+                        "evidence",
+                        "comparison",
+                        "assessment"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з підрядної групи «те, що аналітики оспорюють»; після дієслова-зв’язки назви виділену надійність вимірювання.",
+            "accepted_target_texts": [
+                "What the analysts dispute is the reliability of the measurement.",
+                "What the analysts challenge is the reliability of the measurement.",
+                "What the analysts question is the reliability of the measurement."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "challenge",
+                    "question"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "challenge",
+                    "question"
+                ]
+            },
+            "reorder_groups": [
+                "What the analysts",
+                "dispute is",
+                "the reliability",
+                "of the measurement."
+            ],
+            "token_groups": [
+                "What the analysts",
+                "dispute is",
+                "the reliability",
+                "of the measurement."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "What",
+                "the",
+                "analysts",
+                "dispute",
+                "is",
+                "the",
+                "reliability",
+                "of",
+                "the",
+                "measurement."
+            ],
+            "options": [
+                "What",
+                "Whoever",
+                "Whatever",
+                "Wherever",
+                "the",
+                "some",
+                "any",
+                "this",
+                "analysts",
+                "researchers",
+                "reviewers",
+                "witnesses",
+                "dispute",
+                "acknowledge",
+                "recommend",
+                "estimate",
+                "is",
+                "being",
+                "isn't",
+                "aren't",
+                "neither",
+                "all",
+                "both",
+                "reliability",
+                "purpose",
+                "significance",
+                "relevance",
+                "of",
+                "among",
+                "about",
+                "during",
+                "that",
+                "these",
+                "those",
+                "measurement",
+                "evidence",
+                "comparison",
+                "assessment"
+            ],
+            "source_text_uk": "Аналітики оспорюють саме надійність вимірювання.",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "Whoever",
+                    "Whatever",
+                    "Wherever"
+                ],
+                "a2": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a3": [
+                    "analysts",
+                    "researchers",
+                    "reviewers",
+                    "witnesses"
+                ],
+                "a4": [
+                    "dispute",
+                    "acknowledge",
+                    "recommend",
+                    "estimate"
+                ],
+                "a5": [
+                    "is",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a6": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a7": [
+                    "reliability",
+                    "purpose",
+                    "significance",
+                    "relevance"
+                ],
+                "a8": [
+                    "of",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a9": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a10": [
+                    "measurement",
+                    "evidence",
+                    "comparison",
+                    "assessment"
+                ]
+            },
+            "slot_roles": {
+                "a1": "cone_role_a",
+                "a2": "cone_role_a",
+                "a3": "cone_role_a",
+                "a4": "cone_role_b",
+                "a5": "cone_role_b",
+                "a6": "cone_role_c",
+                "a7": "cone_role_c",
+                "a8": "cone_role_d",
+                "a9": "cone_role_d",
+                "a10": "cone_role_d"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "mrq-c1-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Етнограф і не підозрював, що цитату змінили.",
+            "level": "C2",
+            "type": 4,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Етнограф і не підозрював, що цитату змінили.",
+            "target_text": "Little did the ethnographer suspect that the quotation had been altered.",
+            "markers": {
+                "a1": {
+                    "answer": "Little",
+                    "verb_hint": "Після початкового заперечного слова постав допоміжне дієслово перед етнографом; зміну цитати передай попередньою пасивною дією.",
+                    "options": [
+                        "Little",
+                        "Seldom",
+                        "Never",
+                        "Map"
+                    ]
+                },
+                "a2": {
+                    "answer": "did",
+                    "verb_hint": "Після початкового заперечного слова постав допоміжне дієслово перед етнографом; зміну цитати передай попередньою пасивною дією.",
+                    "options": [
+                        "did",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Після початкового заперечного слова постав допоміжне дієслово перед етнографом; зміну цитати передай попередньою пасивною дією.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a4": {
+                    "answer": "ethnographer",
+                    "verb_hint": "Після початкового заперечного слова постав допоміжне дієслово перед етнографом; зміну цитати передай попередньою пасивною дією.",
+                    "options": [
+                        "ethnographer",
+                        "editor",
+                        "translator",
+                        "interpreter"
+                    ]
+                },
+                "a5": {
+                    "answer": "suspect",
+                    "verb_hint": "Після початкового заперечного слова постав допоміжне дієслово перед етнографом; зміну цитати передай попередньою пасивною дією.",
+                    "options": [
+                        "suspect",
+                        "believe",
+                        "consider",
+                        "imagine"
+                    ]
+                },
+                "a6": {
+                    "answer": "that",
+                    "verb_hint": "Після початкового заперечного слова постав допоміжне дієслово перед етнографом; зміну цитати передай попередньою пасивною дією.",
+                    "options": [
+                        "that",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Після початкового заперечного слова постав допоміжне дієслово перед етнографом; зміну цитати передай попередньою пасивною дією.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a8": {
+                    "answer": "quotation",
+                    "verb_hint": "Після початкового заперечного слова постав допоміжне дієслово перед етнографом; зміну цитати передай попередньою пасивною дією.",
+                    "options": [
+                        "quotation",
+                        "transcription",
+                        "account",
+                        "testimony"
+                    ]
+                },
+                "a9": {
+                    "answer": "had",
+                    "verb_hint": "Після початкового заперечного слова постав допоміжне дієслово перед етнографом; зміну цитати передай попередньою пасивною дією.",
+                    "options": [
+                        "had",
+                        "do",
+                        "does",
+                        "have"
+                    ]
+                },
+                "a10": {
+                    "answer": "been",
+                    "verb_hint": "Після початкового заперечного слова постав допоміжне дієслово перед етнографом; зміну цитати передай попередньою пасивною дією.",
+                    "options": [
+                        "been",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a11": {
+                    "answer": "altered.",
+                    "verb_hint": "Після початкового заперечного слова постав допоміжне дієслово перед етнографом; зміну цитати передай попередньою пасивною дією.",
+                    "options": [
+                        "altered",
+                        "suppressed",
+                        "omitted",
+                        "fabricated"
+                    ]
+                }
+            },
+            "verb_hint": "Після початкового заперечного слова постав допоміжне дієслово перед етнографом; зміну цитати передай попередньою пасивною дією.",
+            "accepted_target_texts": [
+                "Little did the ethnographer suspect that the quotation had been altered.",
+                "Little did the ethnographer suspect that the quotation had been changed."
+            ],
+            "answer_synonyms": {
+                "a11": [
+                    "changed."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a11": [
+                    "changed."
+                ]
+            },
+            "reorder_groups": [
+                "Little did",
+                "the ethnographer",
+                "suspect that",
+                "the quotation",
+                "had been altered."
+            ],
+            "token_groups": [
+                "Little did",
+                "the ethnographer",
+                "suspect that",
+                "the quotation",
+                "had been altered."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Little",
+                "did",
+                "the",
+                "ethnographer",
+                "suspect",
+                "that",
+                "the",
+                "quotation",
+                "had",
+                "been",
+                "altered."
+            ],
+            "options": [
+                "Little",
+                "Seldom",
+                "Never",
+                "Map",
+                "did",
+                "don't",
+                "doesn't",
+                "didn't",
+                "the",
+                "both",
+                "a",
+                "an",
+                "ethnographer",
+                "editor",
+                "translator",
+                "interpreter",
+                "suspect",
+                "believe",
+                "consider",
+                "imagine",
+                "that",
+                "some",
+                "any",
+                "this",
+                "each",
+                "every",
+                "no",
+                "quotation",
+                "transcription",
+                "account",
+                "testimony",
+                "had",
+                "do",
+                "does",
+                "have",
+                "been",
+                "was",
+                "were",
+                "be",
+                "altered",
+                "suppressed",
+                "omitted",
+                "fabricated"
+            ],
+            "source_text_uk": "Етнограф і не підозрював, що цитату змінили.",
+            "options_by_marker": {
+                "a1": [
+                    "Little",
+                    "Seldom",
+                    "Never",
+                    "Map"
+                ],
+                "a2": [
+                    "did",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a3": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a4": [
+                    "ethnographer",
+                    "editor",
+                    "translator",
+                    "interpreter"
+                ],
+                "a5": [
+                    "suspect",
+                    "believe",
+                    "consider",
+                    "imagine"
+                ],
+                "a6": [
+                    "that",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a8": [
+                    "quotation",
+                    "transcription",
+                    "account",
+                    "testimony"
+                ],
+                "a9": [
+                    "had",
+                    "do",
+                    "does",
+                    "have"
+                ],
+                "a10": [
+                    "been",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a11": [
+                    "altered",
+                    "suppressed",
+                    "omitted",
+                    "fabricated"
+                ]
+            },
+            "slot_roles": {
+                "a1": "ctwo_role_a",
+                "a2": "ctwo_role_a",
+                "a3": "ctwo_role_b",
+                "a4": "ctwo_role_b",
+                "a5": "ctwo_role_c",
+                "a6": "ctwo_role_c",
+                "a7": "ctwo_role_d",
+                "a8": "ctwo_role_d",
+                "a9": "ctwo_role_e",
+                "a10": "ctwo_role_e",
+                "a11": "ctwo_role_e"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

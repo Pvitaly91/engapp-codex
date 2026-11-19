@@ -1,0 +1,1742 @@
+{
+    "schema_version": 1,
+    "quality_revision": "rsq-v1",
+    "compiled_from": {
+        "path": "docs/content/reported-speech-quality/advanced-reported-speech.v1.json",
+        "sha256": "3f9a37204b26dc56ee43a5bd18944b57708536a2888ffc6fb8c09d956636e8a5"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedAdvancedReportedSpeechQualityStandardSeeder",
+        "uuid_namespace": "reported-speech-quality-advanced-reported-speech-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Reported Speech"
+    },
+    "sources": {
+        "reported_speech_quality_advanced_reported_speech": {
+            "name": "Reported Speech Quality: Advanced Reported Speech and Reporting Verb Patterns"
+        }
+    },
+    "tags": {
+        "advanced_reported_speech_all_levels": {
+            "name": "advanced reported speech all levels",
+            "category": "reported_speech"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "advanced_statements": {
+            "name": "Advanced Statements",
+            "category": "topic"
+        },
+        "advanced_questions": {
+            "name": "Advanced Questions",
+            "category": "topic"
+        },
+        "commands_requests_advice": {
+            "name": "Commands Requests Advice",
+            "category": "topic"
+        },
+        "advanced_reporting_verbs": {
+            "name": "Advanced Reporting Verbs",
+            "category": "topic"
+        },
+        "verb_that_clause": {
+            "name": "Verb That Clause",
+            "category": "topic"
+        },
+        "object_to_infinitive": {
+            "name": "Object To Infinitive",
+            "category": "topic"
+        },
+        "verb_gerund": {
+            "name": "Verb Gerund",
+            "category": "topic"
+        },
+        "preposition_gerund": {
+            "name": "Preposition Gerund",
+            "category": "topic"
+        },
+        "backshift_exceptions": {
+            "name": "Backshift Exceptions",
+            "category": "topic"
+        },
+        "modal_backshift": {
+            "name": "Modal Backshift",
+            "category": "topic"
+        },
+        "complex_time_place": {
+            "name": "Complex Time Place",
+            "category": "topic"
+        },
+        "formal_reported_speech": {
+            "name": "Formal Reported Speech",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rsq-advanced-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Vlada {a1} with the bags.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Влада пообіцяла допомогти із сумками.",
+            "target_text": "Vlada promised to help with the bags.",
+            "markers": {
+                "a1": {
+                    "answer": "promised to help",
+                    "options": [
+                        "promised to help",
+                        "promised helping",
+                        "promised help"
+                    ],
+                    "verb_hint": "Пообіцяла допомогти; уведи всю групу обіцянки з інфінітивом."
+                }
+            },
+            "verb_hint": "Пообіцяла допомогти; уведи всю групу обіцянки з інфінітивом.",
+            "accepted_target_texts": [
+                "Vlada promised to help with the bags."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Vlada",
+                "promised to help",
+                "with the bags."
+            ],
+            "token_groups": [
+                "Vlada",
+                "promised to help",
+                "with the bags."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "rsq-advanced-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The boys {a1} to share the cake.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Хлопці погодилися поділитися пирогом.",
+            "target_text": "The boys agreed to share the cake.",
+            "markers": {
+                "a1": {
+                    "answer": "agreed",
+                    "options": [
+                        "agreed",
+                        "suggested",
+                        "denied"
+                    ],
+                    "verb_hint": "Погодилися; інфінітив спільної дії вже наведений."
+                }
+            },
+            "verb_hint": "Погодилися; інфінітив спільної дії вже наведений.",
+            "accepted_target_texts": [
+                "The boys agreed to share the cake."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The boys",
+                "agreed",
+                "to share",
+                "the cake."
+            ],
+            "token_groups": [
+                "The boys",
+                "agreed",
+                "to share",
+                "the cake."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "rsq-advanced-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Mum {a1} to take my hat.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Мама нагадала мені взяти капелюх.",
+            "target_text": "Mum reminded me to take my hat.",
+            "markers": {
+                "a1": {
+                    "answer": "reminded me",
+                    "options": [
+                        "reminded me",
+                        "reminded to me",
+                        "suggested me"
+                    ],
+                    "verb_hint": "Нагадала мені; уведи дієслово й адресата нагадування."
+                }
+            },
+            "verb_hint": "Нагадала мені; уведи дієслово й адресата нагадування.",
+            "accepted_target_texts": [
+                "Mum reminded me to take my hat."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Mum",
+                "reminded me",
+                "to take",
+                "my hat."
+            ],
+            "token_groups": [
+                "Mum",
+                "reminded me",
+                "to take",
+                "my hat."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "rsq-advanced-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The girl {a1} to eat the onion.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Дівчинка відмовилася їсти цибулю.",
+            "target_text": "The girl refused to eat the onion.",
+            "markers": {
+                "a1": {
+                    "answer": "refused",
+                    "options": [
+                        "refused",
+                        "denied",
+                        "suggested"
+                    ],
+                    "verb_hint": "Відмовилася; після пропуску вже стоїть інфінітив небажаної дії."
+                }
+            },
+            "verb_hint": "Відмовилася; після пропуску вже стоїть інфінітив небажаної дії.",
+            "accepted_target_texts": [
+                "The girl refused to eat the onion."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The girl",
+                "refused",
+                "to eat",
+                "the onion."
+            ],
+            "token_groups": [
+                "The girl",
+                "refused",
+                "to eat",
+                "the onion."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "rsq-advanced-a1-g05",
+            "author_id": "A1-g05",
+            "question": "The guard {a1} us not to feed the bear.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Охоронець попередив нас не годувати ведмедя.",
+            "target_text": "The guard warned us not to feed the bear.",
+            "markers": {
+                "a1": {
+                    "answer": "warned",
+                    "options": [
+                        "warned",
+                        "suggested",
+                        "said"
+                    ],
+                    "verb_hint": "Попередив нас про небажану дію; адресат уже наведений."
+                }
+            },
+            "verb_hint": "Попередив нас про небажану дію; адресат уже наведений.",
+            "accepted_target_texts": [
+                "The guard warned us not to feed the bear."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guard",
+                "warned",
+                "us",
+                "not to",
+                "feed the bear."
+            ],
+            "token_groups": [
+                "The guard",
+                "warned",
+                "us",
+                "not to",
+                "feed the bear."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "rsq-advanced-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Dad {a1} to wash the cups.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Тато запропонував помити чашки.",
+            "target_text": "Dad offered to wash the cups.",
+            "markers": {
+                "a1": {
+                    "answer": "offered",
+                    "options": [
+                        "offered",
+                        "suggested",
+                        "denied"
+                    ],
+                    "verb_hint": "Запропонував сам виконати дію; інфінітив уже наведений."
+                }
+            },
+            "verb_hint": "Запропонував сам виконати дію; інфінітив уже наведений.",
+            "accepted_target_texts": [
+                "Dad offered to wash the cups."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Dad",
+                "offered",
+                "to wash",
+                "the cups."
+            ],
+            "token_groups": [
+                "Dad",
+                "offered",
+                "to wash",
+                "the cups."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "rsq-advanced-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The waiter {a1} another spoon.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Офіціант запропонував принести ще одну ложку.",
+            "target_text": "The waiter offered to bring another spoon.",
+            "markers": {
+                "a1": {
+                    "answer": "offered to bring",
+                    "options": [
+                        "offered to bring",
+                        "offered bringing",
+                        "suggested to bring"
+                    ],
+                    "verb_hint": "Запропонував сам принести; уведи повну групу з інфінітивом."
+                }
+            },
+            "verb_hint": "Запропонував сам принести; уведи повну групу з інфінітивом.",
+            "accepted_target_texts": [
+                "The waiter offered to bring another spoon."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The waiter",
+                "offered to bring",
+                "another spoon."
+            ],
+            "token_groups": [
+                "The waiter",
+                "offered to bring",
+                "another spoon."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "rsq-advanced-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Olena {a1} stepping on my foot.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Олена вибачилася за те, що наступила мені на ногу.",
+            "target_text": "Olena apologised for stepping on my foot.",
+            "markers": {
+                "a1": {
+                    "answer": "apologised for",
+                    "options": [
+                        "apologised for",
+                        "apologised to",
+                        "apologised of"
+                    ],
+                    "verb_hint": "Вибачилася за дію; потрібен прийменник причини."
+                }
+            },
+            "verb_hint": "Вибачилася за дію; потрібен прийменник причини.",
+            "accepted_target_texts": [
+                "Olena apologised for stepping on my foot.",
+                "Olena apologized for stepping on my foot."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "apologized for"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "apologized for"
+                ]
+            },
+            "reorder_groups": [
+                "Olena",
+                "apologised for",
+                "stepping on",
+                "my foot."
+            ],
+            "token_groups": [
+                "Olena",
+                "apologised for",
+                "stepping on",
+                "my foot."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "rsq-advanced-a2-g03",
+            "author_id": "A2-g03",
+            "question": "My friend {a1} me to lock the bicycle.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Мій друг нагадав мені замкнути велосипед.",
+            "target_text": "My friend reminded me to lock the bicycle.",
+            "markers": {
+                "a1": {
+                    "answer": "reminded",
+                    "options": [
+                        "reminded",
+                        "suggested",
+                        "said"
+                    ],
+                    "verb_hint": "Нагадав; адресат і подальша дія вже наведені."
+                }
+            },
+            "verb_hint": "Нагадав; адресат і подальша дія вже наведені.",
+            "accepted_target_texts": [
+                "My friend reminded me to lock the bicycle."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My friend",
+                "reminded",
+                "me",
+                "to lock",
+                "the bicycle."
+            ],
+            "token_groups": [
+                "My friend",
+                "reminded",
+                "me",
+                "to lock",
+                "the bicycle."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "rsq-advanced-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The driver {a1} to leave without a ticket.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Водій відмовився їхати без квитка.",
+            "target_text": "The driver refused to leave without a ticket.",
+            "markers": {
+                "a1": {
+                    "answer": "refused",
+                    "options": [
+                        "refused",
+                        "denied",
+                        "suggested"
+                    ],
+                    "verb_hint": "Відмовився виконувати дію; після пропуску вже є інфінітив."
+                }
+            },
+            "verb_hint": "Відмовився виконувати дію; після пропуску вже є інфінітив.",
+            "accepted_target_texts": [
+                "The driver refused to leave without a ticket."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The driver",
+                "refused",
+                "to leave",
+                "without a ticket."
+            ],
+            "token_groups": [
+                "The driver",
+                "refused",
+                "to leave",
+                "without a ticket."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "rsq-advanced-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The teacher {a1} drawing a large circle.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Учитель запропонував намалювати велике коло.",
+            "target_text": "The teacher suggested drawing a large circle.",
+            "markers": {
+                "a1": {
+                    "answer": "suggested",
+                    "options": [
+                        "suggested",
+                        "offered",
+                        "told"
+                    ],
+                    "verb_hint": "Запропонував дію; її назва із закінченням уже наведена."
+                }
+            },
+            "verb_hint": "Запропонував дію; її назва із закінченням уже наведена.",
+            "accepted_target_texts": [
+                "The teacher suggested drawing a large circle."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The teacher",
+                "suggested",
+                "drawing",
+                "a large circle."
+            ],
+            "token_groups": [
+                "The teacher",
+                "suggested",
+                "drawing",
+                "a large circle."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "rsq-advanced-a2-g06",
+            "author_id": "A2-g06",
+            "question": "I {a1} for finding my wallet.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Я подякував їй за те, що вона знайшла мій гаманець.",
+            "target_text": "I thanked her for finding my wallet.",
+            "markers": {
+                "a1": {
+                    "answer": "thanked her",
+                    "options": [
+                        "thanked her",
+                        "thanked to her",
+                        "said her"
+                    ],
+                    "verb_hint": "Подякував їй; уведи дієслово з адресаткою перед причиною подяки."
+                }
+            },
+            "verb_hint": "Подякував їй; уведи дієслово з адресаткою перед причиною подяки.",
+            "accepted_target_texts": [
+                "I thanked her for finding my wallet."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "thanked her",
+                "for finding",
+                "my wallet."
+            ],
+            "token_groups": [
+                "I",
+                "thanked her",
+                "for finding",
+                "my wallet."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "rsq-advanced-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The instructor {a1} the hikers not to cross the stream.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Інструктор попередив мандрівників не переходити струмок.",
+            "target_text": "The instructor warned the hikers not to cross the stream.",
+            "markers": {
+                "a1": {
+                    "answer": "warned",
+                    "options": [
+                        "warned",
+                        "suggested",
+                        "said"
+                    ],
+                    "verb_hint": "Попередив названих людей; заперечна дія вже наведена."
+                }
+            },
+            "verb_hint": "Попередив названих людей; заперечна дія вже наведена.",
+            "accepted_target_texts": [
+                "The instructor warned the hikers not to cross the stream."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The instructor",
+                "warned",
+                "the hikers",
+                "not to",
+                "cross the stream."
+            ],
+            "token_groups": [
+                "The instructor",
+                "warned",
+                "the hikers",
+                "not to",
+                "cross the stream."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "rsq-advanced-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Roksolana {a1} the wrong umbrella.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Роксолана зізналася, що взяла не ту парасольку.",
+            "target_text": "Roksolana admitted taking the wrong umbrella.",
+            "markers": {
+                "a1": {
+                    "answer": "admitted taking",
+                    "options": [
+                        "admitted taking",
+                        "admitted to take",
+                        "admitted take"
+                    ],
+                    "verb_hint": "Зізналася у взятті; уведи дієслово й назву дії."
+                }
+            },
+            "verb_hint": "Зізналася у взятті; уведи дієслово й назву дії.",
+            "accepted_target_texts": [
+                "Roksolana admitted taking the wrong umbrella."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Roksolana",
+                "admitted taking",
+                "the wrong",
+                "umbrella."
+            ],
+            "token_groups": [
+                "Roksolana",
+                "admitted taking",
+                "the wrong",
+                "umbrella."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "rsq-advanced-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The landlord {a1} inspecting the damaged roof.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Власник наполіг на огляді пошкодженого даху.",
+            "target_text": "The landlord insisted on inspecting the damaged roof.",
+            "markers": {
+                "a1": {
+                    "answer": "insisted on",
+                    "options": [
+                        "insisted on",
+                        "insisted to",
+                        "insisted for"
+                    ],
+                    "verb_hint": "Наполіг на дії; назва дії вже наведена після пропуску."
+                }
+            },
+            "verb_hint": "Наполіг на дії; назва дії вже наведена після пропуску.",
+            "accepted_target_texts": [
+                "The landlord insisted on inspecting the damaged roof."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The landlord",
+                "insisted on",
+                "inspecting",
+                "the damaged roof."
+            ],
+            "token_groups": [
+                "The landlord",
+                "insisted on",
+                "inspecting",
+                "the damaged roof."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "rsq-advanced-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The assistant {a1} us to keep the boarding passes.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Помічник нагадав нам зберегти посадкові талони.",
+            "target_text": "The assistant reminded us to keep the boarding passes.",
+            "markers": {
+                "a1": {
+                    "answer": "reminded",
+                    "options": [
+                        "reminded",
+                        "suggested",
+                        "said"
+                    ],
+                    "verb_hint": "Нагадав названим адресатам; після них уже є інфінітив дії."
+                }
+            },
+            "verb_hint": "Нагадав названим адресатам; після них уже є інфінітив дії.",
+            "accepted_target_texts": [
+                "The assistant reminded us to keep the boarding passes."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The assistant",
+                "reminded",
+                "us",
+                "to keep",
+                "the boarding passes."
+            ],
+            "token_groups": [
+                "The assistant",
+                "reminded",
+                "us",
+                "to keep",
+                "the boarding passes."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "rsq-advanced-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The neighbour {a1} scratching the parked car.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Сусід звинуватив його в подряпуванні припаркованого автомобіля.",
+            "target_text": "The neighbour accused him of scratching the parked car.",
+            "markers": {
+                "a1": {
+                    "answer": "accused him of",
+                    "options": [
+                        "accused him of",
+                        "accused him for",
+                        "accused to him"
+                    ],
+                    "verb_hint": "Звинуватив його в дії; уведи дієслово, обвинуваченого й прийменник."
+                }
+            },
+            "verb_hint": "Звинуватив його в дії; уведи дієслово, обвинуваченого й прийменник.",
+            "accepted_target_texts": [
+                "The neighbour accused him of scratching the parked car."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The neighbour",
+                "accused him of",
+                "scratching",
+                "the parked car."
+            ],
+            "token_groups": [
+                "The neighbour",
+                "accused him of",
+                "scratching",
+                "the parked car."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "rsq-advanced-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The captain {a1} the crew to secure the loose ropes.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Капітан наказав команді закріпити розхитані мотузки.",
+            "target_text": "The captain ordered the crew to secure the loose ropes.",
+            "markers": {
+                "a1": {
+                    "answer": "ordered",
+                    "options": [
+                        "ordered",
+                        "suggested",
+                        "said"
+                    ],
+                    "verb_hint": "Наказав названій команді; дію вже подано інфінітивом."
+                }
+            },
+            "verb_hint": "Наказав названій команді; дію вже подано інфінітивом.",
+            "accepted_target_texts": [
+                "The captain ordered the crew to secure the loose ropes."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The captain",
+                "ordered",
+                "the crew",
+                "to secure",
+                "the loose ropes."
+            ],
+            "token_groups": [
+                "The captain",
+                "ordered",
+                "the crew",
+                "to secure",
+                "the loose ropes."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "rsq-advanced-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The analyst {a1} that the forecast had underestimated demand.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Аналітик визнав, що прогноз недооцінив попит.",
+            "target_text": "The analyst acknowledged that the forecast had underestimated demand.",
+            "markers": {
+                "a1": {
+                    "answer": "acknowledged",
+                    "options": [
+                        "acknowledged",
+                        "told",
+                        "asked"
+                    ],
+                    "verb_hint": "Визнав у повному повідомленні; сполучник і зміст уже наведені."
+                }
+            },
+            "verb_hint": "Визнав у повному повідомленні; сполучник і зміст уже наведені.",
+            "accepted_target_texts": [
+                "The analyst acknowledged that the forecast had underestimated demand.",
+                "The analyst admitted that the forecast had underestimated demand."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "admitted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "admitted"
+                ]
+            },
+            "reorder_groups": [
+                "The analyst",
+                "acknowledged",
+                "that the forecast",
+                "had underestimated demand."
+            ],
+            "token_groups": [
+                "The analyst",
+                "acknowledged",
+                "that the forecast",
+                "had underestimated demand."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "rsq-advanced-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The firm {a1} the confidentiality clause.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Компанія заперечила, що порушила положення про конфіденційність.",
+            "target_text": "The firm denied having breached the confidentiality clause.",
+            "markers": {
+                "a1": {
+                    "answer": "denied having breached",
+                    "options": [
+                        "denied having breached",
+                        "denied to breach",
+                        "denied have breached"
+                    ],
+                    "verb_hint": "Заперечила попереднє порушення; уведи дієслово й доконану назву дії."
+                }
+            },
+            "verb_hint": "Заперечила попереднє порушення; уведи дієслово й доконану назву дії.",
+            "accepted_target_texts": [
+                "The firm denied having breached the confidentiality clause."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The firm",
+                "denied having breached",
+                "the confidentiality clause."
+            ],
+            "token_groups": [
+                "The firm",
+                "denied having breached",
+                "the confidentiality clause."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "rsq-advanced-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The architect {a1} replacing the original windows.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Архітектор заперечив проти заміни первісних вікон.",
+            "target_text": "The architect objected to replacing the original windows.",
+            "markers": {
+                "a1": {
+                    "answer": "objected to",
+                    "options": [
+                        "objected to",
+                        "objected for",
+                        "objected on"
+                    ],
+                    "verb_hint": "Заперечив проти дії; потрібен прийменник перед уже наведеною назвою дії."
+                }
+            },
+            "verb_hint": "Заперечив проти дії; потрібен прийменник перед уже наведеною назвою дії.",
+            "accepted_target_texts": [
+                "The architect objected to replacing the original windows."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The architect",
+                "objected to",
+                "replacing",
+                "the original windows."
+            ],
+            "token_groups": [
+                "The architect",
+                "objected to",
+                "replacing",
+                "the original windows."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "rsq-advanced-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The mediator {a1} both parties to reconsider the timetable.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Посередник закликав обидві сторони переглянути графік.",
+            "target_text": "The mediator urged both parties to reconsider the timetable.",
+            "markers": {
+                "a1": {
+                    "answer": "urged",
+                    "options": [
+                        "urged",
+                        "suggested",
+                        "said"
+                    ],
+                    "verb_hint": "Наполегливо закликав названих учасників; інфінітив уже наведений."
+                }
+            },
+            "verb_hint": "Наполегливо закликав названих учасників; інфінітив уже наведений.",
+            "accepted_target_texts": [
+                "The mediator urged both parties to reconsider the timetable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The mediator",
+                "urged",
+                "both parties",
+                "to reconsider",
+                "the timetable."
+            ],
+            "token_groups": [
+                "The mediator",
+                "urged",
+                "both parties",
+                "to reconsider",
+                "the timetable."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "rsq-advanced-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The supplier {a1} having dispatched the wrong components.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Постачальник вибачився за те, що відправив не ті деталі.",
+            "target_text": "The supplier apologised for having dispatched the wrong components.",
+            "markers": {
+                "a1": {
+                    "answer": "apologised for",
+                    "options": [
+                        "apologised for",
+                        "apologised to",
+                        "apologised of"
+                    ],
+                    "verb_hint": "Вибачився за попередню дію; після пропуску вже є її доконана назва."
+                }
+            },
+            "verb_hint": "Вибачився за попередню дію; після пропуску вже є її доконана назва.",
+            "accepted_target_texts": [
+                "The supplier apologised for having dispatched the wrong components.",
+                "The supplier apologized for having dispatched the wrong components."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "apologized for"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "apologized for"
+                ]
+            },
+            "reorder_groups": [
+                "The supplier",
+                "apologised for",
+                "having dispatched",
+                "the wrong components."
+            ],
+            "token_groups": [
+                "The supplier",
+                "apologised for",
+                "having dispatched",
+                "the wrong components."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "rsq-advanced-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The technician {a1} to demonstrate the revised procedure.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Технік запропонував продемонструвати переглянуту процедуру.",
+            "target_text": "The technician offered to demonstrate the revised procedure.",
+            "markers": {
+                "a1": {
+                    "answer": "offered",
+                    "options": [
+                        "offered",
+                        "suggested",
+                        "denied"
+                    ],
+                    "verb_hint": "Запропонував виконати дію сам; після пропуску вже стоїть інфінітив."
+                }
+            },
+            "verb_hint": "Запропонував виконати дію сам; після пропуску вже стоїть інфінітив.",
+            "accepted_target_texts": [
+                "The technician offered to demonstrate the revised procedure."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The technician",
+                "offered",
+                "to demonstrate",
+                "the revised procedure."
+            ],
+            "token_groups": [
+                "The technician",
+                "offered",
+                "to demonstrate",
+                "the revised procedure."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "rsq-advanced-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The witness {a1} that his recollection was incomplete.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Свідок визнав, що його спогади неповні.",
+            "target_text": "The witness conceded that his recollection was incomplete.",
+            "markers": {
+                "a1": {
+                    "answer": "conceded",
+                    "options": [
+                        "conceded",
+                        "told",
+                        "asked"
+                    ],
+                    "verb_hint": "Визнав небажану для власної позиції обставину; сполучник уже наведений."
+                }
+            },
+            "verb_hint": "Визнав небажану для власної позиції обставину; сполучник уже наведений.",
+            "accepted_target_texts": [
+                "The witness conceded that his recollection was incomplete.",
+                "The witness acknowledged that his recollection was incomplete.",
+                "The witness admitted that his recollection was incomplete."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "acknowledged",
+                    "admitted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "acknowledged",
+                    "admitted"
+                ]
+            },
+            "reorder_groups": [
+                "The witness",
+                "conceded",
+                "that his recollection",
+                "was incomplete."
+            ],
+            "token_groups": [
+                "The witness",
+                "conceded",
+                "that his recollection",
+                "was incomplete."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "rsq-advanced-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The counsel {a1} the claimant against disclosing privileged correspondence.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Адвокат порадив позивачеві не розкривати привілейоване листування.",
+            "target_text": "The counsel advised the claimant against disclosing privileged correspondence.",
+            "markers": {
+                "a1": {
+                    "answer": "advised",
+                    "options": [
+                        "advised",
+                        "suggested",
+                        "said"
+                    ],
+                    "verb_hint": "Порадив названому позивачеві; після адресата вже наведено застереження щодо дії."
+                }
+            },
+            "verb_hint": "Порадив названому позивачеві; після адресата вже наведено застереження щодо дії.",
+            "accepted_target_texts": [
+                "The counsel advised the claimant against disclosing privileged correspondence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The counsel",
+                "advised",
+                "the claimant",
+                "against disclosing",
+                "privileged correspondence."
+            ],
+            "token_groups": [
+                "The counsel",
+                "advised",
+                "the claimant",
+                "against disclosing",
+                "privileged correspondence."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "rsq-advanced-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The negotiator {a1} retaining a review mechanism.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Переговорник наполіг на збереженні механізму перегляду.",
+            "target_text": "The negotiator insisted on retaining a review mechanism.",
+            "markers": {
+                "a1": {
+                    "answer": "insisted on",
+                    "options": [
+                        "insisted on",
+                        "insisted to",
+                        "insisted for"
+                    ],
+                    "verb_hint": "Наполіг на дії; потрібен прийменник перед уже наведеною назвою дії."
+                }
+            },
+            "verb_hint": "Наполіг на дії; потрібен прийменник перед уже наведеною назвою дії.",
+            "accepted_target_texts": [
+                "The negotiator insisted on retaining a review mechanism."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The negotiator",
+                "insisted on",
+                "retaining",
+                "a review mechanism."
+            ],
+            "token_groups": [
+                "The negotiator",
+                "insisted on",
+                "retaining",
+                "a review mechanism."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "rsq-advanced-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The agency {a1} to rectify the procedural defect.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Установа зобов’язалася виправити процедурний недолік.",
+            "target_text": "The agency undertook to rectify the procedural defect.",
+            "markers": {
+                "a1": {
+                    "answer": "undertook",
+                    "options": [
+                        "undertook",
+                        "suggested",
+                        "denied"
+                    ],
+                    "verb_hint": "Взяла на себе зобов’язання; після пропуску вже наведено інфінітив."
+                }
+            },
+            "verb_hint": "Взяла на себе зобов’язання; після пропуску вже наведено інфінітив.",
+            "accepted_target_texts": [
+                "The agency undertook to rectify the procedural defect."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The agency",
+                "undertook",
+                "to rectify",
+                "the procedural defect."
+            ],
+            "token_groups": [
+                "The agency",
+                "undertook",
+                "to rectify",
+                "the procedural defect."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "rsq-advanced-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The reviewer {a1} the authors to substantiate the causal attribution.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Рецензент закликав авторів довести приписування причинності.",
+            "target_text": "The reviewer challenged the authors to substantiate the causal attribution.",
+            "markers": {
+                "a1": {
+                    "answer": "challenged",
+                    "options": [
+                        "challenged",
+                        "suggested",
+                        "said"
+                    ],
+                    "verb_hint": "Поставив перед авторами вимогу обґрунтування; адресати вже наведені."
+                }
+            },
+            "verb_hint": "Поставив перед авторами вимогу обґрунтування; адресати вже наведені.",
+            "accepted_target_texts": [
+                "The reviewer challenged the authors to substantiate the causal attribution."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The reviewer",
+                "challenged",
+                "the authors",
+                "to substantiate",
+                "the causal attribution."
+            ],
+            "token_groups": [
+                "The reviewer",
+                "challenged",
+                "the authors",
+                "to substantiate",
+                "the causal attribution."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "rsq-advanced-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The respondent {a1} having authorised the covert collection of data.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Відповідач заперечив, що санкціонував приховане збирання даних.",
+            "target_text": "The respondent denied having authorised the covert collection of data.",
+            "markers": {
+                "a1": {
+                    "answer": "denied",
+                    "options": [
+                        "denied",
+                        "refused",
+                        "told"
+                    ],
+                    "verb_hint": "Заперечив попередню дію; її доконана назва вже наведена."
+                }
+            },
+            "verb_hint": "Заперечив попередню дію; її доконана назва вже наведена.",
+            "accepted_target_texts": [
+                "The respondent denied having authorised the covert collection of data."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The respondent",
+                "denied",
+                "having authorised",
+                "the covert collection",
+                "of data."
+            ],
+            "token_groups": [
+                "The respondent",
+                "denied",
+                "having authorised",
+                "the covert collection",
+                "of data."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "rsq-advanced-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The philosopher {a1} the suggestion that coherence entailed truth.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Філософ рішуче відкинув припущення, що узгодженість означає істинність.",
+            "target_text": "The philosopher repudiated the suggestion that coherence entailed truth.",
+            "markers": {
+                "a1": {
+                    "answer": "repudiated",
+                    "options": [
+                        "repudiated",
+                        "told",
+                        "asked"
+                    ],
+                    "verb_hint": "Рішуче відкинув припущення; його зміст уже подано після пропуску."
+                }
+            },
+            "verb_hint": "Рішуче відкинув припущення; його зміст уже подано після пропуску.",
+            "accepted_target_texts": [
+                "The philosopher repudiated the suggestion that coherence entailed truth.",
+                "The philosopher rejected the suggestion that coherence entailed truth."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "rejected"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "rejected"
+                ]
+            },
+            "reorder_groups": [
+                "The philosopher",
+                "repudiated",
+                "the suggestion",
+                "that coherence",
+                "entailed truth."
+            ],
+            "token_groups": [
+                "The philosopher",
+                "repudiated",
+                "the suggestion",
+                "that coherence",
+                "entailed truth."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "rsq-advanced-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The delegation {a1} at being characterised as obstructionist.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Делегація заперечила проти того, щоб її вважали обструкціоністською.",
+            "target_text": "The delegation demurred at being characterised as obstructionist.",
+            "markers": {
+                "a1": {
+                    "answer": "demurred",
+                    "options": [
+                        "demurred",
+                        "told",
+                        "said"
+                    ],
+                    "verb_hint": "Висловила заперечення; прийменниковий додаток уже наведений."
+                }
+            },
+            "verb_hint": "Висловила заперечення; прийменниковий додаток уже наведений.",
+            "accepted_target_texts": [
+                "The delegation demurred at being characterised as obstructionist."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The delegation",
+                "demurred",
+                "at being characterised",
+                "as obstructionist."
+            ],
+            "token_groups": [
+                "The delegation",
+                "demurred",
+                "at being characterised",
+                "as obstructionist."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "rsq-advanced-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The respondent {a1} any intention to prejudice the pending adjudication.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Відповідач заперечив наявність будь-якого наміру вплинути на майбутнє рішення.",
+            "target_text": "The respondent disclaimed any intention to prejudice the pending adjudication.",
+            "markers": {
+                "a1": {
+                    "answer": "disclaimed",
+                    "options": [
+                        "disclaimed",
+                        "told",
+                        "asked"
+                    ],
+                    "verb_hint": "Відмежувався від приписаного наміру; його назву вже наведено."
+                }
+            },
+            "verb_hint": "Відмежувався від приписаного наміру; його назву вже наведено.",
+            "accepted_target_texts": [
+                "The respondent disclaimed any intention to prejudice the pending adjudication.",
+                "The respondent denied any intention to prejudice the pending adjudication."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "denied"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "denied"
+                ]
+            },
+            "reorder_groups": [
+                "The respondent",
+                "disclaimed",
+                "any intention",
+                "to prejudice",
+                "the pending adjudication."
+            ],
+            "token_groups": [
+                "The respondent",
+                "disclaimed",
+                "any intention",
+                "to prejudice",
+                "the pending adjudication."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "rsq-advanced-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The rapporteur {a1} to disentangle the evidential issue from the normative premise.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Доповідач зобов’язався відокремити питання доказів від нормативної передумови.",
+            "target_text": "The rapporteur undertook to disentangle the evidential issue from the normative premise.",
+            "markers": {
+                "a1": {
+                    "answer": "undertook",
+                    "options": [
+                        "undertook",
+                        "suggested",
+                        "denied"
+                    ],
+                    "verb_hint": "Взяв на себе завдання; після пропуску вже стоїть інфінітив."
+                }
+            },
+            "verb_hint": "Взяв на себе завдання; після пропуску вже стоїть інфінітив.",
+            "accepted_target_texts": [
+                "The rapporteur undertook to disentangle the evidential issue from the normative premise."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The rapporteur",
+                "undertook",
+                "to disentangle",
+                "the evidential issue",
+                "from the",
+                "normative premise."
+            ],
+            "token_groups": [
+                "The rapporteur",
+                "undertook",
+                "to disentangle",
+                "the evidential issue",
+                "from the",
+                "normative premise."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "rsq-advanced-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The dissenter {a1} the majority for presupposing the disputed conclusion.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Незгодний учасник дорікнув більшості за те, що вона наперед приймає спірний висновок.",
+            "target_text": "The dissenter reproached the majority for presupposing the disputed conclusion.",
+            "markers": {
+                "a1": {
+                    "answer": "reproached",
+                    "options": [
+                        "reproached",
+                        "suggested",
+                        "said"
+                    ],
+                    "verb_hint": "Дорікнув більшості; причина докору вже наведена після адресата."
+                }
+            },
+            "verb_hint": "Дорікнув більшості; причина докору вже наведена після адресата.",
+            "accepted_target_texts": [
+                "The dissenter reproached the majority for presupposing the disputed conclusion."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dissenter",
+                "reproached",
+                "the majority",
+                "for presupposing",
+                "the disputed conclusion."
+            ],
+            "token_groups": [
+                "The dissenter",
+                "reproached",
+                "the majority",
+                "for presupposing",
+                "the disputed conclusion."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "rsq-advanced-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The expert {a1} the tribunal against treating silence as acquiescence.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_advanced_reported_speech",
+            "translation_uk": "Експерт застеріг трибунал від тлумачення мовчання як мовчазної згоди.",
+            "target_text": "The expert cautioned the tribunal against treating silence as acquiescence.",
+            "markers": {
+                "a1": {
+                    "answer": "cautioned",
+                    "options": [
+                        "cautioned",
+                        "suggested",
+                        "said"
+                    ],
+                    "verb_hint": "Застеріг названий трибунал; після адресата вже наведено небажане тлумачення."
+                }
+            },
+            "verb_hint": "Застеріг названий трибунал; після адресата вже наведено небажане тлумачення.",
+            "accepted_target_texts": [
+                "The expert cautioned the tribunal against treating silence as acquiescence.",
+                "The expert warned the tribunal against treating silence as acquiescence."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "warned"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "warned"
+                ]
+            },
+            "reorder_groups": [
+                "The expert",
+                "cautioned",
+                "the tribunal",
+                "against treating",
+                "silence as acquiescence."
+            ],
+            "token_groups": [
+                "The expert",
+                "cautioned",
+                "the tribunal",
+                "against treating",
+                "silence as acquiescence."
+            ],
+            "quality_revision": "rsq-v1"
+        }
+    ]
+}

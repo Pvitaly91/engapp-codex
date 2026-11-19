@@ -1,0 +1,1615 @@
+{
+    "schema_version": 1,
+    "quality_revision": "stq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-transformations-quality/relative-clauses-linking-words.v1.json",
+        "sha256": "147589f0ff0016832a57865bba2b26e73956fc7242a221284203caa1bd815247"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedStqRelativeClausesLinkingWordsQualityBuilderSeeder",
+        "uuid_namespace": "sentence-transformations-quality-relative-clauses-linking-words-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "sentence_transformations_quality_relative_clauses_linking_words": {
+            "name": "Sentence Transformations Quality: Sentence Transformations: Relative Clauses and Linking Words"
+        }
+    },
+    "tags": {
+        "sentence_transformations_relative_clauses_linking_words_all_levels": {
+            "name": "sentence transformations relative clauses linking words all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "relative_pronouns": {
+            "name": "Relative Pronouns",
+            "category": "topic"
+        },
+        "defining_relative": {
+            "name": "Defining Relative",
+            "category": "topic"
+        },
+        "non_defining_relative": {
+            "name": "Non Defining Relative",
+            "category": "topic"
+        },
+        "omitted_relative_pronoun": {
+            "name": "Omitted Relative Pronoun",
+            "category": "topic"
+        },
+        "reduced_relative": {
+            "name": "Reduced Relative",
+            "category": "topic"
+        },
+        "reason_links": {
+            "name": "Reason Links",
+            "category": "topic"
+        },
+        "contrast_links": {
+            "name": "Contrast Links",
+            "category": "topic"
+        },
+        "result_links": {
+            "name": "Result Links",
+            "category": "topic"
+        },
+        "purpose_links": {
+            "name": "Purpose Links",
+            "category": "topic"
+        },
+        "preserve_relation": {
+            "name": "Preserve Relation",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_sentence_transformations_relative_clauses_linking_words_all_levels": {
+            "name": "Sentence Transformations — Relative Clauses / Linking Words",
+            "category": "sentence_transformations"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stq-clauses-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Хлопчик, який несе прапор, — мій двоюрідний брат.",
+            "level": "A1",
+            "type": 4,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Хлопчик, який несе прапор, — мій двоюрідний брат.",
+            "target_text": "The boy who carries the flag is my cousin.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з хлопчика; уточни його дію означальною частиною та назви родинний зв’язок.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "boy",
+                    "verb_hint": "Почни з хлопчика; уточни його дію означальною частиною та назви родинний зв’язок.",
+                    "options": [
+                        "boy",
+                        "engineer",
+                        "driver",
+                        "visitor"
+                    ]
+                },
+                "a3": {
+                    "answer": "who",
+                    "verb_hint": "Почни з хлопчика; уточни його дію означальною частиною та назви родинний зв’язок.",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "when"
+                    ]
+                },
+                "a4": {
+                    "answer": "carries",
+                    "verb_hint": "Почни з хлопчика; уточни його дію означальною частиною та назви родинний зв’язок.",
+                    "options": [
+                        "carries",
+                        "chooses",
+                        "delivers",
+                        "repairs"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з хлопчика; уточни його дію означальною частиною та назви родинний зв’язок.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a6": {
+                    "answer": "flag",
+                    "verb_hint": "Почни з хлопчика; уточни його дію означальною частиною та назви родинний зв’язок.",
+                    "options": [
+                        "flag",
+                        "bus",
+                        "desk",
+                        "picture"
+                    ]
+                },
+                "a7": {
+                    "answer": "is",
+                    "verb_hint": "Почни з хлопчика; уточни його дію означальною частиною та назви родинний зв’язок.",
+                    "options": [
+                        "is",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a8": {
+                    "answer": "my",
+                    "verb_hint": "Почни з хлопчика; уточни його дію означальною частиною та назви родинний зв’язок.",
+                    "options": [
+                        "my",
+                        "our",
+                        "their",
+                        "mine"
+                    ]
+                },
+                "a9": {
+                    "answer": "cousin.",
+                    "verb_hint": "Почни з хлопчика; уточни його дію означальною частиною та назви родинний зв’язок.",
+                    "options": [
+                        "cousin",
+                        "uncle",
+                        "sister",
+                        "grandchild"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з хлопчика; уточни його дію означальною частиною та назви родинний зв’язок.",
+            "accepted_target_texts": [
+                "The boy who carries the flag is my cousin.",
+                "The boy that carries the flag is my cousin."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "that"
+                ]
+            },
+            "reorder_groups": [
+                "The boy",
+                "who carries",
+                "the flag",
+                "is",
+                "my cousin."
+            ],
+            "token_groups": [
+                "The boy",
+                "who carries",
+                "the flag",
+                "is",
+                "my cousin."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "The",
+                "boy",
+                "who",
+                "carries",
+                "the",
+                "flag",
+                "is",
+                "my",
+                "cousin."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "boy",
+                "engineer",
+                "driver",
+                "visitor",
+                "who",
+                "which",
+                "where",
+                "when",
+                "carries",
+                "chooses",
+                "delivers",
+                "repairs",
+                "the",
+                "a",
+                "an",
+                "some",
+                "flag",
+                "bus",
+                "desk",
+                "picture",
+                "is",
+                "were",
+                "be",
+                "been",
+                "my",
+                "our",
+                "their",
+                "mine",
+                "cousin",
+                "uncle",
+                "sister",
+                "grandchild"
+            ],
+            "source_text_uk": "Хлопчик, який несе прапор, — мій двоюрідний брат.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "boy",
+                    "engineer",
+                    "driver",
+                    "visitor"
+                ],
+                "a3": [
+                    "who",
+                    "which",
+                    "where",
+                    "when"
+                ],
+                "a4": [
+                    "carries",
+                    "chooses",
+                    "delivers",
+                    "repairs"
+                ],
+                "a5": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a6": [
+                    "flag",
+                    "bus",
+                    "desk",
+                    "picture"
+                ],
+                "a7": [
+                    "is",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a8": [
+                    "my",
+                    "our",
+                    "their",
+                    "mine"
+                ],
+                "a9": [
+                    "cousin",
+                    "uncle",
+                    "sister",
+                    "grandchild"
+                ]
+            },
+            "slot_roles": {
+                "a1": "person_subject",
+                "a2": "person_subject",
+                "a3": "human_relative_action",
+                "a4": "human_relative_action",
+                "a5": "singular_object",
+                "a6": "singular_object",
+                "a7": "singular_link",
+                "a8": "family_complement",
+                "a9": "family_complement"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "stq-clauses-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Ліфт був зламаний, тому ми скористалися сходами.",
+            "level": "A2",
+            "type": 4,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Ліфт був зламаний, тому ми скористалися сходами.",
+            "target_text": "The lift was broken, so we used the stairs.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Перше повідомлення пояснює вибір сходів, друге — наслідок поломки; збережи минулий час.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "lift",
+                    "verb_hint": "Перше повідомлення пояснює вибір сходів, друге — наслідок поломки; збережи минулий час.",
+                    "options": [
+                        "lift",
+                        "harbour",
+                        "river",
+                        "tunnel"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Перше повідомлення пояснює вибір сходів, друге — наслідок поломки; збережи минулий час.",
+                    "options": [
+                        "was",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a4": {
+                    "answer": "broken,",
+                    "verb_hint": "Перше повідомлення пояснює вибір сходів, друге — наслідок поломки; збережи минулий час.",
+                    "options": [
+                        "broken",
+                        "uneven",
+                        "crowded",
+                        "needed"
+                    ]
+                },
+                "a5": {
+                    "answer": "so",
+                    "verb_hint": "Перше повідомлення пояснює вибір сходів, друге — наслідок поломки; збережи минулий час.",
+                    "options": [
+                        "so",
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                },
+                "a6": {
+                    "answer": "we",
+                    "verb_hint": "Перше повідомлення пояснює вибір сходів, друге — наслідок поломки; збережи минулий час.",
+                    "options": [
+                        "we",
+                        "she",
+                        "it",
+                        "they"
+                    ]
+                },
+                "a7": {
+                    "answer": "used",
+                    "verb_hint": "Перше повідомлення пояснює вибір сходів, друге — наслідок поломки; збережи минулий час.",
+                    "options": [
+                        "used",
+                        "went",
+                        "saw",
+                        "liked"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Перше повідомлення пояснює вибір сходів, друге — наслідок поломки; збережи минулий час.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a9": {
+                    "answer": "stairs.",
+                    "verb_hint": "Перше повідомлення пояснює вибір сходів, друге — наслідок поломки; збережи минулий час.",
+                    "options": [
+                        "stairs",
+                        "schools",
+                        "friends",
+                        "dogs"
+                    ]
+                }
+            },
+            "verb_hint": "Перше повідомлення пояснює вибір сходів, друге — наслідок поломки; збережи минулий час.",
+            "accepted_target_texts": [
+                "The lift was broken, so we used the stairs.",
+                "The lift was broken, so we took the stairs."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "took"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "took"
+                ]
+            },
+            "reorder_groups": [
+                "The lift",
+                "was broken,",
+                "so",
+                "we used",
+                "the stairs."
+            ],
+            "token_groups": [
+                "The lift",
+                "was broken,",
+                "so",
+                "we used",
+                "the stairs."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "The",
+                "lift",
+                "was",
+                "broken,",
+                "so",
+                "we",
+                "used",
+                "the",
+                "stairs."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "lift",
+                "harbour",
+                "river",
+                "tunnel",
+                "was",
+                "be",
+                "been",
+                "being",
+                "broken",
+                "uneven",
+                "crowded",
+                "needed",
+                "so",
+                "and",
+                "but",
+                "or",
+                "we",
+                "she",
+                "it",
+                "they",
+                "used",
+                "went",
+                "saw",
+                "liked",
+                "the",
+                "that",
+                "these",
+                "those",
+                "stairs",
+                "schools",
+                "friends",
+                "dogs"
+            ],
+            "source_text_uk": "Ліфт був зламаний, тому ми скористалися сходами.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "lift",
+                    "harbour",
+                    "river",
+                    "tunnel"
+                ],
+                "a3": [
+                    "was",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a4": [
+                    "broken",
+                    "uneven",
+                    "crowded",
+                    "needed"
+                ],
+                "a5": [
+                    "so",
+                    "and",
+                    "but",
+                    "or"
+                ],
+                "a6": [
+                    "we",
+                    "she",
+                    "it",
+                    "they"
+                ],
+                "a7": [
+                    "used",
+                    "went",
+                    "saw",
+                    "liked"
+                ],
+                "a8": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a9": [
+                    "stairs",
+                    "schools",
+                    "friends",
+                    "dogs"
+                ]
+            },
+            "slot_roles": {
+                "a1": "thing_subject",
+                "a2": "thing_subject",
+                "a3": "past_adjective_state",
+                "a4": "past_adjective_state",
+                "a5": "result_link",
+                "a6": "past_use_clause",
+                "a7": "past_use_clause",
+                "a8": "access_object",
+                "a9": "access_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "stq-clauses-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Хоча валіза була важкою, Оксана віднесла її нагору.",
+            "level": "B1",
+            "type": 4,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Хоча валіза була важкою, Оксана віднесла її нагору.",
+            "target_text": "Although the suitcase was heavy, Oksana carried it upstairs.",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "verb_hint": "Вага могла завадити підйому, проте не завадила; збережи обидві минулі частини.",
+                    "options": [
+                        "Although",
+                        "Or",
+                        "Nor",
+                        "So"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Вага могла завадити підйому, проте не завадила; збережи обидві минулі частини.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a3": {
+                    "answer": "suitcase",
+                    "verb_hint": "Вага могла завадити підйому, проте не завадила; збережи обидві минулі частини.",
+                    "options": [
+                        "suitcase",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Вага могла завадити підйому, проте не завадила; збережи обидві минулі частини.",
+                    "options": [
+                        "was",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a5": {
+                    "answer": "heavy,",
+                    "verb_hint": "Вага могла завадити підйому, проте не завадила; збережи обидві минулі частини.",
+                    "options": [
+                        "heavy",
+                        "dark",
+                        "cold",
+                        "quiet"
+                    ]
+                },
+                "a6": {
+                    "answer": "Oksana",
+                    "verb_hint": "Вага могла завадити підйому, проте не завадила; збережи обидві минулі частини.",
+                    "options": [
+                        "Oksana",
+                        "Hanna",
+                        "Danylo",
+                        "Nazar"
+                    ]
+                },
+                "a7": {
+                    "answer": "carried",
+                    "verb_hint": "Вага могла завадити підйому, проте не завадила; збережи обидві минулі частини.",
+                    "options": [
+                        "carried",
+                        "pulled",
+                        "moved",
+                        "brought"
+                    ]
+                },
+                "a8": {
+                    "answer": "it",
+                    "verb_hint": "Вага могла завадити підйому, проте не завадила; збережи обидві минулі частини.",
+                    "options": [
+                        "it",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a9": {
+                    "answer": "upstairs.",
+                    "verb_hint": "Вага могла завадити підйому, проте не завадила; збережи обидві минулі частини.",
+                    "options": [
+                        "upstairs",
+                        "downstairs",
+                        "phones",
+                        "children"
+                    ]
+                }
+            },
+            "verb_hint": "Вага могла завадити підйому, проте не завадила; збережи обидві минулі частини.",
+            "accepted_target_texts": [
+                "Although the suitcase was heavy, Oksana carried it upstairs.",
+                "Though the suitcase was heavy, Oksana carried it upstairs.",
+                "While the suitcase was heavy, Oksana carried it upstairs."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Though",
+                    "While"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Though",
+                    "While"
+                ]
+            },
+            "reorder_groups": [
+                "Although",
+                "the suitcase",
+                "was heavy,",
+                "Oksana carried",
+                "it upstairs."
+            ],
+            "token_groups": [
+                "Although",
+                "the suitcase",
+                "was heavy,",
+                "Oksana carried",
+                "it upstairs."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "Although",
+                "the",
+                "suitcase",
+                "was",
+                "heavy,",
+                "Oksana",
+                "carried",
+                "it",
+                "upstairs."
+            ],
+            "options": [
+                "Although",
+                "Or",
+                "Nor",
+                "So",
+                "the",
+                "a",
+                "an",
+                "some",
+                "suitcase",
+                "school",
+                "sister",
+                "brother",
+                "was",
+                "wasn't",
+                "weren't",
+                "am",
+                "heavy",
+                "dark",
+                "cold",
+                "quiet",
+                "Oksana",
+                "Hanna",
+                "Danylo",
+                "Nazar",
+                "carried",
+                "pulled",
+                "moved",
+                "brought",
+                "it",
+                "myself",
+                "yourself",
+                "herself",
+                "upstairs",
+                "downstairs",
+                "phones",
+                "children"
+            ],
+            "source_text_uk": "Хоча валіза була важкою, Оксана віднесла її нагору.",
+            "options_by_marker": {
+                "a1": [
+                    "Although",
+                    "Or",
+                    "Nor",
+                    "So"
+                ],
+                "a2": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a3": [
+                    "suitcase",
+                    "school",
+                    "sister",
+                    "brother"
+                ],
+                "a4": [
+                    "was",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a5": [
+                    "heavy",
+                    "dark",
+                    "cold",
+                    "quiet"
+                ],
+                "a6": [
+                    "Oksana",
+                    "Hanna",
+                    "Danylo",
+                    "Nazar"
+                ],
+                "a7": [
+                    "carried",
+                    "pulled",
+                    "moved",
+                    "brought"
+                ],
+                "a8": [
+                    "it",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a9": [
+                    "upstairs",
+                    "downstairs",
+                    "phones",
+                    "children"
+                ]
+            },
+            "slot_roles": {
+                "a1": "concessive_clause_link",
+                "a2": "singular_object",
+                "a3": "singular_object",
+                "a4": "past_adjective_state",
+                "a5": "past_adjective_state",
+                "a6": "proper_past_action",
+                "a7": "proper_past_action",
+                "a8": "object_direction",
+                "a9": "object_direction"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "stq-clauses-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Долину затопило попри щойно збудовану дамбу.",
+            "level": "B2",
+            "type": 4,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Долину затопило попри щойно збудовану дамбу.",
+            "target_text": "The valley flooded despite the newly built dam.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дамба — факт, який не запобіг затопленню; після прийменника потрібна іменникова, не підрядна частина.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "valley",
+                    "verb_hint": "Дамба — факт, який не запобіг затопленню; після прийменника потрібна іменникова, не підрядна частина.",
+                    "options": [
+                        "valley",
+                        "river",
+                        "tunnel",
+                        "machine"
+                    ]
+                },
+                "a3": {
+                    "answer": "flooded",
+                    "verb_hint": "Дамба — факт, який не запобіг затопленню; після прийменника потрібна іменникова, не підрядна частина.",
+                    "options": [
+                        "flooded",
+                        "survived",
+                        "collapsed",
+                        "fell"
+                    ]
+                },
+                "a4": {
+                    "answer": "despite",
+                    "verb_hint": "Дамба — факт, який не запобіг затопленню; після прийменника потрібна іменникова, не підрядна частина.",
+                    "options": [
+                        "despite",
+                        "near",
+                        "behind",
+                        "beside"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Дамба — факт, який не запобіг затопленню; після прийменника потрібна іменникова, не підрядна частина.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a6": {
+                    "answer": "newly",
+                    "verb_hint": "Дамба — факт, який не запобіг затопленню; після прийменника потрібна іменникова, не підрядна частина.",
+                    "options": [
+                        "newly",
+                        "partly",
+                        "poorly",
+                        "carefully"
+                    ]
+                },
+                "a7": {
+                    "answer": "built",
+                    "verb_hint": "Дамба — факт, який не запобіг затопленню; після прийменника потрібна іменникова, не підрядна частина.",
+                    "options": [
+                        "built",
+                        "damaged",
+                        "restored",
+                        "finished"
+                    ]
+                },
+                "a8": {
+                    "answer": "dam.",
+                    "verb_hint": "Дамба — факт, який не запобіг затопленню; після прийменника потрібна іменникова, не підрядна частина.",
+                    "options": [
+                        "dam",
+                        "breakwater",
+                        "embankment",
+                        "fence"
+                    ]
+                }
+            },
+            "verb_hint": "Дамба — факт, який не запобіг затопленню; після прийменника потрібна іменникова, не підрядна частина.",
+            "accepted_target_texts": [
+                "The valley flooded despite the newly built dam."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The valley",
+                "flooded",
+                "despite",
+                "the newly built",
+                "dam."
+            ],
+            "token_groups": [
+                "The valley",
+                "flooded",
+                "despite",
+                "the newly built",
+                "dam."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "The",
+                "valley",
+                "flooded",
+                "despite",
+                "the",
+                "newly",
+                "built",
+                "dam."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "valley",
+                "river",
+                "tunnel",
+                "machine",
+                "flooded",
+                "survived",
+                "collapsed",
+                "fell",
+                "despite",
+                "near",
+                "behind",
+                "beside",
+                "the",
+                "that",
+                "these",
+                "those",
+                "newly",
+                "partly",
+                "poorly",
+                "carefully",
+                "built",
+                "damaged",
+                "restored",
+                "finished",
+                "dam",
+                "breakwater",
+                "embankment",
+                "fence"
+            ],
+            "source_text_uk": "Долину затопило попри щойно збудовану дамбу.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "valley",
+                    "river",
+                    "tunnel",
+                    "machine"
+                ],
+                "a3": [
+                    "flooded",
+                    "survived",
+                    "collapsed",
+                    "fell"
+                ],
+                "a4": [
+                    "despite",
+                    "near",
+                    "behind",
+                    "beside"
+                ],
+                "a5": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a6": [
+                    "newly",
+                    "partly",
+                    "poorly",
+                    "carefully"
+                ],
+                "a7": [
+                    "built",
+                    "damaged",
+                    "restored",
+                    "finished"
+                ],
+                "a8": [
+                    "dam",
+                    "breakwater",
+                    "embankment",
+                    "fence"
+                ]
+            },
+            "slot_roles": {
+                "a1": "thing_subject",
+                "a2": "thing_subject",
+                "a3": "past_event_verb",
+                "a4": "concessive_preposition",
+                "a5": "modified_definite",
+                "a6": "modified_definite",
+                "a7": "modified_definite",
+                "a8": "structure_noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "stq-clauses-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Консультант, якому адресували скаргу, звільнився.",
+            "level": "C1",
+            "type": 4,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Консультант, якому адресували скаргу, звільнився.",
+            "target_text": "The consultant to whom the complaint was addressed resigned.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Скарга залишається адресованою названому фахівцеві; прийменник винеси перед означальним словом для людини.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "consultant",
+                    "verb_hint": "Скарга залишається адресованою названому фахівцеві; прийменник винеси перед означальним словом для людини.",
+                    "options": [
+                        "consultant",
+                        "engineer",
+                        "driver",
+                        "visitor"
+                    ]
+                },
+                "a3": {
+                    "answer": "to",
+                    "verb_hint": "Скарга залишається адресованою названому фахівцеві; прийменник винеси перед означальним словом для людини.",
+                    "options": [
+                        "to",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a4": {
+                    "answer": "whom",
+                    "verb_hint": "Скарга залишається адресованою названому фахівцеві; прийменник винеси перед означальним словом для людини.",
+                    "options": [
+                        "whom",
+                        "who",
+                        "what",
+                        "which"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Скарга залишається адресованою названому фахівцеві; прийменник винеси перед означальним словом для людини.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a6": {
+                    "answer": "complaint",
+                    "verb_hint": "Скарга залишається адресованою названому фахівцеві; прийменник винеси перед означальним словом для людини.",
+                    "options": [
+                        "complaint",
+                        "door",
+                        "key",
+                        "room"
+                    ]
+                },
+                "a7": {
+                    "answer": "was",
+                    "verb_hint": "Скарга залишається адресованою названому фахівцеві; прийменник винеси перед означальним словом для людини.",
+                    "options": [
+                        "was",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a8": {
+                    "answer": "addressed",
+                    "verb_hint": "Скарга залишається адресованою названому фахівцеві; прийменник винеси перед означальним словом для людини.",
+                    "options": [
+                        "addressed",
+                        "explained",
+                        "sent",
+                        "delivered"
+                    ]
+                },
+                "a9": {
+                    "answer": "resigned.",
+                    "verb_hint": "Скарга залишається адресованою названому фахівцеві; прийменник винеси перед означальним словом для людини.",
+                    "options": [
+                        "resigned",
+                        "survived",
+                        "collapsed",
+                        "fell"
+                    ]
+                }
+            },
+            "verb_hint": "Скарга залишається адресованою названому фахівцеві; прийменник винеси перед означальним словом для людини.",
+            "accepted_target_texts": [
+                "The consultant to whom the complaint was addressed resigned."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The consultant",
+                "to whom",
+                "the complaint",
+                "was addressed",
+                "resigned."
+            ],
+            "token_groups": [
+                "The consultant",
+                "to whom",
+                "the complaint",
+                "was addressed",
+                "resigned."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "The",
+                "consultant",
+                "to",
+                "whom",
+                "the",
+                "complaint",
+                "was",
+                "addressed",
+                "resigned."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "consultant",
+                "engineer",
+                "driver",
+                "visitor",
+                "to",
+                "on",
+                "at",
+                "by",
+                "whom",
+                "who",
+                "what",
+                "which",
+                "the",
+                "those",
+                "each",
+                "every",
+                "complaint",
+                "door",
+                "key",
+                "room",
+                "was",
+                "wasn't",
+                "weren't",
+                "am",
+                "addressed",
+                "explained",
+                "sent",
+                "delivered",
+                "resigned",
+                "survived",
+                "collapsed",
+                "fell"
+            ],
+            "source_text_uk": "Консультант, якому адресували скаргу, звільнився.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "consultant",
+                    "engineer",
+                    "driver",
+                    "visitor"
+                ],
+                "a3": [
+                    "to",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a4": [
+                    "whom",
+                    "who",
+                    "what",
+                    "which"
+                ],
+                "a5": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a6": [
+                    "complaint",
+                    "door",
+                    "key",
+                    "room"
+                ],
+                "a7": [
+                    "was",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a8": [
+                    "addressed",
+                    "explained",
+                    "sent",
+                    "delivered"
+                ],
+                "a9": [
+                    "resigned",
+                    "survived",
+                    "collapsed",
+                    "fell"
+                ]
+            },
+            "slot_roles": {
+                "a1": "person_subject",
+                "a2": "person_subject",
+                "a3": "formal_relative_preposition",
+                "a4": "formal_relative_preposition",
+                "a5": "singular_object",
+                "a6": "singular_object",
+                "a7": "passive_past",
+                "a8": "passive_past",
+                "a9": "past_event_verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "stq-clauses-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Хоча я дуже захоплююся її сміливістю, я сумніваюся в її розсудливості.",
+            "level": "C2",
+            "type": 4,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Хоча я дуже захоплююся її сміливістю, я сумніваюся в її розсудливості.",
+            "target_text": "Much as I admire her courage, I question her judgement.",
+            "markers": {
+                "a1": {
+                    "answer": "Much",
+                    "verb_hint": "Поступка стосується сили захоплення, а не сумніву; збережи одну й ту саму жінку та дві різні якості.",
+                    "options": [
+                        "Much",
+                        "Cat",
+                        "Person",
+                        "Water"
+                    ]
+                },
+                "a2": {
+                    "answer": "as",
+                    "verb_hint": "Поступка стосується сили захоплення, а не сумніву; збережи одну й ту саму жінку та дві різні якості.",
+                    "options": [
+                        "as",
+                        "schools",
+                        "friends",
+                        "dogs"
+                    ]
+                },
+                "a3": {
+                    "answer": "I",
+                    "verb_hint": "Поступка стосується сили захоплення, а не сумніву; збережи одну й ту саму жінку та дві різні якості.",
+                    "options": [
+                        "I",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a4": {
+                    "answer": "admire",
+                    "verb_hint": "Поступка стосується сили захоплення, а не сумніву; збережи одну й ту саму жінку та дві різні якості.",
+                    "options": [
+                        "admire",
+                        "value",
+                        "respect",
+                        "distrust"
+                    ]
+                },
+                "a5": {
+                    "answer": "her",
+                    "verb_hint": "Поступка стосується сили захоплення, а не сумніву; збережи одну й ту саму жінку та дві різні якості.",
+                    "options": [
+                        "her",
+                        "ours",
+                        "theirs",
+                        "whose"
+                    ]
+                },
+                "a6": {
+                    "answer": "courage,",
+                    "verb_hint": "Поступка стосується сили захоплення, а не сумніву; збережи одну й ту саму жінку та дві різні якості.",
+                    "options": [
+                        "courage",
+                        "restraint",
+                        "kindness",
+                        "wisdom"
+                    ]
+                },
+                "a7": {
+                    "answer": "I",
+                    "verb_hint": "Поступка стосується сили захоплення, а не сумніву; збережи одну й ту саму жінку та дві різні якості.",
+                    "options": [
+                        "I",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a8": {
+                    "answer": "question",
+                    "verb_hint": "Поступка стосується сили захоплення, а не сумніву; збережи одну й ту саму жінку та дві різні якості.",
+                    "options": [
+                        "question",
+                        "recognise",
+                        "criticise",
+                        "understand"
+                    ]
+                },
+                "a9": {
+                    "answer": "her",
+                    "verb_hint": "Поступка стосується сили захоплення, а не сумніву; збережи одну й ту саму жінку та дві різні якості.",
+                    "options": [
+                        "her",
+                        "its",
+                        "our",
+                        "their"
+                    ]
+                },
+                "a10": {
+                    "answer": "judgement.",
+                    "verb_hint": "Поступка стосується сили захоплення, а не сумніву; збережи одну й ту саму жінку та дві різні якості.",
+                    "options": [
+                        "judgement",
+                        "accuracy",
+                        "honesty",
+                        "skill"
+                    ]
+                }
+            },
+            "verb_hint": "Поступка стосується сили захоплення, а не сумніву; збережи одну й ту саму жінку та дві різні якості.",
+            "accepted_target_texts": [
+                "Much as I admire her courage, I question her judgement.",
+                "Much as I admire her courage, I question her judgment.",
+                "Much as I admire her courage, I doubt her judgement.",
+                "Much as I admire her courage, I doubt her judgment."
+            ],
+            "answer_synonyms": {
+                "a10": [
+                    "judgment."
+                ],
+                "a8": [
+                    "doubt"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a10": [
+                    "judgment."
+                ],
+                "a8": [
+                    "doubt"
+                ]
+            },
+            "reorder_groups": [
+                "Much as",
+                "I admire",
+                "her courage,",
+                "I question",
+                "her judgement."
+            ],
+            "token_groups": [
+                "Much as",
+                "I admire",
+                "her courage,",
+                "I question",
+                "her judgement."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "Much",
+                "as",
+                "I",
+                "admire",
+                "her",
+                "courage,",
+                "I",
+                "question",
+                "her",
+                "judgement."
+            ],
+            "options": [
+                "Much",
+                "Cat",
+                "Person",
+                "Water",
+                "as",
+                "schools",
+                "friends",
+                "dogs",
+                "I",
+                "You",
+                "He",
+                "She",
+                "admire",
+                "value",
+                "respect",
+                "distrust",
+                "her",
+                "ours",
+                "theirs",
+                "whose",
+                "courage",
+                "restraint",
+                "kindness",
+                "wisdom",
+                "It",
+                "We",
+                "They",
+                "question",
+                "recognise",
+                "criticise",
+                "understand",
+                "its",
+                "our",
+                "their",
+                "judgement",
+                "accuracy",
+                "honesty",
+                "skill"
+            ],
+            "source_text_uk": "Хоча я дуже захоплююся її сміливістю, я сумніваюся в її розсудливості.",
+            "options_by_marker": {
+                "a1": [
+                    "Much",
+                    "Cat",
+                    "Person",
+                    "Water"
+                ],
+                "a2": [
+                    "as",
+                    "schools",
+                    "friends",
+                    "dogs"
+                ],
+                "a3": [
+                    "I",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a4": [
+                    "admire",
+                    "value",
+                    "respect",
+                    "distrust"
+                ],
+                "a5": [
+                    "her",
+                    "ours",
+                    "theirs",
+                    "whose"
+                ],
+                "a6": [
+                    "courage",
+                    "restraint",
+                    "kindness",
+                    "wisdom"
+                ],
+                "a7": [
+                    "I",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a8": [
+                    "question",
+                    "recognise",
+                    "criticise",
+                    "understand"
+                ],
+                "a9": [
+                    "her",
+                    "its",
+                    "our",
+                    "their"
+                ],
+                "a10": [
+                    "judgement",
+                    "accuracy",
+                    "honesty",
+                    "skill"
+                ]
+            },
+            "slot_roles": {
+                "a1": "degree_concession",
+                "a2": "degree_concession",
+                "a3": "first_person_evaluation",
+                "a4": "first_person_evaluation",
+                "a5": "possessed_quality",
+                "a6": "possessed_quality",
+                "a7": "first_person_evaluation",
+                "a8": "first_person_evaluation",
+                "a9": "possessed_quality",
+                "a10": "possessed_quality"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

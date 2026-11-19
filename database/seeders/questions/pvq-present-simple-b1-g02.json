@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 64581,
+        "uuid": "pvq-present-simple-b1-g02",
+        "question": "The meeting room {a1} through the staff calendar.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 10,
+        "source_id": 500,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoicePresentSimpleQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "is booked",
+                "are booked",
+                "was booked"
+            ]
+        },
+        "theory_text_block_uuid": "e5f67cca-8c3f-5c78-af4f-948bc74160c8",
+        "created_at": "2026-10-30T20:18:35.000000Z",
+        "updated_at": "2026-10-30T20:18:35.000000Z"
+    },
+    "category": {
+        "id": 10,
+        "name": "Passive Voice",
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
+    },
+    "source": {
+        "id": 500,
+        "name": "Passive Voice Quality: Passive Voice Present Simple",
+        "created_at": "2026-10-30T20:18:34.000000Z",
+        "updated_at": "2026-10-30T20:18:34.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 2702,
+                "name": "Passive Voice Present Simple",
+                "category": "passive_voice",
+                "created_at": "2026-05-21T18:53:51.000000Z",
+                "updated_at": "2026-05-21T18:53:51.000000Z"
+            },
+            "pivot": {
+                "question_id": 64581,
+                "tag_id": 2702,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 49404,
+                "option": "is booked",
+                "created_at": "2026-10-21T20:34:37.000000Z",
+                "updated_at": "2026-10-21T20:34:37.000000Z"
+            },
+            "pivot": {
+                "question_id": 64581,
+                "option_id": 49404,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 49406,
+                "option": "are booked",
+                "created_at": "2026-10-21T20:34:37.000000Z",
+                "updated_at": "2026-10-21T20:34:37.000000Z"
+            },
+            "pivot": {
+                "question_id": 64581,
+                "option_id": 49406,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 49407,
+                "option": "was booked",
+                "created_at": "2026-10-21T20:34:37.000000Z",
+                "updated_at": "2026-10-21T20:34:37.000000Z"
+            },
+            "pivot": {
+                "question_id": 64581,
+                "option_id": 49407,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 336442,
+                "question_id": 64581,
+                "marker": "a1",
+                "option_id": 49404,
+                "created_at": "2026-10-30T20:18:35.000000Z",
+                "updated_at": "2026-10-30T20:18:35.000000Z"
+            },
+            "option": {
+                "id": 49404,
+                "option": "is booked",
+                "created_at": "2026-10-21T20:34:37.000000Z",
+                "updated_at": "2026-10-21T20:34:37.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 53776,
+                "question_id": 64581,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 49405,
+                "created_at": "2026-10-30T20:18:35.000000Z",
+                "updated_at": "2026-10-30T20:18:35.000000Z"
+            },
+            "option": {
+                "id": 49405,
+                "option": "Бронюють у спільному календарі; утвори теперішній пасив від «бронювати».",
+                "created_at": "2026-10-21T20:34:37.000000Z",
+                "updated_at": "2026-10-21T20:34:37.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 56596,
+            "question_id": 64581,
+            "text": "The meeting room {a1} through the staff calendar.",
+            "created_at": "2026-10-30T20:18:35.000000Z",
+            "updated_at": "2026-10-30T20:18:35.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

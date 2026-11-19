@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66379,
+        "uuid": "rsq-saytell-c1-g06",
+        "question": "What did the dissenting judge {a1} about the proportionality test?",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 62,
+        "source_id": 533,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechSayTellAskQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "say",
+                "tell",
+                "ask for"
+            ]
+        },
+        "theory_text_block_uuid": "2ab6da7e-79fd-5048-be78-5bee9400128b",
+        "created_at": "2026-11-01T20:05:08.000000Z",
+        "updated_at": "2026-11-01T20:05:08.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 533,
+        "name": "Reported Speech Quality: Say, Tell and Ask",
+        "created_at": "2026-11-01T20:05:06.000000Z",
+        "updated_at": "2026-11-01T20:05:06.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 120,
+                "option": "tell",
+                "created_at": "2026-04-23T11:40:01.000000Z",
+                "updated_at": "2026-04-23T11:40:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 66379,
+                "option_id": 120,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2536,
+                "option": "say",
+                "created_at": "2026-04-23T14:18:07.000000Z",
+                "updated_at": "2026-04-23T14:18:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 66379,
+                "option_id": 2536,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68888,
+                "option": "ask for",
+                "created_at": "2026-11-01T20:05:07.000000Z",
+                "updated_at": "2026-11-01T20:05:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 66379,
+                "option_id": 68888,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 341338,
+                "question_id": 66379,
+                "marker": "a1",
+                "option_id": 2536,
+                "created_at": "2026-11-01T20:05:08.000000Z",
+                "updated_at": "2026-11-01T20:05:08.000000Z"
+            },
+            "option": {
+                "id": 2536,
+                "option": "say",
+                "created_at": "2026-04-23T14:18:07.000000Z",
+                "updated_at": "2026-04-23T14:18:07.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58672,
+                "question_id": 66379,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68904,
+                "created_at": "2026-11-01T20:05:08.000000Z",
+                "updated_at": "2026-11-01T20:05:08.000000Z"
+            },
+            "option": {
+                "id": 68904,
+                "option": "Сказати про правовий критерій; зовнішнє питання вже утворене.",
+                "created_at": "2026-11-01T20:05:08.000000Z",
+                "updated_at": "2026-11-01T20:05:08.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58394,
+            "question_id": 66379,
+            "text": "What did the dissenting judge {a1} about the proportionality test?",
+            "created_at": "2026-11-01T20:05:08.000000Z",
+            "updated_at": "2026-11-01T20:05:08.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

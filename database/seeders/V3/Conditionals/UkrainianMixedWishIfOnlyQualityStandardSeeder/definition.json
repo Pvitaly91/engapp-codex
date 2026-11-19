@@ -1,0 +1,1785 @@
+{
+    "schema_version": 1,
+    "quality_revision": "cqq-v1",
+    "compiled_from": {
+        "path": "docs/content/conditionals-quality/wish-if-only.v1.json",
+        "sha256": "12561b8b4d14f0abf4b26d58c27840a3c55bb0da2090692ce4122221a70e36ab"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Conditionals\\UkrainianMixedWishIfOnlyQualityStandardSeeder",
+        "uuid_namespace": "conditionals-quality-wish-if-only-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Conditionals"
+    },
+    "sources": {
+        "conditionals_quality_wish_if_only": {
+            "name": "Conditionals Quality: Wish and If Only: Unreal Wishes and Regrets"
+        }
+    },
+    "tags": {
+        "conditionals_wish_if_only": {
+            "name": "Wish / If only",
+            "category": "conditionals"
+        },
+        "wish_past_simple": {
+            "name": "Wish Past Simple",
+            "category": "topic"
+        },
+        "if_only_past_simple": {
+            "name": "If Only Past Simple",
+            "category": "topic"
+        },
+        "wish_past_perfect": {
+            "name": "Wish Past Perfect",
+            "category": "topic"
+        },
+        "if_only_past_perfect": {
+            "name": "If Only Past Perfect",
+            "category": "topic"
+        },
+        "wish_would": {
+            "name": "Wish Would",
+            "category": "topic"
+        },
+        "wish_were": {
+            "name": "Wish Were",
+            "category": "topic"
+        },
+        "negative_forms": {
+            "name": "Negative Forms",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "conditionals_wish_if_only"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cqq-wish-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I wish I {a1} a balcony.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що в мене немає балкона.",
+            "target_text": "I wish I had a balcony.",
+            "markers": {
+                "a1": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "have",
+                        "will have"
+                    ],
+                    "verb_hint": "Бажаний теперішній стан передай минулою формою володіння."
+                }
+            },
+            "verb_hint": "Бажаний теперішній стан передай минулою формою володіння.",
+            "accepted_target_texts": [
+                "I wish I had a balcony."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "I",
+                "had",
+                "a balcony."
+            ],
+            "token_groups": [
+                "I wish",
+                "I",
+                "had",
+                "a balcony."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "cqq-wish-a1-g02",
+            "author_id": "A1-g02",
+            "question": "I wish this chair {a1} softer.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що цей стілець не м’якший.",
+            "target_text": "I wish this chair were softer.",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "is",
+                        "will be"
+                    ],
+                    "verb_hint": "Для нереального теперішнього стану потрібна минула форма бути."
+                }
+            },
+            "verb_hint": "Для нереального теперішнього стану потрібна минула форма бути.",
+            "accepted_target_texts": [
+                "I wish this chair were softer.",
+                "I wish this chair was softer."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "reorder_groups": [
+                "I wish",
+                "this chair",
+                "were",
+                "softer."
+            ],
+            "token_groups": [
+                "I wish",
+                "this chair",
+                "were",
+                "softer."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "cqq-wish-a1-g03",
+            "author_id": "A1-g03",
+            "question": "If only we {a1} swim.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж ми вміли плавати.",
+            "target_text": "If only we could swim.",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "will"
+                    ],
+                    "verb_hint": "Бажану, але відсутню здатність передай минулою формою модального слова."
+                }
+            },
+            "verb_hint": "Бажану, але відсутню здатність передай минулою формою модального слова.",
+            "accepted_target_texts": [
+                "If only we could swim."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If only",
+                "we",
+                "could",
+                "swim."
+            ],
+            "token_groups": [
+                "If only",
+                "we",
+                "could",
+                "swim."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "cqq-wish-a1-g04",
+            "author_id": "A1-g04",
+            "question": "I wish the tap {a1} dripping.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Хотілося б, щоб кран перестав капати.",
+            "target_text": "I wish the tap would stop dripping.",
+            "markers": {
+                "a1": {
+                    "answer": "would stop",
+                    "options": [
+                        "would stop",
+                        "will stop",
+                        "would stops"
+                    ],
+                    "verb_hint": "Передай бажану зміну надокучливої ситуації, а не спогад про минуле."
+                }
+            },
+            "verb_hint": "Передай бажану зміну надокучливої ситуації, а не спогад про минуле.",
+            "accepted_target_texts": [
+                "I wish the tap would stop dripping."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "the tap",
+                "would stop",
+                "dripping."
+            ],
+            "token_groups": [
+                "I wish",
+                "the tap",
+                "would stop",
+                "dripping."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "cqq-wish-a1-g05",
+            "author_id": "A1-g05",
+            "question": "I wish I {a1} your name.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що я не знаю твого імені.",
+            "target_text": "I wish I knew your name.",
+            "markers": {
+                "a1": {
+                    "answer": "knew",
+                    "options": [
+                        "knew",
+                        "know",
+                        "known"
+                    ],
+                    "verb_hint": "Нереальне теперішнє знання потребує минулої форми."
+                }
+            },
+            "verb_hint": "Нереальне теперішнє знання потребує минулої форми.",
+            "accepted_target_texts": [
+                "I wish I knew your name."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "I",
+                "knew",
+                "your name."
+            ],
+            "token_groups": [
+                "I wish",
+                "I",
+                "knew",
+                "your name."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "cqq-wish-a1-g06",
+            "author_id": "A1-g06",
+            "question": "If only it {a1} sunny.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж було сонячно.",
+            "target_text": "If only it were sunny.",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "is",
+                        "will be"
+                    ],
+                    "verb_hint": "Бажаний теперішній стан подай минулою формою бути."
+                }
+            },
+            "verb_hint": "Бажаний теперішній стан подай минулою формою бути.",
+            "accepted_target_texts": [
+                "If only it were sunny.",
+                "If only it was sunny."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "reorder_groups": [
+                "If only",
+                "it",
+                "were",
+                "sunny."
+            ],
+            "token_groups": [
+                "If only",
+                "it",
+                "were",
+                "sunny."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "cqq-wish-a2-g01",
+            "author_id": "A2-g01",
+            "question": "I wish our flat {a1} another window.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що в нашій квартирі немає ще одного вікна.",
+            "target_text": "I wish our flat had another window.",
+            "markers": {
+                "a1": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "has",
+                        "will have"
+                    ],
+                    "verb_hint": "Нереальний теперішній стан передай минулою формою володіння."
+                }
+            },
+            "verb_hint": "Нереальний теперішній стан передай минулою формою володіння.",
+            "accepted_target_texts": [
+                "I wish our flat had another window."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "our flat",
+                "had",
+                "another window."
+            ],
+            "token_groups": [
+                "I wish",
+                "our flat",
+                "had",
+                "another window."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "cqq-wish-a2-g02",
+            "author_id": "A2-g02",
+            "question": "If only she {a1} nearer the station.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж вона жила ближче до станції.",
+            "target_text": "If only she lived nearer the station.",
+            "markers": {
+                "a1": {
+                    "answer": "lived",
+                    "options": [
+                        "lived",
+                        "lives",
+                        "will live"
+                    ],
+                    "verb_hint": "Йдеться про бажане теперішнє місце проживання, а не минулий факт."
+                }
+            },
+            "verb_hint": "Йдеться про бажане теперішнє місце проживання, а не минулий факт.",
+            "accepted_target_texts": [
+                "If only she lived nearer the station."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If only",
+                "she",
+                "lived",
+                "nearer",
+                "the station."
+            ],
+            "token_groups": [
+                "If only",
+                "she",
+                "lived",
+                "nearer",
+                "the station."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "cqq-wish-a2-g03",
+            "author_id": "A2-g03",
+            "question": "I wish I {a1} my mittens.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що я загубив рукавиці.",
+            "target_text": "I wish I had not lost my mittens.",
+            "markers": {
+                "a1": {
+                    "answer": "had not lost",
+                    "options": [
+                        "had not lost",
+                        "did not lose",
+                        "have not lost"
+                    ],
+                    "verb_hint": "Запереч минулу втрату формою попередньої завершеної дії."
+                }
+            },
+            "verb_hint": "Запереч минулу втрату формою попередньої завершеної дії.",
+            "accepted_target_texts": [
+                "I wish I had not lost my mittens.",
+                "I wish I hadn't lost my mittens."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "hadn't lost"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "hadn't lost"
+                ]
+            },
+            "reorder_groups": [
+                "I wish",
+                "I",
+                "had not lost",
+                "my mittens."
+            ],
+            "token_groups": [
+                "I wish",
+                "I",
+                "had not lost",
+                "my mittens."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "cqq-wish-a2-g04",
+            "author_id": "A2-g04",
+            "question": "I wish the bus {a1} soon.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Хотілося б, щоб автобус скоро приїхав.",
+            "target_text": "I wish the bus would come soon.",
+            "markers": {
+                "a1": {
+                    "answer": "would come",
+                    "options": [
+                        "would come",
+                        "will comes",
+                        "would came"
+                    ],
+                    "verb_hint": "Передай нетерпляче бажання зміни поточної ситуації."
+                }
+            },
+            "verb_hint": "Передай нетерпляче бажання зміни поточної ситуації.",
+            "accepted_target_texts": [
+                "I wish the bus would come soon."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "the bus",
+                "would come",
+                "soon."
+            ],
+            "token_groups": [
+                "I wish",
+                "the bus",
+                "would come",
+                "soon."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "cqq-wish-a2-g05",
+            "author_id": "A2-g05",
+            "question": "If only you {a1} for supper.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж ти міг залишитися на вечерю.",
+            "target_text": "If only you could stay for supper.",
+            "markers": {
+                "a1": {
+                    "answer": "could stay",
+                    "options": [
+                        "could stay",
+                        "can stayed",
+                        "could to stay"
+                    ],
+                    "verb_hint": "Передай бажану можливість початковою формою після минулого модального слова."
+                }
+            },
+            "verb_hint": "Передай бажану можливість початковою формою після минулого модального слова.",
+            "accepted_target_texts": [
+                "If only you could stay for supper."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If only",
+                "you",
+                "could stay",
+                "for supper."
+            ],
+            "token_groups": [
+                "If only",
+                "you",
+                "could stay",
+                "for supper."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "cqq-wish-a2-g06",
+            "author_id": "A2-g06",
+            "question": "I wish I {a1} so tired.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що я такий утомлений.",
+            "target_text": "I wish I were not so tired.",
+            "markers": {
+                "a1": {
+                    "answer": "were not",
+                    "options": [
+                        "were not",
+                        "am not",
+                        "will not be"
+                    ],
+                    "verb_hint": "Запереч небажаний теперішній стан минулою формою бути."
+                }
+            },
+            "verb_hint": "Запереч небажаний теперішній стан минулою формою бути.",
+            "accepted_target_texts": [
+                "I wish I were not so tired.",
+                "I wish I was not so tired.",
+                "I wish I weren't so tired.",
+                "I wish I wasn't so tired."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was not",
+                    "weren't",
+                    "wasn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was not",
+                    "weren't",
+                    "wasn't"
+                ]
+            },
+            "reorder_groups": [
+                "I wish",
+                "I",
+                "were not",
+                "so tired."
+            ],
+            "token_groups": [
+                "I wish",
+                "I",
+                "were not",
+                "so tired."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "cqq-wish-b1-g01",
+            "author_id": "B1-g01",
+            "question": "I wish I {a1} the platform before boarding.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що я не перевірив платформу перед посадкою.",
+            "target_text": "I wish I had checked the platform before boarding.",
+            "markers": {
+                "a1": {
+                    "answer": "had checked",
+                    "options": [
+                        "had checked",
+                        "checked",
+                        "have checked"
+                    ],
+                    "verb_hint": "Йдеться про жаль щодо невиконаної минулої дії."
+                }
+            },
+            "verb_hint": "Йдеться про жаль щодо невиконаної минулої дії.",
+            "accepted_target_texts": [
+                "I wish I had checked the platform before boarding."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "I",
+                "had checked",
+                "the platform",
+                "before boarding."
+            ],
+            "token_groups": [
+                "I wish",
+                "I",
+                "had checked",
+                "the platform",
+                "before boarding."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "cqq-wish-b1-g02",
+            "author_id": "B1-g02",
+            "question": "If only the landlord {a1} the broken lock.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж власник житла полагодив зламаний замок.",
+            "target_text": "If only the landlord would repair the broken lock.",
+            "markers": {
+                "a1": {
+                    "answer": "would repair",
+                    "options": [
+                        "would repair",
+                        "will repaired",
+                        "would repairs"
+                    ],
+                    "verb_hint": "Передай бажану дію іншої людини, якої досі чекають."
+                }
+            },
+            "verb_hint": "Передай бажану дію іншої людини, якої досі чекають.",
+            "accepted_target_texts": [
+                "If only the landlord would repair the broken lock."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If only",
+                "the landlord",
+                "would repair",
+                "the broken lock."
+            ],
+            "token_groups": [
+                "If only",
+                "the landlord",
+                "would repair",
+                "the broken lock."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "cqq-wish-b1-g03",
+            "author_id": "B1-g03",
+            "question": "I wish this course {a1} less expensive.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що цей курс не дешевший.",
+            "target_text": "I wish this course were less expensive.",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "is",
+                        "will be"
+                    ],
+                    "verb_hint": "Нереальне побажання про поточну ціну передай минулою формою бути."
+                }
+            },
+            "verb_hint": "Нереальне побажання про поточну ціну передай минулою формою бути.",
+            "accepted_target_texts": [
+                "I wish this course were less expensive.",
+                "I wish this course was less expensive."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "reorder_groups": [
+                "I wish",
+                "this course",
+                "were",
+                "less expensive."
+            ],
+            "token_groups": [
+                "I wish",
+                "this course",
+                "were",
+                "less expensive."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "cqq-wish-b1-g04",
+            "author_id": "B1-g04",
+            "question": "I wish we {a1} the last ferry.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що ми пропустили останній пором.",
+            "target_text": "I wish we had not missed the last ferry.",
+            "markers": {
+                "a1": {
+                    "answer": "had not missed",
+                    "options": [
+                        "had not missed",
+                        "did not miss",
+                        "have not missed"
+                    ],
+                    "verb_hint": "Передай заперечний жаль про минулу подію попереднім завершеним часом."
+                }
+            },
+            "verb_hint": "Передай заперечний жаль про минулу подію попереднім завершеним часом.",
+            "accepted_target_texts": [
+                "I wish we had not missed the last ferry.",
+                "I wish we hadn't missed the last ferry."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "hadn't missed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "hadn't missed"
+                ]
+            },
+            "reorder_groups": [
+                "I wish",
+                "we",
+                "had not missed",
+                "the last ferry."
+            ],
+            "token_groups": [
+                "I wish",
+                "we",
+                "had not missed",
+                "the last ferry."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "cqq-wish-b1-g05",
+            "author_id": "B1-g05",
+            "question": "If only I {a1} the announcement.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж я міг зрозуміти оголошення.",
+            "target_text": "If only I could understand the announcement.",
+            "markers": {
+                "a1": {
+                    "answer": "could understand",
+                    "options": [
+                        "could understand",
+                        "can understood",
+                        "could understanding"
+                    ],
+                    "verb_hint": "Назви бажану теперішню здатність зрозуміти почуте."
+                }
+            },
+            "verb_hint": "Назви бажану теперішню здатність зрозуміти почуте.",
+            "accepted_target_texts": [
+                "If only I could understand the announcement."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If only",
+                "I",
+                "could understand",
+                "the announcement."
+            ],
+            "token_groups": [
+                "If only",
+                "I",
+                "could understand",
+                "the announcement."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "cqq-wish-b1-g06",
+            "author_id": "B1-g06",
+            "question": "I wish you {a1} cups on my desk.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що ти залишаєш чашки на моєму столі.",
+            "target_text": "I wish you did not leave cups on my desk.",
+            "markers": {
+                "a1": {
+                    "answer": "did not leave",
+                    "options": [
+                        "did not leave",
+                        "do not leave",
+                        "will not left"
+                    ],
+                    "verb_hint": "Запереч небажану звичку; форма минулого часу тут виражає нереальне побажання."
+                }
+            },
+            "verb_hint": "Запереч небажану звичку; форма минулого часу тут виражає нереальне побажання.",
+            "accepted_target_texts": [
+                "I wish you did not leave cups on my desk.",
+                "I wish you didn't leave cups on my desk."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "didn't leave"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "didn't leave"
+                ]
+            },
+            "reorder_groups": [
+                "I wish",
+                "you",
+                "did not leave",
+                "cups",
+                "on my desk."
+            ],
+            "token_groups": [
+                "I wish",
+                "you",
+                "did not leave",
+                "cups",
+                "on my desk."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "cqq-wish-b2-g01",
+            "author_id": "B2-g01",
+            "question": "I wish the instructions {a1} from the outset.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що вказівки від самого початку не були зрозумілішими.",
+            "target_text": "I wish the instructions had been clearer from the outset.",
+            "markers": {
+                "a1": {
+                    "answer": "had been clearer",
+                    "options": [
+                        "had been clearer",
+                        "were clearer",
+                        "have been clearer"
+                    ],
+                    "verb_hint": "Жаль стосується якості вже отриманих минулих указівок."
+                }
+            },
+            "verb_hint": "Жаль стосується якості вже отриманих минулих указівок.",
+            "accepted_target_texts": [
+                "I wish the instructions had been clearer from the outset."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "the instructions",
+                "had been clearer",
+                "from the outset."
+            ],
+            "token_groups": [
+                "I wish",
+                "the instructions",
+                "had been clearer",
+                "from the outset."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "cqq-wish-b2-g02",
+            "author_id": "B2-g02",
+            "question": "If only I {a1} on that outdated guide.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж я не покладався на той застарілий довідник.",
+            "target_text": "If only I had not relied on that outdated guide.",
+            "markers": {
+                "a1": {
+                    "answer": "had not relied",
+                    "options": [
+                        "had not relied",
+                        "did not rely",
+                        "have not relied"
+                    ],
+                    "verb_hint": "Запереч минуле рішення покластися на джерело."
+                }
+            },
+            "verb_hint": "Запереч минуле рішення покластися на джерело.",
+            "accepted_target_texts": [
+                "If only I had not relied on that outdated guide.",
+                "If only I hadn't relied on that outdated guide."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "hadn't relied"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "hadn't relied"
+                ]
+            },
+            "reorder_groups": [
+                "If only",
+                "I",
+                "had not relied",
+                "on",
+                "that outdated guide."
+            ],
+            "token_groups": [
+                "If only",
+                "I",
+                "had not relied",
+                "on",
+                "that outdated guide."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "cqq-wish-b2-g03",
+            "author_id": "B2-g03",
+            "question": "I wish the committee {a1} its decision.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Хотілося б, щоб комітет переглянув своє рішення.",
+            "target_text": "I wish the committee would reconsider its decision.",
+            "markers": {
+                "a1": {
+                    "answer": "would reconsider",
+                    "options": [
+                        "would reconsider",
+                        "will reconsidered",
+                        "would reconsidering"
+                    ],
+                    "verb_hint": "Передай бажану майбутню дію іншого суб’єкта, а не минулий жаль."
+                }
+            },
+            "verb_hint": "Передай бажану майбутню дію іншого суб’єкта, а не минулий жаль.",
+            "accepted_target_texts": [
+                "I wish the committee would reconsider its decision."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "the committee",
+                "would reconsider",
+                "its decision."
+            ],
+            "token_groups": [
+                "I wish",
+                "the committee",
+                "would reconsider",
+                "its decision."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "cqq-wish-b2-g04",
+            "author_id": "B2-g04",
+            "question": "I wish I {a1} to work remotely this week.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що цього тижня я не можу працювати віддалено.",
+            "target_text": "I wish I were able to work remotely this week.",
+            "markers": {
+                "a1": {
+                    "answer": "were able",
+                    "options": [
+                        "were able",
+                        "am able",
+                        "will able"
+                    ],
+                    "verb_hint": "Нереальну поточну можливість вирази минулою формою бути з прикметником здатності."
+                }
+            },
+            "verb_hint": "Нереальну поточну можливість вирази минулою формою бути з прикметником здатності.",
+            "accepted_target_texts": [
+                "I wish I were able to work remotely this week.",
+                "I wish I was able to work remotely this week."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was able"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was able"
+                ]
+            },
+            "reorder_groups": [
+                "I wish",
+                "I",
+                "were able",
+                "to work",
+                "remotely",
+                "this week."
+            ],
+            "token_groups": [
+                "I wish",
+                "I",
+                "were able",
+                "to work",
+                "remotely",
+                "this week."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "cqq-wish-b2-g05",
+            "author_id": "B2-g05",
+            "question": "If only the curator {a1} us about the closure.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж куратор попередив нас про закриття.",
+            "target_text": "If only the curator had warned us about the closure.",
+            "markers": {
+                "a1": {
+                    "answer": "had warned",
+                    "options": [
+                        "had warned",
+                        "warned",
+                        "has warned"
+                    ],
+                    "verb_hint": "Вислови жаль щодо попередження, якого не було в минулому."
+                }
+            },
+            "verb_hint": "Вислови жаль щодо попередження, якого не було в минулому.",
+            "accepted_target_texts": [
+                "If only the curator had warned us about the closure."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If only",
+                "the curator",
+                "had warned",
+                "us",
+                "about the closure."
+            ],
+            "token_groups": [
+                "If only",
+                "the curator",
+                "had warned",
+                "us",
+                "about the closure."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "cqq-wish-b2-g06",
+            "author_id": "B2-g06",
+            "question": "I wish the software {a1} a restart after every update.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що програма вимагає перезапуску після кожного оновлення.",
+            "target_text": "I wish the software did not require a restart after every update.",
+            "markers": {
+                "a1": {
+                    "answer": "did not require",
+                    "options": [
+                        "did not require",
+                        "does not require",
+                        "will not required"
+                    ],
+                    "verb_hint": "Запереч небажану регулярну властивість теперішньої програми."
+                }
+            },
+            "verb_hint": "Запереч небажану регулярну властивість теперішньої програми.",
+            "accepted_target_texts": [
+                "I wish the software did not require a restart after every update.",
+                "I wish the software didn't require a restart after every update."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "didn't require"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "didn't require"
+                ]
+            },
+            "reorder_groups": [
+                "I wish",
+                "the software",
+                "did not require",
+                "a restart",
+                "after every update."
+            ],
+            "token_groups": [
+                "I wish",
+                "the software",
+                "did not require",
+                "a restart",
+                "after every update."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "cqq-wish-c1-g01",
+            "author_id": "C1-g01",
+            "question": "I wish the limitation {a1} in the original report.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що обмеження не визнали в початковому звіті.",
+            "target_text": "I wish the limitation had been acknowledged in the original report.",
+            "markers": {
+                "a1": {
+                    "answer": "had been acknowledged",
+                    "options": [
+                        "had been acknowledged",
+                        "was acknowledged",
+                        "has been acknowledged"
+                    ],
+                    "verb_hint": "Минуле невиконане визнання передай пасивною формою попередньої завершеної дії."
+                }
+            },
+            "verb_hint": "Минуле невиконане визнання передай пасивною формою попередньої завершеної дії.",
+            "accepted_target_texts": [
+                "I wish the limitation had been acknowledged in the original report."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "the limitation",
+                "had been acknowledged",
+                "in",
+                "the original report."
+            ],
+            "token_groups": [
+                "I wish",
+                "the limitation",
+                "had been acknowledged",
+                "in",
+                "the original report."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "cqq-wish-c1-g02",
+            "author_id": "C1-g02",
+            "question": "If only the board {a1} correlation with causation.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж рада не ототожнювала кореляцію з причинністю.",
+            "target_text": "If only the board had not conflated correlation with causation.",
+            "markers": {
+                "a1": {
+                    "answer": "had not conflated",
+                    "options": [
+                        "had not conflated",
+                        "did not conflate",
+                        "have not conflated"
+                    ],
+                    "verb_hint": "Запереч уже зроблене в минулому помилкове ототожнення."
+                }
+            },
+            "verb_hint": "Запереч уже зроблене в минулому помилкове ототожнення.",
+            "accepted_target_texts": [
+                "If only the board had not conflated correlation with causation.",
+                "If only the board hadn't conflated correlation with causation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "hadn't conflated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "hadn't conflated"
+                ]
+            },
+            "reorder_groups": [
+                "If only",
+                "the board",
+                "had not conflated",
+                "correlation",
+                "with causation."
+            ],
+            "token_groups": [
+                "If only",
+                "the board",
+                "had not conflated",
+                "correlation",
+                "with causation."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "cqq-wish-c1-g03",
+            "author_id": "C1-g03",
+            "question": "I wish the regulator {a1} the transitional arrangements.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Хотілося б, щоб регулятор уточнив перехідні положення.",
+            "target_text": "I wish the regulator would clarify the transitional arrangements.",
+            "markers": {
+                "a1": {
+                    "answer": "would clarify",
+                    "options": [
+                        "would clarify",
+                        "will clarified",
+                        "would clarifies"
+                    ],
+                    "verb_hint": "Передай бажану дію відповідальної іншої сторони, яку ще можна виконати."
+                }
+            },
+            "verb_hint": "Передай бажану дію відповідальної іншої сторони, яку ще можна виконати.",
+            "accepted_target_texts": [
+                "I wish the regulator would clarify the transitional arrangements."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "the regulator",
+                "would clarify",
+                "the transitional arrangements."
+            ],
+            "token_groups": [
+                "I wish",
+                "the regulator",
+                "would clarify",
+                "the transitional arrangements."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "cqq-wish-c1-g04",
+            "author_id": "C1-g04",
+            "question": "I wish I {a1} whether the exemption still applied.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що я не знаю, чи виняток досі діє.",
+            "target_text": "I wish I knew whether the exemption still applied.",
+            "markers": {
+                "a1": {
+                    "answer": "knew",
+                    "options": [
+                        "knew",
+                        "know",
+                        "have known"
+                    ],
+                    "verb_hint": "Брак теперішнього знання вирази нереальним побажанням із минулою формою."
+                }
+            },
+            "verb_hint": "Брак теперішнього знання вирази нереальним побажанням із минулою формою.",
+            "accepted_target_texts": [
+                "I wish I knew whether the exemption still applied."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "I",
+                "knew",
+                "whether",
+                "the exemption",
+                "still applied."
+            ],
+            "token_groups": [
+                "I wish",
+                "I",
+                "knew",
+                "whether",
+                "the exemption",
+                "still applied."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "cqq-wish-c1-g05",
+            "author_id": "C1-g05",
+            "question": "If only we {a1} that assumption without jeopardising the agreement.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж ми могли оскаржити це припущення, не ставлячи під загрозу угоду.",
+            "target_text": "If only we could challenge that assumption without jeopardising the agreement.",
+            "markers": {
+                "a1": {
+                    "answer": "could challenge",
+                    "options": [
+                        "could challenge",
+                        "can challenged",
+                        "could to challenge"
+                    ],
+                    "verb_hint": "Передай бажану можливість критичного заперечення без небажаного ризику."
+                }
+            },
+            "verb_hint": "Передай бажану можливість критичного заперечення без небажаного ризику.",
+            "accepted_target_texts": [
+                "If only we could challenge that assumption without jeopardising the agreement."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If only",
+                "we",
+                "could challenge",
+                "that assumption",
+                "without",
+                "jeopardising the agreement."
+            ],
+            "token_groups": [
+                "If only",
+                "we",
+                "could challenge",
+                "that assumption",
+                "without",
+                "jeopardising the agreement."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "cqq-wish-c1-g06",
+            "author_id": "C1-g06",
+            "question": "I wish the review {a1} by such narrow criteria.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що огляд обмежений такими вузькими критеріями.",
+            "target_text": "I wish the review were not constrained by such narrow criteria.",
+            "markers": {
+                "a1": {
+                    "answer": "were not constrained",
+                    "options": [
+                        "were not constrained",
+                        "is not constrained",
+                        "will not constrained"
+                    ],
+                    "verb_hint": "Запереч нереальний бажаний поточний стан пасивною конструкцією."
+                }
+            },
+            "verb_hint": "Запереч нереальний бажаний поточний стан пасивною конструкцією.",
+            "accepted_target_texts": [
+                "I wish the review were not constrained by such narrow criteria.",
+                "I wish the review was not constrained by such narrow criteria."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was not constrained"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was not constrained"
+                ]
+            },
+            "reorder_groups": [
+                "I wish",
+                "the review",
+                "were not constrained",
+                "by",
+                "such narrow criteria."
+            ],
+            "token_groups": [
+                "I wish",
+                "the review",
+                "were not constrained",
+                "by",
+                "such narrow criteria."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "cqq-wish-c2-g01",
+            "author_id": "C2-g01",
+            "question": "I wish the uncertainty {a1} rather than relegated to an appendix.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що невизначеність не висунули на перший план, а відсунули в додаток.",
+            "target_text": "I wish the uncertainty had been foregrounded rather than relegated to an appendix.",
+            "markers": {
+                "a1": {
+                    "answer": "had been foregrounded",
+                    "options": [
+                        "had been foregrounded",
+                        "was foregrounded",
+                        "has foregrounded"
+                    ],
+                    "verb_hint": "Жаль про минуле редакційне рішення передай пасивною завершеною формою."
+                }
+            },
+            "verb_hint": "Жаль про минуле редакційне рішення передай пасивною завершеною формою.",
+            "accepted_target_texts": [
+                "I wish the uncertainty had been foregrounded rather than relegated to an appendix."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "the uncertainty",
+                "had been foregrounded",
+                "rather than",
+                "relegated",
+                "to an appendix."
+            ],
+            "token_groups": [
+                "I wish",
+                "the uncertainty",
+                "had been foregrounded",
+                "rather than",
+                "relegated",
+                "to an appendix."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "cqq-wish-c2-g02",
+            "author_id": "C2-g02",
+            "question": "If only the parties {a1} the outcome before hearing the evidence.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж сторони не вирішували результат наперед, не вислухавши доказів.",
+            "target_text": "If only the parties had not prejudged the outcome before hearing the evidence.",
+            "markers": {
+                "a1": {
+                    "answer": "had not prejudged",
+                    "options": [
+                        "had not prejudged",
+                        "did not prejudge",
+                        "have not prejudged"
+                    ],
+                    "verb_hint": "Запереч уже здійснене передчасне минуле судження."
+                }
+            },
+            "verb_hint": "Запереч уже здійснене передчасне минуле судження.",
+            "accepted_target_texts": [
+                "If only the parties had not prejudged the outcome before hearing the evidence.",
+                "If only the parties hadn't prejudged the outcome before hearing the evidence."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "hadn't prejudged"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "hadn't prejudged"
+                ]
+            },
+            "reorder_groups": [
+                "If only",
+                "the parties",
+                "had not prejudged",
+                "the outcome",
+                "before",
+                "hearing the evidence."
+            ],
+            "token_groups": [
+                "If only",
+                "the parties",
+                "had not prejudged",
+                "the outcome",
+                "before",
+                "hearing the evidence."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "cqq-wish-c2-g03",
+            "author_id": "C2-g03",
+            "question": "I wish the institution {a1} its untenable claim to exclusive authority.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Хотілося б, щоб установа відмовилася від необґрунтованої претензії на виняткові повноваження.",
+            "target_text": "I wish the institution would relinquish its untenable claim to exclusive authority.",
+            "markers": {
+                "a1": {
+                    "answer": "would relinquish",
+                    "options": [
+                        "would relinquish",
+                        "will relinquished",
+                        "would relinquishes"
+                    ],
+                    "verb_hint": "Передай бажану відмову іншої сторони від нинішньої позиції."
+                }
+            },
+            "verb_hint": "Передай бажану відмову іншої сторони від нинішньої позиції.",
+            "accepted_target_texts": [
+                "I wish the institution would relinquish its untenable claim to exclusive authority."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wish",
+                "the institution",
+                "would relinquish",
+                "its untenable claim",
+                "to exclusive authority."
+            ],
+            "token_groups": [
+                "I wish",
+                "the institution",
+                "would relinquish",
+                "its untenable claim",
+                "to exclusive authority."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "cqq-wish-c2-g04",
+            "author_id": "C2-g04",
+            "question": "I wish the distinction {a1} in the public discussion.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що ця відмінність недостатньо помітна в публічній дискусії.",
+            "target_text": "I wish the distinction were more salient in the public discussion.",
+            "markers": {
+                "a1": {
+                    "answer": "were more salient",
+                    "options": [
+                        "were more salient",
+                        "is more salient",
+                        "will more salient"
+                    ],
+                    "verb_hint": "Нереальний бажаний теперішній стан передай минулою формою бути."
+                }
+            },
+            "verb_hint": "Нереальний бажаний теперішній стан передай минулою формою бути.",
+            "accepted_target_texts": [
+                "I wish the distinction were more salient in the public discussion.",
+                "I wish the distinction was more salient in the public discussion."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was more salient"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was more salient"
+                ]
+            },
+            "reorder_groups": [
+                "I wish",
+                "the distinction",
+                "were more salient",
+                "in",
+                "the public discussion."
+            ],
+            "token_groups": [
+                "I wish",
+                "the distinction",
+                "were more salient",
+                "in",
+                "the public discussion."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "cqq-wish-c2-g05",
+            "author_id": "C2-g05",
+            "question": "If only we {a1} the competing explanations without overstating the evidence.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Якби ж ми могли розмежувати конкуруючі пояснення без перебільшення доказів.",
+            "target_text": "If only we could disentangle the competing explanations without overstating the evidence.",
+            "markers": {
+                "a1": {
+                    "answer": "could disentangle",
+                    "options": [
+                        "could disentangle",
+                        "can disentangled",
+                        "could disentangles"
+                    ],
+                    "verb_hint": "Назви бажану, але наразі недосяжну аналітичну можливість."
+                }
+            },
+            "verb_hint": "Назви бажану, але наразі недосяжну аналітичну можливість.",
+            "accepted_target_texts": [
+                "If only we could disentangle the competing explanations without overstating the evidence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If only",
+                "we",
+                "could disentangle",
+                "the competing explanations",
+                "without",
+                "overstating the evidence."
+            ],
+            "token_groups": [
+                "If only",
+                "we",
+                "could disentangle",
+                "the competing explanations",
+                "without",
+                "overstating the evidence."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "cqq-wish-c2-g06",
+            "author_id": "C2-g06",
+            "question": "I wish the proviso {a1} omitted from the final settlement.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_wish_if_only",
+            "translation_uk": "Шкода, що застереження пропустили в остаточній мировій угоді.",
+            "target_text": "I wish the proviso had not been omitted from the final settlement.",
+            "markers": {
+                "a1": {
+                    "answer": "had not been",
+                    "options": [
+                        "had not been",
+                        "was not being",
+                        "has not being"
+                    ],
+                    "verb_hint": "Запереч минулий факт пропуску; решта пасивної форми вже наведена після пропуску."
+                }
+            },
+            "verb_hint": "Запереч минулий факт пропуску; решта пасивної форми вже наведена після пропуску.",
+            "accepted_target_texts": [
+                "I wish the proviso had not been omitted from the final settlement.",
+                "I wish the proviso hadn't been omitted from the final settlement."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "hadn't been"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "hadn't been"
+                ]
+            },
+            "reorder_groups": [
+                "I wish",
+                "the proviso",
+                "had not been",
+                "omitted",
+                "from",
+                "the final settlement."
+            ],
+            "token_groups": [
+                "I wish",
+                "the proviso",
+                "had not been",
+                "omitted",
+                "from",
+                "the final settlement."
+            ],
+            "quality_revision": "cqq-v1"
+        }
+    ]
+}

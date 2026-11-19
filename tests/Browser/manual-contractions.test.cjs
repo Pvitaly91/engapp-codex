@@ -58,7 +58,8 @@ function fixture(t, mode, expected, overrides = {}) {
     });
 
     const sharedFunctions = [
-        'canonicalTestAnswer', 'acceptedTestAnswers', 'testAnswerMatches',
+        'canonicalTestAnswer', 'composeSentenceChoiceMatches', 'acceptedTestAnswers', 'testAnswerMatches',
+        'isPassivePhraseGapQuestion', 'isReviewedComposePhraseSlot', 'normalizeManualGapInput',
         'composeManualAnswerWords', 'html',
     ];
     const modeFunctions = [

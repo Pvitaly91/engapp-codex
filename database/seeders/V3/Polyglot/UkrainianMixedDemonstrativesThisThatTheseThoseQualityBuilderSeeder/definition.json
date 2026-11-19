@@ -1,0 +1,4826 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pronouns-demonstratives-v1",
+    "compiled_from": {
+        "path": "docs/content/pronouns-demonstratives-quality/demonstratives.v1.json",
+        "sha256": "f9e7722951fb5c475733d41d917692b28fe1c1d690d439ae8c6df78dc6d2580e"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedDemonstrativesThisThatTheseThoseQualityBuilderSeeder",
+        "uuid_namespace": "pronouns-demonstratives-quality-demonstratives-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "pronouns_demonstratives_quality_demonstratives": {
+            "name": "Pronouns and Demonstratives Quality: This, that, these, those: відстань, число й зв’язок у тексті"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_demonstratives_this_that_these_those": {
+            "name": "Demonstratives This That These Those",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "this_near_singular": {
+            "name": "This Near Singular",
+            "category": "topic"
+        },
+        "that_far_singular": {
+            "name": "That Far Singular",
+            "category": "topic"
+        },
+        "these_near_plural": {
+            "name": "These Near Plural",
+            "category": "topic"
+        },
+        "those_far_plural": {
+            "name": "Those Far Plural",
+            "category": "topic"
+        },
+        "demonstrative_adjective": {
+            "name": "Demonstrative Adjective",
+            "category": "topic"
+        },
+        "demonstrative_pronoun": {
+            "name": "Demonstrative Pronoun",
+            "category": "topic"
+        },
+        "time_situation_use": {
+            "name": "Time Situation Use",
+            "category": "topic"
+        },
+        "plural_noun_agreement": {
+            "name": "Plural Noun Agreement",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pdqq-demonstratives-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Цей апельсин солодший за он той.",
+            "level": "A1",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Цей апельсин солодший за он той.",
+            "target_text": "This orange is sweeter than that one.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "verb_hint": "Перший апельсин близький, другий віддалений; його назву заміни словом-замінником.",
+                    "options": [
+                        "This",
+                        "A",
+                        "An",
+                        "The"
+                    ]
+                },
+                "a2": {
+                    "answer": "orange",
+                    "verb_hint": "Перший апельсин близький, другий віддалений; його назву заміни словом-замінником.",
+                    "options": [
+                        "orange",
+                        "brown",
+                        "pink",
+                        "grey"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Перший апельсин близький, другий віддалений; його назву заміни словом-замінником.",
+                    "options": [
+                        "is",
+                        "weren't",
+                        "am",
+                        "are"
+                    ]
+                },
+                "a4": {
+                    "answer": "sweeter",
+                    "verb_hint": "Перший апельсин близький, другий віддалений; його назву заміни словом-замінником.",
+                    "options": [
+                        "sweeter",
+                        "old",
+                        "young",
+                        "early"
+                    ]
+                },
+                "a5": {
+                    "answer": "than",
+                    "verb_hint": "Перший апельсин близький, другий віддалений; його назву заміни словом-замінником.",
+                    "options": [
+                        "than",
+                        "whether",
+                        "while",
+                        "whenever"
+                    ]
+                },
+                "a6": {
+                    "answer": "that",
+                    "verb_hint": "Перший апельсин близький, другий віддалений; його назву заміни словом-замінником.",
+                    "options": [
+                        "that",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a7": {
+                    "answer": "one.",
+                    "verb_hint": "Перший апельсин близький, другий віддалений; його назву заміни словом-замінником.",
+                    "options": [
+                        "one",
+                        "either",
+                        "it",
+                        "another"
+                    ]
+                }
+            },
+            "verb_hint": "Перший апельсин близький, другий віддалений; його назву заміни словом-замінником.",
+            "accepted_target_texts": [
+                "This orange is sweeter than that one."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This orange",
+                "is sweeter",
+                "than that one."
+            ],
+            "token_groups": [
+                "This orange",
+                "is sweeter",
+                "than that one."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "This",
+                "orange",
+                "is",
+                "sweeter",
+                "than",
+                "that",
+                "one."
+            ],
+            "options": [
+                "This",
+                "A",
+                "An",
+                "The",
+                "orange",
+                "brown",
+                "pink",
+                "grey",
+                "is",
+                "weren't",
+                "am",
+                "are",
+                "sweeter",
+                "old",
+                "young",
+                "early",
+                "than",
+                "whether",
+                "while",
+                "whenever",
+                "that",
+                "neither",
+                "all",
+                "both",
+                "one",
+                "either",
+                "it",
+                "another"
+            ],
+            "source_text_uk": "Цей апельсин солодший за он той.",
+            "options_by_marker": {
+                "a1": [
+                    "This",
+                    "A",
+                    "An",
+                    "The"
+                ],
+                "a2": [
+                    "orange",
+                    "brown",
+                    "pink",
+                    "grey"
+                ],
+                "a3": [
+                    "is",
+                    "weren't",
+                    "am",
+                    "are"
+                ],
+                "a4": [
+                    "sweeter",
+                    "old",
+                    "young",
+                    "early"
+                ],
+                "a5": [
+                    "than",
+                    "whether",
+                    "while",
+                    "whenever"
+                ],
+                "a6": [
+                    "that",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a7": [
+                    "one",
+                    "either",
+                    "it",
+                    "another"
+                ]
+            },
+            "slot_roles": {
+                "a1": "demonstrative_determiner_singular",
+                "a2": "noun",
+                "a3": "auxiliary",
+                "a4": "adjective",
+                "a5": "conjunction",
+                "a6": "demonstrative_determiner_singular",
+                "a7": "substitute_one_singular"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "pdqq-demonstratives-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Он ті велосипеди надто далеко.",
+            "level": "A1",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Он ті велосипеди надто далеко.",
+            "target_text": "Those bicycles are too far away.",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "verb_hint": "Вкажи на кілька велосипедів як на віддалені предмети, не використовуй близьку форму.",
+                    "options": [
+                        "Those",
+                        "An",
+                        "The",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "bicycles",
+                    "verb_hint": "Вкажи на кілька велосипедів як на віддалені предмети, не використовуй близьку форму.",
+                    "options": [
+                        "bicycles",
+                        "towels",
+                        "keys",
+                        "instructions"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Вкажи на кілька велосипедів як на віддалені предмети, не використовуй близьку форму.",
+                    "options": [
+                        "are",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a4": {
+                    "answer": "too",
+                    "verb_hint": "Вкажи на кілька велосипедів як на віддалені предмети, не використовуй близьку форму.",
+                    "options": [
+                        "too",
+                        "often",
+                        "sometimes",
+                        "rarely"
+                    ]
+                },
+                "a5": {
+                    "answer": "far",
+                    "verb_hint": "Вкажи на кілька велосипедів як на віддалені предмети, не використовуй близьку форму.",
+                    "options": [
+                        "far",
+                        "quietly",
+                        "loudly",
+                        "not"
+                    ]
+                },
+                "a6": {
+                    "answer": "away.",
+                    "verb_hint": "Вкажи на кілька велосипедів як на віддалені предмети, не використовуй близьку форму.",
+                    "options": [
+                        "away",
+                        "carefully",
+                        "quickly",
+                        "slowly"
+                    ]
+                }
+            },
+            "verb_hint": "Вкажи на кілька велосипедів як на віддалені предмети, не використовуй близьку форму.",
+            "accepted_target_texts": [
+                "Those bicycles are too far away."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Those bicycles",
+                "are too",
+                "far away."
+            ],
+            "token_groups": [
+                "Those bicycles",
+                "are too",
+                "far away."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "Those",
+                "bicycles",
+                "are",
+                "too",
+                "far",
+                "away."
+            ],
+            "options": [
+                "Those",
+                "An",
+                "The",
+                "Some",
+                "bicycles",
+                "towels",
+                "keys",
+                "instructions",
+                "are",
+                "wasn't",
+                "weren't",
+                "am",
+                "too",
+                "often",
+                "sometimes",
+                "rarely",
+                "far",
+                "quietly",
+                "loudly",
+                "not",
+                "away",
+                "carefully",
+                "quickly",
+                "slowly"
+            ],
+            "source_text_uk": "Он ті велосипеди надто далеко.",
+            "options_by_marker": {
+                "a1": [
+                    "Those",
+                    "An",
+                    "The",
+                    "Some"
+                ],
+                "a2": [
+                    "bicycles",
+                    "towels",
+                    "keys",
+                    "instructions"
+                ],
+                "a3": [
+                    "are",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a4": [
+                    "too",
+                    "often",
+                    "sometimes",
+                    "rarely"
+                ],
+                "a5": [
+                    "far",
+                    "quietly",
+                    "loudly",
+                    "not"
+                ],
+                "a6": [
+                    "away",
+                    "carefully",
+                    "quickly",
+                    "slowly"
+                ]
+            },
+            "slot_roles": {
+                "a1": "demonstrative_determiner_plural",
+                "a2": "noun",
+                "a3": "auxiliary",
+                "a4": "adverb",
+                "a5": "adverb",
+                "a6": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "pdqq-demonstratives-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Це твої чисті рушники?",
+            "level": "A1",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Це твої чисті рушники?",
+            "target_text": "Are these your clean towels?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "verb_hint": "Питай про кілька рушників безпосередньо біля мовця; форма належності стоїть перед іменником.",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Was",
+                        "Were"
+                    ]
+                },
+                "a2": {
+                    "answer": "these",
+                    "verb_hint": "Питай про кілька рушників безпосередньо біля мовця; форма належності стоїть перед іменником.",
+                    "options": [
+                        "these",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a3": {
+                    "answer": "your",
+                    "verb_hint": "Питай про кілька рушників безпосередньо біля мовця; форма належності стоїть перед іменником.",
+                    "options": [
+                        "your",
+                        "ours",
+                        "theirs",
+                        "whose"
+                    ]
+                },
+                "a4": {
+                    "answer": "clean",
+                    "verb_hint": "Питай про кілька рушників безпосередньо біля мовця; форма належності стоїть перед іменником.",
+                    "options": [
+                        "clean",
+                        "formal",
+                        "illegal",
+                        "valid"
+                    ]
+                },
+                "a5": {
+                    "answer": "towels?",
+                    "verb_hint": "Питай про кілька рушників безпосередньо біля мовця; форма належності стоїть перед іменником.",
+                    "options": [
+                        "towels",
+                        "parties",
+                        "coats",
+                        "negotiations"
+                    ]
+                }
+            },
+            "verb_hint": "Питай про кілька рушників безпосередньо біля мовця; форма належності стоїть перед іменником.",
+            "accepted_target_texts": [
+                "Are these your clean towels?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are these",
+                "your clean towels?"
+            ],
+            "token_groups": [
+                "Are these",
+                "your clean towels?"
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "Are",
+                "these",
+                "your",
+                "clean",
+                "towels?"
+            ],
+            "options": [
+                "Are",
+                "Is",
+                "Was",
+                "Were",
+                "these",
+                "both",
+                "a",
+                "an",
+                "your",
+                "ours",
+                "theirs",
+                "whose",
+                "clean",
+                "formal",
+                "illegal",
+                "valid",
+                "towels",
+                "parties",
+                "coats",
+                "negotiations"
+            ],
+            "source_text_uk": "Це твої чисті рушники?",
+            "options_by_marker": {
+                "a1": [
+                    "Are",
+                    "Is",
+                    "Was",
+                    "Were"
+                ],
+                "a2": [
+                    "these",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a3": [
+                    "your",
+                    "ours",
+                    "theirs",
+                    "whose"
+                ],
+                "a4": [
+                    "clean",
+                    "formal",
+                    "illegal",
+                    "valid"
+                ],
+                "a5": [
+                    "towels",
+                    "parties",
+                    "coats",
+                    "negotiations"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "demonstrative_pronoun_plural",
+                "a3": "possessive_determiner",
+                "a4": "adjective",
+                "a5": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "pdqq-demonstratives-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Ці черевики підходять, а он ті затісні.",
+            "level": "A2",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Ці черевики підходять, а он ті затісні.",
+            "target_text": "These shoes fit, but those are too tight.",
+            "markers": {
+                "a1": {
+                    "answer": "These",
+                    "verb_hint": "Першу пару вкажи як близьку, другу як віддалену; назву черевиків не повторюй.",
+                    "options": [
+                        "These",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "shoes",
+                    "verb_hint": "Першу пару вкажи як близьку, другу як віддалену; назву черевиків не повторюй.",
+                    "options": [
+                        "shoes",
+                        "consequences",
+                        "suggestions",
+                        "motives"
+                    ]
+                },
+                "a3": {
+                    "answer": "fit,",
+                    "verb_hint": "Першу пару вкажи як близьку, другу як віддалену; назву черевиків не повторюй.",
+                    "options": [
+                        "fit",
+                        "collect",
+                        "compare",
+                        "accept"
+                    ]
+                },
+                "a4": {
+                    "answer": "but",
+                    "verb_hint": "Першу пару вкажи як близьку, другу як віддалену; назву черевиків не повторюй.",
+                    "options": [
+                        "but",
+                        "or",
+                        "nor",
+                        "so"
+                    ]
+                },
+                "a5": {
+                    "answer": "those",
+                    "verb_hint": "Першу пару вкажи як близьку, другу як віддалену; назву черевиків не повторюй.",
+                    "options": [
+                        "those",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a6": {
+                    "answer": "are",
+                    "verb_hint": "Першу пару вкажи як близьку, другу як віддалену; назву черевиків не повторюй.",
+                    "options": [
+                        "are",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a7": {
+                    "answer": "too",
+                    "verb_hint": "Першу пару вкажи як близьку, другу як віддалену; назву черевиків не повторюй.",
+                    "options": [
+                        "too",
+                        "indirectly",
+                        "entirely",
+                        "partly"
+                    ]
+                },
+                "a8": {
+                    "answer": "tight.",
+                    "verb_hint": "Першу пару вкажи як близьку, другу як віддалену; назву черевиків не повторюй.",
+                    "options": [
+                        "tight",
+                        "high",
+                        "low",
+                        "short"
+                    ]
+                }
+            },
+            "verb_hint": "Першу пару вкажи як близьку, другу як віддалену; назву черевиків не повторюй.",
+            "accepted_target_texts": [
+                "These shoes fit, but those are too tight."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "These shoes fit,",
+                "but those",
+                "are too tight."
+            ],
+            "token_groups": [
+                "These shoes fit,",
+                "but those",
+                "are too tight."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "These",
+                "shoes",
+                "fit,",
+                "but",
+                "those",
+                "are",
+                "too",
+                "tight."
+            ],
+            "options": [
+                "These",
+                "Each",
+                "Every",
+                "No",
+                "shoes",
+                "consequences",
+                "suggestions",
+                "motives",
+                "fit",
+                "collect",
+                "compare",
+                "accept",
+                "but",
+                "or",
+                "nor",
+                "so",
+                "those",
+                "another",
+                "either",
+                "neither",
+                "are",
+                "being",
+                "isn't",
+                "aren't",
+                "too",
+                "indirectly",
+                "entirely",
+                "partly",
+                "tight",
+                "high",
+                "low",
+                "short"
+            ],
+            "source_text_uk": "Ці черевики підходять, а он ті затісні.",
+            "options_by_marker": {
+                "a1": [
+                    "These",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "shoes",
+                    "consequences",
+                    "suggestions",
+                    "motives"
+                ],
+                "a3": [
+                    "fit",
+                    "collect",
+                    "compare",
+                    "accept"
+                ],
+                "a4": [
+                    "but",
+                    "or",
+                    "nor",
+                    "so"
+                ],
+                "a5": [
+                    "those",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a6": [
+                    "are",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a7": [
+                    "too",
+                    "indirectly",
+                    "entirely",
+                    "partly"
+                ],
+                "a8": [
+                    "tight",
+                    "high",
+                    "low",
+                    "short"
+                ]
+            },
+            "slot_roles": {
+                "a1": "demonstrative_determiner_plural",
+                "a2": "noun",
+                "a3": "verb",
+                "a4": "conjunction",
+                "a5": "demonstrative_pronoun_plural",
+                "a6": "auxiliary",
+                "a7": "adverb",
+                "a8": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "pdqq-demonstratives-a2-c02",
+            "author_id": "A2-c02",
+            "question": "То був перший раз, коли я подорожував сам.",
+            "level": "A2",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "То був перший раз, коли я подорожував сам.",
+            "target_text": "That was the first time I had travelled alone.",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "verb_hint": "Повернися до вже розказаної віддаленої минулої події, а не анонсуй нову.",
+                    "options": [
+                        "That",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Повернися до вже розказаної віддаленої минулої події, а не анонсуй нову.",
+                    "options": [
+                        "was",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Повернися до вже розказаної віддаленої минулої події, а не анонсуй нову.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a4": {
+                    "answer": "first",
+                    "verb_hint": "Повернися до вже розказаної віддаленої минулої події, а не анонсуй нову.",
+                    "options": [
+                        "first",
+                        "ninth",
+                        "tenth",
+                        "eleventh"
+                    ]
+                },
+                "a5": {
+                    "answer": "time",
+                    "verb_hint": "Повернися до вже розказаної віддаленої минулої події, а не анонсуй нову.",
+                    "options": [
+                        "time",
+                        "exhibition",
+                        "guide",
+                        "decision"
+                    ]
+                },
+                "a6": {
+                    "answer": "I",
+                    "verb_hint": "Повернися до вже розказаної віддаленої минулої події, а не анонсуй нову.",
+                    "options": [
+                        "I",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a7": {
+                    "answer": "had",
+                    "verb_hint": "Повернися до вже розказаної віддаленої минулої події, а не анонсуй нову.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "travelled",
+                    "verb_hint": "Повернися до вже розказаної віддаленої минулої події, а не анонсуй нову.",
+                    "options": [
+                        "travelled",
+                        "chose",
+                        "kept",
+                        "made"
+                    ]
+                },
+                "a9": {
+                    "answer": "alone.",
+                    "verb_hint": "Повернися до вже розказаної віддаленої минулої події, а не анонсуй нову.",
+                    "options": [
+                        "alone",
+                        "rather",
+                        "very",
+                        "enough"
+                    ]
+                }
+            },
+            "verb_hint": "Повернися до вже розказаної віддаленої минулої події, а не анонсуй нову.",
+            "accepted_target_texts": [
+                "That was the first time I had travelled alone.",
+                "That was the first time I had traveled alone."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "traveled"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "traveled"
+                ]
+            },
+            "reorder_groups": [
+                "That was",
+                "the first time",
+                "I had",
+                "travelled alone."
+            ],
+            "token_groups": [
+                "That was",
+                "the first time",
+                "I had",
+                "travelled alone."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "That",
+                "was",
+                "the",
+                "first",
+                "time",
+                "I",
+                "had",
+                "travelled",
+                "alone."
+            ],
+            "options": [
+                "That",
+                "All",
+                "Both",
+                "A",
+                "was",
+                "been",
+                "being",
+                "isn't",
+                "the",
+                "an",
+                "some",
+                "any",
+                "first",
+                "ninth",
+                "tenth",
+                "eleventh",
+                "time",
+                "exhibition",
+                "guide",
+                "decision",
+                "I",
+                "You",
+                "He",
+                "She",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "travelled",
+                "chose",
+                "kept",
+                "made",
+                "alone",
+                "rather",
+                "very",
+                "enough"
+            ],
+            "source_text_uk": "То був перший раз, коли я подорожував сам.",
+            "options_by_marker": {
+                "a1": [
+                    "That",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "was",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a3": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a4": [
+                    "first",
+                    "ninth",
+                    "tenth",
+                    "eleventh"
+                ],
+                "a5": [
+                    "time",
+                    "exhibition",
+                    "guide",
+                    "decision"
+                ],
+                "a6": [
+                    "I",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a7": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a8": [
+                    "travelled",
+                    "chose",
+                    "kept",
+                    "made"
+                ],
+                "a9": [
+                    "alone",
+                    "rather",
+                    "very",
+                    "enough"
+                ]
+            },
+            "slot_roles": {
+                "a1": "demonstrative_pronoun_singular",
+                "a2": "auxiliary",
+                "a3": "article",
+                "a4": "ordinal",
+                "a5": "noun",
+                "a6": "subject_pronoun",
+                "a7": "auxiliary",
+                "a8": "verb",
+                "a9": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "pdqq-demonstratives-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Цього тижня ми зупинилися біля гавані.",
+            "level": "A2",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Цього тижня ми зупинилися біля гавані.",
+            "target_text": "This week we are staying near the harbour.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "verb_hint": "Почни з поточного тижня та передай тимчасове перебування; гавань уже відома.",
+                    "options": [
+                        "This",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "week",
+                    "verb_hint": "Почни з поточного тижня та передай тимчасове перебування; гавань уже відома.",
+                    "options": [
+                        "week",
+                        "minute",
+                        "second",
+                        "morning"
+                    ]
+                },
+                "a3": {
+                    "answer": "we",
+                    "verb_hint": "Почни з поточного тижня та передай тимчасове перебування; гавань уже відома.",
+                    "options": [
+                        "we",
+                        "it",
+                        "they",
+                        "me"
+                    ]
+                },
+                "a4": {
+                    "answer": "are",
+                    "verb_hint": "Почни з поточного тижня та передай тимчасове перебування; гавань уже відома.",
+                    "options": [
+                        "are",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "staying",
+                    "verb_hint": "Почни з поточного тижня та передай тимчасове перебування; гавань уже відома.",
+                    "options": [
+                        "staying",
+                        "supporting",
+                        "preparing",
+                        "discussing"
+                    ]
+                },
+                "a6": {
+                    "answer": "near",
+                    "verb_hint": "Почни з поточного тижня та передай тимчасове перебування; гавань уже відома.",
+                    "options": [
+                        "near",
+                        "after",
+                        "until",
+                        "since"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з поточного тижня та передай тимчасове перебування; гавань уже відома.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a8": {
+                    "answer": "harbour.",
+                    "verb_hint": "Почни з поточного тижня та передай тимчасове перебування; гавань уже відома.",
+                    "options": [
+                        "harbour",
+                        "breakfast",
+                        "message",
+                        "name"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з поточного тижня та передай тимчасове перебування; гавань уже відома.",
+            "accepted_target_texts": [
+                "This week we are staying near the harbour.",
+                "This week we are staying near the harbor."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "harbor."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "harbor."
+                ]
+            },
+            "reorder_groups": [
+                "This week",
+                "we are staying",
+                "near the harbour."
+            ],
+            "token_groups": [
+                "This week",
+                "we are staying",
+                "near the harbour."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "This",
+                "week",
+                "we",
+                "are",
+                "staying",
+                "near",
+                "the",
+                "harbour."
+            ],
+            "options": [
+                "This",
+                "Either",
+                "Neither",
+                "All",
+                "week",
+                "minute",
+                "second",
+                "morning",
+                "we",
+                "it",
+                "they",
+                "me",
+                "are",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "staying",
+                "supporting",
+                "preparing",
+                "discussing",
+                "near",
+                "after",
+                "until",
+                "since",
+                "the",
+                "each",
+                "every",
+                "no",
+                "harbour",
+                "breakfast",
+                "message",
+                "name"
+            ],
+            "source_text_uk": "Цього тижня ми зупинилися біля гавані.",
+            "options_by_marker": {
+                "a1": [
+                    "This",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "week",
+                    "minute",
+                    "second",
+                    "morning"
+                ],
+                "a3": [
+                    "we",
+                    "it",
+                    "they",
+                    "me"
+                ],
+                "a4": [
+                    "are",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a5": [
+                    "staying",
+                    "supporting",
+                    "preparing",
+                    "discussing"
+                ],
+                "a6": [
+                    "near",
+                    "after",
+                    "until",
+                    "since"
+                ],
+                "a7": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a8": [
+                    "harbour",
+                    "breakfast",
+                    "message",
+                    "name"
+                ]
+            },
+            "slot_roles": {
+                "a1": "demonstrative_determiner_singular",
+                "a2": "noun",
+                "a3": "subject_pronoun",
+                "a4": "auxiliary",
+                "a5": "verb",
+                "a6": "preposition",
+                "a7": "article",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "pdqq-demonstratives-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Вартість цього ремонту вища за вартість попереднього.",
+            "level": "B1",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Вартість цього ремонту вища за вартість попереднього.",
+            "target_text": "The cost of this repair is higher than that of the previous one.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Для повторної вартості використай формальну самостійну вказівну однину; попередній ремонт заміни словом-замінником.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "cost",
+                    "verb_hint": "Для повторної вартості використай формальну самостійну вказівну однину; попередній ремонт заміни словом-замінником.",
+                    "options": [
+                        "cost",
+                        "children",
+                        "garden",
+                        "burden"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Для повторної вартості використай формальну самостійну вказівну однину; попередній ремонт заміни словом-замінником.",
+                    "options": [
+                        "of",
+                        "during",
+                        "to",
+                        "from"
+                    ]
+                },
+                "a4": {
+                    "answer": "this",
+                    "verb_hint": "Для повторної вартості використай формальну самостійну вказівну однину; попередній ремонт заміни словом-замінником.",
+                    "options": [
+                        "this",
+                        "these",
+                        "those",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "repair",
+                    "verb_hint": "Для повторної вартості використай формальну самостійну вказівну однину; попередній ремонт заміни словом-замінником.",
+                    "options": [
+                        "repair",
+                        "surprise",
+                        "beach",
+                        "caretaker"
+                    ]
+                },
+                "a6": {
+                    "answer": "is",
+                    "verb_hint": "Для повторної вартості використай формальну самостійну вказівну однину; попередній ремонт заміни словом-замінником.",
+                    "options": [
+                        "is",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "higher",
+                    "verb_hint": "Для повторної вартості використай формальну самостійну вказівну однину; попередній ремонт заміни словом-замінником.",
+                    "options": [
+                        "higher",
+                        "original",
+                        "revised",
+                        "different"
+                    ]
+                },
+                "a8": {
+                    "answer": "than",
+                    "verb_hint": "Для повторної вартості використай формальну самостійну вказівну однину; попередній ремонт заміни словом-замінником.",
+                    "options": [
+                        "than",
+                        "until",
+                        "since",
+                        "once"
+                    ]
+                },
+                "a9": {
+                    "answer": "that",
+                    "verb_hint": "Для повторної вартості використай формальну самостійну вказівну однину; попередній ремонт заміни словом-замінником.",
+                    "options": [
+                        "that",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a10": {
+                    "answer": "of",
+                    "verb_hint": "Для повторної вартості використай формальну самостійну вказівну однину; попередній ремонт заміни словом-замінником.",
+                    "options": [
+                        "of",
+                        "about",
+                        "for",
+                        "in"
+                    ]
+                },
+                "a11": {
+                    "answer": "the",
+                    "verb_hint": "Для повторної вартості використай формальну самостійну вказівну однину; попередній ремонт заміни словом-замінником.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a12": {
+                    "answer": "previous",
+                    "verb_hint": "Для повторної вартості використай формальну самостійну вказівну однину; попередній ремонт заміни словом-замінником.",
+                    "options": [
+                        "previous",
+                        "formal",
+                        "informal",
+                        "legal"
+                    ]
+                },
+                "a13": {
+                    "answer": "one.",
+                    "verb_hint": "Для повторної вартості використай формальну самостійну вказівну однину; попередній ремонт заміни словом-замінником.",
+                    "options": [
+                        "one",
+                        "it",
+                        "inspection",
+                        "remark"
+                    ]
+                }
+            },
+            "verb_hint": "Для повторної вартості використай формальну самостійну вказівну однину; попередній ремонт заміни словом-замінником.",
+            "accepted_target_texts": [
+                "The cost of this repair is higher than that of the previous one."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cost",
+                "of this repair",
+                "is higher",
+                "than that of",
+                "the previous one."
+            ],
+            "token_groups": [
+                "The cost",
+                "of this repair",
+                "is higher",
+                "than that of",
+                "the previous one."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "The",
+                "cost",
+                "of",
+                "this",
+                "repair",
+                "is",
+                "higher",
+                "than",
+                "that",
+                "of",
+                "the",
+                "previous",
+                "one."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "cost",
+                "children",
+                "garden",
+                "burden",
+                "of",
+                "during",
+                "to",
+                "from",
+                "this",
+                "these",
+                "those",
+                "another",
+                "repair",
+                "surprise",
+                "beach",
+                "caretaker",
+                "is",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "higher",
+                "original",
+                "revised",
+                "different",
+                "than",
+                "until",
+                "since",
+                "once",
+                "that",
+                "either",
+                "neither",
+                "all",
+                "about",
+                "for",
+                "in",
+                "the",
+                "both",
+                "a",
+                "an",
+                "previous",
+                "formal",
+                "informal",
+                "legal",
+                "one",
+                "it",
+                "inspection",
+                "remark"
+            ],
+            "source_text_uk": "Вартість цього ремонту вища за вартість попереднього.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "cost",
+                    "children",
+                    "garden",
+                    "burden"
+                ],
+                "a3": [
+                    "of",
+                    "during",
+                    "to",
+                    "from"
+                ],
+                "a4": [
+                    "this",
+                    "these",
+                    "those",
+                    "another"
+                ],
+                "a5": [
+                    "repair",
+                    "surprise",
+                    "beach",
+                    "caretaker"
+                ],
+                "a6": [
+                    "is",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a7": [
+                    "higher",
+                    "original",
+                    "revised",
+                    "different"
+                ],
+                "a8": [
+                    "than",
+                    "until",
+                    "since",
+                    "once"
+                ],
+                "a9": [
+                    "that",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a10": [
+                    "of",
+                    "about",
+                    "for",
+                    "in"
+                ],
+                "a11": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a12": [
+                    "previous",
+                    "formal",
+                    "informal",
+                    "legal"
+                ],
+                "a13": [
+                    "one",
+                    "it",
+                    "inspection",
+                    "remark"
+                ]
+            },
+            "slot_roles": {
+                "a1": "article",
+                "a2": "noun",
+                "a3": "preposition",
+                "a4": "demonstrative_determiner_singular",
+                "a5": "noun",
+                "a6": "auxiliary",
+                "a7": "adjective",
+                "a8": "conjunction",
+                "a9": "demonstrative_pronoun_singular",
+                "a10": "preposition",
+                "a11": "article",
+                "a12": "adjective",
+                "a13": "substitute_one_singular"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "pdqq-demonstratives-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Ось причини, через які ми відклали перевірку.",
+            "level": "B1",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Ось причини, через які ми відклали перевірку.",
+            "target_text": "These are the reasons why we postponed the inspection.",
+            "markers": {
+                "a1": {
+                    "answer": "These",
+                    "verb_hint": "Введи кілька причин як актуальну близьку інформацію; перевірка вже визначена.",
+                    "options": [
+                        "These",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "are",
+                    "verb_hint": "Введи кілька причин як актуальну близьку інформацію; перевірка вже визначена.",
+                    "options": [
+                        "are",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Введи кілька причин як актуальну близьку інформацію; перевірка вже визначена.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "reasons",
+                    "verb_hint": "Введи кілька причин як актуальну близьку інформацію; перевірка вже визначена.",
+                    "options": [
+                        "reasons",
+                        "instructions",
+                        "requirements",
+                        "safeguards"
+                    ]
+                },
+                "a5": {
+                    "answer": "why",
+                    "verb_hint": "Введи кілька причин як актуальну близьку інформацію; перевірка вже визначена.",
+                    "options": [
+                        "why",
+                        "what",
+                        "which",
+                        "where"
+                    ]
+                },
+                "a6": {
+                    "answer": "we",
+                    "verb_hint": "Введи кілька причин як актуальну близьку інформацію; перевірка вже визначена.",
+                    "options": [
+                        "we",
+                        "it",
+                        "they",
+                        "me"
+                    ]
+                },
+                "a7": {
+                    "answer": "postponed",
+                    "verb_hint": "Введи кілька причин як актуальну близьку інформацію; перевірка вже визначена.",
+                    "options": [
+                        "postponed",
+                        "considered",
+                        "remained",
+                        "allowed"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Введи кілька причин як актуальну близьку інформацію; перевірка вже визначена.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a9": {
+                    "answer": "inspection.",
+                    "verb_hint": "Введи кілька причин як актуальну близьку інформацію; перевірка вже визначена.",
+                    "options": [
+                        "inspection",
+                        "agreement",
+                        "consent",
+                        "pocket"
+                    ]
+                }
+            },
+            "verb_hint": "Введи кілька причин як актуальну близьку інформацію; перевірка вже визначена.",
+            "accepted_target_texts": [
+                "These are the reasons why we postponed the inspection."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "These are",
+                "the reasons why",
+                "we postponed",
+                "the inspection."
+            ],
+            "token_groups": [
+                "These are",
+                "the reasons why",
+                "we postponed",
+                "the inspection."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "These",
+                "are",
+                "the",
+                "reasons",
+                "why",
+                "we",
+                "postponed",
+                "the",
+                "inspection."
+            ],
+            "options": [
+                "These",
+                "Another",
+                "Either",
+                "Neither",
+                "are",
+                "wasn't",
+                "weren't",
+                "am",
+                "the",
+                "each",
+                "every",
+                "no",
+                "reasons",
+                "instructions",
+                "requirements",
+                "safeguards",
+                "why",
+                "what",
+                "which",
+                "where",
+                "we",
+                "it",
+                "they",
+                "me",
+                "postponed",
+                "considered",
+                "remained",
+                "allowed",
+                "all",
+                "both",
+                "a",
+                "inspection",
+                "agreement",
+                "consent",
+                "pocket"
+            ],
+            "source_text_uk": "Ось причини, через які ми відклали перевірку.",
+            "options_by_marker": {
+                "a1": [
+                    "These",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "are",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a3": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "reasons",
+                    "instructions",
+                    "requirements",
+                    "safeguards"
+                ],
+                "a5": [
+                    "why",
+                    "what",
+                    "which",
+                    "where"
+                ],
+                "a6": [
+                    "we",
+                    "it",
+                    "they",
+                    "me"
+                ],
+                "a7": [
+                    "postponed",
+                    "considered",
+                    "remained",
+                    "allowed"
+                ],
+                "a8": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a9": [
+                    "inspection",
+                    "agreement",
+                    "consent",
+                    "pocket"
+                ]
+            },
+            "slot_roles": {
+                "a1": "demonstrative_pronoun_plural",
+                "a2": "auxiliary",
+                "a3": "article",
+                "a4": "noun",
+                "a5": "adverb",
+                "a6": "subject_pronoun",
+                "a7": "verb",
+                "a8": "article",
+                "a9": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "pdqq-demonstratives-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Те зауваження було зайвим, і ти це знаєш.",
+            "level": "B1",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Те зауваження було зайвим, і ти це знаєш.",
+            "target_text": "That remark was unnecessary, and you know it.",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "verb_hint": "Повернися до вже зробленого зауваження віддаленою формою; не вводь нове зауваження.",
+                    "options": [
+                        "That",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "remark",
+                    "verb_hint": "Повернися до вже зробленого зауваження віддаленою формою; не вводь нове зауваження.",
+                    "options": [
+                        "remark",
+                        "picture",
+                        "fair",
+                        "tea"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Повернися до вже зробленого зауваження віддаленою формою; не вводь нове зауваження.",
+                    "options": [
+                        "was",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "unnecessary,",
+                    "verb_hint": "Повернися до вже зробленого зауваження віддаленою формою; не вводь нове зауваження.",
+                    "options": [
+                        "unnecessary",
+                        "relevant",
+                        "irrelevant",
+                        "important"
+                    ]
+                },
+                "a5": {
+                    "answer": "and",
+                    "verb_hint": "Повернися до вже зробленого зауваження віддаленою формою; не вводь нове зауваження.",
+                    "options": [
+                        "and",
+                        "or",
+                        "nor",
+                        "so"
+                    ]
+                },
+                "a6": {
+                    "answer": "you",
+                    "verb_hint": "Повернися до вже зробленого зауваження віддаленою формою; не вводь нове зауваження.",
+                    "options": [
+                        "you",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a7": {
+                    "answer": "know",
+                    "verb_hint": "Повернися до вже зробленого зауваження віддаленою формою; не вводь нове зауваження.",
+                    "options": [
+                        "know",
+                        "buy",
+                        "take",
+                        "make"
+                    ]
+                },
+                "a8": {
+                    "answer": "it.",
+                    "verb_hint": "Повернися до вже зробленого зауваження віддаленою формою; не вводь нове зауваження.",
+                    "options": [
+                        "it",
+                        "we",
+                        "they",
+                        "me"
+                    ]
+                }
+            },
+            "verb_hint": "Повернися до вже зробленого зауваження віддаленою формою; не вводь нове зауваження.",
+            "accepted_target_texts": [
+                "That remark was unnecessary, and you know it."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "That remark",
+                "was unnecessary,",
+                "and you",
+                "know it."
+            ],
+            "token_groups": [
+                "That remark",
+                "was unnecessary,",
+                "and you",
+                "know it."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "That",
+                "remark",
+                "was",
+                "unnecessary,",
+                "and",
+                "you",
+                "know",
+                "it."
+            ],
+            "options": [
+                "That",
+                "Both",
+                "A",
+                "An",
+                "remark",
+                "picture",
+                "fair",
+                "tea",
+                "was",
+                "been",
+                "being",
+                "isn't",
+                "unnecessary",
+                "relevant",
+                "irrelevant",
+                "important",
+                "and",
+                "or",
+                "nor",
+                "so",
+                "you",
+                "herself",
+                "ourselves",
+                "themselves",
+                "know",
+                "buy",
+                "take",
+                "make",
+                "it",
+                "we",
+                "they",
+                "me"
+            ],
+            "source_text_uk": "Те зауваження було зайвим, і ти це знаєш.",
+            "options_by_marker": {
+                "a1": [
+                    "That",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "remark",
+                    "picture",
+                    "fair",
+                    "tea"
+                ],
+                "a3": [
+                    "was",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a4": [
+                    "unnecessary",
+                    "relevant",
+                    "irrelevant",
+                    "important"
+                ],
+                "a5": [
+                    "and",
+                    "or",
+                    "nor",
+                    "so"
+                ],
+                "a6": [
+                    "you",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a7": [
+                    "know",
+                    "buy",
+                    "take",
+                    "make"
+                ],
+                "a8": [
+                    "it",
+                    "we",
+                    "they",
+                    "me"
+                ]
+            },
+            "slot_roles": {
+                "a1": "demonstrative_determiner_singular",
+                "a2": "noun",
+                "a3": "auxiliary",
+                "a4": "adjective",
+                "a5": "conjunction",
+                "a6": "subject_pronoun",
+                "a7": "verb",
+                "a8": "object_pronoun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "pdqq-demonstratives-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Результати другого випробування суперечать результатам першого.",
+            "level": "B2",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Результати другого випробування суперечать результатам першого.",
+            "target_text": "The results of the second trial contradict those of the first.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "У другій частині заміни результати самостійною вказівною множиною, не повторюй іменник.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "results",
+                    "verb_hint": "У другій частині заміни результати самостійною вказівною множиною, не повторюй іменник.",
+                    "options": [
+                        "results",
+                        "cases",
+                        "radios",
+                        "visitors"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "У другій частині заміни результати самостійною вказівною множиною, не повторюй іменник.",
+                    "options": [
+                        "of",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "У другій частині заміни результати самостійною вказівною множиною, не повторюй іменник.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a5": {
+                    "answer": "second",
+                    "verb_hint": "У другій частині заміни результати самостійною вказівною множиною, не повторюй іменник.",
+                    "options": [
+                        "second",
+                        "evening",
+                        "night",
+                        "day"
+                    ]
+                },
+                "a6": {
+                    "answer": "trial",
+                    "verb_hint": "У другій частині заміни результати самостійною вказівною множиною, не повторюй іменник.",
+                    "options": [
+                        "trial",
+                        "name",
+                        "explanation",
+                        "respect"
+                    ]
+                },
+                "a7": {
+                    "answer": "contradict",
+                    "verb_hint": "У другій частині заміни результати самостійною вказівною множиною, не повторюй іменник.",
+                    "options": [
+                        "contradict",
+                        "allow",
+                        "require",
+                        "resolve"
+                    ]
+                },
+                "a8": {
+                    "answer": "those",
+                    "verb_hint": "У другій частині заміни результати самостійною вказівною множиною, не повторюй іменник.",
+                    "options": [
+                        "those",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a9": {
+                    "answer": "of",
+                    "verb_hint": "У другій частині заміни результати самостійною вказівною множиною, не повторюй іменник.",
+                    "options": [
+                        "of",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "У другій частині заміни результати самостійною вказівною множиною, не повторюй іменник.",
+                    "options": [
+                        "the",
+                        "no",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a11": {
+                    "answer": "first.",
+                    "verb_hint": "У другій частині заміни результати самостійною вказівною множиною, не повторюй іменник.",
+                    "options": [
+                        "first",
+                        "thirteenth",
+                        "fourteenth",
+                        "eighteenth"
+                    ]
+                }
+            },
+            "verb_hint": "У другій частині заміни результати самостійною вказівною множиною, не повторюй іменник.",
+            "accepted_target_texts": [
+                "The results of the second trial contradict those of the first."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The results",
+                "of",
+                "the second trial",
+                "contradict those",
+                "of the first."
+            ],
+            "token_groups": [
+                "The results",
+                "of",
+                "the second trial",
+                "contradict those",
+                "of the first."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "The",
+                "results",
+                "of",
+                "the",
+                "second",
+                "trial",
+                "contradict",
+                "those",
+                "of",
+                "the",
+                "first."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Each",
+                "Every",
+                "results",
+                "cases",
+                "radios",
+                "visitors",
+                "of",
+                "in",
+                "on",
+                "at",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "second",
+                "evening",
+                "night",
+                "day",
+                "trial",
+                "name",
+                "explanation",
+                "respect",
+                "contradict",
+                "allow",
+                "require",
+                "resolve",
+                "those",
+                "all",
+                "both",
+                "a",
+                "by",
+                "with",
+                "without",
+                "no",
+                "an",
+                "some",
+                "first",
+                "thirteenth",
+                "fourteenth",
+                "eighteenth"
+            ],
+            "source_text_uk": "Результати другого випробування суперечать результатам першого.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "results",
+                    "cases",
+                    "radios",
+                    "visitors"
+                ],
+                "a3": [
+                    "of",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a4": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a5": [
+                    "second",
+                    "evening",
+                    "night",
+                    "day"
+                ],
+                "a6": [
+                    "trial",
+                    "name",
+                    "explanation",
+                    "respect"
+                ],
+                "a7": [
+                    "contradict",
+                    "allow",
+                    "require",
+                    "resolve"
+                ],
+                "a8": [
+                    "those",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a9": [
+                    "of",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a10": [
+                    "the",
+                    "no",
+                    "an",
+                    "some"
+                ],
+                "a11": [
+                    "first",
+                    "thirteenth",
+                    "fourteenth",
+                    "eighteenth"
+                ]
+            },
+            "slot_roles": {
+                "a1": "article",
+                "a2": "noun",
+                "a3": "preposition",
+                "a4": "article",
+                "a5": "ordinal",
+                "a6": "noun",
+                "a7": "verb",
+                "a8": "demonstrative_pronoun_plural",
+                "a9": "preposition",
+                "a10": "article",
+                "a11": "ordinal"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "pdqq-demonstratives-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Ось чого насправді вимагають переглянуті настанови.",
+            "level": "B2",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Ось чого насправді вимагають переглянуті настанови.",
+            "target_text": "This is what the revised guidance actually requires.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "verb_hint": "Представ наступне роз’яснення як актуальне близьке повідомлення в однині.",
+                    "options": [
+                        "This",
+                        "Some",
+                        "Any",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Представ наступне роз’яснення як актуальне близьке повідомлення в однині.",
+                    "options": [
+                        "is",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a3": {
+                    "answer": "what",
+                    "verb_hint": "Представ наступне роз’яснення як актуальне близьке повідомлення в однині.",
+                    "options": [
+                        "what",
+                        "which",
+                        "where",
+                        "when"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Представ наступне роз’яснення як актуальне близьке повідомлення в однині.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a5": {
+                    "answer": "revised",
+                    "verb_hint": "Представ наступне роз’яснення як актуальне близьке повідомлення в однині.",
+                    "options": [
+                        "revised",
+                        "permanent",
+                        "apparent",
+                        "genuine"
+                    ]
+                },
+                "a6": {
+                    "answer": "guidance",
+                    "verb_hint": "Представ наступне роз’яснення як актуальне близьке повідомлення в однині.",
+                    "options": [
+                        "guidance",
+                        "method",
+                        "consultant",
+                        "witness"
+                    ]
+                },
+                "a7": {
+                    "answer": "actually",
+                    "verb_hint": "Представ наступне роз’яснення як актуальне близьке повідомлення в однині.",
+                    "options": [
+                        "actually",
+                        "subsequently",
+                        "currently",
+                        "usually"
+                    ]
+                },
+                "a8": {
+                    "answer": "requires.",
+                    "verb_hint": "Представ наступне роз’яснення як актуальне близьке повідомлення в однині.",
+                    "options": [
+                        "requires",
+                        "remains",
+                        "allows",
+                        "resolves"
+                    ]
+                }
+            },
+            "verb_hint": "Представ наступне роз’яснення як актуальне близьке повідомлення в однині.",
+            "accepted_target_texts": [
+                "This is what the revised guidance actually requires."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This is",
+                "what",
+                "the revised guidance",
+                "actually requires."
+            ],
+            "token_groups": [
+                "This is",
+                "what",
+                "the revised guidance",
+                "actually requires."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "This",
+                "is",
+                "what",
+                "the",
+                "revised",
+                "guidance",
+                "actually",
+                "requires."
+            ],
+            "options": [
+                "This",
+                "Some",
+                "Any",
+                "That",
+                "is",
+                "be",
+                "been",
+                "being",
+                "what",
+                "which",
+                "where",
+                "when",
+                "the",
+                "these",
+                "those",
+                "each",
+                "revised",
+                "permanent",
+                "apparent",
+                "genuine",
+                "guidance",
+                "method",
+                "consultant",
+                "witness",
+                "actually",
+                "subsequently",
+                "currently",
+                "usually",
+                "requires",
+                "remains",
+                "allows",
+                "resolves"
+            ],
+            "source_text_uk": "Ось чого насправді вимагають переглянуті настанови.",
+            "options_by_marker": {
+                "a1": [
+                    "This",
+                    "Some",
+                    "Any",
+                    "That"
+                ],
+                "a2": [
+                    "is",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a3": [
+                    "what",
+                    "which",
+                    "where",
+                    "when"
+                ],
+                "a4": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a5": [
+                    "revised",
+                    "permanent",
+                    "apparent",
+                    "genuine"
+                ],
+                "a6": [
+                    "guidance",
+                    "method",
+                    "consultant",
+                    "witness"
+                ],
+                "a7": [
+                    "actually",
+                    "subsequently",
+                    "currently",
+                    "usually"
+                ],
+                "a8": [
+                    "requires",
+                    "remains",
+                    "allows",
+                    "resolves"
+                ]
+            },
+            "slot_roles": {
+                "a1": "demonstrative_pronoun_singular",
+                "a2": "auxiliary",
+                "a3": "relative_pronoun",
+                "a4": "article",
+                "a5": "adjective",
+                "a6": "noun",
+                "a7": "adverb",
+                "a8": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "pdqq-demonstratives-b2-c03",
+            "author_id": "B2-c03",
+            "question": "З тими, кого зачепило закриття, заздалегідь не порадилися.",
+            "level": "B2",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "З тими, кого зачепило закриття, заздалегідь не порадилися.",
+            "target_text": "Those affected by the closure were not consulted beforehand.",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "verb_hint": "Самостійно назви визначену далі групу людей і збережи минулий заперечний пасив.",
+                    "options": [
+                        "Those",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "affected",
+                    "verb_hint": "Самостійно назви визначену далі групу людей і збережи минулий заперечний пасив.",
+                    "options": [
+                        "affected",
+                        "insufficient",
+                        "necessary",
+                        "optional"
+                    ]
+                },
+                "a3": {
+                    "answer": "by",
+                    "verb_hint": "Самостійно назви визначену далі групу людей і збережи минулий заперечний пасив.",
+                    "options": [
+                        "by",
+                        "on",
+                        "at",
+                        "with"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Самостійно назви визначену далі групу людей і збережи минулий заперечний пасив.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "closure",
+                    "verb_hint": "Самостійно назви визначену далі групу людей і збережи минулий заперечний пасив.",
+                    "options": [
+                        "closure",
+                        "aunt",
+                        "exhibition",
+                        "guide"
+                    ]
+                },
+                "a6": {
+                    "answer": "were",
+                    "verb_hint": "Самостійно назви визначену далі групу людей і збережи минулий заперечний пасив.",
+                    "options": [
+                        "were",
+                        "are",
+                        "was",
+                        "be"
+                    ]
+                },
+                "a7": {
+                    "answer": "not",
+                    "verb_hint": "Самостійно назви визначену далі групу людей і збережи минулий заперечний пасив.",
+                    "options": [
+                        "not",
+                        "only",
+                        "even",
+                        "almost"
+                    ]
+                },
+                "a8": {
+                    "answer": "consulted",
+                    "verb_hint": "Самостійно назви визначену далі групу людей і збережи минулий заперечний пасив.",
+                    "options": [
+                        "consulted",
+                        "explained",
+                        "produced",
+                        "considered"
+                    ]
+                },
+                "a9": {
+                    "answer": "beforehand.",
+                    "verb_hint": "Самостійно назви визначену далі групу людей і збережи минулий заперечний пасив.",
+                    "options": [
+                        "beforehand",
+                        "nearly",
+                        "quite",
+                        "rather"
+                    ]
+                }
+            },
+            "verb_hint": "Самостійно назви визначену далі групу людей і збережи минулий заперечний пасив.",
+            "accepted_target_texts": [
+                "Those affected by the closure were not consulted beforehand."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Those affected",
+                "by the closure",
+                "were not consulted",
+                "beforehand."
+            ],
+            "token_groups": [
+                "Those affected",
+                "by the closure",
+                "were not consulted",
+                "beforehand."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "Those",
+                "affected",
+                "by",
+                "the",
+                "closure",
+                "were",
+                "not",
+                "consulted",
+                "beforehand."
+            ],
+            "options": [
+                "Those",
+                "This",
+                "That",
+                "These",
+                "affected",
+                "insufficient",
+                "necessary",
+                "optional",
+                "by",
+                "on",
+                "at",
+                "with",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "closure",
+                "aunt",
+                "exhibition",
+                "guide",
+                "were",
+                "are",
+                "was",
+                "be",
+                "not",
+                "only",
+                "even",
+                "almost",
+                "consulted",
+                "explained",
+                "produced",
+                "considered",
+                "beforehand",
+                "nearly",
+                "quite",
+                "rather"
+            ],
+            "source_text_uk": "З тими, кого зачепило закриття, заздалегідь не порадилися.",
+            "options_by_marker": {
+                "a1": [
+                    "Those",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "affected",
+                    "insufficient",
+                    "necessary",
+                    "optional"
+                ],
+                "a3": [
+                    "by",
+                    "on",
+                    "at",
+                    "with"
+                ],
+                "a4": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "closure",
+                    "aunt",
+                    "exhibition",
+                    "guide"
+                ],
+                "a6": [
+                    "were",
+                    "are",
+                    "was",
+                    "be"
+                ],
+                "a7": [
+                    "not",
+                    "only",
+                    "even",
+                    "almost"
+                ],
+                "a8": [
+                    "consulted",
+                    "explained",
+                    "produced",
+                    "considered"
+                ],
+                "a9": [
+                    "beforehand",
+                    "nearly",
+                    "quite",
+                    "rather"
+                ]
+            },
+            "slot_roles": {
+                "a1": "demonstrative_pronoun_plural",
+                "a2": "adjective",
+                "a3": "preposition",
+                "a4": "article",
+                "a5": "noun",
+                "a6": "auxiliary",
+                "a7": "adverb",
+                "a8": "verb",
+                "a9": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "pdqq-demonstratives-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Ті, хто посилається на презумпцію, мають також приймати її обмеження.",
+            "level": "C1",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Ті, хто посилається на презумпцію, мають також приймати її обмеження.",
+            "target_text": "Those who invoke the presumption must also accept the limits attached to it.",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "verb_hint": "Визнач групу людей через наступну підрядну частину; презумпція й обмеження вже відомі.",
+                    "options": [
+                        "Those",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "who",
+                    "verb_hint": "Визнач групу людей через наступну підрядну частину; презумпція й обмеження вже відомі.",
+                    "options": [
+                        "who",
+                        "how",
+                        "whoever",
+                        "whatever"
+                    ]
+                },
+                "a3": {
+                    "answer": "invoke",
+                    "verb_hint": "Визнач групу людей через наступну підрядну частину; презумпція й обмеження вже відомі.",
+                    "options": [
+                        "invoke",
+                        "follow",
+                        "carry",
+                        "support"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Визнач групу людей через наступну підрядну частину; презумпція й обмеження вже відомі.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a5": {
+                    "answer": "presumption",
+                    "verb_hint": "Визнач групу людей через наступну підрядну частину; презумпція й обмеження вже відомі.",
+                    "options": [
+                        "presumption",
+                        "rule",
+                        "difficulty",
+                        "exception"
+                    ]
+                },
+                "a6": {
+                    "answer": "must",
+                    "verb_hint": "Визнач групу людей через наступну підрядну частину; презумпція й обмеження вже відомі.",
+                    "options": [
+                        "must",
+                        "couldn't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "also",
+                    "verb_hint": "Визнач групу людей через наступну підрядну частину; презумпція й обмеження вже відомі.",
+                    "options": [
+                        "also",
+                        "often",
+                        "sometimes",
+                        "already"
+                    ]
+                },
+                "a8": {
+                    "answer": "accept",
+                    "verb_hint": "Визнач групу людей через наступну підрядну частину; презумпція й обмеження вже відомі.",
+                    "options": [
+                        "accept",
+                        "retain",
+                        "preserve",
+                        "reveal"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Визнач групу людей через наступну підрядну частину; презумпція й обмеження вже відомі.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "an"
+                    ]
+                },
+                "a10": {
+                    "answer": "limits",
+                    "verb_hint": "Визнач групу людей через наступну підрядну частину; презумпція й обмеження вже відомі.",
+                    "options": [
+                        "limits",
+                        "seats",
+                        "consequences",
+                        "suggestions"
+                    ]
+                },
+                "a11": {
+                    "answer": "attached",
+                    "verb_hint": "Визнач групу людей через наступну підрядну частину; презумпція й обмеження вже відомі.",
+                    "options": [
+                        "attached",
+                        "made",
+                        "found",
+                        "left"
+                    ]
+                },
+                "a12": {
+                    "answer": "to",
+                    "verb_hint": "Визнач групу людей через наступну підрядну частину; презумпція й обмеження вже відомі.",
+                    "options": [
+                        "to",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a13": {
+                    "answer": "it.",
+                    "verb_hint": "Визнач групу людей через наступну підрядну частину; презумпція й обмеження вже відомі.",
+                    "options": [
+                        "it",
+                        "I",
+                        "you",
+                        "he"
+                    ]
+                }
+            },
+            "verb_hint": "Визнач групу людей через наступну підрядну частину; презумпція й обмеження вже відомі.",
+            "accepted_target_texts": [
+                "Those who invoke the presumption must also accept the limits attached to it."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Those who invoke",
+                "the presumption",
+                "must also accept",
+                "the limits attached",
+                "to it."
+            ],
+            "token_groups": [
+                "Those who invoke",
+                "the presumption",
+                "must also accept",
+                "the limits attached",
+                "to it."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "Those",
+                "who",
+                "invoke",
+                "the",
+                "presumption",
+                "must",
+                "also",
+                "accept",
+                "the",
+                "limits",
+                "attached",
+                "to",
+                "it."
+            ],
+            "options": [
+                "Those",
+                "Every",
+                "No",
+                "Another",
+                "who",
+                "how",
+                "whoever",
+                "whatever",
+                "invoke",
+                "follow",
+                "carry",
+                "support",
+                "the",
+                "all",
+                "both",
+                "a",
+                "presumption",
+                "rule",
+                "difficulty",
+                "exception",
+                "must",
+                "couldn't",
+                "won't",
+                "wouldn't",
+                "also",
+                "often",
+                "sometimes",
+                "already",
+                "accept",
+                "retain",
+                "preserve",
+                "reveal",
+                "either",
+                "neither",
+                "an",
+                "limits",
+                "seats",
+                "consequences",
+                "suggestions",
+                "attached",
+                "made",
+                "found",
+                "left",
+                "to",
+                "for",
+                "of",
+                "in",
+                "it",
+                "I",
+                "you",
+                "he"
+            ],
+            "source_text_uk": "Ті, хто посилається на презумпцію, мають також приймати її обмеження.",
+            "options_by_marker": {
+                "a1": [
+                    "Those",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "who",
+                    "how",
+                    "whoever",
+                    "whatever"
+                ],
+                "a3": [
+                    "invoke",
+                    "follow",
+                    "carry",
+                    "support"
+                ],
+                "a4": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a5": [
+                    "presumption",
+                    "rule",
+                    "difficulty",
+                    "exception"
+                ],
+                "a6": [
+                    "must",
+                    "couldn't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a7": [
+                    "also",
+                    "often",
+                    "sometimes",
+                    "already"
+                ],
+                "a8": [
+                    "accept",
+                    "retain",
+                    "preserve",
+                    "reveal"
+                ],
+                "a9": [
+                    "the",
+                    "either",
+                    "neither",
+                    "an"
+                ],
+                "a10": [
+                    "limits",
+                    "seats",
+                    "consequences",
+                    "suggestions"
+                ],
+                "a11": [
+                    "attached",
+                    "made",
+                    "found",
+                    "left"
+                ],
+                "a12": [
+                    "to",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a13": [
+                    "it",
+                    "I",
+                    "you",
+                    "he"
+                ]
+            },
+            "slot_roles": {
+                "a1": "demonstrative_pronoun_plural",
+                "a2": "relative_pronoun",
+                "a3": "verb",
+                "a4": "article",
+                "a5": "noun",
+                "a6": "auxiliary",
+                "a7": "adverb",
+                "a8": "verb",
+                "a9": "article",
+                "a10": "noun",
+                "a11": "verb",
+                "a12": "preposition",
+                "a13": "subject_pronoun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "pdqq-demonstratives-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Розрізнення полягає між намірами сторін і тим, що дозволяє угода.",
+            "level": "C1",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Розрізнення полягає між намірами сторін і тим, що дозволяє угода.",
+            "target_text": "The distinction is between what the parties intended and that which the agreement permits.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Другий предмет розрізнення передай формальним сполученням вказівного та відносного займенників.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "distinction",
+                    "verb_hint": "Другий предмет розрізнення передай формальним сполученням вказівного та відносного займенників.",
+                    "options": [
+                        "distinction",
+                        "tea",
+                        "journey",
+                        "position"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Другий предмет розрізнення передай формальним сполученням вказівного та відносного займенників.",
+                    "options": [
+                        "is",
+                        "weren't",
+                        "am",
+                        "are"
+                    ]
+                },
+                "a4": {
+                    "answer": "between",
+                    "verb_hint": "Другий предмет розрізнення передай формальним сполученням вказівного та відносного займенників.",
+                    "options": [
+                        "between",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a5": {
+                    "answer": "what",
+                    "verb_hint": "Другий предмет розрізнення передай формальним сполученням вказівного та відносного займенників.",
+                    "options": [
+                        "what",
+                        "whenever",
+                        "who",
+                        "whom"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Другий предмет розрізнення передай формальним сполученням вказівного та відносного займенників.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a7": {
+                    "answer": "parties",
+                    "verb_hint": "Другий предмет розрізнення передай формальним сполученням вказівного та відносного займенників.",
+                    "options": [
+                        "parties",
+                        "instructions",
+                        "requirements",
+                        "safeguards"
+                    ]
+                },
+                "a8": {
+                    "answer": "intended",
+                    "verb_hint": "Другий предмет розрізнення передай формальним сполученням вказівного та відносного займенників.",
+                    "options": [
+                        "intended",
+                        "allowed",
+                        "required",
+                        "resolved"
+                    ]
+                },
+                "a9": {
+                    "answer": "and",
+                    "verb_hint": "Другий предмет розрізнення передай формальним сполученням вказівного та відносного займенників.",
+                    "options": [
+                        "and",
+                        "unless",
+                        "whereas",
+                        "while"
+                    ]
+                },
+                "a10": {
+                    "answer": "that",
+                    "verb_hint": "Другий предмет розрізнення передай формальним сполученням вказівного та відносного займенників.",
+                    "options": [
+                        "that",
+                        "any",
+                        "this",
+                        "these"
+                    ]
+                },
+                "a11": {
+                    "answer": "which",
+                    "verb_hint": "Другий предмет розрізнення передай формальним сполученням вказівного та відносного займенників.",
+                    "options": [
+                        "which",
+                        "when",
+                        "why",
+                        "how"
+                    ]
+                },
+                "a12": {
+                    "answer": "the",
+                    "verb_hint": "Другий предмет розрізнення передай формальним сполученням вказівного та відносного займенників.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a13": {
+                    "answer": "agreement",
+                    "verb_hint": "Другий предмет розрізнення передай формальним сполученням вказівного та відносного займенників.",
+                    "options": [
+                        "agreement",
+                        "outcome",
+                        "dissent",
+                        "folder"
+                    ]
+                },
+                "a14": {
+                    "answer": "permits.",
+                    "verb_hint": "Другий предмет розрізнення передай формальним сполученням вказівного та відносного займенників.",
+                    "options": [
+                        "permits",
+                        "collects",
+                        "compares",
+                        "accepts"
+                    ]
+                }
+            },
+            "verb_hint": "Другий предмет розрізнення передай формальним сполученням вказівного та відносного займенників.",
+            "accepted_target_texts": [
+                "The distinction is between what the parties intended and that which the agreement permits."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The distinction",
+                "is between",
+                "what the parties",
+                "intended and that",
+                "which",
+                "the agreement permits."
+            ],
+            "token_groups": [
+                "The distinction",
+                "is between",
+                "what the parties",
+                "intended and that",
+                "which",
+                "the agreement permits."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "The",
+                "distinction",
+                "is",
+                "between",
+                "what",
+                "the",
+                "parties",
+                "intended",
+                "and",
+                "that",
+                "which",
+                "the",
+                "agreement",
+                "permits."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "distinction",
+                "tea",
+                "journey",
+                "position",
+                "is",
+                "weren't",
+                "am",
+                "are",
+                "between",
+                "for",
+                "of",
+                "in",
+                "what",
+                "whenever",
+                "who",
+                "whom",
+                "the",
+                "no",
+                "another",
+                "either",
+                "parties",
+                "instructions",
+                "requirements",
+                "safeguards",
+                "intended",
+                "allowed",
+                "required",
+                "resolved",
+                "and",
+                "unless",
+                "whereas",
+                "while",
+                "that",
+                "any",
+                "this",
+                "these",
+                "which",
+                "when",
+                "why",
+                "how",
+                "neither",
+                "all",
+                "both",
+                "agreement",
+                "outcome",
+                "dissent",
+                "folder",
+                "permits",
+                "collects",
+                "compares",
+                "accepts"
+            ],
+            "source_text_uk": "Розрізнення полягає між намірами сторін і тим, що дозволяє угода.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "distinction",
+                    "tea",
+                    "journey",
+                    "position"
+                ],
+                "a3": [
+                    "is",
+                    "weren't",
+                    "am",
+                    "are"
+                ],
+                "a4": [
+                    "between",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a5": [
+                    "what",
+                    "whenever",
+                    "who",
+                    "whom"
+                ],
+                "a6": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a7": [
+                    "parties",
+                    "instructions",
+                    "requirements",
+                    "safeguards"
+                ],
+                "a8": [
+                    "intended",
+                    "allowed",
+                    "required",
+                    "resolved"
+                ],
+                "a9": [
+                    "and",
+                    "unless",
+                    "whereas",
+                    "while"
+                ],
+                "a10": [
+                    "that",
+                    "any",
+                    "this",
+                    "these"
+                ],
+                "a11": [
+                    "which",
+                    "when",
+                    "why",
+                    "how"
+                ],
+                "a12": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a13": [
+                    "agreement",
+                    "outcome",
+                    "dissent",
+                    "folder"
+                ],
+                "a14": [
+                    "permits",
+                    "collects",
+                    "compares",
+                    "accepts"
+                ]
+            },
+            "slot_roles": {
+                "a1": "article",
+                "a2": "noun",
+                "a3": "auxiliary",
+                "a4": "preposition",
+                "a5": "relative_pronoun",
+                "a6": "article",
+                "a7": "noun",
+                "a8": "verb",
+                "a9": "conjunction",
+                "a10": "demonstrative_pronoun_singular",
+                "a11": "relative_pronoun",
+                "a12": "article",
+                "a13": "noun",
+                "a14": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "pdqq-demonstratives-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Принаймні ось що зрозуміло: матеріали справи не підтверджують звинувачення.",
+            "level": "C1",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Принаймні ось що зрозуміло: матеріали справи не підтверджують звинувачення.",
+            "target_text": "This much is clear: the record does not support the allegation.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "verb_hint": "Анонсуй наступне обмежене твердження близькою формою; не змінюй заперечення підтримки.",
+                    "options": [
+                        "This",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "much",
+                    "verb_hint": "Анонсуй наступне обмежене твердження близькою формою; не змінюй заперечення підтримки.",
+                    "options": [
+                        "much",
+                        "our",
+                        "their",
+                        "her"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Анонсуй наступне обмежене твердження близькою формою; не змінюй заперечення підтримки.",
+                    "options": [
+                        "is",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a4": {
+                    "answer": "clear:",
+                    "verb_hint": "Анонсуй наступне обмежене твердження близькою формою; не змінюй заперечення підтримки.",
+                    "options": [
+                        "clear",
+                        "wet",
+                        "dry",
+                        "clean"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Анонсуй наступне обмежене твердження близькою формою; не змінюй заперечення підтримки.",
+                    "options": [
+                        "the",
+                        "every",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a6": {
+                    "answer": "record",
+                    "verb_hint": "Анонсуй наступне обмежене твердження близькою формою; не змінюй заперечення підтримки.",
+                    "options": [
+                        "record",
+                        "decision",
+                        "course",
+                        "evidence"
+                    ]
+                },
+                "a7": {
+                    "answer": "does",
+                    "verb_hint": "Анонсуй наступне обмежене твердження близькою формою; не змінюй заперечення підтримки.",
+                    "options": [
+                        "does",
+                        "didn't",
+                        "have",
+                        "has"
+                    ]
+                },
+                "a8": {
+                    "answer": "not",
+                    "verb_hint": "Анонсуй наступне обмежене твердження близькою формою; не змінюй заперечення підтримки.",
+                    "options": [
+                        "not",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a9": {
+                    "answer": "support",
+                    "verb_hint": "Анонсуй наступне обмежене твердження близькою формою; не змінюй заперечення підтримки.",
+                    "options": [
+                        "support",
+                        "produce",
+                        "consider",
+                        "remain"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Анонсуй наступне обмежене твердження близькою формою; не змінюй заперечення підтримки.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a11": {
+                    "answer": "allegation.",
+                    "verb_hint": "Анонсуй наступне обмежене твердження близькою формою; не змінюй заперечення підтримки.",
+                    "options": [
+                        "allegation",
+                        "recollection",
+                        "concession",
+                        "right"
+                    ]
+                }
+            },
+            "verb_hint": "Анонсуй наступне обмежене твердження близькою формою; не змінюй заперечення підтримки.",
+            "accepted_target_texts": [
+                "This much is clear: the record does not support the allegation."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This much",
+                "is clear:",
+                "the record",
+                "does not support",
+                "the allegation."
+            ],
+            "token_groups": [
+                "This much",
+                "is clear:",
+                "the record",
+                "does not support",
+                "the allegation."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "This",
+                "much",
+                "is",
+                "clear:",
+                "the",
+                "record",
+                "does",
+                "not",
+                "support",
+                "the",
+                "allegation."
+            ],
+            "options": [
+                "This",
+                "No",
+                "Another",
+                "Either",
+                "much",
+                "our",
+                "their",
+                "her",
+                "is",
+                "wasn't",
+                "weren't",
+                "am",
+                "clear",
+                "wet",
+                "dry",
+                "clean",
+                "the",
+                "every",
+                "neither",
+                "all",
+                "record",
+                "decision",
+                "course",
+                "evidence",
+                "does",
+                "didn't",
+                "have",
+                "has",
+                "not",
+                "always",
+                "often",
+                "sometimes",
+                "support",
+                "produce",
+                "consider",
+                "remain",
+                "both",
+                "a",
+                "an",
+                "allegation",
+                "recollection",
+                "concession",
+                "right"
+            ],
+            "source_text_uk": "Принаймні ось що зрозуміло: матеріали справи не підтверджують звинувачення.",
+            "options_by_marker": {
+                "a1": [
+                    "This",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "much",
+                    "our",
+                    "their",
+                    "her"
+                ],
+                "a3": [
+                    "is",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a4": [
+                    "clear",
+                    "wet",
+                    "dry",
+                    "clean"
+                ],
+                "a5": [
+                    "the",
+                    "every",
+                    "neither",
+                    "all"
+                ],
+                "a6": [
+                    "record",
+                    "decision",
+                    "course",
+                    "evidence"
+                ],
+                "a7": [
+                    "does",
+                    "didn't",
+                    "have",
+                    "has"
+                ],
+                "a8": [
+                    "not",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a9": [
+                    "support",
+                    "produce",
+                    "consider",
+                    "remain"
+                ],
+                "a10": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a11": [
+                    "allegation",
+                    "recollection",
+                    "concession",
+                    "right"
+                ]
+            },
+            "slot_roles": {
+                "a1": "demonstrative_pronoun_singular",
+                "a2": "determiner",
+                "a3": "auxiliary",
+                "a4": "adjective",
+                "a5": "article",
+                "a6": "noun",
+                "a7": "auxiliary",
+                "a8": "adverb",
+                "a9": "verb",
+                "a10": "article",
+                "a11": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "pdqq-demonstratives-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Ті, кого виключили з домовленості, зберігають права, яких угода не може припинити.",
+            "level": "C2",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Ті, кого виключили з домовленості, зберігають права, яких угода не може припинити.",
+            "target_text": "Those excluded from the settlement retain rights which the agreement cannot extinguish.",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "verb_hint": "Самостійно назви визначену далі групу людей; угода й домовленість уже відомі.",
+                    "options": [
+                        "Those",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "excluded",
+                    "verb_hint": "Самостійно назви визначену далі групу людей; угода й домовленість уже відомі.",
+                    "options": [
+                        "excluded",
+                        "gave",
+                        "took",
+                        "brought"
+                    ]
+                },
+                "a3": {
+                    "answer": "from",
+                    "verb_hint": "Самостійно назви визначену далі групу людей; угода й домовленість уже відомі.",
+                    "options": [
+                        "from",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Самостійно назви визначену далі групу людей; угода й домовленість уже відомі.",
+                    "options": [
+                        "the",
+                        "these",
+                        "each",
+                        "either"
+                    ]
+                },
+                "a5": {
+                    "answer": "settlement",
+                    "verb_hint": "Самостійно назви визначену далі групу людей; угода й домовленість уже відомі.",
+                    "options": [
+                        "settlement",
+                        "submission",
+                        "appearance",
+                        "consent"
+                    ]
+                },
+                "a6": {
+                    "answer": "retain",
+                    "verb_hint": "Самостійно назви визначену далі групу людей; угода й домовленість уже відомі.",
+                    "options": [
+                        "retain",
+                        "compare",
+                        "accept",
+                        "reject"
+                    ]
+                },
+                "a7": {
+                    "answer": "rights",
+                    "verb_hint": "Самостійно назви визначену далі групу людей; угода й домовленість уже відомі.",
+                    "options": [
+                        "rights",
+                        "participants",
+                        "consequences",
+                        "keys"
+                    ]
+                },
+                "a8": {
+                    "answer": "which",
+                    "verb_hint": "Самостійно назви визначену далі групу людей; угода й домовленість уже відомі.",
+                    "options": [
+                        "which",
+                        "why",
+                        "how",
+                        "whoever"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Самостійно назви визначену далі групу людей; угода й домовленість уже відомі.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a10": {
+                    "answer": "agreement",
+                    "verb_hint": "Самостійно назви визначену далі групу людей; угода й домовленість уже відомі.",
+                    "options": [
+                        "agreement",
+                        "confidence",
+                        "doctrine",
+                        "authority"
+                    ]
+                },
+                "a11": {
+                    "answer": "cannot",
+                    "verb_hint": "Самостійно назви визначену далі групу людей; угода й домовленість уже відомі.",
+                    "options": [
+                        "cannot",
+                        "can",
+                        "could",
+                        "will"
+                    ]
+                },
+                "a12": {
+                    "answer": "extinguish.",
+                    "verb_hint": "Самостійно назви визначену далі групу людей; угода й домовленість уже відомі.",
+                    "options": [
+                        "extinguish",
+                        "follow",
+                        "carry",
+                        "choose"
+                    ]
+                }
+            },
+            "verb_hint": "Самостійно назви визначену далі групу людей; угода й домовленість уже відомі.",
+            "accepted_target_texts": [
+                "Those excluded from the settlement retain rights which the agreement cannot extinguish.",
+                "Those excluded from the settlement retain rights that the agreement cannot extinguish."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "that"
+                ]
+            },
+            "reorder_groups": [
+                "Those excluded",
+                "from the settlement",
+                "retain rights",
+                "which the agreement",
+                "cannot extinguish."
+            ],
+            "token_groups": [
+                "Those excluded",
+                "from the settlement",
+                "retain rights",
+                "which the agreement",
+                "cannot extinguish."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "Those",
+                "excluded",
+                "from",
+                "the",
+                "settlement",
+                "retain",
+                "rights",
+                "which",
+                "the",
+                "agreement",
+                "cannot",
+                "extinguish."
+            ],
+            "options": [
+                "Those",
+                "Every",
+                "No",
+                "Another",
+                "excluded",
+                "gave",
+                "took",
+                "brought",
+                "from",
+                "about",
+                "during",
+                "to",
+                "the",
+                "these",
+                "each",
+                "either",
+                "settlement",
+                "submission",
+                "appearance",
+                "consent",
+                "retain",
+                "compare",
+                "accept",
+                "reject",
+                "rights",
+                "participants",
+                "consequences",
+                "keys",
+                "which",
+                "why",
+                "how",
+                "whoever",
+                "both",
+                "a",
+                "an",
+                "agreement",
+                "confidence",
+                "doctrine",
+                "authority",
+                "cannot",
+                "can",
+                "could",
+                "will",
+                "extinguish",
+                "follow",
+                "carry",
+                "choose"
+            ],
+            "source_text_uk": "Ті, кого виключили з домовленості, зберігають права, яких угода не може припинити.",
+            "options_by_marker": {
+                "a1": [
+                    "Those",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "excluded",
+                    "gave",
+                    "took",
+                    "brought"
+                ],
+                "a3": [
+                    "from",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a4": [
+                    "the",
+                    "these",
+                    "each",
+                    "either"
+                ],
+                "a5": [
+                    "settlement",
+                    "submission",
+                    "appearance",
+                    "consent"
+                ],
+                "a6": [
+                    "retain",
+                    "compare",
+                    "accept",
+                    "reject"
+                ],
+                "a7": [
+                    "rights",
+                    "participants",
+                    "consequences",
+                    "keys"
+                ],
+                "a8": [
+                    "which",
+                    "why",
+                    "how",
+                    "whoever"
+                ],
+                "a9": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a10": [
+                    "agreement",
+                    "confidence",
+                    "doctrine",
+                    "authority"
+                ],
+                "a11": [
+                    "cannot",
+                    "can",
+                    "could",
+                    "will"
+                ],
+                "a12": [
+                    "extinguish",
+                    "follow",
+                    "carry",
+                    "choose"
+                ]
+            },
+            "slot_roles": {
+                "a1": "demonstrative_pronoun_plural",
+                "a2": "verb",
+                "a3": "preposition",
+                "a4": "article",
+                "a5": "noun",
+                "a6": "verb",
+                "a7": "noun",
+                "a8": "relative_pronoun",
+                "a9": "article",
+                "a10": "noun",
+                "a11": "auxiliary",
+                "a12": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "pdqq-demonstratives-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Подання підмінює те, чого вимагає справжня згода, видимістю згоди.",
+            "level": "C2",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Подання підмінює те, чого вимагає справжня згода, видимістю згоди.",
+            "target_text": "The submission substitutes the appearance of consent for that which genuine consent requires.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Предмет підміни передай формальним сполученням вказівного й відносного займенників у цьому порядку.",
+                    "options": [
+                        "The",
+                        "This",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "submission",
+                    "verb_hint": "Предмет підміни передай формальним сполученням вказівного й відносного займенників у цьому порядку.",
+                    "options": [
+                        "submission",
+                        "folder",
+                        "bag",
+                        "gate"
+                    ]
+                },
+                "a3": {
+                    "answer": "substitutes",
+                    "verb_hint": "Предмет підміни передай формальним сполученням вказівного й відносного займенників у цьому порядку.",
+                    "options": [
+                        "substitutes",
+                        "sends",
+                        "collects",
+                        "compares"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Предмет підміни передай формальним сполученням вказівного й відносного займенників у цьому порядку.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "appearance",
+                    "verb_hint": "Предмет підміни передай формальним сполученням вказівного й відносного займенників у цьому порядку.",
+                    "options": [
+                        "appearance",
+                        "dissent",
+                        "agreement",
+                        "distinction"
+                    ]
+                },
+                "a6": {
+                    "answer": "of",
+                    "verb_hint": "Предмет підміни передай формальним сполученням вказівного й відносного займенників у цьому порядку.",
+                    "options": [
+                        "of",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a7": {
+                    "answer": "consent",
+                    "verb_hint": "Предмет підміни передай формальним сполученням вказівного й відносного займенників у цьому порядку.",
+                    "options": [
+                        "consent",
+                        "right",
+                        "concern",
+                        "author"
+                    ]
+                },
+                "a8": {
+                    "answer": "for",
+                    "verb_hint": "Предмет підміни передай формальним сполученням вказівного й відносного займенників у цьому порядку.",
+                    "options": [
+                        "for",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a9": {
+                    "answer": "that",
+                    "verb_hint": "Предмет підміни передай формальним сполученням вказівного й відносного займенників у цьому порядку.",
+                    "options": [
+                        "that",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a10": {
+                    "answer": "which",
+                    "verb_hint": "Предмет підміни передай формальним сполученням вказівного й відносного займенників у цьому порядку.",
+                    "options": [
+                        "which",
+                        "when",
+                        "why",
+                        "how"
+                    ]
+                },
+                "a11": {
+                    "answer": "genuine",
+                    "verb_hint": "Предмет підміни передай формальним сполученням вказівного й відносного займенників у цьому порядку.",
+                    "options": [
+                        "genuine",
+                        "original",
+                        "revised",
+                        "different"
+                    ]
+                },
+                "a12": {
+                    "answer": "consent",
+                    "verb_hint": "Предмет підміни передай формальним сполученням вказівного й відносного займенників у цьому порядку.",
+                    "options": [
+                        "consent",
+                        "argument",
+                        "arrangement",
+                        "rule"
+                    ]
+                },
+                "a13": {
+                    "answer": "requires.",
+                    "verb_hint": "Предмет підміни передай формальним сполученням вказівного й відносного займенників у цьому порядку.",
+                    "options": [
+                        "requires",
+                        "allows",
+                        "resolves",
+                        "examines"
+                    ]
+                }
+            },
+            "verb_hint": "Предмет підміни передай формальним сполученням вказівного й відносного займенників у цьому порядку.",
+            "accepted_target_texts": [
+                "The submission substitutes the appearance of consent for that which genuine consent requires."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The submission substitutes",
+                "the appearance",
+                "of consent",
+                "for that which",
+                "genuine consent requires."
+            ],
+            "token_groups": [
+                "The submission substitutes",
+                "the appearance",
+                "of consent",
+                "for that which",
+                "genuine consent requires."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "The",
+                "submission",
+                "substitutes",
+                "the",
+                "appearance",
+                "of",
+                "consent",
+                "for",
+                "that",
+                "which",
+                "genuine",
+                "consent",
+                "requires."
+            ],
+            "options": [
+                "The",
+                "This",
+                "These",
+                "Those",
+                "submission",
+                "folder",
+                "bag",
+                "gate",
+                "substitutes",
+                "sends",
+                "collects",
+                "compares",
+                "the",
+                "every",
+                "no",
+                "another",
+                "appearance",
+                "dissent",
+                "agreement",
+                "distinction",
+                "of",
+                "by",
+                "with",
+                "without",
+                "consent",
+                "right",
+                "concern",
+                "author",
+                "for",
+                "among",
+                "about",
+                "during",
+                "that",
+                "an",
+                "some",
+                "any",
+                "which",
+                "when",
+                "why",
+                "how",
+                "genuine",
+                "original",
+                "revised",
+                "different",
+                "argument",
+                "arrangement",
+                "rule",
+                "requires",
+                "allows",
+                "resolves",
+                "examines"
+            ],
+            "source_text_uk": "Подання підмінює те, чого вимагає справжня згода, видимістю згоди.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "This",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "submission",
+                    "folder",
+                    "bag",
+                    "gate"
+                ],
+                "a3": [
+                    "substitutes",
+                    "sends",
+                    "collects",
+                    "compares"
+                ],
+                "a4": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "appearance",
+                    "dissent",
+                    "agreement",
+                    "distinction"
+                ],
+                "a6": [
+                    "of",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a7": [
+                    "consent",
+                    "right",
+                    "concern",
+                    "author"
+                ],
+                "a8": [
+                    "for",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a9": [
+                    "that",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a10": [
+                    "which",
+                    "when",
+                    "why",
+                    "how"
+                ],
+                "a11": [
+                    "genuine",
+                    "original",
+                    "revised",
+                    "different"
+                ],
+                "a12": [
+                    "consent",
+                    "argument",
+                    "arrangement",
+                    "rule"
+                ],
+                "a13": [
+                    "requires",
+                    "allows",
+                    "resolves",
+                    "examines"
+                ]
+            },
+            "slot_roles": {
+                "a1": "article",
+                "a2": "noun",
+                "a3": "verb",
+                "a4": "article",
+                "a5": "noun",
+                "a6": "preposition",
+                "a7": "noun",
+                "a8": "preposition",
+                "a9": "demonstrative_pronoun_singular",
+                "a10": "relative_pronoun",
+                "a11": "adjective",
+                "a12": "noun",
+                "a13": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "pdqq-demonstratives-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Це не заперечення розрізнення, а сумнів у наслідках, які з нього виводять.",
+            "level": "C2",
+            "type": 4,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Це не заперечення розрізнення, а сумнів у наслідках, які з нього виводять.",
+            "target_text": "This is not to deny the distinction, but to question the consequences drawn from it.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+                    "options": [
+                        "This",
+                        "Some",
+                        "Any",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+                    "options": [
+                        "is",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+                    "options": [
+                        "not",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+                    "options": [
+                        "to",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a5": {
+                    "answer": "deny",
+                    "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+                    "options": [
+                        "deny",
+                        "consider",
+                        "remain",
+                        "allow"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a7": {
+                    "answer": "distinction,",
+                    "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+                    "options": [
+                        "distinction",
+                        "obligation",
+                        "picture",
+                        "fair"
+                    ]
+                },
+                "a8": {
+                    "answer": "but",
+                    "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+                    "options": [
+                        "but",
+                        "and",
+                        "or",
+                        "nor"
+                    ]
+                },
+                "a9": {
+                    "answer": "to",
+                    "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+                    "options": [
+                        "to",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a10": {
+                    "answer": "question",
+                    "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+                    "options": [
+                        "question",
+                        "collect",
+                        "compare",
+                        "accept"
+                    ]
+                },
+                "a11": {
+                    "answer": "the",
+                    "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a12": {
+                    "answer": "consequences",
+                    "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+                    "options": [
+                        "consequences",
+                        "negotiations",
+                        "interests",
+                        "proceedings"
+                    ]
+                },
+                "a13": {
+                    "answer": "drawn",
+                    "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+                    "options": [
+                        "drawn",
+                        "explained",
+                        "produced",
+                        "considered"
+                    ]
+                },
+                "a14": {
+                    "answer": "from",
+                    "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+                    "options": [
+                        "from",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a15": {
+                    "answer": "it.",
+                    "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+                    "options": [
+                        "it",
+                        "we",
+                        "they",
+                        "me"
+                    ]
+                }
+            },
+            "verb_hint": "Актуальне уточнення автора почни близькою вказівною одниною; збережи протиставлення двох намірів.",
+            "accepted_target_texts": [
+                "This is not to deny the distinction, but to question the consequences drawn from it."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This is not",
+                "to deny",
+                "the distinction,",
+                "but to question",
+                "the consequences drawn",
+                "from it."
+            ],
+            "token_groups": [
+                "This is not",
+                "to deny",
+                "the distinction,",
+                "but to question",
+                "the consequences drawn",
+                "from it."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1",
+            "tokens_correct": [
+                "This",
+                "is",
+                "not",
+                "to",
+                "deny",
+                "the",
+                "distinction,",
+                "but",
+                "to",
+                "question",
+                "the",
+                "consequences",
+                "drawn",
+                "from",
+                "it."
+            ],
+            "options": [
+                "This",
+                "Some",
+                "Any",
+                "That",
+                "is",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "not",
+                "always",
+                "often",
+                "sometimes",
+                "to",
+                "onto",
+                "over",
+                "under",
+                "deny",
+                "consider",
+                "remain",
+                "allow",
+                "the",
+                "these",
+                "those",
+                "each",
+                "distinction",
+                "obligation",
+                "picture",
+                "fair",
+                "but",
+                "and",
+                "or",
+                "nor",
+                "through",
+                "across",
+                "between",
+                "question",
+                "collect",
+                "compare",
+                "accept",
+                "every",
+                "no",
+                "another",
+                "consequences",
+                "negotiations",
+                "interests",
+                "proceedings",
+                "drawn",
+                "explained",
+                "produced",
+                "considered",
+                "from",
+                "among",
+                "about",
+                "during",
+                "it",
+                "we",
+                "they",
+                "me"
+            ],
+            "source_text_uk": "Це не заперечення розрізнення, а сумнів у наслідках, які з нього виводять.",
+            "options_by_marker": {
+                "a1": [
+                    "This",
+                    "Some",
+                    "Any",
+                    "That"
+                ],
+                "a2": [
+                    "is",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a3": [
+                    "not",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a4": [
+                    "to",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a5": [
+                    "deny",
+                    "consider",
+                    "remain",
+                    "allow"
+                ],
+                "a6": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a7": [
+                    "distinction",
+                    "obligation",
+                    "picture",
+                    "fair"
+                ],
+                "a8": [
+                    "but",
+                    "and",
+                    "or",
+                    "nor"
+                ],
+                "a9": [
+                    "to",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a10": [
+                    "question",
+                    "collect",
+                    "compare",
+                    "accept"
+                ],
+                "a11": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a12": [
+                    "consequences",
+                    "negotiations",
+                    "interests",
+                    "proceedings"
+                ],
+                "a13": [
+                    "drawn",
+                    "explained",
+                    "produced",
+                    "considered"
+                ],
+                "a14": [
+                    "from",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a15": [
+                    "it",
+                    "we",
+                    "they",
+                    "me"
+                ]
+            },
+            "slot_roles": {
+                "a1": "demonstrative_pronoun_singular",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "preposition",
+                "a5": "verb",
+                "a6": "article",
+                "a7": "noun",
+                "a8": "conjunction",
+                "a9": "preposition",
+                "a10": "verb",
+                "a11": "article",
+                "a12": "noun",
+                "a13": "verb",
+                "a14": "preposition",
+                "a15": "object_pronoun"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

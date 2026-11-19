@@ -1,0 +1,1840 @@
+{
+    "schema_version": 1,
+    "quality_revision": "verb-to-be-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-to-be-quality/future.v1.json",
+        "sha256": "5bd0855d2a015551221a45fafcca2431dc06152487ca9897622cfb6dae450db4"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\VerbToBe\\UkrainianMixedVerbToBeFutureQualityStandardSeeder",
+        "uuid_namespace": "verb-to-be-quality-future-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Verb to Be"
+    },
+    "sources": {
+        "verb_to_be_quality_future": {
+            "name": "Verb to Be Quality: Майбутні форми дієслова бути"
+        }
+    },
+    "tags": {
+        "verb_to_be_future_theme": {
+            "name": "Verb to Be: Future (will be / won't be)",
+            "category": "topic"
+        },
+        "future_will_be_affirmative": {
+            "name": "Affirmative future: will be",
+            "category": "pattern"
+        },
+        "future_will_be_negative": {
+            "name": "Negative future: won't be / will not be",
+            "category": "pattern"
+        },
+        "wont_be_contraction": {
+            "name": "Contraction won't be",
+            "category": "form"
+        },
+        "future_will_be_question": {
+            "name": "Yes/No question: Will + subject + be?",
+            "category": "pattern"
+        },
+        "future_will_be_wh_question": {
+            "name": "Wh-question: Wh + will + subject + be?",
+            "category": "pattern"
+        },
+        "future_will_be_short_answer": {
+            "name": "Short answer: Yes, … will / No, … won't",
+            "category": "pattern"
+        },
+        "there_will_be": {
+            "name": "There will be / There won't be",
+            "category": "pattern"
+        },
+        "future_prediction": {
+            "name": "Future prediction with will be",
+            "category": "usage"
+        },
+        "future_promise": {
+            "name": "Promise with will be",
+            "category": "usage"
+        },
+        "future_warning": {
+            "name": "Warning with will be",
+            "category": "usage"
+        },
+        "future_age": {
+            "name": "Future age: will be + number",
+            "category": "usage"
+        },
+        "future_conditional_clause": {
+            "name": "If / Provided / Unless + present, … will be …",
+            "category": "pattern"
+        },
+        "future_unless_clause": {
+            "name": "Unless + present, … won't be …",
+            "category": "pattern"
+        },
+        "future_time_clause": {
+            "name": "When / Once / After + present, … will be …",
+            "category": "pattern"
+        },
+        "future_by_time": {
+            "name": "By + time expression, … will be …",
+            "category": "pattern"
+        },
+        "future_passive_be": {
+            "name": "Passive: will be + past participle",
+            "category": "pattern"
+        },
+        "future_certainty": {
+            "name": "Expressing certainty: I'm sure + will be",
+            "category": "usage"
+        },
+        "future_opinion": {
+            "name": "Asking opinion: Do you think + will be?",
+            "category": "usage"
+        },
+        "future_hope": {
+            "name": "Expressing hope: I hope + will be",
+            "category": "usage"
+        },
+        "future_reported": {
+            "name": "Reported speech with will be",
+            "category": "usage"
+        },
+        "future_belief": {
+            "name": "Expressing belief: We believe + will be",
+            "category": "usage"
+        },
+        "future_doubt": {
+            "name": "Expressing doubt: I doubt + will be",
+            "category": "usage"
+        },
+        "future_fear": {
+            "name": "Expressing fear: I'm afraid + won't be",
+            "category": "usage"
+        },
+        "future_assumption": {
+            "name": "Assuming / Provided + will be",
+            "category": "usage"
+        },
+        "future_concession": {
+            "name": "Concession: However / Even with + will be",
+            "category": "usage"
+        },
+        "future_regardless": {
+            "name": "Whether or not … will be",
+            "category": "usage"
+        },
+        "future_hedging": {
+            "name": "Hedging: It remains to be seen + will be",
+            "category": "usage"
+        },
+        "future_likelihood": {
+            "name": "Likelihood: In all likelihood + will be",
+            "category": "usage"
+        },
+        "future_rhetorical": {
+            "name": "Rhetorical: It will be no exaggeration",
+            "category": "usage"
+        },
+        "future_would_be_reported": {
+            "name": "Reported speech: would be (future in the past)",
+            "category": "pattern"
+        },
+        "future_inverted_negative": {
+            "name": "Inverted negative: Never / On no account / Not until + will + subject + be",
+            "category": "pattern"
+        },
+        "future_inverted_so": {
+            "name": "Inverted: So + adjective + will + subject + be",
+            "category": "pattern"
+        },
+        "future_hardly_any": {
+            "name": "Hardly any + noun + will be",
+            "category": "pattern"
+        },
+        "narrative_distance": {
+            "name": "Narrative distance: would be (literary)",
+            "category": "usage"
+        },
+        "subjunctive_be": {
+            "name": "Subjunctive: that + subject + be (mandative)",
+            "category": "pattern"
+        },
+        "formal_register": {
+            "name": "Formal / official register",
+            "category": "register"
+        },
+        "legal_register": {
+            "name": "Legal register",
+            "category": "register"
+        },
+        "diplomatic_register": {
+            "name": "Diplomatic register",
+            "category": "register"
+        },
+        "literary_register": {
+            "name": "Literary / archaic register",
+            "category": "register"
+        }
+    },
+    "default_tag_keys": [
+        "verb_to_be_future_theme"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "beq-future-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I {a1} twelve tomorrow.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Завтра мені буде дванадцять років.",
+            "target_text": "I will be twelve tomorrow.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will am",
+                        "will is"
+                    ],
+                    "verb_hint": "Передай майбутній вік мовця; після допоміжного слова форма «бути» не змінюється."
+                }
+            },
+            "verb_hint": "Передай майбутній вік мовця; після допоміжного слова форма «бути» не змінюється.",
+            "accepted_target_texts": [
+                "I will be twelve tomorrow."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "will be",
+                "twelve tomorrow."
+            ],
+            "token_groups": [
+                "I",
+                "will be",
+                "twelve tomorrow."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "beq-future-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The bus {a1} here soon.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Автобус скоро буде тут.",
+            "target_text": "The bus will be here soon.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "will are"
+                    ],
+                    "verb_hint": "Передай майбутнє місце одного автобуса без теперішнього закінчення дієслова."
+                }
+            },
+            "verb_hint": "Передай майбутнє місце одного автобуса без теперішнього закінчення дієслова.",
+            "accepted_target_texts": [
+                "The bus will be here soon."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The bus",
+                "will be",
+                "here soon."
+            ],
+            "token_groups": [
+                "The bus",
+                "will be",
+                "here soon."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "beq-future-a1-g03",
+            "author_id": "A1-g03",
+            "question": "We {a1} at the zoo on Sunday.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "У неділю ми будемо в зоопарку.",
+            "target_text": "We will be at the zoo on Sunday.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "will am"
+                    ],
+                    "verb_hint": "Потрібна майбутня форма «бути» для групи; не узгоджуй основну форму з числом."
+                }
+            },
+            "verb_hint": "Потрібна майбутня форма «бути» для групи; не узгоджуй основну форму з числом.",
+            "accepted_target_texts": [
+                "We will be at the zoo on Sunday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "will be",
+                "at the zoo",
+                "on Sunday."
+            ],
+            "token_groups": [
+                "We",
+                "will be",
+                "at the zoo",
+                "on Sunday."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "beq-future-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The cake {a1} ready yet.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Торт ще не буде готовий.",
+            "target_text": "The cake will not be ready yet.",
+            "markers": {
+                "a1": {
+                    "answer": "will not be",
+                    "options": [
+                        "will not be",
+                        "will not is",
+                        "will not been"
+                    ],
+                    "verb_hint": "Постав заперечення всередині майбутньої конструкції перед основною формою «бути»."
+                }
+            },
+            "verb_hint": "Постав заперечення всередині майбутньої конструкції перед основною формою «бути».",
+            "accepted_target_texts": [
+                "The cake will not be ready yet.",
+                "The cake won't be ready yet."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "won't be"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "won't be"
+                ]
+            },
+            "reorder_groups": [
+                "The cake",
+                "will not be",
+                "ready yet."
+            ],
+            "token_groups": [
+                "The cake",
+                "will not be",
+                "ready yet."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "beq-future-a1-g05",
+            "author_id": "A1-g05",
+            "question": "{a1} you be at school tomorrow?",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Ти завтра будеш у школі?",
+            "target_text": "Will you be at school tomorrow?",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Do",
+                        "Are"
+                    ],
+                    "verb_hint": "Почни звичайне пряме питання майбутнього часу; решта дієслівної конструкції вже наведена."
+                }
+            },
+            "verb_hint": "Почни звичайне пряме питання майбутнього часу; решта дієслівної конструкції вже наведена.",
+            "accepted_target_texts": [
+                "Will you be at school tomorrow?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will",
+                "you be",
+                "at school",
+                "tomorrow?"
+            ],
+            "token_groups": [
+                "Will",
+                "you be",
+                "at school",
+                "tomorrow?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "beq-future-a1-g06",
+            "author_id": "A1-g06",
+            "question": "My cousins {a1} happy to see you.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Мої двоюрідні брати будуть раді тебе бачити.",
+            "target_text": "My cousins will be happy to see you.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "will is"
+                    ],
+                    "verb_hint": "Передай майбутній стан кількох людей незмінною основною формою «бути»."
+                }
+            },
+            "verb_hint": "Передай майбутній стан кількох людей незмінною основною формою «бути».",
+            "accepted_target_texts": [
+                "My cousins will be happy to see you."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My cousins",
+                "will be",
+                "happy to see",
+                "you."
+            ],
+            "token_groups": [
+                "My cousins",
+                "will be",
+                "happy to see",
+                "you."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "beq-future-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The new teacher {a1} in our classroom at nine.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Новий учитель буде в нашому класі о дев'ятій.",
+            "target_text": "The new teacher will be in our classroom at nine.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "will are"
+                    ],
+                    "verb_hint": "Передай майбутнє перебування однієї людини, не повторюючи вже наведене місце й час."
+                }
+            },
+            "verb_hint": "Передай майбутнє перебування однієї людини, не повторюючи вже наведене місце й час.",
+            "accepted_target_texts": [
+                "The new teacher will be in our classroom at nine."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The new teacher",
+                "will be",
+                "in our classroom",
+                "at nine."
+            ],
+            "token_groups": [
+                "The new teacher",
+                "will be",
+                "in our classroom",
+                "at nine."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "beq-future-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The players {a1} after the match.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Після матчу гравці будуть утомлені.",
+            "target_text": "The players will be tired after the match.",
+            "markers": {
+                "a1": {
+                    "answer": "will be tired",
+                    "options": [
+                        "will be tired",
+                        "will are tired",
+                        "will is tired"
+                    ],
+                    "verb_hint": "Передай майбутню втому кількох людей; основна форма «бути» не має числа."
+                }
+            },
+            "verb_hint": "Передай майбутню втому кількох людей; основна форма «бути» не має числа.",
+            "accepted_target_texts": [
+                "The players will be tired after the match.",
+                "The players will be weary after the match."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be weary"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be weary"
+                ]
+            },
+            "reorder_groups": [
+                "The players",
+                "will be",
+                "tired after",
+                "the match."
+            ],
+            "token_groups": [
+                "The players",
+                "will be",
+                "tired after",
+                "the match."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "beq-future-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Where {a1} the parcel be tomorrow morning?",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Де буде посилка завтра вранці?",
+            "target_text": "Where will the parcel be tomorrow morning?",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "Питальне слово й основна форма «бути» вже є; додай майбутнє допоміжне слово."
+                }
+            },
+            "verb_hint": "Питальне слово й основна форма «бути» вже є; додай майбутнє допоміжне слово.",
+            "accepted_target_texts": [
+                "Where will the parcel be tomorrow morning?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Where",
+                "will",
+                "the parcel",
+                "be tomorrow morning?"
+            ],
+            "token_groups": [
+                "Where",
+                "will",
+                "the parcel",
+                "be tomorrow morning?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "beq-future-a2-g04",
+            "author_id": "A2-g04",
+            "question": "Our room {a1} available until Friday.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Наша кімната буде недоступна до п'ятниці.",
+            "target_text": "Our room will not be available until Friday.",
+            "markers": {
+                "a1": {
+                    "answer": "will not be",
+                    "options": [
+                        "will not be",
+                        "will not is",
+                        "will not been"
+                    ],
+                    "verb_hint": "Запереч майбутню доступність кімнати до вказаного терміну."
+                }
+            },
+            "verb_hint": "Запереч майбутню доступність кімнати до вказаного терміну.",
+            "accepted_target_texts": [
+                "Our room will not be available until Friday.",
+                "Our room won't be available until Friday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "won't be"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "won't be"
+                ]
+            },
+            "reorder_groups": [
+                "Our room",
+                "will not be",
+                "available until Friday."
+            ],
+            "token_groups": [
+                "Our room",
+                "will not be",
+                "available until Friday."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "beq-future-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The weather {a1} warmer next week.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Наступного тижня погода буде тепліша.",
+            "target_text": "The weather will be warmer next week.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "will being"
+                    ],
+                    "verb_hint": "Передай майбутнє порівняння погоди, не змінюючи основну форму «бути»."
+                }
+            },
+            "verb_hint": "Передай майбутнє порівняння погоди, не змінюючи основну форму «бути».",
+            "accepted_target_texts": [
+                "The weather will be warmer next week."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The weather",
+                "will be",
+                "warmer next week."
+            ],
+            "token_groups": [
+                "The weather",
+                "will be",
+                "warmer next week."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "beq-future-a2-g06",
+            "author_id": "A2-g06",
+            "question": "{a1} the museum be open on the holiday?",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Музей буде відчинений у святковий день?",
+            "target_text": "Will the museum be open on the holiday?",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "Почни пряме питання майбутнього часу, не підставляючи теперішнє допоміжне слово."
+                }
+            },
+            "verb_hint": "Почни пряме питання майбутнього часу, не підставляючи теперішнє допоміжне слово.",
+            "accepted_target_texts": [
+                "Will the museum be open on the holiday?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will",
+                "the museum",
+                "be open",
+                "on the holiday?"
+            ],
+            "token_groups": [
+                "Will",
+                "the museum",
+                "be open",
+                "on the holiday?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "beq-future-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The people who arrive early {a1} closer to the stage.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Люди, які прийдуть рано, будуть ближче до сцени.",
+            "target_text": "The people who arrive early will be closer to the stage.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "will is"
+                    ],
+                    "verb_hint": "Передай майбутнє місце групи; не змінюй дієслово в уже наведеній означальній частині."
+                }
+            },
+            "verb_hint": "Передай майбутнє місце групи; не змінюй дієслово в уже наведеній означальній частині.",
+            "accepted_target_texts": [
+                "The people who arrive early will be closer to the stage."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The people",
+                "who arrive early",
+                "will be",
+                "closer to",
+                "the stage."
+            ],
+            "token_groups": [
+                "The people",
+                "who arrive early",
+                "will be",
+                "closer to",
+                "the stage."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "beq-future-b1-g02",
+            "author_id": "B1-g02",
+            "question": "I {a1} ready when the taxi arrives.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Я буду готовий, коли приїде таксі.",
+            "target_text": "I will be ready when the taxi arrives.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will am",
+                        "will been"
+                    ],
+                    "verb_hint": "Передай майбутню готовність мовця; часову частину залиш незмінною."
+                }
+            },
+            "verb_hint": "Передай майбутню готовність мовця; часову частину залиш незмінною.",
+            "accepted_target_texts": [
+                "I will be ready when the taxi arrives."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "will be",
+                "ready when",
+                "the taxi arrives."
+            ],
+            "token_groups": [
+                "I",
+                "will be",
+                "ready when",
+                "the taxi arrives."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "beq-future-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The journey {a1} as long as the last one.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Поїздка не буде така довга, як попередня.",
+            "target_text": "The journey will not be as long as the last one.",
+            "markers": {
+                "a1": {
+                    "answer": "will not be",
+                    "options": [
+                        "will not be",
+                        "will not is",
+                        "will not been"
+                    ],
+                    "verb_hint": "Збережи заперечне майбутнє порівняння тривалості."
+                }
+            },
+            "verb_hint": "Збережи заперечне майбутнє порівняння тривалості.",
+            "accepted_target_texts": [
+                "The journey will not be as long as the last one.",
+                "The journey won't be as long as the last one."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "won't be"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "won't be"
+                ]
+            },
+            "reorder_groups": [
+                "The journey",
+                "will not be",
+                "as long",
+                "as the",
+                "last one."
+            ],
+            "token_groups": [
+                "The journey",
+                "will not be",
+                "as long",
+                "as the",
+                "last one."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "beq-future-b1-g04",
+            "author_id": "B1-g04",
+            "question": "Why {a1} the office be empty tomorrow?",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Чому завтра офіс буде порожній?",
+            "target_text": "Why will the office be empty tomorrow?",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "Слово причини й основна форма «бути» вже наведені; додай майбутнє допоміжне слово."
+                }
+            },
+            "verb_hint": "Слово причини й основна форма «бути» вже наведені; додай майбутнє допоміжне слово.",
+            "accepted_target_texts": [
+                "Why will the office be empty tomorrow?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "will",
+                "the office",
+                "be empty",
+                "tomorrow?"
+            ],
+            "token_groups": [
+                "Why",
+                "will",
+                "the office",
+                "be empty",
+                "tomorrow?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "beq-future-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The answer {a1} after the demonstration.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Після демонстрації відповідь буде очевидна.",
+            "target_text": "The answer will be obvious after the demonstration.",
+            "markers": {
+                "a1": {
+                    "answer": "will be obvious",
+                    "options": [
+                        "will be obvious",
+                        "will is obvious",
+                        "will to be obvious"
+                    ],
+                    "verb_hint": "Передай майбутній стан очевидності однієї відповіді."
+                }
+            },
+            "verb_hint": "Передай майбутній стан очевидності однієї відповіді.",
+            "accepted_target_texts": [
+                "The answer will be obvious after the demonstration.",
+                "The answer will be clear after the demonstration."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be clear"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be clear"
+                ]
+            },
+            "reorder_groups": [
+                "The answer",
+                "will be",
+                "obvious after",
+                "the demonstration."
+            ],
+            "token_groups": [
+                "The answer",
+                "will be",
+                "obvious after",
+                "the demonstration."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "beq-future-b1-g06",
+            "author_id": "B1-g06",
+            "question": "{a1} your parents be free to help us?",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Твої батьки матимуть вільний час, щоб нам допомогти?",
+            "target_text": "Will your parents be free to help us?",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Do",
+                        "Are"
+                    ],
+                    "verb_hint": "Почни пряме питання про майбутню зайнятість; решта конструкції вже є."
+                }
+            },
+            "verb_hint": "Почни пряме питання про майбутню зайнятість; решта конструкції вже є.",
+            "accepted_target_texts": [
+                "Will your parents be free to help us?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will",
+                "your parents",
+                "be free",
+                "to help us?"
+            ],
+            "token_groups": [
+                "Will",
+                "your parents",
+                "be free",
+                "to help us?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "beq-future-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The main challenge {a1} securing enough funding.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Головною складністю буде залучення достатнього фінансування.",
+            "target_text": "The main challenge will be securing enough funding.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "will being"
+                    ],
+                    "verb_hint": "Передай майбутню оцінку головної складності; дія після зв'язки вже наведена."
+                }
+            },
+            "verb_hint": "Передай майбутню оцінку головної складності; дія після зв'язки вже наведена.",
+            "accepted_target_texts": [
+                "The main challenge will be securing enough funding."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The main challenge",
+                "will be",
+                "securing enough funding."
+            ],
+            "token_groups": [
+                "The main challenge",
+                "will be",
+                "securing enough funding."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "beq-future-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The consequences of postponing the decision {a1} considerable.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Наслідки відкладення рішення будуть значні.",
+            "target_text": "The consequences of postponing the decision will be considerable.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "will to be"
+                    ],
+                    "verb_hint": "Передай майбутню характеристику кількох наслідків незмінною основною формою."
+                }
+            },
+            "verb_hint": "Передай майбутню характеристику кількох наслідків незмінною основною формою.",
+            "accepted_target_texts": [
+                "The consequences of postponing the decision will be considerable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The consequences",
+                "of postponing",
+                "the decision",
+                "will be",
+                "considerable."
+            ],
+            "token_groups": [
+                "The consequences",
+                "of postponing",
+                "the decision",
+                "will be",
+                "considerable."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "beq-future-b2-g03",
+            "author_id": "B2-g03",
+            "question": "Whether the plan succeeds {a1} apparent within a month.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Чи вдасться план, стане зрозуміло протягом місяця.",
+            "target_text": "Whether the plan succeeds will be apparent within a month.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "will been"
+                    ],
+                    "verb_hint": "Ціла підметова частина потребує головної майбутньої конструкції «бути»."
+                }
+            },
+            "verb_hint": "Ціла підметова частина потребує головної майбутньої конструкції «бути».",
+            "accepted_target_texts": [
+                "Whether the plan succeeds will be apparent within a month."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Whether the plan",
+                "succeeds will be",
+                "apparent within",
+                "a month."
+            ],
+            "token_groups": [
+                "Whether the plan",
+                "succeeds will be",
+                "apparent within",
+                "a month."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "beq-future-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The revised procedure {a1} acceptable to all parties.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Переглянута процедура буде прийнятна не для всіх сторін.",
+            "target_text": "The revised procedure will not be acceptable to all parties.",
+            "markers": {
+                "a1": {
+                    "answer": "will not be",
+                    "options": [
+                        "will not be",
+                        "will not is",
+                        "will not been"
+                    ],
+                    "verb_hint": "Передай майбутнє заперечення загальної прийнятності, не заперечуй прийнятність для кожної окремої сторони."
+                }
+            },
+            "verb_hint": "Передай майбутнє заперечення загальної прийнятності, не заперечуй прийнятність для кожної окремої сторони.",
+            "accepted_target_texts": [
+                "The revised procedure will not be acceptable to all parties.",
+                "The revised procedure won't be acceptable to all parties."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "won't be"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "won't be"
+                ]
+            },
+            "reorder_groups": [
+                "The revised procedure",
+                "will not be",
+                "acceptable to",
+                "all parties."
+            ],
+            "token_groups": [
+                "The revised procedure",
+                "will not be",
+                "acceptable to",
+                "all parties."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "beq-future-b2-g05",
+            "author_id": "B2-g05",
+            "question": "How costly {a1} the transition be for small firms?",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Наскільки витратним буде перехід для малих фірм?",
+            "target_text": "How costly will the transition be for small firms?",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "Питальна характеристика та основна форма вже є; додай допоміжне слово майбутнього часу."
+                }
+            },
+            "verb_hint": "Питальна характеристика та основна форма вже є; додай допоміжне слово майбутнього часу.",
+            "accepted_target_texts": [
+                "How costly will the transition be for small firms?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How costly",
+                "will",
+                "the transition",
+                "be for",
+                "small firms?"
+            ],
+            "token_groups": [
+                "How costly",
+                "will",
+                "the transition",
+                "be for",
+                "small firms?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "beq-future-b2-g06",
+            "author_id": "B2-g06",
+            "question": "{a1} one of the specialists be available for consultation?",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Один із фахівців буде доступний для консультації?",
+            "target_text": "Will one of the specialists be available for consultation?",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "Почни пряме майбутнє питання; не змінюй основну форму через однину підмета."
+                }
+            },
+            "verb_hint": "Почни пряме майбутнє питання; не змінюй основну форму через однину підмета.",
+            "accepted_target_texts": [
+                "Will one of the specialists be available for consultation?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will",
+                "one of",
+                "the specialists",
+                "be available",
+                "for consultation?"
+            ],
+            "token_groups": [
+                "Will",
+                "one of",
+                "the specialists",
+                "be available",
+                "for consultation?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "beq-future-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The extent of the disruption {a1} difficult to quantify in advance.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Масштаб порушень буде важко кількісно оцінити заздалегідь.",
+            "target_text": "The extent of the disruption will be difficult to quantify in advance.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "will to be"
+                    ],
+                    "verb_hint": "Передай майбутню складність оцінки одного масштабу, зберігши обмеження часу."
+                }
+            },
+            "verb_hint": "Передай майбутню складність оцінки одного масштабу, зберігши обмеження часу.",
+            "accepted_target_texts": [
+                "The extent of the disruption will be difficult to quantify in advance."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The extent",
+                "of the disruption",
+                "will be",
+                "difficult to quantify",
+                "in advance."
+            ],
+            "token_groups": [
+                "The extent",
+                "of the disruption",
+                "will be",
+                "difficult to quantify",
+                "in advance."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "beq-future-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The safeguards introduced under the revised framework {a1} subject to independent review.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Гарантії, запроваджені за переглянутою системою, підлягатимуть незалежній перевірці.",
+            "target_text": "The safeguards introduced under the revised framework will be subject to independent review.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will are",
+                        "will been"
+                    ],
+                    "verb_hint": "Передай майбутній статус гарантій; означення та назва перевірки вже наведені."
+                }
+            },
+            "verb_hint": "Передай майбутній статус гарантій; означення та назва перевірки вже наведені.",
+            "accepted_target_texts": [
+                "The safeguards introduced under the revised framework will be subject to independent review."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The safeguards",
+                "introduced under",
+                "the revised framework",
+                "will be",
+                "subject to",
+                "independent review."
+            ],
+            "token_groups": [
+                "The safeguards",
+                "introduced under",
+                "the revised framework",
+                "will be",
+                "subject to",
+                "independent review."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "beq-future-c1-g03",
+            "author_id": "C1-g03",
+            "question": "What remains after these deductions {a1} insufficient to meet the obligation.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Того, що залишиться після цих відрахувань, буде недостатньо для виконання зобов'язання.",
+            "target_text": "What remains after these deductions will be insufficient to meet the obligation.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "will being"
+                    ],
+                    "verb_hint": "Ціла підметова частина потребує головної майбутньої конструкції, не теперішньої форми."
+                }
+            },
+            "verb_hint": "Ціла підметова частина потребує головної майбутньої конструкції, не теперішньої форми.",
+            "accepted_target_texts": [
+                "What remains after these deductions will be insufficient to meet the obligation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What remains",
+                "after these deductions",
+                "will be",
+                "insufficient to meet",
+                "the obligation."
+            ],
+            "token_groups": [
+                "What remains",
+                "after these deductions",
+                "will be",
+                "insufficient to meet",
+                "the obligation."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "beq-future-c1-g04",
+            "author_id": "C1-g04",
+            "question": "I {a1} in a position to endorse the proposal without further evidence.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Без додаткових доказів я не зможу підтримати пропозицію.",
+            "target_text": "I will not be in a position to endorse the proposal without further evidence.",
+            "markers": {
+                "a1": {
+                    "answer": "will not be",
+                    "options": [
+                        "will not be",
+                        "will not am",
+                        "will not been"
+                    ],
+                    "verb_hint": "Передай майбутнє обмеження можливості мовця, зберігши умову щодо доказів."
+                }
+            },
+            "verb_hint": "Передай майбутнє обмеження можливості мовця, зберігши умову щодо доказів.",
+            "accepted_target_texts": [
+                "I will not be in a position to endorse the proposal without further evidence.",
+                "I won't be in a position to endorse the proposal without further evidence."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "won't be"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "won't be"
+                ]
+            },
+            "reorder_groups": [
+                "I",
+                "will not be",
+                "in a position",
+                "to endorse",
+                "the proposal",
+                "without further evidence."
+            ],
+            "token_groups": [
+                "I",
+                "will not be",
+                "in a position",
+                "to endorse",
+                "the proposal",
+                "without further evidence."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "beq-future-c1-g05",
+            "author_id": "C1-g05",
+            "question": "To what extent {a1} the concession be politically sustainable?",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Наскільки ця поступка буде політично життєздатна?",
+            "target_text": "To what extent will the concession be politically sustainable?",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "Питальний зворот уже наведений; потрібне допоміжне слово майбутнього часу."
+                }
+            },
+            "verb_hint": "Питальний зворот уже наведений; потрібне допоміжне слово майбутнього часу.",
+            "accepted_target_texts": [
+                "To what extent will the concession be politically sustainable?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "To what extent",
+                "will",
+                "the concession",
+                "be politically sustainable?"
+            ],
+            "token_groups": [
+                "To what extent",
+                "will",
+                "the concession",
+                "be politically sustainable?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "beq-future-c1-g06",
+            "author_id": "C1-g06",
+            "question": "{a1} the distinction between the two be meaningful when the terminology is harmonised?",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Різниця між ними буде змістовною після узгодження термінології?",
+            "target_text": "Will the distinction between the two be meaningful when the terminology is harmonised?",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "Почни пряме майбутнє питання; після підмета вже наведено основну форму «бути»."
+                }
+            },
+            "verb_hint": "Почни пряме майбутнє питання; після підмета вже наведено основну форму «бути».",
+            "accepted_target_texts": [
+                "Will the distinction between the two be meaningful when the terminology is harmonised?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will",
+                "the distinction",
+                "between the two",
+                "be meaningful",
+                "when the terminology",
+                "is harmonised?"
+            ],
+            "token_groups": [
+                "Will",
+                "the distinction",
+                "between the two",
+                "be meaningful",
+                "when the terminology",
+                "is harmonised?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "beq-future-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The legitimacy of any settlement {a1} inseparable from the manner of its implementation.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Легітимність будь-якої угоди буде невіддільна від способу її втілення.",
+            "target_text": "The legitimacy of any settlement will be inseparable from the manner of its implementation.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "will been"
+                    ],
+                    "verb_hint": "Передай майбутню оцінку нерозривного зв'язку двох понять."
+                }
+            },
+            "verb_hint": "Передай майбутню оцінку нерозривного зв'язку двох понять.",
+            "accepted_target_texts": [
+                "The legitimacy of any settlement will be inseparable from the manner of its implementation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The legitimacy",
+                "of any settlement",
+                "will be",
+                "inseparable from",
+                "the manner",
+                "of its implementation."
+            ],
+            "token_groups": [
+                "The legitimacy",
+                "of any settlement",
+                "will be",
+                "inseparable from",
+                "the manner",
+                "of its implementation."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "beq-future-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The competing obligations {a1} readily reconcilable without revisiting the underlying settlement.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Конкурентні зобов'язання нелегко буде узгодити без перегляду основоположної угоди.",
+            "target_text": "The competing obligations will not be readily reconcilable without revisiting the underlying settlement.",
+            "markers": {
+                "a1": {
+                    "answer": "will not be",
+                    "options": [
+                        "will not be",
+                        "will not are",
+                        "will not been"
+                    ],
+                    "verb_hint": "Збережи майбутнє заперечення легкості узгодження та умову перегляду угоди."
+                }
+            },
+            "verb_hint": "Збережи майбутнє заперечення легкості узгодження та умову перегляду угоди.",
+            "accepted_target_texts": [
+                "The competing obligations will not be readily reconcilable without revisiting the underlying settlement.",
+                "The competing obligations won't be readily reconcilable without revisiting the underlying settlement."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "won't be"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "won't be"
+                ]
+            },
+            "reorder_groups": [
+                "The competing obligations",
+                "will not be",
+                "readily reconcilable",
+                "without revisiting",
+                "the underlying settlement."
+            ],
+            "token_groups": [
+                "The competing obligations",
+                "will not be",
+                "readily reconcilable",
+                "without revisiting",
+                "the underlying settlement."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "beq-future-c2-g03",
+            "author_id": "C2-g03",
+            "question": "How durable the apparent consensus proves {a1} the decisive test of the reform.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Вирішальною перевіркою реформи буде те, наскільки тривалим виявиться позірний консенсус.",
+            "target_text": "How durable the apparent consensus proves will be the decisive test of the reform.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "will to be"
+                    ],
+                    "verb_hint": "Ціла підметова частина потребує головної майбутньої зв'язки."
+                }
+            },
+            "verb_hint": "Ціла підметова частина потребує головної майбутньої зв'язки.",
+            "accepted_target_texts": [
+                "How durable the apparent consensus proves will be the decisive test of the reform."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How durable",
+                "the apparent consensus",
+                "proves will be",
+                "the decisive test",
+                "of the reform."
+            ],
+            "token_groups": [
+                "How durable",
+                "the apparent consensus",
+                "proves will be",
+                "the decisive test",
+                "of the reform."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "beq-future-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The threshold between legitimate intervention and undue interference {a1} no easier to define in practice.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "На практиці межу між законним втручанням і надмірним впливом визначити буде не легше.",
+            "target_text": "The threshold between legitimate intervention and undue interference will be no easier to define in practice.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will is",
+                        "will being"
+                    ],
+                    "verb_hint": "Передай майбутню порівняльну складність; заперечний ступінь уже наведений."
+                }
+            },
+            "verb_hint": "Передай майбутню порівняльну складність; заперечний ступінь уже наведений.",
+            "accepted_target_texts": [
+                "The threshold between legitimate intervention and undue interference will be no easier to define in practice."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The threshold",
+                "between legitimate intervention",
+                "and undue interference",
+                "will be",
+                "no easier",
+                "to define",
+                "in practice."
+            ],
+            "token_groups": [
+                "The threshold",
+                "between legitimate intervention",
+                "and undue interference",
+                "will be",
+                "no easier",
+                "to define",
+                "in practice."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "beq-future-c2-g05",
+            "author_id": "C2-g05",
+            "question": "On whose judgement {a1} the acceptability of that compromise be ultimately dependent?",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Від чийого судження зрештою залежатиме прийнятність цього компромісу?",
+            "target_text": "On whose judgement will the acceptability of that compromise be ultimately dependent?",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "Питальний прийменниковий зворот уже є; додай майбутнє допоміжне слово."
+                }
+            },
+            "verb_hint": "Питальний прийменниковий зворот уже є; додай майбутнє допоміжне слово.",
+            "accepted_target_texts": [
+                "On whose judgement will the acceptability of that compromise be ultimately dependent?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "On whose judgement",
+                "will",
+                "the acceptability",
+                "of that compromise",
+                "be ultimately dependent?"
+            ],
+            "token_groups": [
+                "On whose judgement",
+                "will",
+                "the acceptability",
+                "of that compromise",
+                "be ultimately dependent?"
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "beq-future-c2-g06",
+            "author_id": "C2-g06",
+            "question": "I {a1} mindful of the precedent that such an exception creates.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_future",
+            "translation_uk": "Я пам'ятатиму про прецедент, який створює такий виняток.",
+            "target_text": "I will be mindful of the precedent that such an exception creates.",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will am",
+                        "will been"
+                    ],
+                    "verb_hint": "Передай майбутнє уважне ставлення мовця; не повторюй опис прецеденту."
+                }
+            },
+            "verb_hint": "Передай майбутнє уважне ставлення мовця; не повторюй опис прецеденту.",
+            "accepted_target_texts": [
+                "I will be mindful of the precedent that such an exception creates."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "will be",
+                "mindful of",
+                "the precedent",
+                "that such",
+                "an exception creates."
+            ],
+            "token_groups": [
+                "I",
+                "will be",
+                "mindful of",
+                "the precedent",
+                "that such",
+                "an exception creates."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        }
+    ]
+}

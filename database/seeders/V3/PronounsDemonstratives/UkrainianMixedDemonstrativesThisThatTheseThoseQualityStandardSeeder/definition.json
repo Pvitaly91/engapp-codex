@@ -1,0 +1,1705 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pronouns-demonstratives-v1",
+    "compiled_from": {
+        "path": "docs/content/pronouns-demonstratives-quality/demonstratives.v1.json",
+        "sha256": "f9e7722951fb5c475733d41d917692b28fe1c1d690d439ae8c6df78dc6d2580e"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PronounsDemonstratives\\UkrainianMixedDemonstrativesThisThatTheseThoseQualityStandardSeeder",
+        "uuid_namespace": "pronouns-demonstratives-quality-demonstratives-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Pronouns / Demonstratives"
+    },
+    "sources": {
+        "pronouns_demonstratives_quality_demonstratives": {
+            "name": "Pronouns and Demonstratives Quality: This, that, these, those: відстань, число й зв’язок у тексті"
+        }
+    },
+    "tags": {
+        "demonstratives_this_that_these_those": {
+            "name": "Demonstratives This That These Those",
+            "category": "pronouns_demonstratives"
+        },
+        "this_near_singular": {
+            "name": "This Near Singular",
+            "category": "topic"
+        },
+        "that_far_singular": {
+            "name": "That Far Singular",
+            "category": "topic"
+        },
+        "these_near_plural": {
+            "name": "These Near Plural",
+            "category": "topic"
+        },
+        "those_far_plural": {
+            "name": "Those Far Plural",
+            "category": "topic"
+        },
+        "demonstrative_adjective": {
+            "name": "Demonstrative Adjective",
+            "category": "topic"
+        },
+        "demonstrative_pronoun": {
+            "name": "Demonstrative Pronoun",
+            "category": "topic"
+        },
+        "time_situation_use": {
+            "name": "Time Situation Use",
+            "category": "topic"
+        },
+        "plural_noun_agreement": {
+            "name": "Plural Noun Agreement",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "demonstratives_this_that_these_those"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pdqq-demonstratives-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Look at {a1} beetle on my hand.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Подивись на цього жука в мене на руці.",
+            "target_text": "Look at this beetle on my hand.",
+            "markers": {
+                "a1": {
+                    "answer": "this",
+                    "options": [
+                        "this",
+                        "these",
+                        "those"
+                    ],
+                    "verb_hint": "Вкажи на одного жука як на предмет безпосередньо біля мовця."
+                }
+            },
+            "verb_hint": "Вкажи на одного жука як на предмет безпосередньо біля мовця.",
+            "accepted_target_texts": [
+                "Look at this beetle on my hand."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Look at",
+                "this beetle",
+                "on my hand."
+            ],
+            "token_groups": [
+                "Look at",
+                "this beetle",
+                "on my hand."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pdqq-demonstratives-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Can you see {a1} tower across the river?",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Бачиш он ту вежу за річкою?",
+            "target_text": "Can you see that tower across the river?",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "these",
+                        "those"
+                    ],
+                    "verb_hint": "Вкажи на одну віддалену вежу, не на предмет біля мовця."
+                }
+            },
+            "verb_hint": "Вкажи на одну віддалену вежу, не на предмет біля мовця.",
+            "accepted_target_texts": [
+                "Can you see that tower across the river?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Can you see",
+                "that tower",
+                "across the river?"
+            ],
+            "token_groups": [
+                "Can you see",
+                "that tower",
+                "across the river?"
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pdqq-demonstratives-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Please take {a1} warm rolls from my tray.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Будь ласка, візьми ці теплі булочки з моєї таці.",
+            "target_text": "Please take these warm rolls from my tray.",
+            "markers": {
+                "a1": {
+                    "answer": "these",
+                    "options": [
+                        "these",
+                        "this",
+                        "that"
+                    ],
+                    "verb_hint": "Назви кілька булочок на таці біля мовця близькою вказівною формою."
+                }
+            },
+            "verb_hint": "Назви кілька булочок на таці біля мовця близькою вказівною формою.",
+            "accepted_target_texts": [
+                "Please take these warm rolls from my tray."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please take",
+                "these warm rolls",
+                "from my tray."
+            ],
+            "token_groups": [
+                "Please take",
+                "these warm rolls",
+                "from my tray."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pdqq-demonstratives-a1-g04",
+            "author_id": "A1-g04",
+            "question": "Who lives in {a1} houses on the distant hill?",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Хто живе в он тих будинках на далекому пагорбі?",
+            "target_text": "Who lives in those houses on the distant hill?",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "this",
+                        "that"
+                    ],
+                    "verb_hint": "Вкажи на кілька віддалених будинків, не близьку групу предметів."
+                }
+            },
+            "verb_hint": "Вкажи на кілька віддалених будинків, не близьку групу предметів.",
+            "accepted_target_texts": [
+                "Who lives in those houses on the distant hill?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who lives",
+                "in those houses",
+                "on",
+                "the distant hill?"
+            ],
+            "token_groups": [
+                "Who lives",
+                "in those houses",
+                "on",
+                "the distant hill?"
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pdqq-demonstratives-a1-g05",
+            "author_id": "A1-g05",
+            "question": "{a1} is my cousin standing beside me.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Це мій двоюрідний брат, який стоїть поруч зі мною.",
+            "target_text": "This is my cousin standing beside me.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "These",
+                        "Those"
+                    ],
+                    "verb_hint": "Представ одну людину безпосередньо біля мовця; потрібна близька однина."
+                }
+            },
+            "verb_hint": "Представ одну людину безпосередньо біля мовця; потрібна близька однина.",
+            "accepted_target_texts": [
+                "This is my cousin standing beside me."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This is",
+                "my cousin",
+                "standing beside me."
+            ],
+            "token_groups": [
+                "This is",
+                "my cousin",
+                "standing beside me."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pdqq-demonstratives-a1-g06",
+            "author_id": "A1-g06",
+            "question": "{a1} are your socks here in my bag.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Ось ці твої шкарпетки тут, у моїй сумці.",
+            "target_text": "These are your socks here in my bag.",
+            "markers": {
+                "a1": {
+                    "answer": "These",
+                    "options": [
+                        "These",
+                        "This",
+                        "That"
+                    ],
+                    "verb_hint": "Самостійно вкажи на кілька близьких предметів; форма присудка вже наведена."
+                }
+            },
+            "verb_hint": "Самостійно вкажи на кілька близьких предметів; форма присудка вже наведена.",
+            "accepted_target_texts": [
+                "These are your socks here in my bag."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "These are",
+                "your socks",
+                "here",
+                "in my bag."
+            ],
+            "token_groups": [
+                "These are",
+                "your socks",
+                "here",
+                "in my bag."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pdqq-demonstratives-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Hello, {a1} is Iryna speaking.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Алло, це говорить Ірина.",
+            "target_text": "Hello, this is Iryna speaking.",
+            "markers": {
+                "a1": {
+                    "answer": "this",
+                    "options": [
+                        "this",
+                        "these",
+                        "those"
+                    ],
+                    "verb_hint": "Представ себе під час телефонної розмови усталеною близькою вказівною формою однини."
+                }
+            },
+            "verb_hint": "Представ себе під час телефонної розмови усталеною близькою вказівною формою однини.",
+            "accepted_target_texts": [
+                "Hello, this is Iryna speaking."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Hello, this",
+                "is Iryna speaking."
+            ],
+            "token_groups": [
+                "Hello, this",
+                "is Iryna speaking."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pdqq-demonstratives-a2-g02",
+            "author_id": "A2-g02",
+            "question": "We are leaving {a1} afternoon, not tomorrow.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Ми їдемо сьогодні після обіду, а не завтра.",
+            "target_text": "We are leaving this afternoon, not tomorrow.",
+            "markers": {
+                "a1": {
+                    "answer": "this",
+                    "options": [
+                        "this",
+                        "these",
+                        "those"
+                    ],
+                    "verb_hint": "Познач найближчу частину поточного дня; не віддалений уже згаданий період."
+                }
+            },
+            "verb_hint": "Познач найближчу частину поточного дня; не віддалений уже згаданий період.",
+            "accepted_target_texts": [
+                "We are leaving this afternoon, not tomorrow."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We are leaving",
+                "this afternoon,",
+                "not tomorrow."
+            ],
+            "token_groups": [
+                "We are leaving",
+                "this afternoon,",
+                "not tomorrow."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pdqq-demonstratives-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Do you remember {a1} winter when the lake froze?",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Пам’ятаєш ту зиму, коли озеро замерзло?",
+            "target_text": "Do you remember that winter when the lake froze?",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "these",
+                        "those"
+                    ],
+                    "verb_hint": "Повернися до одного віддаленого в часі спільного спогаду."
+                }
+            },
+            "verb_hint": "Повернися до одного віддаленого в часі спільного спогаду.",
+            "accepted_target_texts": [
+                "Do you remember that winter when the lake froze?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do you remember",
+                "that winter",
+                "when",
+                "the lake froze?"
+            ],
+            "token_groups": [
+                "Do you remember",
+                "that winter",
+                "when",
+                "the lake froze?"
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pdqq-demonstratives-a2-g04",
+            "author_id": "A2-g04",
+            "question": "I cannot read {a1} tiny letters on the sign over there.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Я не можу прочитати он ті дрібні літери на знаку.",
+            "target_text": "I cannot read those tiny letters on the sign over there.",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "this",
+                        "that"
+                    ],
+                    "verb_hint": "Назви кілька літер на віддаленому знаку вказівною множиною."
+                }
+            },
+            "verb_hint": "Назви кілька літер на віддаленому знаку вказівною множиною.",
+            "accepted_target_texts": [
+                "I cannot read those tiny letters on the sign over there."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I cannot read",
+                "those tiny letters",
+                "on the sign",
+                "over there."
+            ],
+            "token_groups": [
+                "I cannot read",
+                "those tiny letters",
+                "on the sign",
+                "over there."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pdqq-demonstratives-a2-g05",
+            "author_id": "A2-g05",
+            "question": "{a1} tastes different from the soup we had yesterday.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Це смакує інакше, ніж суп, який ми їли вчора.",
+            "target_text": "This tastes different from the soup we had yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "These",
+                        "Those"
+                    ],
+                    "verb_hint": "Самостійно вкажи на порцію, яку мовець зараз куштує, як на один близький об’єкт."
+                }
+            },
+            "verb_hint": "Самостійно вкажи на порцію, яку мовець зараз куштує, як на один близький об’єкт.",
+            "accepted_target_texts": [
+                "This tastes different from the soup we had yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This tastes different",
+                "from the soup",
+                "we had yesterday."
+            ],
+            "token_groups": [
+                "This tastes different",
+                "from the soup",
+                "we had yesterday."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pdqq-demonstratives-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Who are {a1} people waving from the other platform?",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Хто он ті люди, які махають з іншої платформи?",
+            "target_text": "Who are those people waving from the other platform?",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "this",
+                        "that"
+                    ],
+                    "verb_hint": "Вкажи на віддалених людей як на кількох осіб."
+                }
+            },
+            "verb_hint": "Вкажи на віддалених людей як на кількох осіб.",
+            "accepted_target_texts": [
+                "Who are those people waving from the other platform?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who are",
+                "those people waving",
+                "from",
+                "the other platform?"
+            ],
+            "token_groups": [
+                "Who are",
+                "those people waving",
+                "from",
+                "the other platform?"
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pdqq-demonstratives-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The printer has stopped again. {a1} is becoming a real problem.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Принтер знову зупинився. Це стає справжньою проблемою.",
+            "target_text": "The printer has stopped again. This is becoming a real problem.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "These",
+                        "Those"
+                    ],
+                    "verb_hint": "Повернися до всієї щойно названої повторної проблеми самостійною формою однини."
+                }
+            },
+            "verb_hint": "Повернися до всієї щойно названої повторної проблеми самостійною формою однини.",
+            "accepted_target_texts": [
+                "The printer has stopped again. This is becoming a real problem.",
+                "The printer has stopped again. That is becoming a real problem."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "That"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "That"
+                ]
+            },
+            "reorder_groups": [
+                "The printer",
+                "has stopped again.",
+                "This is becoming",
+                "a real problem."
+            ],
+            "token_groups": [
+                "The printer",
+                "has stopped again.",
+                "This is becoming",
+                "a real problem."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pdqq-demonstratives-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Remember {a1}: every visitor needs to sign in.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Запам’ятай ось що: кожен відвідувач має зареєструватися.",
+            "target_text": "Remember this: every visitor needs to sign in.",
+            "markers": {
+                "a1": {
+                    "answer": "this",
+                    "options": [
+                        "this",
+                        "these",
+                        "those"
+                    ],
+                    "verb_hint": "Анонсуй наступне ціле повідомлення близькою вказівною формою однини."
+                }
+            },
+            "verb_hint": "Анонсуй наступне ціле повідомлення близькою вказівною формою однини.",
+            "accepted_target_texts": [
+                "Remember this: every visitor needs to sign in."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Remember this:",
+                "every visitor",
+                "needs",
+                "to sign in."
+            ],
+            "token_groups": [
+                "Remember this:",
+                "every visitor",
+                "needs",
+                "to sign in."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pdqq-demonstratives-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The blue fabric is softer than {a1} used for the curtains.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Синя тканина м’якша за ту, яку використали для штор.",
+            "target_text": "The blue fabric is softer than that used for the curtains.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "those",
+                        "these"
+                    ],
+                    "verb_hint": "Формально заміни вже названу тканину як незлічуваний матеріал перед означенням."
+                }
+            },
+            "verb_hint": "Формально заміни вже названу тканину як незлічуваний матеріал перед означенням.",
+            "accepted_target_texts": [
+                "The blue fabric is softer than that used for the curtains."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The blue fabric",
+                "is softer",
+                "than that used",
+                "for the curtains."
+            ],
+            "token_groups": [
+                "The blue fabric",
+                "is softer",
+                "than that used",
+                "for the curtains."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pdqq-demonstratives-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The chairs near the door are newer than {a1} by the window.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Стільці біля дверей новіші за ті, що біля вікна.",
+            "target_text": "The chairs near the door are newer than those by the window.",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "that",
+                        "this"
+                    ],
+                    "verb_hint": "Самостійно заміни кілька стільців у порівнянні; не використовуй однину."
+                }
+            },
+            "verb_hint": "Самостійно заміни кілька стільців у порівнянні; не використовуй однину.",
+            "accepted_target_texts": [
+                "The chairs near the door are newer than those by the window."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The chairs",
+                "near the door",
+                "are newer",
+                "than those",
+                "by the window."
+            ],
+            "token_groups": [
+                "The chairs",
+                "near the door",
+                "are newer",
+                "than those",
+                "by the window."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pdqq-demonstratives-b1-g05",
+            "author_id": "B1-g05",
+            "question": "{a1} who have already registered can collect their badges here.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Ті, хто вже зареєструвався, можуть забрати тут свої бейджі.",
+            "target_text": "Those who have already registered can collect their badges here.",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "options": [
+                        "Those",
+                        "That",
+                        "This"
+                    ],
+                    "verb_hint": "Самостійно назви групу людей, яку визначає наступне уточнення; потрібна множина."
+                }
+            },
+            "verb_hint": "Самостійно назви групу людей, яку визначає наступне уточнення; потрібна множина.",
+            "accepted_target_texts": [
+                "Those who have already registered can collect their badges here."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Those who",
+                "have already registered",
+                "can collect",
+                "their badges here."
+            ],
+            "token_groups": [
+                "Those who",
+                "have already registered",
+                "can collect",
+                "their badges here."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pdqq-demonstratives-b1-g06",
+            "author_id": "B1-g06",
+            "question": "You helped us when nobody else would. I will not forget {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Ти допоміг нам, коли більше ніхто не хотів. Я цього не забуду.",
+            "target_text": "You helped us when nobody else would. I will not forget that.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "those",
+                        "they"
+                    ],
+                    "verb_hint": "Пошлися на всю вже завершену допомогу як подію, не на кількох людей."
+                }
+            },
+            "verb_hint": "Пошлися на всю вже завершену допомогу як подію, не на кількох людей.",
+            "accepted_target_texts": [
+                "You helped us when nobody else would. I will not forget that.",
+                "You helped us when nobody else would. I will not forget this."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "this"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "this"
+                ]
+            },
+            "reorder_groups": [
+                "You helped us",
+                "when nobody else",
+                "would.",
+                "I will not",
+                "forget that."
+            ],
+            "token_groups": [
+                "You helped us",
+                "when nobody else",
+                "would.",
+                "I will not",
+                "forget that."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pdqq-demonstratives-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The requirements for permanent staff differ from {a1} for temporary workers.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Вимоги до постійних працівників відрізняються від вимог до тимчасових.",
+            "target_text": "The requirements for permanent staff differ from those for temporary workers.",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "that",
+                        "this"
+                    ],
+                    "verb_hint": "Самостійно заміни кілька вимог у формальному порівнянні, не працівників."
+                }
+            },
+            "verb_hint": "Самостійно заміни кілька вимог у формальному порівнянні, не працівників.",
+            "accepted_target_texts": [
+                "The requirements for permanent staff differ from those for temporary workers."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The requirements",
+                "for permanent staff",
+                "differ from those",
+                "for temporary workers."
+            ],
+            "token_groups": [
+                "The requirements",
+                "for permanent staff",
+                "differ from those",
+                "for temporary workers."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pdqq-demonstratives-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The proposal assumes {a1}: that the necessary funding will remain available.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Пропозиція припускає ось що: необхідне фінансування залишатиметься доступним.",
+            "target_text": "The proposal assumes this: that the necessary funding will remain available.",
+            "markers": {
+                "a1": {
+                    "answer": "this",
+                    "options": [
+                        "this",
+                        "these",
+                        "those"
+                    ],
+                    "verb_hint": "Анонсуй ціле припущення, яке розкривається після двокрапки; потрібна однина."
+                }
+            },
+            "verb_hint": "Анонсуй ціле припущення, яке розкривається після двокрапки; потрібна однина.",
+            "accepted_target_texts": [
+                "The proposal assumes this: that the necessary funding will remain available."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The proposal",
+                "assumes this:",
+                "that",
+                "the necessary funding",
+                "will remain available."
+            ],
+            "token_groups": [
+                "The proposal",
+                "assumes this:",
+                "that",
+                "the necessary funding",
+                "will remain available."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pdqq-demonstratives-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The committee rejected the amendment, but {a1} does not settle the wider question.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Комітет відхилив поправку, але це не розв’язує ширшого питання.",
+            "target_text": "The committee rejected the amendment, but that does not settle the wider question.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "those",
+                        "they"
+                    ],
+                    "verb_hint": "Повернися до всієї вже названої події відхилення, не до людей у комітеті."
+                }
+            },
+            "verb_hint": "Повернися до всієї вже названої події відхилення, не до людей у комітеті.",
+            "accepted_target_texts": [
+                "The committee rejected the amendment, but that does not settle the wider question.",
+                "The committee rejected the amendment, but this does not settle the wider question."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "this"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "this"
+                ]
+            },
+            "reorder_groups": [
+                "The committee",
+                "rejected the amendment,",
+                "but that",
+                "does not settle",
+                "the wider question."
+            ],
+            "token_groups": [
+                "The committee",
+                "rejected the amendment,",
+                "but that",
+                "does not settle",
+                "the wider question."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pdqq-demonstratives-b2-g04",
+            "author_id": "B2-g04",
+            "question": "{a1} concerned about confidentiality may submit their comments anonymously.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Ті, кого турбує конфіденційність, можуть подати свої зауваження анонімно.",
+            "target_text": "Those concerned about confidentiality may submit their comments anonymously.",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "options": [
+                        "Those",
+                        "That",
+                        "This"
+                    ],
+                    "verb_hint": "Введи самостійну групу людей у множині, визначену наступним скороченим означенням."
+                }
+            },
+            "verb_hint": "Введи самостійну групу людей у множині, визначену наступним скороченим означенням.",
+            "accepted_target_texts": [
+                "Those concerned about confidentiality may submit their comments anonymously."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Those concerned",
+                "about confidentiality",
+                "may submit",
+                "their comments anonymously."
+            ],
+            "token_groups": [
+                "Those concerned",
+                "about confidentiality",
+                "may submit",
+                "their comments anonymously."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pdqq-demonstratives-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The uncertainty is not about the rule but about {a1} to which it applies.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Невизначеність стосується не правила, а того, до чого його застосовують.",
+            "target_text": "The uncertainty is not about the rule but about that to which it applies.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "those",
+                        "these"
+                    ],
+                    "verb_hint": "Самостійно назви один предмет застосування у формальному стилі, не кількох людей."
+                }
+            },
+            "verb_hint": "Самостійно назви один предмет застосування у формальному стилі, не кількох людей.",
+            "accepted_target_texts": [
+                "The uncertainty is not about the rule but about that to which it applies."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The uncertainty",
+                "is not about",
+                "the rule",
+                "but about that",
+                "to which",
+                "it applies."
+            ],
+            "token_groups": [
+                "The uncertainty",
+                "is not about",
+                "the rule",
+                "but about that",
+                "to which",
+                "it applies."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pdqq-demonstratives-b2-g06",
+            "author_id": "B2-g06",
+            "question": "I object to {a1} assumption that disagreement must imply hostility.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Я заперечую те припущення, ніби незгода обов’язково означає ворожість.",
+            "target_text": "I object to that assumption that disagreement must imply hostility.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "those",
+                        "these"
+                    ],
+                    "verb_hint": "Дистанціюйся від одного вже названого припущення вказівною одниною перед іменником."
+                }
+            },
+            "verb_hint": "Дистанціюйся від одного вже названого припущення вказівною одниною перед іменником.",
+            "accepted_target_texts": [
+                "I object to that assumption that disagreement must imply hostility."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I object",
+                "to that assumption",
+                "that disagreement",
+                "must imply hostility."
+            ],
+            "token_groups": [
+                "I object",
+                "to that assumption",
+                "that disagreement",
+                "must imply hostility."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pdqq-demonstratives-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The authority conferred on the regulator is broader than {a1} retained by the minister.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Повноваження, надані регулятору, ширші за повноваження, збережені міністром.",
+            "target_text": "The authority conferred on the regulator is broader than that retained by the minister.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "those",
+                        "these"
+                    ],
+                    "verb_hint": "Самостійно заміни незлічувану назву влади в порівнянні; потрібна формальна однина."
+                }
+            },
+            "verb_hint": "Самостійно заміни незлічувану назву влади в порівнянні; потрібна формальна однина.",
+            "accepted_target_texts": [
+                "The authority conferred on the regulator is broader than that retained by the minister."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The authority conferred",
+                "on the regulator",
+                "is broader",
+                "than that retained",
+                "by the minister."
+            ],
+            "token_groups": [
+                "The authority conferred",
+                "on the regulator",
+                "is broader",
+                "than that retained",
+                "by the minister."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pdqq-demonstratives-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The reasons given now are difficult to reconcile with {a1} advanced at the hearing.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Підстави, наведені тепер, важко узгодити з тими, що висунули на слуханні.",
+            "target_text": "The reasons given now are difficult to reconcile with those advanced at the hearing.",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "that",
+                        "this"
+                    ],
+                    "verb_hint": "Повернися до кількох підстав самостійною вказівною множиною перед означенням."
+                }
+            },
+            "verb_hint": "Повернися до кількох підстав самостійною вказівною множиною перед означенням.",
+            "accepted_target_texts": [
+                "The reasons given now are difficult to reconcile with those advanced at the hearing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The reasons",
+                "given now",
+                "are difficult",
+                "to reconcile",
+                "with those advanced",
+                "at the hearing."
+            ],
+            "token_groups": [
+                "The reasons",
+                "given now",
+                "are difficult",
+                "to reconcile",
+                "with those advanced",
+                "at the hearing."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pdqq-demonstratives-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The conclusion would follow only if {a1} were true: that the categories never overlap.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Висновок випливав би лише тоді, якби правдою було таке: категорії ніколи не перетинаються.",
+            "target_text": "The conclusion would follow only if this were true: that the categories never overlap.",
+            "markers": {
+                "a1": {
+                    "answer": "this",
+                    "options": [
+                        "this",
+                        "these",
+                        "those"
+                    ],
+                    "verb_hint": "Анонсуй одне припущення, наведене після двокрапки; не замінюй ним самі категорії."
+                }
+            },
+            "verb_hint": "Анонсуй одне припущення, наведене після двокрапки; не замінюй ним самі категорії.",
+            "accepted_target_texts": [
+                "The conclusion would follow only if this were true: that the categories never overlap."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The conclusion",
+                "would follow",
+                "only if this",
+                "were true:",
+                "that the categories",
+                "never overlap."
+            ],
+            "token_groups": [
+                "The conclusion",
+                "would follow",
+                "only if this",
+                "were true:",
+                "that the categories",
+                "never overlap."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pdqq-demonstratives-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The settlement is not final. {a1} much the parties accept.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Домовленість не остаточна. Принаймні це сторони визнають.",
+            "target_text": "The settlement is not final. That much the parties accept.",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "Those",
+                        "These"
+                    ],
+                    "verb_hint": "Повернися до обмеженого вже висловленого твердження в усталеному виразі зі значенням «це принаймні»."
+                }
+            },
+            "verb_hint": "Повернися до обмеженого вже висловленого твердження в усталеному виразі зі значенням «це принаймні».",
+            "accepted_target_texts": [
+                "The settlement is not final. That much the parties accept.",
+                "The settlement is not final. This much the parties accept."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "This"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "This"
+                ]
+            },
+            "reorder_groups": [
+                "The settlement",
+                "is not final.",
+                "That much",
+                "the parties accept."
+            ],
+            "token_groups": [
+                "The settlement",
+                "is not final.",
+                "That much",
+                "the parties accept."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pdqq-demonstratives-c1-g05",
+            "author_id": "C1-g05",
+            "question": "{a1} of us who questioned the estimate were asked to provide alternatives.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Тих із нас, хто поставив під сумнів оцінку, попросили надати альтернативи.",
+            "target_text": "Those of us who questioned the estimate were asked to provide alternatives.",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "options": [
+                        "Those",
+                        "That",
+                        "This"
+                    ],
+                    "verb_hint": "Визнач частину групи мовця через самостійну вказівну множину перед прийменником."
+                }
+            },
+            "verb_hint": "Визнач частину групи мовця через самостійну вказівну множину перед прийменником.",
+            "accepted_target_texts": [
+                "Those of us who questioned the estimate were asked to provide alternatives."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Those of us",
+                "who questioned",
+                "the estimate",
+                "were asked",
+                "to provide alternatives."
+            ],
+            "token_groups": [
+                "Those of us",
+                "who questioned",
+                "the estimate",
+                "were asked",
+                "to provide alternatives."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pdqq-demonstratives-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The policy offers a degree of flexibility, but {a1} is precisely what the exception removes.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Політика дає певну гнучкість, але саме її усуває виняток.",
+            "target_text": "The policy offers a degree of flexibility, but that is precisely what the exception removes.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "those",
+                        "they"
+                    ],
+                    "verb_hint": "Повернися до щойно названої міри гнучкості як одного абстрактного об’єкта."
+                }
+            },
+            "verb_hint": "Повернися до щойно названої міри гнучкості як одного абстрактного об’єкта.",
+            "accepted_target_texts": [
+                "The policy offers a degree of flexibility, but that is precisely what the exception removes.",
+                "The policy offers a degree of flexibility, but this is precisely what the exception removes."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "this"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "this"
+                ]
+            },
+            "reorder_groups": [
+                "The policy offers",
+                "a degree",
+                "of flexibility,",
+                "but that",
+                "is precisely what",
+                "the exception removes."
+            ],
+            "token_groups": [
+                "The policy offers",
+                "a degree",
+                "of flexibility,",
+                "but that",
+                "is precisely what",
+                "the exception removes."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pdqq-demonstratives-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The doctrine protects expectations of a different kind from {a1} generated by an express promise.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Доктрина захищає очікування іншого виду, ніж ті, що виникають із прямої обіцянки.",
+            "target_text": "The doctrine protects expectations of a different kind from those generated by an express promise.",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "that",
+                        "this"
+                    ],
+                    "verb_hint": "Самостійно заміни кілька очікувань, не один вид або одну обіцянку."
+                }
+            },
+            "verb_hint": "Самостійно заміни кілька очікувань, не один вид або одну обіцянку.",
+            "accepted_target_texts": [
+                "The doctrine protects expectations of a different kind from those generated by an express promise."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The doctrine protects",
+                "expectations",
+                "of",
+                "a different kind",
+                "from those generated",
+                "by",
+                "an express promise."
+            ],
+            "token_groups": [
+                "The doctrine protects",
+                "expectations",
+                "of",
+                "a different kind",
+                "from those generated",
+                "by",
+                "an express promise."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pdqq-demonstratives-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The difficulty is {a1}: the argument treats the exception as evidence for the rule.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Складність ось у чому: аргумент трактує виняток як доказ правила.",
+            "target_text": "The difficulty is this: the argument treats the exception as evidence for the rule.",
+            "markers": {
+                "a1": {
+                    "answer": "this",
+                    "options": [
+                        "this",
+                        "these",
+                        "those"
+                    ],
+                    "verb_hint": "Анонсуй одне пояснення складності, яке подається після двокрапки."
+                }
+            },
+            "verb_hint": "Анонсуй одне пояснення складності, яке подається після двокрапки.",
+            "accepted_target_texts": [
+                "The difficulty is this: the argument treats the exception as evidence for the rule."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The difficulty",
+                "is this:",
+                "the argument treats",
+                "the exception",
+                "as evidence",
+                "for the rule."
+            ],
+            "token_groups": [
+                "The difficulty",
+                "is this:",
+                "the argument treats",
+                "the exception",
+                "as evidence",
+                "for the rule."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pdqq-demonstratives-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The obligations imposed on the state cannot simply be equated with {a1} of a private party.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Обов’язки, покладені на державу, не можна просто прирівняти до обов’язків приватної сторони.",
+            "target_text": "The obligations imposed on the state cannot simply be equated with those of a private party.",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "that",
+                        "this"
+                    ],
+                    "verb_hint": "Замінюй саме кілька обов’язків у формальному порівнянні, не державу чи особу."
+                }
+            },
+            "verb_hint": "Замінюй саме кілька обов’язків у формальному порівнянні, не державу чи особу.",
+            "accepted_target_texts": [
+                "The obligations imposed on the state cannot simply be equated with those of a private party."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The obligations imposed",
+                "on the state",
+                "cannot simply",
+                "be equated",
+                "with those",
+                "of",
+                "a private party."
+            ],
+            "token_groups": [
+                "The obligations imposed",
+                "on the state",
+                "cannot simply",
+                "be equated",
+                "with those",
+                "of",
+                "a private party."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pdqq-demonstratives-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The earlier reasoning assumed a unity of purpose. {a1} assumption is no longer tenable.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Попереднє міркування припускало єдність мети. Те припущення вже не можна захистити.",
+            "target_text": "The earlier reasoning assumed a unity of purpose. That assumption is no longer tenable.",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "Those",
+                        "These"
+                    ],
+                    "verb_hint": "Дистанційовано повернися до одного вже названого припущення перед його назвою."
+                }
+            },
+            "verb_hint": "Дистанційовано повернися до одного вже названого припущення перед його назвою.",
+            "accepted_target_texts": [
+                "The earlier reasoning assumed a unity of purpose. That assumption is no longer tenable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The earlier reasoning",
+                "assumed a unity",
+                "of purpose.",
+                "That assumption",
+                "is no longer",
+                "tenable."
+            ],
+            "token_groups": [
+                "The earlier reasoning",
+                "assumed a unity",
+                "of purpose.",
+                "That assumption",
+                "is no longer",
+                "tenable."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pdqq-demonstratives-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The issue concerns not the existence of discretion but {a1} which makes its exercise legitimate.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Питання стосується не існування дискреції, а того, що робить її здійснення легітимним.",
+            "target_text": "The issue concerns not the existence of discretion but that which makes its exercise legitimate.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "those",
+                        "these"
+                    ],
+                    "verb_hint": "Введи формальний самостійний займенник для одного абстрактного предмета перед вже наведеним відносним словом."
+                }
+            },
+            "verb_hint": "Введи формальний самостійний займенник для одного абстрактного предмета перед вже наведеним відносним словом.",
+            "accepted_target_texts": [
+                "The issue concerns not the existence of discretion but that which makes its exercise legitimate."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The issue concerns",
+                "not the existence",
+                "of discretion",
+                "but that",
+                "which makes",
+                "its exercise legitimate."
+            ],
+            "token_groups": [
+                "The issue concerns",
+                "not the existence",
+                "of discretion",
+                "but that",
+                "which makes",
+                "its exercise legitimate."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pdqq-demonstratives-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The safeguards available now fall short of {a1} on which the original undertaking was predicated.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_demonstratives",
+            "translation_uk": "Наявні тепер гарантії слабші за ті, на яких ґрунтувалося початкове зобов’язання.",
+            "target_text": "The safeguards available now fall short of those on which the original undertaking was predicated.",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "that",
+                        "this"
+                    ],
+                    "verb_hint": "Повернися до кількох гарантій самостійною вказівною множиною перед формальним уточненням."
+                }
+            },
+            "verb_hint": "Повернися до кількох гарантій самостійною вказівною множиною перед формальним уточненням.",
+            "accepted_target_texts": [
+                "The safeguards available now fall short of those on which the original undertaking was predicated."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The safeguards",
+                "available now",
+                "fall short",
+                "of those",
+                "on which",
+                "the original undertaking",
+                "was predicated."
+            ],
+            "token_groups": [
+                "The safeguards",
+                "available now",
+                "fall short",
+                "of those",
+                "on which",
+                "the original undertaking",
+                "was predicated."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        }
+    ]
+}

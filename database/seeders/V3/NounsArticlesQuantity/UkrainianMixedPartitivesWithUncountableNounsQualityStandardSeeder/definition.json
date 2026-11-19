@@ -1,0 +1,1764 @@
+{
+    "schema_version": 1,
+    "quality_revision": "nouns-articles-quantity-v1",
+    "compiled_from": {
+        "path": "docs/content/nouns-articles-quantity-quality/partitives.v1.json",
+        "sha256": "5f130514e284f49fb8298a7b797c917dec4e621c546759fa2ccac807851f8076"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\NounsArticlesQuantity\\UkrainianMixedPartitivesWithUncountableNounsQualityStandardSeeder",
+        "uuid_namespace": "nouns-articles-quantity-quality-partitives-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Nouns / Articles / Quantity"
+    },
+    "sources": {
+        "nouns_articles_quantity_quality_partitives": {
+            "name": "Nouns Articles Quantity Quality: Одиниці, порції та частини незлічуваного"
+        }
+    },
+    "tags": {
+        "partitives_with_uncountable_nouns": {
+            "name": "Partitives With Uncountable Nouns",
+            "category": "nouns_articles_quantity"
+        },
+        "piece_of": {
+            "name": "Piece Of",
+            "category": "topic"
+        },
+        "cup_of": {
+            "name": "Cup Of",
+            "category": "topic"
+        },
+        "glass_of": {
+            "name": "Glass Of",
+            "category": "topic"
+        },
+        "bottle_of": {
+            "name": "Bottle Of",
+            "category": "topic"
+        },
+        "slice_of": {
+            "name": "Slice Of",
+            "category": "topic"
+        },
+        "loaf_of": {
+            "name": "Loaf Of",
+            "category": "topic"
+        },
+        "bowl_of": {
+            "name": "Bowl Of",
+            "category": "topic"
+        },
+        "container_of": {
+            "name": "Container Of",
+            "category": "topic"
+        },
+        "plural_partitives": {
+            "name": "Plural Partitives",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "partitives_with_uncountable_nouns"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "naqq-partitives-a1-g01",
+            "author_id": "A1-g01",
+            "question": "She poured {a1} tea for her father.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Вона налила батькові чашку чаю.",
+            "target_text": "She poured a cup of tea for her father.",
+            "markers": {
+                "a1": {
+                    "answer": "a cup of",
+                    "options": [
+                        "a cup of",
+                        "a loaf of",
+                        "a bar of"
+                    ],
+                    "verb_hint": "Назви одну чашку напою; звичайна назва чашки або більшої чашки з ручкою доречна."
+                }
+            },
+            "verb_hint": "Назви одну чашку напою; звичайна назва чашки або більшої чашки з ручкою доречна.",
+            "accepted_target_texts": [
+                "She poured a cup of tea for her father.",
+                "She poured a mug of tea for her father."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "a mug of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "a mug of"
+                ]
+            },
+            "reorder_groups": [
+                "She poured",
+                "a cup of",
+                "tea",
+                "for her father."
+            ],
+            "token_groups": [
+                "She poured",
+                "a cup of",
+                "tea",
+                "for her father."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "naqq-partitives-a1-g02",
+            "author_id": "A1-g02",
+            "question": "He drank {a1} water after the walk.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Після прогулянки він випив склянку води.",
+            "target_text": "He drank a glass of water after the walk.",
+            "markers": {
+                "a1": {
+                    "answer": "a glass of",
+                    "options": [
+                        "a glass of",
+                        "a slice of",
+                        "a sheet of"
+                    ],
+                    "verb_hint": "Назви одну склянку рідини, не пляшку або довільну кількість."
+                }
+            },
+            "verb_hint": "Назви одну склянку рідини, не пляшку або довільну кількість.",
+            "accepted_target_texts": [
+                "He drank a glass of water after the walk."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He drank",
+                "a glass of",
+                "water",
+                "after the walk."
+            ],
+            "token_groups": [
+                "He drank",
+                "a glass of",
+                "water",
+                "after the walk."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "naqq-partitives-a1-g03",
+            "author_id": "A1-g03",
+            "question": "I bought {a1} milk at the corner shop.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Я купив пляшку молока в магазині на розі.",
+            "target_text": "I bought a bottle of milk at the corner shop.",
+            "markers": {
+                "a1": {
+                    "answer": "a bottle of",
+                    "options": [
+                        "a bottle of",
+                        "a loaf of",
+                        "a bar of"
+                    ],
+                    "verb_hint": "Назви одну пляшку молока; форма тари прямо задана українською умовою."
+                }
+            },
+            "verb_hint": "Назви одну пляшку молока; форма тари прямо задана українською умовою.",
+            "accepted_target_texts": [
+                "I bought a bottle of milk at the corner shop."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I bought",
+                "a bottle of",
+                "milk",
+                "at",
+                "the corner shop."
+            ],
+            "token_groups": [
+                "I bought",
+                "a bottle of",
+                "milk",
+                "at",
+                "the corner shop."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "naqq-partitives-a1-g04",
+            "author_id": "A1-g04",
+            "question": "Please cut {a1} bread for me.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Будь ласка, відріж мені скибку хліба.",
+            "target_text": "Please cut a slice of bread for me.",
+            "markers": {
+                "a1": {
+                    "answer": "a slice of",
+                    "options": [
+                        "a slice of",
+                        "a jar of",
+                        "a cup of"
+                    ],
+                    "verb_hint": "Назви одну плоску відрізану скибку, а не весь буханець чи наповнену тару."
+                }
+            },
+            "verb_hint": "Назви одну плоску відрізану скибку, а не весь буханець чи наповнену тару.",
+            "accepted_target_texts": [
+                "Please cut a slice of bread for me."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please cut",
+                "a slice of",
+                "bread for me."
+            ],
+            "token_groups": [
+                "Please cut",
+                "a slice of",
+                "bread for me."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "naqq-partitives-a1-g05",
+            "author_id": "A1-g05",
+            "question": "There is {a1} soup on the table.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "На столі миска супу.",
+            "target_text": "There is a bowl of soup on the table.",
+            "markers": {
+                "a1": {
+                    "answer": "a bowl of",
+                    "options": [
+                        "a bowl of",
+                        "a bar of",
+                        "a sheet of"
+                    ],
+                    "verb_hint": "Назви миску з однією порцією рідкої страви; потрібна назва посудини та зв’язок із продуктом."
+                }
+            },
+            "verb_hint": "Назви миску з однією порцією рідкої страви; потрібна назва посудини та зв’язок із продуктом.",
+            "accepted_target_texts": [
+                "There is a bowl of soup on the table."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "a bowl of",
+                "soup",
+                "on the table."
+            ],
+            "token_groups": [
+                "There is",
+                "a bowl of",
+                "soup",
+                "on the table."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "naqq-partitives-a1-g06",
+            "author_id": "A1-g06",
+            "question": "May I take {a1} cake for my sister?",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Можна мені взяти шматок торта для сестри?",
+            "target_text": "May I take a piece of cake for my sister?",
+            "markers": {
+                "a1": {
+                    "answer": "a piece of",
+                    "options": [
+                        "a piece of",
+                        "a bottle of",
+                        "a loaf of"
+                    ],
+                    "verb_hint": "Назви один шматок торта; плоска скибка також відповідає умові."
+                }
+            },
+            "verb_hint": "Назви один шматок торта; плоска скибка також відповідає умові.",
+            "accepted_target_texts": [
+                "May I take a piece of cake for my sister?",
+                "May I take a slice of cake for my sister?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "a slice of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "a slice of"
+                ]
+            },
+            "reorder_groups": [
+                "May I take",
+                "a piece of",
+                "cake",
+                "for my sister?"
+            ],
+            "token_groups": [
+                "May I take",
+                "a piece of",
+                "cake",
+                "for my sister?"
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "naqq-partitives-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The nurse wrote down {a1} advice for the journey.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Медсестра записала одну пораду для подорожі.",
+            "target_text": "The nurse wrote down a piece of advice for the journey.",
+            "markers": {
+                "a1": {
+                    "answer": "a piece of",
+                    "options": [
+                        "a piece of",
+                        "a bar of",
+                        "a bottle of"
+                    ],
+                    "verb_hint": "Назви одну окрему пораду через слово-одиницю; сама назва рекомендації лишається незлічуваною."
+                }
+            },
+            "verb_hint": "Назви одну окрему пораду через слово-одиницю; сама назва рекомендації лишається незлічуваною.",
+            "accepted_target_texts": [
+                "The nurse wrote down a piece of advice for the journey."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The nurse",
+                "wrote down",
+                "a piece of",
+                "advice",
+                "for the journey."
+            ],
+            "token_groups": [
+                "The nurse",
+                "wrote down",
+                "a piece of",
+                "advice",
+                "for the journey."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "naqq-partitives-a2-g02",
+            "author_id": "A2-g02",
+            "question": "We are still waiting for {a1} information about the address.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Ми ще чекаємо на одну одиницю інформації про адресу.",
+            "target_text": "We are still waiting for one piece of information about the address.",
+            "markers": {
+                "a1": {
+                    "answer": "one piece of",
+                    "options": [
+                        "one piece of",
+                        "one bottle of",
+                        "one slice of"
+                    ],
+                    "verb_hint": "Передай рівно одну окрему відомість числівником та словом-одиницею, не множиною назви інформації."
+                }
+            },
+            "verb_hint": "Передай рівно одну окрему відомість числівником та словом-одиницею, не множиною назви інформації.",
+            "accepted_target_texts": [
+                "We are still waiting for one piece of information about the address."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We are still",
+                "waiting for",
+                "one piece of",
+                "information",
+                "about the address."
+            ],
+            "token_groups": [
+                "We are still",
+                "waiting for",
+                "one piece of",
+                "information",
+                "about the address."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "naqq-partitives-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Take {a1} paper and draw a small square.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Візьми аркуш паперу й намалюй маленький квадрат.",
+            "target_text": "Take a sheet of paper and draw a small square.",
+            "markers": {
+                "a1": {
+                    "answer": "a sheet of",
+                    "options": [
+                        "a sheet of",
+                        "a loaf of",
+                        "a grain of"
+                    ],
+                    "verb_hint": "Назви один цілий аркуш матеріалу, не клаптик або пачку."
+                }
+            },
+            "verb_hint": "Назви один цілий аркуш матеріалу, не клаптик або пачку.",
+            "accepted_target_texts": [
+                "Take a sheet of paper and draw a small square."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Take a sheet",
+                "of paper",
+                "and draw",
+                "a small square."
+            ],
+            "token_groups": [
+                "Take a sheet",
+                "of paper",
+                "and draw",
+                "a small square."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "naqq-partitives-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The shop gave us {a1} soap as a sample.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Магазин дав нам брусок мила як зразок.",
+            "target_text": "The shop gave us a bar of soap as a sample.",
+            "markers": {
+                "a1": {
+                    "answer": "a bar of",
+                    "options": [
+                        "a bar of",
+                        "a glass of",
+                        "a loaf of"
+                    ],
+                    "verb_hint": "Назви один твердий брусок мила, не рідину або довільний шматочок."
+                }
+            },
+            "verb_hint": "Назви один твердий брусок мила, не рідину або довільний шматочок.",
+            "accepted_target_texts": [
+                "The shop gave us a bar of soap as a sample."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The shop",
+                "gave us",
+                "a bar of",
+                "soap",
+                "as a sample."
+            ],
+            "token_groups": [
+                "The shop",
+                "gave us",
+                "a bar of",
+                "soap",
+                "as a sample."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "naqq-partitives-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Please buy {a1} bread while you are out.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Будь ласка, купи буханець хліба, поки будеш надворі.",
+            "target_text": "Please buy a loaf of bread while you are out.",
+            "markers": {
+                "a1": {
+                    "answer": "a loaf of",
+                    "options": [
+                        "a loaf of",
+                        "a grain of",
+                        "a sheet of"
+                    ],
+                    "verb_hint": "Назви один цілий буханець, не скибку або шматок."
+                }
+            },
+            "verb_hint": "Назви один цілий буханець, не скибку або шматок.",
+            "accepted_target_texts": [
+                "Please buy a loaf of bread while you are out."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please buy",
+                "a loaf of",
+                "bread",
+                "while",
+                "you are out."
+            ],
+            "token_groups": [
+                "Please buy",
+                "a loaf of",
+                "bread",
+                "while",
+                "you are out."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "naqq-partitives-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Add {a1} salt, not a full tablespoon.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Додай чайну ложку солі, а не повну столову.",
+            "target_text": "Add a teaspoon of salt, not a full tablespoon.",
+            "markers": {
+                "a1": {
+                    "answer": "a teaspoon of",
+                    "options": [
+                        "a teaspoon of",
+                        "a loaf of",
+                        "a bar of"
+                    ],
+                    "verb_hint": "Назви кількість солі в одній чайній ложці; розмір міри прямо протиставлено столовій ложці."
+                }
+            },
+            "verb_hint": "Назви кількість солі в одній чайній ложці; розмір міри прямо протиставлено столовій ложці.",
+            "accepted_target_texts": [
+                "Add a teaspoon of salt, not a full tablespoon."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Add",
+                "a teaspoon",
+                "of salt,",
+                "not",
+                "a full tablespoon."
+            ],
+            "token_groups": [
+                "Add",
+                "a teaspoon",
+                "of salt,",
+                "not",
+                "a full tablespoon."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "naqq-partitives-b1-g01",
+            "author_id": "B1-g01",
+            "question": "A sudden gust shattered {a1} glass in the greenhouse.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Раптовий порив вітру розбив шибку в теплиці.",
+            "target_text": "A sudden gust shattered a pane of glass in the greenhouse.",
+            "markers": {
+                "a1": {
+                    "answer": "a pane of",
+                    "options": [
+                        "a pane of",
+                        "a loaf of",
+                        "a strand of"
+                    ],
+                    "verb_hint": "Назви один плоский шматок скла, установлений як віконна шибка."
+                }
+            },
+            "verb_hint": "Назви один плоский шматок скла, установлений як віконна шибка.",
+            "accepted_target_texts": [
+                "A sudden gust shattered a pane of glass in the greenhouse."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A sudden gust",
+                "shattered a pane",
+                "of glass",
+                "in the greenhouse."
+            ],
+            "token_groups": [
+                "A sudden gust",
+                "shattered a pane",
+                "of glass",
+                "in the greenhouse."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "naqq-partitives-b1-g02",
+            "author_id": "B1-g02",
+            "question": "There was {a1} sand inside the lens cover.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Усередині кришки об’єктива була піщинка.",
+            "target_text": "There was a grain of sand inside the lens cover.",
+            "markers": {
+                "a1": {
+                    "answer": "a grain of",
+                    "options": [
+                        "a grain of",
+                        "a carton of",
+                        "a slice of"
+                    ],
+                    "verb_hint": "Назви одну найменшу окрему піщинку, не купу або упаковку піску."
+                }
+            },
+            "verb_hint": "Назви одну найменшу окрему піщинку, не купу або упаковку піску.",
+            "accepted_target_texts": [
+                "There was a grain of sand inside the lens cover."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There was",
+                "a grain of",
+                "sand",
+                "inside",
+                "the lens cover."
+            ],
+            "token_groups": [
+                "There was",
+                "a grain of",
+                "sand",
+                "inside",
+                "the lens cover."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "naqq-partitives-b1-g03",
+            "author_id": "B1-g03",
+            "question": "Only {a1} oil fell onto the clean cloth.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "На чисту тканину впала лише одна крапля олії.",
+            "target_text": "Only a drop of oil fell onto the clean cloth.",
+            "markers": {
+                "a1": {
+                    "answer": "a drop of",
+                    "options": [
+                        "a drop of",
+                        "a sheet of",
+                        "a loaf of"
+                    ],
+                    "verb_hint": "Назви одну краплю рідини; не змінюй її на ложку чи більшу порцію."
+                }
+            },
+            "verb_hint": "Назви одну краплю рідини; не змінюй її на ложку чи більшу порцію.",
+            "accepted_target_texts": [
+                "Only a drop of oil fell onto the clean cloth."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Only a drop",
+                "of oil",
+                "fell onto",
+                "the clean cloth."
+            ],
+            "token_groups": [
+                "Only a drop",
+                "of oil",
+                "fell onto",
+                "the clean cloth."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "naqq-partitives-b1-g04",
+            "author_id": "B1-g04",
+            "question": "She brushed {a1} hair away from the baby’s face.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Вона відвела пасмо волосся від обличчя немовляти.",
+            "target_text": "She brushed a strand of hair away from the baby’s face.",
+            "markers": {
+                "a1": {
+                    "answer": "a strand of",
+                    "options": [
+                        "a strand of",
+                        "a bar of",
+                        "a carton of"
+                    ],
+                    "verb_hint": "Назви одне тонке пасмо волосся; сама назва волосся як сукупності не має звичайної множини."
+                }
+            },
+            "verb_hint": "Назви одне тонке пасмо волосся; сама назва волосся як сукупності не має звичайної множини.",
+            "accepted_target_texts": [
+                "She brushed a strand of hair away from the baby’s face."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She brushed",
+                "a strand of",
+                "hair",
+                "away from",
+                "the baby’s face."
+            ],
+            "token_groups": [
+                "She brushed",
+                "a strand of",
+                "hair",
+                "away from",
+                "the baby’s face."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "naqq-partitives-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The announcement was followed by {a1} applause.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Після оголошення пролунав сплеск оплесків.",
+            "target_text": "The announcement was followed by a burst of applause.",
+            "markers": {
+                "a1": {
+                    "answer": "a burst of",
+                    "options": [
+                        "a burst of",
+                        "a pane of",
+                        "a loaf of"
+                    ],
+                    "verb_hint": "Назви один раптовий сплеск оплесків, не їхню тривалість або матеріальну порцію."
+                }
+            },
+            "verb_hint": "Назви один раптовий сплеск оплесків, не їхню тривалість або матеріальну порцію.",
+            "accepted_target_texts": [
+                "The announcement was followed by a burst of applause."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The announcement",
+                "was followed by",
+                "a burst of",
+                "applause."
+            ],
+            "token_groups": [
+                "The announcement",
+                "was followed by",
+                "a burst of",
+                "applause."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "naqq-partitives-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The editor removed {a1} news that had not been confirmed.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Редактор вилучив одну непідтверджену новину.",
+            "target_text": "The editor removed an item of news that had not been confirmed.",
+            "markers": {
+                "a1": {
+                    "answer": "an item of",
+                    "options": [
+                        "an item of",
+                        "a bottle of",
+                        "a sheet of"
+                    ],
+                    "verb_hint": "Назви одну окрему новину як одиницю змісту; не утворюй множину від загальної назви новин."
+                }
+            },
+            "verb_hint": "Назви одну окрему новину як одиницю змісту; не утворюй множину від загальної назви новин.",
+            "accepted_target_texts": [
+                "The editor removed an item of news that had not been confirmed.",
+                "The editor removed a piece of news that had not been confirmed."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "a piece of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "a piece of"
+                ]
+            },
+            "reorder_groups": [
+                "The editor",
+                "removed",
+                "an item of",
+                "news",
+                "that had",
+                "not been confirmed."
+            ],
+            "token_groups": [
+                "The editor",
+                "removed",
+                "an item of",
+                "news",
+                "that had",
+                "not been confirmed."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "naqq-partitives-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Missing the train proved to be {a1} luck.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Пропустити потяг виявилося щасливим випадком.",
+            "target_text": "Missing the train proved to be a stroke of luck.",
+            "markers": {
+                "a1": {
+                    "answer": "a stroke of",
+                    "options": [
+                        "a stroke of",
+                        "a pane of",
+                        "a loaf of"
+                    ],
+                    "verb_hint": "Назви один неочікувано щасливий випадок усталеним кількісним виразом із назвою удачі."
+                }
+            },
+            "verb_hint": "Назви один неочікувано щасливий випадок усталеним кількісним виразом із назвою удачі.",
+            "accepted_target_texts": [
+                "Missing the train proved to be a stroke of luck."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Missing the train",
+                "proved to be",
+                "a stroke of",
+                "luck."
+            ],
+            "token_groups": [
+                "Missing the train",
+                "proved to be",
+                "a stroke of",
+                "luck."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "naqq-partitives-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The solution came in {a1} insight during an ordinary conversation.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Рішення прийшло як раптове осяяння під час звичайної розмови.",
+            "target_text": "The solution came in a flash of insight during an ordinary conversation.",
+            "markers": {
+                "a1": {
+                    "answer": "a flash of",
+                    "options": [
+                        "a flash of",
+                        "a bar of",
+                        "a carton of"
+                    ],
+                    "verb_hint": "Назви короткий раптовий спалах розуміння, не його тривалий розвиток."
+                }
+            },
+            "verb_hint": "Назви короткий раптовий спалах розуміння, не його тривалий розвиток.",
+            "accepted_target_texts": [
+                "The solution came in a flash of insight during an ordinary conversation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The solution",
+                "came",
+                "in",
+                "a flash of",
+                "insight",
+                "during",
+                "an ordinary conversation."
+            ],
+            "token_groups": [
+                "The solution",
+                "came",
+                "in",
+                "a flash of",
+                "insight",
+                "during",
+                "an ordinary conversation."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "naqq-partitives-b2-g03",
+            "author_id": "B2-g03",
+            "question": "There was not {a1} evidence linking her to the missing files.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Не було ані найменшого доказу її зв’язку зі зниклими файлами.",
+            "target_text": "There was not a shred of evidence linking her to the missing files.",
+            "markers": {
+                "a1": {
+                    "answer": "a shred of",
+                    "options": [
+                        "a shred of",
+                        "a loaf of",
+                        "a sheet of"
+                    ],
+                    "verb_hint": "Передай повну відсутність навіть найменшої частки доказів; звичайні назви крихти або сліду доказу доречні."
+                }
+            },
+            "verb_hint": "Передай повну відсутність навіть найменшої частки доказів; звичайні назви крихти або сліду доказу доречні.",
+            "accepted_target_texts": [
+                "There was not a shred of evidence linking her to the missing files.",
+                "There was not a scrap of evidence linking her to the missing files.",
+                "There was not a trace of evidence linking her to the missing files."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "a scrap of",
+                    "a trace of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "a scrap of",
+                    "a trace of"
+                ]
+            },
+            "reorder_groups": [
+                "There was not",
+                "a shred of",
+                "evidence linking her",
+                "to",
+                "the missing files."
+            ],
+            "token_groups": [
+                "There was not",
+                "a shred of",
+                "evidence linking her",
+                "to",
+                "the missing files."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "naqq-partitives-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The revised proposal offers {a1} hope to the smaller suppliers.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Переглянута пропозиція дає дрібнішим постачальникам проблиск надії.",
+            "target_text": "The revised proposal offers a glimmer of hope to the smaller suppliers.",
+            "markers": {
+                "a1": {
+                    "answer": "a glimmer of",
+                    "options": [
+                        "a glimmer of",
+                        "a pane of",
+                        "a bar of"
+                    ],
+                    "verb_hint": "Назви слабкий, але помітний проблиск надії; не стверджуй упевненого позитивного результату."
+                }
+            },
+            "verb_hint": "Назви слабкий, але помітний проблиск надії; не стверджуй упевненого позитивного результату.",
+            "accepted_target_texts": [
+                "The revised proposal offers a glimmer of hope to the smaller suppliers."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The revised proposal",
+                "offers a glimmer",
+                "of hope",
+                "to",
+                "the smaller suppliers."
+            ],
+            "token_groups": [
+                "The revised proposal",
+                "offers a glimmer",
+                "of hope",
+                "to",
+                "the smaller suppliers."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "naqq-partitives-b2-g05",
+            "author_id": "B2-g05",
+            "question": "He dismissed the allegation with {a1} contempt.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Він відкинув звинувачення з відтінком презирства.",
+            "target_text": "He dismissed the allegation with a touch of contempt.",
+            "markers": {
+                "a1": {
+                    "answer": "a touch of",
+                    "options": [
+                        "a touch of",
+                        "a carton of",
+                        "a loaf of"
+                    ],
+                    "verb_hint": "Назви невелику помітну домішку або відтінок почуття, а не матеріальну порцію."
+                }
+            },
+            "verb_hint": "Назви невелику помітну домішку або відтінок почуття, а не матеріальну порцію.",
+            "accepted_target_texts": [
+                "He dismissed the allegation with a touch of contempt."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He dismissed",
+                "the allegation",
+                "with a touch",
+                "of contempt."
+            ],
+            "token_groups": [
+                "He dismissed",
+                "the allegation",
+                "with a touch",
+                "of contempt."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "naqq-partitives-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The final paragraph contains {a1} information that changes the interpretation.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Останній абзац містить одну відомість, що змінює тлумачення.",
+            "target_text": "The final paragraph contains a piece of information that changes the interpretation.",
+            "markers": {
+                "a1": {
+                    "answer": "a piece of",
+                    "options": [
+                        "a piece of",
+                        "a slice of",
+                        "a bar of"
+                    ],
+                    "verb_hint": "Назви одну окрему відомість через загальне слово-одиницю; сама назва інформації лишається незлічуваною."
+                }
+            },
+            "verb_hint": "Назви одну окрему відомість через загальне слово-одиницю; сама назва інформації лишається незлічуваною.",
+            "accepted_target_texts": [
+                "The final paragraph contains a piece of information that changes the interpretation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The final paragraph",
+                "contains a piece",
+                "of information",
+                "that changes",
+                "the interpretation."
+            ],
+            "token_groups": [
+                "The final paragraph",
+                "contains a piece",
+                "of information",
+                "that changes",
+                "the interpretation."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "naqq-partitives-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The recommendation rests on {a1} research assembled over several decades.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Рекомендація спирається на сукупність досліджень за кілька десятиліть.",
+            "target_text": "The recommendation rests on a body of research assembled over several decades.",
+            "markers": {
+                "a1": {
+                    "answer": "a body of",
+                    "options": [
+                        "a body of",
+                        "a bar of",
+                        "a loaf of"
+                    ],
+                    "verb_hint": "Назви організовану сукупність дослідницької роботи, не одну публікацію; звичайна назва сукупності або корпусу доречна."
+                }
+            },
+            "verb_hint": "Назви організовану сукупність дослідницької роботи, не одну публікацію; звичайна назва сукупності або корпусу доречна.",
+            "accepted_target_texts": [
+                "The recommendation rests on a body of research assembled over several decades.",
+                "The recommendation rests on a corpus of research assembled over several decades."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "a corpus of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "a corpus of"
+                ]
+            },
+            "reorder_groups": [
+                "The recommendation",
+                "rests on",
+                "a body of",
+                "research assembled",
+                "over several decades."
+            ],
+            "token_groups": [
+                "The recommendation",
+                "rests on",
+                "a body of",
+                "research assembled",
+                "over several decades."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "naqq-partitives-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The settlement granted the region {a1} autonomy without full independence.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Угода надала регіону певну міру автономії без повної незалежності.",
+            "target_text": "The settlement granted the region a measure of autonomy without full independence.",
+            "markers": {
+                "a1": {
+                    "answer": "a measure of",
+                    "options": [
+                        "a measure of",
+                        "a sheet of",
+                        "a slice of"
+                    ],
+                    "verb_hint": "Назви обмежену міру або ступінь автономії; не передавай її як окремий матеріальний предмет."
+                }
+            },
+            "verb_hint": "Назви обмежену міру або ступінь автономії; не передавай її як окремий матеріальний предмет.",
+            "accepted_target_texts": [
+                "The settlement granted the region a measure of autonomy without full independence.",
+                "The settlement granted the region a degree of autonomy without full independence."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "a degree of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "a degree of"
+                ]
+            },
+            "reorder_groups": [
+                "The settlement",
+                "granted the region",
+                "a measure of",
+                "autonomy",
+                "without full independence."
+            ],
+            "token_groups": [
+                "The settlement",
+                "granted the region",
+                "a measure of",
+                "autonomy",
+                "without full independence."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "naqq-partitives-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The role demands {a1} discretion that cannot be reduced to a checklist.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Посада вимагає певного ступеня самостійності рішень, який не зводиться до контрольного списку.",
+            "target_text": "The role demands a degree of discretion that cannot be reduced to a checklist.",
+            "markers": {
+                "a1": {
+                    "answer": "a degree of",
+                    "options": [
+                        "a degree of",
+                        "a loaf of",
+                        "a carton of"
+                    ],
+                    "verb_hint": "Назви певну міру свободи розсуду; потрібен ступінь властивості, а не число предметів."
+                }
+            },
+            "verb_hint": "Назви певну міру свободи розсуду; потрібен ступінь властивості, а не число предметів.",
+            "accepted_target_texts": [
+                "The role demands a degree of discretion that cannot be reduced to a checklist.",
+                "The role demands a measure of discretion that cannot be reduced to a checklist."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "a measure of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "a measure of"
+                ]
+            },
+            "reorder_groups": [
+                "The role",
+                "demands a degree",
+                "of discretion",
+                "that cannot",
+                "be reduced to",
+                "a checklist."
+            ],
+            "token_groups": [
+                "The role",
+                "demands a degree",
+                "of discretion",
+                "that cannot",
+                "be reduced to",
+                "a checklist."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "naqq-partitives-c1-g04",
+            "author_id": "C1-g04",
+            "question": "Between them, the advisers bring {a1} experience to the negotiations.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Разом радники привносять у переговори багатий досвід.",
+            "target_text": "Between them, the advisers bring a wealth of experience to the negotiations.",
+            "markers": {
+                "a1": {
+                    "answer": "a wealth of",
+                    "options": [
+                        "a wealth of",
+                        "a pane of",
+                        "a bar of"
+                    ],
+                    "verb_hint": "Передай велику й цінну сукупність досвіду метафорою багатства; це не просто одна пережита подія."
+                }
+            },
+            "verb_hint": "Передай велику й цінну сукупність досвіду метафорою багатства; це не просто одна пережита подія.",
+            "accepted_target_texts": [
+                "Between them, the advisers bring a wealth of experience to the negotiations."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Between them,",
+                "the advisers",
+                "bring a wealth",
+                "of experience",
+                "to the negotiations."
+            ],
+            "token_groups": [
+                "Between them,",
+                "the advisers",
+                "bring a wealth",
+                "of experience",
+                "to the negotiations."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "naqq-partitives-c1-g05",
+            "author_id": "C1-g05",
+            "question": "Even the revised estimate retains {a1} uncertainty.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Навіть переглянута оцінка зберігає елемент невизначеності.",
+            "target_text": "Even the revised estimate retains an element of uncertainty.",
+            "markers": {
+                "a1": {
+                    "answer": "an element of",
+                    "options": [
+                        "an element of",
+                        "a bottle of",
+                        "a loaf of"
+                    ],
+                    "verb_hint": "Назви окремий компонент або частку невизначеності в загальній оцінці, не її повну відсутність."
+                }
+            },
+            "verb_hint": "Назви окремий компонент або частку невизначеності в загальній оцінці, не її повну відсутність.",
+            "accepted_target_texts": [
+                "Even the revised estimate retains an element of uncertainty."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Even",
+                "the revised estimate",
+                "retains an element",
+                "of uncertainty."
+            ],
+            "token_groups": [
+                "Even",
+                "the revised estimate",
+                "retains an element",
+                "of uncertainty."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "naqq-partitives-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The reforms prompted {a1} criticism from organisations that had previously supported them.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Реформи викликали шквал критики від організацій, що раніше їх підтримували.",
+            "target_text": "The reforms prompted a barrage of criticism from organisations that had previously supported them.",
+            "markers": {
+                "a1": {
+                    "answer": "a barrage of",
+                    "options": [
+                        "a barrage of",
+                        "a pane of",
+                        "a bar of"
+                    ],
+                    "verb_hint": "Назви інтенсивний потік численних критичних зауваг усталеним образним виразом; не окремий стриманий коментар."
+                }
+            },
+            "verb_hint": "Назви інтенсивний потік численних критичних зауваг усталеним образним виразом; не окремий стриманий коментар.",
+            "accepted_target_texts": [
+                "The reforms prompted a barrage of criticism from organisations that had previously supported them."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The reforms",
+                "prompted a barrage",
+                "of criticism",
+                "from organisations",
+                "that had",
+                "previously supported them."
+            ],
+            "token_groups": [
+                "The reforms",
+                "prompted a barrage",
+                "of criticism",
+                "from organisations",
+                "that had",
+                "previously supported them."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "naqq-partitives-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The disclosure introduced {a1} transparency into a process that had previously been opaque.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Розкриття інформації додало хоч невелику міру прозорості до раніше непрозорого процесу.",
+            "target_text": "The disclosure introduced a modicum of transparency into a process that had previously been opaque.",
+            "markers": {
+                "a1": {
+                    "answer": "a modicum of",
+                    "options": [
+                        "a modicum of",
+                        "a loaf of",
+                        "a sheet of"
+                    ],
+                    "verb_hint": "Назви невелику, але реальну частку прозорості; потрібен усталений формальний кількісний вираз."
+                }
+            },
+            "verb_hint": "Назви невелику, але реальну частку прозорості; потрібен усталений формальний кількісний вираз.",
+            "accepted_target_texts": [
+                "The disclosure introduced a modicum of transparency into a process that had previously been opaque."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The disclosure",
+                "introduced a modicum",
+                "of transparency",
+                "into a process",
+                "that had",
+                "previously been opaque."
+            ],
+            "token_groups": [
+                "The disclosure",
+                "introduced a modicum",
+                "of transparency",
+                "into a process",
+                "that had",
+                "previously been opaque."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "naqq-partitives-c2-g02",
+            "author_id": "C2-g02",
+            "question": "Behind the exaggeration lies {a1} truth that the response fails to address.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "За перебільшенням є зерно правди, якого відповідь не торкається.",
+            "target_text": "Behind the exaggeration lies a kernel of truth that the response fails to address.",
+            "markers": {
+                "a1": {
+                    "answer": "a kernel of",
+                    "options": [
+                        "a kernel of",
+                        "a bar of",
+                        "a pane of"
+                    ],
+                    "verb_hint": "Назви невелику сутнісну частку правди метафорою зерна; не її повне підтвердження."
+                }
+            },
+            "verb_hint": "Назви невелику сутнісну частку правди метафорою зерна; не її повне підтвердження.",
+            "accepted_target_texts": [
+                "Behind the exaggeration lies a kernel of truth that the response fails to address."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Behind the exaggeration",
+                "lies a kernel",
+                "of truth",
+                "that the response",
+                "fails to address."
+            ],
+            "token_groups": [
+                "Behind the exaggeration",
+                "lies a kernel",
+                "of truth",
+                "that the response",
+                "fails to address."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "naqq-partitives-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The arrangement retained {a1} legitimacy despite the collapse of its original mandate.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Домовленість зберегла залишок легітимності попри крах початкового мандата.",
+            "target_text": "The arrangement retained a vestige of legitimacy despite the collapse of its original mandate.",
+            "markers": {
+                "a1": {
+                    "answer": "a vestige of",
+                    "options": [
+                        "a vestige of",
+                        "a carton of",
+                        "a loaf of"
+                    ],
+                    "verb_hint": "Назви слабкий залишок колишньої легітимності, не нове повноцінне уповноваження."
+                }
+            },
+            "verb_hint": "Назви слабкий залишок колишньої легітимності, не нове повноцінне уповноваження.",
+            "accepted_target_texts": [
+                "The arrangement retained a vestige of legitimacy despite the collapse of its original mandate.",
+                "The arrangement retained a trace of legitimacy despite the collapse of its original mandate."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "a trace of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "a trace of"
+                ]
+            },
+            "reorder_groups": [
+                "The arrangement",
+                "retained a vestige",
+                "of legitimacy",
+                "despite the collapse",
+                "of",
+                "its original mandate."
+            ],
+            "token_groups": [
+                "The arrangement",
+                "retained a vestige",
+                "of legitimacy",
+                "despite the collapse",
+                "of",
+                "its original mandate."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "naqq-partitives-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The carefully drafted statement maintained {a1} consensus where deep disagreement persisted.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Ретельно сформульована заява підтримувала видимість консенсусу попри глибоку незгоду.",
+            "target_text": "The carefully drafted statement maintained a semblance of consensus where deep disagreement persisted.",
+            "markers": {
+                "a1": {
+                    "answer": "a semblance of",
+                    "options": [
+                        "a semblance of",
+                        "a bottle of",
+                        "a bar of"
+                    ],
+                    "verb_hint": "Назви зовнішню видимість згоди без твердження, що справжню згоду досягнуто."
+                }
+            },
+            "verb_hint": "Назви зовнішню видимість згоди без твердження, що справжню згоду досягнуто.",
+            "accepted_target_texts": [
+                "The carefully drafted statement maintained a semblance of consensus where deep disagreement persisted."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The carefully drafted",
+                "statement",
+                "maintained a semblance",
+                "of consensus",
+                "where",
+                "deep disagreement persisted."
+            ],
+            "token_groups": [
+                "The carefully drafted",
+                "statement",
+                "maintained a semblance",
+                "of consensus",
+                "where",
+                "deep disagreement persisted."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "naqq-partitives-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The explanation left {a1} doubt that no subsequent assurance entirely removed.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Пояснення залишило рештки сумніву, яких жодне пізніше запевнення не усунуло цілком.",
+            "target_text": "The explanation left a residue of doubt that no subsequent assurance entirely removed.",
+            "markers": {
+                "a1": {
+                    "answer": "a residue of",
+                    "options": [
+                        "a residue of",
+                        "a sheet of",
+                        "a pane of"
+                    ],
+                    "verb_hint": "Назви залишкову частку сумніву після пояснення; не створюй значення повної недовіри."
+                }
+            },
+            "verb_hint": "Назви залишкову частку сумніву після пояснення; не створюй значення повної недовіри.",
+            "accepted_target_texts": [
+                "The explanation left a residue of doubt that no subsequent assurance entirely removed.",
+                "The explanation left a trace of doubt that no subsequent assurance entirely removed."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "a trace of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "a trace of"
+                ]
+            },
+            "reorder_groups": [
+                "The explanation",
+                "left a residue",
+                "of doubt",
+                "that",
+                "no subsequent assurance",
+                "entirely removed."
+            ],
+            "token_groups": [
+                "The explanation",
+                "left a residue",
+                "of doubt",
+                "that",
+                "no subsequent assurance",
+                "entirely removed."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "naqq-partitives-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The conclusion reflects {a1} evidence, not the elimination of every conceivable alternative.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_partitives",
+            "translation_uk": "Висновок відбиває перевагу доказів, а не усунення кожної мислимої альтернативи.",
+            "target_text": "The conclusion reflects a preponderance of evidence, not the elimination of every conceivable alternative.",
+            "markers": {
+                "a1": {
+                    "answer": "a preponderance of",
+                    "options": [
+                        "a preponderance of",
+                        "a loaf of",
+                        "a bar of"
+                    ],
+                    "verb_hint": "Назви переважну вагу доказового матеріалу; не передавай її як абсолютну певність або один документ."
+                }
+            },
+            "verb_hint": "Назви переважну вагу доказового матеріалу; не передавай її як абсолютну певність або один документ.",
+            "accepted_target_texts": [
+                "The conclusion reflects a preponderance of evidence, not the elimination of every conceivable alternative."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The conclusion",
+                "reflects a preponderance",
+                "of evidence,",
+                "not the elimination",
+                "of",
+                "every conceivable alternative."
+            ],
+            "token_groups": [
+                "The conclusion",
+                "reflects a preponderance",
+                "of evidence,",
+                "not the elimination",
+                "of",
+                "every conceivable alternative."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        }
+    ]
+}

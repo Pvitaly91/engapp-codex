@@ -1,0 +1,1800 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pronouns-demonstratives-v1",
+    "compiled_from": {
+        "path": "docs/content/pronouns-demonstratives-quality/indefinite-pronouns.v1.json",
+        "sha256": "5a4edffea368fc4beefdf908b59f9b9996f7468e42b6b39fd4a88cba3d438a3c"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PronounsDemonstratives\\UkrainianMixedIndefinitePronounsQualityStandardSeeder",
+        "uuid_namespace": "pronouns-demonstratives-quality-indefinite-pronouns-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Pronouns / Demonstratives"
+    },
+    "sources": {
+        "pronouns_demonstratives_quality_indefinite_pronouns": {
+            "name": "Pronouns and Demonstratives Quality: Неозначені займенники: люди, речі, місця та заперечення"
+        }
+    },
+    "tags": {
+        "indefinite_pronouns": {
+            "name": "Indefinite Pronouns",
+            "category": "pronouns_demonstratives"
+        },
+        "someone_somebody": {
+            "name": "Someone Somebody",
+            "category": "topic"
+        },
+        "anyone_anybody": {
+            "name": "Anyone Anybody",
+            "category": "topic"
+        },
+        "nobody_no_one": {
+            "name": "Nobody No One",
+            "category": "topic"
+        },
+        "everyone_everybody": {
+            "name": "Everyone Everybody",
+            "category": "topic"
+        },
+        "thing_pronouns": {
+            "name": "Thing Pronouns",
+            "category": "topic"
+        },
+        "place_pronouns": {
+            "name": "Place Pronouns",
+            "category": "topic"
+        },
+        "some_offers_requests": {
+            "name": "Some Offers Requests",
+            "category": "topic"
+        },
+        "any_questions_negatives": {
+            "name": "Any Questions Negatives",
+            "category": "topic"
+        },
+        "no_double_negative": {
+            "name": "No Double Negative",
+            "category": "topic"
+        },
+        "singular_agreement": {
+            "name": "Singular Agreement",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "indefinite_pronouns"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pdqq-indefinite-pronouns-a1-g01",
+            "author_id": "A1-g01",
+            "question": "There is {a1} at the front door.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Біля вхідних дверей хтось є.",
+            "target_text": "There is someone at the front door.",
+            "markers": {
+                "a1": {
+                    "answer": "someone",
+                    "options": [
+                        "someone",
+                        "something",
+                        "somewhere"
+                    ],
+                    "verb_hint": "Назви невідому людину у ствердному повідомленні; стать не визначена."
+                }
+            },
+            "verb_hint": "Назви невідому людину у ствердному повідомленні; стать не визначена.",
+            "accepted_target_texts": [
+                "There is someone at the front door.",
+                "There is somebody at the front door."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "reorder_groups": [
+                "There is someone",
+                "at",
+                "the front door."
+            ],
+            "token_groups": [
+                "There is someone",
+                "at",
+                "the front door."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pdqq-indefinite-pronouns-a1-g02",
+            "author_id": "A1-g02",
+            "question": "There is {a1} soft inside this box.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "У цій коробці є щось м’яке.",
+            "target_text": "There is something soft inside this box.",
+            "markers": {
+                "a1": {
+                    "answer": "something",
+                    "options": [
+                        "something",
+                        "someone",
+                        "somewhere"
+                    ],
+                    "verb_hint": "Назви невідомий неживий предмет перед уже наведеним означенням."
+                }
+            },
+            "verb_hint": "Назви невідомий неживий предмет перед уже наведеним означенням.",
+            "accepted_target_texts": [
+                "There is something soft inside this box."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "something soft",
+                "inside this box."
+            ],
+            "token_groups": [
+                "There is",
+                "something soft",
+                "inside this box."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pdqq-indefinite-pronouns-a1-g03",
+            "author_id": "A1-g03",
+            "question": "I cannot hear {a1} through the wall.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Я нічого не чую крізь стіну.",
+            "target_text": "I cannot hear anything through the wall.",
+            "markers": {
+                "a1": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "anywhere",
+                        "anybody"
+                    ],
+                    "verb_hint": "Після вже наведеного заперечення назви відсутність будь-якого звуку, не людини."
+                }
+            },
+            "verb_hint": "Після вже наведеного заперечення назви відсутність будь-якого звуку, не людини.",
+            "accepted_target_texts": [
+                "I cannot hear anything through the wall."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I cannot hear",
+                "anything",
+                "through the wall."
+            ],
+            "token_groups": [
+                "I cannot hear",
+                "anything",
+                "through the wall."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pdqq-indefinite-pronouns-a1-g04",
+            "author_id": "A1-g04",
+            "question": "{a1} in our class has a red badge.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "У кожного в нашому класі є червоний бейдж.",
+            "target_text": "Everyone in our class has a red badge.",
+            "markers": {
+                "a1": {
+                    "answer": "Everyone",
+                    "options": [
+                        "Everyone",
+                        "Everything",
+                        "Everywhere"
+                    ],
+                    "verb_hint": "Охопи всіх людей класу без винятку; потрібне слово для людей, не предметів."
+                }
+            },
+            "verb_hint": "Охопи всіх людей класу без винятку; потрібне слово для людей, не предметів.",
+            "accepted_target_texts": [
+                "Everyone in our class has a red badge.",
+                "Everybody in our class has a red badge."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Everybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Everybody"
+                ]
+            },
+            "reorder_groups": [
+                "Everyone",
+                "in our class",
+                "has",
+                "a red badge."
+            ],
+            "token_groups": [
+                "Everyone",
+                "in our class",
+                "has",
+                "a red badge."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pdqq-indefinite-pronouns-a1-g05",
+            "author_id": "A1-g05",
+            "question": "The room is empty. {a1} is here.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Кімната порожня. Тут нікого немає.",
+            "target_text": "The room is empty. Nobody is here.",
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Nothing",
+                        "Nowhere"
+                    ],
+                    "verb_hint": "Повністю запереч наявність людини без додаткового заперечення перед дієсловом."
+                }
+            },
+            "verb_hint": "Повністю запереч наявність людини без додаткового заперечення перед дієсловом.",
+            "accepted_target_texts": [
+                "The room is empty. Nobody is here.",
+                "The room is empty. No one is here."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "No one"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "No one"
+                ]
+            },
+            "reorder_groups": [
+                "The room",
+                "is empty.",
+                "Nobody is here."
+            ],
+            "token_groups": [
+                "The room",
+                "is empty.",
+                "Nobody is here."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pdqq-indefinite-pronouns-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Can we sit {a1} warm?",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Можемо сісти десь у теплі?",
+            "target_text": "Can we sit somewhere warm?",
+            "markers": {
+                "a1": {
+                    "answer": "somewhere",
+                    "options": [
+                        "somewhere",
+                        "someone",
+                        "something"
+                    ],
+                    "verb_hint": "Попроси невизначене тепле місце, не людину або предмет."
+                }
+            },
+            "verb_hint": "Попроси невизначене тепле місце, не людину або предмет.",
+            "accepted_target_texts": [
+                "Can we sit somewhere warm?",
+                "Can we sit anywhere warm?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anywhere"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anywhere"
+                ]
+            },
+            "reorder_groups": [
+                "Can we sit",
+                "somewhere warm?"
+            ],
+            "token_groups": [
+                "Can we sit",
+                "somewhere warm?"
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pdqq-indefinite-pronouns-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Would you like {a1} to drink?",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Хочеш чогось випити?",
+            "target_text": "Would you like something to drink?",
+            "markers": {
+                "a1": {
+                    "answer": "something",
+                    "options": [
+                        "something",
+                        "someone",
+                        "somewhere"
+                    ],
+                    "verb_hint": "Запропонуй невизначений напій, очікуючи можливого прийняття пропозиції."
+                }
+            },
+            "verb_hint": "Запропонуй невизначений напій, очікуючи можливого прийняття пропозиції.",
+            "accepted_target_texts": [
+                "Would you like something to drink?",
+                "Would you like anything to drink?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anything"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anything"
+                ]
+            },
+            "reorder_groups": [
+                "Would you like",
+                "something to drink?"
+            ],
+            "token_groups": [
+                "Would you like",
+                "something to drink?"
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pdqq-indefinite-pronouns-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Did {a1} leave a blue umbrella on the bus?",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Хтось залишив синю парасольку в автобусі?",
+            "target_text": "Did anyone leave a blue umbrella on the bus?",
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "anything",
+                        "anywhere"
+                    ],
+                    "verb_hint": "Постав нейтральне питання про невідому людину, без упевненості, що така була."
+                }
+            },
+            "verb_hint": "Постав нейтральне питання про невідому людину, без упевненості, що така була.",
+            "accepted_target_texts": [
+                "Did anyone leave a blue umbrella on the bus?",
+                "Did anybody leave a blue umbrella on the bus?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "reorder_groups": [
+                "Did anyone leave",
+                "a blue umbrella",
+                "on the bus?"
+            ],
+            "token_groups": [
+                "Did anyone leave",
+                "a blue umbrella",
+                "on the bus?"
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pdqq-indefinite-pronouns-a2-g03",
+            "author_id": "A2-g03",
+            "question": "We looked {a1}, but we could not find the missing ring.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Ми шукали скрізь, але не знайшли зниклу каблучку.",
+            "target_text": "We looked everywhere, but we could not find the missing ring.",
+            "markers": {
+                "a1": {
+                    "answer": "everywhere",
+                    "options": [
+                        "everywhere",
+                        "everything",
+                        "everyone"
+                    ],
+                    "verb_hint": "Назви всі можливі місця пошуку, не людей або предмети."
+                }
+            },
+            "verb_hint": "Назви всі можливі місця пошуку, не людей або предмети.",
+            "accepted_target_texts": [
+                "We looked everywhere, but we could not find the missing ring."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We looked everywhere,",
+                "but we",
+                "could not find",
+                "the missing ring."
+            ],
+            "token_groups": [
+                "We looked everywhere,",
+                "but we",
+                "could not find",
+                "the missing ring."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pdqq-indefinite-pronouns-a2-g04",
+            "author_id": "A2-g04",
+            "question": "There was {a1} left to eat after the picnic.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Після пікніка не залишилося нічого їстівного.",
+            "target_text": "There was nothing left to eat after the picnic.",
+            "markers": {
+                "a1": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "nobody",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Запереч залишок їжі самостійним словом для речей; другого заперечення не додавай."
+                }
+            },
+            "verb_hint": "Запереч залишок їжі самостійним словом для речей; другого заперечення не додавай.",
+            "accepted_target_texts": [
+                "There was nothing left to eat after the picnic."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There was",
+                "nothing left",
+                "to eat",
+                "after the picnic."
+            ],
+            "token_groups": [
+                "There was",
+                "nothing left",
+                "to eat",
+                "after the picnic."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pdqq-indefinite-pronouns-a2-g05",
+            "author_id": "A2-g05",
+            "question": "I need {a1} else to help me carry this cupboard.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Мені потрібен хтось іще, щоб допомогти нести цю шафу.",
+            "target_text": "I need someone else to help me carry this cupboard.",
+            "markers": {
+                "a1": {
+                    "answer": "someone",
+                    "options": [
+                        "someone",
+                        "something",
+                        "somewhere"
+                    ],
+                    "verb_hint": "Назви додаткову невизначену людину перед уже наведеним словом «ще»."
+                }
+            },
+            "verb_hint": "Назви додаткову невизначену людину перед уже наведеним словом «ще».",
+            "accepted_target_texts": [
+                "I need someone else to help me carry this cupboard.",
+                "I need somebody else to help me carry this cupboard."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "reorder_groups": [
+                "I need",
+                "someone else",
+                "to help me",
+                "carry this cupboard."
+            ],
+            "token_groups": [
+                "I need",
+                "someone else",
+                "to help me",
+                "carry this cupboard."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pdqq-indefinite-pronouns-a2-g06",
+            "author_id": "A2-g06",
+            "question": "They had {a1} to stay after the storm damaged their house.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Їм не було де зупинитися після того, як буря пошкодила їхній будинок.",
+            "target_text": "They had nowhere to stay after the storm damaged their house.",
+            "markers": {
+                "a1": {
+                    "answer": "nowhere",
+                    "options": [
+                        "nowhere",
+                        "nothing",
+                        "nobody"
+                    ],
+                    "verb_hint": "Повністю запереч наявність місця для проживання, не людини чи предмета."
+                }
+            },
+            "verb_hint": "Повністю запереч наявність місця для проживання, не людини чи предмета.",
+            "accepted_target_texts": [
+                "They had nowhere to stay after the storm damaged their house."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They had nowhere",
+                "to stay",
+                "after the storm",
+                "damaged their house."
+            ],
+            "token_groups": [
+                "They had nowhere",
+                "to stay",
+                "after the storm",
+                "damaged their house."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pdqq-indefinite-pronouns-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The missing files must be {a1} in this building.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Зниклі файли мають бути десь у цій будівлі.",
+            "target_text": "The missing files must be somewhere in this building.",
+            "markers": {
+                "a1": {
+                    "answer": "somewhere",
+                    "options": [
+                        "somewhere",
+                        "someone",
+                        "something"
+                    ],
+                    "verb_hint": "Назви невизначене місце в межах уже наведеного простору, не самі файли."
+                }
+            },
+            "verb_hint": "Назви невизначене місце в межах уже наведеного простору, не самі файли.",
+            "accepted_target_texts": [
+                "The missing files must be somewhere in this building."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The missing files",
+                "must be somewhere",
+                "in this building."
+            ],
+            "token_groups": [
+                "The missing files",
+                "must be somewhere",
+                "in this building."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pdqq-indefinite-pronouns-b1-g02",
+            "author_id": "B1-g02",
+            "question": "{a1} who wants to join should contact the organiser.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Кожен охочий долучитися має зв’язатися з організатором.",
+            "target_text": "Anyone who wants to join should contact the organiser.",
+            "markers": {
+                "a1": {
+                    "answer": "Anyone",
+                    "options": [
+                        "Anyone",
+                        "Anything",
+                        "Anywhere"
+                    ],
+                    "verb_hint": "Дозволь участь будь-якій людині, що виконує наступну умову, без попереднього відбору."
+                }
+            },
+            "verb_hint": "Дозволь участь будь-якій людині, що виконує наступну умову, без попереднього відбору.",
+            "accepted_target_texts": [
+                "Anyone who wants to join should contact the organiser.",
+                "Anybody who wants to join should contact the organiser."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Anybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Anybody"
+                ]
+            },
+            "reorder_groups": [
+                "Anyone",
+                "who wants",
+                "to join",
+                "should contact",
+                "the organiser."
+            ],
+            "token_groups": [
+                "Anyone",
+                "who wants",
+                "to join",
+                "should contact",
+                "the organiser."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pdqq-indefinite-pronouns-b1-g03",
+            "author_id": "B1-g03",
+            "question": "There was {a1} unusual about the way the door had been locked.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "У тому, як замкнули двері, було щось незвичне.",
+            "target_text": "There was something unusual about the way the door had been locked.",
+            "markers": {
+                "a1": {
+                    "answer": "something",
+                    "options": [
+                        "something",
+                        "someone",
+                        "somewhere"
+                    ],
+                    "verb_hint": "Назви невизначену особливість перед уже наведеним прикметником, не людину чи місце."
+                }
+            },
+            "verb_hint": "Назви невизначену особливість перед уже наведеним прикметником, не людину чи місце.",
+            "accepted_target_texts": [
+                "There was something unusual about the way the door had been locked."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There was",
+                "something unusual",
+                "about the way",
+                "the door",
+                "had been locked."
+            ],
+            "token_groups": [
+                "There was",
+                "something unusual",
+                "about the way",
+                "the door",
+                "had been locked."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pdqq-indefinite-pronouns-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The message contained {a1} that could identify the sender.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Повідомлення не містило нічого, що могло б визначити відправника.",
+            "target_text": "The message contained nothing that could identify the sender.",
+            "markers": {
+                "a1": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "nobody",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Самостійно запереч наявність будь-якої інформації; дієслово не містить окремого заперечення."
+                }
+            },
+            "verb_hint": "Самостійно запереч наявність будь-якої інформації; дієслово не містить окремого заперечення.",
+            "accepted_target_texts": [
+                "The message contained nothing that could identify the sender."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The message",
+                "contained nothing",
+                "that could identify",
+                "the sender."
+            ],
+            "token_groups": [
+                "The message",
+                "contained nothing",
+                "that could identify",
+                "the sender."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pdqq-indefinite-pronouns-b1-g05",
+            "author_id": "B1-g05",
+            "question": "{a1} has left their bicycle across the emergency exit.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Хтось залишив свій велосипед поперек аварійного виходу.",
+            "target_text": "Someone has left their bicycle across the emergency exit.",
+            "markers": {
+                "a1": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Something",
+                        "Somewhere"
+                    ],
+                    "verb_hint": "Назви невідому людину; подальша належність нейтральна щодо статі."
+                }
+            },
+            "verb_hint": "Назви невідому людину; подальша належність нейтральна щодо статі.",
+            "accepted_target_texts": [
+                "Someone has left their bicycle across the emergency exit.",
+                "Somebody has left their bicycle across the emergency exit."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Somebody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Somebody"
+                ]
+            },
+            "reorder_groups": [
+                "Someone has left",
+                "their bicycle",
+                "across",
+                "the emergency exit."
+            ],
+            "token_groups": [
+                "Someone has left",
+                "their bicycle",
+                "across",
+                "the emergency exit."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pdqq-indefinite-pronouns-b1-g06",
+            "author_id": "B1-g06",
+            "question": "You can put the spare chairs {a1} that does not block the passage.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Можеш поставити запасні стільці будь-де, де вони не перекриють прохід.",
+            "target_text": "You can put the spare chairs anywhere that does not block the passage.",
+            "markers": {
+                "a1": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "anyone",
+                        "anything"
+                    ],
+                    "verb_hint": "Дозволь будь-яке місце за наведеної умови, не довільну людину чи річ."
+                }
+            },
+            "verb_hint": "Дозволь будь-яке місце за наведеної умови, не довільну людину чи річ.",
+            "accepted_target_texts": [
+                "You can put the spare chairs anywhere that does not block the passage."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You can put",
+                "the spare chairs",
+                "anywhere that",
+                "does not block",
+                "the passage."
+            ],
+            "token_groups": [
+                "You can put",
+                "the spare chairs",
+                "anywhere that",
+                "does not block",
+                "the passage."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pdqq-indefinite-pronouns-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Not {a1} who supported the proposal agreed with the final wording.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Не кожен, хто підтримав пропозицію, погодився з остаточним формулюванням.",
+            "target_text": "Not everyone who supported the proposal agreed with the final wording.",
+            "markers": {
+                "a1": {
+                    "answer": "everyone",
+                    "options": [
+                        "everyone",
+                        "everything",
+                        "everywhere"
+                    ],
+                    "verb_hint": "Передай часткове заперечення для людей після вже наведеного заперечного слова, не повну відсутність згоди."
+                }
+            },
+            "verb_hint": "Передай часткове заперечення для людей після вже наведеного заперечного слова, не повну відсутність згоди.",
+            "accepted_target_texts": [
+                "Not everyone who supported the proposal agreed with the final wording.",
+                "Not everybody who supported the proposal agreed with the final wording."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "everybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "everybody"
+                ]
+            },
+            "reorder_groups": [
+                "Not everyone",
+                "who supported",
+                "the proposal",
+                "agreed with",
+                "the final wording."
+            ],
+            "token_groups": [
+                "Not everyone",
+                "who supported",
+                "the proposal",
+                "agreed with",
+                "the final wording."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pdqq-indefinite-pronouns-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The device can be operated by {a1} with the required training.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Пристроєм може керувати будь-хто з потрібною підготовкою.",
+            "target_text": "The device can be operated by anyone with the required training.",
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "anything",
+                        "anywhere"
+                    ],
+                    "verb_hint": "Дозволь будь-яку людину за наведеної умови, без обмеження конкретним працівником."
+                }
+            },
+            "verb_hint": "Дозволь будь-яку людину за наведеної умови, без обмеження конкретним працівником.",
+            "accepted_target_texts": [
+                "The device can be operated by anyone with the required training.",
+                "The device can be operated by anybody with the required training."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "reorder_groups": [
+                "The device",
+                "can be operated",
+                "by anyone",
+                "with",
+                "the required training."
+            ],
+            "token_groups": [
+                "The device",
+                "can be operated",
+                "by anyone",
+                "with",
+                "the required training."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pdqq-indefinite-pronouns-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The revised draft offers {a1} new on the question of liability.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Переглянутий проєкт не пропонує нічого нового щодо відповідальності.",
+            "target_text": "The revised draft offers nothing new on the question of liability.",
+            "markers": {
+                "a1": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "nobody",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Самостійно запереч новий зміст перед вже наведеним означенням; не додавай заперечення до дієслова."
+                }
+            },
+            "verb_hint": "Самостійно запереч новий зміст перед вже наведеним означенням; не додавай заперечення до дієслова.",
+            "accepted_target_texts": [
+                "The revised draft offers nothing new on the question of liability."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The revised draft",
+                "offers nothing new",
+                "on the question",
+                "of liability."
+            ],
+            "token_groups": [
+                "The revised draft",
+                "offers nothing new",
+                "on the question",
+                "of liability."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pdqq-indefinite-pronouns-b2-g04",
+            "author_id": "B2-g04",
+            "question": "We need {a1} who can assess the evidence independently of the funding body.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Нам потрібен хтось, хто може оцінити докази незалежно від фінансувального органу.",
+            "target_text": "We need someone who can assess the evidence independently of the funding body.",
+            "markers": {
+                "a1": {
+                    "answer": "someone",
+                    "options": [
+                        "someone",
+                        "something",
+                        "somewhere"
+                    ],
+                    "verb_hint": "Назви невизначену людину з наступною вимогою; конкретного кандидата ще не визначено."
+                }
+            },
+            "verb_hint": "Назви невизначену людину з наступною вимогою; конкретного кандидата ще не визначено.",
+            "accepted_target_texts": [
+                "We need someone who can assess the evidence independently of the funding body.",
+                "We need somebody who can assess the evidence independently of the funding body."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "reorder_groups": [
+                "We need someone",
+                "who can assess",
+                "the evidence independently",
+                "of",
+                "the funding body."
+            ],
+            "token_groups": [
+                "We need someone",
+                "who can assess",
+                "the evidence independently",
+                "of",
+                "the funding body."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pdqq-indefinite-pronouns-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The allegation came from {a1} within the organisation, but the source remains confidential.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Звинувачення надійшло від когось усередині організації, але джерело лишається таємним.",
+            "target_text": "The allegation came from someone within the organisation, but the source remains confidential.",
+            "markers": {
+                "a1": {
+                    "answer": "someone",
+                    "options": [
+                        "someone",
+                        "something",
+                        "somewhere"
+                    ],
+                    "verb_hint": "Назви невідому для читача людину в організації; не лише географічне місце походження."
+                }
+            },
+            "verb_hint": "Назви невідому для читача людину в організації; не лише географічне місце походження.",
+            "accepted_target_texts": [
+                "The allegation came from someone within the organisation, but the source remains confidential.",
+                "The allegation came from somebody within the organisation, but the source remains confidential."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "reorder_groups": [
+                "The allegation came",
+                "from someone",
+                "within the organisation,",
+                "but the source",
+                "remains confidential."
+            ],
+            "token_groups": [
+                "The allegation came",
+                "from someone",
+                "within the organisation,",
+                "but the source",
+                "remains confidential."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pdqq-indefinite-pronouns-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The exception applies {a1} outside the narrowly defined category.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Виняток ніде не діє поза вузько визначеною категорією.",
+            "target_text": "The exception applies nowhere outside the narrowly defined category.",
+            "markers": {
+                "a1": {
+                    "answer": "nowhere",
+                    "options": [
+                        "nowhere",
+                        "nobody",
+                        "nothing"
+                    ],
+                    "verb_hint": "Повністю запереч будь-яке місце або сферу застосування поза наведеною межею."
+                }
+            },
+            "verb_hint": "Повністю запереч будь-яке місце або сферу застосування поза наведеною межею.",
+            "accepted_target_texts": [
+                "The exception applies nowhere outside the narrowly defined category."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The exception",
+                "applies nowhere",
+                "outside",
+                "the narrowly",
+                "defined category."
+            ],
+            "token_groups": [
+                "The exception",
+                "applies nowhere",
+                "outside",
+                "the narrowly",
+                "defined category."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pdqq-indefinite-pronouns-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The evidence establishes that something happened, but not that {a1} alleged actually occurred.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Докази встановлюють, що щось сталося, але не те, що відбулося все заявлене.",
+            "target_text": "The evidence establishes that something happened, but not that everything alleged actually occurred.",
+            "markers": {
+                "a1": {
+                    "answer": "everything",
+                    "options": [
+                        "everything",
+                        "everyone",
+                        "everywhere"
+                    ],
+                    "verb_hint": "Охопи весь заявлений зміст подій після вже наведеного заперечення; не людей."
+                }
+            },
+            "verb_hint": "Охопи весь заявлений зміст подій після вже наведеного заперечення; не людей.",
+            "accepted_target_texts": [
+                "The evidence establishes that something happened, but not that everything alleged actually occurred."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The evidence establishes",
+                "that something happened,",
+                "but not",
+                "that everything alleged",
+                "actually occurred."
+            ],
+            "token_groups": [
+                "The evidence establishes",
+                "that something happened,",
+                "but not",
+                "that everything alleged",
+                "actually occurred."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pdqq-indefinite-pronouns-c1-g02",
+            "author_id": "C1-g02",
+            "question": "{a1} else may have reached the same conclusion through a different line of reasoning.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Хтось іще міг дійти того самого висновку іншим шляхом міркувань.",
+            "target_text": "Someone else may have reached the same conclusion through a different line of reasoning.",
+            "markers": {
+                "a1": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Something",
+                        "Somewhere"
+                    ],
+                    "verb_hint": "Назви додаткову невизначену людину перед вже наведеним словом «ще»."
+                }
+            },
+            "verb_hint": "Назви додаткову невизначену людину перед вже наведеним словом «ще».",
+            "accepted_target_texts": [
+                "Someone else may have reached the same conclusion through a different line of reasoning.",
+                "Somebody else may have reached the same conclusion through a different line of reasoning."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Somebody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Somebody"
+                ]
+            },
+            "reorder_groups": [
+                "Someone else",
+                "may have reached",
+                "the same conclusion",
+                "through",
+                "a different line",
+                "of reasoning."
+            ],
+            "token_groups": [
+                "Someone else",
+                "may have reached",
+                "the same conclusion",
+                "through",
+                "a different line",
+                "of reasoning."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pdqq-indefinite-pronouns-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The statement leaves {a1} to the discretion of the administrator.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Заява залишає все на розсуд адміністратора.",
+            "target_text": "The statement leaves everything to the discretion of the administrator.",
+            "markers": {
+                "a1": {
+                    "answer": "everything",
+                    "options": [
+                        "everything",
+                        "everyone",
+                        "everywhere"
+                    ],
+                    "verb_hint": "Назви весь обсяг рішень або питань як речі, а не всіх людей чи всі місця."
+                }
+            },
+            "verb_hint": "Назви весь обсяг рішень або питань як речі, а не всіх людей чи всі місця.",
+            "accepted_target_texts": [
+                "The statement leaves everything to the discretion of the administrator."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The statement",
+                "leaves everything",
+                "to the discretion",
+                "of the administrator."
+            ],
+            "token_groups": [
+                "The statement",
+                "leaves everything",
+                "to the discretion",
+                "of the administrator."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pdqq-indefinite-pronouns-c1-g04",
+            "author_id": "C1-g04",
+            "question": "There is {a1} inherently contradictory about accepting the rule while disputing its application.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Немає нічого внутрішньо суперечливого в прийнятті правила й оскарженні його застосування.",
+            "target_text": "There is nothing inherently contradictory about accepting the rule while disputing its application.",
+            "markers": {
+                "a1": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "nobody",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Запереч наявність суперечливої властивості в ситуації; слово передує означенню."
+                }
+            },
+            "verb_hint": "Запереч наявність суперечливої властивості в ситуації; слово передує означенню.",
+            "accepted_target_texts": [
+                "There is nothing inherently contradictory about accepting the rule while disputing its application."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is nothing",
+                "inherently contradictory",
+                "about accepting",
+                "the rule",
+                "while disputing",
+                "its application."
+            ],
+            "token_groups": [
+                "There is nothing",
+                "inherently contradictory",
+                "about accepting",
+                "the rule",
+                "while disputing",
+                "its application."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pdqq-indefinite-pronouns-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The duty does not disappear merely because {a1} can identify the person entitled to enforce it.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Обов’язок не зникає лише тому, що ніхто не може визначити особу, уповноважену забезпечити його виконання.",
+            "target_text": "The duty does not disappear merely because nobody can identify the person entitled to enforce it.",
+            "markers": {
+                "a1": {
+                    "answer": "nobody",
+                    "options": [
+                        "nobody",
+                        "nothing",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Запереч здатність будь-якої людини визначити уповноваженого; це окреме заперечення в підрядній частині."
+                }
+            },
+            "verb_hint": "Запереч здатність будь-якої людини визначити уповноваженого; це окреме заперечення в підрядній частині.",
+            "accepted_target_texts": [
+                "The duty does not disappear merely because nobody can identify the person entitled to enforce it.",
+                "The duty does not disappear merely because no one can identify the person entitled to enforce it."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "no one"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "no one"
+                ]
+            },
+            "reorder_groups": [
+                "The duty",
+                "does not disappear",
+                "merely because",
+                "nobody can identify",
+                "the person entitled",
+                "to enforce it."
+            ],
+            "token_groups": [
+                "The duty",
+                "does not disappear",
+                "merely because",
+                "nobody can identify",
+                "the person entitled",
+                "to enforce it."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pdqq-indefinite-pronouns-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The policy should remain open to {a1} able to meet the published criteria.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Політика має лишатися відкритою для будь-кого, хто може виконати оприлюднені критерії.",
+            "target_text": "The policy should remain open to anyone able to meet the published criteria.",
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "anything",
+                        "anywhere"
+                    ],
+                    "verb_hint": "Назви будь-яку людину за вимогою відповідності, без закритого списку."
+                }
+            },
+            "verb_hint": "Назви будь-яку людину за вимогою відповідності, без закритого списку.",
+            "accepted_target_texts": [
+                "The policy should remain open to anyone able to meet the published criteria.",
+                "The policy should remain open to anybody able to meet the published criteria."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "reorder_groups": [
+                "The policy",
+                "should remain open",
+                "to anyone able",
+                "to meet",
+                "the published criteria."
+            ],
+            "token_groups": [
+                "The policy",
+                "should remain open",
+                "to anyone able",
+                "to meet",
+                "the published criteria."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pdqq-indefinite-pronouns-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The argument concedes {a1} of substance while preserving the appearance of compromise.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Аргумент не поступається нічим суттєвим, зберігаючи видимість компромісу.",
+            "target_text": "The argument concedes nothing of substance while preserving the appearance of compromise.",
+            "markers": {
+                "a1": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "nobody",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Повністю запереч будь-яку суттєву поступку як предмет, не людину чи місце."
+                }
+            },
+            "verb_hint": "Повністю запереч будь-яку суттєву поступку як предмет, не людину чи місце.",
+            "accepted_target_texts": [
+                "The argument concedes nothing of substance while preserving the appearance of compromise."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The argument",
+                "concedes nothing",
+                "of substance",
+                "while preserving",
+                "the appearance",
+                "of compromise."
+            ],
+            "token_groups": [
+                "The argument",
+                "concedes nothing",
+                "of substance",
+                "while preserving",
+                "the appearance",
+                "of compromise."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pdqq-indefinite-pronouns-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The presumption must be capable of being challenged by {a1} whose rights it affects.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Презумпція має допускати оскарження будь-ким, чиї права вона зачіпає.",
+            "target_text": "The presumption must be capable of being challenged by anyone whose rights it affects.",
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "anything",
+                        "anywhere"
+                    ],
+                    "verb_hint": "Назви будь-яку людину за наступною умовою належності прав, не довільний предмет."
+                }
+            },
+            "verb_hint": "Назви будь-яку людину за наступною умовою належності прав, не довільний предмет.",
+            "accepted_target_texts": [
+                "The presumption must be capable of being challenged by anyone whose rights it affects.",
+                "The presumption must be capable of being challenged by anybody whose rights it affects."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "reorder_groups": [
+                "The presumption",
+                "must be capable",
+                "of being challenged",
+                "by anyone",
+                "whose rights",
+                "it affects."
+            ],
+            "token_groups": [
+                "The presumption",
+                "must be capable",
+                "of being challenged",
+                "by anyone",
+                "whose rights",
+                "it affects."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pdqq-indefinite-pronouns-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The doctrine requires more than the observation that {a1} must bear the loss.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Доктрина вимагає більшого, ніж спостереження, що хтось має понести збитки.",
+            "target_text": "The doctrine requires more than the observation that someone must bear the loss.",
+            "markers": {
+                "a1": {
+                    "answer": "someone",
+                    "options": [
+                        "someone",
+                        "something",
+                        "somewhere"
+                    ],
+                    "verb_hint": "Назви невизначену особу як носія збитків; не ототожнюй її з конкретним уже встановленим учасником."
+                }
+            },
+            "verb_hint": "Назви невизначену особу як носія збитків; не ототожнюй її з конкретним уже встановленим учасником.",
+            "accepted_target_texts": [
+                "The doctrine requires more than the observation that someone must bear the loss.",
+                "The doctrine requires more than the observation that somebody must bear the loss."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "reorder_groups": [
+                "The doctrine requires",
+                "more than",
+                "the observation",
+                "that someone",
+                "must bear",
+                "the loss."
+            ],
+            "token_groups": [
+                "The doctrine requires",
+                "more than",
+                "the observation",
+                "that someone",
+                "must bear",
+                "the loss."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pdqq-indefinite-pronouns-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The exception cannot be treated as {a1} more than a narrowly confined departure from the rule.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Виняток не можна вважати чимось більшим за вузько обмежений відступ від правила.",
+            "target_text": "The exception cannot be treated as anything more than a narrowly confined departure from the rule.",
+            "markers": {
+                "a1": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "anyone",
+                        "anywhere"
+                    ],
+                    "verb_hint": "Після вже наведеного заперечення назви будь-яку більшу сутність або значення, не людину."
+                }
+            },
+            "verb_hint": "Після вже наведеного заперечення назви будь-яку більшу сутність або значення, не людину.",
+            "accepted_target_texts": [
+                "The exception cannot be treated as anything more than a narrowly confined departure from the rule."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The exception",
+                "cannot be treated",
+                "as anything more",
+                "than",
+                "a narrowly",
+                "confined departure",
+                "from the rule."
+            ],
+            "token_groups": [
+                "The exception",
+                "cannot be treated",
+                "as anything more",
+                "than",
+                "a narrowly",
+                "confined departure",
+                "from the rule."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pdqq-indefinite-pronouns-c2-g05",
+            "author_id": "C2-g05",
+            "question": "{a1} in the reasoning explains why the same safeguard should vanish at the boundary.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Ніщо в міркуванні не пояснює, чому та сама гарантія має зникати на межі.",
+            "target_text": "Nothing in the reasoning explains why the same safeguard should vanish at the boundary.",
+            "markers": {
+                "a1": {
+                    "answer": "Nothing",
+                    "options": [
+                        "Nothing",
+                        "Nobody",
+                        "Nowhere"
+                    ],
+                    "verb_hint": "Назви повну відсутність пояснювального змісту як підмет, не відсутність людини."
+                }
+            },
+            "verb_hint": "Назви повну відсутність пояснювального змісту як підмет, не відсутність людини.",
+            "accepted_target_texts": [
+                "Nothing in the reasoning explains why the same safeguard should vanish at the boundary."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nothing",
+                "in the reasoning",
+                "explains why",
+                "the same safeguard",
+                "should vanish",
+                "at the boundary."
+            ],
+            "token_groups": [
+                "Nothing",
+                "in the reasoning",
+                "explains why",
+                "the same safeguard",
+                "should vanish",
+                "at the boundary."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pdqq-indefinite-pronouns-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The qualification may be decisive even though it is mentioned {a1} else in the record.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_indefinite_pronouns",
+            "translation_uk": "Застереження може бути вирішальним, хоча більше ніде в матеріалах справи його не згадано.",
+            "target_text": "The qualification may be decisive even though it is mentioned nowhere else in the record.",
+            "markers": {
+                "a1": {
+                    "answer": "nowhere",
+                    "options": [
+                        "nowhere",
+                        "nothing",
+                        "nobody"
+                    ],
+                    "verb_hint": "Запереч інше місце згадки перед вже наведеним словом «ще», не саму річ або людину."
+                }
+            },
+            "verb_hint": "Запереч інше місце згадки перед вже наведеним словом «ще», не саму річ або людину.",
+            "accepted_target_texts": [
+                "The qualification may be decisive even though it is mentioned nowhere else in the record."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The qualification",
+                "may be decisive",
+                "even though",
+                "it is mentioned",
+                "nowhere else",
+                "in the record."
+            ],
+            "token_groups": [
+                "The qualification",
+                "may be decisive",
+                "even though",
+                "it is mentioned",
+                "nowhere else",
+                "in the record."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        }
+    ]
+}

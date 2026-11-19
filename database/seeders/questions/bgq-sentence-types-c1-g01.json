@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60758,
+        "uuid": "bgq-sentence-types-c1-g01",
+        "question": "The issue is not who objected, but {a1}.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 12,
+        "source_id": 429,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedSentenceTypesQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "why they did so",
+                "why did they do so",
+                "why they do did so"
+            ]
+        },
+        "theory_text_block_uuid": "a92a97ef-f3fc-5647-97bd-95d6b53dc203",
+        "created_at": "2026-10-27T15:51:01.000000Z",
+        "updated_at": "2026-10-27T15:51:01.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 429,
+        "name": "Basic Grammar Quality: Типи речень",
+        "created_at": "2026-10-27T15:50:59.000000Z",
+        "updated_at": "2026-10-27T15:50:59.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 87,
+                "name": "Sentence types",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60758,
+                "tag_id": 87,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 53457,
+                "option": "why they did so",
+                "created_at": "2026-10-27T15:51:01.000000Z",
+                "updated_at": "2026-10-27T15:51:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 60758,
+                "option_id": 53457,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53459,
+                "option": "why did they do so",
+                "created_at": "2026-10-27T15:51:01.000000Z",
+                "updated_at": "2026-10-27T15:51:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 60758,
+                "option_id": 53459,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53460,
+                "option": "why they do did so",
+                "created_at": "2026-10-27T15:51:01.000000Z",
+                "updated_at": "2026-10-27T15:51:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 60758,
+                "option_id": 53460,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 326061,
+                "question_id": 60758,
+                "marker": "a1",
+                "option_id": 53457,
+                "created_at": "2026-10-27T15:51:01.000000Z",
+                "updated_at": "2026-10-27T15:51:01.000000Z"
+            },
+            "option": {
+                "id": 53457,
+                "option": "why they did so",
+                "created_at": "2026-10-27T15:51:01.000000Z",
+                "updated_at": "2026-10-27T15:51:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43395,
+                "question_id": 60758,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53458,
+                "created_at": "2026-10-27T15:51:01.000000Z",
+                "updated_at": "2026-10-27T15:51:01.000000Z"
+            },
+            "option": {
+                "id": 53458,
+                "option": "Потрібний зміст: «Чому вони це зробили». Збережи протиставлення двох непрямих питань із розповідним порядком слів.",
+                "created_at": "2026-10-27T15:51:01.000000Z",
+                "updated_at": "2026-10-27T15:51:01.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52773,
+            "question_id": 60758,
+            "text": "The issue is not who objected, but {a1}.",
+            "created_at": "2026-10-27T15:51:01.000000Z",
+            "updated_at": "2026-10-27T15:51:01.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

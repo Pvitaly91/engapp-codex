@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 67183,
+        "uuid": "stq-conditionals-b1-g02",
+        "question": "You will miss the ferry {a1} you leave now.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 63,
+        "source_id": 575,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\SentenceTransformations\\UkrainianMixedStqConditionalsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "unless",
+                "if",
+                "because"
+            ]
+        },
+        "theory_text_block_uuid": "6c626976-dd3b-54ce-8d51-ab5c18583442",
+        "created_at": "2026-11-03T01:30:45.000000Z",
+        "updated_at": "2026-11-03T01:30:45.000000Z"
+    },
+    "category": {
+        "id": 63,
+        "name": "Sentence Transformations",
+        "created_at": "2026-05-22T21:37:33.000000Z",
+        "updated_at": "2026-05-22T21:37:33.000000Z"
+    },
+    "source": {
+        "id": 575,
+        "name": "Sentence Transformations Quality: Sentence Transformations: Conditionals",
+        "created_at": "2026-11-03T01:30:45.000000Z",
+        "updated_at": "2026-11-03T01:30:45.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 91,
+                "option": "if",
+                "created_at": "2026-04-23T11:40:01.000000Z",
+                "updated_at": "2026-04-23T11:40:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 67183,
+                "option_id": 91,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2760,
+                "option": "because",
+                "created_at": "2026-04-23T14:18:31.000000Z",
+                "updated_at": "2026-04-23T14:18:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 67183,
+                "option_id": 2760,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 7093,
+                "option": "Unless",
+                "created_at": "2026-04-23T14:46:57.000000Z",
+                "updated_at": "2026-04-23T14:46:57.000000Z"
+            },
+            "pivot": {
+                "question_id": 67183,
+                "option_id": 7093,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 343278,
+                "question_id": 67183,
+                "marker": "a1",
+                "option_id": 7093,
+                "created_at": "2026-11-03T01:30:45.000000Z",
+                "updated_at": "2026-11-03T01:30:45.000000Z"
+            },
+            "option": {
+                "id": 7093,
+                "option": "Unless",
+                "created_at": "2026-04-23T14:46:57.000000Z",
+                "updated_at": "2026-04-23T14:46:57.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 60612,
+                "question_id": 67183,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 71349,
+                "created_at": "2026-11-03T01:30:45.000000Z",
+                "updated_at": "2026-11-03T01:30:45.000000Z"
+            },
+            "option": {
+                "id": 71349,
+                "option": "Початкове: «Якщо ти зараз не вирушиш, то пропустиш пором». Почни з наслідку; збережи умову невиконаної дії одним сполучником зі значенням якщо не.",
+                "created_at": "2026-11-03T01:30:45.000000Z",
+                "updated_at": "2026-11-03T01:30:45.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 59198,
+            "question_id": 67183,
+            "text": "You will miss the ferry {a1} you leave now.",
+            "created_at": "2026-11-03T01:30:45.000000Z",
+            "updated_at": "2026-11-03T01:30:45.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

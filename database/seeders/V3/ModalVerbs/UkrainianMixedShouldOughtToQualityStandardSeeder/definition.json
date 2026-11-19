@@ -1,0 +1,1779 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mvq-v1",
+    "compiled_from": {
+        "path": "docs/content/modal-verbs-quality/should-ought-to.v1.json",
+        "sha256": "d1c241cc9428f4e9c8ed2772f355d8ec25f8d58109953b1905e58829ddff6ca4"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ModalVerbs\\UkrainianMixedShouldOughtToQualityStandardSeeder",
+        "uuid_namespace": "modal-verbs-quality-should-ought-to-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Modal Verbs"
+    },
+    "sources": {
+        "modal_verbs_quality_should_ought_to": {
+            "name": "Modal Verbs Quality: Порада й очікування: should та ought to"
+        }
+    },
+    "tags": {
+        "modal_should_ought_to": {
+            "name": "Should / Ought to",
+            "category": "modal-verbs"
+        },
+        "should_advice": {
+            "name": "Should Advice",
+            "category": "topic"
+        },
+        "ought_to_advice": {
+            "name": "Ought To Advice",
+            "category": "topic"
+        },
+        "shouldnt": {
+            "name": "Should Not",
+            "category": "topic"
+        },
+        "should_have": {
+            "name": "Should Have",
+            "category": "topic"
+        },
+        "ought_to_have": {
+            "name": "Ought To Have",
+            "category": "topic"
+        },
+        "should_vs_must": {
+            "name": "Should vs Must",
+            "category": "topic"
+        },
+        "should_vs_had_better": {
+            "name": "Should vs Had Better",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "modal_should_ought_to"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mvq-sot-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The walkers {a1} by the lake.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Пішоходам слід відпочити біля озера.",
+            "target_text": "The walkers should rest by the lake.",
+            "markers": {
+                "a1": {
+                    "answer": "should rest",
+                    "options": [
+                        "should rest",
+                        "should rests",
+                        "should to rest"
+                    ],
+                    "verb_hint": "Порадь відпочити біля озера; це не наказ."
+                }
+            },
+            "verb_hint": "Порадь відпочити біля озера; це не наказ.",
+            "accepted_target_texts": [
+                "The walkers should rest by the lake.",
+                "The walkers ought to rest by the lake."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to rest"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to rest"
+                ]
+            },
+            "reorder_groups": [
+                "The walkers",
+                "should rest",
+                "by the lake."
+            ],
+            "token_groups": [
+                "The walkers",
+                "should rest",
+                "by the lake."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "mvq-sot-a1-g02",
+            "author_id": "A1-g02",
+            "question": "You {a1} some water.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Тобі слід випити трохи води.",
+            "target_text": "You ought to drink some water.",
+            "markers": {
+                "a1": {
+                    "answer": "ought to drink",
+                    "options": [
+                        "ought to drink",
+                        "ought drink",
+                        "ought to drinks"
+                    ],
+                    "verb_hint": "Передай пораду випити води; не додавай обов’язку."
+                }
+            },
+            "verb_hint": "Передай пораду випити води; не додавай обов’язку.",
+            "accepted_target_texts": [
+                "You ought to drink some water.",
+                "You should drink some water."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "should drink"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "should drink"
+                ]
+            },
+            "reorder_groups": [
+                "You",
+                "ought to drink",
+                "some water."
+            ],
+            "token_groups": [
+                "You",
+                "ought to drink",
+                "some water."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "mvq-sot-a1-g03",
+            "author_id": "A1-g03",
+            "question": "The puppy {a1} this cake.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Цуценяті не слід їсти цей торт.",
+            "target_text": "The puppy should not eat this cake.",
+            "markers": {
+                "a1": {
+                    "answer": "should not eat",
+                    "options": [
+                        "should not eat",
+                        "should not eats",
+                        "should not to eat"
+                    ],
+                    "verb_hint": "Дай заперечну пораду щодо їжі, не описуй минуле."
+                }
+            },
+            "verb_hint": "Дай заперечну пораду щодо їжі, не описуй минуле.",
+            "accepted_target_texts": [
+                "The puppy should not eat this cake.",
+                "The puppy ought not to eat this cake."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought not to eat"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought not to eat"
+                ]
+            },
+            "reorder_groups": [
+                "The puppy",
+                "should not eat",
+                "this cake."
+            ],
+            "token_groups": [
+                "The puppy",
+                "should not eat",
+                "this cake."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "mvq-sot-a1-g04",
+            "author_id": "A1-g04",
+            "question": "We {a1} the path clear.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Нам слід залишати стежку вільною.",
+            "target_text": "We should keep the path clear.",
+            "markers": {
+                "a1": {
+                    "answer": "should keep",
+                    "options": [
+                        "should keep",
+                        "should keeps",
+                        "should to keep"
+                    ],
+                    "verb_hint": "Порадь не захаращувати стежку, зберігши дієслово «тримати»."
+                }
+            },
+            "verb_hint": "Порадь не захаращувати стежку, зберігши дієслово «тримати».",
+            "accepted_target_texts": [
+                "We should keep the path clear.",
+                "We ought to keep the path clear."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to keep"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to keep"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "should keep",
+                "the path clear."
+            ],
+            "token_groups": [
+                "We",
+                "should keep",
+                "the path clear."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "mvq-sot-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Where {a1} this bag?",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Куди мені слід покласти цю сумку?",
+            "target_text": "Where should I put this bag?",
+            "markers": {
+                "a1": {
+                    "answer": "should I put",
+                    "options": [
+                        "should I put",
+                        "should I puts",
+                        "do I should put"
+                    ],
+                    "verb_hint": "Запитай про рекомендоване місце для сумки; підмет теж у пропуску."
+                }
+            },
+            "verb_hint": "Запитай про рекомендоване місце для сумки; підмет теж у пропуску.",
+            "accepted_target_texts": [
+                "Where should I put this bag?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Where",
+                "should I put",
+                "this bag?"
+            ],
+            "token_groups": [
+                "Where",
+                "should I put",
+                "this bag?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "mvq-sot-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The nurse ought to {a1} the name first.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Медсестрі слід спочатку перевірити ім’я.",
+            "target_text": "The nurse ought to check the name first.",
+            "markers": {
+                "a1": {
+                    "answer": "check",
+                    "options": [
+                        "check",
+                        "checks",
+                        "to check"
+                    ],
+                    "verb_hint": "Після наведеної модальної конструкції постав початкову форму «перевірити»."
+                }
+            },
+            "verb_hint": "Після наведеної модальної конструкції постав початкову форму «перевірити».",
+            "accepted_target_texts": [
+                "The nurse ought to check the name first.",
+                "The nurse ought to inspect the name first."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "inspect"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "inspect"
+                ]
+            },
+            "reorder_groups": [
+                "The nurse",
+                "ought to",
+                "check",
+                "the name first."
+            ],
+            "token_groups": [
+                "The nurse",
+                "ought to",
+                "check",
+                "the name first."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "mvq-sot-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Marta {a1} a spare towel.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Марті слід принести запасний рушник.",
+            "target_text": "Marta should bring a spare towel.",
+            "markers": {
+                "a1": {
+                    "answer": "should bring",
+                    "options": [
+                        "should bring",
+                        "should brings",
+                        "should to bring"
+                    ],
+                    "verb_hint": "Порадь принести запасний рушник; не стверджуй, що це обов’язково."
+                }
+            },
+            "verb_hint": "Порадь принести запасний рушник; не стверджуй, що це обов’язково.",
+            "accepted_target_texts": [
+                "Marta should bring a spare towel.",
+                "Marta ought to bring a spare towel."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to bring"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to bring"
+                ]
+            },
+            "reorder_groups": [
+                "Marta",
+                "should bring",
+                "a spare towel."
+            ],
+            "token_groups": [
+                "Marta",
+                "should bring",
+                "a spare towel."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "mvq-sot-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Visitors {a1} comfortable shoes.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Відвідувачам слід узути зручне взуття.",
+            "target_text": "Visitors ought to wear comfortable shoes.",
+            "markers": {
+                "a1": {
+                    "answer": "ought to wear",
+                    "options": [
+                        "ought to wear",
+                        "ought wear",
+                        "ought to wears"
+                    ],
+                    "verb_hint": "Порадь носити зручне взуття; не описуй уміння."
+                }
+            },
+            "verb_hint": "Порадь носити зручне взуття; не описуй уміння.",
+            "accepted_target_texts": [
+                "Visitors ought to wear comfortable shoes.",
+                "Visitors should wear comfortable shoes."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "should wear"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "should wear"
+                ]
+            },
+            "reorder_groups": [
+                "Visitors",
+                "ought to wear",
+                "comfortable shoes."
+            ],
+            "token_groups": [
+                "Visitors",
+                "ought to wear",
+                "comfortable shoes."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "mvq-sot-a2-g03",
+            "author_id": "A2-g03",
+            "question": "You {a1} that heavy box alone.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Тобі не слід нести ту важку коробку самому.",
+            "target_text": "You should not carry that heavy box alone.",
+            "markers": {
+                "a1": {
+                    "answer": "should not carry",
+                    "options": [
+                        "should not carry",
+                        "should not carries",
+                        "should not to carry"
+                    ],
+                    "verb_hint": "Дай заперечну пораду щодо перенесення важкої коробки наодинці."
+                }
+            },
+            "verb_hint": "Дай заперечну пораду щодо перенесення важкої коробки наодинці.",
+            "accepted_target_texts": [
+                "You should not carry that heavy box alone.",
+                "You ought not to carry that heavy box alone."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought not to carry"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought not to carry"
+                ]
+            },
+            "reorder_groups": [
+                "You",
+                "should not carry",
+                "that heavy box",
+                "alone."
+            ],
+            "token_groups": [
+                "You",
+                "should not carry",
+                "that heavy box",
+                "alone."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "mvq-sot-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The bus {a1} before sunset.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Автобус має прибути до заходу сонця.",
+            "target_text": "The bus should arrive before sunset.",
+            "markers": {
+                "a1": {
+                    "answer": "should arrive",
+                    "options": [
+                        "should arrive",
+                        "should arrives",
+                        "should to arrive"
+                    ],
+                    "verb_hint": "Передай очікуване прибуття за звичайним розкладом, не гарантію."
+                }
+            },
+            "verb_hint": "Передай очікуване прибуття за звичайним розкладом, не гарантію.",
+            "accepted_target_texts": [
+                "The bus should arrive before sunset.",
+                "The bus ought to arrive before sunset."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to arrive"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to arrive"
+                ]
+            },
+            "reorder_groups": [
+                "The bus",
+                "should arrive",
+                "before sunset."
+            ],
+            "token_groups": [
+                "The bus",
+                "should arrive",
+                "before sunset."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "mvq-sot-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Why {a1} outside?",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Чому нам слід чекати надворі?",
+            "target_text": "Why should we wait outside?",
+            "markers": {
+                "a1": {
+                    "answer": "should we wait",
+                    "options": [
+                        "should we wait",
+                        "should we waits",
+                        "do we should wait"
+                    ],
+                    "verb_hint": "Запитай про доцільність очікування; у пропуску потрібен і підмет."
+                }
+            },
+            "verb_hint": "Запитай про доцільність очікування; у пропуску потрібен і підмет.",
+            "accepted_target_texts": [
+                "Why should we wait outside?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "should we wait",
+                "outside?"
+            ],
+            "token_groups": [
+                "Why",
+                "should we wait",
+                "outside?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "mvq-sot-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Leo ought to {a1} for directions.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Лео слід запитати дорогу.",
+            "target_text": "Leo ought to ask for directions.",
+            "markers": {
+                "a1": {
+                    "answer": "ask",
+                    "options": [
+                        "ask",
+                        "asks",
+                        "to ask"
+                    ],
+                    "verb_hint": "Після готової конструкції вживи початкову форму «запитати»."
+                }
+            },
+            "verb_hint": "Після готової конструкції вживи початкову форму «запитати».",
+            "accepted_target_texts": [
+                "Leo ought to ask for directions."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Leo",
+                "ought to",
+                "ask",
+                "for directions."
+            ],
+            "token_groups": [
+                "Leo",
+                "ought to",
+                "ask",
+                "for directions."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "mvq-sot-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The volunteers {a1} each donation.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Волонтерам слід записувати кожну пожертву.",
+            "target_text": "The volunteers should record each donation.",
+            "markers": {
+                "a1": {
+                    "answer": "should record",
+                    "options": [
+                        "should record",
+                        "should records",
+                        "should to record"
+                    ],
+                    "verb_hint": "Порадь фіксувати кожну пожертву; не змінюй теперішню пораду на факт."
+                }
+            },
+            "verb_hint": "Порадь фіксувати кожну пожертву; не змінюй теперішню пораду на факт.",
+            "accepted_target_texts": [
+                "The volunteers should record each donation.",
+                "The volunteers ought to record each donation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to record"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to record"
+                ]
+            },
+            "reorder_groups": [
+                "The volunteers",
+                "should record",
+                "each donation."
+            ],
+            "token_groups": [
+                "The volunteers",
+                "should record",
+                "each donation."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "mvq-sot-b1-g02",
+            "author_id": "B1-g02",
+            "question": "You {a1} the broken lock.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Тобі слід згадати про зламаний замок.",
+            "target_text": "You ought to mention the broken lock.",
+            "markers": {
+                "a1": {
+                    "answer": "ought to mention",
+                    "options": [
+                        "ought to mention",
+                        "ought mention",
+                        "ought to mentions"
+                    ],
+                    "verb_hint": "Порадь обов’язково не замовчувати зламаний замок, не наказуючи."
+                }
+            },
+            "verb_hint": "Порадь обов’язково не замовчувати зламаний замок, не наказуючи.",
+            "accepted_target_texts": [
+                "You ought to mention the broken lock.",
+                "You should mention the broken lock."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "should mention"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "should mention"
+                ]
+            },
+            "reorder_groups": [
+                "You",
+                "ought to mention",
+                "the broken lock."
+            ],
+            "token_groups": [
+                "You",
+                "ought to mention",
+                "the broken lock."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "mvq-sot-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The parcel {a1} the island by Thursday.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Посилка має дістатися острова до четверга.",
+            "target_text": "The parcel should reach the island by Thursday.",
+            "markers": {
+                "a1": {
+                    "answer": "should reach",
+                    "options": [
+                        "should reach",
+                        "should reaches",
+                        "should to reach"
+                    ],
+                    "verb_hint": "Передай очікуваний строк доставки за звичайних умов, а не підтверджене прибуття."
+                }
+            },
+            "verb_hint": "Передай очікуваний строк доставки за звичайних умов, а не підтверджене прибуття.",
+            "accepted_target_texts": [
+                "The parcel should reach the island by Thursday.",
+                "The parcel ought to reach the island by Thursday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to reach"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to reach"
+                ]
+            },
+            "reorder_groups": [
+                "The parcel",
+                "should reach",
+                "the island",
+                "by Thursday."
+            ],
+            "token_groups": [
+                "The parcel",
+                "should reach",
+                "the island",
+                "by Thursday."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "mvq-sot-b1-g04",
+            "author_id": "B1-g04",
+            "question": "We {a1} the safety briefing.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Нам не слід відкладати інструктаж із безпеки.",
+            "target_text": "We should not postpone the safety briefing.",
+            "markers": {
+                "a1": {
+                    "answer": "should not postpone",
+                    "options": [
+                        "should not postpone",
+                        "should not postpones",
+                        "should not to postpone"
+                    ],
+                    "verb_hint": "Дай заперечну пораду не відкладати інструктаж."
+                }
+            },
+            "verb_hint": "Дай заперечну пораду не відкладати інструктаж.",
+            "accepted_target_texts": [
+                "We should not postpone the safety briefing.",
+                "We ought not to postpone the safety briefing."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought not to postpone"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought not to postpone"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "should not postpone",
+                "the safety briefing."
+            ],
+            "token_groups": [
+                "We",
+                "should not postpone",
+                "the safety briefing."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "mvq-sot-b1-g05",
+            "author_id": "B1-g05",
+            "question": "How {a1} for the walk?",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Як їм слід підготуватися до прогулянки?",
+            "target_text": "How should they prepare for the walk?",
+            "markers": {
+                "a1": {
+                    "answer": "should they prepare",
+                    "options": [
+                        "should they prepare",
+                        "should they prepares",
+                        "do they should prepare"
+                    ],
+                    "verb_hint": "Запитай про рекомендований спосіб підготовки; підмет входить у пропуск."
+                }
+            },
+            "verb_hint": "Запитай про рекомендований спосіб підготовки; підмет входить у пропуск.",
+            "accepted_target_texts": [
+                "How should they prepare for the walk?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How",
+                "should they prepare",
+                "for the walk?"
+            ],
+            "token_groups": [
+                "How",
+                "should they prepare",
+                "for the walk?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "mvq-sot-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The organiser ought to {a1} the number of guests.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Організаторові слід підтвердити кількість гостей.",
+            "target_text": "The organiser ought to confirm the number of guests.",
+            "markers": {
+                "a1": {
+                    "answer": "confirm",
+                    "options": [
+                        "confirm",
+                        "confirms",
+                        "to confirm"
+                    ],
+                    "verb_hint": "У готовій конструкції потрібне дієслово «підтвердити» без додаткової частки."
+                }
+            },
+            "verb_hint": "У готовій конструкції потрібне дієслово «підтвердити» без додаткової частки.",
+            "accepted_target_texts": [
+                "The organiser ought to confirm the number of guests."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The organiser",
+                "ought to",
+                "confirm",
+                "the number",
+                "of guests."
+            ],
+            "token_groups": [
+                "The organiser",
+                "ought to",
+                "confirm",
+                "the number",
+                "of guests."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "mvq-sot-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The committee {a1} the access policy.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Комітетові слід переглянути політику доступу.",
+            "target_text": "The committee should reconsider the access policy.",
+            "markers": {
+                "a1": {
+                    "answer": "should reconsider",
+                    "options": [
+                        "should reconsider",
+                        "should reconsiders",
+                        "should to reconsider"
+                    ],
+                    "verb_hint": "Порадь повторно розглянути політику доступу, не видаючи це за затверджене рішення."
+                }
+            },
+            "verb_hint": "Порадь повторно розглянути політику доступу, не видаючи це за затверджене рішення.",
+            "accepted_target_texts": [
+                "The committee should reconsider the access policy.",
+                "The committee ought to reconsider the access policy."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to reconsider"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to reconsider"
+                ]
+            },
+            "reorder_groups": [
+                "The committee",
+                "should reconsider",
+                "the access policy."
+            ],
+            "token_groups": [
+                "The committee",
+                "should reconsider",
+                "the access policy."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "mvq-sot-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Applicants {a1} any conflict of interest.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Кандидатам слід повідомити про будь-який конфлікт інтересів.",
+            "target_text": "Applicants ought to disclose any conflict of interest.",
+            "markers": {
+                "a1": {
+                    "answer": "ought to disclose",
+                    "options": [
+                        "ought to disclose",
+                        "ought disclose",
+                        "ought to discloses"
+                    ],
+                    "verb_hint": "Порадь відкрито повідомити про конфлікт інтересів."
+                }
+            },
+            "verb_hint": "Порадь відкрито повідомити про конфлікт інтересів.",
+            "accepted_target_texts": [
+                "Applicants ought to disclose any conflict of interest.",
+                "Applicants should disclose any conflict of interest."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "should disclose"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "should disclose"
+                ]
+            },
+            "reorder_groups": [
+                "Applicants",
+                "ought to disclose",
+                "any conflict",
+                "of interest."
+            ],
+            "token_groups": [
+                "Applicants",
+                "ought to disclose",
+                "any conflict",
+                "of interest."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "mvq-sot-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The repaired lift {a1} reliably now.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Відремонтований ліфт тепер має працювати надійно.",
+            "target_text": "The repaired lift should work reliably now.",
+            "markers": {
+                "a1": {
+                    "answer": "should work",
+                    "options": [
+                        "should work",
+                        "should works",
+                        "should to work"
+                    ],
+                    "verb_hint": "Передай обґрунтоване очікування справної роботи, не наказ ліфтові."
+                }
+            },
+            "verb_hint": "Передай обґрунтоване очікування справної роботи, не наказ ліфтові.",
+            "accepted_target_texts": [
+                "The repaired lift should work reliably now.",
+                "The repaired lift ought to work reliably now."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to work"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to work"
+                ]
+            },
+            "reorder_groups": [
+                "The repaired lift",
+                "should work",
+                "reliably now."
+            ],
+            "token_groups": [
+                "The repaired lift",
+                "should work",
+                "reliably now."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "mvq-sot-b2-g04",
+            "author_id": "B2-g04",
+            "question": "We {a1} unanimous support.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Нам не слід припускати одностайної підтримки.",
+            "target_text": "We should not assume unanimous support.",
+            "markers": {
+                "a1": {
+                    "answer": "should not assume",
+                    "options": [
+                        "should not assume",
+                        "should not assumes",
+                        "should not to assume"
+                    ],
+                    "verb_hint": "Порадь не вважати підтримку одностайною без перевірки."
+                }
+            },
+            "verb_hint": "Порадь не вважати підтримку одностайною без перевірки.",
+            "accepted_target_texts": [
+                "We should not assume unanimous support.",
+                "We ought not to assume unanimous support."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought not to assume"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought not to assume"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "should not assume",
+                "unanimous support."
+            ],
+            "token_groups": [
+                "We",
+                "should not assume",
+                "unanimous support."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "mvq-sot-b2-g05",
+            "author_id": "B2-g05",
+            "question": "Which records {a1} for the audit?",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Які записи нам слід зберегти для аудиту?",
+            "target_text": "Which records should we retain for the audit?",
+            "markers": {
+                "a1": {
+                    "answer": "should we retain",
+                    "options": [
+                        "should we retain",
+                        "should we retains",
+                        "do we should retain"
+                    ],
+                    "verb_hint": "Постав запитання про записи для зберігання; підмет теж потрібно ввести."
+                }
+            },
+            "verb_hint": "Постав запитання про записи для зберігання; підмет теж потрібно ввести.",
+            "accepted_target_texts": [
+                "Which records should we retain for the audit?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which records",
+                "should we retain",
+                "for the audit?"
+            ],
+            "token_groups": [
+                "Which records",
+                "should we retain",
+                "for the audit?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "mvq-sot-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The manager ought not to {a1} the complaint without investigation.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Керівникові не слід відхиляти скаргу без розслідування.",
+            "target_text": "The manager ought not to dismiss the complaint without investigation.",
+            "markers": {
+                "a1": {
+                    "answer": "dismiss",
+                    "options": [
+                        "dismiss",
+                        "dismisses",
+                        "to dismiss"
+                    ],
+                    "verb_hint": "Після готової заперечної конструкції введи початкову форму «відхиляти»."
+                }
+            },
+            "verb_hint": "Після готової заперечної конструкції введи початкову форму «відхиляти».",
+            "accepted_target_texts": [
+                "The manager ought not to dismiss the complaint without investigation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The manager",
+                "ought not to",
+                "dismiss",
+                "the complaint",
+                "without investigation."
+            ],
+            "token_groups": [
+                "The manager",
+                "ought not to",
+                "dismiss",
+                "the complaint",
+                "without investigation."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "mvq-sot-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The reviewer {a1} evidence from conjecture.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Рецензентові слід відрізняти докази від припущень.",
+            "target_text": "The reviewer should distinguish evidence from conjecture.",
+            "markers": {
+                "a1": {
+                    "answer": "should distinguish",
+                    "options": [
+                        "should distinguish",
+                        "should distinguishes",
+                        "should to distinguish"
+                    ],
+                    "verb_hint": "Порадь розмежувати докази й припущення; можливий також відповідник «розрізняти»."
+                }
+            },
+            "verb_hint": "Порадь розмежувати докази й припущення; можливий також відповідник «розрізняти».",
+            "accepted_target_texts": [
+                "The reviewer should distinguish evidence from conjecture.",
+                "The reviewer ought to distinguish evidence from conjecture.",
+                "The reviewer should differentiate evidence from conjecture.",
+                "The reviewer ought to differentiate evidence from conjecture."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to distinguish",
+                    "should differentiate",
+                    "ought to differentiate"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to distinguish",
+                    "should differentiate",
+                    "ought to differentiate"
+                ]
+            },
+            "reorder_groups": [
+                "The reviewer",
+                "should distinguish",
+                "evidence from conjecture."
+            ],
+            "token_groups": [
+                "The reviewer",
+                "should distinguish",
+                "evidence from conjecture."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "mvq-sot-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The agency {a1} the exclusion of rural households.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Агенції слід обґрунтувати виключення сільських домогосподарств.",
+            "target_text": "The agency ought to justify the exclusion of rural households.",
+            "markers": {
+                "a1": {
+                    "answer": "ought to justify",
+                    "options": [
+                        "ought to justify",
+                        "ought justify",
+                        "ought to justifies"
+                    ],
+                    "verb_hint": "Порадь навести підстави виключення саме сільських домогосподарств."
+                }
+            },
+            "verb_hint": "Порадь навести підстави виключення саме сільських домогосподарств.",
+            "accepted_target_texts": [
+                "The agency ought to justify the exclusion of rural households.",
+                "The agency should justify the exclusion of rural households."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "should justify"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "should justify"
+                ]
+            },
+            "reorder_groups": [
+                "The agency",
+                "ought to justify",
+                "the exclusion",
+                "of rural households."
+            ],
+            "token_groups": [
+                "The agency",
+                "ought to justify",
+                "the exclusion",
+                "of rural households."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "mvq-sot-c1-g03",
+            "author_id": "C1-g03",
+            "question": "With these safeguards, the process {a1} transparent.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "За цих запобіжників процес має залишатися прозорим.",
+            "target_text": "With these safeguards, the process should remain transparent.",
+            "markers": {
+                "a1": {
+                    "answer": "should remain",
+                    "options": [
+                        "should remain",
+                        "should remains",
+                        "should to remain"
+                    ],
+                    "verb_hint": "Передай обґрунтоване очікування прозорості за названої умови."
+                }
+            },
+            "verb_hint": "Передай обґрунтоване очікування прозорості за названої умови.",
+            "accepted_target_texts": [
+                "With these safeguards, the process should remain transparent.",
+                "With these safeguards, the process ought to remain transparent."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to remain"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to remain"
+                ]
+            },
+            "reorder_groups": [
+                "With these safeguards,",
+                "the process",
+                "should remain",
+                "transparent."
+            ],
+            "token_groups": [
+                "With these safeguards,",
+                "the process",
+                "should remain",
+                "transparent."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "mvq-sot-c1-g04",
+            "author_id": "C1-g04",
+            "question": "We {a1} consent with acquiescence.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Нам не слід ототожнювати згоду з мовчазним прийняттям.",
+            "target_text": "We should not conflate consent with acquiescence.",
+            "markers": {
+                "a1": {
+                    "answer": "should not conflate",
+                    "options": [
+                        "should not conflate",
+                        "should not conflates",
+                        "should not to conflate"
+                    ],
+                    "verb_hint": "Порадь не вважати названі поняття тотожними."
+                }
+            },
+            "verb_hint": "Порадь не вважати названі поняття тотожними.",
+            "accepted_target_texts": [
+                "We should not conflate consent with acquiescence.",
+                "We ought not to conflate consent with acquiescence."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought not to conflate"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought not to conflate"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "should not conflate",
+                "consent with acquiescence."
+            ],
+            "token_groups": [
+                "We",
+                "should not conflate",
+                "consent with acquiescence."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "mvq-sot-c1-g05",
+            "author_id": "C1-g05",
+            "question": "Why {a1} accept an unsupported estimate?",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Чому комісії слід приймати непідтверджену оцінку?",
+            "target_text": "Why should the panel accept an unsupported estimate?",
+            "markers": {
+                "a1": {
+                    "answer": "should the panel",
+                    "options": [
+                        "should the panel",
+                        "should the panels",
+                        "does the panel should"
+                    ],
+                    "verb_hint": "Запитай про підставу прийняття; у пропуску потрібна модальна конструкція з підметом."
+                }
+            },
+            "verb_hint": "Запитай про підставу прийняття; у пропуску потрібна модальна конструкція з підметом.",
+            "accepted_target_texts": [
+                "Why should the panel accept an unsupported estimate?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "should the panel",
+                "accept an unsupported",
+                "estimate?"
+            ],
+            "token_groups": [
+                "Why",
+                "should the panel",
+                "accept an unsupported",
+                "estimate?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "mvq-sot-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The editor ought to {a1} the methodological limitation.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Редакторові слід визнати методологічне обмеження.",
+            "target_text": "The editor ought to acknowledge the methodological limitation.",
+            "markers": {
+                "a1": {
+                    "answer": "acknowledge",
+                    "options": [
+                        "acknowledge",
+                        "acknowledges",
+                        "to acknowledge"
+                    ],
+                    "verb_hint": "Після готової конструкції введи початкову форму «визнати»."
+                }
+            },
+            "verb_hint": "Після готової конструкції введи початкову форму «визнати».",
+            "accepted_target_texts": [
+                "The editor ought to acknowledge the methodological limitation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The editor",
+                "ought to",
+                "acknowledge",
+                "the methodological limitation."
+            ],
+            "token_groups": [
+                "The editor",
+                "ought to",
+                "acknowledge",
+                "the methodological limitation."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "mvq-sot-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The tribunal {a1} the competing obligations.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Трибуналові слід узгодити конкуруючі зобов’язання.",
+            "target_text": "The tribunal should reconcile the competing obligations.",
+            "markers": {
+                "a1": {
+                    "answer": "should reconcile",
+                    "options": [
+                        "should reconcile",
+                        "should reconciles",
+                        "should to reconcile"
+                    ],
+                    "verb_hint": "Порадь узгодити суперечні обов’язки; можливий також відповідник «гармонізувати»."
+                }
+            },
+            "verb_hint": "Порадь узгодити суперечні обов’язки; можливий також відповідник «гармонізувати».",
+            "accepted_target_texts": [
+                "The tribunal should reconcile the competing obligations.",
+                "The tribunal ought to reconcile the competing obligations.",
+                "The tribunal should harmonise the competing obligations.",
+                "The tribunal should harmonize the competing obligations.",
+                "The tribunal ought to harmonise the competing obligations.",
+                "The tribunal ought to harmonize the competing obligations."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to reconcile",
+                    "should harmonise",
+                    "should harmonize",
+                    "ought to harmonise",
+                    "ought to harmonize"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to reconcile",
+                    "should harmonise",
+                    "should harmonize",
+                    "ought to harmonise",
+                    "ought to harmonize"
+                ]
+            },
+            "reorder_groups": [
+                "The tribunal",
+                "should reconcile",
+                "the competing obligations."
+            ],
+            "token_groups": [
+                "The tribunal",
+                "should reconcile",
+                "the competing obligations."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "mvq-sot-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The interpretation {a1} legitimate reliance interests.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "У тлумаченні слід ураховувати законні інтереси, засновані на довірі.",
+            "target_text": "The interpretation ought to accommodate legitimate reliance interests.",
+            "markers": {
+                "a1": {
+                    "answer": "ought to accommodate",
+                    "options": [
+                        "ought to accommodate",
+                        "ought accommodate",
+                        "ought to accommodates"
+                    ],
+                    "verb_hint": "Порадь урахувати законні інтереси довіри; не додавай безумовного обов’язку."
+                }
+            },
+            "verb_hint": "Порадь урахувати законні інтереси довіри; не додавай безумовного обов’язку.",
+            "accepted_target_texts": [
+                "The interpretation ought to accommodate legitimate reliance interests.",
+                "The interpretation should accommodate legitimate reliance interests."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "should accommodate"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "should accommodate"
+                ]
+            },
+            "reorder_groups": [
+                "The interpretation",
+                "ought to accommodate",
+                "legitimate reliance interests."
+            ],
+            "token_groups": [
+                "The interpretation",
+                "ought to accommodate",
+                "legitimate reliance interests."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "mvq-sot-c2-g03",
+            "author_id": "C2-g03",
+            "question": "On that reading, the exception {a1} only prospectively.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "За такого прочитання виняток має діяти лише на майбутнє.",
+            "target_text": "On that reading, the exception should apply only prospectively.",
+            "markers": {
+                "a1": {
+                    "answer": "should apply",
+                    "options": [
+                        "should apply",
+                        "should applies",
+                        "should to apply"
+                    ],
+                    "verb_hint": "Передай очікуваний наслідок саме названого тлумачення й збережи часову межу."
+                }
+            },
+            "verb_hint": "Передай очікуваний наслідок саме названого тлумачення й збережи часову межу.",
+            "accepted_target_texts": [
+                "On that reading, the exception should apply only prospectively.",
+                "On that reading, the exception ought to apply only prospectively."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought to apply"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought to apply"
+                ]
+            },
+            "reorder_groups": [
+                "On that reading,",
+                "the exception",
+                "should apply",
+                "only prospectively."
+            ],
+            "token_groups": [
+                "On that reading,",
+                "the exception",
+                "should apply",
+                "only prospectively."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "mvq-sot-c2-g04",
+            "author_id": "C2-g04",
+            "question": "We {a1} knowledge without evidence.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Нам не слід приписувати обізнаність без доказів.",
+            "target_text": "We should not impute knowledge without evidence.",
+            "markers": {
+                "a1": {
+                    "answer": "should not impute",
+                    "options": [
+                        "should not impute",
+                        "should not imputes",
+                        "should not to impute"
+                    ],
+                    "verb_hint": "Порадь утриматися від бездоказового приписування обізнаності."
+                }
+            },
+            "verb_hint": "Порадь утриматися від бездоказового приписування обізнаності.",
+            "accepted_target_texts": [
+                "We should not impute knowledge without evidence.",
+                "We ought not to impute knowledge without evidence."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ought not to impute"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ought not to impute"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "should not impute",
+                "knowledge without evidence."
+            ],
+            "token_groups": [
+                "We",
+                "should not impute",
+                "knowledge without evidence."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "mvq-sot-c2-g05",
+            "author_id": "C2-g05",
+            "question": "To what extent {a1} reflect the claimant's conduct?",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Якою мірою засіб захисту має враховувати поведінку заявника?",
+            "target_text": "To what extent should the remedy reflect the claimant's conduct?",
+            "markers": {
+                "a1": {
+                    "answer": "should the remedy",
+                    "options": [
+                        "should the remedy",
+                        "should the remedies",
+                        "does the remedy should"
+                    ],
+                    "verb_hint": "Запитай про належну міру впливу; у пропуску введи модальність і підмет."
+                }
+            },
+            "verb_hint": "Запитай про належну міру впливу; у пропуску введи модальність і підмет.",
+            "accepted_target_texts": [
+                "To what extent should the remedy reflect the claimant's conduct?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "To what extent",
+                "should the remedy",
+                "reflect the claimant's",
+                "conduct?"
+            ],
+            "token_groups": [
+                "To what extent",
+                "should the remedy",
+                "reflect the claimant's",
+                "conduct?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "mvq-sot-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The court ought not to {a1} waiver from silence alone.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_should_ought_to",
+            "translation_uk": "Судові не слід виводити відмову від права лише з мовчання.",
+            "target_text": "The court ought not to infer waiver from silence alone.",
+            "markers": {
+                "a1": {
+                    "answer": "infer",
+                    "options": [
+                        "infer",
+                        "infers",
+                        "to infer"
+                    ],
+                    "verb_hint": "Після наведеної заперечної конструкції вживи початкову форму «виводити висновок»."
+                }
+            },
+            "verb_hint": "Після наведеної заперечної конструкції вживи початкову форму «виводити висновок».",
+            "accepted_target_texts": [
+                "The court ought not to infer waiver from silence alone."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The court",
+                "ought not to",
+                "infer",
+                "waiver from silence",
+                "alone."
+            ],
+            "token_groups": [
+                "The court",
+                "ought not to",
+                "infer",
+                "waiver from silence",
+                "alone."
+            ],
+            "quality_revision": "mvq-v1"
+        }
+    ]
+}

@@ -1,0 +1,1538 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/participle-clauses.v1.json",
+        "sha256": "e97019b55ca854d2ae8540c59db04dc1e4ba6fd4f1fe85123a347684b4f2bd59"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedParticipleClausesQualityBuilderSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-participle-clauses-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "clauses_linking_words_quality_participle_clauses": {
+            "name": "Clauses and Linking Words Quality: Participle Clauses"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-participle-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Хлопчик, який сидить на килимі, сміється.",
+            "level": "A1",
+            "type": 4,
+            "source": "clauses_linking_words_quality_participle_clauses",
+            "translation_uk": "Хлопчик, який сидить на килимі, сміється.",
+            "target_text": "The boy sitting on the carpet is laughing.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з хлопчика; короткий опис сидіння не містить окремого відносного слова.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "boy",
+                    "verb_hint": "Почни з хлопчика; короткий опис сидіння не містить окремого відносного слова.",
+                    "options": [
+                        "boy",
+                        "visitor",
+                        "neighbour",
+                        "gardener"
+                    ]
+                },
+                "a3": {
+                    "answer": "sitting",
+                    "verb_hint": "Почни з хлопчика; короткий опис сидіння не містить окремого відносного слова.",
+                    "options": [
+                        "sitting",
+                        "giving",
+                        "making",
+                        "going"
+                    ]
+                },
+                "a4": {
+                    "answer": "on",
+                    "verb_hint": "Почни з хлопчика; короткий опис сидіння не містить окремого відносного слова.",
+                    "options": [
+                        "on",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з хлопчика; короткий опис сидіння не містить окремого відносного слова.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a6": {
+                    "answer": "carpet",
+                    "verb_hint": "Почни з хлопчика; короткий опис сидіння не містить окремого відносного слова.",
+                    "options": [
+                        "carpet",
+                        "workshop",
+                        "shelf",
+                        "river"
+                    ]
+                },
+                "a7": {
+                    "answer": "is",
+                    "verb_hint": "Почни з хлопчика; короткий опис сидіння не містить окремого відносного слова.",
+                    "options": [
+                        "is",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a8": {
+                    "answer": "laughing.",
+                    "verb_hint": "Почни з хлопчика; короткий опис сидіння не містить окремого відносного слова.",
+                    "options": [
+                        "laughing",
+                        "missing",
+                        "writing",
+                        "calling"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з хлопчика; короткий опис сидіння не містить окремого відносного слова.",
+            "accepted_target_texts": [
+                "The boy sitting on the carpet is laughing.",
+                "The boy sitting on the rug is laughing."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "rug"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "rug"
+                ]
+            },
+            "reorder_groups": [
+                "The boy",
+                "sitting",
+                "on the carpet",
+                "is laughing."
+            ],
+            "token_groups": [
+                "The boy",
+                "sitting",
+                "on the carpet",
+                "is laughing."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "boy",
+                "sitting",
+                "on",
+                "the",
+                "carpet",
+                "is",
+                "laughing."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "boy",
+                "visitor",
+                "neighbour",
+                "gardener",
+                "sitting",
+                "giving",
+                "making",
+                "going",
+                "on",
+                "at",
+                "by",
+                "with",
+                "the",
+                "these",
+                "those",
+                "each",
+                "carpet",
+                "workshop",
+                "shelf",
+                "river",
+                "is",
+                "be",
+                "been",
+                "being",
+                "laughing",
+                "missing",
+                "writing",
+                "calling"
+            ],
+            "source_text_uk": "Хлопчик, який сидить на килимі, сміється.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "boy",
+                    "visitor",
+                    "neighbour",
+                    "gardener"
+                ],
+                "a3": [
+                    "sitting",
+                    "giving",
+                    "making",
+                    "going"
+                ],
+                "a4": [
+                    "on",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a5": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a6": [
+                    "carpet",
+                    "workshop",
+                    "shelf",
+                    "river"
+                ],
+                "a7": [
+                    "is",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a8": [
+                    "laughing",
+                    "missing",
+                    "writing",
+                    "calling"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "participle_phrase",
+                "a4": "preposition_phrase",
+                "a5": "preposition_phrase",
+                "a6": "preposition_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "clq-participle-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Несучи мокре взуття, Тарас увійшов на кухню.",
+            "level": "A2",
+            "type": 4,
+            "source": "clauses_linking_words_quality_participle_clauses",
+            "translation_uk": "Несучи мокре взуття, Тарас увійшов на кухню.",
+            "target_text": "Carrying his wet shoes, Taras entered the kitchen.",
+            "markers": {
+                "a1": {
+                    "answer": "Carrying",
+                    "verb_hint": "Почни з фонової дії; взуття несе саме Тарас.",
+                    "options": [
+                        "Carrying",
+                        "Giving",
+                        "Making",
+                        "Going"
+                    ]
+                },
+                "a2": {
+                    "answer": "his",
+                    "verb_hint": "Почни з фонової дії; взуття несе саме Тарас.",
+                    "options": [
+                        "his",
+                        "mine",
+                        "yours",
+                        "hers"
+                    ]
+                },
+                "a3": {
+                    "answer": "wet",
+                    "verb_hint": "Почни з фонової дії; взуття несе саме Тарас.",
+                    "options": [
+                        "wet",
+                        "little",
+                        "main",
+                        "spare"
+                    ]
+                },
+                "a4": {
+                    "answer": "shoes,",
+                    "verb_hint": "Почни з фонової дії; взуття несе саме Тарас.",
+                    "options": [
+                        "shoes",
+                        "chairs",
+                        "tables",
+                        "tickets"
+                    ]
+                },
+                "a5": {
+                    "answer": "Taras",
+                    "verb_hint": "Почни з фонової дії; взуття несе саме Тарас.",
+                    "options": [
+                        "Taras",
+                        "Emma",
+                        "Max",
+                        "Mia"
+                    ]
+                },
+                "a6": {
+                    "answer": "entered",
+                    "verb_hint": "Почни з фонової дії; взуття несе саме Тарас.",
+                    "options": [
+                        "entered",
+                        "walked",
+                        "opened",
+                        "closed"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з фонової дії; взуття несе саме Тарас.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a8": {
+                    "answer": "kitchen.",
+                    "verb_hint": "Почни з фонової дії; взуття несе саме Тарас.",
+                    "options": [
+                        "kitchen",
+                        "called",
+                        "helped",
+                        "waited"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з фонової дії; взуття несе саме Тарас.",
+            "accepted_target_texts": [
+                "Carrying his wet shoes, Taras entered the kitchen."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Carrying",
+                "his wet shoes,",
+                "Taras",
+                "entered",
+                "the kitchen."
+            ],
+            "token_groups": [
+                "Carrying",
+                "his wet shoes,",
+                "Taras",
+                "entered",
+                "the kitchen."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "Carrying",
+                "his",
+                "wet",
+                "shoes,",
+                "Taras",
+                "entered",
+                "the",
+                "kitchen."
+            ],
+            "options": [
+                "Carrying",
+                "Giving",
+                "Making",
+                "Going",
+                "his",
+                "mine",
+                "yours",
+                "hers",
+                "wet",
+                "little",
+                "main",
+                "spare",
+                "shoes",
+                "chairs",
+                "tables",
+                "tickets",
+                "Taras",
+                "Emma",
+                "Max",
+                "Mia",
+                "entered",
+                "walked",
+                "opened",
+                "closed",
+                "the",
+                "a",
+                "an",
+                "some",
+                "kitchen",
+                "called",
+                "helped",
+                "waited"
+            ],
+            "source_text_uk": "Несучи мокре взуття, Тарас увійшов на кухню.",
+            "options_by_marker": {
+                "a1": [
+                    "Carrying",
+                    "Giving",
+                    "Making",
+                    "Going"
+                ],
+                "a2": [
+                    "his",
+                    "mine",
+                    "yours",
+                    "hers"
+                ],
+                "a3": [
+                    "wet",
+                    "little",
+                    "main",
+                    "spare"
+                ],
+                "a4": [
+                    "shoes",
+                    "chairs",
+                    "tables",
+                    "tickets"
+                ],
+                "a5": [
+                    "Taras",
+                    "Emma",
+                    "Max",
+                    "Mia"
+                ],
+                "a6": [
+                    "entered",
+                    "walked",
+                    "opened",
+                    "closed"
+                ],
+                "a7": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a8": [
+                    "kitchen",
+                    "called",
+                    "helped",
+                    "waited"
+                ]
+            },
+            "slot_roles": {
+                "a1": "participle_phrase",
+                "a2": "noun_phrase",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "proper_noun",
+                "a6": "verb_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "clq-participle-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Почувши знайомий голос, дівчинка обернулася.",
+            "level": "B1",
+            "type": 4,
+            "source": "clauses_linking_words_quality_participle_clauses",
+            "translation_uk": "Почувши знайомий голос, дівчинка обернулася.",
+            "target_text": "Hearing a familiar voice, the girl turned round.",
+            "markers": {
+                "a1": {
+                    "answer": "Hearing",
+                    "verb_hint": "Почни з події, що безпосередньо спричинила поворот; обидві дії виконує дівчинка.",
+                    "options": [
+                        "Hearing",
+                        "Visiting",
+                        "Cooking",
+                        "Riding"
+                    ]
+                },
+                "a2": {
+                    "answer": "a",
+                    "verb_hint": "Почни з події, що безпосередньо спричинила поворот; обидві дії виконує дівчинка.",
+                    "options": [
+                        "a",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a3": {
+                    "answer": "familiar",
+                    "verb_hint": "Почни з події, що безпосередньо спричинила поворот; обидві дії виконує дівчинка.",
+                    "options": [
+                        "familiar",
+                        "spare",
+                        "fresh",
+                        "little"
+                    ]
+                },
+                "a4": {
+                    "answer": "voice,",
+                    "verb_hint": "Почни з події, що безпосередньо спричинила поворот; обидві дії виконує дівчинка.",
+                    "options": [
+                        "voice",
+                        "bowl",
+                        "entrance",
+                        "door"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з події, що безпосередньо спричинила поворот; обидві дії виконує дівчинка.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a6": {
+                    "answer": "girl",
+                    "verb_hint": "Почни з події, що безпосередньо спричинила поворот; обидві дії виконує дівчинка.",
+                    "options": [
+                        "girl",
+                        "witness",
+                        "visitor",
+                        "neighbour"
+                    ]
+                },
+                "a7": {
+                    "answer": "turned",
+                    "verb_hint": "Почни з події, що безпосередньо спричинила поворот; обидві дії виконує дівчинка.",
+                    "options": [
+                        "turned",
+                        "had",
+                        "arrived",
+                        "wrote"
+                    ]
+                },
+                "a8": {
+                    "answer": "round.",
+                    "verb_hint": "Почни з події, що безпосередньо спричинила поворот; обидві дії виконує дівчинка.",
+                    "options": [
+                        "round",
+                        "attention",
+                        "unclear",
+                        "nearby"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з події, що безпосередньо спричинила поворот; обидві дії виконує дівчинка.",
+            "accepted_target_texts": [
+                "Hearing a familiar voice, the girl turned round.",
+                "Hearing a familiar voice, the girl turned around."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "around."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "around."
+                ]
+            },
+            "reorder_groups": [
+                "Hearing",
+                "a familiar voice,",
+                "the girl",
+                "turned round."
+            ],
+            "token_groups": [
+                "Hearing",
+                "a familiar voice,",
+                "the girl",
+                "turned round."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "Hearing",
+                "a",
+                "familiar",
+                "voice,",
+                "the",
+                "girl",
+                "turned",
+                "round."
+            ],
+            "options": [
+                "Hearing",
+                "Visiting",
+                "Cooking",
+                "Riding",
+                "a",
+                "this",
+                "that",
+                "these",
+                "familiar",
+                "spare",
+                "fresh",
+                "little",
+                "voice",
+                "bowl",
+                "entrance",
+                "door",
+                "the",
+                "each",
+                "every",
+                "no",
+                "girl",
+                "witness",
+                "visitor",
+                "neighbour",
+                "turned",
+                "had",
+                "arrived",
+                "wrote",
+                "round",
+                "attention",
+                "unclear",
+                "nearby"
+            ],
+            "source_text_uk": "Почувши знайомий голос, дівчинка обернулася.",
+            "options_by_marker": {
+                "a1": [
+                    "Hearing",
+                    "Visiting",
+                    "Cooking",
+                    "Riding"
+                ],
+                "a2": [
+                    "a",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a3": [
+                    "familiar",
+                    "spare",
+                    "fresh",
+                    "little"
+                ],
+                "a4": [
+                    "voice",
+                    "bowl",
+                    "entrance",
+                    "door"
+                ],
+                "a5": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a6": [
+                    "girl",
+                    "witness",
+                    "visitor",
+                    "neighbour"
+                ],
+                "a7": [
+                    "turned",
+                    "had",
+                    "arrived",
+                    "wrote"
+                ],
+                "a8": [
+                    "round",
+                    "attention",
+                    "unclear",
+                    "nearby"
+                ]
+            },
+            "slot_roles": {
+                "a1": "participle_phrase",
+                "a2": "noun_phrase",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "clq-participle-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Вже отримавши попередження, керівниця призупинила доставку.",
+            "level": "B2",
+            "type": 4,
+            "source": "clauses_linking_words_quality_participle_clauses",
+            "translation_uk": "Вже отримавши попередження, керівниця призупинила доставку.",
+            "target_text": "Having been warned, the manager suspended the delivery.",
+            "markers": {
+                "a1": {
+                    "answer": "Having",
+                    "verb_hint": "Постав завершений пасив попередження на початок; керівниця є його одержувачкою.",
+                    "options": [
+                        "Having",
+                        "Looking",
+                        "Carrying",
+                        "Giving"
+                    ]
+                },
+                "a2": {
+                    "answer": "been",
+                    "verb_hint": "Постав завершений пасив попередження на початок; керівниця є його одержувачкою.",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "warned,",
+                    "verb_hint": "Постав завершений пасив попередження на початок; керівниця є його одержувачкою.",
+                    "options": [
+                        "warned",
+                        "delayed",
+                        "noticed",
+                        "written"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Постав завершений пасив попередження на початок; керівниця є його одержувачкою.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a5": {
+                    "answer": "manager",
+                    "verb_hint": "Постав завершений пасив попередження на початок; керівниця є його одержувачкою.",
+                    "options": [
+                        "manager",
+                        "nurse",
+                        "worker",
+                        "visitor"
+                    ]
+                },
+                "a6": {
+                    "answer": "suspended",
+                    "verb_hint": "Постав завершений пасив попередження на початок; керівниця є його одержувачкою.",
+                    "options": [
+                        "suspended",
+                        "called",
+                        "walked",
+                        "opened"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Постав завершений пасив попередження на початок; керівниця є його одержувачкою.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a8": {
+                    "answer": "delivery.",
+                    "verb_hint": "Постав завершений пасив попередження на початок; керівниця є його одержувачкою.",
+                    "options": [
+                        "delivery",
+                        "person",
+                        "water",
+                        "bread"
+                    ]
+                }
+            },
+            "verb_hint": "Постав завершений пасив попередження на початок; керівниця є його одержувачкою.",
+            "accepted_target_texts": [
+                "Having been warned, the manager suspended the delivery.",
+                "Having been warned, the manager halted the delivery."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "halted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "halted"
+                ]
+            },
+            "reorder_groups": [
+                "Having been warned,",
+                "the manager",
+                "suspended",
+                "the delivery."
+            ],
+            "token_groups": [
+                "Having been warned,",
+                "the manager",
+                "suspended",
+                "the delivery."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "Having",
+                "been",
+                "warned,",
+                "the",
+                "manager",
+                "suspended",
+                "the",
+                "delivery."
+            ],
+            "options": [
+                "Having",
+                "Looking",
+                "Carrying",
+                "Giving",
+                "been",
+                "be",
+                "being",
+                "isn't",
+                "warned",
+                "delayed",
+                "noticed",
+                "written",
+                "the",
+                "each",
+                "every",
+                "no",
+                "manager",
+                "nurse",
+                "worker",
+                "visitor",
+                "suspended",
+                "called",
+                "walked",
+                "opened",
+                "some",
+                "any",
+                "this",
+                "delivery",
+                "person",
+                "water",
+                "bread"
+            ],
+            "source_text_uk": "Вже отримавши попередження, керівниця призупинила доставку.",
+            "options_by_marker": {
+                "a1": [
+                    "Having",
+                    "Looking",
+                    "Carrying",
+                    "Giving"
+                ],
+                "a2": [
+                    "been",
+                    "be",
+                    "being",
+                    "isn't"
+                ],
+                "a3": [
+                    "warned",
+                    "delayed",
+                    "noticed",
+                    "written"
+                ],
+                "a4": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a5": [
+                    "manager",
+                    "nurse",
+                    "worker",
+                    "visitor"
+                ],
+                "a6": [
+                    "suspended",
+                    "called",
+                    "walked",
+                    "opened"
+                ],
+                "a7": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a8": [
+                    "delivery",
+                    "person",
+                    "water",
+                    "bread"
+                ]
+            },
+            "slot_roles": {
+                "a1": "participle_phrase",
+                "a2": "participle_phrase",
+                "a3": "participle_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "verb_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "clq-participle-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Не встановивши походження цитати, редакторка залишила атрибуцію відкритою.",
+            "level": "C1",
+            "type": 4,
+            "source": "clauses_linking_words_quality_participle_clauses",
+            "translation_uk": "Не встановивши походження цитати, редакторка залишила атрибуцію відкритою.",
+            "target_text": "Not having established the quotation's origin, the editor left the attribution open.",
+            "markers": {
+                "a1": {
+                    "answer": "Not",
+                    "verb_hint": "Почни із заперечної завершеної дії редакторки; не перетворюй непевність на хибну атрибуцію.",
+                    "options": [
+                        "Not",
+                        "Only",
+                        "Even",
+                        "Almost"
+                    ]
+                },
+                "a2": {
+                    "answer": "having",
+                    "verb_hint": "Почни із заперечної завершеної дії редакторки; не перетворюй непевність на хибну атрибуцію.",
+                    "options": [
+                        "having",
+                        "opening",
+                        "closing",
+                        "helping"
+                    ]
+                },
+                "a3": {
+                    "answer": "established",
+                    "verb_hint": "Почни із заперечної завершеної дії редакторки; не перетворюй непевність на хибну атрибуцію.",
+                    "options": [
+                        "established",
+                        "delayed",
+                        "noticed",
+                        "waited"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни із заперечної завершеної дії редакторки; не перетворюй непевність на хибну атрибуцію.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a5": {
+                    "answer": "quotation's",
+                    "verb_hint": "Почни із заперечної завершеної дії редакторки; не перетворюй непевність на хибну атрибуцію.",
+                    "options": [
+                        "quotation's",
+                        "bags",
+                        "books",
+                        "boxes"
+                    ]
+                },
+                "a6": {
+                    "answer": "origin,",
+                    "verb_hint": "Почни із заперечної завершеної дії редакторки; не перетворюй непевність на хибну атрибуцію.",
+                    "options": [
+                        "origin",
+                        "map",
+                        "dog",
+                        "bowl"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни із заперечної завершеної дії редакторки; не перетворюй непевність на хибну атрибуцію.",
+                    "options": [
+                        "the",
+                        "some",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a8": {
+                    "answer": "editor",
+                    "verb_hint": "Почни із заперечної завершеної дії редакторки; не перетворюй непевність на хибну атрибуцію.",
+                    "options": [
+                        "editor",
+                        "reader",
+                        "cousin",
+                        "team"
+                    ]
+                },
+                "a9": {
+                    "answer": "left",
+                    "verb_hint": "Почни із заперечної завершеної дії редакторки; не перетворюй непевність на хибну атрибуцію.",
+                    "options": [
+                        "left",
+                        "played",
+                        "called",
+                        "walked"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Почни із заперечної завершеної дії редакторки; не перетворюй непевність на хибну атрибуцію.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a11": {
+                    "answer": "attribution",
+                    "verb_hint": "Почни із заперечної завершеної дії редакторки; не перетворюй непевність на хибну атрибуцію.",
+                    "options": [
+                        "attribution",
+                        "table",
+                        "ticket",
+                        "cup"
+                    ]
+                },
+                "a12": {
+                    "answer": "open.",
+                    "verb_hint": "Почни із заперечної завершеної дії редакторки; не перетворюй непевність на хибну атрибуцію.",
+                    "options": [
+                        "open",
+                        "helped",
+                        "watched",
+                        "visited"
+                    ]
+                }
+            },
+            "verb_hint": "Почни із заперечної завершеної дії редакторки; не перетворюй непевність на хибну атрибуцію.",
+            "accepted_target_texts": [
+                "Not having established the quotation's origin, the editor left the attribution open."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Not having established",
+                "the quotation's origin,",
+                "the editor",
+                "left",
+                "the attribution",
+                "open."
+            ],
+            "token_groups": [
+                "Not having established",
+                "the quotation's origin,",
+                "the editor",
+                "left",
+                "the attribution",
+                "open."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "Not",
+                "having",
+                "established",
+                "the",
+                "quotation's",
+                "origin,",
+                "the",
+                "editor",
+                "left",
+                "the",
+                "attribution",
+                "open."
+            ],
+            "options": [
+                "Not",
+                "Only",
+                "Even",
+                "Almost",
+                "having",
+                "opening",
+                "closing",
+                "helping",
+                "established",
+                "delayed",
+                "noticed",
+                "waited",
+                "the",
+                "any",
+                "this",
+                "that",
+                "quotation's",
+                "bags",
+                "books",
+                "boxes",
+                "origin",
+                "map",
+                "dog",
+                "bowl",
+                "some",
+                "these",
+                "those",
+                "editor",
+                "reader",
+                "cousin",
+                "team",
+                "left",
+                "played",
+                "called",
+                "walked",
+                "each",
+                "every",
+                "no",
+                "attribution",
+                "table",
+                "ticket",
+                "cup",
+                "open",
+                "helped",
+                "watched",
+                "visited"
+            ],
+            "source_text_uk": "Не встановивши походження цитати, редакторка залишила атрибуцію відкритою.",
+            "options_by_marker": {
+                "a1": [
+                    "Not",
+                    "Only",
+                    "Even",
+                    "Almost"
+                ],
+                "a2": [
+                    "having",
+                    "opening",
+                    "closing",
+                    "helping"
+                ],
+                "a3": [
+                    "established",
+                    "delayed",
+                    "noticed",
+                    "waited"
+                ],
+                "a4": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a5": [
+                    "quotation's",
+                    "bags",
+                    "books",
+                    "boxes"
+                ],
+                "a6": [
+                    "origin",
+                    "map",
+                    "dog",
+                    "bowl"
+                ],
+                "a7": [
+                    "the",
+                    "some",
+                    "these",
+                    "those"
+                ],
+                "a8": [
+                    "editor",
+                    "reader",
+                    "cousin",
+                    "team"
+                ],
+                "a9": [
+                    "left",
+                    "played",
+                    "called",
+                    "walked"
+                ],
+                "a10": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a11": [
+                    "attribution",
+                    "table",
+                    "ticket",
+                    "cup"
+                ],
+                "a12": [
+                    "open",
+                    "helped",
+                    "watched",
+                    "visited"
+                ]
+            },
+            "slot_roles": {
+                "a1": "participle_phrase",
+                "a2": "participle_phrase",
+                "a3": "participle_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "subject_phrase",
+                "a8": "subject_phrase",
+                "a9": "verb_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase",
+                "a12": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "clq-participle-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Раніше мовчки прийнявши передумову, рецензентка не помітила колової аргументації.",
+            "level": "C2",
+            "type": 4,
+            "source": "clauses_linking_words_quality_participle_clauses",
+            "translation_uk": "Раніше мовчки прийнявши передумову, рецензентка не помітила колової аргументації.",
+            "target_text": "Having tacitly accepted the premise, the reviewer overlooked the circular reasoning.",
+            "markers": {
+                "a1": {
+                    "answer": "Having",
+                    "verb_hint": "Почни з завершеної дії тієї самої рецензентки; збережи непомічений логічний недолік.",
+                    "options": [
+                        "Having",
+                        "Carrying",
+                        "Looking",
+                        "Visiting"
+                    ]
+                },
+                "a2": {
+                    "answer": "tacitly",
+                    "verb_hint": "Почни з завершеної дії тієї самої рецензентки; збережи непомічений логічний недолік.",
+                    "options": [
+                        "tacitly",
+                        "well",
+                        "badly",
+                        "clearly"
+                    ]
+                },
+                "a3": {
+                    "answer": "accepted",
+                    "verb_hint": "Почни з завершеної дії тієї самої рецензентки; збережи непомічений логічний недолік.",
+                    "options": [
+                        "accepted",
+                        "delayed",
+                        "noticed",
+                        "gave"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з завершеної дії тієї самої рецензентки; збережи непомічений логічний недолік.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a5": {
+                    "answer": "premise,",
+                    "verb_hint": "Почни з завершеної дії тієї самої рецензентки; збережи непомічений логічний недолік.",
+                    "options": [
+                        "premise",
+                        "chair",
+                        "table",
+                        "ticket"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з завершеної дії тієї самої рецензентки; збережи непомічений логічний недолік.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a7": {
+                    "answer": "reviewer",
+                    "verb_hint": "Почни з завершеної дії тієї самої рецензентки; збережи непомічений логічний недолік.",
+                    "options": [
+                        "reviewer",
+                        "visitor",
+                        "neighbour",
+                        "gardener"
+                    ]
+                },
+                "a8": {
+                    "answer": "overlooked",
+                    "verb_hint": "Почни з завершеної дії тієї самої рецензентки; збережи непомічений логічний недолік.",
+                    "options": [
+                        "overlooked",
+                        "wanted",
+                        "worked",
+                        "played"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Почни з завершеної дії тієї самої рецензентки; збережи непомічений логічний недолік.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a10": {
+                    "answer": "circular",
+                    "verb_hint": "Почни з завершеної дії тієї самої рецензентки; збережи непомічений логічний недолік.",
+                    "options": [
+                        "circular",
+                        "main",
+                        "spare",
+                        "fresh"
+                    ]
+                },
+                "a11": {
+                    "answer": "reasoning.",
+                    "verb_hint": "Почни з завершеної дії тієї самої рецензентки; збережи непомічений логічний недолік.",
+                    "options": [
+                        "reasoning",
+                        "helping",
+                        "waiting",
+                        "watching"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з завершеної дії тієї самої рецензентки; збережи непомічений логічний недолік.",
+            "accepted_target_texts": [
+                "Having tacitly accepted the premise, the reviewer overlooked the circular reasoning.",
+                "Having tacitly accepted the premise, the reviewer missed the circular reasoning."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "missed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "missed"
+                ]
+            },
+            "reorder_groups": [
+                "Having tacitly accepted",
+                "the premise,",
+                "the reviewer",
+                "overlooked",
+                "the circular reasoning."
+            ],
+            "token_groups": [
+                "Having tacitly accepted",
+                "the premise,",
+                "the reviewer",
+                "overlooked",
+                "the circular reasoning."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "Having",
+                "tacitly",
+                "accepted",
+                "the",
+                "premise,",
+                "the",
+                "reviewer",
+                "overlooked",
+                "the",
+                "circular",
+                "reasoning."
+            ],
+            "options": [
+                "Having",
+                "Carrying",
+                "Looking",
+                "Visiting",
+                "tacitly",
+                "well",
+                "badly",
+                "clearly",
+                "accepted",
+                "delayed",
+                "noticed",
+                "gave",
+                "the",
+                "an",
+                "some",
+                "any",
+                "premise",
+                "chair",
+                "table",
+                "ticket",
+                "either",
+                "neither",
+                "all",
+                "reviewer",
+                "visitor",
+                "neighbour",
+                "gardener",
+                "overlooked",
+                "wanted",
+                "worked",
+                "played",
+                "this",
+                "that",
+                "these",
+                "circular",
+                "main",
+                "spare",
+                "fresh",
+                "reasoning",
+                "helping",
+                "waiting",
+                "watching"
+            ],
+            "source_text_uk": "Раніше мовчки прийнявши передумову, рецензентка не помітила колової аргументації.",
+            "options_by_marker": {
+                "a1": [
+                    "Having",
+                    "Carrying",
+                    "Looking",
+                    "Visiting"
+                ],
+                "a2": [
+                    "tacitly",
+                    "well",
+                    "badly",
+                    "clearly"
+                ],
+                "a3": [
+                    "accepted",
+                    "delayed",
+                    "noticed",
+                    "gave"
+                ],
+                "a4": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a5": [
+                    "premise",
+                    "chair",
+                    "table",
+                    "ticket"
+                ],
+                "a6": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a7": [
+                    "reviewer",
+                    "visitor",
+                    "neighbour",
+                    "gardener"
+                ],
+                "a8": [
+                    "overlooked",
+                    "wanted",
+                    "worked",
+                    "played"
+                ],
+                "a9": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a10": [
+                    "circular",
+                    "main",
+                    "spare",
+                    "fresh"
+                ],
+                "a11": [
+                    "reasoning",
+                    "helping",
+                    "waiting",
+                    "watching"
+                ]
+            },
+            "slot_roles": {
+                "a1": "participle_phrase",
+                "a2": "participle_phrase",
+                "a3": "participle_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "subject_phrase",
+                "a7": "subject_phrase",
+                "a8": "verb_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

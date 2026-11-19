@@ -1,0 +1,1638 @@
+{
+  "schema_version": 1,
+  "version": "1.0.0",
+  "status": "frozen",
+  "id": "m62-reported-review-relative-basics",
+  "base_sha": "17572e80bad9b968fd40f394d012cb0414a35ccf",
+  "scope": "Рівно три UK theory owners у двох чинних категоріях. Advanced — самодостатній B2 review; Relative — ролі та будова; Defining — референт і група. Тільки навчальні дані, не дизайн чи grader.",
+  "policy": {
+    "native_components": true,
+    "visual_changes": false,
+    "course_content_changes": false,
+    "production_access": false,
+    "existing_question_rows_unchanged": true,
+    "existing_answers_progress_unchanged": true,
+    "linked_bank_contract_status": "reviewed-15-existing-type4-questions-B2-B1-B1; no-new-question-rows-or-links"
+  },
+  "editorial_review": {
+    "status": "reviewed-before-apply",
+    "new_own_tasks": 18,
+    "groups_per_lesson": {
+      "selects": 2,
+      "choices": 2,
+      "inputs": 2
+    },
+    "input_methods": [
+      "manual",
+      "tokens"
+    ],
+    "old_continuing_blocks_per_lesson": [
+      2,
+      7,
+      7
+    ],
+    "new_practice_blocks": 3,
+    "additional_teaching_blocks": 4,
+    "input_accepted_variants_total": 10,
+    "punctuation_contract": "Default unchanged native normalize ignores commas and punctuation. No M62 punctuation_sensitive flag; defining/non-defining punctuation assessed only by explicit contextual choices.",
+    "translation_visibility_exceptions": [
+      "У шести meaning choices точний переклад англійського стимулу відкривається після Check, бо він розкриває відповідь; український контекст і критерій видно одразу."
+    ],
+    "before_source_db_http_sha256": "c1d652a764102b5abc9b5dd8a8c9226cd79126302dce58a69e52aab7a9b3c55d",
+    "actual_page_ids": [
+      283,
+      202,
+      31
+    ],
+    "actual_category_ids": [
+      3,
+      34,
+      34
+    ],
+    "meaningful_details": {
+      "advanced": 1,
+      "relative": 1,
+      "defining": 1
+    },
+    "author_draft_reviewed_sha256": "c98d53f53b8f66b7585976f7fcb01e9a66e1fa40b0b6a74d8fb7a95932fe664d",
+    "feedback_plain_text": true,
+    "unique_plain_feedback_explanations": 52,
+    "linked_bank_questions_separate": 15,
+    "new_linked_bank_questions": 0,
+    "reused_linked_bank_questions": 15,
+    "new_question_links": 0,
+    "note": "MAIN fully reviewed all three lessons, 18 own tasks/36 options, 6 canonical inputs plus4 justified aliases=10 accepted variants,52 unique plain-text explanations and3 meaningful details. Independent bank reviewer approved actual roles/keys/aliases and15 existing widget questions. Actual unchanged shipped factory23/23 passed against exact private v4; punctuation limitation explicitly tested. Final metadata-only refinement: two NEW Advanced blocks use left column as required by unchanged native release primitive; existing columns/null levels unchanged. Freeze does not prove DB apply, live SSR/browser/widget or Git delivery."
+  },
+  "sources": [
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/reported-speech-reporting-verbs",
+      "access": "Direct main editorial body read, lines 25–66; staff replies distinguished from learner comments.",
+      "used_for": "Reporting verbs + infinitive / object + infinitive / -ing; no exercises copied. The publisher persuade example is not adopted without evidence of successful persuasion."
+    },
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/reported-speech-statements",
+      "access": "Direct full main editorial body read, lines 24–115.",
+      "used_for": "Backshift and no-backshift; unchanged participants/event and context-dependent time/place."
+    },
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/relative-clauses-defining-relative-clauses",
+      "access": "Direct full main editorial body read, lines 23–69.",
+      "used_for": "Defining reference, who/that, which/that, introductory place/time and simple object omission; roles checked independently, not a following-word heuristic."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/relative-pronouns",
+      "access": "Exact direct open returned 403. Official publisher-indexed full editorial sections read at https://dictionary.cambridge.org/grammar/british-grammar/relative-pronouns%5D and https://dictionary.cambridge.org/us/grammar/british-grammar/relative-pronouns/. No direct redirect success claimed.",
+      "used_for": "Who subject/object; which in defining clauses; whose beyond humans; object omission; preposition positions; where/when/why; subject/object not automatic main-clause role."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/relative-clauses-defining-and-non-defining",
+      "access": "Exact direct open returned 403. Official publisher-indexed full main body read at https://dictionary.cambridge.org/grammar/british-grammar/non-defining-relative-clauses; matching article title, not a verified redirect.",
+      "used_for": "Defined referent versus known referent; punctuation; repeated subject/object pronouns."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/suggest",
+      "access": "Exact direct open returned 403; official publisher-indexed main body read at the same URL.",
+      "used_for": "Suggest -ing / that-clause; no suggest someone to in the target recommendation pattern."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/deny",
+      "access": "Exact direct open returned 403; official publisher-indexed dictionary NOT TRUE and NOT ADMIT senses read at the same URL. Corpus examples excluded as normative evidence.",
+      "used_for": "Deny doing is a denial, not a refusal to act or proof of actual innocence."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/refuse",
+      "access": "Exact direct open returned 403; publisher-indexed dictionary body read at https://dictionary.cambridge.org/dictionary/english/refuse?topic=rubbish-and-waste. Verb sense separated from waste noun.",
+      "used_for": "Refuse to do: unwillingness / rejection, distinct from deny doing."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/apologize",
+      "access": "Exact direct open returned 403; publisher-indexed editorial dictionary body read at same URL; British spelling explicitly identified.",
+      "used_for": "Apologise to person / for action; preserve actor and not after for."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/persuade",
+      "access": "Exact direct open returned 403; official publisher-indexed dictionary body read at same URL.",
+      "used_for": "Successful persuasion versus tried to persuade; never invent agreement or performed action."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "access": "Direct full main body read, lines128–237, reported update2026-10-05.",
+      "used_for": "Original learner-first content, transparent scope, no word quota / fake reviewer / ranking guarantee."
+    }
+  ],
+  "lessons": [
+    {
+      "schema_version": 1,
+      "status": "frozen",
+      "identity": "Database\\Seeders\\Page_V3\\ReportedSpeech\\AdvancedReportedSpeechTheorySeeder",
+      "slug": "advanced-reported-speech",
+      "locale": "uk",
+      "display_level": "B2",
+      "technical_block_level": "B2",
+      "category_ancestry": [
+        "reported-speech"
+      ],
+      "local_url": "http://gramlyze.loc/theory/reported-speech/advanced-reported-speech",
+      "subtitle_html": "<p><strong>Advanced Reported Speech</strong> — як обрати reporting-модель, зберегти виконавця, намір і часову перспективу.</p>",
+      "subtitle_text": "Advanced Reported Speech — reporting-моделі, виконавець, заперечення й точний зміст переказу.",
+      "blocks": [
+        {
+          "key": "advanced-reported-hero",
+          "existing_source_index": 0,
+          "type": "hero",
+          "column": "header",
+          "level": "B2",
+          "data": {
+            "level": "B2",
+            "intro": "Advanced Reported Speech поєднує граматичну форму з рішенням про зміст: людина повідомила факт, запропонувала допомогу, пообіцяла чи відмовилася? Спершу встанови намір, учасників і час; тоді обирай конкретне reporting verb та його модель.",
+            "rules": [
+              {
+                "label": "НАМІР ПІДТВЕРДЖУЄ КОНТЕКСТ",
+                "color": "emerald",
+                "text": "Нейтральне said не означає автоматично admitted, warned чи promised.",
+                "example": "<span lang=\"en\">Lada offered to carry the screen.</span><br><span lang=\"uk\">Лада запропонувала понести екран.</span>"
+              },
+              {
+                "label": "ХТО ВИКОНУЄ ДІЮ",
+                "color": "blue",
+                "text": "Після promised to діє сам підмет; після asked someone to — названа особа.",
+                "example": "<span lang=\"en\">Lada asked Petro to carry the screen.</span><br><span lang=\"uk\">Лада попросила Петра понести екран.</span>"
+              },
+              {
+                "label": "ЗБЕРЕЖИ СФЕРУ NOT",
+                "color": "amber",
+                "text": "Відсутність обіцянки не дорівнює обіцянці не робити.",
+                "example": "<span lang=\"en\">Lada promised not to move the screen.</span><br><span lang=\"uk\">Лада пообіцяла не пересувати екран.</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "advanced-reported-patterns",
+          "existing_source_index": 1,
+          "type": "forms-grid",
+          "column": "left",
+          "level": null,
+          "data": {
+            "title": "1. Reporting-моделі: значення й виконавець",
+            "intro": "Форма належить конкретному дієслову, а не всій групі без винятку. У прикладах reporting verbs стоять у минулому; це не повідомлення про те, що обіцяне або запропоноване вже виконано.",
+            "items": [
+              {
+                "label": "ЗМІСТ ПОВІДОМЛЕННЯ",
+                "title": "reporting verb + (that) + clause",
+                "subtitle": "<span lang=\"en\">Yaryna explained that the side gate was locked.</span><br><span lang=\"uk\">Ярина пояснила, що бічна хвіртка замкнена.</span> Explain that передає пояснення. Звичайне said that зберігало б повідомлення, але не називало б його поясненням."
+              },
+              {
+                "label": "ВЛАСНА НАСТУПНА ДІЯ",
+                "title": "promise / offer / refuse / agree + to + verb",
+                "subtitle": "<span lang=\"en\">Lada offered to carry the screen.</span><br><span lang=\"uk\">Лада запропонувала понести екран.</span> Понести пропонує Лада. Promise — пообіцяти; offer — запропонувати власну допомогу; refuse — відмовитися; agree — погодитися. Не підмінюй одне іншим без контексту."
+              },
+              {
+                "label": "ДІЯ НАЗВАНОЇ ОСОБИ",
+                "title": "advise / remind / warn + object + to / not to",
+                "subtitle": "<span lang=\"en\">The guide reminded Marko to take his ticket.</span><br><span lang=\"uk\">Екскурсовод нагадав Маркові взяти свій квиток.</span> Взяти має Марко; his — квиток Марка. Advise радить, remind нагадує, warn попереджає про ризик: це різні підстави для тієї самої будови."
+              },
+              {
+                "label": "ВИЗНАННЯ Й ЗАПЕРЕЧЕННЯ",
+                "title": "admit / deny + -ing",
+                "subtitle": "<span lang=\"en\">Nazar admitted opening the envelope.</span><br><span lang=\"uk\">Назар визнав, що відкрив конверт.</span> Дію приписано Назарові. Denied opening означало б заперечення цього, а refused to open — відмову відкривати; ці повідомлення не взаємозамінні."
+              },
+              {
+                "label": "ПРОПОЗИЦІЯ СПІЛЬНОГО РІШЕННЯ",
+                "title": "suggest + -ing / suggest + that-clause",
+                "subtitle": "<span lang=\"en\">Olena suggested using the smaller room.</span><br><span lang=\"uk\">Олена запропонувала скористатися меншою кімнатою.</span><br><span lang=\"en\">Olena suggested that we should use the smaller room.</span><br><span lang=\"uk\">Олена запропонувала, щоб ми скористалися меншою кімнатою.</span> We — Олена та двоє колег; виконавець using зрозумілий із цього контексту. That-clause називає його прямо; після suggest не утворюємо someone to за аналогією з advise."
+              },
+              {
+                "label": "ПРИЙМЕННИК ПЕРЕД ДІЄЮ",
+                "title": "apologise for / insist on + -ing",
+                "subtitle": "<span lang=\"en\">Vira apologised for interrupting the rehearsal.</span><br><span lang=\"uk\">Віра перепросила за те, що перервала репетицію.</span><br><span lang=\"en\">Vira insisted on checking the lock herself.</span><br><span lang=\"uk\">Віра наполягла на тому, щоб самій перевірити замок.</span> For і on належать відповідним моделям; -ing називає дію. Herself явно лишає перевірку Вірі."
+              }
+            ]
+          }
+        },
+        {
+          "key": "advanced-reported-decisions",
+          "existing_source_index": null,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B2",
+          "data": {
+            "title": "2. Коротка репліка → обґрунтований переказ",
+            "intro": "Кожна ситуація незалежна: хто говорить, кому й коли, зазначено окремо. Переказ стискає формулювання, але не додає прихованого наміру.",
+            "sections": [
+              {
+                "label": "ОБІЦЯНКА, ПРОПОЗИЦІЯ, ЗГОДА ЧИ ВІДМОВА",
+                "color": "emerald",
+                "description": "У понеділок у залі Лада говорила з Петром про один екран. У вівторок Петро поза залом розповідає про чотири окремі можливі відповіді Лади. Назване to carry всюди стосується Лади, але її позиція різна.",
+                "examples": [
+                  {
+                    "en": "Lada said, “I promise I will carry the screen.”",
+                    "ua": "Лада сказала: «Обіцяю, я понесу екран»."
+                  },
+                  {
+                    "en": "Lada promised to carry the screen.",
+                    "ua": "Лада пообіцяла понести екран."
+                  },
+                  {
+                    "en": "Lada said, “Shall I carry the screen for you?”",
+                    "ua": "Лада сказала: «Може, мені понести екран замість тебе?»"
+                  },
+                  {
+                    "en": "Lada offered to carry the screen.",
+                    "ua": "Лада запропонувала понести екран."
+                  },
+                  {
+                    "en": "Lada said, “All right, I will carry the screen.”",
+                    "ua": "Лада сказала: «Гаразд, я понесу екран»."
+                  },
+                  {
+                    "en": "Lada agreed to carry the screen.",
+                    "ua": "Лада погодилася понести екран."
+                  },
+                  {
+                    "en": "Lada said, “No, I will not carry the screen.”",
+                    "ua": "Лада сказала: «Ні, я не понесу екран»."
+                  },
+                  {
+                    "en": "Lada refused to carry the screen.",
+                    "ua": "Лада відмовилася нести екран."
+                  }
+                ],
+                "note": "Це чотири альтернативні мінідіалоги, не чотири несумісні факти про одну відповідь. Жоден сам по собі не встановлює, чи екран зрештою перенесли."
+              },
+              {
+                "label": "ПОРАДА, НАГАДУВАННЯ Й ПОПЕРЕДЖЕННЯ",
+                "color": "blue",
+                "description": "У понеділок у вестибюлі провідниця Ірина звертається до Марка. У вівторок свідок переказує три незалежні епізоди: пораду перед дорогою; нагадування про вже відомий квиток; попередження про слизьку сходинку.",
+                "examples": [
+                  {
+                    "en": "Iryna said to Marko, “You should take a warmer coat.”",
+                    "ua": "Ірина сказала Маркові: «Тобі варто взяти тепліше пальто»."
+                  },
+                  {
+                    "en": "Iryna advised Marko to take a warmer coat.",
+                    "ua": "Ірина порадила Маркові взяти тепліше пальто."
+                  },
+                  {
+                    "en": "Iryna said to Marko, “Remember to take your ticket.”",
+                    "ua": "Ірина сказала Маркові: «Не забудь взяти свій квиток»."
+                  },
+                  {
+                    "en": "Iryna reminded Marko to take his ticket.",
+                    "ua": "Ірина нагадала Маркові взяти свій квиток."
+                  },
+                  {
+                    "en": "Iryna said to Marko, “Do not step there; it is slippery.”",
+                    "ua": "Ірина сказала Маркові: «Не ставай туди: там слизько»."
+                  },
+                  {
+                    "en": "Iryna warned Marko not to step on the slippery stair.",
+                    "ua": "Ірина попередила Марка, щоб він не ставав на слизьку сходинку."
+                  }
+                ],
+                "note": "Після object + to виконавець — Марко, не Ірина. Попередження не доводить, що Марко послухався. Слово there у цитаті називало конкретну сходинку, тому точний іменник може зробити пізніший переказ яснішим."
+              },
+              {
+                "label": "ЗАПЕРЕЧИТИ МИНУЛУ ДІЮ ≠ ВІДМОВИТИСЯ ВІД ДІЇ",
+                "color": "amber",
+                "description": "У понеділок у майстерні Назар відповідає Олені про вже відкритий конверт; в іншому епізоді вона лише просить його відкрити запечатаний конверт. У вівторок сторонній свідок переказує ці різні епізоди.",
+                "examples": [
+                  {
+                    "en": "Nazar said, “I did not open the envelope.”",
+                    "ua": "Назар сказав: «Я не відкривав конверта»."
+                  },
+                  {
+                    "en": "Nazar denied opening the envelope.",
+                    "ua": "Назар заперечив, що відкривав конверт."
+                  },
+                  {
+                    "en": "Nazar said, “No, I will not open the envelope.”",
+                    "ua": "Назар сказав: «Ні, я не відкриватиму конверт»."
+                  },
+                  {
+                    "en": "Nazar refused to open the envelope.",
+                    "ua": "Назар відмовився відкривати конверт."
+                  }
+                ],
+                "note": "Denied передає його заперечення, не незалежний доказ невинуватості. Refused передає відмову, не заперечення минулого вчинку."
+              },
+              {
+                "label": "ЧАС І МІСЦЕ ПЕРЕОСМИСЛЮЄМО, А НЕ ПЕРЕСУВАЄМО ПОДІЮ",
+                "color": "slate",
+                "description": "У понеділок у лабораторії Орися говорила колезі про заплановану на вівторок перевірку датчика. У вівторок свідок переказує ці слова з іншого місця: tomorrow первинної репліки — цей самий вівторок, here — лабораторія. План не означає, що перевірку вже виконали.",
+                "examples": [
+                  {
+                    "en": "Orysia said, “I will check the sensor here tomorrow.”",
+                    "ua": "Орися сказала: «Я перевірю датчик тут завтра»."
+                  },
+                  {
+                    "en": "Orysia said that she would check the sensor in the laboratory that day.",
+                    "ua": "Орися сказала, що перевірить датчик у лабораторії того дня."
+                  }
+                ],
+                "note": "She — Орися; would передає її план із минулої точки повідомлення, не встановлений результат. That day називає той самий вівторок, in the laboratory зберігає місце перевірки. Актуальний факт може лишитися в теперішньому; should, заборона must not та гіпотетичне would не перетворюються механічно на минулий факт. Докладні моделі лишаються в уроках M61."
+              }
+            ]
+          }
+        },
+        {
+          "key": "advanced-reported-precision",
+          "existing_source_index": null,
+          "type": "mistakes-grid",
+          "column": "left",
+          "level": "B2",
+          "data": {
+            "title": "3. Не змінюй намір або сферу заперечення",
+            "items": [
+              {
+                "label": "ВІДСУТНІСТЬ ОБІЦЯНКИ ≠ НЕГАТИВНА ОБІЦЯНКА",
+                "color": "rose",
+                "title": "Умова: Олег пообіцяв зберегти код у таємниці.",
+                "wrong_en": "Oleh did not promise to reveal the code.",
+                "wrong_ua": "Це: Олег не обіцяв розкрити код. Задум: він пообіцяв його не розкривати.",
+                "right_en": "Oleh promised not to reveal the code.",
+                "right_ua": "Олег пообіцяв не розкривати код.",
+                "note": "Didn't promise заперечує саму обіцянку; promised not to заперечує дію всередині неї. Із відсутності обіцянки не випливає протилежна обіцянка."
+              },
+              {
+                "label": "ЗАПЕРЕЧЕННЯ Й ВИЗНАННЯ",
+                "color": "amber",
+                "title": "Умова: Назар визнав, що не перевірив адресу.",
+                "wrong_en": "Nazar denied checking the address.",
+                "wrong_ua": "Це: Назар заперечив, що перевіряв адресу. Задум: він визнав неперевірену адресу.",
+                "right_en": "Nazar admitted not checking the address.",
+                "right_ua": "Назар визнав, що не перевірив адресу.",
+                "note": "Результат у світі може збігатися, але мовленнєва позиція різна: заперечення звинувачення й визнання власного пропуску. Not після admitted стосується checking."
+              },
+              {
+                "label": "SUGGEST НЕ КОПІЮЄ ADVISE",
+                "color": "sky",
+                "title": "Умова: Олена пропонує колегам спільно використати меншу кімнату.",
+                "wrong_en": "Olena suggested us to use the smaller room.",
+                "wrong_ua": "Задум: Олена запропонувала нам скористатися меншою кімнатою.",
+                "right_en": "Olena suggested that we should use the smaller room.",
+                "right_ua": "Олена запропонувала, щоб ми скористалися меншою кімнатою.",
+                "note": "Для поради Олена могла б advise us to use, але suggest у заданому значенні потребує іншої моделі. Suggested using теж можливе, якщо виконавці зрозумілі з контексту."
+              },
+              {
+                "label": "СПРОБА ≠ ДОВЕДЕНИЙ УСПІХ",
+                "color": "slate",
+                "title": "Умова: Тарас наводив аргументи Лесі, але її рішення невідоме.",
+                "wrong_en": "Taras persuaded Lesia to stay.",
+                "wrong_ua": "Це: Тарас переконав Лесю залишитися. Задум: він лише намагався її переконати.",
+                "right_en": "Taras tried to persuade Lesia to stay.",
+                "right_ua": "Тарас намагався переконати Лесю залишитися.",
+                "note": "Persuaded без tried приписує успішне переконання. Не додавай зручним дієсловом згоду або факт виконання, яких немає в ситуації."
+              }
+            ]
+          }
+        },
+        {
+          "key": "advanced-reported-summary",
+          "existing_source_index": null,
+          "type": "summary-list",
+          "column": "left",
+          "level": "B2",
+          "data": {
+            "title": "4. Алгоритм точного переказу",
+            "items": [
+              "Визнач початкового мовця, адресата й оповідача; установи, що людина зробила словами, а не лише яке дієслово вжила.",
+              "Перевір модель конкретного reporting verb та виконавця наступної дії. Promise to і ask someone to називають різних виконавців.",
+              "Збережи not, час, місце й рівень упевненості. Скорочення формулювання не дозволяє вигадати намір, згоду або виконання; первинні слова не завжди відновлюються однозначно.",
+              "За потреби звернися до навігації: окремі уроки вже пояснюють statements, questions, commands, backshift, time/place і say/tell/ask. Тут вони поєднуються в рішення B2."
+            ]
+          }
+        },
+        {
+          "key": "advanced-reported-navigation",
+          "existing_source_index": null,
+          "type": "navigation-chips",
+          "column": "footer",
+          "level": null,
+          "data": {
+            "title": "Пов’язані уроки непрямої мови",
+            "items": [
+              {
+                "label": "Reported Statements",
+                "url": "/theory/reported-speech/reported-statements",
+                "current": false
+              },
+              {
+                "label": "Reported Questions",
+                "url": "/theory/reported-speech/reported-questions",
+                "current": false
+              },
+              {
+                "label": "Reported Commands and Requests",
+                "url": "/theory/reported-speech/reported-commands-and-requests",
+                "current": false
+              },
+              {
+                "label": "Backshift of Tenses",
+                "url": "/theory/reported-speech/backshift-of-tenses",
+                "current": false
+              },
+              {
+                "label": "Time and Place Changes",
+                "url": "/theory/reported-speech/time-and-place-changes",
+                "current": false
+              },
+              {
+                "label": "Say / Tell / Ask",
+                "url": "/theory/reported-speech/say-tell-ask",
+                "current": false
+              },
+              {
+                "label": "Advanced Reported Speech",
+                "url": "/theory/reported-speech/advanced-reported-speech",
+                "current": true
+              }
+            ]
+          }
+        },
+        {
+          "key": "advanced-reported-practice",
+          "existing_source_index": null,
+          "type": "practice-set",
+          "column": "left",
+          "level": "B2",
+          "data": {
+            "title": "Практика",
+            "select_title": "Доповни задану форму",
+            "select_intro": "Збережи названі ролі й виконай саме зазначену граматичну умову.",
+            "choice_title": "Обери точний зміст",
+            "choice_intro": "Спирайся на видимий контекст. Повний переклад англійського стимулу й пояснення відкриваються після перевірки.",
+            "input_title": "Побудуй повне речення",
+            "input_intro": "Введи відповідь або використай усі токени. Ручні альтернативи названі в умовах; готового порядку слів у банку немає.",
+            "rephrase": [],
+            "selects": [
+              {
+                "id": "m62-advanced-form-suggest",
+                "source_index": 1,
+                "label": "У понеділок у студії Марта запропонувала двом колегам спільно взяти ранній потяг; у вівторок свідок переказує цю пропозицію. Виконавці — усі троє. Збережи suggested та модель без that-clause.<br><span lang=\"en\">Marta suggested ___ the early train.</span><br><span lang=\"uk\">Марта запропонувала сісти на ранній потяг.</span>",
+                "options": [
+                  "to take",
+                  "taking",
+                  "us to take"
+                ],
+                "answer": "taking",
+                "accepted": [
+                  "taking"
+                ],
+                "feedback": {
+                  "to take": "Marta suggested taking the early train.\nМарта запропонувала сісти на ранній потяг. У цій моделі після suggest не ставимо to-infinitive.",
+                  "taking": "Marta suggested taking the early train.\nМарта запропонувала сісти на ранній потяг. Після suggested у заданій моделі вживаємо -ing; виконавців визначає спільний контекст.",
+                  "us to take": "Marta suggested taking the early train.\nМарта запропонувала сісти на ранній потяг. Не копіюємо object + to з advise у модель suggest."
+                }
+              },
+              {
+                "id": "m62-advanced-form-advise",
+                "source_index": 2,
+                "label": "У понеділок лікарка порадила Ігореві не бігти після травми. У вівторок його колега переказує пораду. Ihor уже названий як адресат-виконавець; потрібна стандартна модель object + not to, що заперечує дію run.<br><span lang=\"en\">The doctor advised Ihor ___ run.</span><br><span lang=\"uk\">Лікарка порадила Ігореві не бігти.</span>",
+                "options": [
+                  "not to",
+                  "do not",
+                  "not"
+                ],
+                "answer": "not to",
+                "accepted": [
+                  "not to"
+                ],
+                "feedback": {
+                  "not to": "The doctor advised Ihor not to run.\nЛікарка порадила Ігореві не бігти. Not to — задана стандартна модель негативної поради object + not to.",
+                  "do not": "The doctor advised Ihor not to run.\nЛікарка порадила Ігореві не бігти. Do not належить прямій вказівці, а не потрібному інфінітивному доповненню після advised Ihor.",
+                  "not": "The doctor advised Ihor not to run.\nЛікарка порадила Ігореві не бігти. Без to задана модель advise someone to не завершена."
+                }
+              }
+            ],
+            "choices": [
+              {
+                "id": "m62-advanced-meaning-agreement",
+                "source_index": 3,
+                "label": "У понеділок на дослідній станції Максим і Ірина обговорювали забір зразків. У вівторок свідок переказує обидві мовленнєві дії; him — Максим, а сумку має взяти саме він. Які рішення й виконавців установлює речення без домислу про результат?",
+                "prompt": "<span lang=\"en\">After Maksym agreed to collect the samples, Iryna reminded him to bring a cool bag.</span>",
+                "options": [
+                  "Максим погодився зібрати зразки; Ірина нагадала йому взяти сумку-холодильник. Виконання обох дій речення не підтверджує.",
+                  "Ірина погодилася зібрати зразки й уже принесла сумку-холодильник.",
+                  "Максим відмовився збирати зразки, а Ірина заборонила брати сумку-холодильник."
+                ],
+                "answer": "Максим погодився зібрати зразки; Ірина нагадала йому взяти сумку-холодильник. Виконання обох дій речення не підтверджує.",
+                "accepted": [
+                  "Максим погодився зібрати зразки; Ірина нагадала йому взяти сумку-холодильник. Виконання обох дій речення не підтверджує."
+                ],
+                "feedback": {
+                  "максим погодився зібрати зразки; ірина нагадала йому взяти сумку-холодильник. виконання обох дій речення не підтверджує.": "After Maksym agreed to collect the samples, Iryna reminded him to bring a cool bag.\nПісля того як Максим погодився зібрати зразки, Ірина нагадала йому взяти сумку-холодильник. Agreed to називає згоду Максима, reminded him to — нагадування про його дію. Жодне не доводить завершення збирання чи принесення сумки.",
+                  "ірина погодилася зібрати зразки й уже принесла сумку-холодильник.": "After Maksym agreed to collect the samples, Iryna reminded him to bring a cool bag.\nПісля того як Максим погодився зібрати зразки, Ірина нагадала йому взяти сумку-холодильник. Collect після agreed to стосується Максима; him у другій моделі теж Максим. Слова про вже виконану дію немає.",
+                  "максим відмовився збирати зразки, а ірина заборонила брати сумку-холодильник.": "After Maksym agreed to collect the samples, Iryna reminded him to bring a cool bag.\nПісля того як Максим погодився зібрати зразки, Ірина нагадала йому взяти сумку-холодильник. Agreed не означає refused, а reminded — не заборону. Речення описує згоду й нагадування, не відмову."
+                }
+              },
+              {
+                "id": "m62-advanced-meaning-suggest",
+                "source_index": 4,
+                "label": "У понеділок на нараді Віра звернулася до двох колег із пропозицією спільної перерви. У вівторок один із цих колег переказує її слова іншому свідкові. Яку дію мовця передає речення?",
+                "prompt": "<span lang=\"en\">Vira suggested taking a short break.</span>",
+                "options": [
+                  "Віра запропонувала групі зробити перерву; згоди й виконання ще не встановлено.",
+                  "Віра наказала колегам зробити перерву, і вони точно послухалися.",
+                  "Віра відмовилася сама робити перерву."
+                ],
+                "answer": "Віра запропонувала групі зробити перерву; згоди й виконання ще не встановлено.",
+                "accepted": [
+                  "Віра запропонувала групі зробити перерву; згоди й виконання ще не встановлено."
+                ],
+                "feedback": {
+                  "віра запропонувала групі зробити перерву; згоди й виконання ще не встановлено.": "Vira suggested taking a short break.\nВіра запропонувала зробити коротку перерву. Suggested називає пропозицію, не наказ і не гарантований результат.",
+                  "віра наказала колегам зробити перерву, і вони точно послухалися.": "Vira suggested taking a short break.\nВіра запропонувала зробити коротку перерву. Suggested не означає told і не доводить, що група виконала пропозицію.",
+                  "віра відмовилася сама робити перерву.": "Vira suggested taking a short break.\nВіра запропонувала зробити коротку перерву. Refused to take передавало б відмову; тут запропоновано спільне рішення."
+                }
+              }
+            ],
+            "inputs": [
+              {
+                "id": "m62-advanced-build-promise",
+                "source_index": 5,
+                "before": "photograph. / not / Danylo / the / publish / promised / to",
+                "after": "У понеділок у фотостудії Данило запевнив Лесю: «Обіцяю: я не опублікую фотографію» (I promise I will not publish the photograph). У вівторок Леся повідомляє свідкові про обіцянку; опублікувати фото міг би саме Данило. Використай promise у минулому й not to publish; photograph — відома обом фотографія. Почни Danylo. Передай: «Данило пообіцяв не публікувати фотографію». Не підміняй це відсутністю обіцянки.",
+                "answer": "Danylo promised not to publish the photograph.",
+                "accepted": [
+                  "Danylo promised not to publish the photograph."
+                ],
+                "feedback": {
+                  "danylo promised not to publish the photograph.": "Danylo promised not to publish the photograph.\nДанило пообіцяв не публікувати фотографію. Not to заперечує publish, а promised стверджує обіцянку. Чи її дотримано, речення не встановлює.",
+                  "danylo promised not to publish the photograph": "Danylo promised not to publish the photograph.\nДанило пообіцяв не публікувати фотографію. Not to заперечує publish, а promised стверджує обіцянку. Чи її дотримано, речення не встановлює.",
+                  "danylo did not promise to publish the photograph.": "Danylo promised not to publish the photograph.\nДанило пообіцяв не публікувати фотографію. Did not promise заперечує сам факт обіцянки й не передає заданого запевнення.",
+                  "danylo did not promise to publish the photograph": "Danylo promised not to publish the photograph.\nДанило пообіцяв не публікувати фотографію. Did not promise заперечує сам факт обіцянки й не передає заданого запевнення."
+                }
+              },
+              {
+                "id": "m62-advanced-build-apology",
+                "source_index": 6,
+                "before": "cover. / for / Olha / the / damaging / apologised",
+                "after": "У понеділок у бібліотеці Ольга сказала працівниці: «Перепрошую, я пошкодила обкладинку» (I am sorry I damaged the cover). У вівторок свідок переказує вибачення; обкладинку пошкодила Ольга. Побудуй модель apologise for + -ing, використай damaging the cover, почни Olha. Адресатку вдруге не називай. Передай: «Ольга перепросила за те, що пошкодила обкладинку». У ручному введенні дозволені британське apologised і американське apologized.",
+                "answer": "Olha apologised for damaging the cover.",
+                "accepted": [
+                  "Olha apologised for damaging the cover.",
+                  "Olha apologized for damaging the cover."
+                ],
+                "feedback": {
+                  "olha apologised for damaging the cover.": "Olha apologised for damaging the cover.\nОльга перепросила за те, що пошкодила обкладинку. For вводить причину вибачення; damaging стосується самої Ольги. Обидва зазначені написання дієслова приймаються.",
+                  "olha apologised for damaging the cover": "Olha apologised for damaging the cover.\nОльга перепросила за те, що пошкодила обкладинку. For вводить причину вибачення; damaging стосується самої Ольги. Обидва зазначені написання дієслова приймаються.",
+                  "olha apologized for damaging the cover.": "Olha apologized for damaging the cover.\nОльга перепросила за те, що пошкодила обкладинку. For вводить причину вибачення; damaging стосується самої Ольги. Обидва зазначені написання дієслова приймаються.",
+                  "olha apologized for damaging the cover": "Olha apologized for damaging the cover.\nОльга перепросила за те, що пошкодила обкладинку. For вводить причину вибачення; damaging стосується самої Ольги. Обидва зазначені написання дієслова приймаються.",
+                  "olha apologised to damage the cover.": "Olha apologised for damaging the cover.\nОльга перепросила за те, що пошкодила обкладинку. To damage передавало б іншу будову; причина вибачення в заданій моделі — for damaging.",
+                  "olha apologised to damage the cover": "Olha apologised for damaging the cover.\nОльга перепросила за те, що пошкодила обкладинку. To damage передавало б іншу будову; причина вибачення в заданій моделі — for damaging."
+                }
+              }
+            ],
+            "linked_practice": {
+              "source": "theory_links",
+              "question_types": [
+                "4"
+              ],
+              "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedReportedSpeechAllLevelsLessonSeeder"
+              ],
+              "title": "Вправа 4. Побудуй речення",
+              "intro": "Склади англійське речення за українською умовою, клікаючи на слова.",
+              "footer": "Завдання підібрані лише для цієї теми."
+            }
+          }
+        }
+      ],
+      "details": [
+        {
+          "key": "advanced-reported-hypothetical",
+          "title": "Гіпотетична можливість не стає минулим фактом",
+          "owner_block_key": "advanced-reported-decisions",
+          "owner_pointer": "/sections/3",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "WOULD ЗБЕРІГАЄ УМОВНИЙ ЗМІСТ",
+                  "color": "blue",
+                  "description": "У понеділок у майстерні Леся пояснила Назарові гіпотетичний варіант: іншого візка насправді немає. У вівторок свідок переказує цю думку. Past форма had усередині if описує уявну теперішню умову, не доказ минулого володіння.",
+                  "examples": [
+                    {
+                      "en": "Lesia said, “If I had another trolley, I would move both crates.”",
+                      "ua": "Леся сказала: «Якби в мене був ще один візок, я б перевезла обидва ящики»."
+                    },
+                    {
+                      "en": "Lesia said that if she had another trolley, she would move both crates.",
+                      "ua": "Леся сказала, що якби в неї був ще один візок, вона б перевезла обидва ящики."
+                    }
+                  ],
+                  "note": "She — Леся. Перетворення на had had і would have moved могло б створити іншу, минулу гіпотетичну перспективу; не робимо цього механічно лише через said. Точне рішення залежить від вихідного умовного значення, тому переказ не дозволяє однозначно відновити всі первинні слова."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "status": "frozen",
+      "identity": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsRelativeClausesTheorySeeder",
+      "slug": "relative-clauses",
+      "locale": "uk",
+      "display_level": "B1-B2",
+      "technical_block_level": "B1",
+      "category_ancestry": [
+        "clauses-and-linking-words"
+      ],
+      "local_url": "http://gramlyze.loc/theory/clauses-and-linking-words/relative-clauses",
+      "subtitle_html": "<p><strong>Relative Clauses</strong> — як поєднати опис із потрібним іменником і не втратити підмет чи додаток.</p>",
+      "subtitle_text": "Relative Clauses — будова, relative words, ролі підмета й додатка та межі опущення.",
+      "blocks": [
+        {
+          "key": "relative-hero",
+          "existing_source_index": 0,
+          "type": "hero",
+          "column": "header",
+          "level": "B1",
+          "data": {
+            "level": "B1-B2",
+            "intro": "Relative Clauses приєднують опис до іменника або іменникової групи. Щоб правильно поєднати частини речення, визнач, кого чи що описуємо та яку роль relative word виконує всередині опису: підмет, додаток або зв’язок належності.",
+            "rules": [
+              {
+                "label": "ЗНАЙДИ ОПОРНИЙ ІМЕННИК",
+                "color": "emerald",
+                "text": "Опис зазвичай стоїть одразу після потрібної іменникової групи.",
+                "example": "<span lang=\"en\">The nurse who works upstairs knows my name.</span><br><span lang=\"uk\">Медсестра, яка працює нагорі, знає моє ім’я.</span>"
+              },
+              {
+                "label": "WHO МОЖЕ БУТИ ДОДАТКОМ",
+                "color": "blue",
+                "text": "Who може бути додатком; тоді іншому учасникові потрібний підмет. У прикладі he — Андрій, який подзвонив цьому чоловікові.",
+                "example": "<span lang=\"en\">The man who he called is my uncle.</span><br><span lang=\"uk\">Чоловік, якому він зателефонував, — мій дядько.</span>"
+              },
+              {
+                "label": "ВИБІР ЗАЛЕЖИТЬ ВІД РОЛІ",
+                "color": "amber",
+                "text": "Where називає місце дії, а which/that можуть заміщати її додаток.",
+                "example": "<span lang=\"en\">The hall that we visited has a glass roof.</span><br><span lang=\"uk\">Зала, яку ми відвідали, має скляний дах.</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "relative-structure",
+          "existing_source_index": 1,
+          "type": "usage-panels",
+          "column": "left",
+          "level": null,
+          "data": {
+            "title": "1. Дві частини речення й ролі всередині опису",
+            "sections": [
+              {
+                "label": "ДЕ ПОЧИНАЄТЬСЯ Й ЗАКІНЧУЄТЬСЯ ОПИС",
+                "color": "emerald",
+                "description": "У бібліотеці працює кілька людей; оповідач указує на жінку, яка сортує карти. Іменникова група the woman є підметом головної частини. Опис who sorts the maps закінчується перед knows; головний присудок — knows.",
+                "examples": [
+                  {
+                    "en": "The woman who sorts the maps knows this building well.",
+                    "ua": "Жінка, яка сортує карти, добре знає цю будівлю."
+                  }
+                ],
+                "note": "Who — підмет sorts і стосується woman. Один опис не замінює головного присудка: the woman who sorts the maps саме по собі ще не є повним твердженням."
+              },
+              {
+                "label": "ЧОЛОВІК САМ ЗАТЕЛЕФОНУВАВ",
+                "color": "blue",
+                "description": "У розмові оповідач згадує свого дядька; саме дядько щойно подзвонив оповідачеві. Усередині опису дію called виконує who — цей чоловік; me — оповідач, адресат дзвінка.",
+                "examples": [
+                  {
+                    "en": "The man who called me is my uncle.",
+                    "ua": "Чоловік, який мені зателефонував, — мій дядько."
+                  }
+                ],
+                "note": "Після підметового who не повторюємо того самого виконавця зайвим he. Відносна частина who called me пояснює man, головна — the man is my uncle."
+              },
+              {
+                "label": "ІНША ЛЮДИНА ЗАТЕЛЕФОНУВАЛА ЧОЛОВІКОВІ",
+                "color": "amber",
+                "description": "Андрій щойно телефонував одному з двох чоловіків. Оповідач знає, що цей адресат — його дядько, і називає Андрія словом he. У цій ситуації he виконує called; who позначає чоловіка-адресата.",
+                "examples": [
+                  {
+                    "en": "The man who he called is my uncle.",
+                    "ua": "Чоловік, якому він зателефонував, — мій дядько."
+                  }
+                ],
+                "note": "He тут потрібний підмет, а who — додаток called. Видалення he змінить виконавця, а не «прибере помилку». Роль man у головній частині не визначає автоматично роль who всередині опису."
+              }
+            ]
+          }
+        },
+        {
+          "key": "relative-words",
+          "existing_source_index": 2,
+          "type": "comparison-table",
+          "column": "left",
+          "level": null,
+          "data": {
+            "title": "2. Relative words: значення та внутрішня роль",
+            "intro": "Назви людини, речі чи місця недостатньо: перевір також, яке місце слово займає в описі. Приклади нижче — повні незалежні речення.",
+            "headers": [
+              "Слово й роль",
+              "Приклад і переклад",
+              "Що перевірити"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "who / that: людина як підмет або додаток",
+                  "<span lang=\"en\">The driver who helped us lives nearby.</span><br><span lang=\"uk\">Водій, який нам допоміг, живе неподалік.</span>",
+                  "Who виконує helped. У defining-моделі можливе that для людини; не вважаємо його автоматично помилкою."
+                ]
+              },
+              {
+                "cells": [
+                  "which / that: річ або тварина",
+                  "<span lang=\"en\">The lamp which we repaired works again.</span><br><span lang=\"uk\">Лампа, яку ми полагодили, знову працює.</span>",
+                  "We — підмет repaired, which — додаток. Which допускається в defining clauses; that тут теж можливе."
+                ]
+              },
+              {
+                "cells": [
+                  "whose + noun: належність або зв’язок",
+                  "<span lang=\"en\">The artist whose studio flooded needs a new room.</span><br><span lang=\"uk\">Художникові, чию майстерню затопило, потрібне нове приміщення.</span><br><span lang=\"en\">The cabinet whose hinges broke is empty.</span><br><span lang=\"uk\">Шафа, у якої зламалися завіси, порожня.</span>",
+                  "Whose стоїть перед studio/hinges; це не who's (= who is / who has). Whose можливе з людьми й тваринами, а також із речами, зокрема у формальнішому стилі."
+                ]
+              },
+              {
+                "cells": [
+                  "where: місце дії, а не прямий додаток",
+                  "<span lang=\"en\">The hall where we rehearsed has a glass roof.</span><br><span lang=\"uk\">Зала, де ми репетирували, має скляний дах.</span><br><span lang=\"en\">The hall that we visited has a glass roof.</span><br><span lang=\"uk\">Зала, яку ми відвідали, має скляний дах.</span>",
+                  "Rehearsed відбувалося в залі; visited потребує об’єкта — ми відвідали залу. Назва місця сама собою не вимагає where."
+                ]
+              },
+              {
+                "cells": [
+                  "whom: формальніший додаток-людина",
+                  "<span lang=\"en\">The expert whom we consulted explained the drawing.</span><br><span lang=\"uk\">Експерт, із яким ми порадилися, пояснив креслення.</span>",
+                  "We виконує consulted, whom — людина, до якої звернулися. Нейтральне object who у такому реченні теж можливе; не замінюємо його примусово всюди."
+                ]
+              },
+              {
+                "cells": [
+                  "when: час дії",
+                  "<span lang=\"en\">I remember the evening when the lights failed.</span><br><span lang=\"uk\">Я пам’ятаю вечір, коли згасло світло.</span>",
+                  "The lights — підмет failed; evening задає час, а не додаток цього дієслова."
+                ]
+              },
+              {
+                "cells": [
+                  "why: причина",
+                  "<span lang=\"en\">I know the reason why the gate is locked.</span><br><span lang=\"uk\">Я знаю причину, чому хвіртка замкнена.</span>",
+                  "Опис пов’язаний із reason; the gate — підмет is locked. Це не універсальна заміна which після будь-якого іменника."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "relative-boundaries",
+          "existing_source_index": 3,
+          "type": "usage-panels",
+          "column": "right",
+          "level": null,
+          "data": {
+            "title": "3. Тип опису, опущення й порядок слів",
+            "sections": [
+              {
+                "label": "DEFINING ВИБИРАЄ, NON-DEFINING ДОДАЄ",
+                "color": "emerald",
+                "description": "На столі три ліхтарі; лише один має червону кнопку. Перший приклад допомагає вибрати потрібний ліхтар. У другому співрозмовники вже знають єдиний оповідачів ліхтар: відомість про кнопку — додаткова.",
+                "examples": [
+                  {
+                    "en": "The torch that has a red button is mine.",
+                    "ua": "Ліхтар, у якого червона кнопка, мій."
+                  },
+                  {
+                    "en": "My torch, which has a red button, is on the shelf.",
+                    "ua": "Мій ліхтар, у якого червона кнопка, стоїть на полиці."
+                  }
+                ],
+                "note": "В англійській ці прості non-defining clauses виділено комами; that у них не використовуємо. Український переклад має власну природну пунктуацію. Докладніший вибір контексту — у сусідніх уроках."
+              },
+              {
+                "label": "ПРОСТА DEFINING OBJECT-МОДЕЛЬ МОЖЕ БУТИ БЕЗ ЗАЙМЕННИКА",
+                "color": "blue",
+                "description": "Слухач шукає певну карту; оповідач уже показував її йому. Усередині опису I — підмет showed, а that позначає показану карту.",
+                "examples": [
+                  {
+                    "en": "The map that I showed you is on the desk.",
+                    "ua": "Карта, яку я тобі показав, лежить на столі."
+                  },
+                  {
+                    "en": "The map I showed you is on the desk.",
+                    "ua": "Карта, яку я тобі показав, лежить на столі."
+                  }
+                ],
+                "note": "Опустили тільки object that; підмет I і адресат you залишилися. Не переносимо цей вступний випадок на subject who/which/that, whose або non-defining. Окремі складні моделі — в Omitting Relative Pronouns."
+              },
+              {
+                "label": "ПИТАННЯ СТОСУЄТЬСЯ ГОЛОВНОЇ ЧАСТИНИ",
+                "color": "amber",
+                "description": "Оповідач запитує, чи є певна людина новим керівником. Відносна частина who called us лише вказує, про кого йдеться, і не перетворюється на пряме wh-питання.",
+                "examples": [
+                  {
+                    "en": "Is the person who called us the new manager?",
+                    "ua": "Людина, яка нам зателефонувала, — новий керівник?"
+                  },
+                  {
+                    "en": "Who called us?",
+                    "ua": "Хто нам зателефонував?"
+                  }
+                ],
+                "note": "У першому is належить головному питанню, who — підмет called усередині опису. У другому who — питальне слово окремого прямого питання. Не видаляємо потрібне relative who як нібито зайве питання."
+              }
+            ]
+          }
+        },
+        {
+          "key": "relative-mistakes",
+          "existing_source_index": 4,
+          "type": "mistakes-grid",
+          "column": "right",
+          "level": null,
+          "data": {
+            "title": "4. Типові помилки: перевір роль, не сусіднє слово",
+            "items": [
+              {
+                "label": "ПОВТОРЕНИЙ ПІДМЕТ",
+                "color": "rose",
+                "title": "Намір: саме чоловік зателефонував оповідачеві.",
+                "wrong_en": "The man who he called me is my uncle.",
+                "wrong_ua": "Задум: чоловік, який мені зателефонував, — мій дядько; he помилково дублює цього ж чоловіка.",
+                "right_en": "The man who called me is my uncle.",
+                "right_ua": "Чоловік, який мені зателефонував, — мій дядько.",
+                "note": "У заданому задумі who вже підмет called, а me — адресат. Натомість The man who he called is my uncle — «Чоловік, якому він зателефонував, — мій дядько» — правильне за контексту з іншим виконавцем he; це не глобальна заборона he після who."
+              },
+              {
+                "label": "ПОВТОРЕНИЙ ДОДАТОК",
+                "color": "amber",
+                "title": "Намір: ми полагодили саме цю лампу.",
+                "wrong_en": "The lamp which we repaired it works again.",
+                "wrong_ua": "Задум: лампа, яку ми полагодили, знову працює; it зайво повторює лампу як додаток repaired.",
+                "right_en": "The lamp which we repaired works again.",
+                "right_ua": "Лампа, яку ми полагодили, знову працює.",
+                "note": "We не видаляємо: це потрібний підмет repaired. Прибираємо лише повторений додаток it, чию роль уже виконує which."
+              },
+              {
+                "label": "ПОВНЕ РЕЧЕННЯ ПОТРЕБУЄ ОБОХ ПРИСУДКІВ",
+                "color": "sky",
+                "title": "Намір: хлопець дуже привітний, і він допоміг нам.",
+                "wrong_en": "The boy who very friendly helped us.",
+                "wrong_ua": "Задум: хлопець, який дуже привітний, допоміг нам; у його описі бракує is.",
+                "right_en": "The boy who is very friendly helped us.",
+                "right_ua": "Хлопець, який дуже привітний, допоміг нам.",
+                "note": "Is — присудок опису who is very friendly; helped — головний присудок. Фрагмент The boy who is very friendly сам по собі ще не завершене твердження."
+              },
+              {
+                "label": "УЗГОДЖУЙ ІЗ РЕАЛЬНИМ ПІДМЕТОМ",
+                "color": "slate",
+                "title": "Намір: кілька волонтерів ремонтують велосипеди й працюють тут.",
+                "wrong_en": "The volunteers who repairs bicycles work here.",
+                "wrong_ua": "Задум: волонтери, які ремонтують велосипеди, працюють тут; volunteers — множина.",
+                "right_en": "The volunteers who repair bicycles work here.",
+                "right_ua": "Волонтери, які ремонтують велосипеди, працюють тут.",
+                "note": "Who стосується множини volunteers, тому repair без -s. Work — головний присудок тієї самої множини; не погоджуємо його з найближчим bicycles механічно."
+              }
+            ]
+          }
+        },
+        {
+          "key": "relative-summary",
+          "existing_source_index": 5,
+          "type": "summary-list",
+          "column": "right",
+          "level": null,
+          "data": {
+            "title": "5. Коротка карта конструкції",
+            "items": [
+              "Знайди іменникову групу, до якої належить опис, і межі самого опису. Перевір присудок головної частини окремо.",
+              "Усередині relative clause назви виконавця та додаток кожної дії. Who/which/that можуть бути підметом або додатком; потрібні he/she/it не видаляються за розташуванням.",
+              "Вибирай слово за роллю й видом конструкції: who/that для людини, which/that для речі в defining, whose + noun для належності; where — місце дії, не кожний іменник-місце.",
+              "Опущення в цьому вступі — лише проста defining object-модель. Докладні межі й non-defining — у навігації. Огляд описує relative clauses при іменнику, не всі складні типи: sentential which і free relatives тут не розгортаються."
+            ]
+          }
+        },
+        {
+          "key": "relative-navigation",
+          "existing_source_index": 6,
+          "type": "navigation-chips",
+          "column": "footer",
+          "level": null,
+          "data": {
+            "title": "Сторінки цього розділу",
+            "items": [
+              {
+                "label": "Relative Clauses",
+                "url": "/theory/clauses-and-linking-words/relative-clauses",
+                "current": true
+              },
+              {
+                "label": "Defining Relative Clauses",
+                "url": "/theory/clauses-and-linking-words/defining-relative-clauses",
+                "current": false
+              },
+              {
+                "label": "Non-defining Relative Clauses",
+                "url": "/theory/clauses-and-linking-words/non-defining-relative-clauses",
+                "current": false
+              },
+              {
+                "label": "Omitting Relative Pronouns",
+                "url": "/theory/clauses-and-linking-words/omitting-relative-pronouns",
+                "current": false
+              },
+              {
+                "label": "Linking Words",
+                "url": "/theory/clauses-and-linking-words/linking-words",
+                "current": false
+              },
+              {
+                "label": "Reason: because / since / as",
+                "url": "/theory/clauses-and-linking-words/reason-because-since-as",
+                "current": false
+              },
+              {
+                "label": "Result: so / therefore / as a result",
+                "url": "/theory/clauses-and-linking-words/result-so-therefore-as-a-result",
+                "current": false
+              },
+              {
+                "label": "Contrast: although / though / however",
+                "url": "/theory/clauses-and-linking-words/contrast-although-though-however",
+                "current": false
+              },
+              {
+                "label": "Purpose: to / in order to / so that",
+                "url": "/theory/clauses-and-linking-words/purpose-to-in-order-to-so-that",
+                "current": false
+              }
+            ]
+          }
+        },
+        {
+          "key": "relative-practice",
+          "existing_source_index": null,
+          "type": "practice-set",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "Практика",
+            "select_title": "Доповни задану форму",
+            "select_intro": "Збережи названі ролі й виконай саме зазначену граматичну умову.",
+            "choice_title": "Обери точний зміст",
+            "choice_intro": "Спирайся на видимий контекст. Повний переклад англійського стимулу й пояснення відкриваються після перевірки.",
+            "input_title": "Побудуй повне речення",
+            "input_intro": "Введи відповідь або використай усі токени. Ручні альтернативи названі в умовах; готового порядку слів у банку немає.",
+            "rephrase": [],
+            "selects": [
+              {
+                "id": "m62-relative-form-whose",
+                "source_index": 1,
+                "label": "У школі є кілька учнів; ідеться про ученицю, чия скрипка потребує ремонту. Після пропуску вже стоїть noun violin, а не дієслово. Вибери слово належності, не скорочення who is.<br><span lang=\"en\">The student ___ violin needs repair is absent.</span><br><span lang=\"uk\">Учениця, чия скрипка потребує ремонту, відсутня.</span>",
+                "options": [
+                  "who's",
+                  "whose",
+                  "who"
+                ],
+                "answer": "whose",
+                "accepted": [
+                  "whose"
+                ],
+                "feedback": {
+                  "who's": "The student whose violin needs repair is absent.\nУчениця, чия скрипка потребує ремонту, відсутня. Who's означає who is або who has, а не належність перед violin.",
+                  "whose": "The student whose violin needs repair is absent.\nУчениця, чия скрипка потребує ремонту, відсутня. Whose violin — скрипка учениці; підмет needs — violin, підмет is absent — student.",
+                  "who": "The student whose violin needs repair is absent.\nУчениця, чия скрипка потребує ремонту, відсутня. Who не виражає потрібного зв’язку належності перед violin."
+                }
+              },
+              {
+                "id": "m62-relative-form-where",
+                "source_index": 2,
+                "label": "На плані позначено кілька дворів. У цьому дворі група колись зустрілася; we вже називає учасників зустрічі. Потрібне місце дії met, не прямий додаток visited.<br><span lang=\"en\">The courtyard ___ we met is now closed.</span><br><span lang=\"uk\">Двір, де ми зустрілися, тепер закритий.</span>",
+                "options": [
+                  "which",
+                  "whose",
+                  "where"
+                ],
+                "answer": "where",
+                "accepted": [
+                  "where"
+                ],
+                "feedback": {
+                  "which": "The courtyard where we met is now closed.\nДвір, де ми зустрілися, тепер закритий. У заданій моделі met означає зустріч у дворі; для which потрібна інша будова, наприклад in which.",
+                  "whose": "The courtyard where we met is now closed.\nДвір, де ми зустрілися, тепер закритий. Whose вимагало б noun і значення належності, якого тут немає.",
+                  "where": "The courtyard where we met is now closed.\nДвір, де ми зустрілися, тепер закритий. Where називає місце зустрічі; we — підмет met."
+                }
+              }
+            ],
+            "choices": [
+              {
+                "id": "m62-relative-meaning-object",
+                "source_index": 3,
+                "label": "Менеджерка Ольга навчила нового помічника працювати із системою бронювання. Вона й оповідач говорять про цього помічника серед кількох працівників; she — Ольга. Хто виконує trained та checks у наведеному реченні?",
+                "prompt": "<span lang=\"en\">The assistant who she trained now checks the bookings.</span>",
+                "options": [
+                  "Помічник навчив Ольгу, а Ольга зараз перевіряє бронювання.",
+                  "Ольга навчила помічника, а помічник зараз перевіряє бронювання.",
+                  "She зайве після who, тому виконавця trained треба видалити."
+                ],
+                "answer": "Ольга навчила помічника, а помічник зараз перевіряє бронювання.",
+                "accepted": [
+                  "Ольга навчила помічника, а помічник зараз перевіряє бронювання."
+                ],
+                "feedback": {
+                  "помічник навчив ольгу, а ольга зараз перевіряє бронювання.": "The assistant who she trained now checks the bookings.\nПомічник, якого вона навчила, тепер перевіряє бронювання. Напрям trained зворотний: she — Ольга, who — навчений помічник. Checks виконує assistant у головній частині.",
+                  "ольга навчила помічника, а помічник зараз перевіряє бронювання.": "The assistant who she trained now checks the bookings.\nПомічник, якого вона навчила, тепер перевіряє бронювання. She — потрібний підмет trained; who — його додаток. Assistant — підмет головного checks: дві частини мають різні перевірки ролей.",
+                  "she зайве після who, тому виконавця trained треба видалити.": "The assistant who she trained now checks the bookings.\nПомічник, якого вона навчила, тепер перевіряє бронювання. Who тут додаток trained, тому іншому виконавцеві she потрібне місце підмета; видалення she змінює роль."
+                }
+              },
+              {
+                "id": "m62-relative-meaning-subject",
+                "source_index": 4,
+                "label": "Оповідач подякував кільком волонтерам, які перенесли коробки; саме волонтери виконали carried. Який розбір відрізняє роль volunteers у головній частині від ролі who усередині опису?",
+                "prompt": "<span lang=\"en\">I thanked the volunteers who carried the boxes.</span>",
+                "options": [
+                  "Volunteers — додаток thanked; who — підмет carried, а boxes — додаток carried.",
+                  "Volunteers і who обов’язково додатки обох дієслів, бо оповідач сказав I.",
+                  "Who — підмет thanked, а volunteers — виконавці головної дії thanked."
+                ],
+                "answer": "Volunteers — додаток thanked; who — підмет carried, а boxes — додаток carried.",
+                "accepted": [
+                  "Volunteers — додаток thanked; who — підмет carried, а boxes — додаток carried."
+                ],
+                "feedback": {
+                  "volunteers — додаток thanked; who — підмет carried, а boxes — додаток carried.": "I thanked the volunteers who carried the boxes.\nЯ подякував волонтерам, які перенесли коробки. I виконує thanked; подяку отримують volunteers. Усередині опису саме who, тобто ці волонтери, виконує carried.",
+                  "volunteers і who обов’язково додатки обох дієслів, бо оповідач сказав i.": "I thanked the volunteers who carried the boxes.\nЯ подякував волонтерам, які перенесли коробки. Роль іменника в головній частині не переноситься автоматично на relative word: who виконує carried, а не отримує цю дію.",
+                  "who — підмет thanked, а volunteers — виконавці головної дії thanked.": "I thanked the volunteers who carried the boxes.\nЯ подякував волонтерам, які перенесли коробки. Thanked виконує I, не who. Who належить до окремого опису й називає виконавців carried."
+                }
+              }
+            ],
+            "inputs": [
+              {
+                "id": "m62-relative-build-object",
+                "source_index": 5,
+                "before": "neighbour. / she / who / our / thanked / The / is / man",
+                "after": "Олена подякувала одному з двох чоловіків; цей адресат — сусід оповідача та його родини. She має позначати Олену, who — чоловіка-адресата, our — родину оповідача. Передай: «Чоловік, якому вона подякувала, — наш сусід». Використай задане who, не опускай його й не замінюй на інше relative word. Почни The man; дієслова thanked та is вже задані. Це вправа на ролі, не на кількість ком.",
+                "answer": "The man who she thanked is our neighbour.",
+                "accepted": [
+                  "The man who she thanked is our neighbour."
+                ],
+                "feedback": {
+                  "the man who she thanked is our neighbour.": "The man who she thanked is our neighbour.\nЧоловік, якому вона подякувала, — наш сусід. She — Олена, потрібний підмет thanked; who — чоловік, якому подякували. Is — головний присудок man. Українські коми не копіюються в англійську defining-модель.",
+                  "the man who she thanked is our neighbour": "The man who she thanked is our neighbour.\nЧоловік, якому вона подякувала, — наш сусід. She — Олена, потрібний підмет thanked; who — чоловік, якому подякували. Is — головний присудок man. Українські коми не копіюються в англійську defining-модель.",
+                  "the man who thanked she is our neighbour.": "The man who she thanked is our neighbour.\nЧоловік, якому вона подякувала, — наш сусід. Після thanked адресат мав би бути додатком, а she — форма підмета. Задум вимагає she перед thanked як іншого виконавця.",
+                  "the man who thanked she is our neighbour": "The man who she thanked is our neighbour.\nЧоловік, якому вона подякувала, — наш сусід. Після thanked адресат мав би бути додатком, а she — форма підмета. Задум вимагає she перед thanked як іншого виконавця."
+                }
+              },
+              {
+                "id": "m62-relative-build-subject",
+                "source_index": 6,
+                "before": "here. / herbs / who / The / meet / grow / students",
+                "after": "У навчальному саду кілька учнів разом вирощують пряні трави й збираються тут. Об’єднай: «Учні, які вирощують пряні трави, збираються тут». Почни The students, опис постав перед meet here. Використай who або допустиме в цій defining-моделі that; grow і meet мають узгоджуватися з множиною. Підметовий relative word не опускай. Лексика: students — учні; grow herbs — вирощувати пряні трави; meet here — збиратися тут.",
+                "answer": "The students who grow herbs meet here.",
+                "accepted": [
+                  "The students who grow herbs meet here.",
+                  "The students that grow herbs meet here."
+                ],
+                "feedback": {
+                  "the students who grow herbs meet here.": "The students who grow herbs meet here.\nУчні, які вирощують пряні трави, збираються тут. Who/that є підметом grow і стосується students; grow та meet без -s відповідають множині. Це не пряма питальна конструкція.",
+                  "the students who grow herbs meet here": "The students who grow herbs meet here.\nУчні, які вирощують пряні трави, збираються тут. Who/that є підметом grow і стосується students; grow та meet без -s відповідають множині. Це не пряма питальна конструкція.",
+                  "the students that grow herbs meet here.": "The students that grow herbs meet here.\nУчні, які вирощують пряні трави, збираються тут. Who/that є підметом grow і стосується students; grow та meet без -s відповідають множині. Це не пряма питальна конструкція.",
+                  "the students that grow herbs meet here": "The students that grow herbs meet here.\nУчні, які вирощують пряні трави, збираються тут. Who/that є підметом grow і стосується students; grow та meet без -s відповідають множині. Це не пряма питальна конструкція.",
+                  "the students who grows herbs meet here.": "The students who grow herbs meet here.\nУчні, які вирощують пряні трави, збираються тут. Grows має форму однини; підметовий who тут позначає кількох students, тому потрібне grow.",
+                  "the students who grows herbs meet here": "The students who grow herbs meet here.\nУчні, які вирощують пряні трави, збираються тут. Grows має форму однини; підметовий who тут позначає кількох students, тому потрібне grow."
+                }
+              }
+            ],
+            "linked_practice": {
+              "source": "theory_links",
+              "question_types": [
+                "4"
+              ],
+              "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotRelativeClausesAllLevelsLessonSeeder"
+              ],
+              "title": "Вправа 4. Побудуй речення",
+              "intro": "Склади англійське речення за українською умовою, клікаючи на слова.",
+              "footer": "Завдання підібрані лише для цієї теми."
+            }
+          }
+        }
+      ],
+      "details": [
+        {
+          "key": "relative-two-subject-positions",
+          "title": "Описуваний іменник не мусить бути підметом головної частини",
+          "owner_block_key": "relative-structure",
+          "owner_pointer": "/sections/2",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "ДВІ НЕЗАЛЕЖНІ ПЕРЕВІРКИ РОЛЕЙ",
+                  "color": "blue",
+                  "description": "Relative word отримує роль усередині свого опису; іменникова група з цим описом окремо отримує роль у головній частині. Тому ярлик subject relative clause не означає, що весь опис є підметовою підрядною іншого типу. У цій парі оповідач зустрів водія, а водій подзвонив оповідачеві; порядок цих двох подій тут не задано.",
+                  "examples": [
+                    {
+                      "en": "I met the driver who called me.",
+                      "ua": "Я зустрів водія, який мені зателефонував."
+                    },
+                    {
+                      "en": "The driver who I met called me.",
+                      "ua": "Водій, якого я зустрів, зателефонував мені."
+                    }
+                  ],
+                  "note": "У першому the driver — додаток met у головній частині, але who — підмет called усередині опису. У другому the driver — головний підмет called, але who — додаток met при підметі I. Учасники лишилися тими самими, змінилися місця граматичних ролей."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "status": "frozen",
+      "identity": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsDefiningRelativeClausesTheorySeeder",
+      "slug": "defining-relative-clauses",
+      "locale": "uk",
+      "display_level": "B1-B2",
+      "technical_block_level": "B1",
+      "category_ancestry": [
+        "clauses-and-linking-words"
+      ],
+      "local_url": "http://gramlyze.loc/theory/clauses-and-linking-words/defining-relative-clauses",
+      "subtitle_html": "<p><strong>Defining Relative Clauses</strong> — як уточнити потрібного референта або обмежити групу, не змінюючи ролей.</p>",
+      "subtitle_text": "Defining Relative Clauses — уточнення людини чи речі, вибір підгрупи, допустимі моделі й пунктуація.",
+      "blocks": [
+        {
+          "key": "defining-hero",
+          "existing_source_index": 0,
+          "type": "hero",
+          "column": "header",
+          "level": "B1",
+          "data": {
+            "level": "B1-B2",
+            "intro": "Defining Relative Clauses уточнюють, про яку людину, річ або групу йдеться. Без такого опису речення часто лишається граматичним, але слухач може вибрати інший об’єкт або зрозуміти ширшу групу. Перевір контекст, роль слова та межі англійського опису.",
+            "rules": [
+              {
+                "label": "ВИБРАТИ ПОТРІБНИЙ ОБ’ЄКТ",
+                "color": "emerald",
+                "text": "Опис може відрізняти одну річ від інших у відомому наборі.",
+                "example": "<span lang=\"en\">The key that has a green label opens this cupboard.</span><br><span lang=\"uk\">Ключ, у якого зелена етикетка, відмикає цю шафку.</span>"
+              },
+              {
+                "label": "ОБМЕЖИТИ ГРУПУ",
+                "color": "blue",
+                "text": "Defining не обов’язково називає один унікальний предмет.",
+                "example": "<span lang=\"en\">Passengers who need assistance should wait here.</span><br><span lang=\"uk\">Пасажирам, яким потрібна допомога, слід почекати тут.</span>"
+              },
+              {
+                "label": "БЕЗ КОМ НАВКОЛО ОПИСУ",
+                "color": "amber",
+                "text": "У цій англійській моделі defining clause не відокремлюємо; українські коми природні.",
+                "example": "<span lang=\"en\">The bag which I left upstairs is blue.</span><br><span lang=\"uk\">Сумка, яку я залишив нагорі, синя.</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "defining-reference",
+          "existing_source_index": 1,
+          "type": "usage-panels",
+          "column": "left",
+          "level": null,
+          "data": {
+            "title": "1. Що саме уточнює defining clause",
+            "sections": [
+              {
+                "label": "ОДНА РІЧ У ВІДОМОМУ НАБОРІ",
+                "color": "emerald",
+                "description": "На гачку три ключі: із зеленою, жовтою та білою етикетками. Співрозмовник не знає, який відмикає шафку. Опис that has a green label вибирає потрібний ключ.",
+                "examples": [
+                  {
+                    "en": "The key that has a green label opens this cupboard.",
+                    "ua": "Ключ, у якого зелена етикетка, відмикає цю шафку."
+                  },
+                  {
+                    "en": "The key opens this cupboard.",
+                    "ua": "Ключ відмикає цю шафку."
+                  }
+                ],
+                "note": "Друге речення граматичне, але в цьому контексті не називає, який із трьох ключів брати. Essential тут означає потрібне для заданого вибору, а не абсолютну граматичну неможливість видалення."
+              },
+              {
+                "label": "ПІДГРУПА, А НЕ ОБОВ’ЯЗКОВО ОДИН ПРЕДМЕТ",
+                "color": "blue",
+                "description": "На рейс зареєстровано двадцять пасажирів; четверо попросили допомоги, решта шістнадцять — ні. Інструкція стосується саме цих чотирьох.",
+                "examples": [
+                  {
+                    "en": "Passengers who need assistance should wait here.",
+                    "ua": "Пасажирам, яким потрібна допомога, слід почекати тут."
+                  }
+                ],
+                "note": "Опис відбирає групу за ознакою. Саме речення без доданих чисел не доводило б, що серед пасажирів обов’язково є хтось, кому допомога не потрібна; контраст тут задано умовою."
+              },
+              {
+                "label": "ВЖЕ ВІДОМИЙ РЕФЕРЕНТ ЧИ ПОТРІБНИЙ ВИБІР",
+                "color": "amber",
+                "description": "У Марка дві сестри: одна працює в театрі, друга — у пекарні. Співрозмовник знає обох, але не знає, яка зараз приїхала. Опис визначає потрібну сестру.",
+                "examples": [
+                  {
+                    "en": "My sister who works at the theatre has arrived.",
+                    "ua": "Моя сестра, яка працює в театрі, приїхала."
+                  }
+                ],
+                "note": "Кількість сестер відома з умови, не з однієї граматичної форми. Без такого контексту не перетворюй My sister who… на безумовний доказ певної кількості родичів."
+              }
+            ]
+          }
+        },
+        {
+          "key": "defining-patterns",
+          "existing_source_index": 2,
+          "type": "forms-grid",
+          "column": "left",
+          "level": null,
+          "data": {
+            "title": "2. Вибирай модель за роллю",
+            "intro": "Спочатку встанови дію всередині опису та її учасників. Слова who/that і which/that у наведених defining-моделях можуть бути допустимими альтернативами.",
+            "items": [
+              {
+                "label": "ЛЮДИНА ВИКОНУЄ ДІЮ",
+                "title": "person + who / that + verb",
+                "subtitle": "<span lang=\"en\">The technicians who check the lifts arrive early.</span><br><span lang=\"uk\">Техніки, які перевіряють ліфти, приходять рано.</span> Who — підмет check; technicians — множина, тому check і arrive без -s. Не опускай підметовий who/that."
+              },
+              {
+                "label": "РІЧ Є ДОДАТКОМ",
+                "title": "thing + which / that / Ø + subject + verb",
+                "subtitle": "<span lang=\"en\">The bag which I left upstairs is blue.</span><br><span lang=\"uk\">Сумка, яку я залишив нагорі, синя.</span><br><span lang=\"en\">The bag I left upstairs is blue.</span><br><span lang=\"uk\">Сумка, яку я залишив нагорі, синя.</span> I виконує left; bag — його додаток. That теж можливе. Тут можна опустити relative pronoun, але не підмет I."
+              },
+              {
+                "label": "НАЛЕЖНІСТЬ ЧИ ПОВ’ЯЗАНА ЧАСТИНА",
+                "title": "noun + whose + noun + verb",
+                "subtitle": "<span lang=\"en\">The traveller whose suitcase broke needs help.</span><br><span lang=\"uk\">Мандрівникові, чия валіза зламалася, потрібна допомога.</span> Whose suitcase — валіза мандрівника; підмет broke — suitcase. Whose не дорівнює who's і не обмежується лише людьми в усіх стилях."
+              },
+              {
+                "label": "МІСЦЕ ДІЇ, НЕ ДОДАТОК",
+                "title": "place + where + clause / place + which / that + subject + verb",
+                "subtitle": "<span lang=\"en\">The house where we stayed is empty.</span><br><span lang=\"uk\">Будинок, де ми зупинялися, порожній.</span><br><span lang=\"en\">The house that we photographed is empty.</span><br><span lang=\"uk\">Будинок, який ми сфотографували, порожній.</span> У першому місце відповідає in the house; у другому будинок — об’єкт photographed. Where не замінює його автоматично."
+              },
+              {
+                "label": "ЧАС ПОДІЇ",
+                "title": "time + when + clause",
+                "subtitle": "<span lang=\"en\">I remember the morning when the river froze.</span><br><span lang=\"uk\">Я пам’ятаю ранок, коли річка замерзла.</span> The river виконує froze; morning задає час. Не вибирай when лише через наявність будь-якого слова про час без перевірки будови."
+              }
+            ]
+          }
+        },
+        {
+          "key": "defining-meaning",
+          "existing_source_index": 3,
+          "type": "comparison-table",
+          "column": "right",
+          "level": null,
+          "data": {
+            "title": "3. Зміна опису змінює вибір, не завжди граматичність",
+            "intro": "Тут задано склад групи й знання співрозмовників. Приклади показують значення конкретних контекстів, не універсальний тест за кількістю ком.",
+            "headers": [
+              "Ситуація",
+              "Речення й переклад",
+              "Що обрано або повідомлено"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "У класі десять учнів; троє здали форму, семеро ще ні.",
+                  "<span lang=\"en\">The pupils who submitted the form can leave.</span><br><span lang=\"uk\">Учні, які здали форму, можуть іти.</span>",
+                  "Дозвіл стосується трьох. Без who submitted the form граматичне The pupils can leave — «Учні можуть іти» — у цій розмові поширило б дозвіл на всіх десятьох."
+                ]
+              },
+              {
+                "cells": [
+                  "Співрозмовники вже визначили трьох учнів; усі троє здали форму. Додаємо цей відомий факт як пояснення.",
+                  "<span lang=\"en\">The pupils, who submitted the form, can leave.</span><br><span lang=\"uk\">Учні, які здали форму, можуть іти.</span>",
+                  "Non-defining додає повідомлення про вже визначену всю групу. Український переклад без контексту може виглядати однаково; це не причина прибрати англійську різницю."
+                ]
+              },
+              {
+                "cells": [
+                  "У шафі різні інструкції; нові працівники отримують саме ілюстровані.",
+                  "<span lang=\"en\">Manuals that include diagrams are kept on this shelf.</span><br><span lang=\"uk\">Інструкції, які містять схеми, зберігають на цій полиці.</span>",
+                  "Визначено клас інструкцій за ознакою, не єдиний предмет. Це нейтральна навчальна ситуація, не наукове твердження про здібності певної групи людей."
+                ]
+              }
+            ],
+            "outro": "У короткому англійському defining-описі ком навколо clause немає. Але окрема кома поруч може належати вступній частині іншого речення; не класифікуй усі складні конструкції за одним знаком."
+          }
+        },
+        {
+          "key": "defining-mistakes",
+          "existing_source_index": 4,
+          "type": "mistakes-grid",
+          "column": "right",
+          "level": null,
+          "data": {
+            "title": "4. Помилки форми й невідповідність контексту",
+            "items": [
+              {
+                "label": "ОПИС МАЄ ВИБРАТИ ПІДГРУПУ",
+                "color": "rose",
+                "title": "Умова: із шести кур’єрів лише двоє мають сині жилети; покликати потрібно цих двох.",
+                "wrong_en": "The couriers, who wear blue vests, should come inside.",
+                "wrong_ua": "Задум: зайти повинні лише кур’єри в синіх жилетах. Ця версія додає ознаку всій уже визначеній групі.",
+                "right_en": "The couriers who wear blue vests should come inside.",
+                "right_ua": "Кур’єри, які носять сині жилети, мають зайти всередину.",
+                "note": "Обидві англійські моделі можуть бути граматичними, але non-defining не передає заданого відбору двох із шести. Коми в українському перекладі залишаються."
+              },
+              {
+                "label": "НАЗВА МІСЦЯ НЕ ДОРІВНЮЄ WHERE",
+                "color": "amber",
+                "title": "Намір: ми сфотографували цей будинок, не фотографували щось у ньому.",
+                "wrong_en": "The house where we photographed is empty.",
+                "wrong_ua": "Задум: будинок, який ми сфотографували, порожній; сам будинок — додаток photographed.",
+                "right_en": "The house that we photographed is empty.",
+                "right_ua": "Будинок, який ми сфотографували, порожній.",
+                "note": "Which або опущення object relative pronoun також можливі. Модель where we took photographs означала б місце, де ми робили знімки, а не обов’язково фотографували сам будинок."
+              },
+              {
+                "label": "НЕ ПОВТОРЮЙ ТОЙ САМИЙ ДОДАТОК",
+                "color": "sky",
+                "title": "Намір: я залишив нагорі саме цю сумку.",
+                "wrong_en": "The bag that I left it upstairs is blue.",
+                "wrong_ua": "Задум: сумка, яку я залишив нагорі, синя; it дублює bag як додаток left.",
+                "right_en": "The bag that I left upstairs is blue.",
+                "right_ua": "Сумка, яку я залишив нагорі, синя.",
+                "note": "I потрібне як виконавець left; прибираємо it, а не будь-яке слово після that. Object that можна опустити в цій простій defining-моделі."
+              }
+            ]
+          }
+        },
+        {
+          "key": "defining-summary",
+          "existing_source_index": 5,
+          "type": "summary-list",
+          "column": "right",
+          "level": null,
+          "data": {
+            "title": "5. Практичний алгоритм",
+            "items": [
+              "Установи, яку людину, річ або групу вже знає слухач. Чи потрібен опис для вибору, чи це додаткова відомість про вже визначене?",
+              "Постав опис поряд із потрібною іменниковою групою. Defining може вибирати один предмет або обмежувати цілий клас; не вигадуй, що інша підгрупа обов’язково існує.",
+              "Знайди підмет і додаток усередині опису. У простій object-моделі можливе опущення who/which/that; subject і whose не прибираємо за правилом «після нього є ще слово».",
+              "Збережи допустимі who/that та which/that; у короткій цільовій defining-моделі не став ком навколо опису. Пунктуацію українського перекладу оформлюй природно.",
+              "Повні Non-defining Relative Clauses та Omitting Relative Pronouns мають власні уроки в цій самій групі навігації."
+            ]
+          }
+        },
+        {
+          "key": "defining-navigation",
+          "existing_source_index": 6,
+          "type": "navigation-chips",
+          "column": "footer",
+          "level": null,
+          "data": {
+            "title": "Сторінки цього розділу",
+            "items": [
+              {
+                "label": "Relative Clauses",
+                "url": "/theory/clauses-and-linking-words/relative-clauses",
+                "current": false
+              },
+              {
+                "label": "Defining Relative Clauses",
+                "url": "/theory/clauses-and-linking-words/defining-relative-clauses",
+                "current": true
+              },
+              {
+                "label": "Non-defining Relative Clauses",
+                "url": "/theory/clauses-and-linking-words/non-defining-relative-clauses",
+                "current": false
+              },
+              {
+                "label": "Omitting Relative Pronouns",
+                "url": "/theory/clauses-and-linking-words/omitting-relative-pronouns",
+                "current": false
+              },
+              {
+                "label": "Linking Words",
+                "url": "/theory/clauses-and-linking-words/linking-words",
+                "current": false
+              },
+              {
+                "label": "Reason: because / since / as",
+                "url": "/theory/clauses-and-linking-words/reason-because-since-as",
+                "current": false
+              },
+              {
+                "label": "Result: so / therefore / as a result",
+                "url": "/theory/clauses-and-linking-words/result-so-therefore-as-a-result",
+                "current": false
+              },
+              {
+                "label": "Contrast: although / though / however",
+                "url": "/theory/clauses-and-linking-words/contrast-although-though-however",
+                "current": false
+              },
+              {
+                "label": "Purpose: to / in order to / so that",
+                "url": "/theory/clauses-and-linking-words/purpose-to-in-order-to-so-that",
+                "current": false
+              }
+            ]
+          }
+        },
+        {
+          "key": "defining-practice",
+          "existing_source_index": null,
+          "type": "practice-set",
+          "column": "left",
+          "level": "B1",
+          "data": {
+            "title": "Практика",
+            "select_title": "Доповни задану форму",
+            "select_intro": "Збережи названі ролі й виконай саме зазначену граматичну умову.",
+            "choice_title": "Обери точний зміст",
+            "choice_intro": "Спирайся на видимий контекст. Повний переклад англійського стимулу й пояснення відкриваються після перевірки.",
+            "input_title": "Побудуй повне речення",
+            "input_intro": "Введи відповідь або використай усі токени. Ручні альтернативи названі в умовах; готового порядку слів у банку немає.",
+            "rephrase": [],
+            "selects": [
+              {
+                "id": "m62-defining-form-agreement",
+                "source_index": 1,
+                "label": "У компанії шість техніків; троє живуть біля станції, троє — в іншому районі. Речення описує перших трьох. Who є підметом усередині опису й стосується множини technicians; вибери Present Simple.<br><span lang=\"en\">The technicians who ___ near the station arrive early.</span><br><span lang=\"uk\">Техніки, які живуть біля станції, приходять рано.</span>",
+                "options": [
+                  "lives",
+                  "live",
+                  "living"
+                ],
+                "answer": "live",
+                "accepted": [
+                  "live"
+                ],
+                "feedback": {
+                  "lives": "The technicians who live near the station arrive early.\nТехніки, які живуть біля станції, приходять рано. Lives — однина, а who тут позначає кількох technicians.",
+                  "live": "The technicians who live near the station arrive early.\nТехніки, які живуть біля станції, приходять рано. Live узгоджене з множиною; arrive — головний присудок тієї самої групи.",
+                  "living": "The technicians who live near the station arrive early.\nТехніки, які живуть біля станції, приходять рано. Living без be не є потрібним особовим присудком у цій who-clause."
+                }
+              },
+              {
+                "id": "m62-defining-form-place-object",
+                "source_index": 2,
+                "label": "У місті кілька музеїв. Група відвідала один із них, і його зараз ремонтують. Museum — саме об’єкт visited, не просто місце іншої дії. Вибери слово з наявних варіантів; which у defining дозволене.<br><span lang=\"en\">The museum ___ we visited is being repaired.</span><br><span lang=\"uk\">Музей, який ми відвідали, зараз ремонтують.</span>",
+                "options": [
+                  "where",
+                  "which",
+                  "whose"
+                ],
+                "answer": "which",
+                "accepted": [
+                  "which"
+                ],
+                "feedback": {
+                  "where": "The museum which we visited is being repaired.\nМузей, який ми відвідали, зараз ремонтують. Visited потребує прямого додатка: ми відвідали музей. Where змінило б роль і залишило цей додаток невисловленим у заданому задумі.",
+                  "which": "The museum which we visited is being repaired.\nМузей, який ми відвідали, зараз ремонтують. Which — додаток visited при підметі we. That або опущення були б іншими допустимими відповідями, але їх тут немає серед кандидатів.",
+                  "whose": "The museum which we visited is being repaired.\nМузей, який ми відвідали, зараз ремонтують. Whose передає належність перед noun, а не об’єкт visited."
+                }
+              }
+            ],
+            "choices": [
+              {
+                "id": "m62-defining-meaning-subgroup",
+                "source_index": 3,
+                "label": "На зміні шість екскурсоводів. Лише двоє розмовляють польською; покликати треба цих двох, не всіх шістьох. Який із двох англійських кандидатів передає саме цей відбір? Вибирай за наведеним контекстом.",
+                "prompt": "<span lang=\"en\">A. The guides who speak Polish should come here.</span><br><span lang=\"en\">B. The guides, who speak Polish, should come here.</span>",
+                "options": [
+                  "A: опис без ком вибирає двох екскурсоводів за ознакою.",
+                  "B: опис між комами вибирає лише двох із шести.",
+                  "Обидва кандидати за цим контекстом однаково вибирають лише двох."
+                ],
+                "answer": "A: опис без ком вибирає двох екскурсоводів за ознакою.",
+                "accepted": [
+                  "A: опис без ком вибирає двох екскурсоводів за ознакою."
+                ],
+                "feedback": {
+                  "a: опис без ком вибирає двох екскурсоводів за ознакою.": "A. The guides who speak Polish should come here.\nЕкскурсоводи, які розмовляють польською, мають підійти сюди: у заданій групі це двоє із шести.\nB. The guides, who speak Polish, should come here.\nЕкскурсоводи, які розмовляють польською, мають підійти сюди: ознаку додано про вже визначену всю групу, не для відбору двох. A — defining-відбір. B граматичне за іншого контексту, але не передає заданого відбору; українські коми природні в обох перекладах.",
+                  "b: опис між комами вибирає лише двох із шести.": "A. The guides who speak Polish should come here.\nЕкскурсоводи, які розмовляють польською, мають підійти сюди: у заданій групі це двоє із шести.\nB. The guides, who speak Polish, should come here.\nЕкскурсоводи, які розмовляють польською, мають підійти сюди: ознаку додано про вже визначену всю групу, не для відбору двох. B — non-defining: воно не звужує задану групу шести до двох. За цих фактів потрібне A.",
+                  "обидва кандидати за цим контекстом однаково вибирають лише двох.": "A. The guides who speak Polish should come here.\nЕкскурсоводи, які розмовляють польською, мають підійти сюди: у заданій групі це двоє із шести.\nB. The guides, who speak Polish, should come here.\nЕкскурсоводи, які розмовляють польською, мають підійти сюди: ознаку додано про вже визначену всю групу, не для відбору двох. Пунктуація в цих коротких прозорих кандидатах позначає різне значення; вони не взаємозамінні за заданими фактами."
+                }
+              },
+              {
+                "id": "m62-defining-meaning-deletion",
+                "source_index": 4,
+                "label": "У поштовому відділенні чотири посилки. Працівник і оповідач разом зважили лише одну й поклали її на прилавок. Співрозмовник ще не знає, яку саме зважили. Що відбудеться, якщо прибрати тільки that we weighed із наведеного речення?",
+                "prompt": "<span lang=\"en\">The parcel that we weighed is on the counter.</span>",
+                "options": [
+                  "Речення обов’язково стане неграматичним у будь-якому контексті.",
+                  "Речення лишиться граматичним, але в цій розмові перестане вибирати зважену посилку з чотирьох.",
+                  "Речення автоматично повідомлятиме, що всі чотири посилки лежать на прилавку."
+                ],
+                "answer": "Речення лишиться граматичним, але в цій розмові перестане вибирати зважену посилку з чотирьох.",
+                "accepted": [
+                  "Речення лишиться граматичним, але в цій розмові перестане вибирати зважену посилку з чотирьох."
+                ],
+                "feedback": {
+                  "речення обов’язково стане неграматичним у будь-якому контексті.": "The parcel that we weighed is on the counter.\nПосилка, яку ми зважили, лежить на прилавку. The parcel is on the counter — «Посилка лежить на прилавку» — граматичне речення, хоча заданої ознаки вибору вже немає.",
+                  "речення лишиться граматичним, але в цій розмові перестане вибирати зважену посилку з чотирьох.": "The parcel that we weighed is on the counter.\nПосилка, яку ми зважили, лежить на прилавку. Essential стосується потрібного в контексті вибору референта, не універсальної заборони видалення. We — працівник і оповідач, виконавці weighed.",
+                  "речення автоматично повідомлятиме, що всі чотири посилки лежать на прилавку.": "The parcel that we weighed is on the counter.\nПосилка, яку ми зважили, лежить на прилавку. Видалення опису не змінює the parcel на all the parcels і не доводить місця кожної."
+                }
+              }
+            ],
+            "inputs": [
+              {
+                "id": "m62-defining-build-object",
+                "source_index": 5,
+                "before": "cables. / Oksana / The / labelled / contains / box / that",
+                "after": "На столі чотири коробки. Оксана підписала лише одну; саме вона містить кабелі. Поєднай факти так, щоб вибрати підписану коробку: «Коробка, яку підписала Оксана, містить кабелі». Почни The box і заверши contains cables; у відносній частині Оксана — виконавець labelled, коробка — його додаток. Лексика: label a box — підписати коробку; contain cables — містити кабелі. Дозволені object that, which або їх опущення. Це не тест на коми.",
+                "answer": "The box that Oksana labelled contains cables.",
+                "accepted": [
+                  "The box that Oksana labelled contains cables.",
+                  "The box which Oksana labelled contains cables.",
+                  "The box Oksana labelled contains cables."
+                ],
+                "feedback": {
+                  "the box that oksana labelled contains cables.": "The box that Oksana labelled contains cables.\nКоробка, яку підписала Оксана, містить кабелі. Oksana — підмет labelled, box — його додаток; усі три названі object-моделі допустимі. Contains узгоджене з одниною box у головній частині.",
+                  "the box that oksana labelled contains cables": "The box that Oksana labelled contains cables.\nКоробка, яку підписала Оксана, містить кабелі. Oksana — підмет labelled, box — його додаток; усі три названі object-моделі допустимі. Contains узгоджене з одниною box у головній частині.",
+                  "the box which oksana labelled contains cables.": "The box which Oksana labelled contains cables.\nКоробка, яку підписала Оксана, містить кабелі. Oksana — підмет labelled, box — його додаток; усі три названі object-моделі допустимі. Contains узгоджене з одниною box у головній частині.",
+                  "the box which oksana labelled contains cables": "The box which Oksana labelled contains cables.\nКоробка, яку підписала Оксана, містить кабелі. Oksana — підмет labelled, box — його додаток; усі три названі object-моделі допустимі. Contains узгоджене з одниною box у головній частині.",
+                  "the box oksana labelled contains cables.": "The box Oksana labelled contains cables.\nКоробка, яку підписала Оксана, містить кабелі. Oksana — підмет labelled, box — його додаток; усі три названі object-моделі допустимі. Contains узгоджене з одниною box у головній частині.",
+                  "the box oksana labelled contains cables": "The box Oksana labelled contains cables.\nКоробка, яку підписала Оксана, містить кабелі. Oksana — підмет labelled, box — його додаток; усі три названі object-моделі допустимі. Contains узгоджене з одниною box у головній частині.",
+                  "the box that oksana labelled it contains cables.": "The box that Oksana labelled contains cables.\nКоробка, яку підписала Оксана, містить кабелі. It зайво повторює box як додаток labelled; Оксану як потрібного виконавця зберігаємо.",
+                  "the box that oksana labelled it contains cables": "The box that Oksana labelled contains cables.\nКоробка, яку підписала Оксана, містить кабелі. It зайво повторює box як додаток labelled; Оксану як потрібного виконавця зберігаємо."
+                }
+              },
+              {
+                "id": "m62-defining-build-whose",
+                "source_index": 6,
+                "before": "outside. / whose / pass / waiting / The / is / expired / visitor",
+                "after": "У приймальні троє відвідувачів; в одного закінчився строк дії перепустки. Цей відвідувач чекає надворі. Вибери його через whose + noun: «Відвідувач, у якого закінчився строк дії перепустки, чекає надворі». Почни The visitor, використай pass expired усередині опису та is waiting outside у головній частині. Pass належить саме цьому visitor. Relative whose не опускай і не замінюй на who's.",
+                "answer": "The visitor whose pass expired is waiting outside.",
+                "accepted": [
+                  "The visitor whose pass expired is waiting outside."
+                ],
+                "feedback": {
+                  "the visitor whose pass expired is waiting outside.": "The visitor whose pass expired is waiting outside.\nВідвідувач, у якого закінчився строк дії перепустки, чекає надворі. Whose pass називає перепустку цього відвідувача; pass — підмет expired, а visitor — підмет is waiting. Не додаємо ще одного his після whose.",
+                  "the visitor whose pass expired is waiting outside": "The visitor whose pass expired is waiting outside.\nВідвідувач, у якого закінчився строк дії перепустки, чекає надворі. Whose pass називає перепустку цього відвідувача; pass — підмет expired, а visitor — підмет is waiting. Не додаємо ще одного his після whose.",
+                  "the visitor who's pass expired is waiting outside.": "The visitor whose pass expired is waiting outside.\nВідвідувач, у якого закінчився строк дії перепустки, чекає надворі. Who's є скороченням who is або who has, не словом належності перед pass; потрібне whose.",
+                  "the visitor who's pass expired is waiting outside": "The visitor whose pass expired is waiting outside.\nВідвідувач, у якого закінчився строк дії перепустки, чекає надворі. Who's є скороченням who is або who has, не словом належності перед pass; потрібне whose."
+                }
+              }
+            ],
+            "linked_practice": {
+              "source": "theory_links",
+              "question_types": [
+                "4"
+              ],
+              "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotDefiningRelativeClausesAllLevelsLessonSeeder"
+              ],
+              "title": "Вправа 4. Побудуй речення",
+              "intro": "Склади англійське речення за українською умовою, клікаючи на слова.",
+              "footer": "Завдання підібрані лише для цієї теми."
+            }
+          }
+        }
+      ],
+      "details": [
+        {
+          "key": "defining-preposition-position",
+          "title": "Прийменник може залишатися наприкінці",
+          "owner_block_key": "defining-patterns",
+          "owner_pointer": "/items/1",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "ФОРМАЛЬНІСТЬ І ПОЗИЦІЯ — НЕ ОДНЕ ПРАВИЛО",
+                  "color": "blue",
+                  "description": "У майстерні кілька фахівців. Оповідач описує того, з ким він радився про раму. Spoke to потребує адресата розмови; у першій моделі прийменник лишається наприкінці, у другій стоїть перед formal whom. Зміст і учасники не змінюються.",
+                  "examples": [
+                    {
+                      "en": "The specialist who I spoke to repaired the frame.",
+                      "ua": "Фахівець, з яким я говорив, полагодив раму."
+                    },
+                    {
+                      "en": "The specialist to whom I spoke repaired the frame.",
+                      "ua": "Фахівець, з яким я говорив, полагодив раму."
+                    }
+                  ],
+                  "note": "Кінцеве to не є помилкою. У простій defining-моделі з кінцевим to можливі object that або опущення займенника. У наведеній парі без іменника після relative word після винесеного вперед to потрібне whom для людини; відповідна модель для речі має which, не to that. Це не заборона whose + noun після прийменника в інших моделях. Не переносимо опущення на subject, whose або non-defining."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

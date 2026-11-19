@@ -1,0 +1,664 @@
+{
+    "schema_version": 1,
+    "quality_revision": "vpq-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-patterns-quality/verbs-plus-gerund.v1.json",
+        "sha256": "486159377a9e902ff54fe39abf9b0a360f3740e459306aa0afaba4a34e691398"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\VerbPatterns\\UkrainianMixedVpqVerbsPlusGerundQualityStandardSeeder",
+        "uuid_namespace": "verb-patterns-quality-verbs-plus-gerund-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Verb Patterns"
+    },
+    "sources": {
+        "verb_patterns_quality_verbs_plus_gerund": {
+            "name": "Verb Patterns Quality: Verbs + Gerund — дієслівні моделі"
+        }
+    },
+    "tags": {
+        "verbs_plus_gerund": {
+            "name": "Verbs Plus Gerund",
+            "category": "verb_patterns"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "enjoy_doing": {
+            "name": "Enjoy Doing",
+            "category": "topic"
+        },
+        "avoid_doing": {
+            "name": "Avoid Doing",
+            "category": "topic"
+        },
+        "suggest_doing": {
+            "name": "Suggest Doing",
+            "category": "topic"
+        },
+        "finish_doing": {
+            "name": "Finish Doing",
+            "category": "topic"
+        },
+        "mind_doing": {
+            "name": "Mind Doing",
+            "category": "topic"
+        },
+        "keep_doing": {
+            "name": "Keep Doing",
+            "category": "topic"
+        },
+        "consider_doing": {
+            "name": "Consider Doing",
+            "category": "topic"
+        },
+        "other_gerund_verbs": {
+            "name": "Other Gerund Verbs",
+            "category": "topic"
+        },
+        "negative_gerund_pattern": {
+            "name": "Negative Gerund Pattern",
+            "category": "topic"
+        },
+        "gerund_infinitive_contrast": {
+            "name": "Gerund Infinitive Contrast",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "vpq-verbs-gerund-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Ben enjoys {a1} with chalk.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_patterns_quality_verbs_plus_gerund",
+            "translation_uk": "Бенові подобається малювати крейдою.",
+            "target_text": "Ben enjoys drawing with chalk.",
+            "markers": {
+                "a1": {
+                    "answer": "drawing",
+                    "options": [
+                        "drawing",
+                        "to draw",
+                        "draw"
+                    ],
+                    "verb_hint": "Малювати: після дієслова задоволення назви заняття, не майбутній намір."
+                }
+            },
+            "verb_hint": "Малювати: після дієслова задоволення назви заняття, не майбутній намір.",
+            "accepted_target_texts": [
+                "Ben enjoys drawing with chalk."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Ben enjoys",
+                "drawing",
+                "with chalk."
+            ],
+            "token_groups": [
+                "Ben enjoys",
+                "drawing",
+                "with chalk."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "vpq-verbs-gerund-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Do you mind {a1} here?",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_patterns_quality_verbs_plus_gerund",
+            "translation_uk": "Ти не проти почекати тут?",
+            "target_text": "Do you mind waiting here?",
+            "markers": {
+                "a1": {
+                    "answer": "waiting",
+                    "options": [
+                        "waiting",
+                        "to wait",
+                        "wait"
+                    ],
+                    "verb_hint": "Чекати: після питання про заперечення співрозмовника потрібна назва цієї дії."
+                }
+            },
+            "verb_hint": "Чекати: після питання про заперечення співрозмовника потрібна назва цієї дії.",
+            "accepted_target_texts": [
+                "Do you mind waiting here?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do you mind",
+                "waiting here?"
+            ],
+            "token_groups": [
+                "Do you mind",
+                "waiting here?"
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "vpq-verbs-gerund-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Her brother finished {a1} the fence at noon.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_patterns_quality_verbs_plus_gerund",
+            "translation_uk": "Її брат закінчив фарбувати паркан опівдні.",
+            "target_text": "Her brother finished painting the fence at noon.",
+            "markers": {
+                "a1": {
+                    "answer": "painting",
+                    "options": [
+                        "painting",
+                        "to paint",
+                        "paint"
+                    ],
+                    "verb_hint": "Фарбувати: після минулого завершення потрібна назва дії; не додавай повідомлення про іншу роботу."
+                }
+            },
+            "verb_hint": "Фарбувати: після минулого завершення потрібна назва дії; не додавай повідомлення про іншу роботу.",
+            "accepted_target_texts": [
+                "Her brother finished painting the fence at noon."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Her brother",
+                "finished painting",
+                "the fence",
+                "at noon."
+            ],
+            "token_groups": [
+                "Her brother",
+                "finished painting",
+                "the fence",
+                "at noon."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "vpq-verbs-gerund-a2-g02",
+            "author_id": "A2-g02",
+            "question": "I cannot imagine {a1} without my glasses.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_patterns_quality_verbs_plus_gerund",
+            "translation_uk": "Я не можу уявити читання без своїх окулярів.",
+            "target_text": "I cannot imagine reading without my glasses.",
+            "markers": {
+                "a1": {
+                    "answer": "reading",
+                    "options": [
+                        "reading",
+                        "to read",
+                        "read"
+                    ],
+                    "verb_hint": "Читати: після уявлення назви саме заняття, а не мету або майбутній план."
+                }
+            },
+            "verb_hint": "Читати: після уявлення назви саме заняття, а не мету або майбутній план.",
+            "accepted_target_texts": [
+                "I cannot imagine reading without my glasses."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I cannot imagine",
+                "reading",
+                "without my glasses."
+            ],
+            "token_groups": [
+                "I cannot imagine",
+                "reading",
+                "without my glasses."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "vpq-verbs-gerund-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The neighbours admitted {a1} the alarm by mistake.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_patterns_quality_verbs_plus_gerund",
+            "translation_uk": "Сусіди визнали, що помилково активували сигналізацію.",
+            "target_text": "The neighbours admitted setting off the alarm by mistake.",
+            "markers": {
+                "a1": {
+                    "answer": "setting off",
+                    "options": [
+                        "setting off",
+                        "to set off",
+                        "set off"
+                    ],
+                    "verb_hint": "Активувати сигналізацію: після визнання факту назви спричинення її спрацювання як дію."
+                }
+            },
+            "verb_hint": "Активувати сигналізацію: після визнання факту назви спричинення її спрацювання як дію.",
+            "accepted_target_texts": [
+                "The neighbours admitted setting off the alarm by mistake.",
+                "The neighbours admitted triggering the alarm by mistake."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "triggering"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "triggering"
+                ]
+            },
+            "reorder_groups": [
+                "The neighbours admitted",
+                "setting off",
+                "the alarm",
+                "by mistake."
+            ],
+            "token_groups": [
+                "The neighbours admitted",
+                "setting off",
+                "the alarm",
+                "by mistake."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "vpq-verbs-gerund-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Has your team considered {a1} the delivery date?",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_patterns_quality_verbs_plus_gerund",
+            "translation_uk": "Ваша команда розглядала можливість змінити дату доставки?",
+            "target_text": "Has your team considered changing the delivery date?",
+            "markers": {
+                "a1": {
+                    "answer": "changing",
+                    "options": [
+                        "changing",
+                        "to change",
+                        "change"
+                    ],
+                    "verb_hint": "Змінити: після розгляду можливості потрібна назва дії; саме рішення ще не підтверджене."
+                }
+            },
+            "verb_hint": "Змінити: після розгляду можливості потрібна назва дії; саме рішення ще не підтверджене.",
+            "accepted_target_texts": [
+                "Has your team considered changing the delivery date?",
+                "Has your team considered altering the delivery date?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "altering"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "altering"
+                ]
+            },
+            "reorder_groups": [
+                "Has your team",
+                "considered changing",
+                "the delivery date?"
+            ],
+            "token_groups": [
+                "Has your team",
+                "considered changing",
+                "the delivery date?"
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "vpq-verbs-gerund-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Our solicitor recommended {a1} a copy of every receipt.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_patterns_quality_verbs_plus_gerund",
+            "translation_uk": "Наш юрист порадив зберігати копію кожної квитанції.",
+            "target_text": "Our solicitor recommended keeping a copy of every receipt.",
+            "markers": {
+                "a1": {
+                    "answer": "keeping",
+                    "options": [
+                        "keeping",
+                        "to keep",
+                        "keep"
+                    ],
+                    "verb_hint": "Зберігати: після рекомендації назви дію без окремого виконавця; йдеться про кожну квитанцію."
+                }
+            },
+            "verb_hint": "Зберігати: після рекомендації назви дію без окремого виконавця; йдеться про кожну квитанцію.",
+            "accepted_target_texts": [
+                "Our solicitor recommended keeping a copy of every receipt.",
+                "Our solicitor recommended saving a copy of every receipt.",
+                "Our solicitor recommended retaining a copy of every receipt."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "saving",
+                    "retaining"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "saving",
+                    "retaining"
+                ]
+            },
+            "reorder_groups": [
+                "Our solicitor",
+                "recommended keeping",
+                "a copy of",
+                "every receipt."
+            ],
+            "token_groups": [
+                "Our solicitor",
+                "recommended keeping",
+                "a copy of",
+                "every receipt."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "vpq-verbs-gerund-b2-g02",
+            "author_id": "B2-g02",
+            "question": "He resented {a1} from the discussion.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_patterns_quality_verbs_plus_gerund",
+            "translation_uk": "Він обурювався тим, що його усунули від обговорення.",
+            "target_text": "He resented being excluded from the discussion.",
+            "markers": {
+                "a1": {
+                    "answer": "being excluded",
+                    "options": [
+                        "being excluded",
+                        "to exclude",
+                        "excluding"
+                    ],
+                    "verb_hint": "Усунути від обговорення: потрібна пасивна назва дії, якої зазнав підмет, а не його власна дія."
+                }
+            },
+            "verb_hint": "Усунути від обговорення: потрібна пасивна назва дії, якої зазнав підмет, а не його власна дія.",
+            "accepted_target_texts": [
+                "He resented being excluded from the discussion."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He resented",
+                "being excluded",
+                "from the discussion."
+            ],
+            "token_groups": [
+                "He resented",
+                "being excluded",
+                "from the discussion."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "vpq-verbs-gerund-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The committee deferred {a1} the proposal until independent figures arrived.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_patterns_quality_verbs_plus_gerund",
+            "translation_uk": "Комітет відклав оцінювання пропозиції до отримання незалежних даних.",
+            "target_text": "The committee deferred assessing the proposal until independent figures arrived.",
+            "markers": {
+                "a1": {
+                    "answer": "assessing",
+                    "options": [
+                        "assessing",
+                        "to assess",
+                        "assess"
+                    ],
+                    "verb_hint": "Оцінювати: після відкладення назви дію розгляду якості; дані є умовою її подальшого виконання."
+                }
+            },
+            "verb_hint": "Оцінювати: після відкладення назви дію розгляду якості; дані є умовою її подальшого виконання.",
+            "accepted_target_texts": [
+                "The committee deferred assessing the proposal until independent figures arrived.",
+                "The committee deferred evaluating the proposal until independent figures arrived.",
+                "The committee deferred appraising the proposal until independent figures arrived."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "evaluating",
+                    "appraising"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "evaluating",
+                    "appraising"
+                ]
+            },
+            "reorder_groups": [
+                "The committee",
+                "deferred assessing",
+                "the proposal",
+                "until independent figures",
+                "arrived."
+            ],
+            "token_groups": [
+                "The committee",
+                "deferred assessing",
+                "the proposal",
+                "until independent figures",
+                "arrived."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "vpq-verbs-gerund-c1-g02",
+            "author_id": "C1-g02",
+            "question": "I would appreciate your {a1} the discrepancy confidentially.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_patterns_quality_verbs_plus_gerund",
+            "translation_uk": "Я був би вдячний, якби ти конфіденційно опрацював цю розбіжність.",
+            "target_text": "I would appreciate your handling the discrepancy confidentially.",
+            "markers": {
+                "a1": {
+                    "answer": "handling",
+                    "options": [
+                        "handling",
+                        "to handle",
+                        "handled"
+                    ],
+                    "verb_hint": "Опрацювати питання: після вдячності та присвійного займенника назви дію відповідального розгляду."
+                }
+            },
+            "verb_hint": "Опрацювати питання: після вдячності та присвійного займенника назви дію відповідального розгляду.",
+            "accepted_target_texts": [
+                "I would appreciate your handling the discrepancy confidentially.",
+                "I would appreciate your addressing the discrepancy confidentially."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "addressing"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "addressing"
+                ]
+            },
+            "reorder_groups": [
+                "I would appreciate",
+                "your handling",
+                "the discrepancy",
+                "confidentially."
+            ],
+            "token_groups": [
+                "I would appreciate",
+                "your handling",
+                "the discrepancy",
+                "confidentially."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "vpq-verbs-gerund-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The report envisages {a1} restrictions as compliance improves.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_patterns_quality_verbs_plus_gerund",
+            "translation_uk": "Звіт передбачає поступове послаблення обмежень у міру поліпшення дотримання вимог.",
+            "target_text": "The report envisages gradually easing restrictions as compliance improves.",
+            "markers": {
+                "a1": {
+                    "answer": "gradually easing",
+                    "options": [
+                        "gradually easing",
+                        "to gradually ease",
+                        "gradual easing"
+                    ],
+                    "verb_hint": "Поступово послаблювати: після передбачення назви дію, а її поступовість передай прислівником."
+                }
+            },
+            "verb_hint": "Поступово послаблювати: після передбачення назви дію, а її поступовість передай прислівником.",
+            "accepted_target_texts": [
+                "The report envisages gradually easing restrictions as compliance improves.",
+                "The report envisages gradually relaxing restrictions as compliance improves."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "gradually relaxing"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "gradually relaxing"
+                ]
+            },
+            "reorder_groups": [
+                "The report envisages",
+                "gradually easing",
+                "restrictions as",
+                "compliance improves."
+            ],
+            "token_groups": [
+                "The report envisages",
+                "gradually easing",
+                "restrictions as",
+                "compliance improves."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "vpq-verbs-gerund-c2-g02",
+            "author_id": "C2-g02",
+            "question": "She disputed {a1} exclusive control of the archive.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_patterns_quality_verbs_plus_gerund",
+            "translation_uk": "Вона заперечувала, що їй раніше надали винятковий контроль над архівом.",
+            "target_text": "She disputed having been granted exclusive control of the archive.",
+            "markers": {
+                "a1": {
+                    "answer": "having been granted",
+                    "options": [
+                        "having been granted",
+                        "to have been granted",
+                        "having granted"
+                    ],
+                    "verb_hint": "Надати їй контроль: потрібна доконана пасивна назва попередньої дії, не активне надання з її боку."
+                }
+            },
+            "verb_hint": "Надати їй контроль: потрібна доконана пасивна назва попередньої дії, не активне надання з її боку.",
+            "accepted_target_texts": [
+                "She disputed having been granted exclusive control of the archive."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She disputed",
+                "having been granted",
+                "exclusive control of",
+                "the archive."
+            ],
+            "token_groups": [
+                "She disputed",
+                "having been granted",
+                "exclusive control of",
+                "the archive."
+            ],
+            "quality_revision": "vpq-v1"
+        }
+    ]
+}

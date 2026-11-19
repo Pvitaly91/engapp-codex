@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 59762,
+        "uuid": "woq-basic-a2-g01",
+        "question": "Her brother {a1} in the kitchen.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 4,
+        "source_id": 411,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\WordOrder\\UkrainianMixedBasicWordOrderQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "is making dinner",
+                "making is dinner",
+                "is dinner making"
+            ]
+        },
+        "theory_text_block_uuid": "cd9274c0-891f-57b1-8bc7-5f41b4016dbc",
+        "created_at": "2026-10-27T01:00:49.000000Z",
+        "updated_at": "2026-10-27T01:00:49.000000Z"
+    },
+    "category": {
+        "id": 4,
+        "name": "Базова граматика / Word Order",
+        "created_at": "2026-04-23T14:15:58.000000Z",
+        "updated_at": "2026-04-23T14:15:58.000000Z"
+    },
+    "source": {
+        "id": 411,
+        "name": "Word Order Quality: Базовий порядок слів",
+        "created_at": "2026-10-27T01:00:48.000000Z",
+        "updated_at": "2026-10-27T01:00:48.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 127,
+                "name": "Affirmative Sentences",
+                "category": null,
+                "created_at": "2026-04-23T14:15:14.000000Z",
+                "updated_at": "2026-04-23T14:15:14.000000Z"
+            },
+            "pivot": {
+                "question_id": 59762,
+                "tag_id": 127,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 50836,
+                "option": "is making dinner",
+                "created_at": "2026-10-27T01:00:49.000000Z",
+                "updated_at": "2026-10-27T01:00:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 59762,
+                "option_id": 50836,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 50838,
+                "option": "making is dinner",
+                "created_at": "2026-10-27T01:00:49.000000Z",
+                "updated_at": "2026-10-27T01:00:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 59762,
+                "option_id": 50838,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 50839,
+                "option": "is dinner making",
+                "created_at": "2026-10-27T01:00:49.000000Z",
+                "updated_at": "2026-10-27T01:00:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 59762,
+                "option_id": 50839,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 322470,
+                "question_id": 59762,
+                "marker": "a1",
+                "option_id": 50836,
+                "created_at": "2026-10-27T01:00:49.000000Z",
+                "updated_at": "2026-10-27T01:00:49.000000Z"
+            },
+            "option": {
+                "id": 50836,
+                "option": "is making dinner",
+                "created_at": "2026-10-27T01:00:49.000000Z",
+                "updated_at": "2026-10-27T01:00:49.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 39804,
+                "question_id": 59762,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 50837,
+                "created_at": "2026-10-27T01:00:49.000000Z",
+                "updated_at": "2026-10-27T01:00:49.000000Z"
+            },
+            "option": {
+                "id": 50837,
+                "option": "Потрібна тривала дія зараз: допоміжне дієслово передує основному, а страва стоїть після нього.",
+                "created_at": "2026-10-27T01:00:49.000000Z",
+                "updated_at": "2026-10-27T01:00:49.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 51777,
+            "question_id": 59762,
+            "text": "Her brother {a1} in the kitchen.",
+            "created_at": "2026-10-27T01:00:49.000000Z",
+            "updated_at": "2026-10-27T01:00:49.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

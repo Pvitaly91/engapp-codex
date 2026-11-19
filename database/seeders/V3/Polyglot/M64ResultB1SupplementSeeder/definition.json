@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Polyglot\\M64ResultB1SupplementSeeder",
+    "uuid_namespace": "M64ResultB1SupplementSeeder"
+  },
+  "taxonomy_status": "confirmed-existing-only",
+  "taxonomy_note_uk": "Використано чинні English Sentence Builder та source цієї теми. Це versioned авторське доповнення; робочу БД змінює лише окремий guarded insert-only M64 workflow, не reseed.",
+  "defaults": {
+    "default_locale": "uk",
+    "flag": 0,
+    "type": 4,
+    "level_difficulty": {
+      "B1": 3
+    }
+  },
+  "category": {
+    "name": "English Sentence Builder"
+  },
+  "sources": {
+    "result": {
+      "name": "Result: so / therefore / as a result"
+    }
+  },
+  "tags": {},
+  "default_tag_keys": [],
+  "questions": [
+    {
+      "uuid": "m64-result-b1-01",
+      "source_uid": "m64-result-b1-01",
+      "question": "Принтер зламаний, і тому ми надішлемо файл електронною поштою. Поломка — підстава майбутнього рішення, а не доказ уже надісланого листа. Збережи and, постав therefore після will, почни з The printer. Send the file — надіслати файл; by email — електронною поштою.",
+      "level": "B1",
+      "type": 4,
+      "source_text_uk": "Принтер зламаний, і тому ми надішлемо файл електронною поштою. Поломка — підстава майбутнього рішення, а не доказ уже надісланого листа. Збережи and, постав therefore після will, почни з The printer. Send the file — надіслати файл; by email — електронною поштою.",
+      "target_text": "The printer is broken, and we will therefore send the file by email.",
+      "tokens_correct": [
+        "The",
+        "printer",
+        "is",
+        "broken",
+        ",",
+        "and",
+        "we",
+        "will",
+        "therefore",
+        "send",
+        "the",
+        "file",
+        "by",
+        "email",
+        "."
+      ],
+      "answers": {
+        "a1": "The",
+        "a2": "printer",
+        "a3": "is",
+        "a4": "broken",
+        "a5": ",",
+        "a6": "and",
+        "a7": "we",
+        "a8": "will",
+        "a9": "therefore",
+        "a10": "send",
+        "a11": "the",
+        "a12": "file",
+        "a13": "by",
+        "a14": "email",
+        "a15": "."
+      },
+      "options": [
+        "The",
+        "printer",
+        "is",
+        "broken",
+        ",",
+        "and",
+        "we",
+        "will",
+        "therefore",
+        "send",
+        "the",
+        "file",
+        "by",
+        "email",
+        ".",
+        "because",
+        "although",
+        "sent"
+      ],
+      "source": "result"
+    },
+    {
+      "uuid": "m64-result-b1-02",
+      "source_uid": "m64-result-b1-02",
+      "question": "Через затримку вони не побачили вистави. Затримка спричинила пропущену виставу. Почни з As a result of, назви delay, потім збережи повне заперечення без скорочення; show — вистава.",
+      "level": "B1",
+      "type": 4,
+      "source_text_uk": "Через затримку вони не побачили вистави. Затримка спричинила пропущену виставу. Почни з As a result of, назви delay, потім збережи повне заперечення без скорочення; show — вистава.",
+      "target_text": "As a result of the delay, they did not see the show.",
+      "tokens_correct": [
+        "As",
+        "a",
+        "result",
+        "of",
+        "the",
+        "delay",
+        ",",
+        "they",
+        "did",
+        "not",
+        "see",
+        "the",
+        "show",
+        "."
+      ],
+      "answers": {
+        "a1": "As",
+        "a2": "a",
+        "a3": "result",
+        "a4": "of",
+        "a5": "the",
+        "a6": "delay",
+        "a7": ",",
+        "a8": "they",
+        "a9": "did",
+        "a10": "not",
+        "a11": "see",
+        "a12": "the",
+        "a13": "show",
+        "a14": "."
+      },
+      "options": [
+        "As",
+        "a",
+        "result",
+        "of",
+        "the",
+        "delay",
+        ",",
+        "they",
+        "did",
+        "not",
+        "see",
+        "the",
+        "show",
+        ".",
+        "so",
+        "because",
+        "saw"
+      ],
+      "source": "result"
+    }
+  ]
+}

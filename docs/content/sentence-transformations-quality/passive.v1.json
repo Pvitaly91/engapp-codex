@@ -1,0 +1,675 @@
+{
+    "schema_version": 1,
+    "topic_key": "passive",
+    "title": "Sentence Transformations: Passive",
+    "choice_pools": {
+        "plural_noun_phrase": [
+            "these books",
+            "those chairs",
+            "the flowers",
+            "our neighbours",
+            "my parents",
+            "the children",
+            "their friends",
+            "these cameras"
+        ],
+        "present_passive_plural": [
+            "are washed",
+            "are checked",
+            "are carried",
+            "are packed",
+            "are stored",
+            "are used",
+            "are opened",
+            "are moved"
+        ],
+        "agent_phrase": [
+            "by the workers",
+            "by the teacher",
+            "by the children",
+            "by my sister",
+            "by our neighbours",
+            "by the driver",
+            "by her father",
+            "by his mother"
+        ],
+        "proper_noun": [
+            "Lida",
+            "Nazar",
+            "Iryna",
+            "Taras",
+            "Marta",
+            "Danylo",
+            "Sofiia",
+            "Oleh",
+            "Nina",
+            "Ivan"
+        ],
+        "past_transitive_verb": [
+            "made",
+            "bought",
+            "checked",
+            "carried",
+            "opened",
+            "closed",
+            "painted",
+            "moved",
+            "repaired",
+            "found"
+        ],
+        "noun_phrase": [
+            "a red cup",
+            "the blue box",
+            "her new hat",
+            "some old books",
+            "my little dog",
+            "a small room",
+            "the front door",
+            "a green chair",
+            "his warm coat",
+            "their garden"
+        ],
+        "perfect_auxiliary": [
+            "have already been",
+            "have just been",
+            "have never been",
+            "have recently been",
+            "have also been",
+            "had already been",
+            "have now been",
+            "have finally been"
+        ],
+        "past_participle": [
+            "found",
+            "opened",
+            "closed",
+            "carried",
+            "checked",
+            "made",
+            "taken",
+            "seen",
+            "written",
+            "chosen"
+        ],
+        "causative_past_subject": [
+            "We had",
+            "They had",
+            "She had",
+            "He had",
+            "I had",
+            "You had",
+            "Our parents had",
+            "The teacher had"
+        ],
+        "subject_singular": [
+            "he",
+            "she",
+            "my brother",
+            "my sister",
+            "our teacher",
+            "the driver",
+            "a child",
+            "the woman",
+            "her father",
+            "his mother"
+        ],
+        "present_transitive_verb": [
+            "hates",
+            "likes",
+            "enjoys",
+            "avoids",
+            "prefers",
+            "needs",
+            "wants",
+            "imagines"
+        ],
+        "passive_gerund": [
+            "being asked",
+            "being watched",
+            "being helped",
+            "being taught",
+            "being moved",
+            "being named",
+            "being chosen",
+            "being heard"
+        ],
+        "closed_prepositional_phrase": [
+            "in the garden",
+            "on the desk",
+            "near the shop",
+            "under the bed",
+            "after the lesson",
+            "before the match",
+            "with my friend",
+            "at the station"
+        ],
+        "cleft_subject_aux": [
+            "It was",
+            "It is",
+            "That was",
+            "This was",
+            "What was",
+            "There was",
+            "It seems",
+            "It became"
+        ],
+        "relative_passive": [
+            "that was found",
+            "that was checked",
+            "which was moved",
+            "that was opened",
+            "which was painted",
+            "that was repaired",
+            "which was lost",
+            "that was chosen"
+        ],
+        "adverbial_clause": [
+            "by mistake",
+            "on purpose",
+            "in secret",
+            "without warning",
+            "before lunch",
+            "after school",
+            "at once",
+            "very slowly"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The fence {a1} by Anton.",
+            "target": "The fence is painted by Anton.",
+            "uk": "Початкове: «За звичним порядком паркан фарбує Антон».",
+            "hint_uk": "Початкове: «За звичним порядком паркан фарбує Антон». Зміни актив на пасив; збережи звичайний теперішній час і виконавця.",
+            "groups": [
+                "The fence",
+                "is painted",
+                "by Anton."
+            ],
+            "answer": "is painted",
+            "options": [
+                "is painted",
+                "paints",
+                "are painted"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The flowers {a1} by the gardener.",
+            "target": "The flowers are watered by the gardener.",
+            "uk": "Початкове: «Садівник поливає квіти».",
+            "hint_uk": "Початкове: «Садівник поливає квіти». Перебудуй у пасив, не змінюючи дії та виконавця.",
+            "groups": [
+                "The flowers",
+                "are watered",
+                "by the gardener."
+            ],
+            "answer": "are watered",
+            "options": [
+                "are watered",
+                "is watered",
+                "water"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Ці глечики пакують робітники.",
+            "target": "These jugs are packed by the workers.",
+            "uk": "Ці глечики пакують робітники.",
+            "hint_uk": "Почни з глечиків; передай звичайну дію пасивом і назви робітників наприкінці.",
+            "groups": [
+                "These jugs",
+                "are packed",
+                "by the workers."
+            ],
+            "compose_slots": [
+                "These jugs",
+                "are packed",
+                "by the workers."
+            ],
+            "slot_roles": [
+                "plural_noun_phrase",
+                "present_passive_plural",
+                "agent_phrase"
+            ],
+            "accepted_targets": [
+                "These jugs are packaged by the workers.",
+                "These pitchers are packed by the workers.",
+                "These pitchers are packaged by the workers."
+            ],
+            "display_synonyms": {
+                "These jugs": [
+                    "These pitchers"
+                ],
+                "are packed": [
+                    "are packaged"
+                ]
+            }
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The address {a1} by Ira yesterday.",
+            "target": "The address was checked by Ira yesterday.",
+            "uk": "Початкове: «Іра перевірила адресу вчора».",
+            "hint_uk": "Початкове: «Іра перевірила адресу вчора». Почни з об’єкта перевірки; збережи минулий час та ім’я виконавиці.",
+            "groups": [
+                "The address",
+                "was checked",
+                "by Ira yesterday."
+            ],
+            "answer": "was checked",
+            "options": [
+                "was checked",
+                "is checked",
+                "checked"
+            ],
+            "answer_synonyms": [
+                "was verified"
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "That pump {a1} by the mechanic.",
+            "target": "That pump was repaired by the mechanic.",
+            "uk": "Початкове: «Механік полагодив той насос».",
+            "hint_uk": "Початкове: «Механік полагодив той насос». Зміни актив на пасив; збережи вказівку на той самий предмет.",
+            "groups": [
+                "That pump",
+                "was repaired",
+                "by the mechanic."
+            ],
+            "answer": "was repaired",
+            "options": [
+                "was repaired",
+                "repaired",
+                "were repaired"
+            ],
+            "answer_synonyms": [
+                "was fixed"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Олена виготовила керамічну миску.",
+            "target": "Olena made the ceramic bowl.",
+            "uk": "Олена виготовила керамічну миску.",
+            "hint_uk": "Почни з Олени та передай виготовлення активною формою минулого часу.",
+            "groups": [
+                "Olena",
+                "made",
+                "the ceramic bowl."
+            ],
+            "compose_slots": [
+                "Olena",
+                "made",
+                "the ceramic bowl."
+            ],
+            "slot_roles": [
+                "proper_noun",
+                "past_transitive_verb",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "Olena crafted the ceramic bowl.",
+                "Olena produced the ceramic bowl."
+            ],
+            "display_synonyms": {
+                "made": [
+                    "crafted",
+                    "produced"
+                ]
+            }
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The rugs {a1} by the weavers at the moment.",
+            "target": "The rugs are being woven by the weavers at the moment.",
+            "uk": "Початкове: «Ткачі зараз тчуть килими».",
+            "hint_uk": "Початкове: «Ткачі зараз тчуть килими». Перебудуй у пасив; збережи тривання дії саме зараз і її спосіб.",
+            "groups": [
+                "The rugs",
+                "are being woven",
+                "by the weavers",
+                "at the moment."
+            ],
+            "answer": "are being woven",
+            "options": [
+                "are being woven",
+                "were woven",
+                "are weaving"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The receipts {a1} by the administrator on Tuesday.",
+            "target": "The receipts will be sent by the administrator on Tuesday.",
+            "uk": "Початкове: «Адміністратор надішле квитанції у вівторок».",
+            "hint_uk": "Початкове: «Адміністратор надішле квитанції у вівторок». Зміни актив на пасив; збережи майбутню дію, виконавця та день.",
+            "groups": [
+                "The receipts",
+                "will be sent",
+                "by the administrator",
+                "on Tuesday."
+            ],
+            "answer": "will be sent",
+            "options": [
+                "will be sent",
+                "will send",
+                "will be sending"
+            ],
+            "answer_synonyms": [
+                "will be dispatched"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Обидва лічильники вже перевірив інспектор.",
+            "target": "Both meters have already been checked by the inspector.",
+            "uk": "Обидва лічильники вже перевірив інспектор.",
+            "hint_uk": "Почни з обох об’єктів і збережи завершеність донині та виконавця.",
+            "groups": [
+                "Both meters",
+                "have already been",
+                "checked",
+                "by the inspector."
+            ],
+            "compose_slots": [
+                "Both meters",
+                "have already been",
+                "checked",
+                "by the inspector."
+            ],
+            "slot_roles": [
+                "plural_noun_phrase",
+                "perfect_auxiliary",
+                "past_participle",
+                "agent_phrase"
+            ],
+            "accepted_targets": [
+                "Both meters have already been inspected by the inspector.",
+                "Both meters have already been verified by the inspector."
+            ],
+            "display_synonyms": {
+                "checked": [
+                    "inspected",
+                    "verified"
+                ]
+            }
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The sensors {a1} by the team before the permit arrived.",
+            "target": "The sensors had been configured by the team before the permit arrived.",
+            "uk": "Початкове: «Команда налаштувала датчики ще до отримання дозволу».",
+            "hint_uk": "Початкове: «Команда налаштувала датчики ще до отримання дозволу». Перебудуй у пасив; налаштування передувало іншій минулій події.",
+            "groups": [
+                "The sensors",
+                "had been configured",
+                "by the team",
+                "before the",
+                "permit arrived."
+            ],
+            "answer": "had been configured",
+            "options": [
+                "had been configured",
+                "have been configured",
+                "were configuring"
+            ],
+            "answer_synonyms": [
+                "had been adjusted"
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "This sculpture {a1} by the workers.",
+            "target": "This sculpture can be moved by the workers.",
+            "uk": "Початкове: «Робітники можуть перенести цю скульптуру».",
+            "hint_uk": "Початкове: «Робітники можуть перенести цю скульптуру». Зміни актив на пасив, збережи можливість дії та виконавців.",
+            "groups": [
+                "This sculpture",
+                "can be moved",
+                "by the workers."
+            ],
+            "answer": "can be moved",
+            "options": [
+                "can be moved",
+                "can move",
+                "can be moving"
+            ],
+            "answer_synonyms": [
+                "can be relocated"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "На наше замовлення майстер полагодив арфу.",
+            "target": "We had the harp repaired by the craftsman.",
+            "uk": "На наше замовлення майстер полагодив арфу.",
+            "hint_uk": "Почни з нас; передай завершену замовлену дію та назви майстра.",
+            "groups": [
+                "We had",
+                "the harp",
+                "repaired",
+                "by the craftsman."
+            ],
+            "compose_slots": [
+                "We had",
+                "the harp",
+                "repaired",
+                "by the craftsman."
+            ],
+            "slot_roles": [
+                "causative_past_subject",
+                "noun_phrase",
+                "past_participle",
+                "agent_phrase"
+            ],
+            "accepted_targets": [
+                "We had the harp repaired by the artisan.",
+                "We had the harp fixed by the craftsman.",
+                "We had the harp fixed by the artisan."
+            ],
+            "display_synonyms": {
+                "repaired": [
+                    "fixed"
+                ],
+                "by the craftsman.": [
+                    "by the artisan."
+                ]
+            }
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The composer {a1} to live abroad.",
+            "target": "The composer was thought to live abroad.",
+            "uk": "Початкове: «На той час вважали, що композитор живе за кордоном».",
+            "hint_uk": "Початкове: «На той час вважали, що композитор живе за кордоном». Почни з композитора; перетвори безособове повідомлення на особовий пасив.",
+            "groups": [
+                "The composer",
+                "was thought",
+                "to live abroad."
+            ],
+            "answer": "was thought",
+            "options": [
+                "was thought",
+                "thought",
+                "was thinking"
+            ],
+            "answer_synonyms": [
+                "was believed"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The studio {a1} a licence by the council.",
+            "target": "The studio was granted a licence by the council.",
+            "uk": "Початкове: «Рада надала майстерні ліцензію».",
+            "hint_uk": "Початкове: «Рада надала майстерні ліцензію». Зроби одержувача підметом пасиву, не гублячи надавача та об’єкт.",
+            "groups": [
+                "The studio",
+                "was granted",
+                "a licence",
+                "by the council."
+            ],
+            "answer": "was granted",
+            "options": [
+                "was granted",
+                "granted",
+                "were granted"
+            ],
+            "answer_synonyms": [
+                "was given"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Він ненавидить, коли його виправляють публічно.",
+            "target": "He hates being corrected in public.",
+            "uk": "Він ненавидить, коли його виправляють публічно.",
+            "hint_uk": "Почни з нього; після дієслова ненависті використай пасивний герундій.",
+            "groups": [
+                "He",
+                "hates",
+                "being corrected",
+                "in public."
+            ],
+            "compose_slots": [
+                "He",
+                "hates",
+                "being corrected",
+                "in public."
+            ],
+            "slot_roles": [
+                "subject_singular",
+                "present_transitive_verb",
+                "passive_gerund",
+                "closed_prepositional_phrase"
+            ],
+            "accepted_targets": [
+                "He hates being put right in public.",
+                "He detests being corrected in public.",
+                "He detests being put right in public.",
+                "He loathes being corrected in public.",
+                "He loathes being put right in public."
+            ],
+            "display_synonyms": {
+                "hates": [
+                    "detests",
+                    "loathes"
+                ],
+                "being corrected": [
+                    "being put right"
+                ]
+            }
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "Who corrupted the recording {a1}.",
+            "target": "Who corrupted the recording cannot be established.",
+            "uk": "Початкове: «Неможливо встановити, хто зіпсував запис».",
+            "hint_uk": "Початкове: «Неможливо встановити, хто зіпсував запис». Зроби частину про невідомого виконавця підметом пасивної конструкції.",
+            "groups": [
+                "Who corrupted",
+                "the recording",
+                "cannot be established."
+            ],
+            "answer": "cannot be established",
+            "options": [
+                "cannot be established",
+                "cannot establish",
+                "cannot be establishing"
+            ],
+            "answer_synonyms": [
+                "cannot be determined",
+                "cannot be identified"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The conductor {a1} to have rejected these terms before the negotiations.",
+            "target": "The conductor is said to have rejected these terms before the negotiations.",
+            "uk": "Початкове: «Кажуть, що диригент відхилив ці умови перед переговорами».",
+            "hint_uk": "Початкове: «Кажуть, що диригент відхилив ці умови перед переговорами». Почни з диригента; збережи статус чужого повідомлення й попередню дію.",
+            "groups": [
+                "The conductor",
+                "is said",
+                "to have rejected",
+                "these terms",
+                "before the negotiations."
+            ],
+            "answer": "is said",
+            "options": [
+                "is said",
+                "said",
+                "is saying"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Саме незавершений ескіз продали помилково.",
+            "target": "It was the unfinished sketch that was sold by mistake.",
+            "uk": "Саме незавершений ескіз продали помилково.",
+            "hint_uk": "Використай видільну конструкцію з пасивом; збережи акцент на об’єкті та помилковість продажу.",
+            "groups": [
+                "It was",
+                "the unfinished sketch",
+                "that was sold",
+                "by mistake."
+            ],
+            "compose_slots": [
+                "It was",
+                "the unfinished sketch",
+                "that was sold",
+                "by mistake."
+            ],
+            "slot_roles": [
+                "cleft_subject_aux",
+                "noun_phrase",
+                "relative_passive",
+                "adverbial_clause"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        }
+    ]
+}

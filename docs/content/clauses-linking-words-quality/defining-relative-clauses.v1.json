@@ -1,0 +1,615 @@
+{
+    "schema_version": 1,
+    "topic_key": "defining-relative-clauses",
+    "title": "Defining Relative Clauses",
+    "choice_pools": {
+        "subject_phrase": [
+            "the visitor",
+            "our neighbour",
+            "the children",
+            "a gardener",
+            "the artist",
+            "the travellers",
+            "the reader",
+            "my cousin",
+            "the team",
+            "the witness"
+        ],
+        "noun_phrase": [
+            "a green door",
+            "the spare button",
+            "a fresh loaf",
+            "the old map",
+            "her little dog",
+            "a small bowl",
+            "the main entrance",
+            "a written reply",
+            "a careful account",
+            "a useful distinction"
+        ],
+        "verb_phrase": [
+            "is open",
+            "lives nearby",
+            "was missing",
+            "needs attention",
+            "arrived early",
+            "had disappeared",
+            "remains unclear",
+            "cannot be verified",
+            "was postponed",
+            "has changed"
+        ],
+        "relative_phrase": [
+            "who lives",
+            "which belongs",
+            "whose windows",
+            "that we found",
+            "whom they trusted",
+            "where she works",
+            "which I borrowed",
+            "who helped us",
+            "whose cover",
+            "which explains"
+        ],
+        "connector_phrase": [
+            "because",
+            "since",
+            "as",
+            "so",
+            "therefore",
+            "consequently",
+            "although",
+            "however",
+            "whereas",
+            "if",
+            "when",
+            "unless"
+        ],
+        "adverbial_phrase": [
+            "after lunch",
+            "near the gate",
+            "on the table",
+            "in the courtyard",
+            "without warning",
+            "for two weeks",
+            "in this case",
+            "at the time",
+            "with great care",
+            "by contrast"
+        ],
+        "proper_noun": [
+            "Mia",
+            "Oleh",
+            "Nora",
+            "Lena",
+            "Tomas",
+            "Iryna",
+            "Ruth",
+            "Ada",
+            "Kyiv",
+            "Bristol"
+        ],
+        "preposition_phrase": [
+            "from the shelf",
+            "by the river",
+            "to the owner",
+            "for the guests",
+            "under the bench",
+            "in the archive",
+            "with the editor",
+            "about the proposal",
+            "on the evidence",
+            "at the workshop"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "A baker is a person {a1} bread.",
+            "target": "A baker is a person who makes bread.",
+            "uk": "Пекар — людина, яка пече хліб.",
+            "hint_uk": "Яка виготовляє; назви людину відносним словом і узгодь одну особу.",
+            "groups": [
+                "A baker",
+                "is a person",
+                "who makes",
+                "bread."
+            ],
+            "answer": "who makes",
+            "options": [
+                "who makes",
+                "which makes",
+                "who make"
+            ],
+            "answer_synonyms": [
+                "that makes"
+            ]
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "I want the cup {a1} a blue handle.",
+            "target": "I want the cup that has a blue handle.",
+            "uk": "Я хочу чашку, яка має синю ручку.",
+            "hint_uk": "Яка має; уточнення вибирає одну чашку за її ознакою.",
+            "groups": [
+                "I want",
+                "the cup",
+                "that has",
+                "a blue handle."
+            ],
+            "answer": "that has",
+            "options": [
+                "that has",
+                "who has",
+                "that have"
+            ],
+            "answer_synonyms": [
+                "which has"
+            ]
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Собака, який спить під столом, мій.",
+            "target": "The dog that sleeps under the table is mine.",
+            "uk": "Собака, який спить під столом, мій.",
+            "hint_uk": "Уточни, котрий саме собака; не додавай окремого займенника після відносного слова.",
+            "groups": [
+                "The dog",
+                "that sleeps",
+                "under the table",
+                "is mine."
+            ],
+            "compose_slots": [
+                "The dog",
+                "that sleeps",
+                "under the table",
+                "is mine."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "relative_phrase",
+                "preposition_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [
+                "The dog which sleeps under the table is mine."
+            ],
+            "display_synonyms": {
+                "that sleeps": [
+                    "which sleeps"
+                ]
+            }
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The boots {a1} last winter still fit.",
+            "target": "The boots that I bought last winter still fit.",
+            "uk": "Черевики, які я купив минулої зими, досі впору.",
+            "hint_uk": "Які я купив; виконавець покупки стоїть перед минулим дієсловом.",
+            "groups": [
+                "The boots",
+                "that I bought",
+                "last winter",
+                "still fit."
+            ],
+            "answer": "that I bought",
+            "options": [
+                "that I bought",
+                "who I bought",
+                "that bought I"
+            ],
+            "answer_synonyms": [
+                "which I bought",
+                "I bought"
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The student {a1} is in my class.",
+            "target": "The student who plays chess is in my class.",
+            "uk": "Учень, який грає в шахи, навчається в моєму класі.",
+            "hint_uk": "Який грає в шахи; уточни учня його заняттям, зберігши узгодження.",
+            "groups": [
+                "The student",
+                "who plays chess",
+                "is",
+                "in my class."
+            ],
+            "answer": "who plays chess",
+            "options": [
+                "who plays chess",
+                "which plays chess",
+                "who play chess"
+            ],
+            "answer_synonyms": [
+                "that plays chess"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Люди, які чекають біля каси, мають квитки.",
+            "target": "The people who are waiting by the ticket office have tickets.",
+            "uk": "Люди, які чекають біля каси, мають квитки.",
+            "hint_uk": "Уточни потрібну групу людей; передай нинішнє очікування та володіння квитками.",
+            "groups": [
+                "The people",
+                "who are waiting",
+                "by the ticket",
+                "office",
+                "have tickets."
+            ],
+            "compose_slots": [
+                "The people",
+                "who are waiting",
+                "by the ticket",
+                "office",
+                "have tickets."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "relative_phrase",
+                "preposition_phrase",
+                "noun_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [
+                "The people that are waiting by the ticket office have tickets."
+            ],
+            "display_synonyms": {
+                "who are waiting": [
+                    "that are waiting"
+                ]
+            }
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The village {a1} my grandparents live has no station.",
+            "target": "The village where my grandparents live has no station.",
+            "uk": "У селі, де живуть мої дідусь і бабуся, немає станції.",
+            "hint_uk": "Де живуть; потрібне слово місця, бо після нього вже є підмет і дієслово.",
+            "groups": [
+                "The village",
+                "where",
+                "my grandparents",
+                "live",
+                "has no station."
+            ],
+            "answer": "where",
+            "options": [
+                "where",
+                "whose",
+                "which"
+            ]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The artist {a1} paintings fill this room is local.",
+            "target": "The artist whose paintings fill this room is local.",
+            "uk": "Художник, чиї картини заповнюють цю кімнату, місцевий.",
+            "hint_uk": "Чиї картини; відносна форма стоїть перед назвою творів власника.",
+            "groups": [
+                "The artist",
+                "whose paintings",
+                "fill this room",
+                "is local."
+            ],
+            "answer": "whose",
+            "options": [
+                "whose",
+                "who",
+                "which"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Лист, який ти залишив на підвіконні, промок.",
+            "target": "The letter that you left on the windowsill got wet.",
+            "uk": "Лист, який ти залишив на підвіконні, промок.",
+            "hint_uk": "Вибери потрібний лист за попередньою дією; збережи місце й результат.",
+            "groups": [
+                "The letter",
+                "that you",
+                "left",
+                "on the windowsill",
+                "got wet."
+            ],
+            "compose_slots": [
+                "The letter",
+                "that you",
+                "left",
+                "on the windowsill",
+                "got wet."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "relative_phrase",
+                "verb_phrase",
+                "preposition_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [
+                "The letter that you left on the windowsill became wet.",
+                "The letter which you left on the windowsill got wet.",
+                "The letter which you left on the windowsill became wet.",
+                "The letter you left on the windowsill got wet.",
+                "The letter you left on the windowsill became wet."
+            ],
+            "display_synonyms": {
+                "that you": [
+                    "which you",
+                    "you"
+                ],
+                "got wet.": [
+                    "became wet."
+                ]
+            }
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "Candidates {a1} applications arrive late cannot be considered.",
+            "target": "Candidates whose applications arrive late cannot be considered.",
+            "uk": "Кандидатів, чиї заяви надійдуть запізно, не зможуть розглянути.",
+            "hint_uk": "Чиї заяви; уточнення обмежує групу кандидатів за належними їм документами.",
+            "groups": [
+                "Candidates",
+                "whose applications",
+                "arrive late",
+                "cannot be considered."
+            ],
+            "answer": "whose",
+            "options": [
+                "whose",
+                "whom",
+                "which"
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The clause {a1} you object has already been revised.",
+            "target": "The clause to which you object has already been revised.",
+            "uk": "Пункт, проти якого ви заперечуєте, уже переглянули.",
+            "hint_uk": "Проти якого; збережи винесений прийменник дієслова заперечення перед відносним словом.",
+            "groups": [
+                "The clause",
+                "to which",
+                "you object",
+                "has already",
+                "been revised."
+            ],
+            "answer": "to which",
+            "options": [
+                "to which",
+                "to whom",
+                "to whose"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Рахунки, які ми отримали після аудиту, потребують перевірки.",
+            "target": "The invoices that we received after the audit need checking.",
+            "uk": "Рахунки, які ми отримали після аудиту, потребують перевірки.",
+            "hint_uk": "Йдеться лише про рахунки з указаним часом надходження; збережи цю межу групи.",
+            "groups": [
+                "The invoices",
+                "that we",
+                "received",
+                "after the audit",
+                "need checking."
+            ],
+            "compose_slots": [
+                "The invoices",
+                "that we",
+                "received",
+                "after the audit",
+                "need checking."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "relative_phrase",
+                "verb_phrase",
+                "adverbial_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [
+                "The invoices that we received after the audit require checking.",
+                "The invoices which we received after the audit need checking.",
+                "The invoices which we received after the audit require checking.",
+                "The invoices we received after the audit need checking.",
+                "The invoices we received after the audit require checking."
+            ],
+            "display_synonyms": {
+                "that we": [
+                    "which we",
+                    "we"
+                ],
+                "need checking.": [
+                    "require checking."
+                ]
+            }
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "Any assumption {a1} the estimate depends must be stated explicitly.",
+            "target": "Any assumption on which the estimate depends must be stated explicitly.",
+            "uk": "Кожне припущення, від якого залежить оцінка, треба викласти прямо.",
+            "hint_uk": "Від якого залежить; уточни саме опорне припущення за допомогою прийменника й відносного слова.",
+            "groups": [
+                "Any assumption",
+                "on which",
+                "the estimate",
+                "depends",
+                "must be stated",
+                "explicitly."
+            ],
+            "answer": "on which",
+            "options": [
+                "on which",
+                "on whom",
+                "whose"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The only account {a1} survives contradicts the official version.",
+            "target": "The only account that survives contradicts the official version.",
+            "uk": "Єдине свідчення, яке збереглося, суперечить офіційній версії.",
+            "hint_uk": "Яке збереглося; відносне слово є підметом і не може залишити підрядну частину без виконавця.",
+            "groups": [
+                "The only account",
+                "that",
+                "survives",
+                "contradicts",
+                "the official version."
+            ],
+            "answer": "that",
+            "options": [
+                "that",
+                "what",
+                "whose"
+            ],
+            "answer_synonyms": [
+                "which"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Матеріал, на який посилається примітка, зберігається окремо.",
+            "target": "The material to which the footnote refers is stored separately.",
+            "uk": "Матеріал, на який посилається примітка, зберігається окремо.",
+            "hint_uk": "Використай прийменник перед відносним словом; саме примітка посилається на матеріал.",
+            "groups": [
+                "The material",
+                "to which",
+                "the footnote",
+                "refers",
+                "is stored",
+                "separately."
+            ],
+            "compose_slots": [
+                "The material",
+                "to which",
+                "the footnote",
+                "refers",
+                "is stored",
+                "separately."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "relative_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "verb_phrase",
+                "adverbial_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "A restriction {a1} the statute makes no provision cannot be inferred.",
+            "target": "A restriction for which the statute makes no provision cannot be inferred.",
+            "uk": "Обмеження, якого закон не передбачає, не можна виводити шляхом припущення.",
+            "hint_uk": "Для якого немає положення; збережи винесений прийменник і відсилання до обмеження.",
+            "groups": [
+                "A restriction",
+                "for which",
+                "the statute",
+                "makes no provision",
+                "cannot be inferred."
+            ],
+            "answer": "for which",
+            "options": [
+                "for which",
+                "for whom",
+                "for whose"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The precedent {a1} reasoning the panel adopted concerned a different duty.",
+            "target": "The precedent whose reasoning the panel adopted concerned a different duty.",
+            "uk": "Прецедент, міркування з якого колегія прийняла, стосувався іншого обов’язку.",
+            "hint_uk": "Міркування якого; потрібна присвійна відносна форма перед назвою аргументації.",
+            "groups": [
+                "The precedent",
+                "whose reasoning",
+                "the panel",
+                "adopted",
+                "concerned",
+                "a different duty."
+            ],
+            "answer": "whose",
+            "options": [
+                "whose",
+                "which",
+                "whom"
+            ]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Докази, від яких залежала переконливість висновку, виявилися неперевіреними.",
+            "target": "The evidence on which the conclusion's force depended proved unverified.",
+            "uk": "Докази, від яких залежала переконливість висновку, виявилися неперевіреними.",
+            "hint_uk": "Почни з доказів і використай винесений прийменник; не приписуй висновку доведеності.",
+            "groups": [
+                "The evidence",
+                "on which",
+                "the conclusion's force",
+                "depended",
+                "proved unverified."
+            ],
+            "compose_slots": [
+                "The evidence",
+                "on which",
+                "the conclusion's force",
+                "depended",
+                "proved unverified."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "relative_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        }
+    ]
+}

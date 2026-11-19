@@ -1,0 +1,1858 @@
+{
+    "schema_version": 1,
+    "quality_revision": "saq-v1",
+    "compiled_from": {
+        "path": "docs/content/some-any-quality/places.v1.json",
+        "sha256": "3925528311a6923b3f9cf61f6970f96ebbea077bf23a1940b18b0e7c56063526"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SomeAny\\UkrainianMixedSomeAnyPlacesQualityStandardSeeder",
+        "uuid_namespace": "some-any-quality-places-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Some / Any"
+    },
+    "sources": {
+        "some_any_quality_places": {
+            "name": "Some / Any Quality: Some / Any — Places"
+        }
+    },
+    "tags": {
+        "some_any_theme": {
+            "name": "Some / Any — people, places and things",
+            "category": "topic"
+        },
+        "some_any_reference": {
+            "name": "Some / Any reference",
+            "category": "topic"
+        },
+        "some_any_page": {
+            "name": "Some / Any",
+            "category": "topic"
+        },
+        "places_page": {
+            "name": "Places",
+            "category": "pattern"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "some_any_theme",
+        "some_any_reference",
+        "some_any_page",
+        "places_page"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "saq-places-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The dog is {a1} in the yard.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Собака десь у дворі.",
+            "target_text": "The dog is somewhere in the yard.",
+            "markers": {
+                "a1": {
+                    "answer": "somewhere",
+                    "options": [
+                        "somewhere",
+                        "nowhere",
+                        "everywhere"
+                    ],
+                    "verb_hint": "Місце собаки в межах двору невідоме: десь, в одному невизначеному місці, а не всюди чи ніде."
+                }
+            },
+            "verb_hint": "Місце собаки в межах двору невідоме: десь, в одному невизначеному місці, а не всюди чи ніде.",
+            "accepted_target_texts": [
+                "The dog is somewhere in the yard.",
+                "The dog is someplace in the yard."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "someplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "someplace"
+                ]
+            },
+            "reorder_groups": [
+                "The dog is",
+                "somewhere",
+                "in the yard."
+            ],
+            "token_groups": [
+                "The dog is",
+                "somewhere",
+                "in the yard."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "saq-places-a1-g02",
+            "author_id": "A1-g02",
+            "question": "I cannot see my glasses {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Я ніде не бачу своїх окулярів.",
+            "target_text": "I cannot see my glasses anywhere.",
+            "markers": {
+                "a1": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Ніде не видно окулярів; дієслово вже заперечене, тому потрібне слово місця без другого заперечення."
+                }
+            },
+            "verb_hint": "Ніде не видно окулярів; дієслово вже заперечене, тому потрібне слово місця без другого заперечення.",
+            "accepted_target_texts": [
+                "I cannot see my glasses anywhere.",
+                "I cannot see my glasses anyplace."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "reorder_groups": [
+                "I cannot see",
+                "my glasses",
+                "anywhere."
+            ],
+            "token_groups": [
+                "I cannot see",
+                "my glasses",
+                "anywhere."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "saq-places-a1-g03",
+            "author_id": "A1-g03",
+            "question": "There is {a1} to park this bike.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Цей велосипед ніде припаркувати.",
+            "target_text": "There is nowhere to park this bike.",
+            "markers": {
+                "a1": {
+                    "answer": "nowhere",
+                    "options": [
+                        "nowhere",
+                        "somewhere",
+                        "everywhere"
+                    ],
+                    "verb_hint": "Немає жодного місця для паркування велосипеда; заперечне значення має саме прислівник місця."
+                }
+            },
+            "verb_hint": "Немає жодного місця для паркування велосипеда; заперечне значення має саме прислівник місця.",
+            "accepted_target_texts": [
+                "There is nowhere to park this bike.",
+                "There is no place to park this bike."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "no place"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "no place"
+                ]
+            },
+            "reorder_groups": [
+                "There is",
+                "nowhere",
+                "to park",
+                "this bike."
+            ],
+            "token_groups": [
+                "There is",
+                "nowhere",
+                "to park",
+                "this bike."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "saq-places-a1-g04",
+            "author_id": "A1-g04",
+            "question": "There is snow {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Сніг лежить скрізь.",
+            "target_text": "There is snow everywhere.",
+            "markers": {
+                "a1": {
+                    "answer": "everywhere",
+                    "options": [
+                        "everywhere",
+                        "somewhere",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Сніг покриває всі місця навколо без винятку; потрібен прислівник із значенням скрізь."
+                }
+            },
+            "verb_hint": "Сніг покриває всі місця навколо без винятку; потрібен прислівник із значенням скрізь.",
+            "accepted_target_texts": [
+                "There is snow everywhere."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "snow",
+                "everywhere."
+            ],
+            "token_groups": [
+                "There is",
+                "snow",
+                "everywhere."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "saq-places-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Let's go {a1} today.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Ходімо сьогодні кудись, де тепло.",
+            "target_text": "Let's go somewhere warm today.",
+            "markers": {
+                "a1": {
+                    "answer": "somewhere warm",
+                    "options": [
+                        "somewhere warm",
+                        "nowhere warm",
+                        "everywhere warm"
+                    ],
+                    "verb_hint": "Запропоновано одне ще не визначене тепле місце; прислівник місця стоїть перед прикметником теплий."
+                }
+            },
+            "verb_hint": "Запропоновано одне ще не визначене тепле місце; прислівник місця стоїть перед прикметником теплий.",
+            "accepted_target_texts": [
+                "Let's go somewhere warm today.",
+                "Let's go someplace warm today."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "someplace warm"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "someplace warm"
+                ]
+            },
+            "reorder_groups": [
+                "Let's go",
+                "somewhere warm",
+                "today."
+            ],
+            "token_groups": [
+                "Let's go",
+                "somewhere warm",
+                "today."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "saq-places-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Do not put the wet coat {a1} the heater.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Не клади мокре пальто ніде поблизу обігрівача.",
+            "target_text": "Do not put the wet coat anywhere near the heater.",
+            "markers": {
+                "a1": {
+                    "answer": "anywhere near",
+                    "options": [
+                        "anywhere near",
+                        "somewhere near",
+                        "nowhere near"
+                    ],
+                    "verb_hint": "Заборона стосується будь-якого місця поблизу обігрівача; заперечення вже наведене, у пропуску потрібні також слова поблизу."
+                }
+            },
+            "verb_hint": "Заборона стосується будь-якого місця поблизу обігрівача; заперечення вже наведене, у пропуску потрібні також слова поблизу.",
+            "accepted_target_texts": [
+                "Do not put the wet coat anywhere near the heater.",
+                "Do not put the wet coat anyplace near the heater."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anyplace near"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anyplace near"
+                ]
+            },
+            "reorder_groups": [
+                "Do not put",
+                "the wet coat",
+                "anywhere near",
+                "the heater."
+            ],
+            "token_groups": [
+                "Do not put",
+                "the wet coat",
+                "anywhere near",
+                "the heater."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "saq-places-a2-g01",
+            "author_id": "A2-g01",
+            "question": "I left my scarf {a1} between here and the station.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Я десь залишив шарф між цим місцем і станцією.",
+            "target_text": "I left my scarf somewhere between here and the station.",
+            "markers": {
+                "a1": {
+                    "answer": "somewhere",
+                    "options": [
+                        "somewhere",
+                        "nowhere",
+                        "everywhere"
+                    ],
+                    "verb_hint": "Точне місце втрати шарфа невідоме, але воно одне й лежить на шляху до станції; потрібне значення десь."
+                }
+            },
+            "verb_hint": "Точне місце втрати шарфа невідоме, але воно одне й лежить на шляху до станції; потрібне значення десь.",
+            "accepted_target_texts": [
+                "I left my scarf somewhere between here and the station.",
+                "I left my scarf someplace between here and the station."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "someplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "someplace"
+                ]
+            },
+            "reorder_groups": [
+                "I left",
+                "my scarf",
+                "somewhere",
+                "between here",
+                "and the station."
+            ],
+            "token_groups": [
+                "I left",
+                "my scarf",
+                "somewhere",
+                "between here",
+                "and the station."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "saq-places-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The children did not go {a1} without an adult.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Діти нікуди не ходили без дорослого.",
+            "target_text": "The children did not go anywhere without an adult.",
+            "markers": {
+                "a1": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Жодного місця не відвідували без дорослого; перед пропуском уже є заперечення, тому не дублюй його прислівником."
+                }
+            },
+            "verb_hint": "Жодного місця не відвідували без дорослого; перед пропуском уже є заперечення, тому не дублюй його прислівником.",
+            "accepted_target_texts": [
+                "The children did not go anywhere without an adult.",
+                "The children did not go anyplace without an adult."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "reorder_groups": [
+                "The children",
+                "did not go",
+                "anywhere",
+                "without an adult."
+            ],
+            "token_groups": [
+                "The children",
+                "did not go",
+                "anywhere",
+                "without an adult."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "saq-places-a2-g03",
+            "author_id": "A2-g03",
+            "question": "There was {a1} to leave our shoes.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Не було жодного сухого місця, де залишити взуття.",
+            "target_text": "There was nowhere dry to leave our shoes.",
+            "markers": {
+                "a1": {
+                    "answer": "nowhere dry",
+                    "options": [
+                        "nowhere dry",
+                        "somewhere dry",
+                        "everywhere dry"
+                    ],
+                    "verb_hint": "Жодного сухого місця для взуття не знайшлося; у пропуску потрібні і заперечне місце, і його ознака сухий."
+                }
+            },
+            "verb_hint": "Жодного сухого місця для взуття не знайшлося; у пропуску потрібні і заперечне місце, і його ознака сухий.",
+            "accepted_target_texts": [
+                "There was nowhere dry to leave our shoes.",
+                "There was no dry place to leave our shoes."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "no dry place"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "no dry place"
+                ]
+            },
+            "reorder_groups": [
+                "There was",
+                "nowhere dry",
+                "to leave",
+                "our shoes."
+            ],
+            "token_groups": [
+                "There was",
+                "nowhere dry",
+                "to leave",
+                "our shoes."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "saq-places-a2-g04",
+            "author_id": "A2-g04",
+            "question": "We found colourful shells {a1} along the beach.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Кольорові мушлі траплялися нам усюди вздовж пляжу.",
+            "target_text": "We found colourful shells everywhere along the beach.",
+            "markers": {
+                "a1": {
+                    "answer": "everywhere",
+                    "options": [
+                        "everywhere",
+                        "somewhere",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Мушлі траплялися в усіх місцях уздовж пляжу, а не в одному невідомому куточку; потрібне значення усюди."
+                }
+            },
+            "verb_hint": "Мушлі траплялися в усіх місцях уздовж пляжу, а не в одному невідомому куточку; потрібне значення усюди.",
+            "accepted_target_texts": [
+                "We found colourful shells everywhere along the beach."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We found",
+                "colourful shells",
+                "everywhere",
+                "along the beach."
+            ],
+            "token_groups": [
+                "We found",
+                "colourful shells",
+                "everywhere",
+                "along the beach."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "saq-places-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Could we meet {a1} than this busy market?",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Чи могли б ми зустрітися десь тихіше, ніж на цьому гамірному ринку?",
+            "target_text": "Could we meet somewhere quieter than this busy market?",
+            "markers": {
+                "a1": {
+                    "answer": "somewhere quieter",
+                    "options": [
+                        "somewhere quieter",
+                        "nowhere quieter",
+                        "everywhere quieter"
+                    ],
+                    "verb_hint": "Пропонується одне невизначене місце, тихіше за ринок; у пропуску потрібен також порівняльний прикметник."
+                }
+            },
+            "verb_hint": "Пропонується одне невизначене місце, тихіше за ринок; у пропуску потрібен також порівняльний прикметник.",
+            "accepted_target_texts": [
+                "Could we meet somewhere quieter than this busy market?",
+                "Could we meet someplace quieter than this busy market?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "someplace quieter"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "someplace quieter"
+                ]
+            },
+            "reorder_groups": [
+                "Could we meet",
+                "somewhere quieter",
+                "than this",
+                "busy market?"
+            ],
+            "token_groups": [
+                "Could we meet",
+                "somewhere quieter",
+                "than this",
+                "busy market?"
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "saq-places-a2-g06",
+            "author_id": "A2-g06",
+            "question": "You may sit {a1}, but this seat is reserved.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Можна сісти в будь-якому іншому місці, але це місце зарезервоване.",
+            "target_text": "You may sit anywhere else, but this seat is reserved.",
+            "markers": {
+                "a1": {
+                    "answer": "anywhere else",
+                    "options": [
+                        "anywhere else",
+                        "somewhere else",
+                        "nowhere else"
+                    ],
+                    "verb_hint": "Дозволено будь-яке інше місце на вільний вибір, не одне конкретне; слово інше також входить до відповіді."
+                }
+            },
+            "verb_hint": "Дозволено будь-яке інше місце на вільний вибір, не одне конкретне; слово інше також входить до відповіді.",
+            "accepted_target_texts": [
+                "You may sit anywhere else, but this seat is reserved.",
+                "You may sit anyplace else, but this seat is reserved."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anyplace else"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anyplace else"
+                ]
+            },
+            "reorder_groups": [
+                "You may sit",
+                "anywhere else,",
+                "but this seat",
+                "is reserved."
+            ],
+            "token_groups": [
+                "You may sit",
+                "anywhere else,",
+                "but this seat",
+                "is reserved."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "saq-places-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The missing parcel must be {a1} inside the sorting office.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Зникла посилка, мабуть, десь у сортувальному відділенні.",
+            "target_text": "The missing parcel must be somewhere inside the sorting office.",
+            "markers": {
+                "a1": {
+                    "answer": "somewhere",
+                    "options": [
+                        "somewhere",
+                        "nowhere",
+                        "everywhere"
+                    ],
+                    "verb_hint": "За наявними ознаками посилка перебуває в одному невідомому місці всередині відділення; це припущення про реальне місцезнаходження."
+                }
+            },
+            "verb_hint": "За наявними ознаками посилка перебуває в одному невідомому місці всередині відділення; це припущення про реальне місцезнаходження.",
+            "accepted_target_texts": [
+                "The missing parcel must be somewhere inside the sorting office.",
+                "The missing parcel must be someplace inside the sorting office."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "someplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "someplace"
+                ]
+            },
+            "reorder_groups": [
+                "The missing parcel",
+                "must be",
+                "somewhere",
+                "inside the",
+                "sorting office."
+            ],
+            "token_groups": [
+                "The missing parcel",
+                "must be",
+                "somewhere",
+                "inside the",
+                "sorting office."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "saq-places-b1-g02",
+            "author_id": "B1-g02",
+            "question": "We could not find {a1} for a picnic.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Ми не знайшли жодного придатного місця для пікніка.",
+            "target_text": "We could not find anywhere suitable for a picnic.",
+            "markers": {
+                "a1": {
+                    "answer": "anywhere suitable",
+                    "options": [
+                        "anywhere suitable",
+                        "somewhere suitable",
+                        "nowhere suitable"
+                    ],
+                    "verb_hint": "Жодного місця, придатного для пікніка, не знайшли; заперечення вже наведене, у пропуску потрібна й ознака придатний."
+                }
+            },
+            "verb_hint": "Жодного місця, придатного для пікніка, не знайшли; заперечення вже наведене, у пропуску потрібна й ознака придатний.",
+            "accepted_target_texts": [
+                "We could not find anywhere suitable for a picnic.",
+                "We could not find anyplace suitable for a picnic.",
+                "We could not find anywhere appropriate for a picnic."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anyplace suitable",
+                    "anywhere appropriate"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anyplace suitable",
+                    "anywhere appropriate"
+                ]
+            },
+            "reorder_groups": [
+                "We could not",
+                "find",
+                "anywhere suitable",
+                "for a picnic."
+            ],
+            "token_groups": [
+                "We could not",
+                "find",
+                "anywhere suitable",
+                "for a picnic."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "saq-places-b1-g03",
+            "author_id": "B1-g03",
+            "question": "There is {a1} within walking distance that serves breakfast.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "У пішій доступності більше ніде не подають сніданок.",
+            "target_text": "There is nowhere else within walking distance that serves breakfast.",
+            "markers": {
+                "a1": {
+                    "answer": "nowhere else",
+                    "options": [
+                        "nowhere else",
+                        "somewhere else",
+                        "everywhere else"
+                    ],
+                    "verb_hint": "Іншого місця зі сніданками в пішій доступності немає; потрібне повне словосполучення зі значенням більше ніде."
+                }
+            },
+            "verb_hint": "Іншого місця зі сніданками в пішій доступності немає; потрібне повне словосполучення зі значенням більше ніде.",
+            "accepted_target_texts": [
+                "There is nowhere else within walking distance that serves breakfast.",
+                "There is no other place within walking distance that serves breakfast."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "no other place"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "no other place"
+                ]
+            },
+            "reorder_groups": [
+                "There is",
+                "nowhere else",
+                "within walking distance",
+                "that serves breakfast."
+            ],
+            "token_groups": [
+                "There is",
+                "nowhere else",
+                "within walking distance",
+                "that serves breakfast."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "saq-places-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The announcement could be heard {a1} on the campsite.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Оголошення було чути скрізь на території кемпінгу.",
+            "target_text": "The announcement could be heard everywhere on the campsite.",
+            "markers": {
+                "a1": {
+                    "answer": "everywhere",
+                    "options": [
+                        "everywhere",
+                        "somewhere",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Оголошення було чути в кожній частині кемпінгу без винятку; потрібне значення скрізь."
+                }
+            },
+            "verb_hint": "Оголошення було чути в кожній частині кемпінгу без винятку; потрібне значення скрізь.",
+            "accepted_target_texts": [
+                "The announcement could be heard everywhere on the campsite."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The announcement",
+                "could be heard",
+                "everywhere",
+                "on the campsite."
+            ],
+            "token_groups": [
+                "The announcement",
+                "could be heard",
+                "everywhere",
+                "on the campsite."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "saq-places-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Let's move {a1} before the interview begins.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Перейдімо кудись, де менш шумно, до початку інтерв’ю.",
+            "target_text": "Let's move somewhere less noisy before the interview begins.",
+            "markers": {
+                "a1": {
+                    "answer": "somewhere less noisy",
+                    "options": [
+                        "somewhere less noisy",
+                        "nowhere less noisy",
+                        "everywhere less noisy"
+                    ],
+                    "verb_hint": "Пропонується одне ще не визначене менш шумне місце; у відповіді потрібні всі три слова, включно з менш."
+                }
+            },
+            "verb_hint": "Пропонується одне ще не визначене менш шумне місце; у відповіді потрібні всі три слова, включно з менш.",
+            "accepted_target_texts": [
+                "Let's move somewhere less noisy before the interview begins.",
+                "Let's move someplace less noisy before the interview begins."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "someplace less noisy"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "someplace less noisy"
+                ]
+            },
+            "reorder_groups": [
+                "Let's move",
+                "somewhere less noisy",
+                "before the",
+                "interview begins."
+            ],
+            "token_groups": [
+                "Let's move",
+                "somewhere less noisy",
+                "before the",
+                "interview begins."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "saq-places-b1-g06",
+            "author_id": "B1-g06",
+            "question": "You can return the book {a1} in the library network.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Книжку можна повернути будь-де в мережі бібліотек.",
+            "target_text": "You can return the book anywhere in the library network.",
+            "markers": {
+                "a1": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Дозволено будь-який пункт мережі без обмежень; йдеться про вільний вибір місця, а не про невідому окрему точку."
+                }
+            },
+            "verb_hint": "Дозволено будь-який пункт мережі без обмежень; йдеться про вільний вибір місця, а не про невідому окрему точку.",
+            "accepted_target_texts": [
+                "You can return the book anywhere in the library network.",
+                "You can return the book anyplace in the library network."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "reorder_groups": [
+                "You can",
+                "return the book",
+                "anywhere",
+                "in the",
+                "library network."
+            ],
+            "token_groups": [
+                "You can",
+                "return the book",
+                "anywhere",
+                "in the",
+                "library network."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "saq-places-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The original manuscript is {a1} beneath these uncatalogued papers.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Оригінальний рукопис десь під цими некаталогізованими паперами.",
+            "target_text": "The original manuscript is somewhere beneath these uncatalogued papers.",
+            "markers": {
+                "a1": {
+                    "answer": "somewhere",
+                    "options": [
+                        "somewhere",
+                        "nowhere",
+                        "everywhere"
+                    ],
+                    "verb_hint": "Рукопис існує й лежить в одному невизначеному місці під паперами; місце не відоме, але не заперечується."
+                }
+            },
+            "verb_hint": "Рукопис існує й лежить в одному невизначеному місці під паперами; місце не відоме, але не заперечується.",
+            "accepted_target_texts": [
+                "The original manuscript is somewhere beneath these uncatalogued papers.",
+                "The original manuscript is someplace beneath these uncatalogued papers."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "someplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "someplace"
+                ]
+            },
+            "reorder_groups": [
+                "The original manuscript",
+                "is",
+                "somewhere",
+                "beneath these",
+                "uncatalogued papers."
+            ],
+            "token_groups": [
+                "The original manuscript",
+                "is",
+                "somewhere",
+                "beneath these",
+                "uncatalogued papers."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "saq-places-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The investigators found no trace of contamination {a1} near the reservoir.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Слідчі не знайшли слідів забруднення ніде поблизу водосховища.",
+            "target_text": "The investigators found no trace of contamination anywhere near the reservoir.",
+            "markers": {
+                "a1": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Жодних слідів поблизу водосховища не було; заперечне слово перед іменником уже надає реченню заперечного змісту."
+                }
+            },
+            "verb_hint": "Жодних слідів поблизу водосховища не було; заперечне слово перед іменником уже надає реченню заперечного змісту.",
+            "accepted_target_texts": [
+                "The investigators found no trace of contamination anywhere near the reservoir.",
+                "The investigators found no trace of contamination anyplace near the reservoir."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "reorder_groups": [
+                "The investigators",
+                "found no",
+                "trace of contamination",
+                "anywhere",
+                "near the reservoir."
+            ],
+            "token_groups": [
+                "The investigators",
+                "found no",
+                "trace of contamination",
+                "anywhere",
+                "near the reservoir."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "saq-places-b2-g03",
+            "author_id": "B2-g03",
+            "question": "We had {a1} to question the informant.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Нам ніде було непомітно опитати інформатора.",
+            "target_text": "We had nowhere discreet to question the informant.",
+            "markers": {
+                "a1": {
+                    "answer": "nowhere discreet",
+                    "options": [
+                        "nowhere discreet",
+                        "somewhere discreet",
+                        "everywhere discreet"
+                    ],
+                    "verb_hint": "Жодного усамітненого місця для непомітної розмови не було; у пропуску потрібен також прикметник зі значенням непомітний."
+                }
+            },
+            "verb_hint": "Жодного усамітненого місця для непомітної розмови не було; у пропуску потрібен також прикметник зі значенням непомітний.",
+            "accepted_target_texts": [
+                "We had nowhere discreet to question the informant.",
+                "We had no discreet place to question the informant."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "no discreet place"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "no discreet place"
+                ]
+            },
+            "reorder_groups": [
+                "We had",
+                "nowhere discreet",
+                "to question",
+                "the informant."
+            ],
+            "token_groups": [
+                "We had",
+                "nowhere discreet",
+                "to question",
+                "the informant."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "saq-places-b2-g04",
+            "author_id": "B2-g04",
+            "question": "Similar restrictions were imposed {a1} across the region.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Подібні обмеження запровадили скрізь у регіоні.",
+            "target_text": "Similar restrictions were imposed everywhere across the region.",
+            "markers": {
+                "a1": {
+                    "answer": "everywhere",
+                    "options": [
+                        "everywhere",
+                        "somewhere",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Обмеження охопили всі частини регіону без винятку; потрібен прислівник повного просторового охоплення."
+                }
+            },
+            "verb_hint": "Обмеження охопили всі частини регіону без винятку; потрібен прислівник повного просторового охоплення.",
+            "accepted_target_texts": [
+                "Similar restrictions were imposed everywhere across the region."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Similar restrictions",
+                "were imposed",
+                "everywhere",
+                "across the region."
+            ],
+            "token_groups": [
+                "Similar restrictions",
+                "were imposed",
+                "everywhere",
+                "across the region."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "saq-places-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The mediators requested {a1} for the initial talks.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Посередники попросили нейтральне місце для початкових переговорів.",
+            "target_text": "The mediators requested somewhere neutral for the initial talks.",
+            "markers": {
+                "a1": {
+                    "answer": "somewhere neutral",
+                    "options": [
+                        "somewhere neutral",
+                        "nowhere neutral",
+                        "everywhere neutral"
+                    ],
+                    "verb_hint": "Потрібне одне невизначене місце на нейтральній території; прикметник нейтральний ставиться після прислівника місця."
+                }
+            },
+            "verb_hint": "Потрібне одне невизначене місце на нейтральній території; прикметник нейтральний ставиться після прислівника місця.",
+            "accepted_target_texts": [
+                "The mediators requested somewhere neutral for the initial talks.",
+                "The mediators requested someplace neutral for the initial talks."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "someplace neutral"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "someplace neutral"
+                ]
+            },
+            "reorder_groups": [
+                "The mediators",
+                "requested",
+                "somewhere neutral",
+                "for the",
+                "initial talks."
+            ],
+            "token_groups": [
+                "The mediators",
+                "requested",
+                "somewhere neutral",
+                "for the",
+                "initial talks."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "saq-places-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The equipment may be installed {a1} provided ventilation is adequate.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Обладнання можна встановити будь-де за умови достатньої вентиляції.",
+            "target_text": "The equipment may be installed anywhere provided ventilation is adequate.",
+            "markers": {
+                "a1": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Дозволено будь-яке місце, що задовольняє умову вентиляції; це вільний вибір, а не невідоме конкретне місце."
+                }
+            },
+            "verb_hint": "Дозволено будь-яке місце, що задовольняє умову вентиляції; це вільний вибір, а не невідоме конкретне місце.",
+            "accepted_target_texts": [
+                "The equipment may be installed anywhere provided ventilation is adequate.",
+                "The equipment may be installed anyplace provided ventilation is adequate."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "reorder_groups": [
+                "The equipment",
+                "may be installed",
+                "anywhere",
+                "provided ventilation",
+                "is adequate."
+            ],
+            "token_groups": [
+                "The equipment",
+                "may be installed",
+                "anywhere",
+                "provided ventilation",
+                "is adequate."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "saq-places-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The missing qualification is buried {a1} in the supplementary documentation.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Відсутнє застереження приховане десь у додатковій документації.",
+            "target_text": "The missing qualification is buried somewhere in the supplementary documentation.",
+            "markers": {
+                "a1": {
+                    "answer": "somewhere",
+                    "options": [
+                        "somewhere",
+                        "nowhere",
+                        "everywhere"
+                    ],
+                    "verb_hint": "Застереження існує в одному невідомому місці додаткової документації; потрібен прислівник невизначеного місцезнаходження."
+                }
+            },
+            "verb_hint": "Застереження існує в одному невідомому місці додаткової документації; потрібен прислівник невизначеного місцезнаходження.",
+            "accepted_target_texts": [
+                "The missing qualification is buried somewhere in the supplementary documentation.",
+                "The missing qualification is buried someplace in the supplementary documentation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "someplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "someplace"
+                ]
+            },
+            "reorder_groups": [
+                "The missing qualification",
+                "is buried",
+                "somewhere",
+                "in the",
+                "supplementary documentation."
+            ],
+            "token_groups": [
+                "The missing qualification",
+                "is buried",
+                "somewhere",
+                "in the",
+                "supplementary documentation."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "saq-places-c1-g02",
+            "author_id": "C1-g02",
+            "question": "We have yet to locate {a1} for storing the originals.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Ми ще не знайшли достатньо захищеного місця для зберігання оригіналів.",
+            "target_text": "We have yet to locate anywhere sufficiently secure for storing the originals.",
+            "markers": {
+                "a1": {
+                    "answer": "anywhere sufficiently secure",
+                    "options": [
+                        "anywhere sufficiently secure",
+                        "somewhere sufficiently secure",
+                        "nowhere sufficiently secure"
+                    ],
+                    "verb_hint": "Місця досі не знайдено: конструкція ще належить знайти має заперечний зміст; у відповіді потрібні також достатньо та захищений."
+                }
+            },
+            "verb_hint": "Місця досі не знайдено: конструкція ще належить знайти має заперечний зміст; у відповіді потрібні також достатньо та захищений.",
+            "accepted_target_texts": [
+                "We have yet to locate anywhere sufficiently secure for storing the originals.",
+                "We have yet to locate anywhere adequately secure for storing the originals."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anywhere adequately secure"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anywhere adequately secure"
+                ]
+            },
+            "reorder_groups": [
+                "We have",
+                "yet to locate",
+                "anywhere sufficiently secure",
+                "for storing",
+                "the originals."
+            ],
+            "token_groups": [
+                "We have",
+                "yet to locate",
+                "anywhere sufficiently secure",
+                "for storing",
+                "the originals."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "saq-places-c1-g03",
+            "author_id": "C1-g03",
+            "question": "There was {a1} within the temporary compound.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "У тимчасовому комплексі не було жодного хоч трохи усамітненого місця.",
+            "target_text": "There was nowhere remotely private within the temporary compound.",
+            "markers": {
+                "a1": {
+                    "answer": "nowhere remotely private",
+                    "options": [
+                        "nowhere remotely private",
+                        "somewhere remotely private",
+                        "everywhere remotely private"
+                    ],
+                    "verb_hint": "Навіть мінімально усамітненого місця не було; потрібне заперечне місце з двома уточнювальними словами, без пропуску частини фрази."
+                }
+            },
+            "verb_hint": "Навіть мінімально усамітненого місця не було; потрібне заперечне місце з двома уточнювальними словами, без пропуску частини фрази.",
+            "accepted_target_texts": [
+                "There was nowhere remotely private within the temporary compound.",
+                "There was no remotely private place within the temporary compound."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "no remotely private place"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "no remotely private place"
+                ]
+            },
+            "reorder_groups": [
+                "There was",
+                "nowhere remotely private",
+                "within the",
+                "temporary compound."
+            ],
+            "token_groups": [
+                "There was",
+                "nowhere remotely private",
+                "within the",
+                "temporary compound."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "saq-places-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The implications were felt {a1} throughout the devolved administrations.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Наслідки відчувалися скрізь у регіональних адміністраціях.",
+            "target_text": "The implications were felt everywhere throughout the devolved administrations.",
+            "markers": {
+                "a1": {
+                    "answer": "everywhere",
+                    "options": [
+                        "everywhere",
+                        "somewhere",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Наслідки охопили всі відповідні адміністрації без винятку; потрібен прислівник загального просторового поширення."
+                }
+            },
+            "verb_hint": "Наслідки охопили всі відповідні адміністрації без винятку; потрібен прислівник загального просторового поширення.",
+            "accepted_target_texts": [
+                "The implications were felt everywhere throughout the devolved administrations."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The implications",
+                "were felt",
+                "everywhere",
+                "throughout the",
+                "devolved administrations."
+            ],
+            "token_groups": [
+                "The implications",
+                "were felt",
+                "everywhere",
+                "throughout the",
+                "devolved administrations."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "saq-places-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The delegation insisted on {a1} of the local security forces.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Делегація наполягала на місці поза досяжністю місцевих сил безпеки.",
+            "target_text": "The delegation insisted on somewhere beyond reach of the local security forces.",
+            "markers": {
+                "a1": {
+                    "answer": "somewhere beyond reach",
+                    "options": [
+                        "somewhere beyond reach",
+                        "nowhere beyond reach",
+                        "everywhere beyond reach"
+                    ],
+                    "verb_hint": "Делегація вимагала одне невизначене місце поза досяжністю сил безпеки; усі три слова фрази потрібні для точного змісту."
+                }
+            },
+            "verb_hint": "Делегація вимагала одне невизначене місце поза досяжністю сил безпеки; усі три слова фрази потрібні для точного змісту.",
+            "accepted_target_texts": [
+                "The delegation insisted on somewhere beyond reach of the local security forces."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The delegation",
+                "insisted on",
+                "somewhere beyond reach",
+                "of the",
+                "local security forces."
+            ],
+            "token_groups": [
+                "The delegation",
+                "insisted on",
+                "somewhere beyond reach",
+                "of the",
+                "local security forces."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "saq-places-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The archive may be consulted {a1} with an authenticated institutional account.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "До архіву можна звертатися будь-де з підтвердженим обліковим записом установи.",
+            "target_text": "The archive may be consulted anywhere with an authenticated institutional account.",
+            "markers": {
+                "a1": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Географічних обмежень для підтвердженого користувача немає; потрібен прислівник вільного вибору місця, не невизначеного розташування."
+                }
+            },
+            "verb_hint": "Географічних обмежень для підтвердженого користувача немає; потрібен прислівник вільного вибору місця, не невизначеного розташування.",
+            "accepted_target_texts": [
+                "The archive may be consulted anywhere with an authenticated institutional account.",
+                "The archive may be consulted anyplace with an authenticated institutional account."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "reorder_groups": [
+                "The archive",
+                "may be consulted",
+                "anywhere",
+                "with an",
+                "authenticated institutional account."
+            ],
+            "token_groups": [
+                "The archive",
+                "may be consulted",
+                "anywhere",
+                "with an",
+                "authenticated institutional account."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "saq-places-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The provenance must be documented {a1} in the sealed accession records.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Походження, мабуть, задокументоване десь у закритих облікових записах надходжень.",
+            "target_text": "The provenance must be documented somewhere in the sealed accession records.",
+            "markers": {
+                "a1": {
+                    "answer": "somewhere",
+                    "options": [
+                        "somewhere",
+                        "nowhere",
+                        "everywhere"
+                    ],
+                    "verb_hint": "За логічним висновком запис про походження існує в одному невизначеному місці; йдеться не про обов’язок записувати всюди."
+                }
+            },
+            "verb_hint": "За логічним висновком запис про походження існує в одному невизначеному місці; йдеться не про обов’язок записувати всюди.",
+            "accepted_target_texts": [
+                "The provenance must be documented somewhere in the sealed accession records.",
+                "The provenance must be documented someplace in the sealed accession records."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "someplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "someplace"
+                ]
+            },
+            "reorder_groups": [
+                "The provenance",
+                "must be documented",
+                "somewhere",
+                "in the",
+                "sealed accession records."
+            ],
+            "token_groups": [
+                "The provenance",
+                "must be documented",
+                "somewhere",
+                "in the",
+                "sealed accession records."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "saq-places-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The principle is scarcely applied {a1} outside this narrow jurisdiction.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Цей принцип майже ніде не застосовують поза цією вузькою юрисдикцією.",
+            "target_text": "The principle is scarcely applied anywhere outside this narrow jurisdiction.",
+            "markers": {
+                "a1": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Майже ніде поза юрисдикцією: обмежувальний прислівник уже несе заперечний зміст, тож друге заперечення недоречне."
+                }
+            },
+            "verb_hint": "Майже ніде поза юрисдикцією: обмежувальний прислівник уже несе заперечний зміст, тож друге заперечення недоречне.",
+            "accepted_target_texts": [
+                "The principle is scarcely applied anywhere outside this narrow jurisdiction.",
+                "The principle is scarcely applied anyplace outside this narrow jurisdiction."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "reorder_groups": [
+                "The principle",
+                "is scarcely",
+                "applied",
+                "anywhere",
+                "outside this",
+                "narrow jurisdiction."
+            ],
+            "token_groups": [
+                "The principle",
+                "is scarcely",
+                "applied",
+                "anywhere",
+                "outside this",
+                "narrow jurisdiction."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "saq-places-c2-g03",
+            "author_id": "C2-g03",
+            "question": "There remained {a1} to draw the proposed boundary.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Не лишилося жодного конституційно обґрунтованого місця для запропонованого кордону.",
+            "target_text": "There remained nowhere constitutionally defensible to draw the proposed boundary.",
+            "markers": {
+                "a1": {
+                    "answer": "nowhere constitutionally defensible",
+                    "options": [
+                        "nowhere constitutionally defensible",
+                        "somewhere constitutionally defensible",
+                        "everywhere constitutionally defensible"
+                    ],
+                    "verb_hint": "Жодна можлива лінія кордону не була конституційно обґрунтованою; потрібен повний зворот із заперечним місцем та двома ознаками."
+                }
+            },
+            "verb_hint": "Жодна можлива лінія кордону не була конституційно обґрунтованою; потрібен повний зворот із заперечним місцем та двома ознаками.",
+            "accepted_target_texts": [
+                "There remained nowhere constitutionally defensible to draw the proposed boundary."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There remained",
+                "nowhere constitutionally defensible",
+                "to draw",
+                "the proposed boundary."
+            ],
+            "token_groups": [
+                "There remained",
+                "nowhere constitutionally defensible",
+                "to draw",
+                "the proposed boundary."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "saq-places-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The decree reverberated {a1} across the fractured polity.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Указ спричинив відгук скрізь у роздробленій політичній спільноті.",
+            "target_text": "The decree reverberated everywhere across the fractured polity.",
+            "markers": {
+                "a1": {
+                    "answer": "everywhere",
+                    "options": [
+                        "everywhere",
+                        "somewhere",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Відгук охопив усі частини політично роздробленої спільноти без винятку; потрібне значення повного поширення."
+                }
+            },
+            "verb_hint": "Відгук охопив усі частини політично роздробленої спільноти без винятку; потрібне значення повного поширення.",
+            "accepted_target_texts": [
+                "The decree reverberated everywhere across the fractured polity."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The decree",
+                "reverberated",
+                "everywhere",
+                "across the",
+                "fractured polity."
+            ],
+            "token_groups": [
+                "The decree",
+                "reverberated",
+                "everywhere",
+                "across the",
+                "fractured polity."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "saq-places-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The artefact was presumably concealed {a1} during the occupation.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Артефакт, імовірно, сховали в якомусь недоступному місці під час окупації.",
+            "target_text": "The artefact was presumably concealed somewhere inaccessible during the occupation.",
+            "markers": {
+                "a1": {
+                    "answer": "somewhere inaccessible",
+                    "options": [
+                        "somewhere inaccessible",
+                        "nowhere inaccessible",
+                        "everywhere inaccessible"
+                    ],
+                    "verb_hint": "Припускаємо конкретне, але невідоме недоступне місце схованки; потрібні і прислівник місця, і прикметник недоступний."
+                }
+            },
+            "verb_hint": "Припускаємо конкретне, але невідоме недоступне місце схованки; потрібні і прислівник місця, і прикметник недоступний.",
+            "accepted_target_texts": [
+                "The artefact was presumably concealed somewhere inaccessible during the occupation.",
+                "The artefact was presumably concealed someplace inaccessible during the occupation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "someplace inaccessible"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "someplace inaccessible"
+                ]
+            },
+            "reorder_groups": [
+                "The artefact",
+                "was presumably concealed",
+                "somewhere inaccessible",
+                "during the",
+                "occupation."
+            ],
+            "token_groups": [
+                "The artefact",
+                "was presumably concealed",
+                "somewhere inaccessible",
+                "during the",
+                "occupation."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "saq-places-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The methodology is transferable {a1} comparable safeguards can be guaranteed.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_places",
+            "translation_uk": "Методику можна перенести будь-куди, де гарантовано подібні запобіжні заходи.",
+            "target_text": "The methodology is transferable anywhere comparable safeguards can be guaranteed.",
+            "markers": {
+                "a1": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ],
+                    "verb_hint": "Методику дозволено застосувати в будь-якому місці, яке виконує умову; це необмежений вибір у межах умови."
+                }
+            },
+            "verb_hint": "Методику дозволено застосувати в будь-якому місці, яке виконує умову; це необмежений вибір у межах умови.",
+            "accepted_target_texts": [
+                "The methodology is transferable anywhere comparable safeguards can be guaranteed.",
+                "The methodology is transferable anyplace comparable safeguards can be guaranteed."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anyplace"
+                ]
+            },
+            "reorder_groups": [
+                "The methodology",
+                "is transferable",
+                "anywhere",
+                "comparable safeguards",
+                "can be guaranteed."
+            ],
+            "token_groups": [
+                "The methodology",
+                "is transferable",
+                "anywhere",
+                "comparable safeguards",
+                "can be guaranteed."
+            ],
+            "quality_revision": "saq-v1"
+        }
+    ]
+}

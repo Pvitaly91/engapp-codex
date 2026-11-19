@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62526,
+        "uuid": "qnq-tags-a2-g05",
+        "question": "Let's walk along the canal, {a1}?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 60,
+        "source_id": 462,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedQuestionTagsDisjunctiveQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "shall we",
+                "will we",
+                "do we"
+            ]
+        },
+        "theory_text_block_uuid": "3d3c00b9-03cd-5348-bc97-b50bdbf6a62f",
+        "created_at": "2026-10-30T13:52:59.000000Z",
+        "updated_at": "2026-10-30T13:52:59.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 462,
+        "name": "Questions and Negations Quality: Question Tags: підтвердження та уточнення",
+        "created_at": "2026-10-30T13:52:57.000000Z",
+        "updated_at": "2026-10-30T13:52:57.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 288,
+                "name": "Question Tags",
+                "category": null,
+                "created_at": "2026-04-23T14:33:01.000000Z",
+                "updated_at": "2026-04-23T14:33:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 62526,
+                "tag_id": 288,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 4775,
+                "option": "shall we",
+                "created_at": "2026-04-23T14:41:13.000000Z",
+                "updated_at": "2026-04-23T14:41:13.000000Z"
+            },
+            "pivot": {
+                "question_id": 62526,
+                "option_id": 4775,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4777,
+                "option": "will we",
+                "created_at": "2026-04-23T14:41:13.000000Z",
+                "updated_at": "2026-04-23T14:41:13.000000Z"
+            },
+            "pivot": {
+                "question_id": 62526,
+                "option_id": 4777,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4778,
+                "option": "do we",
+                "created_at": "2026-04-23T14:41:13.000000Z",
+                "updated_at": "2026-04-23T14:41:13.000000Z"
+            },
+            "pivot": {
+                "question_id": 62526,
+                "option_id": 4778,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332143,
+                "question_id": 62526,
+                "marker": "a1",
+                "option_id": 4775,
+                "created_at": "2026-10-30T13:52:59.000000Z",
+                "updated_at": "2026-10-30T13:52:59.000000Z"
+            },
+            "option": {
+                "id": 4775,
+                "option": "shall we",
+                "created_at": "2026-04-23T14:41:13.000000Z",
+                "updated_at": "2026-04-23T14:41:13.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49477,
+                "question_id": 62526,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 56994,
+                "created_at": "2026-10-30T13:52:59.000000Z",
+                "updated_at": "2026-10-30T13:52:59.000000Z"
+            },
+            "option": {
+                "id": 56994,
+                "option": "Для спільної пропозиції потрібен усталений хвостик із питанням про нас.",
+                "created_at": "2026-10-30T13:52:59.000000Z",
+                "updated_at": "2026-10-30T13:52:59.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54541,
+            "question_id": 62526,
+            "text": "Let's walk along the canal, {a1}?",
+            "created_at": "2026-10-30T13:52:59.000000Z",
+            "updated_at": "2026-10-30T13:52:59.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

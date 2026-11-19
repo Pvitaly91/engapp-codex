@@ -1,0 +1,4647 @@
+{
+    "schema_version": 1,
+    "quality_revision": "basic-grammar-v1",
+    "compiled_from": {
+        "path": "docs/content/basic-grammar-quality/conjunctions.v1.json",
+        "sha256": "3974c23d59f6982d268d44bc04c0a65615608ffccd7dd3c00271635fef45acd9"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedConjunctionsQualityBuilderSeeder",
+        "uuid_namespace": "basic-grammar-quality-conjunctions-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "basic_grammar_quality_conjunctions": {
+            "name": "Basic Grammar Quality: Основні сполучники"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_conjunctions": {
+            "name": "Conjunctions",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_conjunctions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "bgq-conjunctions-a1-c01",
+            "author_id": "A1-c01",
+            "question": "У кімнаті тепло, але підлога холодна.",
+            "level": "A1",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "У кімнаті тепло, але підлога холодна.",
+            "target_text": "The room is warm, but the floor is cold.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи обидва протиставлені факти теперішнього стану в одному повідомленні.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "room",
+                    "verb_hint": "Збережи обидва протиставлені факти теперішнього стану в одному повідомленні.",
+                    "options": [
+                        "room",
+                        "baby",
+                        "desk",
+                        "picture"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Збережи обидва протиставлені факти теперішнього стану в одному повідомленні.",
+                    "options": [
+                        "is",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "warm,",
+                    "verb_hint": "Збережи обидва протиставлені факти теперішнього стану в одному повідомленні.",
+                    "options": [
+                        "warm",
+                        "hungry",
+                        "dark",
+                        "heavy"
+                    ]
+                },
+                "a5": {
+                    "answer": "but",
+                    "verb_hint": "Збережи обидва протиставлені факти теперішнього стану в одному повідомленні.",
+                    "options": [
+                        "but",
+                        "nor",
+                        "so",
+                        "yet"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Збережи обидва протиставлені факти теперішнього стану в одному повідомленні.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a7": {
+                    "answer": "floor",
+                    "verb_hint": "Збережи обидва протиставлені факти теперішнього стану в одному повідомленні.",
+                    "options": [
+                        "floor",
+                        "chair",
+                        "table",
+                        "ticket"
+                    ]
+                },
+                "a8": {
+                    "answer": "is",
+                    "verb_hint": "Збережи обидва протиставлені факти теперішнього стану в одному повідомленні.",
+                    "options": [
+                        "is",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a9": {
+                    "answer": "cold.",
+                    "verb_hint": "Збережи обидва протиставлені факти теперішнього стану в одному повідомленні.",
+                    "options": [
+                        "cold",
+                        "lovely",
+                        "final",
+                        "small"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи обидва протиставлені факти теперішнього стану в одному повідомленні.",
+            "accepted_target_texts": [
+                "The room is warm, but the floor is cold.",
+                "The room's warm, but the floor is cold.",
+                "The room is warm, but the floor's cold.",
+                "The room's warm, but the floor's cold."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The room",
+                "is warm,",
+                "but the floor",
+                "is cold."
+            ],
+            "token_groups": [
+                "The room",
+                "is warm,",
+                "but the floor",
+                "is cold."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "room",
+                "is",
+                "warm,",
+                "but",
+                "the",
+                "floor",
+                "is",
+                "cold."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "room",
+                "baby",
+                "desk",
+                "picture",
+                "is",
+                "were",
+                "be",
+                "been",
+                "warm",
+                "hungry",
+                "dark",
+                "heavy",
+                "but",
+                "nor",
+                "so",
+                "yet",
+                "the",
+                "that",
+                "these",
+                "those",
+                "floor",
+                "chair",
+                "table",
+                "ticket",
+                "being",
+                "isn't",
+                "aren't",
+                "cold",
+                "lovely",
+                "final",
+                "small"
+            ],
+            "source_text_uk": "У кімнаті тепло, але підлога холодна.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "room",
+                    "baby",
+                    "desk",
+                    "picture"
+                ],
+                "a3": [
+                    "is",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a4": [
+                    "warm",
+                    "hungry",
+                    "dark",
+                    "heavy"
+                ],
+                "a5": [
+                    "but",
+                    "nor",
+                    "so",
+                    "yet"
+                ],
+                "a6": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a7": [
+                    "floor",
+                    "chair",
+                    "table",
+                    "ticket"
+                ],
+                "a8": [
+                    "is",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a9": [
+                    "cold",
+                    "lovely",
+                    "final",
+                    "small"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "bgq-conjunctions-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Ми можемо піти пішки або поїхати автобусом.",
+            "level": "A1",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Ми можемо піти пішки або поїхати автобусом.",
+            "target_text": "We can walk or take a bus.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Побудуй повідомлення про вибір між двома способами пересування, не про обидві дії поспіль.",
+                    "options": [
+                        "We",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "can",
+                    "verb_hint": "Побудуй повідомлення про вибір між двома способами пересування, не про обидві дії поспіль.",
+                    "options": [
+                        "can",
+                        "wouldn't",
+                        "shouldn't",
+                        "cannot"
+                    ]
+                },
+                "a3": {
+                    "answer": "walk",
+                    "verb_hint": "Побудуй повідомлення про вибір між двома способами пересування, не про обидві дії поспіль.",
+                    "options": [
+                        "walk",
+                        "give",
+                        "make",
+                        "get"
+                    ]
+                },
+                "a4": {
+                    "answer": "or",
+                    "verb_hint": "Побудуй повідомлення про вибір між двома способами пересування, не про обидві дії поспіль.",
+                    "options": [
+                        "or",
+                        "but",
+                        "nor",
+                        "so"
+                    ]
+                },
+                "a5": {
+                    "answer": "take",
+                    "verb_hint": "Побудуй повідомлення про вибір між двома способами пересування, не про обидві дії поспіль.",
+                    "options": [
+                        "take",
+                        "go",
+                        "say",
+                        "tell"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Побудуй повідомлення про вибір між двома способами пересування, не про обидві дії поспіль.",
+                    "options": [
+                        "a",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a7": {
+                    "answer": "bus.",
+                    "verb_hint": "Побудуй повідомлення про вибір між двома способами пересування, не про обидві дії поспіль.",
+                    "options": [
+                        "bus",
+                        "boat",
+                        "ship",
+                        "bike"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй повідомлення про вибір між двома способами пересування, не про обидві дії поспіль.",
+            "accepted_target_texts": [
+                "We can walk or take a bus."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We can walk",
+                "or take",
+                "a bus."
+            ],
+            "token_groups": [
+                "We can walk",
+                "or take",
+                "a bus."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "We",
+                "can",
+                "walk",
+                "or",
+                "take",
+                "a",
+                "bus."
+            ],
+            "options": [
+                "We",
+                "They",
+                "Me",
+                "Him",
+                "can",
+                "wouldn't",
+                "shouldn't",
+                "cannot",
+                "walk",
+                "give",
+                "make",
+                "get",
+                "or",
+                "but",
+                "nor",
+                "so",
+                "take",
+                "go",
+                "say",
+                "tell",
+                "a",
+                "this",
+                "that",
+                "these",
+                "bus",
+                "boat",
+                "ship",
+                "bike"
+            ],
+            "source_text_uk": "Ми можемо піти пішки або поїхати автобусом.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "can",
+                    "wouldn't",
+                    "shouldn't",
+                    "cannot"
+                ],
+                "a3": [
+                    "walk",
+                    "give",
+                    "make",
+                    "get"
+                ],
+                "a4": [
+                    "or",
+                    "but",
+                    "nor",
+                    "so"
+                ],
+                "a5": [
+                    "take",
+                    "go",
+                    "say",
+                    "tell"
+                ],
+                "a6": [
+                    "a",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a7": [
+                    "bus",
+                    "boat",
+                    "ship",
+                    "bike"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "bgq-conjunctions-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Немовля голодне, тому воно плаче.",
+            "level": "A1",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Немовля голодне, тому воно плаче.",
+            "target_text": "The baby is hungry, so she cries.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дитина — дівчинка; збережи голод як причину, а плач як його наслідок.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "baby",
+                    "verb_hint": "Дитина — дівчинка; збережи голод як причину, а плач як його наслідок.",
+                    "options": [
+                        "baby",
+                        "room",
+                        "floor",
+                        "window"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Дитина — дівчинка; збережи голод як причину, а плач як його наслідок.",
+                    "options": [
+                        "is",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "hungry,",
+                    "verb_hint": "Дитина — дівчинка; збережи голод як причину, а плач як його наслідок.",
+                    "options": [
+                        "hungry",
+                        "warm",
+                        "cold",
+                        "new"
+                    ]
+                },
+                "a5": {
+                    "answer": "so",
+                    "verb_hint": "Дитина — дівчинка; збережи голод як причину, а плач як його наслідок.",
+                    "options": [
+                        "so",
+                        "but",
+                        "or",
+                        "nor"
+                    ]
+                },
+                "a6": {
+                    "answer": "she",
+                    "verb_hint": "Дитина — дівчинка; збережи голод як причину, а плач як його наслідок.",
+                    "options": [
+                        "she",
+                        "me",
+                        "him",
+                        "us"
+                    ]
+                },
+                "a7": {
+                    "answer": "cries.",
+                    "verb_hint": "Дитина — дівчинка; збережи голод як причину, а плач як його наслідок.",
+                    "options": [
+                        "cries",
+                        "tickets",
+                        "cups",
+                        "doors"
+                    ]
+                }
+            },
+            "verb_hint": "Дитина — дівчинка; збережи голод як причину, а плач як його наслідок.",
+            "accepted_target_texts": [
+                "The baby is hungry, so she cries.",
+                "The baby's hungry, so she cries."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The baby",
+                "is hungry,",
+                "so she cries."
+            ],
+            "token_groups": [
+                "The baby",
+                "is hungry,",
+                "so she cries."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "baby",
+                "is",
+                "hungry,",
+                "so",
+                "she",
+                "cries."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "baby",
+                "room",
+                "floor",
+                "window",
+                "is",
+                "being",
+                "isn't",
+                "aren't",
+                "hungry",
+                "warm",
+                "cold",
+                "new",
+                "so",
+                "but",
+                "or",
+                "nor",
+                "she",
+                "me",
+                "him",
+                "us",
+                "cries",
+                "tickets",
+                "cups",
+                "doors"
+            ],
+            "source_text_uk": "Немовля голодне, тому воно плаче.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "baby",
+                    "room",
+                    "floor",
+                    "window"
+                ],
+                "a3": [
+                    "is",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a4": [
+                    "hungry",
+                    "warm",
+                    "cold",
+                    "new"
+                ],
+                "a5": [
+                    "so",
+                    "but",
+                    "or",
+                    "nor"
+                ],
+                "a6": [
+                    "she",
+                    "me",
+                    "him",
+                    "us"
+                ],
+                "a7": [
+                    "cries",
+                    "tickets",
+                    "cups",
+                    "doors"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "bgq-conjunctions-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Їжа була проста, але всім сподобалася.",
+            "level": "A2",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Їжа була проста, але всім сподобалася.",
+            "target_text": "The meal was simple, but everyone enjoyed it.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Поєднай два минулі факти через явний контраст, не пояснюй один причиною іншого.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "meal",
+                    "verb_hint": "Поєднай два минулі факти через явний контраст, не пояснюй один причиною іншого.",
+                    "options": [
+                        "meal",
+                        "road",
+                        "back",
+                        "email"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Поєднай два минулі факти через явний контраст, не пояснюй один причиною іншого.",
+                    "options": [
+                        "was",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a4": {
+                    "answer": "simple,",
+                    "verb_hint": "Поєднай два минулі факти через явний контраст, не пояснюй один причиною іншого.",
+                    "options": [
+                        "simple",
+                        "lovely",
+                        "final",
+                        "small"
+                    ]
+                },
+                "a5": {
+                    "answer": "but",
+                    "verb_hint": "Поєднай два минулі факти через явний контраст, не пояснюй один причиною іншого.",
+                    "options": [
+                        "but",
+                        "yet",
+                        "because",
+                        "although"
+                    ]
+                },
+                "a6": {
+                    "answer": "everyone",
+                    "verb_hint": "Поєднай два минулі факти через явний контраст, не пояснюй один причиною іншого.",
+                    "options": [
+                        "everyone",
+                        "form",
+                        "hand",
+                        "reception"
+                    ]
+                },
+                "a7": {
+                    "answer": "enjoyed",
+                    "verb_hint": "Поєднай два минулі факти через явний контраст, не пояснюй один причиною іншого.",
+                    "options": [
+                        "enjoyed",
+                        "turned",
+                        "saw",
+                        "needed"
+                    ]
+                },
+                "a8": {
+                    "answer": "it.",
+                    "verb_hint": "Поєднай два минулі факти через явний контраст, не пояснюй один причиною іншого.",
+                    "options": [
+                        "it",
+                        "she",
+                        "we",
+                        "they"
+                    ]
+                }
+            },
+            "verb_hint": "Поєднай два минулі факти через явний контраст, не пояснюй один причиною іншого.",
+            "accepted_target_texts": [
+                "The meal was simple, but everyone enjoyed it."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The meal",
+                "was simple,",
+                "but everyone",
+                "enjoyed it."
+            ],
+            "token_groups": [
+                "The meal",
+                "was simple,",
+                "but everyone",
+                "enjoyed it."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "meal",
+                "was",
+                "simple,",
+                "but",
+                "everyone",
+                "enjoyed",
+                "it."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "meal",
+                "road",
+                "back",
+                "email",
+                "was",
+                "be",
+                "been",
+                "being",
+                "simple",
+                "lovely",
+                "final",
+                "small",
+                "but",
+                "yet",
+                "because",
+                "although",
+                "everyone",
+                "form",
+                "hand",
+                "reception",
+                "enjoyed",
+                "turned",
+                "saw",
+                "needed",
+                "it",
+                "she",
+                "we",
+                "they"
+            ],
+            "source_text_uk": "Їжа була проста, але всім сподобалася.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "meal",
+                    "road",
+                    "back",
+                    "email"
+                ],
+                "a3": [
+                    "was",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a4": [
+                    "simple",
+                    "lovely",
+                    "final",
+                    "small"
+                ],
+                "a5": [
+                    "but",
+                    "yet",
+                    "because",
+                    "although"
+                ],
+                "a6": [
+                    "everyone",
+                    "form",
+                    "hand",
+                    "reception"
+                ],
+                "a7": [
+                    "enjoyed",
+                    "turned",
+                    "saw",
+                    "needed"
+                ],
+                "a8": [
+                    "it",
+                    "she",
+                    "we",
+                    "they"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "bgq-conjunctions-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Оскільки дорогу перекрили, ми повернулися назад.",
+            "level": "A2",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Оскільки дорогу перекрили, ми повернулися назад.",
+            "target_text": "Because the road was blocked, we turned back.",
+            "markers": {
+                "a1": {
+                    "answer": "Because",
+                    "verb_hint": "Почни з цілої частини причини й збережи її перед наслідком.",
+                    "options": [
+                        "Because",
+                        "Whereas",
+                        "While",
+                        "If"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з цілої частини причини й збережи її перед наслідком.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a3": {
+                    "answer": "road",
+                    "verb_hint": "Почни з цілої частини причини й збережи її перед наслідком.",
+                    "options": [
+                        "road",
+                        "reception",
+                        "meal",
+                        "everyone"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Почни з цілої частини причини й збережи її перед наслідком.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a5": {
+                    "answer": "blocked,",
+                    "verb_hint": "Почни з цілої частини причини й збережи її перед наслідком.",
+                    "options": [
+                        "blocked",
+                        "needed",
+                        "liked",
+                        "wanted"
+                    ]
+                },
+                "a6": {
+                    "answer": "we",
+                    "verb_hint": "Почни з цілої частини причини й збережи її перед наслідком.",
+                    "options": [
+                        "we",
+                        "I",
+                        "you",
+                        "he"
+                    ]
+                },
+                "a7": {
+                    "answer": "turned",
+                    "verb_hint": "Почни з цілої частини причини й збережи її перед наслідком.",
+                    "options": [
+                        "turned",
+                        "enjoyed",
+                        "gave",
+                        "made"
+                    ]
+                },
+                "a8": {
+                    "answer": "back.",
+                    "verb_hint": "Почни з цілої частини причини й збережи її перед наслідком.",
+                    "options": [
+                        "back",
+                        "email",
+                        "form",
+                        "hand"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з цілої частини причини й збережи її перед наслідком.",
+            "accepted_target_texts": [
+                "Because the road was blocked, we turned back."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Because the road",
+                "was blocked,",
+                "we turned back."
+            ],
+            "token_groups": [
+                "Because the road",
+                "was blocked,",
+                "we turned back."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Because",
+                "the",
+                "road",
+                "was",
+                "blocked,",
+                "we",
+                "turned",
+                "back."
+            ],
+            "options": [
+                "Because",
+                "Whereas",
+                "While",
+                "If",
+                "the",
+                "a",
+                "an",
+                "some",
+                "road",
+                "reception",
+                "meal",
+                "everyone",
+                "was",
+                "were",
+                "be",
+                "been",
+                "blocked",
+                "needed",
+                "liked",
+                "wanted",
+                "we",
+                "I",
+                "you",
+                "he",
+                "turned",
+                "enjoyed",
+                "gave",
+                "made",
+                "back",
+                "email",
+                "form",
+                "hand"
+            ],
+            "source_text_uk": "Оскільки дорогу перекрили, ми повернулися назад.",
+            "options_by_marker": {
+                "a1": [
+                    "Because",
+                    "Whereas",
+                    "While",
+                    "If"
+                ],
+                "a2": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a3": [
+                    "road",
+                    "reception",
+                    "meal",
+                    "everyone"
+                ],
+                "a4": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a5": [
+                    "blocked",
+                    "needed",
+                    "liked",
+                    "wanted"
+                ],
+                "a6": [
+                    "we",
+                    "I",
+                    "you",
+                    "he"
+                ],
+                "a7": [
+                    "turned",
+                    "enjoyed",
+                    "gave",
+                    "made"
+                ],
+                "a8": [
+                    "back",
+                    "email",
+                    "form",
+                    "hand"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "bgq-conjunctions-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Ти можеш надіслати бланк електронною поштою або здати його на рецепції.",
+            "level": "A2",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Ти можеш надіслати бланк електронною поштою або здати його на рецепції.",
+            "target_text": "You can email the form or hand it in at reception.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Збережи вибір між двома способами подання того самого бланка.",
+                    "options": [
+                        "You",
+                        "He",
+                        "She",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "can",
+                    "verb_hint": "Збережи вибір між двома способами подання того самого бланка.",
+                    "options": [
+                        "can",
+                        "should",
+                        "may",
+                        "might"
+                    ]
+                },
+                "a3": {
+                    "answer": "email",
+                    "verb_hint": "Збережи вибір між двома способами подання того самого бланка.",
+                    "options": [
+                        "email",
+                        "everyone",
+                        "road",
+                        "back"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи вибір між двома способами подання того самого бланка.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a5": {
+                    "answer": "form",
+                    "verb_hint": "Збережи вибір між двома способами подання того самого бланка.",
+                    "options": [
+                        "form",
+                        "meal",
+                        "train",
+                        "bus"
+                    ]
+                },
+                "a6": {
+                    "answer": "or",
+                    "verb_hint": "Збережи вибір між двома способами подання того самого бланка.",
+                    "options": [
+                        "or",
+                        "although",
+                        "though",
+                        "unless"
+                    ]
+                },
+                "a7": {
+                    "answer": "hand",
+                    "verb_hint": "Збережи вибір між двома способами подання того самого бланка.",
+                    "options": [
+                        "hand",
+                        "desk",
+                        "picture",
+                        "child"
+                    ]
+                },
+                "a8": {
+                    "answer": "it",
+                    "verb_hint": "Збережи вибір між двома способами подання того самого бланка.",
+                    "options": [
+                        "it",
+                        "him",
+                        "us",
+                        "them"
+                    ]
+                },
+                "a9": {
+                    "answer": "in",
+                    "verb_hint": "Збережи вибір між двома способами подання того самого бланка.",
+                    "options": [
+                        "in",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a10": {
+                    "answer": "at",
+                    "verb_hint": "Збережи вибір між двома способами подання того самого бланка.",
+                    "options": [
+                        "at",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a11": {
+                    "answer": "reception.",
+                    "verb_hint": "Збережи вибір між двома способами подання того самого бланка.",
+                    "options": [
+                        "reception",
+                        "map",
+                        "letter",
+                        "window"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи вибір між двома способами подання того самого бланка.",
+            "accepted_target_texts": [
+                "You can email the form or hand it in at reception."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You can",
+                "email the form",
+                "or hand it",
+                "in at reception."
+            ],
+            "token_groups": [
+                "You can",
+                "email the form",
+                "or hand it",
+                "in at reception."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "You",
+                "can",
+                "email",
+                "the",
+                "form",
+                "or",
+                "hand",
+                "it",
+                "in",
+                "at",
+                "reception."
+            ],
+            "options": [
+                "You",
+                "He",
+                "She",
+                "We",
+                "can",
+                "should",
+                "may",
+                "might",
+                "email",
+                "everyone",
+                "road",
+                "back",
+                "the",
+                "any",
+                "this",
+                "that",
+                "form",
+                "meal",
+                "train",
+                "bus",
+                "or",
+                "although",
+                "though",
+                "unless",
+                "hand",
+                "desk",
+                "picture",
+                "child",
+                "it",
+                "him",
+                "us",
+                "them",
+                "in",
+                "onto",
+                "over",
+                "under",
+                "at",
+                "across",
+                "between",
+                "among",
+                "reception",
+                "map",
+                "letter",
+                "window"
+            ],
+            "source_text_uk": "Ти можеш надіслати бланк електронною поштою або здати його на рецепції.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "He",
+                    "She",
+                    "We"
+                ],
+                "a2": [
+                    "can",
+                    "should",
+                    "may",
+                    "might"
+                ],
+                "a3": [
+                    "email",
+                    "everyone",
+                    "road",
+                    "back"
+                ],
+                "a4": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a5": [
+                    "form",
+                    "meal",
+                    "train",
+                    "bus"
+                ],
+                "a6": [
+                    "or",
+                    "although",
+                    "though",
+                    "unless"
+                ],
+                "a7": [
+                    "hand",
+                    "desk",
+                    "picture",
+                    "child"
+                ],
+                "a8": [
+                    "it",
+                    "him",
+                    "us",
+                    "them"
+                ],
+                "a9": [
+                    "in",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a10": [
+                    "at",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a11": [
+                    "reception",
+                    "map",
+                    "letter",
+                    "window"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "bgq-conjunctions-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Магазин був зачинений, тому я замовив деталь онлайн.",
+            "level": "B1",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Магазин був зачинений, тому я замовив деталь онлайн.",
+            "target_text": "The shop was closed, so I ordered the part online.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи зачинений магазин причиною, а замовлення наслідком.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "shop",
+                    "verb_hint": "Збережи зачинений магазин причиною, а замовлення наслідком.",
+                    "options": [
+                        "shop",
+                        "rule",
+                        "follow",
+                        "evidence"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Збережи зачинений магазин причиною, а замовлення наслідком.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "closed,",
+                    "verb_hint": "Збережи зачинений магазин причиною, а замовлення наслідком.",
+                    "options": [
+                        "closed",
+                        "postponed",
+                        "helped",
+                        "watched"
+                    ]
+                },
+                "a5": {
+                    "answer": "so",
+                    "verb_hint": "Збережи зачинений магазин причиною, а замовлення наслідком.",
+                    "options": [
+                        "so",
+                        "but",
+                        "or",
+                        "nor"
+                    ]
+                },
+                "a6": {
+                    "answer": "I",
+                    "verb_hint": "Збережи зачинений магазин причиною, а замовлення наслідком.",
+                    "options": [
+                        "I",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a7": {
+                    "answer": "ordered",
+                    "verb_hint": "Збережи зачинений магазин причиною, а замовлення наслідком.",
+                    "options": [
+                        "ordered",
+                        "worked",
+                        "played",
+                        "called"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Збережи зачинений магазин причиною, а замовлення наслідком.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a9": {
+                    "answer": "part",
+                    "verb_hint": "Збережи зачинений магазин причиною, а замовлення наслідком.",
+                    "options": [
+                        "part",
+                        "incomplete",
+                        "car",
+                        "bag"
+                    ]
+                },
+                "a10": {
+                    "answer": "online.",
+                    "verb_hint": "Збережи зачинений магазин причиною, а замовлення наслідком.",
+                    "options": [
+                        "online",
+                        "room",
+                        "map",
+                        "letter"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи зачинений магазин причиною, а замовлення наслідком.",
+            "accepted_target_texts": [
+                "The shop was closed, so I ordered the part online."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The shop",
+                "was closed,",
+                "so I ordered",
+                "the part online."
+            ],
+            "token_groups": [
+                "The shop",
+                "was closed,",
+                "so I ordered",
+                "the part online."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "shop",
+                "was",
+                "closed,",
+                "so",
+                "I",
+                "ordered",
+                "the",
+                "part",
+                "online."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "shop",
+                "rule",
+                "follow",
+                "evidence",
+                "was",
+                "were",
+                "be",
+                "been",
+                "closed",
+                "postponed",
+                "helped",
+                "watched",
+                "so",
+                "but",
+                "or",
+                "nor",
+                "I",
+                "Us",
+                "Them",
+                "Myself",
+                "ordered",
+                "worked",
+                "played",
+                "called",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "part",
+                "incomplete",
+                "car",
+                "bag",
+                "online",
+                "room",
+                "map",
+                "letter"
+            ],
+            "source_text_uk": "Магазин був зачинений, тому я замовив деталь онлайн.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "shop",
+                    "rule",
+                    "follow",
+                    "evidence"
+                ],
+                "a3": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a4": [
+                    "closed",
+                    "postponed",
+                    "helped",
+                    "watched"
+                ],
+                "a5": [
+                    "so",
+                    "but",
+                    "or",
+                    "nor"
+                ],
+                "a6": [
+                    "I",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a7": [
+                    "ordered",
+                    "worked",
+                    "played",
+                    "called"
+                ],
+                "a8": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a9": [
+                    "part",
+                    "incomplete",
+                    "car",
+                    "bag"
+                ],
+                "a10": [
+                    "online",
+                    "room",
+                    "map",
+                    "letter"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "bgq-conjunctions-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Він знає правило, але не дотримується його.",
+            "level": "B1",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Він знає правило, але не дотримується його.",
+            "target_text": "He knows the rule, but he does not follow it.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Збережи знання правила та протиставлене йому заперечення виконання.",
+                    "options": [
+                        "He",
+                        "You",
+                        "She",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "knows",
+                    "verb_hint": "Збережи знання правила та протиставлене йому заперечення виконання.",
+                    "options": [
+                        "knows",
+                        "tells",
+                        "leaves",
+                        "meets"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Збережи знання правила та протиставлене йому заперечення виконання.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "rule,",
+                    "verb_hint": "Збережи знання правила та протиставлене йому заперечення виконання.",
+                    "options": [
+                        "rule",
+                        "evidence",
+                        "incomplete",
+                        "shop"
+                    ]
+                },
+                "a5": {
+                    "answer": "but",
+                    "verb_hint": "Збережи знання правила та протиставлене йому заперечення виконання.",
+                    "options": [
+                        "but",
+                        "if",
+                        "whether",
+                        "and"
+                    ]
+                },
+                "a6": {
+                    "answer": "he",
+                    "verb_hint": "Збережи знання правила та протиставлене йому заперечення виконання.",
+                    "options": [
+                        "he",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a7": {
+                    "answer": "does",
+                    "verb_hint": "Збережи знання правила та протиставлене йому заперечення виконання.",
+                    "options": [
+                        "does",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "not",
+                    "verb_hint": "Збережи знання правила та протиставлене йому заперечення виконання.",
+                    "options": [
+                        "not",
+                        "usually",
+                        "rarely",
+                        "only"
+                    ]
+                },
+                "a9": {
+                    "answer": "follow",
+                    "verb_hint": "Збережи знання правила та протиставлене йому заперечення виконання.",
+                    "options": [
+                        "follow",
+                        "part",
+                        "online",
+                        "window"
+                    ]
+                },
+                "a10": {
+                    "answer": "it.",
+                    "verb_hint": "Збережи знання правила та протиставлене йому заперечення виконання.",
+                    "options": [
+                        "it",
+                        "us",
+                        "them",
+                        "myself"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи знання правила та протиставлене йому заперечення виконання.",
+            "accepted_target_texts": [
+                "He knows the rule, but he does not follow it.",
+                "He knows the rule, but he doesn't follow it."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He knows",
+                "the rule,",
+                "but he does",
+                "not follow it."
+            ],
+            "token_groups": [
+                "He knows",
+                "the rule,",
+                "but he does",
+                "not follow it."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "He",
+                "knows",
+                "the",
+                "rule,",
+                "but",
+                "he",
+                "does",
+                "not",
+                "follow",
+                "it."
+            ],
+            "options": [
+                "He",
+                "You",
+                "She",
+                "We",
+                "knows",
+                "tells",
+                "leaves",
+                "meets",
+                "the",
+                "each",
+                "every",
+                "no",
+                "rule",
+                "evidence",
+                "incomplete",
+                "shop",
+                "but",
+                "if",
+                "whether",
+                "and",
+                "he",
+                "they",
+                "me",
+                "him",
+                "does",
+                "had",
+                "haven't",
+                "hasn't",
+                "not",
+                "usually",
+                "rarely",
+                "only",
+                "follow",
+                "part",
+                "online",
+                "window",
+                "it",
+                "us",
+                "them",
+                "myself"
+            ],
+            "source_text_uk": "Він знає правило, але не дотримується його.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "You",
+                    "She",
+                    "We"
+                ],
+                "a2": [
+                    "knows",
+                    "tells",
+                    "leaves",
+                    "meets"
+                ],
+                "a3": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "rule",
+                    "evidence",
+                    "incomplete",
+                    "shop"
+                ],
+                "a5": [
+                    "but",
+                    "if",
+                    "whether",
+                    "and"
+                ],
+                "a6": [
+                    "he",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a7": [
+                    "does",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a8": [
+                    "not",
+                    "usually",
+                    "rarely",
+                    "only"
+                ],
+                "a9": [
+                    "follow",
+                    "part",
+                    "online",
+                    "window"
+                ],
+                "a10": [
+                    "it",
+                    "us",
+                    "them",
+                    "myself"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "bgq-conjunctions-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Оскільки докази були неповними, слухання відклали.",
+            "level": "B1",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Оскільки докази були неповними, слухання відклали.",
+            "target_text": "Because the evidence was incomplete, the hearing was postponed.",
+            "markers": {
+                "a1": {
+                    "answer": "Because",
+                    "verb_hint": "Почни з причинної частини й збережи відкладення як її наслідок.",
+                    "options": [
+                        "Because",
+                        "Whereas",
+                        "While",
+                        "If"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з причинної частини й збережи відкладення як її наслідок.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a3": {
+                    "answer": "evidence",
+                    "verb_hint": "Почни з причинної частини й збережи відкладення як її наслідок.",
+                    "options": [
+                        "evidence",
+                        "online",
+                        "rule",
+                        "follow"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Почни з причинної частини й збережи відкладення як її наслідок.",
+                    "options": [
+                        "was",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "incomplete,",
+                    "verb_hint": "Почни з причинної частини й збережи відкладення як її наслідок.",
+                    "options": [
+                        "incomplete",
+                        "shop",
+                        "part",
+                        "person"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з причинної частини й збережи відкладення як її наслідок.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a7": {
+                    "answer": "hearing",
+                    "verb_hint": "Почни з причинної частини й збережи відкладення як її наслідок.",
+                    "options": [
+                        "hearing",
+                        "studying",
+                        "living",
+                        "buying"
+                    ]
+                },
+                "a8": {
+                    "answer": "was",
+                    "verb_hint": "Почни з причинної частини й збережи відкладення як її наслідок.",
+                    "options": [
+                        "was",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a9": {
+                    "answer": "postponed.",
+                    "verb_hint": "Почни з причинної частини й збережи відкладення як її наслідок.",
+                    "options": [
+                        "postponed",
+                        "closed",
+                        "brought",
+                        "taken"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з причинної частини й збережи відкладення як її наслідок.",
+            "accepted_target_texts": [
+                "Because the evidence was incomplete, the hearing was postponed."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Because the evidence",
+                "was incomplete,",
+                "the hearing",
+                "was postponed."
+            ],
+            "token_groups": [
+                "Because the evidence",
+                "was incomplete,",
+                "the hearing",
+                "was postponed."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Because",
+                "the",
+                "evidence",
+                "was",
+                "incomplete,",
+                "the",
+                "hearing",
+                "was",
+                "postponed."
+            ],
+            "options": [
+                "Because",
+                "Whereas",
+                "While",
+                "If",
+                "the",
+                "all",
+                "both",
+                "a",
+                "evidence",
+                "online",
+                "rule",
+                "follow",
+                "was",
+                "being",
+                "isn't",
+                "aren't",
+                "incomplete",
+                "shop",
+                "part",
+                "person",
+                "an",
+                "some",
+                "any",
+                "hearing",
+                "studying",
+                "living",
+                "buying",
+                "weren't",
+                "am",
+                "is",
+                "postponed",
+                "closed",
+                "brought",
+                "taken"
+            ],
+            "source_text_uk": "Оскільки докази були неповними, слухання відклали.",
+            "options_by_marker": {
+                "a1": [
+                    "Because",
+                    "Whereas",
+                    "While",
+                    "If"
+                ],
+                "a2": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a3": [
+                    "evidence",
+                    "online",
+                    "rule",
+                    "follow"
+                ],
+                "a4": [
+                    "was",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a5": [
+                    "incomplete",
+                    "shop",
+                    "part",
+                    "person"
+                ],
+                "a6": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a7": [
+                    "hearing",
+                    "studying",
+                    "living",
+                    "buying"
+                ],
+                "a8": [
+                    "was",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a9": [
+                    "postponed",
+                    "closed",
+                    "brought",
+                    "taken"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "bgq-conjunctions-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Механізм витончений, але його практична цінність обмежена.",
+            "level": "B2",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Механізм витончений, але його практична цінність обмежена.",
+            "target_text": "The mechanism is elegant, but its practical value is limited.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи протиставлення теоретичної привабливості та практичного обмеження.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "mechanism",
+                    "verb_hint": "Збережи протиставлення теоретичної привабливості та практичного обмеження.",
+                    "options": [
+                        "mechanism",
+                        "change",
+                        "reduce",
+                        "scope"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Збережи протиставлення теоретичної привабливості та практичного обмеження.",
+                    "options": [
+                        "is",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a4": {
+                    "answer": "elegant,",
+                    "verb_hint": "Збережи протиставлення теоретичної привабливості та практичного обмеження.",
+                    "options": [
+                        "elegant",
+                        "extend",
+                        "deadline",
+                        "letter"
+                    ]
+                },
+                "a5": {
+                    "answer": "but",
+                    "verb_hint": "Збережи протиставлення теоретичної привабливості та практичного обмеження.",
+                    "options": [
+                        "but",
+                        "or",
+                        "nor",
+                        "so"
+                    ]
+                },
+                "a6": {
+                    "answer": "its",
+                    "verb_hint": "Збережи протиставлення теоретичної привабливості та практичного обмеження.",
+                    "options": [
+                        "its",
+                        "yours",
+                        "hers",
+                        "ours"
+                    ]
+                },
+                "a7": {
+                    "answer": "practical",
+                    "verb_hint": "Збережи протиставлення теоретичної привабливості та практичного обмеження.",
+                    "options": [
+                        "practical",
+                        "timetable",
+                        "new",
+                        "old"
+                    ]
+                },
+                "a8": {
+                    "answer": "value",
+                    "verb_hint": "Збережи протиставлення теоретичної привабливості та практичного обмеження.",
+                    "options": [
+                        "value",
+                        "teacher",
+                        "school",
+                        "sister"
+                    ]
+                },
+                "a9": {
+                    "answer": "is",
+                    "verb_hint": "Збережи протиставлення теоретичної привабливості та практичного обмеження.",
+                    "options": [
+                        "is",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a10": {
+                    "answer": "limited.",
+                    "verb_hint": "Збережи протиставлення теоретичної привабливості та практичного обмеження.",
+                    "options": [
+                        "limited",
+                        "seen",
+                        "known",
+                        "broken"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи протиставлення теоретичної привабливості та практичного обмеження.",
+            "accepted_target_texts": [
+                "The mechanism is elegant, but its practical value is limited."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The mechanism",
+                "is elegant,",
+                "but its practical",
+                "value is limited."
+            ],
+            "token_groups": [
+                "The mechanism",
+                "is elegant,",
+                "but its practical",
+                "value is limited."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "mechanism",
+                "is",
+                "elegant,",
+                "but",
+                "its",
+                "practical",
+                "value",
+                "is",
+                "limited."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "mechanism",
+                "change",
+                "reduce",
+                "scope",
+                "is",
+                "wasn't",
+                "weren't",
+                "am",
+                "elegant",
+                "extend",
+                "deadline",
+                "letter",
+                "but",
+                "or",
+                "nor",
+                "so",
+                "its",
+                "yours",
+                "hers",
+                "ours",
+                "practical",
+                "timetable",
+                "new",
+                "old",
+                "value",
+                "teacher",
+                "school",
+                "sister",
+                "were",
+                "be",
+                "been",
+                "limited",
+                "seen",
+                "known",
+                "broken"
+            ],
+            "source_text_uk": "Механізм витончений, але його практична цінність обмежена.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "mechanism",
+                    "change",
+                    "reduce",
+                    "scope"
+                ],
+                "a3": [
+                    "is",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a4": [
+                    "elegant",
+                    "extend",
+                    "deadline",
+                    "letter"
+                ],
+                "a5": [
+                    "but",
+                    "or",
+                    "nor",
+                    "so"
+                ],
+                "a6": [
+                    "its",
+                    "yours",
+                    "hers",
+                    "ours"
+                ],
+                "a7": [
+                    "practical",
+                    "timetable",
+                    "new",
+                    "old"
+                ],
+                "a8": [
+                    "value",
+                    "teacher",
+                    "school",
+                    "sister"
+                ],
+                "a9": [
+                    "is",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a10": [
+                    "limited",
+                    "seen",
+                    "known",
+                    "broken"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "bgq-conjunctions-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Витрати різко зросли, тому графік довелося змінити.",
+            "level": "B2",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Витрати різко зросли, тому графік довелося змінити.",
+            "target_text": "The costs increased sharply, so the timetable had to change.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи зростання витрат причиною вимушеної зміни графіка.",
+                    "options": [
+                        "The",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "costs",
+                    "verb_hint": "Збережи зростання витрат причиною вимушеної зміни графіка.",
+                    "options": [
+                        "costs",
+                        "boxes",
+                        "chairs",
+                        "tables"
+                    ]
+                },
+                "a3": {
+                    "answer": "increased",
+                    "verb_hint": "Збережи зростання витрат причиною вимушеної зміни графіка.",
+                    "options": [
+                        "increased",
+                        "wanted",
+                        "worked",
+                        "played"
+                    ]
+                },
+                "a4": {
+                    "answer": "sharply,",
+                    "verb_hint": "Збережи зростання витрат причиною вимушеної зміни графіка.",
+                    "options": [
+                        "sharply",
+                        "quickly",
+                        "carefully",
+                        "well"
+                    ]
+                },
+                "a5": {
+                    "answer": "so",
+                    "verb_hint": "Збережи зростання витрат причиною вимушеної зміни графіка.",
+                    "options": [
+                        "so",
+                        "if",
+                        "whether",
+                        "and"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Збережи зростання витрат причиною вимушеної зміни графіка.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a7": {
+                    "answer": "timetable",
+                    "verb_hint": "Збережи зростання витрат причиною вимушеної зміни графіка.",
+                    "options": [
+                        "timetable",
+                        "practical",
+                        "different",
+                        "simple"
+                    ]
+                },
+                "a8": {
+                    "answer": "had",
+                    "verb_hint": "Збережи зростання витрат причиною вимушеної зміни графіка.",
+                    "options": [
+                        "had",
+                        "doesn't",
+                        "didn't",
+                        "have"
+                    ]
+                },
+                "a9": {
+                    "answer": "to",
+                    "verb_hint": "Збережи зростання витрат причиною вимушеної зміни графіка.",
+                    "options": [
+                        "to",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a10": {
+                    "answer": "change.",
+                    "verb_hint": "Збережи зростання витрат причиною вимушеної зміни графіка.",
+                    "options": [
+                        "change",
+                        "elegant",
+                        "value",
+                        "reduce"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи зростання витрат причиною вимушеної зміни графіка.",
+            "accepted_target_texts": [
+                "The costs increased sharply, so the timetable had to change."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The costs",
+                "increased sharply,",
+                "so the timetable",
+                "had to change."
+            ],
+            "token_groups": [
+                "The costs",
+                "increased sharply,",
+                "so the timetable",
+                "had to change."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "costs",
+                "increased",
+                "sharply,",
+                "so",
+                "the",
+                "timetable",
+                "had",
+                "to",
+                "change."
+            ],
+            "options": [
+                "The",
+                "This",
+                "That",
+                "These",
+                "costs",
+                "boxes",
+                "chairs",
+                "tables",
+                "increased",
+                "wanted",
+                "worked",
+                "played",
+                "sharply",
+                "quickly",
+                "carefully",
+                "well",
+                "so",
+                "if",
+                "whether",
+                "and",
+                "the",
+                "a",
+                "an",
+                "some",
+                "timetable",
+                "practical",
+                "different",
+                "simple",
+                "had",
+                "doesn't",
+                "didn't",
+                "have",
+                "to",
+                "for",
+                "of",
+                "in",
+                "change",
+                "elegant",
+                "value",
+                "reduce"
+            ],
+            "source_text_uk": "Витрати різко зросли, тому графік довелося змінити.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "costs",
+                    "boxes",
+                    "chairs",
+                    "tables"
+                ],
+                "a3": [
+                    "increased",
+                    "wanted",
+                    "worked",
+                    "played"
+                ],
+                "a4": [
+                    "sharply",
+                    "quickly",
+                    "carefully",
+                    "well"
+                ],
+                "a5": [
+                    "so",
+                    "if",
+                    "whether",
+                    "and"
+                ],
+                "a6": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a7": [
+                    "timetable",
+                    "practical",
+                    "different",
+                    "simple"
+                ],
+                "a8": [
+                    "had",
+                    "doesn't",
+                    "didn't",
+                    "have"
+                ],
+                "a9": [
+                    "to",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a10": [
+                    "change",
+                    "elegant",
+                    "value",
+                    "reduce"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "bgq-conjunctions-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Ми можемо зменшити обсяг або подовжити термін, але не обидва одночасно.",
+            "level": "B2",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Ми можемо зменшити обсяг або подовжити термін, але не обидва одночасно.",
+            "target_text": "We can reduce the scope or extend the deadline, but not both.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Збережи дві альтернативи й окремо запереч їхнє одночасне виконання.",
+                    "options": [
+                        "We",
+                        "Themselves",
+                        "I",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "can",
+                    "verb_hint": "Збережи дві альтернативи й окремо запереч їхнє одночасне виконання.",
+                    "options": [
+                        "can",
+                        "would",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a3": {
+                    "answer": "reduce",
+                    "verb_hint": "Збережи дві альтернативи й окремо запереч їхнє одночасне виконання.",
+                    "options": [
+                        "reduce",
+                        "elegant",
+                        "value",
+                        "change"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи дві альтернативи й окремо запереч їхнє одночасне виконання.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a5": {
+                    "answer": "scope",
+                    "verb_hint": "Збережи дві альтернативи й окремо запереч їхнє одночасне виконання.",
+                    "options": [
+                        "scope",
+                        "mechanism",
+                        "key",
+                        "room"
+                    ]
+                },
+                "a6": {
+                    "answer": "or",
+                    "verb_hint": "Збережи дві альтернативи й окремо запереч їхнє одночасне виконання.",
+                    "options": [
+                        "or",
+                        "so",
+                        "yet",
+                        "because"
+                    ]
+                },
+                "a7": {
+                    "answer": "extend",
+                    "verb_hint": "Збережи дві альтернативи й окремо запереч їхнє одночасне виконання.",
+                    "options": [
+                        "extend",
+                        "person",
+                        "water",
+                        "bread"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Збережи дві альтернативи й окремо запереч їхнє одночасне виконання.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a9": {
+                    "answer": "deadline,",
+                    "verb_hint": "Збережи дві альтернативи й окремо запереч їхнє одночасне виконання.",
+                    "options": [
+                        "deadline",
+                        "ticket",
+                        "cup",
+                        "door"
+                    ]
+                },
+                "a10": {
+                    "answer": "but",
+                    "verb_hint": "Збережи дві альтернативи й окремо запереч їхнє одночасне виконання.",
+                    "options": [
+                        "but",
+                        "although",
+                        "though",
+                        "unless"
+                    ]
+                },
+                "a11": {
+                    "answer": "not",
+                    "verb_hint": "Збережи дві альтернативи й окремо запереч їхнє одночасне виконання.",
+                    "options": [
+                        "not",
+                        "also",
+                        "usually",
+                        "rarely"
+                    ]
+                },
+                "a12": {
+                    "answer": "both.",
+                    "verb_hint": "Збережи дві альтернативи й окремо запереч їхнє одночасне виконання.",
+                    "options": [
+                        "both",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи дві альтернативи й окремо запереч їхнє одночасне виконання.",
+            "accepted_target_texts": [
+                "We can reduce the scope or extend the deadline, but not both."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We can reduce",
+                "the scope",
+                "or extend",
+                "the deadline,",
+                "but not both."
+            ],
+            "token_groups": [
+                "We can reduce",
+                "the scope",
+                "or extend",
+                "the deadline,",
+                "but not both."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "We",
+                "can",
+                "reduce",
+                "the",
+                "scope",
+                "or",
+                "extend",
+                "the",
+                "deadline,",
+                "but",
+                "not",
+                "both."
+            ],
+            "options": [
+                "We",
+                "Themselves",
+                "I",
+                "You",
+                "can",
+                "would",
+                "shall",
+                "should",
+                "reduce",
+                "elegant",
+                "value",
+                "change",
+                "the",
+                "an",
+                "some",
+                "any",
+                "scope",
+                "mechanism",
+                "key",
+                "room",
+                "or",
+                "so",
+                "yet",
+                "because",
+                "extend",
+                "person",
+                "water",
+                "bread",
+                "this",
+                "that",
+                "these",
+                "deadline",
+                "ticket",
+                "cup",
+                "door",
+                "but",
+                "although",
+                "though",
+                "unless",
+                "not",
+                "also",
+                "usually",
+                "rarely",
+                "both",
+                "those",
+                "each",
+                "every"
+            ],
+            "source_text_uk": "Ми можемо зменшити обсяг або подовжити термін, але не обидва одночасно.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Themselves",
+                    "I",
+                    "You"
+                ],
+                "a2": [
+                    "can",
+                    "would",
+                    "shall",
+                    "should"
+                ],
+                "a3": [
+                    "reduce",
+                    "elegant",
+                    "value",
+                    "change"
+                ],
+                "a4": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a5": [
+                    "scope",
+                    "mechanism",
+                    "key",
+                    "room"
+                ],
+                "a6": [
+                    "or",
+                    "so",
+                    "yet",
+                    "because"
+                ],
+                "a7": [
+                    "extend",
+                    "person",
+                    "water",
+                    "bread"
+                ],
+                "a8": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a9": [
+                    "deadline",
+                    "ticket",
+                    "cup",
+                    "door"
+                ],
+                "a10": [
+                    "but",
+                    "although",
+                    "though",
+                    "unless"
+                ],
+                "a11": [
+                    "not",
+                    "also",
+                    "usually",
+                    "rarely"
+                ],
+                "a12": [
+                    "both",
+                    "those",
+                    "each",
+                    "every"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "bgq-conjunctions-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Оскільки виняток вузько визначений, він не підриває загальний принцип.",
+            "level": "C1",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Оскільки виняток вузько визначений, він не підриває загальний принцип.",
+            "target_text": "Because the exception is narrowly defined, it does not undermine the general principle.",
+            "markers": {
+                "a1": {
+                    "answer": "Because",
+                    "verb_hint": "Почни з причини й збережи заперечний наслідок, не виводячи протилежного факту.",
+                    "options": [
+                        "Because",
+                        "But",
+                        "Or",
+                        "Nor"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з причини й збережи заперечний наслідок, не виводячи протилежного факту.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a3": {
+                    "answer": "exception",
+                    "verb_hint": "Почни з причини й збережи заперечний наслідок, не виводячи протилежного факту.",
+                    "options": [
+                        "exception",
+                        "unequal",
+                        "proportionate",
+                        "court"
+                    ]
+                },
+                "a4": {
+                    "answer": "is",
+                    "verb_hint": "Почни з причини й збережи заперечний наслідок, не виводячи протилежного факту.",
+                    "options": [
+                        "is",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "narrowly",
+                    "verb_hint": "Почни з причини й збережи заперечний наслідок, не виводячи протилежного факту.",
+                    "options": [
+                        "narrowly",
+                        "formally",
+                        "badly",
+                        "clearly"
+                    ]
+                },
+                "a6": {
+                    "answer": "defined,",
+                    "verb_hint": "Почни з причини й збережи заперечний наслідок, не виводячи протилежного факту.",
+                    "options": [
+                        "defined",
+                        "open",
+                        "watched",
+                        "visited"
+                    ]
+                },
+                "a7": {
+                    "answer": "it",
+                    "verb_hint": "Почни з причини й збережи заперечний наслідок, не виводячи протилежного факту.",
+                    "options": [
+                        "it",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                },
+                "a8": {
+                    "answer": "does",
+                    "verb_hint": "Почни з причини й збережи заперечний наслідок, не виводячи протилежного факту.",
+                    "options": [
+                        "does",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a9": {
+                    "answer": "not",
+                    "verb_hint": "Почни з причини й збережи заперечний наслідок, не виводячи протилежного факту.",
+                    "options": [
+                        "not",
+                        "almost",
+                        "never",
+                        "always"
+                    ]
+                },
+                "a10": {
+                    "answer": "undermine",
+                    "verb_hint": "Почни з причини й збережи заперечний наслідок, не виводячи протилежного факту.",
+                    "options": [
+                        "undermine",
+                        "process",
+                        "participation",
+                        "upheld"
+                    ]
+                },
+                "a11": {
+                    "answer": "the",
+                    "verb_hint": "Почни з причини й збережи заперечний наслідок, не виводячи протилежного факту.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a12": {
+                    "answer": "general",
+                    "verb_hint": "Почни з причини й збережи заперечний наслідок, не виводячи протилежного факту.",
+                    "options": [
+                        "general",
+                        "phone",
+                        "train",
+                        "bus"
+                    ]
+                },
+                "a13": {
+                    "answer": "principle.",
+                    "verb_hint": "Почни з причини й збережи заперечний наслідок, не виводячи протилежного факту.",
+                    "options": [
+                        "principle",
+                        "dog",
+                        "cat",
+                        "person"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з причини й збережи заперечний наслідок, не виводячи протилежного факту.",
+            "accepted_target_texts": [
+                "Because the exception is narrowly defined, it does not undermine the general principle.",
+                "Because the exception is narrowly defined, it doesn't undermine the general principle."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Because the exception",
+                "is narrowly defined,",
+                "it does",
+                "not undermine",
+                "the general principle."
+            ],
+            "token_groups": [
+                "Because the exception",
+                "is narrowly defined,",
+                "it does",
+                "not undermine",
+                "the general principle."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Because",
+                "the",
+                "exception",
+                "is",
+                "narrowly",
+                "defined,",
+                "it",
+                "does",
+                "not",
+                "undermine",
+                "the",
+                "general",
+                "principle."
+            ],
+            "options": [
+                "Because",
+                "But",
+                "Or",
+                "Nor",
+                "the",
+                "some",
+                "any",
+                "this",
+                "exception",
+                "unequal",
+                "proportionate",
+                "court",
+                "is",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "narrowly",
+                "formally",
+                "badly",
+                "clearly",
+                "defined",
+                "open",
+                "watched",
+                "visited",
+                "it",
+                "them",
+                "myself",
+                "yourself",
+                "does",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "not",
+                "almost",
+                "never",
+                "always",
+                "undermine",
+                "process",
+                "participation",
+                "upheld",
+                "these",
+                "those",
+                "each",
+                "general",
+                "phone",
+                "train",
+                "bus",
+                "principle",
+                "dog",
+                "cat",
+                "person"
+            ],
+            "source_text_uk": "Оскільки виняток вузько визначений, він не підриває загальний принцип.",
+            "options_by_marker": {
+                "a1": [
+                    "Because",
+                    "But",
+                    "Or",
+                    "Nor"
+                ],
+                "a2": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a3": [
+                    "exception",
+                    "unequal",
+                    "proportionate",
+                    "court"
+                ],
+                "a4": [
+                    "is",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a5": [
+                    "narrowly",
+                    "formally",
+                    "badly",
+                    "clearly"
+                ],
+                "a6": [
+                    "defined",
+                    "open",
+                    "watched",
+                    "visited"
+                ],
+                "a7": [
+                    "it",
+                    "them",
+                    "myself",
+                    "yourself"
+                ],
+                "a8": [
+                    "does",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a9": [
+                    "not",
+                    "almost",
+                    "never",
+                    "always"
+                ],
+                "a10": [
+                    "undermine",
+                    "process",
+                    "participation",
+                    "upheld"
+                ],
+                "a11": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a12": [
+                    "general",
+                    "phone",
+                    "train",
+                    "bus"
+                ],
+                "a13": [
+                    "principle",
+                    "dog",
+                    "cat",
+                    "person"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "bgq-conjunctions-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Процес формально відкритий, але можливості змістовної участі залишаються нерівними.",
+            "level": "C1",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Процес формально відкритий, але можливості змістовної участі залишаються нерівними.",
+            "target_text": "The process is formally open, but meaningful participation remains unequal.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи контраст формальної відкритості й фактичної нерівності участі.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "process",
+                    "verb_hint": "Збережи контраст формальної відкритості й фактичної нерівності участі.",
+                    "options": [
+                        "process",
+                        "general",
+                        "principle",
+                        "proportionate"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Збережи контраст формальної відкритості й фактичної нерівності участі.",
+                    "options": [
+                        "is",
+                        "am",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a4": {
+                    "answer": "formally",
+                    "verb_hint": "Збережи контраст формальної відкритості й фактичної нерівності участі.",
+                    "options": [
+                        "formally",
+                        "narrowly",
+                        "quietly",
+                        "slowly"
+                    ]
+                },
+                "a5": {
+                    "answer": "open,",
+                    "verb_hint": "Збережи контраст формальної відкритості й фактичної нерівності участі.",
+                    "options": [
+                        "open",
+                        "defined",
+                        "worked",
+                        "played"
+                    ]
+                },
+                "a6": {
+                    "answer": "but",
+                    "verb_hint": "Збережи контраст формальної відкритості й фактичної нерівності участі.",
+                    "options": [
+                        "but",
+                        "so",
+                        "yet",
+                        "because"
+                    ]
+                },
+                "a7": {
+                    "answer": "meaningful",
+                    "verb_hint": "Збережи контраст формальної відкритості й фактичної нерівності участі.",
+                    "options": [
+                        "meaningful",
+                        "necessary",
+                        "happy",
+                        "sad"
+                    ]
+                },
+                "a8": {
+                    "answer": "participation",
+                    "verb_hint": "Збережи контраст формальної відкритості й фактичної нерівності участі.",
+                    "options": [
+                        "participation",
+                        "court",
+                        "upheld",
+                        "exception"
+                    ]
+                },
+                "a9": {
+                    "answer": "remains",
+                    "verb_hint": "Збережи контраст формальної відкритості й фактичної нерівності участі.",
+                    "options": [
+                        "remains",
+                        "safeguards",
+                        "children",
+                        "teachers"
+                    ]
+                },
+                "a10": {
+                    "answer": "unequal.",
+                    "verb_hint": "Збережи контраст формальної відкритості й фактичної нерівності участі.",
+                    "options": [
+                        "unequal",
+                        "undermine",
+                        "bread",
+                        "milk"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи контраст формальної відкритості й фактичної нерівності участі.",
+            "accepted_target_texts": [
+                "The process is formally open, but meaningful participation remains unequal."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The process",
+                "is formally open,",
+                "but meaningful participation",
+                "remains unequal."
+            ],
+            "token_groups": [
+                "The process",
+                "is formally open,",
+                "but meaningful participation",
+                "remains unequal."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "process",
+                "is",
+                "formally",
+                "open,",
+                "but",
+                "meaningful",
+                "participation",
+                "remains",
+                "unequal."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "process",
+                "general",
+                "principle",
+                "proportionate",
+                "is",
+                "am",
+                "are",
+                "was",
+                "formally",
+                "narrowly",
+                "quietly",
+                "slowly",
+                "open",
+                "defined",
+                "worked",
+                "played",
+                "but",
+                "so",
+                "yet",
+                "because",
+                "meaningful",
+                "necessary",
+                "happy",
+                "sad",
+                "participation",
+                "court",
+                "upheld",
+                "exception",
+                "remains",
+                "safeguards",
+                "children",
+                "teachers",
+                "unequal",
+                "undermine",
+                "bread",
+                "milk"
+            ],
+            "source_text_uk": "Процес формально відкритий, але можливості змістовної участі залишаються нерівними.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "process",
+                    "general",
+                    "principle",
+                    "proportionate"
+                ],
+                "a3": [
+                    "is",
+                    "am",
+                    "are",
+                    "was"
+                ],
+                "a4": [
+                    "formally",
+                    "narrowly",
+                    "quietly",
+                    "slowly"
+                ],
+                "a5": [
+                    "open",
+                    "defined",
+                    "worked",
+                    "played"
+                ],
+                "a6": [
+                    "but",
+                    "so",
+                    "yet",
+                    "because"
+                ],
+                "a7": [
+                    "meaningful",
+                    "necessary",
+                    "happy",
+                    "sad"
+                ],
+                "a8": [
+                    "participation",
+                    "court",
+                    "upheld",
+                    "exception"
+                ],
+                "a9": [
+                    "remains",
+                    "safeguards",
+                    "children",
+                    "teachers"
+                ],
+                "a10": [
+                    "unequal",
+                    "undermine",
+                    "bread",
+                    "milk"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "bgq-conjunctions-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Гарантії необхідні й пропорційні, тому суд визнав їх правомірними.",
+            "level": "C1",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Гарантії необхідні й пропорційні, тому суд визнав їх правомірними.",
+            "target_text": "The safeguards are necessary and proportionate, so the court upheld them.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Поєднай дві характеристики додаванням і збережи судове рішення їхнім наслідком.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "safeguards",
+                    "verb_hint": "Поєднай дві характеристики додаванням і збережи судове рішення їхнім наслідком.",
+                    "options": [
+                        "safeguards",
+                        "remains",
+                        "books",
+                        "boxes"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Поєднай дві характеристики додаванням і збережи судове рішення їхнім наслідком.",
+                    "options": [
+                        "are",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "necessary",
+                    "verb_hint": "Поєднай дві характеристики додаванням і збережи судове рішення їхнім наслідком.",
+                    "options": [
+                        "necessary",
+                        "meaningful",
+                        "lovely",
+                        "final"
+                    ]
+                },
+                "a5": {
+                    "answer": "and",
+                    "verb_hint": "Поєднай дві характеристики додаванням і збережи судове рішення їхнім наслідком.",
+                    "options": [
+                        "and",
+                        "yet",
+                        "because",
+                        "although"
+                    ]
+                },
+                "a6": {
+                    "answer": "proportionate,",
+                    "verb_hint": "Поєднай дві характеристики додаванням і збережи судове рішення їхнім наслідком.",
+                    "options": [
+                        "proportionate",
+                        "participation",
+                        "unequal",
+                        "exception"
+                    ]
+                },
+                "a7": {
+                    "answer": "so",
+                    "verb_hint": "Поєднай дві характеристики додаванням і збережи судове рішення їхнім наслідком.",
+                    "options": [
+                        "so",
+                        "nor",
+                        "though",
+                        "unless"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Поєднай дві характеристики додаванням і збережи судове рішення їхнім наслідком.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a9": {
+                    "answer": "court",
+                    "verb_hint": "Поєднай дві характеристики додаванням і збережи судове рішення їхнім наслідком.",
+                    "options": [
+                        "court",
+                        "undermine",
+                        "general",
+                        "principle"
+                    ]
+                },
+                "a10": {
+                    "answer": "upheld",
+                    "verb_hint": "Поєднай дві характеристики додаванням і збережи судове рішення їхнім наслідком.",
+                    "options": [
+                        "upheld",
+                        "process",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a11": {
+                    "answer": "them.",
+                    "verb_hint": "Поєднай дві характеристики додаванням і збережи судове рішення їхнім наслідком.",
+                    "options": [
+                        "them",
+                        "yourself",
+                        "herself",
+                        "ourselves"
+                    ]
+                }
+            },
+            "verb_hint": "Поєднай дві характеристики додаванням і збережи судове рішення їхнім наслідком.",
+            "accepted_target_texts": [
+                "The safeguards are necessary and proportionate, so the court upheld them."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The safeguards",
+                "are necessary",
+                "and proportionate,",
+                "so the court",
+                "upheld them."
+            ],
+            "token_groups": [
+                "The safeguards",
+                "are necessary",
+                "and proportionate,",
+                "so the court",
+                "upheld them."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "safeguards",
+                "are",
+                "necessary",
+                "and",
+                "proportionate,",
+                "so",
+                "the",
+                "court",
+                "upheld",
+                "them."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "safeguards",
+                "remains",
+                "books",
+                "boxes",
+                "are",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "necessary",
+                "meaningful",
+                "lovely",
+                "final",
+                "and",
+                "yet",
+                "because",
+                "although",
+                "proportionate",
+                "participation",
+                "unequal",
+                "exception",
+                "so",
+                "nor",
+                "though",
+                "unless",
+                "the",
+                "this",
+                "that",
+                "these",
+                "court",
+                "undermine",
+                "general",
+                "principle",
+                "upheld",
+                "process",
+                "sister",
+                "brother",
+                "them",
+                "yourself",
+                "herself",
+                "ourselves"
+            ],
+            "source_text_uk": "Гарантії необхідні й пропорційні, тому суд визнав їх правомірними.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "safeguards",
+                    "remains",
+                    "books",
+                    "boxes"
+                ],
+                "a3": [
+                    "are",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a4": [
+                    "necessary",
+                    "meaningful",
+                    "lovely",
+                    "final"
+                ],
+                "a5": [
+                    "and",
+                    "yet",
+                    "because",
+                    "although"
+                ],
+                "a6": [
+                    "proportionate",
+                    "participation",
+                    "unequal",
+                    "exception"
+                ],
+                "a7": [
+                    "so",
+                    "nor",
+                    "though",
+                    "unless"
+                ],
+                "a8": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a9": [
+                    "court",
+                    "undermine",
+                    "general",
+                    "principle"
+                ],
+                "a10": [
+                    "upheld",
+                    "process",
+                    "sister",
+                    "brother"
+                ],
+                "a11": [
+                    "them",
+                    "yourself",
+                    "herself",
+                    "ourselves"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "bgq-conjunctions-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Відсутність примусу необхідна, але недостатня для добровільно наданої згоди.",
+            "level": "C2",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Відсутність примусу необхідна, але недостатня для добровільно наданої згоди.",
+            "target_text": "The absence of coercion is necessary but not sufficient for freely given consent.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи точний контраст необхідної та достатньої умови без зміни області заперечення.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "absence",
+                    "verb_hint": "Збережи точний контраст необхідної та достатньої умови без зміни області заперечення.",
+                    "options": [
+                        "absence",
+                        "settlement",
+                        "restraint",
+                        "accountability"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Збережи точний контраст необхідної та достатньої умови без зміни області заперечення.",
+                    "options": [
+                        "of",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a4": {
+                    "answer": "coercion",
+                    "verb_hint": "Збережи точний контраст необхідної та достатньої умови без зміни області заперечення.",
+                    "options": [
+                        "coercion",
+                        "argument",
+                        "circular",
+                        "framework"
+                    ]
+                },
+                "a5": {
+                    "answer": "is",
+                    "verb_hint": "Збережи точний контраст необхідної та достатньої умови без зміни області заперечення.",
+                    "options": [
+                        "is",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "necessary",
+                    "verb_hint": "Збережи точний контраст необхідної та достатньої умови без зміни області заперечення.",
+                    "options": [
+                        "necessary",
+                        "public",
+                        "institutional",
+                        "friendly"
+                    ]
+                },
+                "a7": {
+                    "answer": "but",
+                    "verb_hint": "Збережи точний контраст необхідної та достатньої умови без зміни області заперечення.",
+                    "options": [
+                        "but",
+                        "while",
+                        "if",
+                        "whether"
+                    ]
+                },
+                "a8": {
+                    "answer": "not",
+                    "verb_hint": "Збережи точний контраст необхідної та достатньої умови без зміни області заперечення.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a9": {
+                    "answer": "sufficient",
+                    "verb_hint": "Збережи точний контраст необхідної та достатньої умови без зміни області заперечення.",
+                    "options": [
+                        "sufficient",
+                        "demonstrate",
+                        "key",
+                        "room"
+                    ]
+                },
+                "a10": {
+                    "answer": "for",
+                    "verb_hint": "Збережи точний контраст необхідної та достатньої умови без зміни області заперечення.",
+                    "options": [
+                        "for",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a11": {
+                    "answer": "freely",
+                    "verb_hint": "Збережи точний контраст необхідної та достатньої умови без зміни області заперечення.",
+                    "options": [
+                        "freely",
+                        "quickly",
+                        "carefully",
+                        "well"
+                    ]
+                },
+                "a12": {
+                    "answer": "given",
+                    "verb_hint": "Збережи точний контраст необхідної та достатньої умови без зміни області заперечення.",
+                    "options": [
+                        "given",
+                        "built",
+                        "bought",
+                        "checked"
+                    ]
+                },
+                "a13": {
+                    "answer": "consent.",
+                    "verb_hint": "Збережи точний контраст необхідної та достатньої умови без зміни області заперечення.",
+                    "options": [
+                        "consent",
+                        "milk",
+                        "music",
+                        "food"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи точний контраст необхідної та достатньої умови без зміни області заперечення.",
+            "accepted_target_texts": [
+                "The absence of coercion is necessary but not sufficient for freely given consent."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The absence",
+                "of coercion",
+                "is necessary",
+                "but not sufficient",
+                "for freely given",
+                "consent."
+            ],
+            "token_groups": [
+                "The absence",
+                "of coercion",
+                "is necessary",
+                "but not sufficient",
+                "for freely given",
+                "consent."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "absence",
+                "of",
+                "coercion",
+                "is",
+                "necessary",
+                "but",
+                "not",
+                "sufficient",
+                "for",
+                "freely",
+                "given",
+                "consent."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "absence",
+                "settlement",
+                "restraint",
+                "accountability",
+                "of",
+                "over",
+                "under",
+                "through",
+                "coercion",
+                "argument",
+                "circular",
+                "framework",
+                "is",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "necessary",
+                "public",
+                "institutional",
+                "friendly",
+                "but",
+                "while",
+                "if",
+                "whether",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "sufficient",
+                "demonstrate",
+                "key",
+                "room",
+                "for",
+                "about",
+                "during",
+                "to",
+                "freely",
+                "quickly",
+                "carefully",
+                "well",
+                "given",
+                "built",
+                "bought",
+                "checked",
+                "consent",
+                "milk",
+                "music",
+                "food"
+            ],
+            "source_text_uk": "Відсутність примусу необхідна, але недостатня для добровільно наданої згоди.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "absence",
+                    "settlement",
+                    "restraint",
+                    "accountability"
+                ],
+                "a3": [
+                    "of",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a4": [
+                    "coercion",
+                    "argument",
+                    "circular",
+                    "framework"
+                ],
+                "a5": [
+                    "is",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a6": [
+                    "necessary",
+                    "public",
+                    "institutional",
+                    "friendly"
+                ],
+                "a7": [
+                    "but",
+                    "while",
+                    "if",
+                    "whether"
+                ],
+                "a8": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a9": [
+                    "sufficient",
+                    "demonstrate",
+                    "key",
+                    "room"
+                ],
+                "a10": [
+                    "for",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a11": [
+                    "freely",
+                    "quickly",
+                    "carefully",
+                    "well"
+                ],
+                "a12": [
+                    "given",
+                    "built",
+                    "bought",
+                    "checked"
+                ],
+                "a13": [
+                    "consent",
+                    "milk",
+                    "music",
+                    "food"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "bgq-conjunctions-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Оскільки система наперед припускає те, що нібито доводить, аргументація є коловою.",
+            "level": "C2",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Оскільки система наперед припускає те, що нібито доводить, аргументація є коловою.",
+            "target_text": "Because the framework presupposes what it claims to demonstrate, the argument is circular.",
+            "markers": {
+                "a1": {
+                    "answer": "Because",
+                    "verb_hint": "Почни з повної причини та збережи оцінку аргументації як її наслідок.",
+                    "options": [
+                        "Because",
+                        "Whether",
+                        "And",
+                        "But"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з повної причини та збережи оцінку аргументації як її наслідок.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a3": {
+                    "answer": "framework",
+                    "verb_hint": "Почни з повної причини та збережи оцінку аргументації як її наслідок.",
+                    "options": [
+                        "framework",
+                        "absence",
+                        "coercion",
+                        "sufficient"
+                    ]
+                },
+                "a4": {
+                    "answer": "presupposes",
+                    "verb_hint": "Почни з повної причини та збережи оцінку аргументації як її наслідок.",
+                    "options": [
+                        "presupposes",
+                        "requires",
+                        "guarantees",
+                        "rooms"
+                    ]
+                },
+                "a5": {
+                    "answer": "what",
+                    "verb_hint": "Почни з повної причини та збережи оцінку аргументації як її наслідок.",
+                    "options": [
+                        "what",
+                        "why",
+                        "how",
+                        "whoever"
+                    ]
+                },
+                "a6": {
+                    "answer": "it",
+                    "verb_hint": "Почни з повної причини та збережи оцінку аргументації як її наслідок.",
+                    "options": [
+                        "it",
+                        "us",
+                        "them",
+                        "myself"
+                    ]
+                },
+                "a7": {
+                    "answer": "claims",
+                    "verb_hint": "Почни з повної причини та збережи оцінку аргументації як її наслідок.",
+                    "options": [
+                        "claims",
+                        "windows",
+                        "phones",
+                        "children"
+                    ]
+                },
+                "a8": {
+                    "answer": "to",
+                    "verb_hint": "Почни з повної причини та збережи оцінку аргументації як її наслідок.",
+                    "options": [
+                        "to",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a9": {
+                    "answer": "demonstrate,",
+                    "verb_hint": "Почни з повної причини та збережи оцінку аргументації як її наслідок.",
+                    "options": [
+                        "demonstrate",
+                        "settlement",
+                        "restraint",
+                        "accountability"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Почни з повної причини та збережи оцінку аргументації як її наслідок.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a11": {
+                    "answer": "argument",
+                    "verb_hint": "Почни з повної причини та збережи оцінку аргументації як її наслідок.",
+                    "options": [
+                        "argument",
+                        "consent",
+                        "friend",
+                        "dog"
+                    ]
+                },
+                "a12": {
+                    "answer": "is",
+                    "verb_hint": "Почни з повної причини та збережи оцінку аргументації як її наслідок.",
+                    "options": [
+                        "is",
+                        "weren't",
+                        "am",
+                        "are"
+                    ]
+                },
+                "a13": {
+                    "answer": "circular.",
+                    "verb_hint": "Почни з повної причини та збережи оцінку аргументації як її наслідок.",
+                    "options": [
+                        "circular",
+                        "box",
+                        "chair",
+                        "table"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з повної причини та збережи оцінку аргументації як її наслідок.",
+            "accepted_target_texts": [
+                "Because the framework presupposes what it claims to demonstrate, the argument is circular."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Because the framework",
+                "presupposes what",
+                "it claims",
+                "to demonstrate,",
+                "the argument",
+                "is circular."
+            ],
+            "token_groups": [
+                "Because the framework",
+                "presupposes what",
+                "it claims",
+                "to demonstrate,",
+                "the argument",
+                "is circular."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Because",
+                "the",
+                "framework",
+                "presupposes",
+                "what",
+                "it",
+                "claims",
+                "to",
+                "demonstrate,",
+                "the",
+                "argument",
+                "is",
+                "circular."
+            ],
+            "options": [
+                "Because",
+                "Whether",
+                "And",
+                "But",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "framework",
+                "absence",
+                "coercion",
+                "sufficient",
+                "presupposes",
+                "requires",
+                "guarantees",
+                "rooms",
+                "what",
+                "why",
+                "how",
+                "whoever",
+                "it",
+                "us",
+                "them",
+                "myself",
+                "claims",
+                "windows",
+                "phones",
+                "children",
+                "to",
+                "of",
+                "in",
+                "on",
+                "demonstrate",
+                "settlement",
+                "restraint",
+                "accountability",
+                "those",
+                "each",
+                "every",
+                "argument",
+                "consent",
+                "friend",
+                "dog",
+                "is",
+                "weren't",
+                "am",
+                "are",
+                "circular",
+                "box",
+                "chair",
+                "table"
+            ],
+            "source_text_uk": "Оскільки система наперед припускає те, що нібито доводить, аргументація є коловою.",
+            "options_by_marker": {
+                "a1": [
+                    "Because",
+                    "Whether",
+                    "And",
+                    "But"
+                ],
+                "a2": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a3": [
+                    "framework",
+                    "absence",
+                    "coercion",
+                    "sufficient"
+                ],
+                "a4": [
+                    "presupposes",
+                    "requires",
+                    "guarantees",
+                    "rooms"
+                ],
+                "a5": [
+                    "what",
+                    "why",
+                    "how",
+                    "whoever"
+                ],
+                "a6": [
+                    "it",
+                    "us",
+                    "them",
+                    "myself"
+                ],
+                "a7": [
+                    "claims",
+                    "windows",
+                    "phones",
+                    "children"
+                ],
+                "a8": [
+                    "to",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a9": [
+                    "demonstrate",
+                    "settlement",
+                    "restraint",
+                    "accountability"
+                ],
+                "a10": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a11": [
+                    "argument",
+                    "consent",
+                    "friend",
+                    "dog"
+                ],
+                "a12": [
+                    "is",
+                    "weren't",
+                    "am",
+                    "are"
+                ],
+                "a13": [
+                    "circular",
+                    "box",
+                    "chair",
+                    "table"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "bgq-conjunctions-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Угода потребує і самообмеження установ, і публічної підзвітності, але не гарантує жодного з них.",
+            "level": "C2",
+            "type": 4,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Угода потребує і самообмеження установ, і публічної підзвітності, але не гарантує жодного з них.",
+            "target_text": "The settlement requires both institutional restraint and public accountability, but guarantees neither.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи додавання двох вимог і контрастне заперечення гарантії кожної з них.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "settlement",
+                    "verb_hint": "Збережи додавання двох вимог і контрастне заперечення гарантії кожної з них.",
+                    "options": [
+                        "settlement",
+                        "argument",
+                        "circular",
+                        "absence"
+                    ]
+                },
+                "a3": {
+                    "answer": "requires",
+                    "verb_hint": "Збережи додавання двох вимог і контрастне заперечення гарантії кожної з них.",
+                    "options": [
+                        "requires",
+                        "presupposes",
+                        "claims",
+                        "letters"
+                    ]
+                },
+                "a4": {
+                    "answer": "both",
+                    "verb_hint": "Збережи додавання двох вимог і контрастне заперечення гарантії кожної з них.",
+                    "options": [
+                        "both",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "institutional",
+                    "verb_hint": "Збережи додавання двох вимог і контрастне заперечення гарантії кожної з них.",
+                    "options": [
+                        "institutional",
+                        "necessary",
+                        "light",
+                        "clean"
+                    ]
+                },
+                "a6": {
+                    "answer": "restraint",
+                    "verb_hint": "Збережи додавання двох вимог і контрастне заперечення гарантії кожної з них.",
+                    "options": [
+                        "restraint",
+                        "consent",
+                        "framework",
+                        "demonstrate"
+                    ]
+                },
+                "a7": {
+                    "answer": "and",
+                    "verb_hint": "Збережи додавання двох вимог і контрастне заперечення гарантії кожної з них.",
+                    "options": [
+                        "and",
+                        "whether",
+                        "or",
+                        "nor"
+                    ]
+                },
+                "a8": {
+                    "answer": "public",
+                    "verb_hint": "Збережи додавання двох вимог і контрастне заперечення гарантії кожної з них.",
+                    "options": [
+                        "public",
+                        "friendly",
+                        "lovely",
+                        "final"
+                    ]
+                },
+                "a9": {
+                    "answer": "accountability,",
+                    "verb_hint": "Збережи додавання двох вимог і контрастне заперечення гарантії кожної з них.",
+                    "options": [
+                        "accountability",
+                        "coercion",
+                        "sufficient",
+                        "book"
+                    ]
+                },
+                "a10": {
+                    "answer": "but",
+                    "verb_hint": "Збережи додавання двох вимог і контрастне заперечення гарантії кожної з них.",
+                    "options": [
+                        "but",
+                        "although",
+                        "though",
+                        "unless"
+                    ]
+                },
+                "a11": {
+                    "answer": "guarantees",
+                    "verb_hint": "Збережи додавання двох вимог і контрастне заперечення гарантії кожної з них.",
+                    "options": [
+                        "guarantees",
+                        "friends",
+                        "dogs",
+                        "cats"
+                    ]
+                },
+                "a12": {
+                    "answer": "neither.",
+                    "verb_hint": "Збережи додавання двох вимог і контрастне заперечення гарантії кожної з них.",
+                    "options": [
+                        "neither",
+                        "each",
+                        "either",
+                        "all"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи додавання двох вимог і контрастне заперечення гарантії кожної з них.",
+            "accepted_target_texts": [
+                "The settlement requires both institutional restraint and public accountability, but guarantees neither."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The settlement",
+                "requires both",
+                "institutional restraint",
+                "and public accountability,",
+                "but guarantees",
+                "neither."
+            ],
+            "token_groups": [
+                "The settlement",
+                "requires both",
+                "institutional restraint",
+                "and public accountability,",
+                "but guarantees",
+                "neither."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "settlement",
+                "requires",
+                "both",
+                "institutional",
+                "restraint",
+                "and",
+                "public",
+                "accountability,",
+                "but",
+                "guarantees",
+                "neither."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "settlement",
+                "argument",
+                "circular",
+                "absence",
+                "requires",
+                "presupposes",
+                "claims",
+                "letters",
+                "both",
+                "every",
+                "no",
+                "another",
+                "institutional",
+                "necessary",
+                "light",
+                "clean",
+                "restraint",
+                "consent",
+                "framework",
+                "demonstrate",
+                "and",
+                "whether",
+                "or",
+                "nor",
+                "public",
+                "friendly",
+                "lovely",
+                "final",
+                "accountability",
+                "coercion",
+                "sufficient",
+                "book",
+                "but",
+                "although",
+                "though",
+                "unless",
+                "guarantees",
+                "friends",
+                "dogs",
+                "cats",
+                "neither",
+                "each",
+                "either",
+                "all"
+            ],
+            "source_text_uk": "Угода потребує і самообмеження установ, і публічної підзвітності, але не гарантує жодного з них.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "settlement",
+                    "argument",
+                    "circular",
+                    "absence"
+                ],
+                "a3": [
+                    "requires",
+                    "presupposes",
+                    "claims",
+                    "letters"
+                ],
+                "a4": [
+                    "both",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "institutional",
+                    "necessary",
+                    "light",
+                    "clean"
+                ],
+                "a6": [
+                    "restraint",
+                    "consent",
+                    "framework",
+                    "demonstrate"
+                ],
+                "a7": [
+                    "and",
+                    "whether",
+                    "or",
+                    "nor"
+                ],
+                "a8": [
+                    "public",
+                    "friendly",
+                    "lovely",
+                    "final"
+                ],
+                "a9": [
+                    "accountability",
+                    "coercion",
+                    "sufficient",
+                    "book"
+                ],
+                "a10": [
+                    "but",
+                    "although",
+                    "though",
+                    "unless"
+                ],
+                "a11": [
+                    "guarantees",
+                    "friends",
+                    "dogs",
+                    "cats"
+                ],
+                "a12": [
+                    "neither",
+                    "each",
+                    "either",
+                    "all"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

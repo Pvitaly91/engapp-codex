@@ -1,0 +1,1641 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/infinitive.v1.json",
+        "sha256": "529d098158dc134a93c1572521dd855738dbd36e157736b732c7bb35e55ff697"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoicePassiveInfinitiveQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-infinitive-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_infinitive": {
+            "name": "Passive Voice Quality: Пасивний інфінітив"
+        }
+    },
+    "tags": {
+        "passive_voice_passive_infinitive": {
+            "name": "Passive Voice Passive Infinitive",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "to_be_v3": {
+            "name": "To Be V3",
+            "category": "topic"
+        },
+        "to_have_been_v3": {
+            "name": "To Have Been V3",
+            "category": "topic"
+        },
+        "after_adjectives": {
+            "name": "After Adjectives",
+            "category": "topic"
+        },
+        "after_verbs": {
+            "name": "After Verbs",
+            "category": "topic"
+        },
+        "after_expressions": {
+            "name": "After Expressions",
+            "category": "topic"
+        },
+        "verb_patterns": {
+            "name": "Verb Patterns",
+            "category": "topic"
+        },
+        "perfect_passive_infinitive": {
+            "name": "Perfect Passive Infinitive",
+            "category": "topic"
+        },
+        "active_passive_infinitive": {
+            "name": "Active Passive Infinitive",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-infinitive-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The toys need {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Іграшки потрібно помити.",
+            "target_text": "The toys need to be washed.",
+            "markers": {
+                "a1": {
+                    "answer": "to be washed",
+                    "options": [
+                        "to be washed",
+                        "to being washed",
+                        "be washed"
+                    ],
+                    "verb_hint": "Потрібно помити; ознайомлювальна модель пасивного інфінітива."
+                }
+            },
+            "verb_hint": "Потрібно помити; ознайомлювальна модель пасивного інфінітива.",
+            "accepted_target_texts": [
+                "The toys need to be washed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The toys",
+                "need to be",
+                "washed."
+            ],
+            "token_groups": [
+                "The toys",
+                "need to be",
+                "washed."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-infinitive-a1-g02",
+            "author_id": "A1-g02",
+            "question": "This lamp has {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Цю лампу треба переставити.",
+            "target_text": "This lamp has to be moved.",
+            "markers": {
+                "a1": {
+                    "answer": "to be moved",
+                    "options": [
+                        "to be moved",
+                        "to being moved",
+                        "be moved"
+                    ],
+                    "verb_hint": "Треба переставити."
+                }
+            },
+            "verb_hint": "Треба переставити.",
+            "accepted_target_texts": [
+                "This lamp has to be moved."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This lamp",
+                "has to be",
+                "moved."
+            ],
+            "token_groups": [
+                "This lamp",
+                "has to be",
+                "moved."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-infinitive-a1-g03",
+            "author_id": "A1-g03",
+            "question": "The milk needs {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Молоко потрібно охолодити.",
+            "target_text": "The milk needs to be cooled.",
+            "markers": {
+                "a1": {
+                    "answer": "to be cooled",
+                    "options": [
+                        "to be cooled",
+                        "to being cooled",
+                        "be cooled"
+                    ],
+                    "verb_hint": "Потрібно охолодити."
+                }
+            },
+            "verb_hint": "Потрібно охолодити.",
+            "accepted_target_texts": [
+                "The milk needs to be cooled."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The milk",
+                "needs to be",
+                "cooled."
+            ],
+            "token_groups": [
+                "The milk",
+                "needs to be",
+                "cooled."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-infinitive-a1-g04",
+            "author_id": "A1-g04",
+            "question": "I want {a1} to lunch.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Я хочу, щоб мене запросили на обід.",
+            "target_text": "I want to be invited to lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "to be invited",
+                    "options": [
+                        "to be invited",
+                        "to being invited",
+                        "be invited"
+                    ],
+                    "verb_hint": "Мене запросили на обід."
+                }
+            },
+            "verb_hint": "Мене запросили на обід.",
+            "accepted_target_texts": [
+                "I want to be invited to lunch."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I want",
+                "to be invited",
+                "to lunch."
+            ],
+            "token_groups": [
+                "I want",
+                "to be invited",
+                "to lunch."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-infinitive-a1-g05",
+            "author_id": "A1-g05",
+            "question": "The pets need {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Домашніх тварин потрібно погодувати.",
+            "target_text": "The pets need to be fed.",
+            "markers": {
+                "a1": {
+                    "answer": "to be fed",
+                    "options": [
+                        "to be fed",
+                        "to being fed",
+                        "be fed"
+                    ],
+                    "verb_hint": "Потрібно погодувати."
+                }
+            },
+            "verb_hint": "Потрібно погодувати.",
+            "accepted_target_texts": [
+                "The pets need to be fed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The pets",
+                "need to be",
+                "fed."
+            ],
+            "token_groups": [
+                "The pets",
+                "need to be",
+                "fed."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-infinitive-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The picture has {a1} here.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Картину треба повісити тут.",
+            "target_text": "The picture has to be hung here.",
+            "markers": {
+                "a1": {
+                    "answer": "to be hung",
+                    "options": [
+                        "to be hung",
+                        "to being hung",
+                        "be hung"
+                    ],
+                    "verb_hint": "Треба повісити тут."
+                }
+            },
+            "verb_hint": "Треба повісити тут.",
+            "accepted_target_texts": [
+                "The picture has to be hung here."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The picture",
+                "has to be",
+                "hung",
+                "here."
+            ],
+            "token_groups": [
+                "The picture",
+                "has to be",
+                "hung",
+                "here."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-infinitive-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The broken chair ought {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Зламаний стілець слід замінити.",
+            "target_text": "The broken chair ought to be replaced.",
+            "markers": {
+                "a1": {
+                    "answer": "to be replaced",
+                    "options": [
+                        "to be replaced",
+                        "to being replaced",
+                        "be replaced"
+                    ],
+                    "verb_hint": "Слід замінити."
+                }
+            },
+            "verb_hint": "Слід замінити.",
+            "accepted_target_texts": [
+                "The broken chair ought to be replaced."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The broken chair",
+                "ought",
+                "to be replaced."
+            ],
+            "token_groups": [
+                "The broken chair",
+                "ought",
+                "to be replaced."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-infinitive-a2-g02",
+            "author_id": "A2-g02",
+            "question": "She hopes {a1} for the trip.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Вона сподівається, що її оберуть для подорожі.",
+            "target_text": "She hopes to be chosen for the trip.",
+            "markers": {
+                "a1": {
+                    "answer": "to be chosen",
+                    "options": [
+                        "to be chosen",
+                        "to being chosen",
+                        "be chosen"
+                    ],
+                    "verb_hint": "Її оберуть для подорожі."
+                }
+            },
+            "verb_hint": "Її оберуть для подорожі.",
+            "accepted_target_texts": [
+                "She hopes to be chosen for the trip."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She hopes",
+                "to be chosen",
+                "for the trip."
+            ],
+            "token_groups": [
+                "She hopes",
+                "to be chosen",
+                "for the trip."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-infinitive-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The letter is ready {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Лист уже можна відправляти поштою.",
+            "target_text": "The letter is ready to be posted.",
+            "markers": {
+                "a1": {
+                    "answer": "to be posted",
+                    "options": [
+                        "to be posted",
+                        "to being posted",
+                        "be posted"
+                    ],
+                    "verb_hint": "Уже можна відправляти поштою."
+                }
+            },
+            "verb_hint": "Уже можна відправляти поштою.",
+            "accepted_target_texts": [
+                "The letter is ready to be posted."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The letter",
+                "is ready",
+                "to be posted."
+            ],
+            "token_groups": [
+                "The letter",
+                "is ready",
+                "to be posted."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-infinitive-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The suitcase is too heavy {a1} by one person.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Валіза надто важка, щоб її несла одна людина.",
+            "target_text": "The suitcase is too heavy to be carried by one person.",
+            "markers": {
+                "a1": {
+                    "answer": "to be carried",
+                    "options": [
+                        "to be carried",
+                        "to being carried",
+                        "be carried"
+                    ],
+                    "verb_hint": "Її несла одна людина."
+                }
+            },
+            "verb_hint": "Її несла одна людина.",
+            "accepted_target_texts": [
+                "The suitcase is too heavy to be carried by one person."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The suitcase",
+                "is too",
+                "heavy to be",
+                "carried",
+                "by one person."
+            ],
+            "token_groups": [
+                "The suitcase",
+                "is too",
+                "heavy to be",
+                "carried",
+                "by one person."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-infinitive-a2-g05",
+            "author_id": "A2-g05",
+            "question": "He asked {a1} before eight.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Він попросив, щоб йому зателефонували до восьмої.",
+            "target_text": "He asked to be called before eight.",
+            "markers": {
+                "a1": {
+                    "answer": "to be called",
+                    "options": [
+                        "to be called",
+                        "to being called",
+                        "be called"
+                    ],
+                    "verb_hint": "Йому зателефонували до восьмої."
+                }
+            },
+            "verb_hint": "Йому зателефонували до восьмої.",
+            "accepted_target_texts": [
+                "He asked to be called before eight."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He asked",
+                "to be called",
+                "before eight."
+            ],
+            "token_groups": [
+                "He asked",
+                "to be called",
+                "before eight."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-infinitive-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The puzzle is easy {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Головоломку легко розв’язати.",
+            "target_text": "The puzzle is easy to solve.",
+            "markers": {
+                "a1": {
+                    "answer": "to solve",
+                    "options": [
+                        "to solve",
+                        "to be solving",
+                        "to solved"
+                    ],
+                    "verb_hint": "Легко розв’язати; після прикметника тут природний активний інфінітив."
+                }
+            },
+            "verb_hint": "Легко розв’язати; після прикметника тут природний активний інфінітив.",
+            "accepted_target_texts": [
+                "The puzzle is easy to solve."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The puzzle",
+                "is easy",
+                "to solve."
+            ],
+            "token_groups": [
+                "The puzzle",
+                "is easy",
+                "to solve."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-infinitive-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The guests expect {a1} at the airport.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Гості очікують, що їх зустрінуть в аеропорту.",
+            "target_text": "The guests expect to be met at the airport.",
+            "markers": {
+                "a1": {
+                    "answer": "to be met",
+                    "options": [
+                        "to be met",
+                        "to being met",
+                        "be met"
+                    ],
+                    "verb_hint": "Їх зустрінуть в аеропорту."
+                }
+            },
+            "verb_hint": "Їх зустрінуть в аеропорту.",
+            "accepted_target_texts": [
+                "The guests expect to be met at the airport."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guests",
+                "expect to be",
+                "met",
+                "at the airport."
+            ],
+            "token_groups": [
+                "The guests",
+                "expect to be",
+                "met",
+                "at the airport."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-infinitive-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The injured cyclist needs {a1} to hospital.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Травмованого велосипедиста потрібно доправити до лікарні.",
+            "target_text": "The injured cyclist needs to be taken to hospital.",
+            "markers": {
+                "a1": {
+                    "answer": "to be taken",
+                    "options": [
+                        "to be taken",
+                        "to being taken",
+                        "be taken"
+                    ],
+                    "verb_hint": "Потрібно доправити до лікарні."
+                }
+            },
+            "verb_hint": "Потрібно доправити до лікарні.",
+            "accepted_target_texts": [
+                "The injured cyclist needs to be taken to hospital."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The injured cyclist",
+                "needs",
+                "to be taken",
+                "to hospital."
+            ],
+            "token_groups": [
+                "The injured cyclist",
+                "needs",
+                "to be taken",
+                "to hospital."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-infinitive-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The schedule is likely {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Розклад імовірно змінять.",
+            "target_text": "The schedule is likely to be changed.",
+            "markers": {
+                "a1": {
+                    "answer": "to be changed",
+                    "options": [
+                        "to be changed",
+                        "to being changed",
+                        "be changed"
+                    ],
+                    "verb_hint": "Імовірно змінять."
+                }
+            },
+            "verb_hint": "Імовірно змінять.",
+            "accepted_target_texts": [
+                "The schedule is likely to be changed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The schedule",
+                "is likely",
+                "to be changed."
+            ],
+            "token_groups": [
+                "The schedule",
+                "is likely",
+                "to be changed."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-infinitive-b1-g04",
+            "author_id": "B1-g04",
+            "question": "He deserves {a1} for his honesty.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Він заслуговує, щоб йому подякували за чесність.",
+            "target_text": "He deserves to be thanked for his honesty.",
+            "markers": {
+                "a1": {
+                    "answer": "to be thanked",
+                    "options": [
+                        "to be thanked",
+                        "to being thanked",
+                        "be thanked"
+                    ],
+                    "verb_hint": "Йому подякували за чесність."
+                }
+            },
+            "verb_hint": "Йому подякували за чесність.",
+            "accepted_target_texts": [
+                "He deserves to be thanked for his honesty."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He deserves",
+                "to be thanked",
+                "for his honesty."
+            ],
+            "token_groups": [
+                "He deserves",
+                "to be thanked",
+                "for his honesty."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-infinitive-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The notice is intended {a1} aloud.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Оголошення призначене для читання вголос.",
+            "target_text": "The notice is intended to be read aloud.",
+            "markers": {
+                "a1": {
+                    "answer": "to be read",
+                    "options": [
+                        "to be read",
+                        "to being read",
+                        "be read"
+                    ],
+                    "verb_hint": "Призначене для читання вголос."
+                }
+            },
+            "verb_hint": "Призначене для читання вголос.",
+            "accepted_target_texts": [
+                "The notice is intended to be read aloud."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The notice",
+                "is intended",
+                "to be read",
+                "aloud."
+            ],
+            "token_groups": [
+                "The notice",
+                "is intended",
+                "to be read",
+                "aloud."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-infinitive-b1-g06",
+            "author_id": "B1-g06",
+            "question": "There is nothing {a1} by arguing.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Суперечкою нічого не здобути.",
+            "target_text": "There is nothing to be gained by arguing.",
+            "markers": {
+                "a1": {
+                    "answer": "to be gained",
+                    "options": [
+                        "to be gained",
+                        "to being gained",
+                        "be gained"
+                    ],
+                    "verb_hint": "Нічого не здобути."
+                }
+            },
+            "verb_hint": "Нічого не здобути.",
+            "accepted_target_texts": [
+                "There is nothing to be gained by arguing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "nothing to be",
+                "gained",
+                "by arguing."
+            ],
+            "token_groups": [
+                "There is",
+                "nothing to be",
+                "gained",
+                "by arguing."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-infinitive-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The missing files appear {a1} deleted accidentally.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Здається, загублені файли раніше випадково видалили.",
+            "target_text": "The missing files appear to have been deleted accidentally.",
+            "markers": {
+                "a1": {
+                    "answer": "to have been",
+                    "options": [
+                        "to have been",
+                        "to has been",
+                        "having been"
+                    ],
+                    "verb_hint": "Раніше випадково видалили."
+                }
+            },
+            "verb_hint": "Раніше випадково видалили.",
+            "accepted_target_texts": [
+                "The missing files appear to have been deleted accidentally."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The missing",
+                "files appear",
+                "to have been",
+                "deleted accidentally."
+            ],
+            "token_groups": [
+                "The missing",
+                "files appear",
+                "to have been",
+                "deleted accidentally."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-infinitive-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The witness is believed {a1} threatened.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Вважають, що свідкові раніше погрожували.",
+            "target_text": "The witness is believed to have been threatened.",
+            "markers": {
+                "a1": {
+                    "answer": "to have been",
+                    "options": [
+                        "to have been",
+                        "to has been",
+                        "having been"
+                    ],
+                    "verb_hint": "Раніше погрожували."
+                }
+            },
+            "verb_hint": "Раніше погрожували.",
+            "accepted_target_texts": [
+                "The witness is believed to have been threatened."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The witness",
+                "is believed",
+                "to have been",
+                "threatened."
+            ],
+            "token_groups": [
+                "The witness",
+                "is believed",
+                "to have been",
+                "threatened."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-infinitive-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The journalist claimed {a1} misled by an official.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Журналіст заявив, що раніше посадовець увів його в оману.",
+            "target_text": "The journalist claimed to have been misled by an official.",
+            "markers": {
+                "a1": {
+                    "answer": "to have been",
+                    "options": [
+                        "to have been",
+                        "to has been",
+                        "having been"
+                    ],
+                    "verb_hint": "Раніше посадовець увів його в оману."
+                }
+            },
+            "verb_hint": "Раніше посадовець увів його в оману.",
+            "accepted_target_texts": [
+                "The journalist claimed to have been misled by an official."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The journalist",
+                "claimed to have",
+                "been",
+                "misled by",
+                "an official."
+            ],
+            "token_groups": [
+                "The journalist",
+                "claimed to have",
+                "been",
+                "misled by",
+                "an official."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-infinitive-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The arrangement is unlikely {a1} next year.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Домовленість навряд чи поновлять наступного року.",
+            "target_text": "The arrangement is unlikely to be renewed next year.",
+            "markers": {
+                "a1": {
+                    "answer": "to be renewed",
+                    "options": [
+                        "to be renewed",
+                        "to being renewed",
+                        "be renewed"
+                    ],
+                    "verb_hint": "Навряд чи поновлять наступного року."
+                }
+            },
+            "verb_hint": "Навряд чи поновлять наступного року.",
+            "accepted_target_texts": [
+                "The arrangement is unlikely to be renewed next year."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The arrangement",
+                "is unlikely",
+                "to be renewed",
+                "next year."
+            ],
+            "token_groups": [
+                "The arrangement",
+                "is unlikely",
+                "to be renewed",
+                "next year."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-infinitive-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The candidate would like {a1} for both posts.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Кандидат хотів би, щоб його розглянули на обидві посади.",
+            "target_text": "The candidate would like to be considered for both posts.",
+            "markers": {
+                "a1": {
+                    "answer": "to be considered",
+                    "options": [
+                        "to be considered",
+                        "to being considered",
+                        "be considered"
+                    ],
+                    "verb_hint": "Його розглянули на обидві посади."
+                }
+            },
+            "verb_hint": "Його розглянули на обидві посади.",
+            "accepted_target_texts": [
+                "The candidate would like to be considered for both posts."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The candidate",
+                "would like",
+                "to be considered",
+                "for both posts."
+            ],
+            "token_groups": [
+                "The candidate",
+                "would like",
+                "to be considered",
+                "for both posts."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-infinitive-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The defect seems {a1} before installation.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Здається, дефект існував ще до встановлення.",
+            "target_text": "The defect seems to have existed before installation.",
+            "markers": {
+                "a1": {
+                    "answer": "to have existed",
+                    "options": [
+                        "to have existed",
+                        "to has existed",
+                        "having existed"
+                    ],
+                    "verb_hint": "Існував ще до встановлення; інфінітив активний."
+                }
+            },
+            "verb_hint": "Існував ще до встановлення; інфінітив активний.",
+            "accepted_target_texts": [
+                "The defect seems to have existed before installation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The defect",
+                "seems to have",
+                "existed",
+                "before installation."
+            ],
+            "token_groups": [
+                "The defect",
+                "seems to have",
+                "existed",
+                "before installation."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-infinitive-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The concession is liable {a1} at short notice.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Поступку можуть відкликати без тривалого попередження.",
+            "target_text": "The concession is liable to be withdrawn at short notice.",
+            "markers": {
+                "a1": {
+                    "answer": "to be withdrawn",
+                    "options": [
+                        "to be withdrawn",
+                        "to being withdrawn",
+                        "be withdrawn"
+                    ],
+                    "verb_hint": "Можуть відкликати без тривалого попередження."
+                }
+            },
+            "verb_hint": "Можуть відкликати без тривалого попередження.",
+            "accepted_target_texts": [
+                "The concession is liable to be withdrawn at short notice."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The concession",
+                "is liable",
+                "to be withdrawn",
+                "at short notice."
+            ],
+            "token_groups": [
+                "The concession",
+                "is liable",
+                "to be withdrawn",
+                "at short notice."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-infinitive-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The manuscript is thought {a1} circulated privately.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Вважають, що рукопис раніше поширювали приватно.",
+            "target_text": "The manuscript is thought to have been circulated privately.",
+            "markers": {
+                "a1": {
+                    "answer": "to have been",
+                    "options": [
+                        "to have been",
+                        "to has been",
+                        "having been"
+                    ],
+                    "verb_hint": "Раніше поширювали приватно."
+                }
+            },
+            "verb_hint": "Раніше поширювали приватно.",
+            "accepted_target_texts": [
+                "The manuscript is thought to have been circulated privately."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The manuscript",
+                "is thought",
+                "to have been",
+                "circulated privately."
+            ],
+            "token_groups": [
+                "The manuscript",
+                "is thought",
+                "to have been",
+                "circulated privately."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-infinitive-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The delegate was fortunate {a1} consulted beforehand.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Делегатові пощастило, що з ним попередньо порадилися.",
+            "target_text": "The delegate was fortunate to have been consulted beforehand.",
+            "markers": {
+                "a1": {
+                    "answer": "to have been",
+                    "options": [
+                        "to have been",
+                        "to has been",
+                        "having been"
+                    ],
+                    "verb_hint": "З ним попередньо порадилися."
+                }
+            },
+            "verb_hint": "З ним попередньо порадилися.",
+            "accepted_target_texts": [
+                "The delegate was fortunate to have been consulted beforehand."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The delegate",
+                "was fortunate",
+                "to have been",
+                "consulted beforehand."
+            ],
+            "token_groups": [
+                "The delegate",
+                "was fortunate",
+                "to have been",
+                "consulted beforehand."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-infinitive-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The archive remains {a1} in full.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Архів іще належить повністю каталогізувати.",
+            "target_text": "The archive remains to be catalogued in full.",
+            "markers": {
+                "a1": {
+                    "answer": "to be catalogued",
+                    "options": [
+                        "to be catalogued",
+                        "to being catalogued",
+                        "be catalogued"
+                    ],
+                    "verb_hint": "Іще належить повністю каталогізувати."
+                }
+            },
+            "verb_hint": "Іще належить повністю каталогізувати.",
+            "accepted_target_texts": [
+                "The archive remains to be catalogued in full.",
+                "The archive remains to be cataloged in full."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to be cataloged"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to be cataloged"
+                ]
+            },
+            "reorder_groups": [
+                "The archive",
+                "remains to be",
+                "catalogued",
+                "in full."
+            ],
+            "token_groups": [
+                "The archive",
+                "remains to be",
+                "catalogued",
+                "in full."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-infinitive-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The clause is too ambiguous {a1} consistently.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Положення надто неоднозначне, щоб його можна було послідовно застосовувати.",
+            "target_text": "The clause is too ambiguous to be enforced consistently.",
+            "markers": {
+                "a1": {
+                    "answer": "to be enforced",
+                    "options": [
+                        "to be enforced",
+                        "to being enforced",
+                        "be enforced"
+                    ],
+                    "verb_hint": "Його можна було послідовно застосовувати."
+                }
+            },
+            "verb_hint": "Його можна було послідовно застосовувати.",
+            "accepted_target_texts": [
+                "The clause is too ambiguous to be enforced consistently."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The clause",
+                "is too",
+                "ambiguous to be",
+                "enforced",
+                "consistently."
+            ],
+            "token_groups": [
+                "The clause",
+                "is too",
+                "ambiguous to be",
+                "enforced",
+                "consistently."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-infinitive-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The delegation is reported {a1} overnight.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Повідомляють, що делегація прибула вночі.",
+            "target_text": "The delegation is reported to have arrived overnight.",
+            "markers": {
+                "a1": {
+                    "answer": "to have arrived",
+                    "options": [
+                        "to have arrived",
+                        "to has arrived",
+                        "having arrived"
+                    ],
+                    "verb_hint": "Прибула вночі; повідомлювана дія активна."
+                }
+            },
+            "verb_hint": "Прибула вночі; повідомлювана дія активна.",
+            "accepted_target_texts": [
+                "The delegation is reported to have arrived overnight."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The delegation",
+                "is reported",
+                "to have arrived",
+                "overnight."
+            ],
+            "token_groups": [
+                "The delegation",
+                "is reported",
+                "to have arrived",
+                "overnight."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-infinitive-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The undertaking is susceptible {a1} as irrevocable.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Зобов’язання можуть витлумачити як безвідкличне.",
+            "target_text": "The undertaking is susceptible to being construed as irrevocable.",
+            "markers": {
+                "a1": {
+                    "answer": "to being construed",
+                    "options": [
+                        "to being construed",
+                        "to be construed",
+                        "be construed"
+                    ],
+                    "verb_hint": "Можуть витлумачити як безвідкличне; після прийменника потрібен герундій, не інфінітив."
+                }
+            },
+            "verb_hint": "Можуть витлумачити як безвідкличне; після прийменника потрібен герундій, не інфінітив.",
+            "accepted_target_texts": [
+                "The undertaking is susceptible to being construed as irrevocable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The undertaking",
+                "is susceptible",
+                "to being construed",
+                "as irrevocable."
+            ],
+            "token_groups": [
+                "The undertaking",
+                "is susceptible",
+                "to being construed",
+                "as irrevocable."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-infinitive-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The omission is presumed {a1} rectified retrospectively.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Припускають, що пропуск раніше виправили заднім числом.",
+            "target_text": "The omission is presumed to have been rectified retrospectively.",
+            "markers": {
+                "a1": {
+                    "answer": "to have been",
+                    "options": [
+                        "to have been",
+                        "to has been",
+                        "having been"
+                    ],
+                    "verb_hint": "Раніше виправили заднім числом."
+                }
+            },
+            "verb_hint": "Раніше виправили заднім числом.",
+            "accepted_target_texts": [
+                "The omission is presumed to have been rectified retrospectively."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The omission",
+                "is presumed",
+                "to have been",
+                "rectified retrospectively."
+            ],
+            "token_groups": [
+                "The omission",
+                "is presumed",
+                "to have been",
+                "rectified retrospectively."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-infinitive-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The respondent is entitled {a1} of material developments.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Відповідач має право, щоб його інформували про істотні зміни.",
+            "target_text": "The respondent is entitled to be apprised of material developments.",
+            "markers": {
+                "a1": {
+                    "answer": "to be apprised",
+                    "options": [
+                        "to be apprised",
+                        "to being apprised",
+                        "be apprised"
+                    ],
+                    "verb_hint": "Його інформували про істотні зміни."
+                }
+            },
+            "verb_hint": "Його інформували про істотні зміни.",
+            "accepted_target_texts": [
+                "The respondent is entitled to be apprised of material developments."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The respondent",
+                "is entitled",
+                "to be apprised",
+                "of material developments."
+            ],
+            "token_groups": [
+                "The respondent",
+                "is entitled",
+                "to be apprised",
+                "of material developments."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-infinitive-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The ruling is unlikely {a1} absent compelling evidence.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Рішення навряд чи скасують без переконливих доказів.",
+            "target_text": "The ruling is unlikely to be overturned absent compelling evidence.",
+            "markers": {
+                "a1": {
+                    "answer": "to be overturned",
+                    "options": [
+                        "to be overturned",
+                        "to being overturned",
+                        "be overturned"
+                    ],
+                    "verb_hint": "Навряд чи скасують без переконливих доказів."
+                }
+            },
+            "verb_hint": "Навряд чи скасують без переконливих доказів.",
+            "accepted_target_texts": [
+                "The ruling is unlikely to be overturned absent compelling evidence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ruling",
+                "is unlikely",
+                "to be overturned",
+                "absent compelling",
+                "evidence."
+            ],
+            "token_groups": [
+                "The ruling",
+                "is unlikely",
+                "to be overturned",
+                "absent compelling",
+                "evidence."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-infinitive-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The provenance is understood {a1} established conclusively.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Вважається, що походження раніше остаточно встановили.",
+            "target_text": "The provenance is understood to have been established conclusively.",
+            "markers": {
+                "a1": {
+                    "answer": "to have been",
+                    "options": [
+                        "to have been",
+                        "to has been",
+                        "having been"
+                    ],
+                    "verb_hint": "Раніше остаточно встановили."
+                }
+            },
+            "verb_hint": "Раніше остаточно встановили.",
+            "accepted_target_texts": [
+                "The provenance is understood to have been established conclusively."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The provenance",
+                "is understood",
+                "to have been",
+                "established conclusively."
+            ],
+            "token_groups": [
+                "The provenance",
+                "is understood",
+                "to have been",
+                "established conclusively."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-infinitive-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The safeguard is designed {a1} arbitrary detention.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_infinitive",
+            "translation_uk": "Запобіжник покликаний унеможливлювати свавільне затримання.",
+            "target_text": "The safeguard is designed to preclude arbitrary detention.",
+            "markers": {
+                "a1": {
+                    "answer": "to preclude",
+                    "options": [
+                        "to preclude",
+                        "to be precluded",
+                        "to precluding"
+                    ],
+                    "verb_hint": "Покликаний унеможливлювати свавільне затримання; потрібен активний інфінітив."
+                }
+            },
+            "verb_hint": "Покликаний унеможливлювати свавільне затримання; потрібен активний інфінітив.",
+            "accepted_target_texts": [
+                "The safeguard is designed to preclude arbitrary detention."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The safeguard",
+                "is designed",
+                "to preclude",
+                "arbitrary detention."
+            ],
+            "token_groups": [
+                "The safeguard",
+                "is designed",
+                "to preclude",
+                "arbitrary detention."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

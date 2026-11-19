@@ -1,0 +1,1755 @@
+{
+    "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder": [
+        {
+            "ledger_key": "m84-a-selects-0",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Нейтральна позиція always перед основним дієсловом.",
+            "change_reason": "Видимий критерій замість загальної заборони всіх інших порядків.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "label": "a) She always drinks coffee. / b) Always she drinks coffee.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "after_task": {
+                "label": "<p>Обери нейтральне твердження: always перед основним дієсловом, не перед підметом.</p><p lang=\"en\">a) She always drinks coffee.<br>b) Always she drinks coffee.</p><p>Задум обох варіантів: вона завжди п’є каву.</p>",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "She always drinks coffee. — Вона завжди п’є каву. У заданій нейтральній моделі always стоїть перед drinks.",
+                    "b": "She always drinks coffee. — Вона завжди п’є каву. Обери заданий нейтральний порядок із always перед drinks, не перед She."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-a-selects-1",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Кінцева обставина часу в заданій нейтральній моделі.",
+            "change_reason": "Критерій не оголошує інший акцент неможливим.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "label": "a) I go to work every day. / b) I every day go to work.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "after_task": {
+                "label": "<p>Обери модель з підметом на початку та обставиною every day у кінці.</p><p lang=\"en\">a) I go to work every day.<br>b) I every day go to work.</p><p>Я щодня ходжу на роботу.</p>",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "I go to work every day. — Я щодня ходжу на роботу. Every day у кінці виконує явно задану умову.",
+                    "b": "I go to work every day. — Я щодня ходжу на роботу. У цій вправі прямо потрібна кінцева позиція every day; інший акцентний порядок не є її ціллю."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-a-selects-2",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "selects",
+            "old_group_index": 2,
+            "after_group": "selects",
+            "after_group_index": 2,
+            "graded": true,
+            "learning_function": "Місце після works у нейтральному твердженні.",
+            "change_reason": "Явний критерій, переклад і plain feedback.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "label": "a) He in the office works. / b) He works in the office.",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "after_task": {
+                "label": "<p>Обери нейтральний порядок: підмет, works, потім місце.</p><p lang=\"en\">a) He in the office works.<br>b) He works in the office.</p><p>Він працює в офісі.</p>",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "He works in the office. — Він працює в офісі. Задана нейтральна модель залишає місце після works.",
+                    "b": "He works in the office. — Він працює в офісі. He є підметом, а in the office називає місце після works."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-a-choices-0",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Ролі учасників повідомлення.",
+            "change_reason": "Нове завдання на зміст, не копія переставляння.",
+            "identity_policy": "New stable m84 ID.",
+            "old_task": null,
+            "after_task": {
+                "id": "m84-basic-order-meaning-roles",
+                "label": "<p>Яка роль Тома в повідомленні?</p><p lang=\"en\">Tom helps Anna.</p><p>Том допомагає Анні.</p>",
+                "options": [
+                    "Том допомагає, а Анна отримує допомогу.",
+                    "Том отримує допомогу від Анни."
+                ],
+                "answer": "Том допомагає, а Анна отримує допомогу.",
+                "accepted": [
+                    "Том допомагає, а Анна отримує допомогу."
+                ],
+                "feedback": {
+                    "том допомагає, а анна отримує допомогу.": "Tom helps Anna. — Том допомагає Анні. Tom є підметом, Anna — додатком; обмін їхніми ролями змінить повідомлення.",
+                    "том отримує допомогу від анни.": "Tom helps Anna. — Том допомагає Анні. Змінювати, хто допомагає кому, не можна: Tom стоїть як підмет, Anna — як додаток."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-a-choices-1",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Зміст допустимого початкового часу.",
+            "change_reason": "Нове meaning task із незмінними часом і місцем.",
+            "identity_policy": "New stable m84 ID.",
+            "old_task": null,
+            "after_task": {
+                "id": "m84-basic-order-meaning-initial-time",
+                "label": "<p>Що зміниться в повідомленні, якщо ту саму обставину Every Sunday поставити в кінець, не змінюючи інших слів?</p><p lang=\"en\">Every Sunday, the children play in the park.</p><p>Діти граються в парку щонеділі.</p>",
+                "options": [
+                    "Час і місце події залишаться тими самими.",
+                    "Час зміниться на кожний день, а місце — на школу."
+                ],
+                "answer": "Час і місце події залишаться тими самими.",
+                "accepted": [
+                    "Час і місце події залишаться тими самими."
+                ],
+                "feedback": {
+                    "час і місце події залишаться тими самими.": "Every Sunday, the children play in the park. — Діти граються в парку щонеділі. Початковий час допустимий; зміна його позиції може змінити акцент, але не названі факти про неділю та парк.",
+                    "час зміниться на кожний день, а місце — на школу.": "Every Sunday, the children play in the park. — Діти граються в парку щонеділі. Перенесення тієї самої обставини не замінює неділю кожним днем або парк школою."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-a-inputs-0",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Повне речення з often.",
+            "change_reason": "Чистий банк та явна before-reads ціль замість неозвученого single key.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "before": "(she / reads / books / often)",
+                "after": "→",
+                "answer": "She often reads books."
+            },
+            "after_task": {
+                "before": "books. / often / She / reads",
+                "after": "<p>Вона часто читає книги. Почни з підмета She; у цій вправі постав often безпосередньо перед reads. Використай усі слова.</p>",
+                "answer": "She often reads books.",
+                "accepted": [
+                    "She often reads books."
+                ],
+                "feedback": {
+                    "she often reads books.": "She often reads books. — Вона часто читає книги. За заданою моделлю often стоїть перед reads; reads і його додаток books не розриваємо."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-a-inputs-1",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Повне речення з every morning.",
+            "change_reason": "Чистий банк і reviewed natural initial-time alias.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "before": "(every morning / I / breakfast / eat)",
+                "after": "→",
+                "answer": "I eat breakfast every morning."
+            },
+            "after_task": {
+                "before": "eat / every morning. / I / breakfast",
+                "after": "<p>Я щоранку снідаю. Збережи всі слова; обставина every morning може стояти в кінці або на початку речення.</p>",
+                "answer": "I eat breakfast every morning.",
+                "accepted": [
+                    "I eat breakfast every morning.",
+                    "Every morning, I eat breakfast."
+                ],
+                "feedback": {
+                    "i eat breakfast every morning.": "I eat breakfast every morning. — Я щоранку снідаю. Час може стояти в кінці; також допустимо Every morning, I eat breakfast.",
+                    "every morning, i eat breakfast.": "Every morning, I eat breakfast. — Я щоранку снідаю. Початковий час дозволений умовою; повідомлення I eat breakfast збережено."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-a-inputs-2",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "inputs",
+            "old_group_index": 2,
+            "after_group": "inputs",
+            "after_group_index": 2,
+            "graded": true,
+            "learning_function": "Повне речення з місцем і часом.",
+            "change_reason": "Чистий банк, end-place-before-time criterion і natural initial-time alias.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "before": "(at home / on Sundays / we / dinner / have)",
+                "after": "→",
+                "answer": "We have dinner at home on Sundays."
+            },
+            "after_task": {
+                "before": "at home / dinner / We / on Sundays. / have",
+                "after": "<p>По неділях ми вечеряємо вдома. Якщо обидві обставини в кінці, постав місце перед часом; також можна почати з часу. Збережи всі слова.</p>",
+                "answer": "We have dinner at home on Sundays.",
+                "accepted": [
+                    "We have dinner at home on Sundays.",
+                    "On Sundays, we have dinner at home."
+                ],
+                "feedback": {
+                    "we have dinner at home on sundays.": "We have dinner at home on Sundays. — По неділях ми вечеряємо вдома. У кінцевій групі місце at home стоїть перед часом on Sundays.",
+                    "on sundays, we have dinner at home.": "On Sundays, we have dinner at home. — По неділях ми вечеряємо вдома. Початковий час дозволено; at home зберігає місце вечері."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-a-rephrase-0",
+            "classification": "retained_demo",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "rephrase",
+            "old_group_index": 0,
+            "after_group": "rephrase",
+            "after_group_index": 0,
+            "graded": false,
+            "learning_function": "Неоцінюваний приклад SVO.",
+            "change_reason": "Повний переклад source й target.",
+            "identity_policy": "No grading key introduced.",
+            "old_task": {
+                "example_label": "Приклад:",
+                "example_original": "Plays he football every day.",
+                "example_target": "He plays football every day."
+            },
+            "after_task": {
+                "example_label": "Неоцінюваний приклад нейтрального твердження",
+                "example_original": "Plays he football every day. — Задум: він щодня грає у футбол.",
+                "example_target": "He plays football every day. — Він щодня грає у футбол."
+            }
+        },
+        {
+            "ledger_key": "m84-a-rephrase-1",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "rephrase",
+            "old_group_index": 1,
+            "after_group": "rephrase",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Always не розриває reads/books.",
+            "change_reason": "Збережена correction function; видимий критерій і переклад.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "original": "1. She reads always books in the evening.",
+                "placeholder": "Виправ порядок слів",
+                "answer": "She always reads books in the evening."
+            },
+            "after_task": {
+                "original": "1. She reads always books in the evening. — Задум: вона завжди читає книги ввечері. Почни з She і постав always перед reads; збережи всі інші слова.",
+                "placeholder": "Запиши повне речення",
+                "answer": "She always reads books in the evening.",
+                "accepted": [
+                    "She always reads books in the evening."
+                ],
+                "feedback": {
+                    "she always reads books in the evening.": "She always reads books in the evening. — Вона завжди читає книги ввечері. Always стоїть перед reads; books залишається після reads."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-a-rephrase-2",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "rephrase",
+            "old_group_index": 2,
+            "after_group": "rephrase",
+            "after_group_index": 2,
+            "graded": true,
+            "learning_function": "Нейтральний порядок місця й часу.",
+            "change_reason": "Умова явно задає початок We та місце перед часом; не universal grammatical error.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "original": "2. We go every week to the supermarket.",
+                "placeholder": "Виправ порядок слів",
+                "answer": "We go to the supermarket every week."
+            },
+            "after_task": {
+                "original": "2. We go every week to the supermarket. — Ми щотижня ходимо до супермаркету. Перебудуй за навчальною моделлю: почни з We, а в кінці постав місце перед часом. Не змінюй слова.",
+                "placeholder": "Запиши повне речення",
+                "answer": "We go to the supermarket every week.",
+                "accepted": [
+                    "We go to the supermarket every week."
+                ],
+                "feedback": {
+                    "we go to the supermarket every week.": "We go to the supermarket every week. — Ми щотижня ходимо до супермаркету. Виконано задану нейтральну модель: місце перед часом. Початковий час можливий в інших умовах, але тут задано початок We."
+                }
+            }
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder": [
+        {
+            "ledger_key": "m84-b-selects-0",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Нейтральне повне питання з do.",
+            "change_reason": "Явний критерій не забороняє statement question в його контексті.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "label": "a) Do you like coffee? / b) You like coffee?",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "after_task": {
+                "label": "<p>Обери нейтральне повне питання у Present Simple з допоміжним дієсловом, не розмовне перепитування.</p><p lang=\"en\">a) Do you like coffee?<br>b) You like coffee?</p><p>Ти любиш каву?</p>",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "Do you like coffee? — Ти любиш каву? Do перед you виконує задану повну питальну модель.",
+                    "b": "Do you like coffee? — Ти любиш каву? You like coffee? може бути розмовним перепитуванням, але тут прямо потрібне нейтральне повне питання з do."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-b-selects-1",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Пряме wh-питання з does.",
+            "change_reason": "Реально видима умова й переклад.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "label": "a) Where does she live? / b) Where she lives?",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "after_task": {
+                "label": "<p>Обери повне пряме питання про місце проживання у Present Simple.</p><p lang=\"en\">a) Where does she live?<br>b) Where she lives?</p><p>Де вона живе?</p>",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "Where does she live? — Де вона живе? Does перед she потрібне в цій direct-question моделі; live без -s.",
+                    "b": "Where does she live? — Де вона живе? Для цього прямого питання потрібне does перед she і базове live, не порядок підрядного повідомлення."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-b-selects-2",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "selects",
+            "old_group_index": 2,
+            "after_group": "selects",
+            "after_group_index": 2,
+            "graded": true,
+            "learning_function": "Doesn't із he.",
+            "change_reason": "Ключ і функція збережені; додано plain feedback.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "label": "a) He don't work here. / b) He doesn't work here.",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "after_task": {
+                "label": "<p>Обери стандартне заперечення про нього у Present Simple.</p><p lang=\"en\">a) He don't work here.<br>b) He doesn't work here.</p><p>Він тут не працює.</p>",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "He doesn't work here. — Він тут не працює. Для he потрібне does not; work після нього без -s.",
+                    "b": "He doesn't work here. — Він тут не працює. Doesn't узгоджується з he, а work лишається базовою формою."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-b-choices-0",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Хто є невідомим підметом питання.",
+            "change_reason": "Нове змістове завдання, не копія переставляння.",
+            "identity_policy": "New stable m84 ID.",
+            "old_task": null,
+            "after_task": {
+                "id": "m84-question-order-meaning-subject",
+                "label": "<p>Якої інформації бракує мовцеві?</p><p lang=\"en\">Who called Mia?</p><p>Хто телефонував Мії?</p>",
+                "options": [
+                    "Невідомо, хто телефонував Мії.",
+                    "Невідомо, кому телефонувала Мія."
+                ],
+                "answer": "Невідомо, хто телефонував Мії.",
+                "accepted": [
+                    "Невідомо, хто телефонував Мії."
+                ],
+                "feedback": {
+                    "невідомо, хто телефонував мії.": "Who called Mia? — Хто телефонував Мії? Who є підметом: шукаємо того, хто телефонував. Mia — адресат, не виконавець дії.",
+                    "невідомо, кому телефонувала мія.": "Who called Mia? — Хто телефонував Мії? Телефонували саме Мії; питання не говорить, що телефонувала вона. Who займає місце невідомого підмета."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-b-choices-1",
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Питання про готовність, не вміння.",
+            "change_reason": "Нове змістове завдання be + ready.",
+            "identity_policy": "New stable m84 ID.",
+            "old_task": null,
+            "after_task": {
+                "id": "m84-question-order-meaning-ready",
+                "label": "<p>Про що запитують?</p><p lang=\"en\">Are you ready?</p><p>Ти готовий?</p>",
+                "options": [
+                    "Чи вміє співрозмовник плавати.",
+                    "Чи готовий співрозмовник зараз."
+                ],
+                "answer": "Чи готовий співрозмовник зараз.",
+                "accepted": [
+                    "Чи готовий співрозмовник зараз."
+                ],
+                "feedback": {
+                    "чи вміє співрозмовник плавати.": "Are you ready? — Ти готовий? Тут питають про готовність зараз, не про вміння плавати. Ready описує стан після be.",
+                    "чи готовий співрозмовник зараз.": "Are you ready? — Ти готовий? Are перед you утворює питання про стан; ready не потребує вигаданого додаткового дієслова."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-b-inputs-0",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "You speak English → повне питання.",
+            "change_reason": "Чистий банк і повний stimulus без готової відповіді after.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "before": "You speak English.",
+                "after": "→ Do you...?",
+                "answer": "Do you speak English?"
+            },
+            "after_task": {
+                "before": "speak / Do / English? / you",
+                "after": "<p>Перетвори твердження на нейтральне повне питання про теперішнє. Збережи підмет, мову й значення; запиши все питання.</p><p lang=\"en\">You speak English.</p><p>Ти розмовляєш англійською.</p>",
+                "answer": "Do you speak English?",
+                "accepted": [
+                    "Do you speak English?"
+                ],
+                "feedback": {
+                    "do you speak english?": "Do you speak English? — Ти розмовляєш англійською? Для you у цій Present Simple моделі ставимо Do перед підметом і зберігаємо speak без зміни форми."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-b-inputs-1",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "She works in a bank → повне питання.",
+            "change_reason": "Does + work збережено; не дублюється готовий порядок у after.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "before": "She works in a bank.",
+                "after": "→ Does she...?",
+                "answer": "Does she work in a bank?"
+            },
+            "after_task": {
+                "before": "in a bank? / she / Does / work",
+                "after": "<p>Перетвори твердження на нейтральне повне питання про теперішнє. Збережи жінку, дію й місце роботи; запиши все питання.</p><p lang=\"en\">She works in a bank.</p><p>Вона працює в банку.</p>",
+                "answer": "Does she work in a bank?",
+                "accepted": [
+                    "Does she work in a bank?"
+                ],
+                "feedback": {
+                    "does she work in a bank?": "Does she work in a bank? — Вона працює в банку? Does стоїть перед she й уже виражає третю особу; після нього потрібне work, не works."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-b-inputs-2",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "inputs",
+            "old_group_index": 2,
+            "after_group": "inputs",
+            "after_group_index": 2,
+            "graded": true,
+            "learning_function": "They went to the party → питання про минуле.",
+            "change_reason": "Did + go, незмінні люди й подія; clean bank та видимий criterion.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "before": "They went to the party.",
+                "after": "→ Did they...?",
+                "answer": "Did they go to the party?"
+            },
+            "after_task": {
+                "before": "they / to the party? / go / Did",
+                "after": "<p>Перетвори твердження на нейтральне повне питання про минуле. Збережи людей і подію; запиши все питання.</p><p lang=\"en\">They went to the party.</p><p>Вони ходили на вечірку.</p>",
+                "answer": "Did they go to the party?",
+                "accepted": [
+                    "Did they go to the party?"
+                ],
+                "feedback": {
+                    "did they go to the party?": "Did they go to the party? — Вони ходили на вечірку? Did перед підметом уже позначає минулий час; went змінюємо на базову go, не втрачаючи минулої події."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-b-rephrase-0",
+            "classification": "retained_demo",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "rephrase",
+            "old_group_index": 0,
+            "after_group": "rephrase",
+            "after_group_index": 0,
+            "graded": false,
+            "learning_function": "Неоцінюваний приклад заперечення.",
+            "change_reason": "Source/target переклади й повна форма поряд зі скороченням.",
+            "identity_policy": "No grading key introduced.",
+            "old_task": {
+                "example_label": "Приклад:",
+                "example_original": "I like apples.",
+                "example_target": "I don't like apples."
+            },
+            "after_task": {
+                "example_label": "Неоцінюваний приклад заперечення",
+                "example_original": "I like apples. — Я люблю яблука.",
+                "example_target": "I don't like apples. / I do not like apples. — Я не люблю яблук."
+            }
+        },
+        {
+            "ledger_key": "m84-b-rephrase-1",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "rephrase",
+            "old_group_index": 1,
+            "after_group": "rephrase",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "She plays tennis → заперечення.",
+            "change_reason": "Збережено negative function і прийнято reviewed full-form alias.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "original": "1. She plays tennis.",
+                "placeholder": "Напиши заперечення",
+                "answer": "She doesn't play tennis."
+            },
+            "after_task": {
+                "original": "1. She plays tennis. — Вона грає в теніс. Запиши повне заперечне речення у Present Simple, зберігши підмет і заняття. Повна й скорочена форми допустимі.",
+                "placeholder": "Запиши повне заперечення",
+                "answer": "She doesn't play tennis.",
+                "accepted": [
+                    "She doesn't play tennis.",
+                    "She does not play tennis."
+                ],
+                "feedback": {
+                    "she doesn't play tennis.": "She doesn't play tennis. — Вона не грає в теніс. Does not виражає заперечення про she; play лишається базовим без другого -s.",
+                    "she does not play tennis.": "She does not play tennis. — Вона не грає в теніс. Повна форма допустима; після does not потрібне play без -s."
+                }
+            }
+        },
+        {
+            "ledger_key": "m84-b-rephrase-2",
+            "classification": "retained_corrected",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_group": "rephrase",
+            "old_group_index": 2,
+            "after_group": "rephrase",
+            "after_group_index": 2,
+            "graded": true,
+            "learning_function": "They watched the movie → заперечення.",
+            "change_reason": "Збережено минулий час і всіх учасників; full-form alias.",
+            "identity_policy": "No legacy id/source_index existed; absence retained.",
+            "old_task": {
+                "original": "2. They watched the movie.",
+                "placeholder": "Напиши заперечення",
+                "answer": "They didn't watch the movie."
+            },
+            "after_task": {
+                "original": "2. They watched the movie. — Вони дивилися фільм. Запиши повне заперечне речення у Past Simple, зберігши людей і фільм. Повна й скорочена форми допустимі.",
+                "placeholder": "Запиши повне заперечення",
+                "answer": "They didn't watch the movie.",
+                "accepted": [
+                    "They didn't watch the movie.",
+                    "They did not watch the movie."
+                ],
+                "feedback": {
+                    "they didn't watch the movie.": "They didn't watch the movie. — Вони не дивилися фільм. Did not позначає заперечення в минулому; watched стає watch.",
+                    "they did not watch the movie.": "They did not watch the movie. — Вони не дивилися фільм. Повна форма допустима; минулий час уже передає did, тож watch лишається базовим."
+                }
+            }
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderAdverbsAdverbialsTheorySeeder": [
+        {
+            "old_group": "selects",
+            "old_group_index": 0,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Нейтральна частотність перед lexical verb",
+            "change_reason": "Ключ a збережено; критерій та переклад у видимому label; невідображуваний prompt вилучено.",
+            "old_block_source_index": 10,
+            "after_block_source_index": 10,
+            "old_task": {
+                "label": "a) She always drinks coffee. / b) She drinks always coffee.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "after_task": {
+                "label": "<p>Обери звичайний нейтральний порядок для прислівника частотності. Хто і що п'є, не змінюй.</p><p lang=\"en\">a) She always drinks coffee.<br>b) She drinks always coffee.</p><p>Вона завжди п'є каву.</p>",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "She always drinks coffee. — Вона завжди п'є каву. Always перед основним drinks, а не між drinks і коротким додатком coffee.",
+                    "b": "She always drinks coffee. — Вона завжди п'є каву. Always перед основним drinks, а не між drinks і коротким додатком coffee."
+                }
+            }
+        },
+        {
+            "old_group": "selects",
+            "old_group_index": 1,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Спосіб дії не розриває verb і короткий object",
+            "change_reason": "Ключ b збережено; уточнено реальну межу, не blanket-заборону pre-verbal manner.",
+            "old_block_source_index": 10,
+            "after_block_source_index": 10,
+            "old_task": {
+                "label": "a) He speaks fluently English. / b) He speaks English fluently.",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "after_task": {
+                "label": "<p>Обери речення, де прислівник способу не розриває дієслово й короткий додаток.</p><p lang=\"en\">a) He speaks fluently English.<br>b) He speaks English fluently.</p><p>Він вільно розмовляє англійською.</p>",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "He speaks English fluently. — Він вільно розмовляє англійською. Fluently стоїть після короткого додатка English, а не між ним і speaks.",
+                    "b": "He speaks English fluently. — Він вільно розмовляє англійською. Fluently стоїть після короткого додатка English, а не між ним і speaks."
+                }
+            }
+        },
+        {
+            "old_group": "selects",
+            "old_group_index": 2,
+            "after_group": "selects",
+            "after_group_index": 2,
+            "graded": true,
+            "learning_function": "Нейтральна кінцева часова обставина",
+            "change_reason": "Ключ b збережено; критерій final time явний, initial time не оголошено загальною помилкою.",
+            "old_block_source_index": 10,
+            "after_block_source_index": 10,
+            "old_task": {
+                "label": "a) I yesterday saw him. / b) I saw him yesterday.",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "after_task": {
+                "label": "<p>Обери нейтральне твердження з часом наприкінці. Тут не потрібне контрастне винесення часу.</p><p lang=\"en\">a) I yesterday saw him.<br>b) I saw him yesterday.</p><p>Я бачив його вчора.</p>",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "I saw him yesterday. — Я бачив його вчора. У цьому завданні час має завершувати нейтральне повідомлення. Початкове Yesterday, I saw him граматичне, але не входить до наведених кандидатів.",
+                    "b": "I saw him yesterday. — Я бачив його вчора. У цьому завданні час має завершувати нейтральне повідомлення. Початкове Yesterday, I saw him граматичне, але не входить до наведених кандидатів."
+                }
+            }
+        },
+        {
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Повне речення з be та always",
+            "change_reason": "Канонічне речення збережено; чистий shuffled bank, UK criterion у підтриманому after.",
+            "old_block_source_index": 10,
+            "after_block_source_index": 10,
+            "old_task": {
+                "before": "She is late. (always)",
+                "after": "→",
+                "answer": "She is always late."
+            },
+            "after_task": {
+                "before": "late. / always / She is",
+                "after": "<p>Вона завжди запізнюється. Склади повне нейтральне твердження з always після дієслова-зв'язки; використай всі групи слів.</p>",
+                "answer": "She is always late.",
+                "accepted": [
+                    "She is always late."
+                ],
+                "feedback": {
+                    "she is always late.": "She is always late. — Вона завжди запізнюється. У заданому нейтральному порядку always стоїть після is; підмет і стан збережені."
+                }
+            }
+        },
+        {
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Повне речення з manner після object",
+            "change_reason": "Ключ збережено; потрібна кінцева позиція явно задана.",
+            "old_block_source_index": 10,
+            "after_block_source_index": 10,
+            "old_task": {
+                "before": "He plays the piano. (well)",
+                "after": "→",
+                "answer": "He plays the piano well."
+            },
+            "after_task": {
+                "before": "the piano / well. / He plays",
+                "after": "<p>Він добре грає на піаніно. Склади повне речення; постав прислівник способу наприкінці, після додатка.</p>",
+                "answer": "He plays the piano well.",
+                "accepted": [
+                    "He plays the piano well."
+                ],
+                "feedback": {
+                    "he plays the piano well.": "He plays the piano well. — Він добре грає на піаніно. Well стоїть після всього додатка the piano, як прямо вимагає умова."
+                }
+            }
+        },
+        {
+            "old_group": "inputs",
+            "old_group_index": 2,
+            "after_group": "inputs",
+            "after_group_index": 2,
+            "graded": true,
+            "learning_function": "Повне речення з місцем перед часом",
+            "change_reason": "Ключ, виконавці, місце й every day збережені; початкова time альтернатива виключена лише критерієм цієї задачі.",
+            "old_block_source_index": 10,
+            "after_block_source_index": 10,
+            "old_task": {
+                "before": "They work. / in the office / every day",
+                "after": "→",
+                "answer": "They work in the office every day."
+            },
+            "after_task": {
+                "before": "every day. / They work / in the office",
+                "after": "<p>Вони щодня працюють в офісі. Почни з підмета; постав місце перед часом наприкінці речення й використай всі групи.</p>",
+                "answer": "They work in the office every day.",
+                "accepted": [
+                    "They work in the office every day."
+                ],
+                "feedback": {
+                    "they work in the office every day.": "They work in the office every day. — Вони щодня працюють в офісі. In the office називає місце, every day — частоту; умова задає цей кінцевий порядок."
+                }
+            }
+        },
+        {
+            "old_group": "rephrase",
+            "old_group_index": 0,
+            "after_group": "rephrase",
+            "after_group_index": 0,
+            "graded": false,
+            "learning_function": "Неградуйована демонстрація be + always",
+            "change_reason": "Обидва source речення збережено, додано окремі переклади й нейтральний задум; немає answer/accepted.",
+            "old_block_source_index": 10,
+            "after_block_source_index": 10,
+            "old_task": {
+                "example_label": "Приклад:",
+                "example_original": "Always he is happy.",
+                "example_target": "He is always happy."
+            },
+            "after_task": {
+                "example_label": "Неоцінюваний приклад",
+                "example_original": "Always he is happy. — Задум: він завжди щасливий; потрібен нейтральний порядок.",
+                "example_target": "He is always happy. — Він завжди щасливий."
+            }
+        },
+        {
+            "old_group": "rephrase",
+            "old_group_index": 1,
+            "after_group": "rephrase",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Виправлення manner/object",
+            "change_reason": "Ключ збережено; final-position criterion явний, неправильне речення не назване універсальною забороною всіх pre-verbal adverbs.",
+            "old_block_source_index": 10,
+            "after_block_source_index": 10,
+            "old_task": {
+                "original": "1. She speaks well French.",
+                "placeholder": "Виправ порядок слів",
+                "answer": "She speaks French well."
+            },
+            "after_task": {
+                "original": "1. She speaks well French. — Вона добре розмовляє французькою. Виправ порядок: постав well після додатка French; збережи всі слова.",
+                "placeholder": "Запиши повне речення",
+                "answer": "She speaks French well.",
+                "accepted": [
+                    "She speaks French well."
+                ],
+                "feedback": {
+                    "she speaks french well.": "She speaks French well. — Вона добре розмовляє французькою. Well не розриває speaks і короткий додаток French; тут умова прямо просить кінцеву позицію."
+                }
+            }
+        },
+        {
+            "old_group": "rephrase",
+            "old_group_index": 2,
+            "after_group": "rephrase",
+            "after_group_index": 2,
+            "graded": true,
+            "learning_function": "Контрольована початкова negative inversion",
+            "change_reason": "Ключ збережено, але тепер явно потрібно початкове Never; нейтральна альтернатива визнається граматичною поза цим критерієм.",
+            "old_block_source_index": 10,
+            "after_block_source_index": 10,
+            "old_task": {
+                "original": "2. Never I have been to Japan.",
+                "placeholder": "Виправ порядок слів",
+                "answer": "Never have I been to Japan."
+            },
+            "after_task": {
+                "original": "2. Never I have been to Japan. — Я ніколи не був у Японії. Збережи Never на початку для підсилення й виправ порядок підмета та допоміжного дієслова; решту слів не змінюй.",
+                "placeholder": "Запиши повне речення",
+                "answer": "Never have I been to Japan.",
+                "accepted": [
+                    "Never have I been to Japan."
+                ],
+                "feedback": {
+                    "never have i been to japan.": "Never have I been to Japan. — Я ніколи не був у Японії. Умова зберігає початкове Never, тому have стоїть перед I. Нейтральне I have never been to Japan теж граматичне, але не виконує саме цей заданий початок."
+                }
+            }
+        },
+        {
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Зміст not always проти never",
+            "change_reason": "Нова meaning-позиція з окремим стабільним id, не дублікат переставляння.",
+            "old_block_source_index": null,
+            "after_block_source_index": 10,
+            "old_task": null,
+            "after_task": {
+                "id": "m84-adverbs-meaning-not-always",
+                "label": "<p>Який зміст передає заперечення з always? Вибери висновок без доданих фактів.</p><p lang=\"en\">Marta does not always work at home.</p><p>Марта не завжди працює вдома.</p>",
+                "options": [
+                    "Марта не працює вдома кожного разу; речення не означає, що вона ніколи там не працює.",
+                    "Марта ніколи не працює вдома."
+                ],
+                "answer": "Марта не працює вдома кожного разу; речення не означає, що вона ніколи там не працює.",
+                "accepted": [
+                    "Марта не працює вдома кожного разу; речення не означає, що вона ніколи там не працює."
+                ],
+                "feedback": {
+                    "марта не працює вдома кожного разу; речення не означає, що вона ніколи там не працює.": "Marta does not always work at home. — Марта не завжди працює вдома. Заперечуємо твердження «кожного разу»: є випадки, коли Марта працює не вдома. Саме речення не визначає, як часто вона працює вдома.",
+                    "марта ніколи не працює вдома.": "Marta does not always work at home. — Марта не завжди працює вдома. Заперечуємо твердження «кожного разу»: є випадки, коли Марта працює не вдома. Саме речення не визначає, як часто вона працює вдома."
+                }
+            }
+        },
+        {
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Ступінь і модифіковане слово",
+            "change_reason": "Нова meaning-позиція quite + tired з окремим стабільним id.",
+            "old_block_source_index": null,
+            "after_block_source_index": 10,
+            "old_task": null,
+            "after_task": {
+                "id": "m84-adverbs-meaning-degree",
+                "label": "<p>Що уточнює quite у першій частині повідомлення?</p><p lang=\"en\">Nora is quite tired, but she can still work.</p><p>Нора доволі втомлена, але ще може працювати.</p>",
+                "options": [
+                    "Місце, де працює Нора.",
+                    "Ступінь втоми Нори, а не місце або частоту роботи."
+                ],
+                "answer": "Ступінь втоми Нори, а не місце або частоту роботи.",
+                "accepted": [
+                    "Ступінь втоми Нори, а не місце або частоту роботи."
+                ],
+                "feedback": {
+                    "місце, де працює нора.": "Nora is quite tired, but she can still work. — Нора доволі втомлена, але ще може працювати. Quite уточнює tired — ступінь втоми; контекст не каже, де вона працює.",
+                    "ступінь втоми нори, а не місце або частоту роботи.": "Nora is quite tired, but she can still work. — Нора доволі втомлена, але ще може працювати. Quite уточнює tired — ступінь втоми; контекст не каже, де вона працює."
+                }
+            }
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderVerbsObjectsTheorySeeder": [
+        {
+            "old_group": "selects",
+            "old_group_index": 0,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "It у розділюваному turn off",
+            "change_reason": "Ключ a збережено; значення приладу видимо встановлене.",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_task": {
+                "label": "a) Turn it off. / b) Turn off it.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "after_task": {
+                "label": "<p>Йдеться про вимкнення приладу. Обери порядок із займенником у розділюваній конструкції.</p><p lang=\"en\">a) Turn it off.<br>b) Turn off it.</p><p>Вимкни його.</p>",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "Turn it off. — Вимкни його (прилад). It стоїть між turn та off у цьому розділюваному значенні.",
+                    "b": "Turn it off. — Вимкни його (прилад). It стоїть між turn та off у цьому розділюваному значенні."
+                }
+            }
+        },
+        {
+            "old_group": "selects",
+            "old_group_index": 1,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Базова форма після can",
+            "change_reason": "Ключ b і повідомлення про вміння збережені; prompt замінений видимим label.",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_task": {
+                "label": "a) She can to swim. / b) She can swim.",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "after_task": {
+                "label": "<p>Обери правильну форму після can; збережи повідомлення про вміння.</p><p lang=\"en\">a) She can to swim.<br>b) She can swim.</p><p>Вона вміє плавати.</p>",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "She can swim. — Вона вміє плавати. Can потребує наступного swim у базовій формі без to; зміст уміння збережено.",
+                    "b": "She can swim. — Вона вміє плавати. Can потребує наступного swim у базовій формі без to; зміст уміння збережено."
+                }
+            }
+        },
+        {
+            "old_group": "selects",
+            "old_group_index": 2,
+            "after_group": "selects",
+            "after_group_index": 2,
+            "graded": true,
+            "learning_function": "Нерозділюване look after",
+            "change_reason": "Ключ a збережено; значення догляду не сплутано з separable схемою.",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_task": {
+                "label": "a) Look after the kids. / b) Look the kids after.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "after_task": {
+                "label": "<p>Потрібно доглянути дітей. Обери правильну нерозділювану модель look after.</p><p lang=\"en\">a) Look after the kids.<br>b) Look the kids after.</p><p>Подбай про дітей.</p>",
+                "options": [
+                    "a",
+                    "b"
+                ],
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "Look after the kids. — Подбай про дітей. Look after у значенні доглядати нерозділюване; the kids іде після after.",
+                    "b": "Look after the kids. — Подбай про дітей. Look after у значенні доглядати нерозділюване; the kids іде після after."
+                }
+            }
+        },
+        {
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Повний наказ із it замість the book",
+            "change_reason": "Ключ Pick it up збережено; referent book/число й lift meaning явні, чистий bank.",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_task": {
+                "before": "Pick up the book. (it)",
+                "after": "→",
+                "answer": "Pick it up."
+            },
+            "after_task": {
+                "before": "it / up. / Pick",
+                "after": "<p>Книга лежить на підлозі. Наказ означає: підніми її. Заміни the book займенником it та склади повне речення; інших фактів не додавай.</p><p lang=\"en\">Pick up the book.</p>",
+                "answer": "Pick it up.",
+                "accepted": [
+                    "Pick it up."
+                ],
+                "feedback": {
+                    "pick it up.": "Pick it up. — Підніми її (книгу). Book — один предмет, тому it. У цьому розділюваному pick up займенник стоїть між Pick і up."
+                }
+            }
+        },
+        {
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Повний наказ із it замість the TV",
+            "change_reason": "Ключ і referent збережені; visible instruction та shuffled bank.",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_task": {
+                "before": "Turn off the TV. (it)",
+                "after": "→",
+                "answer": "Turn it off."
+            },
+            "after_task": {
+                "before": "off. / Turn / it",
+                "after": "<p>Телевізор увімкнений. Наказ означає: вимкни його. Заміни the TV займенником it та склади повне речення.</p><p lang=\"en\">Turn off the TV.</p>",
+                "answer": "Turn it off.",
+                "accepted": [
+                    "Turn it off."
+                ],
+                "feedback": {
+                    "turn it off.": "Turn it off. — Вимкни його (телевізор). It замінює один прилад і стоїть між turn та off; не переносимо правило на нерозділюваний look after."
+                }
+            }
+        },
+        {
+            "old_group": "inputs",
+            "old_group_index": 2,
+            "after_group": "inputs",
+            "after_group_index": 2,
+            "graded": true,
+            "learning_function": "Повний наказ із them замість shoes",
+            "change_reason": "Ключ, plural та одягальне значення збережені; all-word bank без answer hint.",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_task": {
+                "before": "Put on your shoes. (them)",
+                "after": "→",
+                "answer": "Put them on."
+            },
+            "after_task": {
+                "before": "on. / them / Put",
+                "after": "<p>Треба взути свої черевики. Заміни your shoes займенником them, збережи наказ і склади повне речення.</p><p lang=\"en\">Put on your shoes.</p>",
+                "answer": "Put them on.",
+                "accepted": [
+                    "Put them on."
+                ],
+                "feedback": {
+                    "put them on.": "Put them on. — Взуй їх (свої черевики). Shoes — множина, тому them; у значенні вдягнути/взути put on розділюється займенником."
+                }
+            }
+        },
+        {
+            "old_group": "rephrase",
+            "old_group_index": 0,
+            "after_group": "rephrase",
+            "after_group_index": 0,
+            "graded": false,
+            "learning_function": "Неградуйований приклад must + call",
+            "change_reason": "Обидва source речення збережено, додано точні переклади; answer/accepted відсутні.",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_task": {
+                "example_label": "Приклад:",
+                "example_original": "She must calls him.",
+                "example_target": "She must call him."
+            },
+            "after_task": {
+                "example_label": "Неоцінюваний приклад",
+                "example_original": "She must calls him. — Задум: вона повинна йому зателефонувати.",
+                "example_target": "She must call him. — Вона повинна йому зателефонувати."
+            }
+        },
+        {
+            "old_group": "rephrase",
+            "old_group_index": 1,
+            "after_group": "rephrase",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Can + play без to",
+            "change_reason": "The додано одночасно до вихідного й цільового guitar, тому article не є новою помилкою; навчальна функція та всі факти збережені.",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_task": {
+                "original": "1. He can to play guitar.",
+                "placeholder": "Виправ порядок слів",
+                "answer": "He can play guitar."
+            },
+            "after_task": {
+                "original": "1. He can to play the guitar. — Він уміє грати на гітарі. Прибери тільки зайве to після can; збережи виконавця, предмет і всі інші слова.",
+                "placeholder": "Запиши повне речення",
+                "answer": "He can play the guitar.",
+                "accepted": [
+                    "He can play the guitar."
+                ],
+                "feedback": {
+                    "he can play the guitar.": "He can play the guitar. — Він уміє грати на гітарі. Після core modal can наступний play має базову форму без to. The guitar уже задано у вихідному реченні; новий предмет не додається."
+                }
+            }
+        },
+        {
+            "old_group": "rephrase",
+            "old_group_index": 2,
+            "after_group": "rephrase",
+            "after_group_index": 2,
+            "graded": true,
+            "learning_function": "Them між throw та away",
+            "change_reason": "Ключ збережено; referent old receipts в умові встановлює число й предмет без зміни наказу.",
+            "old_block_source_index": 8,
+            "after_block_source_index": 8,
+            "old_task": {
+                "original": "2. Throw away them.",
+                "placeholder": "Виправ порядок слів",
+                "answer": "Throw them away."
+            },
+            "after_task": {
+                "original": "2. Throw away them. — Йдеться про старі чеки: викинь їх. Збережи наказ, займенник множини them і значення throw away; виправ тільки його місце.",
+                "placeholder": "Запиши повне речення",
+                "answer": "Throw them away.",
+                "accepted": [
+                    "Throw them away."
+                ],
+                "feedback": {
+                    "throw them away.": "Throw them away. — Викинь їх (старі чеки). У цьому значенні throw away розділюване, тому them ставимо перед away. Дія й кількість предметів не змінені."
+                }
+            }
+        },
+        {
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "learning_function": "Рівнозначність двох noun-object порядків",
+            "change_reason": "Нове meaning-завдання, не заборона прийнятої альтернативи.",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_task": null,
+            "after_task": {
+                "id": "m84-verbs-meaning-object-model",
+                "label": "<p>Який висновок зберігає зміст обох правильних речень про одну й ту саму посилку?</p><p lang=\"en\">Pick up the package.<br>Pick the package up.</p><p>Забери посилку. / Забери посилку.</p>",
+                "options": [
+                    "Обидва про ту саму дію й посилку; короткий іменник можна поставити з обох боків up.",
+                    "У другому реченні наказують забрати іншу посилку."
+                ],
+                "answer": "Обидва про ту саму дію й посилку; короткий іменник можна поставити з обох боків up.",
+                "accepted": [
+                    "Обидва про ту саму дію й посилку; короткий іменник можна поставити з обох боків up."
+                ],
+                "feedback": {
+                    "обидва про ту саму дію й посилку; короткий іменник можна поставити з обох боків up.": "Pick up the package. / Pick the package up. — Забери посилку. Обидва порядки з коротким noun object передають ту саму дію. Заміна package на it потребувала б Pick it up, а не Pick up it.",
+                    "у другому реченні наказують забрати іншу посилку.": "Pick up the package. / Pick the package up. — Забери посилку. Обидва порядки з коротким noun object передають ту саму дію. Заміна package на it потребувала б Pick it up, а не Pick up it."
+                }
+            }
+        },
+        {
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "learning_function": "Допоміжне й lexical have",
+            "change_reason": "Нове meaning/function завдання для збереженої auxiliary source-групи.",
+            "old_block_source_index": null,
+            "after_block_source_index": 8,
+            "old_task": null,
+            "after_task": {
+                "id": "m84-verbs-meaning-lexical-have",
+                "label": "<p>У якому реченні have є допоміжним дієсловом Perfect, а не називає звичайну дію?</p><p lang=\"en\">A) We have lunch at noon.<br>B) We have finished lunch.</p><p>А) Ми обідаємо опівдні.<br>Б) Ми закінчили обідати.</p>",
+                "options": [
+                    "A: have називає звичний прийом їжі.",
+                    "B: have утворює Perfect разом із finished."
+                ],
+                "answer": "B: have утворює Perfect разом із finished.",
+                "accepted": [
+                    "B: have утворює Perfect разом із finished."
+                ],
+                "feedback": {
+                    "a: have називає звичний прийом їжі.": "We have lunch at noon. — Ми обідаємо опівдні: have має основне значення. We have finished lunch. — Ми закінчили обідати: have допоміжне в Perfect. Однакове слово не гарантує однакової функції.",
+                    "b: have утворює perfect разом із finished.": "We have lunch at noon. — Ми обідаємо опівдні: have має основне значення. We have finished lunch. — Ми закінчили обідати: have допоміжне в Perfect. Однакове слово не гарантує однакової функції."
+                }
+            }
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\AdvancedWordOrderEmphasisTheorySeeder": [
+        {
+            "old_block_source_index": 9,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "old_task": {
+                "label": "a) Never I have seen... / b) Never have I seen...",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "after_block_source_index": 9,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "label": "<p>Збережи Never на початку й обери правильну повну конструкцію.</p><p lang=\"en\">A) Never I have seen such beauty. B) Never have I seen such beauty.</p><p>Я ніколи не бачив / не бачила такої краси.</p>",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "b": "Never have I seen such beauty. — Ніколи я не бачив / не бачила такої краси. За умовою Never лишається на початку, тому have стоїть перед I. Нейтральне I have never… не є загальною помилкою.",
+                    "a": "Never have I seen such beauty. — Ніколи я не бачив / не бачила такої краси. За умовою Never лишається на початку, тому have стоїть перед I. Нейтральне I have never… не є загальною помилкою."
+                }
+            },
+            "graded": true,
+            "learning_function": "Negative-fronted inversion",
+            "change_reason": "Complete the old ellipsis and state target position; no rejection of neutral I have never… outside this criterion."
+        },
+        {
+            "old_block_source_index": 9,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "old_task": {
+                "label": "a) It was you who invited me. / b) It was you which invited me.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "after_block_source_index": 9,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "label": "<p>Виділи особу, яка запросила мене. Обери правильне речення.</p><p lang=\"en\">A) It was you who invited me. B) It was you which invited me.</p><p>Саме ти запросив / запросила мене.</p>",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "It was you who invited me. — Саме ти запросив / запросила мене. Which не підходить до особи в цій конструкції; who або that можливі, але з двох показаних варіантів правильний a.",
+                    "b": "It was you who invited me. — Саме ти запросив / запросила мене. Which не підходить до особи в цій конструкції; who або that можливі, але з двох показаних варіантів правильний a."
+                }
+            },
+            "graded": true,
+            "learning_function": "Human-focus it-cleft connector",
+            "change_reason": "Which cannot fill this human connector in the given cleft. Explicitly teach that as another correct human connector elsewhere."
+        },
+        {
+            "old_block_source_index": 9,
+            "old_group": "selects",
+            "old_group_index": 2,
+            "old_task": {
+                "label": "a) What I need is some rest. / b) What I need is to rest.",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "after_block_source_index": 9,
+            "after_group": "selects",
+            "after_group_index": 2,
+            "after_task": {
+                "label": "<p>Обери what-cleft, у якому після is потребу названо іменною групою, а не дією в інфінітиві. Обидві конструкції можуть бути граматичними.</p><p lang=\"en\">A) What I need is some rest. B) What I need is to rest.</p><p>A: Мені потрібен відпочинок. B: Мені потрібно відпочити.</p>",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "What I need is some rest. — Те, що мені потрібно, — це відпочинок. Саме цей варіант виконує умову іменної групи після is. What I need is to rest теж граматичне, але називає дію інфінітивом.",
+                    "b": "What I need is some rest. — Те, що мені потрібно, — це відпочинок. Саме цей варіант виконує умову іменної групи після is. What I need is to rest теж граматичне, але називає дію інфінітивом."
+                }
+            },
+            "graded": true,
+            "learning_function": "What-cleft complement form",
+            "change_reason": "Preserves both source candidates and the canonical letter without false grammaticality grading. B is a valid sentence but fails the newly explicit noun-phrase criterion. Alternative implementation may replace the malformed candidate only through an exact mapped editorial change."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 9,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m84-emphasis-meaning-time-focus",
+                "label": "<p>Міа зустріла Лео в п'ятницю. Треба виділити саме день зустрічі, не людину. Яке речення зберігає всі факти й потрібний фокус?</p><p lang=\"en\">Mia met Leo on Friday.</p>",
+                "options": [
+                    "It was on Friday that Mia met Leo.",
+                    "It was Mia who met Leo on Friday.",
+                    "It was Leo that Mia met on Friday."
+                ],
+                "answer": "It was on Friday that Mia met Leo.",
+                "accepted": [
+                    "It was on Friday that Mia met Leo."
+                ],
+                "feedback": {
+                    "it was on friday that mia met leo.": "It was on Friday that Mia met Leo. — Саме в п'ятницю Міа зустріла Лео. Усі три конструкції граматичні, але лише перша виділяє день; інші змінюють фокус на Мію або Лео.",
+                    "it was mia who met leo on friday.": "It was on Friday that Mia met Leo. — Саме в п'ятницю Міа зустріла Лео. Усі три конструкції граматичні, але лише перша виділяє день; інші змінюють фокус на Мію або Лео.",
+                    "it was leo that mia met on friday.": "It was on Friday that Mia met Leo. — Саме в п'ятницю Міа зустріла Лео. Усі три конструкції граматичні, але лише перша виділяє день; інші змінюють фокус на Мію або Лео."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нове розуміння змісту / фокусу",
+            "change_reason": "Нове авторське завдання для окремої потрібної навчальної функції; не заміна наявної позиції."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 9,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m84-emphasis-meaning-subject-scope",
+                "label": "<p>Що означає речення? Група Not only Tom but also Lea є спільним підметом; не перебудовуй його як початкову обставину.</p><p lang=\"en\">Not only Tom but also Lea helped us.</p>",
+                "options": [
+                    "Нам допомогли і Том, і Леа.",
+                    "Том не допоміг, а Леа допомогла.",
+                    "Нам допоміг лише Том."
+                ],
+                "answer": "Нам допомогли і Том, і Леа.",
+                "accepted": [
+                    "Нам допомогли і Том, і Леа."
+                ],
+                "feedback": {
+                    "нам допомогли і том, і леа.": "Not only Tom but also Lea helped us. — Нам допомогли не лише Том, а й Леа. У цьому реченні not only…but also з'єднує дві частини підмета; правило інверсії після винесеної обставини не застосовується.",
+                    "том не допоміг, а леа допомогла.": "Not only Tom but also Lea helped us. — Нам допомогли не лише Том, а й Леа. У цьому реченні not only…but also з'єднує дві частини підмета; правило інверсії після винесеної обставини не застосовується.",
+                    "нам допоміг лише том.": "Not only Tom but also Lea helped us. — Нам допомогли не лише Том, а й Леа. У цьому реченні not only…but also з'єднує дві частини підмета; правило інверсії після винесеної обставини не застосовується."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нове розуміння змісту / фокусу",
+            "change_reason": "Нове авторське завдання для окремої потрібної навчальної функції; не заміна наявної позиції."
+        },
+        {
+            "old_block_source_index": 9,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "old_task": {
+                "before": "YOU called me. →",
+                "after": "It was...",
+                "answer": "It was you who called me."
+            },
+            "after_block_source_index": 9,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "before": "called me. / you / It was / who",
+                "after": "<p>Перетвори вихідне речення на it-cleft і виділи саме тебе. Почни з It was; для особи можна вжити who або that. Введи повне речення.</p><p lang=\"en\">You called me.</p><p>Ти зателефонував / зателефонувала мені.</p>",
+                "answer": "It was you who called me.",
+                "accepted": [
+                    "It was you who called me.",
+                    "It was you that called me."
+                ],
+                "feedback": {
+                    "it was you who called me.": "It was you who called me. — Саме ти зателефонував / зателефонувала мені. Виділяємо особу; It was you that called me також прийняте з тим самим змістом.",
+                    "it was you that called me.": "It was you who called me. — Саме ти зателефонував / зателефонувала мені. Виділяємо особу; It was you that called me також прийняте з тим самим змістом."
+                }
+            },
+            "graded": true,
+            "learning_function": "It-cleft human focus",
+            "change_reason": "Retains person and tense; bank assembles canonical who target, manual that alias reviewed. Does not leak complete target in a placeholder/hint."
+        },
+        {
+            "old_block_source_index": 9,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "old_task": {
+                "before": "She left YESTERDAY. →",
+                "after": "It was...",
+                "answer": "It was yesterday that she left."
+            },
+            "after_block_source_index": 9,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "before": "she left. / yesterday / that / It was",
+                "after": "<p>Перетвори вихідне речення на it-cleft і виділи час — учора. Почни з It was та з'єднай частини через that. Введи повне речення.</p><p lang=\"en\">She left yesterday.</p><p>Вона пішла вчора.</p>",
+                "answer": "It was yesterday that she left.",
+                "accepted": [
+                    "It was yesterday that she left."
+                ],
+                "feedback": {
+                    "it was yesterday that she left.": "It was yesterday that she left. — Саме вчора вона пішла. У фокусі час, а не виконавиця; за умовою зберігаємо that і минулий час."
+                }
+            },
+            "graded": true,
+            "learning_function": "It-cleft time focus",
+            "change_reason": "The constrained connective avoids treating an unlisted optional omitted connector as a universal grammar error."
+        },
+        {
+            "old_block_source_index": 9,
+            "old_group": "inputs",
+            "old_group_index": 2,
+            "old_task": {
+                "before": "I need HELP. →",
+                "after": "It is...",
+                "answer": "It is help that I need."
+            },
+            "after_block_source_index": 9,
+            "after_group": "inputs",
+            "after_group_index": 2,
+            "after_task": {
+                "before": "I need. / It is / that / help",
+                "after": "<p>Перетвори вихідне речення на it-cleft і виділи потрібну допомогу. Почни з It is та з'єднай частини через that. Введи повне речення.</p><p lang=\"en\">I need help.</p><p>Мені потрібна допомога.</p>",
+                "answer": "It is help that I need.",
+                "accepted": [
+                    "It is help that I need."
+                ],
+                "feedback": {
+                    "it is help that i need.": "It is help that I need. — Саме допомога мені потрібна. У фокусі help; зберігаємо is та теперішній час need."
+                }
+            },
+            "graded": true,
+            "learning_function": "It-cleft object focus",
+            "change_reason": "Retains lexical object and present tense; no arbitrary only."
+        },
+        {
+            "old_block_source_index": 9,
+            "old_group": "rephrase",
+            "old_group_index": 0,
+            "old_task": {
+                "example_label": "Приклад:",
+                "example_original": "I have never seen such beauty.",
+                "example_target": "Never have I seen such beauty."
+            },
+            "after_block_source_index": 9,
+            "after_group": "rephrase",
+            "after_group_index": 0,
+            "after_task": {
+                "example_label": "Зразок: початкове Never виділяє негативну обставину; зміст зберігаємо.",
+                "example_original": "I have never seen such beauty. — Я ніколи не бачив / не бачила такої краси.",
+                "example_target": "Never have I seen such beauty. — Ніколи я не бачив / не бачила такої краси."
+            },
+            "graded": false,
+            "learning_function": "Retained inversion demo",
+            "change_reason": "Both demo fields are plain text in native rendering, so translations can remain explicit without raw HTML."
+        },
+        {
+            "old_block_source_index": 9,
+            "old_group": "rephrase",
+            "old_group_index": 1,
+            "old_task": {
+                "original": "1. She rarely makes mistakes.",
+                "placeholder": "Rarely...",
+                "answer": "Rarely does she make mistakes."
+            },
+            "after_block_source_index": 9,
+            "after_group": "rephrase",
+            "after_group_index": 1,
+            "after_task": {
+                "original": "Збережи зміст і час; почни з Rarely та введи повне речення з інверсією. She rarely makes mistakes. — Вона рідко помиляється.",
+                "placeholder": "Уведи повне речення",
+                "answer": "Rarely does she make mistakes.",
+                "accepted": [
+                    "Rarely does she make mistakes."
+                ],
+                "feedback": {
+                    "rarely does she make mistakes.": "Rarely does she make mistakes. — Вона рідко помиляється. Після початкового Rarely ставимо does перед she, а make лишаємо в базовій формі."
+                }
+            },
+            "graded": true,
+            "learning_function": "Rarely-fronted simple-present inversion",
+            "change_reason": "Visible initial-position criterion, base form after does, no full target spoiler."
+        },
+        {
+            "old_block_source_index": 9,
+            "old_group": "rephrase",
+            "old_group_index": 2,
+            "old_task": {
+                "original": "2. He not only finished early, but also helped.",
+                "placeholder": "Not only...",
+                "answer": "Not only did he finish early, but he also helped."
+            },
+            "after_block_source_index": 9,
+            "after_group": "rephrase",
+            "after_group_index": 2,
+            "after_task": {
+                "original": "Збережи обидві події й минулий час; почни з Not only та введи повне речення з інверсією першої частини. Після but повтори he, а also постав безпосередньо перед helped. He not only finished early, but also helped. — Він не лише закінчив рано, а й допоміг.",
+                "placeholder": "Уведи повне речення",
+                "answer": "Not only did he finish early, but he also helped.",
+                "accepted": [
+                    "Not only did he finish early, but he also helped."
+                ],
+                "feedback": {
+                    "not only did he finish early, but he also helped.": "Not only did he finish early, but he also helped. — Він не лише закінчив рано, а й допоміг. Інверсія потрібна в першій частині; після did — finish, а друга подія зберігає минулий час."
+                }
+            },
+            "graded": true,
+            "learning_function": "Not-only-fronted past inversion",
+            "change_reason": "Preserves actor and both facts; does not add object or change modality."
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarHaveGotHasGotTheorySeeder": [
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 5,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m84-have-got-form-plural",
+                "label": "<p>Доповни твердження за моделлю have got. Підмет називає двох батьків.</p><p lang=\"en\">My parents ___ a small shop.</p><p>У моїх батьків є невеликий магазин.</p>",
+                "options": [
+                    "have got",
+                    "has got",
+                    "are got"
+                ],
+                "answer": "have got",
+                "accepted": [
+                    "have got"
+                ],
+                "feedback": {
+                    "have got": "My parents have got a small shop. — У моїх батьків є невеликий магазин. My parents — множина, тому потрібне have got.",
+                    "has got": "My parents have got a small shop. — У моїх батьків є невеликий магазин. My parents — множина, тому потрібне have got.",
+                    "are got": "My parents have got a small shop. — У моїх батьків є невеликий магазин. My parents — множина, тому потрібне have got."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нова форма have got",
+            "change_reason": "Нове авторське завдання для окремої потрібної навчальної функції; не заміна наявної позиції."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 5,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m84-have-got-form-question",
+                "label": "<p>Доповни питання за моделлю have got, не переходь до іншої моделі з do.</p><p lang=\"en\">___ Nina got a blue bag?</p><p>У Ніни є синя сумка?</p>",
+                "options": [
+                    "Has",
+                    "Have",
+                    "Does"
+                ],
+                "answer": "Has",
+                "accepted": [
+                    "Has"
+                ],
+                "feedback": {
+                    "has": "Has Nina got a blue bag? — У Ніни є синя сумка? Nina — одна людина, тож у цій моделі перед підметом ставимо has.",
+                    "have": "Has Nina got a blue bag? — У Ніни є синя сумка? Nina — одна людина, тож у цій моделі перед підметом ставимо has.",
+                    "does": "Has Nina got a blue bag? — У Ніни є синя сумка? Nina — одна людина, тож у цій моделі перед підметом ставимо has."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нова форма have got",
+            "change_reason": "Нове авторське завдання для окремої потрібної навчальної функції; не заміна наявної позиції."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 5,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m84-have-got-meaning-contraction",
+                "label": "<p>Що означає речення? У цій моделі 's скорочує has.</p><p lang=\"en\">He's got two brothers.</p>",
+                "options": [
+                    "У нього є два брати.",
+                    "Він є одним із двох братів.",
+                    "У неї є два брати."
+                ],
+                "answer": "У нього є два брати.",
+                "accepted": [
+                    "У нього є два брати."
+                ],
+                "feedback": {
+                    "у нього є два брати.": "He's got two brothers. — У нього є два брати. He's got тут означає he has got і називає родинний зв'язок, не стать, виведену з предмета.",
+                    "він є одним із двох братів.": "He's got two brothers. — У нього є два брати. He's got тут означає he has got і називає родинний зв'язок, не стать, виведену з предмета.",
+                    "у неї є два брати.": "He's got two brothers. — У нього є два брати. He's got тут означає he has got і називає родинний зв'язок, не стать, виведену з предмета."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нове розуміння змісту / фокусу",
+            "change_reason": "Нове авторське завдання для окремої потрібної навчальної функції; не заміна наявної позиції."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 5,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m84-have-got-meaning-speaker",
+                "label": "<p>Оля питає Марка про Марків велосипед. Марк відповідає, що велосипеда в нього немає. Обери Маркову коротку відповідь із have; тут використай повну форму.</p><p lang=\"en\">Have you got a bike?</p>",
+                "options": [
+                    "No, I have not.",
+                    "No, you have not.",
+                    "No, I do not."
+                ],
+                "answer": "No, I have not.",
+                "accepted": [
+                    "No, I have not."
+                ],
+                "feedback": {
+                    "no, i have not.": "No, I have not. — Ні, немає. Марк відповідає про себе, тому I. У заданій короткій відповіді з have слово got не потрібне; No, I haven't — граматичне скорочення, але тут обираємо показану повну форму. Do належить до іншої заданої моделі відповіді, а не є універсально забороненим словом.",
+                    "no, you have not.": "No, I have not. — Ні, немає. Марк відповідає про себе, тому I. У заданій короткій відповіді з have слово got не потрібне; No, I haven't — граматичне скорочення, але тут обираємо показану повну форму. Do належить до іншої заданої моделі відповіді, а не є універсально забороненим словом.",
+                    "no, i do not.": "No, I have not. — Ні, немає. Марк відповідає про себе, тому I. У заданій короткій відповіді з have слово got не потрібне; No, I haven't — граматичне скорочення, але тут обираємо показану повну форму. Do належить до іншої заданої моделі відповіді, а не є універсально забороненим словом."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нове розуміння змісту / фокусу",
+            "change_reason": "Нове авторське завдання для окремої потрібної навчальної функції; не заміна наявної позиції."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 5,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m84-have-got-sentence-teacher",
+                "before": "two pets. / Our teacher / has got",
+                "after": "<p>Переклади повне речення за моделлю have got. Почни з Our teacher; слово pets означає домашніх тварин. Можна ввести повну або доречну скорочену форму.</p><p>У нашої вчительки є дві домашні тварини.</p>",
+                "answer": "Our teacher has got two pets.",
+                "accepted": [
+                    "Our teacher has got two pets.",
+                    "Our teacher's got two pets."
+                ],
+                "feedback": {
+                    "our teacher has got two pets.": "Our teacher has got two pets. — У нашої вчительки є дві домашні тварини. Our teacher називає одну людину, тому has got; teacher's got — скорочена форма тієї самої конструкції.",
+                    "our teacher's got two pets.": "Our teacher has got two pets. — У нашої вчительки є дві домашні тварини. Our teacher називає одну людину, тому has got; teacher's got — скорочена форма тієї самої конструкції."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нове повне речення manual і tokens",
+            "change_reason": "Нове авторське завдання для окремої потрібної навчальної функції; не заміна наявної позиції."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 5,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m84-have-got-sentence-negative",
+                "before": "not got / a red ball. / have / The children",
+                "after": "<p>Переклади повне заперечне речення за моделлю have got. Почни з The children. Можна ввести повну або доречну скорочену форму.</p><p>У дітей немає червоного м'яча.</p>",
+                "answer": "The children have not got a red ball.",
+                "accepted": [
+                    "The children have not got a red ball.",
+                    "The children haven't got a red ball."
+                ],
+                "feedback": {
+                    "the children have not got a red ball.": "The children have not got a red ball. — У дітей немає червоного м'яча. The children — множина; not стоїть після have. Haven't got — прийняте скорочення.",
+                    "the children haven't got a red ball.": "The children have not got a red ball. — У дітей немає червоного м'яча. The children — множина; not стоїть після have. Haven't got — прийняте скорочення."
+                }
+            },
+            "graded": true,
+            "learning_function": "Нове повне речення manual і tokens",
+            "change_reason": "Нове авторське завдання для окремої потрібної навчальної функції; не заміна наявної позиції."
+        }
+    ]
+}

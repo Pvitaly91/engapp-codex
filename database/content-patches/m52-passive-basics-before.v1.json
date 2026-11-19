@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "base_sha": "0e2ed40c438400e2f2a3992314220fdf206db9a7",
+  "source_receipt_sha256": "2ca4aa326eb5de3bafdb714967a5172f0f30c5614266fe76f576550f3c990bff",
+  "targets": [
+    {
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceFormationRulesTheorySeeder",
+      "path": "database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceFormationRulesTheorySeeder/definition.json",
+      "page_binding": {
+        "id": 1,
+        "page_category_id": 1
+      },
+      "before": {
+        "schema_version": 1,
+        "content_type": "page",
+        "slug": "theory-passive-voice-formation-rules",
+        "seeder": {
+          "class": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceFormationRulesTheorySeeder"
+        },
+        "page": {
+          "title": "Formation Rules — Правила утворення пасиву",
+          "subtitle_html": "<p><strong>Пасивний стан (Passive Voice)</strong> утворюється за формулою <strong>be + V3 (Past Participle)</strong>. У цій темі ти детально вивчиш, як перетворювати активні речення на пасивні та коли використовувати пасив.</p>",
+          "subtitle_text": "Формула be + V3, active → passive, by-phrase і базова логіка пасиву.",
+          "locale": "uk",
+          "category": {
+            "slug": "passive-voice",
+            "title": "Пасивний стан",
+            "language": "uk"
+          },
+          "tags": [
+            "Passive Voice",
+            "Formation Rules",
+            "be + V3",
+            "A2",
+            "Theory"
+          ],
+          "blocks": [
+            {
+              "type": "hero",
+              "column": "header",
+              "level": "A2",
+              "body": "{\n    \"level\": \"A2\",\n    \"intro\": \"У цій темі ти вивчиш <strong>основні правила утворення пасивного стану<\\/strong>: базову формулу, як перетворювати активні речення на пасивні, та коли доречно використовувати пасив.\",\n    \"rules\": [\n        {\n            \"label\": \"Формула\",\n            \"color\": \"emerald\",\n            \"text\": \"Базова структура пасиву: <strong>Subject + be + V3 (Past Participle)<\\/strong>:\",\n            \"example\": \"The cake is baked. — Торт випечений.\"\n        },\n        {\n            \"label\": \"Перетворення\",\n            \"color\": \"blue\",\n            \"text\": \"Object активного речення → Subject пасивного:\",\n            \"example\": \"Tom writes letters. → Letters are written by Tom.\"\n        },\n        {\n            \"label\": \"Виконавець\",\n            \"color\": \"rose\",\n            \"text\": \"<strong>by + agent<\\/strong> — вказує, хто виконує дію:\",\n            \"example\": \"The book was written by Shakespeare.\"\n        }\n    ]\n}"
+            },
+            {
+              "type": "forms-grid",
+              "column": "left",
+              "level": "A2",
+              "body": "{\n    \"title\": \"1. Активний vs Пасивний стан\",\n    \"intro\": \"Порівняння активного та пасивного стану:\",\n    \"items\": [\n        {\n            \"label\": \"Active\",\n            \"title\": \"Subject виконує дію\",\n            \"subtitle\": \"Tom writes letters. — Том пише листи.\"\n        },\n        {\n            \"label\": \"Passive\",\n            \"title\": \"Subject отримує дію\",\n            \"subtitle\": \"Letters are written by Tom. — Листи пишуться Томом.\"\n        },\n        {\n            \"label\": \"Формула\",\n            \"title\": \"be + V3\",\n            \"subtitle\": \"Дієслово be у потрібному часі + Past Participle.\"\n        },\n        {\n            \"label\": \"Agent\",\n            \"title\": \"by + виконавець\",\n            \"subtitle\": \"Вказується, якщо важливо знати виконавця.\"\n        }\n    ]\n}"
+            },
+            {
+              "type": "usage-panels",
+              "column": "left",
+              "level": "A2",
+              "body": "{\n    \"title\": \"2. Як перетворити Active → Passive?\",\n    \"sections\": [\n        {\n            \"label\": \"Крок 1\",\n            \"color\": \"emerald\",\n            \"description\": \"<strong>Object<\\/strong> активного речення стає <strong>Subject<\\/strong> пасивного:\",\n            \"examples\": [\n                {\n                    \"en\": \"Active: Tom writes letters.\",\n                    \"ua\": \"letters → Letters (стає підметом)\"\n                },\n                {\n                    \"en\": \"Active: They built a house.\",\n                    \"ua\": \"a house → A house (стає підметом)\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Крок 2\",\n            \"color\": \"blue\",\n            \"description\": \"Додаємо <strong>be<\\/strong> у відповідному часі + <strong>V3<\\/strong>:\",\n            \"examples\": [\n                {\n                    \"en\": \"writes → is\\/are written\",\n                    \"ua\": \"Present Simple: am\\/is\\/are + V3\"\n                },\n                {\n                    \"en\": \"built → was\\/were built\",\n                    \"ua\": \"Past Simple: was\\/were + V3\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Крок 3\",\n            \"color\": \"rose\",\n            \"description\": \"<strong>Subject<\\/strong> активного речення стає <strong>by + agent<\\/strong> (за потреби):\",\n            \"examples\": [\n                {\n                    \"en\": \"Tom → by Tom\",\n                    \"ua\": \"Якщо важливо, хто виконує дію\"\n                },\n                {\n                    \"en\": \"They → (пропускається)\",\n                    \"ua\": \"Якщо виконавець невідомий або неважливий\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+              "type": "comparison-table",
+              "column": "left",
+              "level": "A2",
+              "body": "{\n    \"title\": \"3. Приклади перетворення Active → Passive\",\n    \"intro\": \"Повний процес перетворення активних речень на пасивні:\",\n    \"rows\": [\n        {\n            \"en\": \"Active: Mary bakes a cake.\",\n            \"ua\": \"Марія печe торт.\",\n            \"note\": \"→ Passive: A cake is baked by Mary.\"\n        },\n        {\n            \"en\": \"Active: They speak English here.\",\n            \"ua\": \"Тут розмовляють англійською.\",\n            \"note\": \"→ Passive: English is spoken here.\"\n        },\n        {\n            \"en\": \"Active: Someone stole my bike.\",\n            \"ua\": \"Хтось вкрав мій велосипед.\",\n            \"note\": \"→ Passive: My bike was stolen.\"\n        },\n        {\n            \"en\": \"Active: The company will hire new employees.\",\n            \"ua\": \"Компанія найме нових працівників.\",\n            \"note\": \"→ Passive: New employees will be hired by the company.\"\n        }\n    ],\n    \"warning\": \"📌 by + agent пропускається, якщо виконавець невідомий, неважливий або очевидний!\"\n}"
+            },
+            {
+              "type": "usage-panels",
+              "column": "left",
+              "level": "A2",
+              "body": "{\n    \"title\": \"4. Коли використовувати пасивний стан?\",\n    \"sections\": [\n        {\n            \"label\": \"Невідомий виконавець\",\n            \"color\": \"emerald\",\n            \"description\": \"Коли <strong>невідомо<\\/strong>, хто виконав дію:\",\n            \"examples\": [\n                {\n                    \"en\": \"My car was stolen last night.\",\n                    \"ua\": \"Мою машину вкрали минулої ночі.\"\n                },\n                {\n                    \"en\": \"The window has been broken.\",\n                    \"ua\": \"Вікно розбите.\"\n                },\n                {\n                    \"en\": \"The building was destroyed.\",\n                    \"ua\": \"Будівля була зруйнована.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Неважливий виконавець\",\n            \"color\": \"blue\",\n            \"description\": \"Коли виконавець <strong>неважливий<\\/strong> або очевидний:\",\n            \"examples\": [\n                {\n                    \"en\": \"The streets are cleaned every day.\",\n                    \"ua\": \"Вулиці прибираються щодня.\"\n                },\n                {\n                    \"en\": \"Tickets are sold at the entrance.\",\n                    \"ua\": \"Квитки продаються біля входу.\"\n                },\n                {\n                    \"en\": \"The law was passed last year.\",\n                    \"ua\": \"Закон був прийнятий минулого року.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Фокус на дії\\/об'єкті\",\n            \"color\": \"amber\",\n            \"description\": \"Коли важливіша <strong>сама дія<\\/strong> або <strong>об'єкт<\\/strong>:\",\n            \"examples\": [\n                {\n                    \"en\": \"The report was submitted on time.\",\n                    \"ua\": \"Звіт був поданий вчасно.\"\n                },\n                {\n                    \"en\": \"The new system will be launched tomorrow.\",\n                    \"ua\": \"Нова система буде запущена завтра.\"\n                },\n                {\n                    \"en\": \"The product is made in Germany.\",\n                    \"ua\": \"Продукт виробляється в Німеччині.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Формальний стиль\",\n            \"color\": \"rose\",\n            \"description\": \"У <strong>науковому, офіційному<\\/strong> та <strong>діловому<\\/strong> стилі:\",\n            \"examples\": [\n                {\n                    \"en\": \"The experiment was conducted carefully.\",\n                    \"ua\": \"Експеримент був проведений ретельно.\"\n                },\n                {\n                    \"en\": \"Applicants will be notified by email.\",\n                    \"ua\": \"Заявників повідомлять електронною поштою.\"\n                },\n                {\n                    \"en\": \"The data is analyzed weekly.\",\n                    \"ua\": \"Дані аналізуються щотижня.\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+              "type": "forms-grid",
+              "column": "left",
+              "level": "A2",
+              "body": "{\n    \"title\": \"5. By vs With у пасиві\",\n    \"intro\": \"Різниця між <strong>by<\\/strong> та <strong>with<\\/strong> у пасивних реченнях:\",\n    \"items\": [\n        {\n            \"label\": \"by\",\n            \"title\": \"Хто виконує дію (agent)\",\n            \"subtitle\": \"The book was written by Mark Twain.\"\n        },\n        {\n            \"label\": \"with\",\n            \"title\": \"Чим\\/за допомогою чого (instrument)\",\n            \"subtitle\": \"The letter was written with a pen.\"\n        },\n        {\n            \"label\": \"by\",\n            \"title\": \"Жива істота або організація\",\n            \"subtitle\": \"The project was completed by our team.\"\n        },\n        {\n            \"label\": \"with\",\n            \"title\": \"Інструмент, матеріал\",\n            \"subtitle\": \"The cake was decorated with chocolate.\"\n        }\n    ]\n}"
+            },
+            {
+              "type": "mistakes-grid",
+              "column": "left",
+              "level": "A2",
+              "body": "{\n    \"title\": \"6. Типові помилки\",\n    \"items\": [\n        {\n            \"label\": \"Помилка 1\",\n            \"color\": \"rose\",\n            \"title\": \"Пропуск дієслова be.\",\n            \"wrong\": \"The letter written yesterday.\",\n            \"right\": \"✅ The letter was written yesterday.\"\n        },\n        {\n            \"label\": \"Помилка 2\",\n            \"color\": \"amber\",\n            \"title\": \"Використання V1\\/V2 замість V3.\",\n            \"wrong\": \"English is speak here.\",\n            \"right\": \"✅ English is spoken here.\"\n        },\n        {\n            \"label\": \"Помилка 3\",\n            \"color\": \"sky\",\n            \"title\": \"Використання with замість by для виконавця.\",\n            \"wrong\": \"The book was written with Shakespeare.\",\n            \"right\": \"✅ The book was written by Shakespeare.\"\n        },\n        {\n            \"label\": \"Помилка 4\",\n            \"color\": \"rose\",\n            \"title\": \"Зайвий by agent.\",\n            \"wrong\": \"My car was stolen by someone.\",\n            \"right\": \"✅ My car was stolen. (виконавець невідомий)\"\n        }\n    ]\n}"
+            },
+            {
+              "type": "summary-list",
+              "column": "left",
+              "level": "A2",
+              "body": "{\n    \"title\": \"7. Короткий конспект\",\n    \"items\": [\n        \"Базова формула пасиву: <strong>Subject + be + V3 (Past Participle)<\\/strong>.\",\n        \"Object активного речення → Subject пасивного.\",\n        \"<strong>by + agent<\\/strong> — вказує виконавця (людина, організація).\",\n        \"<strong>with + instrument<\\/strong> — вказує інструмент або засіб.\",\n        \"Пасив використовують, коли виконавець <strong>невідомий<\\/strong>, <strong>неважливий<\\/strong> або <strong>очевидний<\\/strong>.\",\n        \"Пасив типовий для <strong>формального, наукового та ділового<\\/strong> стилю.\",\n        \"by + agent пропускається, якщо виконавець невідомий або неважливий.\",\n        \"Дієслово <strong>be<\\/strong> змінюється відповідно до часу, <strong>V3<\\/strong> — ні.\"\n    ]\n}"
+            },
+            {
+              "type": "navigation-chips",
+              "column": "footer",
+              "body": "{\n    \"title\": \"Passive Basics\",\n    \"items\": [\n        {\n            \"label\": \"Formation Rules — Правила утворення пасиву\",\n            \"current\": true\n        },\n        {\n            \"label\": \"Passive with Modal Verbs — Пасив з модальними\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Causative — have/get something done\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Get-Passive — Розмовний пасив\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Impersonal Passive — Безособовий пасив\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Negatives & Questions in Passive — Питання й заперечення\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Phrasal Verbs in Passive — Фразові дієслова\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Restrictions — Обмеження пасиву\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Two-object Verbs in Passive — give/send/offer\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Common Mistakes in Passive — Типові помилки\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Formality & Style in Passive — Формальність і стиль\",\n            \"current\": false\n        }\n    ]\n}"
+            }
+          ]
+        },
+        "type": "theory"
+      }
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceNegativesQuestionsTheorySeeder",
+      "path": "database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceNegativesQuestionsTheorySeeder/definition.json",
+      "page_binding": {
+        "id": 98,
+        "page_category_id": 1
+      },
+      "before": {
+        "schema_version": 1,
+        "content_type": "page",
+        "slug": "theory-passive-voice-negatives-questions",
+        "seeder": {
+          "class": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceNegativesQuestionsTheorySeeder"
+        },
+        "page": {
+          "title": "Negatives & Questions in Passive — Питання й заперечення",
+          "subtitle_html": "<p><strong>Negatives & Questions in Passive</strong> — навчись правильно будувати заперечні та питальні речення у пасивному стані, а також давати короткі відповіді на питання.</p>",
+          "subtitle_text": "Як утворювати passive negatives, questions і short answers.",
+          "locale": "uk",
+          "category": {
+            "slug": "passive-voice",
+            "title": "Пасивний стан",
+            "language": "uk"
+          },
+          "tags": [
+            "Passive Voice",
+            "Negatives",
+            "Questions",
+            "Short Answers",
+            "B1",
+            "Theory"
+          ],
+          "blocks": [
+            {
+              "type": "hero",
+              "column": "header",
+              "level": "B1",
+              "body": "{\n    \"level\": \"B1\",\n    \"intro\": \"У цій темі ти навчишся будувати <strong>заперечні та питальні речення<\\/strong> у пасивному стані, а також давати <strong>короткі відповіді<\\/strong> на yes\\/no питання.\",\n    \"rules\": [\n        {\n            \"label\": \"Заперечення\",\n            \"color\": \"rose\",\n            \"text\": \"Додаємо <strong>not<\\/strong> після be:\",\n            \"example\": \"The house isn't made of wood.\"\n        },\n        {\n            \"label\": \"Питання\",\n            \"color\": \"blue\",\n            \"text\": \"<strong>be<\\/strong> виходить на перше місце:\",\n            \"example\": \"Was it built in 1990?\"\n        },\n        {\n            \"label\": \"Короткі відповіді\",\n            \"color\": \"emerald\",\n            \"text\": \"<strong>Yes\\/No + subject + be<\\/strong>:\",\n            \"example\": \"Yes, it was. \\/ No, it wasn't.\"\n        }\n    ]\n}"
+            },
+            {
+              "type": "usage-panels",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"1. Заперечення в Present Simple Passive\",\n    \"sections\": [\n        {\n            \"label\": \"Структура\",\n            \"color\": \"rose\",\n            \"description\": \"Формула: <strong>am\\/is\\/are + not + V3<\\/strong>. Скорочені форми: <strong>isn't, aren't<\\/strong>\",\n            \"examples\": [\n                {\n                    \"en\": \"The products are not made in China.\",\n                    \"ua\": \"Продукти не виробляються в Китаї.\"\n                },\n                {\n                    \"en\": \"This material isn't used anymore.\",\n                    \"ua\": \"Цей матеріал більше не використовується.\"\n                },\n                {\n                    \"en\": \"I am not invited to the party.\",\n                    \"ua\": \"Мене не запросили на вечірку.\"\n                },\n                {\n                    \"en\": \"The doors aren't locked at night.\",\n                    \"ua\": \"Двері не замикаються на ніч.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Нюанси\",\n            \"color\": \"amber\",\n            \"description\": \"Форма <strong>am not<\\/strong> не скорочується до \\\"amn't\\\". Використовуємо: <strong>I'm not<\\/strong>\",\n            \"examples\": [\n                {\n                    \"en\": \"I'm not included in the list.\",\n                    \"ua\": \"Мене не включено до списку.\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+              "type": "usage-panels",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"2. Заперечення в Past Simple Passive\",\n    \"sections\": [\n        {\n            \"label\": \"Структура\",\n            \"color\": \"rose\",\n            \"description\": \"Формула: <strong>was\\/were + not + V3<\\/strong>. Скорочені: <strong>wasn't, weren't<\\/strong>\",\n            \"examples\": [\n                {\n                    \"en\": \"The house was not built in 1990.\",\n                    \"ua\": \"Будинок не був побудований у 1990.\"\n                },\n                {\n                    \"en\": \"The letter wasn't sent yesterday.\",\n                    \"ua\": \"Лист не був надісланий вчора.\"\n                },\n                {\n                    \"en\": \"We were not informed about the changes.\",\n                    \"ua\": \"Нас не повідомили про зміни.\"\n                },\n                {\n                    \"en\": \"The tickets weren't sold out.\",\n                    \"ua\": \"Квитки не були розпродані.\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+              "type": "usage-panels",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"3. Заперечення в інших часах\",\n    \"sections\": [\n        {\n            \"label\": \"Future Simple\",\n            \"color\": \"rose\",\n            \"description\": \"<strong>will not (won't) + be + V3<\\/strong>\",\n            \"examples\": [\n                {\n                    \"en\": \"The project will not be finished on time.\",\n                    \"ua\": \"Проєкт не буде завершено вчасно.\"\n                },\n                {\n                    \"en\": \"The meeting won't be held tomorrow.\",\n                    \"ua\": \"Зустріч не відбудеться завтра.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Present Perfect\",\n            \"color\": \"rose\",\n            \"description\": \"<strong>has\\/have + not + been + V3<\\/strong>. Скорочені: <strong>hasn't, haven't<\\/strong>\",\n            \"examples\": [\n                {\n                    \"en\": \"The work has not been completed yet.\",\n                    \"ua\": \"Робота ще не завершена.\"\n                },\n                {\n                    \"en\": \"The files haven't been uploaded.\",\n                    \"ua\": \"Файли не були завантажені.\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+              "type": "usage-panels",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"4. Yes\\/No питання в пасиві\",\n    \"sections\": [\n        {\n            \"label\": \"Present Simple\",\n            \"color\": \"blue\",\n            \"description\": \"<strong>Am\\/Is\\/Are + S + V3?<\\/strong>\",\n            \"examples\": [\n                {\n                    \"en\": \"Is English spoken here?\",\n                    \"ua\": \"Тут розмовляють англійською?\"\n                },\n                {\n                    \"en\": \"Are the rooms cleaned daily?\",\n                    \"ua\": \"Кімнати прибираються щодня?\"\n                },\n                {\n                    \"en\": \"Am I included in the team?\",\n                    \"ua\": \"Мене включено до команди?\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Past Simple\",\n            \"color\": \"blue\",\n            \"description\": \"<strong>Was\\/Were + S + V3?<\\/strong>\",\n            \"examples\": [\n                {\n                    \"en\": \"Was the house built in 1990?\",\n                    \"ua\": \"Будинок був побудований у 1990?\"\n                },\n                {\n                    \"en\": \"Were the documents signed?\",\n                    \"ua\": \"Документи були підписані?\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Future Simple\",\n            \"color\": \"blue\",\n            \"description\": \"<strong>Will + S + be + V3?<\\/strong>\",\n            \"examples\": [\n                {\n                    \"en\": \"Will the project be finished on time?\",\n                    \"ua\": \"Проєкт буде завершено вчасно?\"\n                },\n                {\n                    \"en\": \"Will you be invited to the meeting?\",\n                    \"ua\": \"Тебе запросять на зустріч?\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Present Perfect\",\n            \"color\": \"blue\",\n            \"description\": \"<strong>Has\\/Have + S + been + V3?<\\/strong>\",\n            \"examples\": [\n                {\n                    \"en\": \"Has the work been completed?\",\n                    \"ua\": \"Роботу завершено?\"\n                },\n                {\n                    \"en\": \"Have the tickets been sold?\",\n                    \"ua\": \"Квитки продано?\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+              "type": "usage-panels",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"5. Короткі відповіді (Short Answers)\",\n    \"sections\": [\n        {\n            \"label\": \"Правило\",\n            \"color\": \"emerald\",\n            \"description\": \"Структура: <strong>Yes\\/No + subject pronoun + be (у тому ж часі)<\\/strong>\",\n            \"examples\": [\n                {\n                    \"en\": \"Is the door locked? — Yes, it is. \\/ No, it isn't.\",\n                    \"ua\": \"Двері замкнені? — Так. \\/ Ні.\"\n                },\n                {\n                    \"en\": \"Was the letter sent? — Yes, it was. \\/ No, it wasn't.\",\n                    \"ua\": \"Лист надіслано? — Так. \\/ Ні.\"\n                },\n                {\n                    \"en\": \"Are they invited? — Yes, they are. \\/ No, they aren't.\",\n                    \"ua\": \"Їх запросили? — Так. \\/ Ні.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Present Perfect\",\n            \"color\": \"emerald\",\n            \"description\": \"У Present Perfect: <strong>Yes\\/No + S + has\\/have<\\/strong>\",\n            \"examples\": [\n                {\n                    \"en\": \"Has the work been finished? — Yes, it has. \\/ No, it hasn't.\",\n                    \"ua\": \"Роботу закінчено? — Так. \\/ Ні.\"\n                },\n                {\n                    \"en\": \"Have they been informed? — Yes, they have. \\/ No, they haven't.\",\n                    \"ua\": \"Їх повідомили? — Так. \\/ Ні.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Future Simple\",\n            \"color\": \"emerald\",\n            \"description\": \"У Future: <strong>Yes\\/No + S + will\\/won't<\\/strong>\",\n            \"examples\": [\n                {\n                    \"en\": \"Will it be done tomorrow? — Yes, it will. \\/ No, it won't.\",\n                    \"ua\": \"Це буде зроблено завтра? — Так. \\/ Ні.\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+              "type": "usage-panels",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"6. Wh-питання в пасиві\",\n    \"sections\": [\n        {\n            \"label\": \"Структура\",\n            \"color\": \"sky\",\n            \"description\": \"<strong>Wh-word + be + S + V3?<\\/strong>\",\n            \"examples\": [\n                {\n                    \"en\": \"Where is coffee grown?\",\n                    \"ua\": \"Де вирощують каву?\"\n                },\n                {\n                    \"en\": \"When was the house built?\",\n                    \"ua\": \"Коли був побудований будинок?\"\n                },\n                {\n                    \"en\": \"How are these products made?\",\n                    \"ua\": \"Як виробляються ці продукти?\"\n                },\n                {\n                    \"en\": \"Why was the meeting cancelled?\",\n                    \"ua\": \"Чому зустріч скасували?\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Who\\/What як підмет\",\n            \"color\": \"sky\",\n            \"description\": \"Коли питальне слово — підмет: <strong>Who\\/What + be + V3?<\\/strong> (без інверсії)\",\n            \"examples\": [\n                {\n                    \"en\": \"What is produced here?\",\n                    \"ua\": \"Що тут виробляється?\"\n                },\n                {\n                    \"en\": \"Who was invited to the party?\",\n                    \"ua\": \"Кого запросили на вечірку?\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+              "type": "comparison-table",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"7. Зведена таблиця питань та заперечень\",\n    \"intro\": \"Основні структури заперечень та питань у різних часах:\",\n    \"rows\": [\n        {\n            \"en\": \"Present Simple\",\n            \"ua\": \"It isn't made here.\",\n            \"note\": \"Is it made here? — Yes, it is. \\/ No, it isn't.\"\n        },\n        {\n            \"en\": \"Past Simple\",\n            \"ua\": \"It wasn't built in 1990.\",\n            \"note\": \"Was it built in 1990? — Yes, it was. \\/ No, it wasn't.\"\n        },\n        {\n            \"en\": \"Future Simple\",\n            \"ua\": \"It won't be finished.\",\n            \"note\": \"Will it be finished? — Yes, it will. \\/ No, it won't.\"\n        },\n        {\n            \"en\": \"Present Perfect\",\n            \"ua\": \"It hasn't been done.\",\n            \"note\": \"Has it been done? — Yes, it has. \\/ No, it hasn't.\"\n        }\n    ]\n}"
+            },
+            {
+              "type": "mistakes-grid",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"8. Типові помилки\",\n    \"items\": [\n        {\n            \"label\": \"Помилка 1\",\n            \"color\": \"rose\",\n            \"title\": \"Неправильний порядок слів у питанні.\",\n            \"wrong\": \"The house was built in 1990?\",\n            \"right\": \"✅ Was the house built in 1990?\"\n        },\n        {\n            \"label\": \"Помилка 2\",\n            \"color\": \"amber\",\n            \"title\": \"Пропуск допоміжного дієслова в питанні.\",\n            \"wrong\": \"It made in China?\",\n            \"right\": \"✅ Is it made in China?\"\n        },\n        {\n            \"label\": \"Помилка 3\",\n            \"color\": \"sky\",\n            \"title\": \"Неповна коротка відповідь.\",\n            \"wrong\": \"Was it built? — Yes, it.\",\n            \"right\": \"✅ Yes, it was.\"\n        }\n    ]\n}"
+            },
+            {
+              "type": "summary-list",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"9. Короткий конспект\",\n    \"items\": [\n        \"Заперечення: <strong>be + not + V3<\\/strong> (isn't, wasn't, won't be, hasn't been).\",\n        \"Yes\\/No питання: <strong>be<\\/strong> виходить на перше місце перед підметом.\",\n        \"Короткі відповіді: <strong>Yes\\/No + subject + be<\\/strong> (у тому ж часі).\",\n        \"Wh-питання: <strong>Wh-word + be + S + V3?<\\/strong>\",\n        \"Коли Who\\/What — підмет, інверсія не потрібна: <strong>What is produced?<\\/strong>\"\n    ]\n}"
+            },
+            {
+              "type": "navigation-chips",
+              "column": "footer",
+              "body": "{\n    \"title\": \"Passive Basics\",\n    \"items\": [\n        {\n            \"label\": \"Formation Rules — Правила утворення пасиву\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Passive with Modal Verbs — Пасив з модальними\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Causative — have/get something done\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Get-Passive — Розмовний пасив\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Impersonal Passive — Безособовий пасив\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Negatives & Questions in Passive — Питання й заперечення\",\n            \"current\": true\n        },\n        {\n            \"label\": \"Phrasal Verbs in Passive — Фразові дієслова\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Restrictions — Обмеження пасиву\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Two-object Verbs in Passive — give/send/offer\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Common Mistakes in Passive — Типові помилки\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Formality & Style in Passive — Формальність і стиль\",\n            \"current\": false\n        }\n    ]\n}"
+            }
+          ]
+        },
+        "type": "theory"
+      }
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceModalVerbsTheorySeeder",
+      "path": "database/seeders/Page_V3/PassiveVoice/Basics/PassiveVoiceModalVerbsTheorySeeder/definition.json",
+      "page_binding": {
+        "id": 97,
+        "page_category_id": 1
+      },
+      "before": {
+        "schema_version": 1,
+        "content_type": "page",
+        "slug": "theory-passive-voice-modal-verbs",
+        "seeder": {
+          "class": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceModalVerbsTheorySeeder"
+        },
+        "page": {
+          "title": "Passive with Modal Verbs — Пасив з модальними",
+          "subtitle_html": "<p><strong>Пасив з модальними дієсловами</strong> утворюється за формулою <strong>modal + be + V3</strong>. Модальні дієслова (can, could, may, might, must, should, will, would) не змінюються, а пасив додається через <strong>be + V3</strong>.</p>",
+          "subtitle_text": "can/could/must/should be done та інші passive patterns with modals.",
+          "locale": "uk",
+          "category": {
+            "slug": "passive-voice",
+            "title": "Пасивний стан",
+            "language": "uk"
+          },
+          "tags": [
+            "Passive Voice",
+            "Modal Verbs",
+            "can be done",
+            "must be done",
+            "B1",
+            "Theory"
+          ],
+          "blocks": [
+            {
+              "type": "hero",
+              "column": "header",
+              "level": "B1",
+              "body": "{\n    \"level\": \"B1\",\n    \"intro\": \"У цій темі ти вивчиш, як використовувати <strong>пасив з модальними дієсловами<\\/strong>: can, could, may, might, must, should, will, would. Формула проста: <strong>modal + be + V3<\\/strong>.\",\n    \"rules\": [\n        {\n            \"label\": \"Формула\",\n            \"color\": \"emerald\",\n            \"text\": \"<strong>Subject + modal + be + V3<\\/strong>:\",\n            \"example\": \"This task must be done today.\"\n        },\n        {\n            \"label\": \"Заперечення\",\n            \"color\": \"rose\",\n            \"text\": \"<strong>Subject + modal + not + be + V3<\\/strong>:\",\n            \"example\": \"This task cannot be done today.\"\n        },\n        {\n            \"label\": \"Питання\",\n            \"color\": \"blue\",\n            \"text\": \"<strong>Modal + Subject + be + V3?<\\/strong>:\",\n            \"example\": \"Can this task be done today?\"\n        }\n    ]\n}"
+            },
+            {
+              "type": "forms-grid",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"1. Модальні дієслова у пасиві\",\n    \"intro\": \"Формула: <strong>modal + be + V3<\\/strong>:\",\n    \"items\": [\n        {\n            \"label\": \"can\",\n            \"title\": \"can be done\",\n            \"subtitle\": \"This can be fixed. — Це можна виправити.\"\n        },\n        {\n            \"label\": \"could\",\n            \"title\": \"could be done\",\n            \"subtitle\": \"It could be improved. — Це можна було б покращити.\"\n        },\n        {\n            \"label\": \"may\",\n            \"title\": \"may be done\",\n            \"subtitle\": \"It may be postponed. — Це може бути відкладено.\"\n        },\n        {\n            \"label\": \"might\",\n            \"title\": \"might be done\",\n            \"subtitle\": \"It might be cancelled. — Це може бути скасовано.\"\n        },\n        {\n            \"label\": \"must\",\n            \"title\": \"must be done\",\n            \"subtitle\": \"It must be finished. — Це має бути завершено.\"\n        },\n        {\n            \"label\": \"should\",\n            \"title\": \"should be done\",\n            \"subtitle\": \"It should be checked. — Це варто перевірити.\"\n        },\n        {\n            \"label\": \"will\",\n            \"title\": \"will be done\",\n            \"subtitle\": \"It will be completed. — Це буде завершено.\"\n        },\n        {\n            \"label\": \"would\",\n            \"title\": \"would be done\",\n            \"subtitle\": \"It would be appreciated. — Це було б оцінено.\"\n        }\n    ]\n}"
+            },
+            {
+              "type": "usage-panels",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"2. Значення модальних дієслів у пасиві\",\n    \"sections\": [\n        {\n            \"label\": \"can \\/ could — можливість\",\n            \"color\": \"emerald\",\n            \"description\": \"<strong>Можливість<\\/strong> або <strong>здатність<\\/strong>:\",\n            \"examples\": [\n                {\n                    \"en\": \"The problem can be solved easily.\",\n                    \"ua\": \"Проблему можна легко вирішити.\"\n                },\n                {\n                    \"en\": \"This could be done in a different way.\",\n                    \"ua\": \"Це можна було б зробити інакше.\"\n                },\n                {\n                    \"en\": \"The document can be downloaded online.\",\n                    \"ua\": \"Документ можна завантажити онлайн.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"may \\/ might — ймовірність\",\n            \"color\": \"blue\",\n            \"description\": \"<strong>Ймовірність<\\/strong> або <strong>дозвіл<\\/strong>:\",\n            \"examples\": [\n                {\n                    \"en\": \"The meeting may be postponed.\",\n                    \"ua\": \"Зустріч може бути відкладена.\"\n                },\n                {\n                    \"en\": \"The flight might be cancelled.\",\n                    \"ua\": \"Рейс може бути скасовано.\"\n                },\n                {\n                    \"en\": \"Photos may be taken here.\",\n                    \"ua\": \"Тут можна фотографувати.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"must \\/ have to — необхідність\",\n            \"color\": \"amber\",\n            \"description\": \"<strong>Необхідність<\\/strong> або <strong>обов'язок<\\/strong>:\",\n            \"examples\": [\n                {\n                    \"en\": \"This work must be done today.\",\n                    \"ua\": \"Ця робота має бути зроблена сьогодні.\"\n                },\n                {\n                    \"en\": \"The rules must be followed.\",\n                    \"ua\": \"Правила мають дотримуватися.\"\n                },\n                {\n                    \"en\": \"Taxes have to be paid on time.\",\n                    \"ua\": \"Податки мають сплачуватися вчасно.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"should \\/ ought to — рекомендація\",\n            \"color\": \"rose\",\n            \"description\": \"<strong>Рекомендація<\\/strong> або <strong>порада<\\/strong>:\",\n            \"examples\": [\n                {\n                    \"en\": \"The report should be checked carefully.\",\n                    \"ua\": \"Звіт варто ретельно перевірити.\"\n                },\n                {\n                    \"en\": \"Children should be protected.\",\n                    \"ua\": \"Дітей треба захищати.\"\n                },\n                {\n                    \"en\": \"This information ought to be verified.\",\n                    \"ua\": \"Цю інформацію слід перевірити.\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+              "type": "usage-panels",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"3. Заперечення з модальними дієсловами\",\n    \"sections\": [\n        {\n            \"label\": \"cannot \\/ can't be done\",\n            \"color\": \"rose\",\n            \"description\": \"<strong>Неможливість<\\/strong>:\",\n            \"examples\": [\n                {\n                    \"en\": \"This problem cannot be solved.\",\n                    \"ua\": \"Цю проблему неможливо вирішити.\"\n                },\n                {\n                    \"en\": \"The deadline can't be extended.\",\n                    \"ua\": \"Дедлайн не можна продовжити.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"must not \\/ mustn't be done\",\n            \"color\": \"amber\",\n            \"description\": \"<strong>Заборона<\\/strong>:\",\n            \"examples\": [\n                {\n                    \"en\": \"This information must not be shared.\",\n                    \"ua\": \"Цю інформацію не можна поширювати.\"\n                },\n                {\n                    \"en\": \"The password mustn't be revealed.\",\n                    \"ua\": \"Пароль не можна розголошувати.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"should not \\/ shouldn't be done\",\n            \"color\": \"sky\",\n            \"description\": \"<strong>Не рекомендується<\\/strong>:\",\n            \"examples\": [\n                {\n                    \"en\": \"This shouldn't be ignored.\",\n                    \"ua\": \"Це не варто ігнорувати.\"\n                },\n                {\n                    \"en\": \"Children should not be left alone.\",\n                    \"ua\": \"Дітей не слід залишати наодинці.\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+              "type": "usage-panels",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"4. Питання з модальними дієсловами\",\n    \"sections\": [\n        {\n            \"label\": \"Yes\\/No питання\",\n            \"color\": \"blue\",\n            \"description\": \"<strong>Modal + Subject + be + V3?<\\/strong>:\",\n            \"examples\": [\n                {\n                    \"en\": \"Can this be done today?\",\n                    \"ua\": \"Чи можна це зробити сьогодні?\"\n                },\n                {\n                    \"en\": \"Should the report be submitted now?\",\n                    \"ua\": \"Чи потрібно подати звіт зараз?\"\n                },\n                {\n                    \"en\": \"Must the rules be followed?\",\n                    \"ua\": \"Чи треба дотримуватися правил?\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Wh-питання\",\n            \"color\": \"emerald\",\n            \"description\": \"<strong>Wh-word + modal + Subject + be + V3?<\\/strong>:\",\n            \"examples\": [\n                {\n                    \"en\": \"When can the work be finished?\",\n                    \"ua\": \"Коли можна закінчити роботу?\"\n                },\n                {\n                    \"en\": \"How should the problem be solved?\",\n                    \"ua\": \"Як слід вирішити проблему?\"\n                },\n                {\n                    \"en\": \"Where can the tickets be bought?\",\n                    \"ua\": \"Де можна купити квитки?\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+              "type": "comparison-table",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"5. Порівняння Active vs Passive з модальними\",\n    \"intro\": \"Як перетворити активне речення з модальним дієсловом на пасивне:\",\n    \"rows\": [\n        {\n            \"en\": \"Active: You must finish this work.\",\n            \"ua\": \"Ти маєш закінчити цю роботу.\",\n            \"note\": \"→ Passive: This work must be finished.\"\n        },\n        {\n            \"en\": \"Active: They can solve the problem.\",\n            \"ua\": \"Вони можуть вирішити проблему.\",\n            \"note\": \"→ Passive: The problem can be solved.\"\n        },\n        {\n            \"en\": \"Active: You should check the report.\",\n            \"ua\": \"Тобі слід перевірити звіт.\",\n            \"note\": \"→ Passive: The report should be checked.\"\n        },\n        {\n            \"en\": \"Active: We may postpone the meeting.\",\n            \"ua\": \"Ми можемо відкласти зустріч.\",\n            \"note\": \"→ Passive: The meeting may be postponed.\"\n        }\n    ],\n    \"warning\": \"📌 Модальне дієслово залишається незмінним, змінюється тільки основне дієслово!\"\n}"
+            },
+            {
+              "type": "forms-grid",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"6. Perfect модальні у пасиві (про минуле)\",\n    \"intro\": \"Формула: <strong>modal + have been + V3<\\/strong>:\",\n    \"items\": [\n        {\n            \"label\": \"must have been\",\n            \"title\": \"must have been done\",\n            \"subtitle\": \"It must have been stolen. — Напевно, це вкрали.\"\n        },\n        {\n            \"label\": \"should have been\",\n            \"title\": \"should have been done\",\n            \"subtitle\": \"It should have been checked. — Це слід було перевірити.\"\n        },\n        {\n            \"label\": \"could have been\",\n            \"title\": \"could have been done\",\n            \"subtitle\": \"It could have been avoided. — Цього можна було уникнути.\"\n        },\n        {\n            \"label\": \"might have been\",\n            \"title\": \"might have been done\",\n            \"subtitle\": \"It might have been lost. — Можливо, це загубили.\"\n        }\n    ]\n}"
+            },
+            {
+              "type": "usage-panels",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"7. Perfect модальні у пасиві: приклади\",\n    \"sections\": [\n        {\n            \"label\": \"Припущення про минуле\",\n            \"color\": \"emerald\",\n            \"description\": \"<strong>must\\/may\\/might\\/could have been + V3<\\/strong>:\",\n            \"examples\": [\n                {\n                    \"en\": \"The letter must have been sent yesterday.\",\n                    \"ua\": \"Лист, напевно, був відправлений вчора.\"\n                },\n                {\n                    \"en\": \"The window may have been broken by the kids.\",\n                    \"ua\": \"Вікно, можливо, було розбите дітьми.\"\n                },\n                {\n                    \"en\": \"The file might have been deleted accidentally.\",\n                    \"ua\": \"Файл, можливо, був видалений випадково.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Критика минулої дії\",\n            \"color\": \"rose\",\n            \"description\": \"<strong>should have been + V3<\\/strong> (слід було зробити, але не зробили):\",\n            \"examples\": [\n                {\n                    \"en\": \"The report should have been submitted on time.\",\n                    \"ua\": \"Звіт слід було подати вчасно.\"\n                },\n                {\n                    \"en\": \"The problem should have been fixed earlier.\",\n                    \"ua\": \"Проблему слід було виправити раніше.\"\n                },\n                {\n                    \"en\": \"The warning should have been given.\",\n                    \"ua\": \"Попередження слід було дати.\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Нереалізована можливість\",\n            \"color\": \"blue\",\n            \"description\": \"<strong>could have been + V3<\\/strong> (могло бути зроблено):\",\n            \"examples\": [\n                {\n                    \"en\": \"The accident could have been avoided.\",\n                    \"ua\": \"Аварії можна було уникнути.\"\n                },\n                {\n                    \"en\": \"The work could have been done faster.\",\n                    \"ua\": \"Роботу можна було зробити швидше.\"\n                },\n                {\n                    \"en\": \"The mistake could have been prevented.\",\n                    \"ua\": \"Помилки можна було запобігти.\"\n                }\n            ]\n        }\n    ]\n}"
+            },
+            {
+              "type": "mistakes-grid",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"8. Типові помилки\",\n    \"items\": [\n        {\n            \"label\": \"Помилка 1\",\n            \"color\": \"rose\",\n            \"title\": \"Пропуск be після модального дієслова.\",\n            \"wrong\": \"The work must done today.\",\n            \"right\": \"✅ The work must be done today.\"\n        },\n        {\n            \"label\": \"Помилка 2\",\n            \"color\": \"amber\",\n            \"title\": \"Використання to після модального.\",\n            \"wrong\": \"It can to be fixed.\",\n            \"right\": \"✅ It can be fixed.\"\n        },\n        {\n            \"label\": \"Помилка 3\",\n            \"color\": \"sky\",\n            \"title\": \"Неправильна форма у Perfect.\",\n            \"wrong\": \"It should have be done.\",\n            \"right\": \"✅ It should have been done.\"\n        },\n        {\n            \"label\": \"Помилка 4\",\n            \"color\": \"rose\",\n            \"title\": \"Змінювання модального дієслова.\",\n            \"wrong\": \"The work musts be done.\",\n            \"right\": \"✅ The work must be done.\"\n        }\n    ]\n}"
+            },
+            {
+              "type": "summary-list",
+              "column": "left",
+              "level": "B1",
+              "body": "{\n    \"title\": \"9. Короткий конспект\",\n    \"items\": [\n        \"Формула пасиву з модальними: <strong>modal + be + V3<\\/strong>.\",\n        \"Заперечення: <strong>modal + not + be + V3<\\/strong>.\",\n        \"Питання: <strong>Modal + Subject + be + V3?<\\/strong>\",\n        \"Perfect форми про минуле: <strong>modal + have been + V3<\\/strong>.\",\n        \"<strong>can\\/could be done<\\/strong> — можливість.\",\n        \"<strong>may\\/might be done<\\/strong> — ймовірність.\",\n        \"<strong>must be done<\\/strong> — необхідність; <strong>mustn't be done<\\/strong> — заборона.\",\n        \"<strong>should be done<\\/strong> — рекомендація.\",\n        \"<strong>should have been done<\\/strong> — критика (слід було зробити, але не зробили).\",\n        \"Модальні дієслова <strong>не змінюються<\\/strong> за особами та числами!\"\n    ]\n}"
+            },
+            {
+              "type": "navigation-chips",
+              "column": "footer",
+              "body": "{\n    \"title\": \"Passive Basics\",\n    \"items\": [\n        {\n            \"label\": \"Formation Rules — Правила утворення пасиву\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Passive with Modal Verbs — Пасив з модальними\",\n            \"current\": true\n        },\n        {\n            \"label\": \"Causative — have/get something done\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Get-Passive — Розмовний пасив\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Impersonal Passive — Безособовий пасив\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Negatives & Questions in Passive — Питання й заперечення\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Phrasal Verbs in Passive — Фразові дієслова\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Restrictions — Обмеження пасиву\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Two-object Verbs in Passive — give/send/offer\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Common Mistakes in Passive — Типові помилки\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Formality & Style in Passive — Формальність і стиль\",\n            \"current\": false\n        }\n    ]\n}"
+            }
+          ]
+        },
+        "type": "theory"
+      }
+    }
+  ]
+}

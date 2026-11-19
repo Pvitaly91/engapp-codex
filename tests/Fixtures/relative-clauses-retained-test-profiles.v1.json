@@ -1,0 +1,95 @@
+{
+    "schema_version": 1,
+    "bindings": {
+        "complex-relative-clauses": [
+            {
+                "uuid": "db923bf4-b88b-22b7-07ba-525498823e7b",
+                "slug": "course-td-complex-relative-clauses",
+                "filters": {
+                    "mode": "compose_tokens",
+                    "question_type": "4",
+                    "lesson_type": "theory-driven",
+                    "course_slug": "theory-driven",
+                    "lesson_order": 59,
+                    "previous_lesson_slug": "course-td-relative-clauses-with-whose-and-which",
+                    "next_lesson_slug": "course-td-gerund-vs-infinitive",
+                    "theory_page_slug": "complex-relative-clauses",
+                    "theory_category_slug": "relative-clauses",
+                    "theory_category_path": "relative-clauses",
+                    "completion": {
+                        "rolling_window": 100,
+                        "min_rating": 4.5
+                    },
+                    "interface_locale": "uk",
+                    "study_locale": "uk",
+                    "target_locale": "en",
+                    "topic": "Complex Relative Clauses",
+                    "tags": [
+                        "Theory-Driven",
+                        "Relative Clauses"
+                    ],
+                    "prompt_generator": {
+                        "source_type": "theory_page",
+                        "theory_page": {
+                            "slug": "complex-relative-clauses",
+                            "title": "Complex Relative Clauses",
+                            "category_slug_path": "relative-clauses"
+                        }
+                    },
+                    "num_questions": 15,
+                    "generated_from_existing_content": true,
+                    "generated_by": "GLZ-PROMPT-0069-THEORY-DRIVEN-COURSE-STABILIZE"
+                }
+            },
+            {
+                "uuid": "polyglot-complex-relative-cla-819230",
+                "slug": "polyglot-complex-relative-clauses-c1",
+                "filters": {
+                    "mode": "compose_tokens",
+                    "question_type": 4,
+                    "lesson_type": "polyglot",
+                    "payload_version": 2,
+                    "import_format": "gramlyze_v3_polyglot",
+                    "supports_duplicate_tokens": true,
+                    "course_slug": "polyglot-english-c1",
+                    "lesson_order": 7,
+                    "previous_lesson_slug": "polyglot-participle-clauses-c1",
+                    "next_lesson_slug": "polyglot-nominalisation-formal-register-c1",
+                    "completion": {
+                        "type": "score",
+                        "minimum_rating_percent": 80,
+                        "minimum_correct": 38
+                    },
+                    "interface_locale": "uk",
+                    "study_locale": "uk",
+                    "target_locale": "en",
+                    "topic": "complex relative clauses",
+                    "level": "C1",
+                    "levels": [
+                        "C1"
+                    ],
+                    "tags": [
+                        "Polyglot",
+                        "Compose Tokens",
+                        "Complex Relative Clauses",
+                        "C1"
+                    ],
+                    "prompt_generator": {
+                        "source_type": "theory_page",
+                        "theory_page": {
+                            "slug": "complex-relative-clauses",
+                            "title": "Complex Relative Clauses",
+                            "category_slug_path": "relative-clauses",
+                            "page_seeder_class": "Database\\Seeders\\Page_V3\\RelativeClauses\\ComplexRelativeClausesTheorySeeder",
+                            "url": "https://gramlyze.com/theory/relative-clauses/complex-relative-clauses"
+                        }
+                    },
+                    "num_questions": 48,
+                    "seeder_classes": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotComplexRelativeClausesC1LessonSeeder"
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66358,
+        "uuid": "rsq-saytell-a2-g03",
+        "question": "The cashier {a1} my receipt.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 62,
+        "source_id": 533,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechSayTellAskQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "asked for",
+                "said for",
+                "told for"
+            ]
+        },
+        "theory_text_block_uuid": "2ab6da7e-79fd-5048-be78-5bee9400128b",
+        "created_at": "2026-11-01T20:05:06.000000Z",
+        "updated_at": "2026-11-01T20:05:06.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 533,
+        "name": "Reported Speech Quality: Say, Tell and Ask",
+        "created_at": "2026-11-01T20:05:06.000000Z",
+        "updated_at": "2026-11-01T20:05:06.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 68867,
+                "option": "asked for",
+                "created_at": "2026-11-01T20:05:06.000000Z",
+                "updated_at": "2026-11-01T20:05:06.000000Z"
+            },
+            "pivot": {
+                "question_id": 66358,
+                "option_id": 68867,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68869,
+                "option": "told for",
+                "created_at": "2026-11-01T20:05:06.000000Z",
+                "updated_at": "2026-11-01T20:05:06.000000Z"
+            },
+            "pivot": {
+                "question_id": 66358,
+                "option_id": 68869,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68870,
+                "option": "said for",
+                "created_at": "2026-11-01T20:05:06.000000Z",
+                "updated_at": "2026-11-01T20:05:06.000000Z"
+            },
+            "pivot": {
+                "question_id": 66358,
+                "option_id": 68870,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 341317,
+                "question_id": 66358,
+                "marker": "a1",
+                "option_id": 68867,
+                "created_at": "2026-11-01T20:05:06.000000Z",
+                "updated_at": "2026-11-01T20:05:06.000000Z"
+            },
+            "option": {
+                "id": 68867,
+                "option": "asked for",
+                "created_at": "2026-11-01T20:05:06.000000Z",
+                "updated_at": "2026-11-01T20:05:06.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58651,
+                "question_id": 66358,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68876,
+                "created_at": "2026-11-01T20:05:06.000000Z",
+                "updated_at": "2026-11-01T20:05:06.000000Z"
+            },
+            "option": {
+                "id": 68876,
+                "option": "Попросив документ; уведи всю групу прохання про річ.",
+                "created_at": "2026-11-01T20:05:06.000000Z",
+                "updated_at": "2026-11-01T20:05:06.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58373,
+            "question_id": 66358,
+            "text": "The cashier {a1} my receipt.",
+            "created_at": "2026-11-01T20:05:06.000000Z",
+            "updated_at": "2026-11-01T20:05:06.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

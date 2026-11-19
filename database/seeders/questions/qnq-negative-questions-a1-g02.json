@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62571,
+        "uuid": "qnq-negative-questions-a1-g02",
+        "question": "{a1} ripe yet?",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 60,
+        "source_id": 463,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedNegativeQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "Aren't these apples",
+                "Isn't these apples",
+                "Don't these apples"
+            ]
+        },
+        "theory_text_block_uuid": "9c44271a-5eaf-5ed5-ba06-921becdbd041",
+        "created_at": "2026-10-30T13:53:08.000000Z",
+        "updated_at": "2026-10-30T13:53:08.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 463,
+        "name": "Questions and Negations Quality: Negative Questions: заперечні питання",
+        "created_at": "2026-10-30T13:53:08.000000Z",
+        "updated_at": "2026-10-30T13:53:08.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 289,
+                "name": "Negative Questions",
+                "category": null,
+                "created_at": "2026-04-23T14:33:01.000000Z",
+                "updated_at": "2026-04-23T14:33:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 62571,
+                "tag_id": 289,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 57161,
+                "option": "Aren't these apples",
+                "created_at": "2026-10-30T13:53:08.000000Z",
+                "updated_at": "2026-10-30T13:53:08.000000Z"
+            },
+            "pivot": {
+                "question_id": 62571,
+                "option_id": 57161,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57163,
+                "option": "Isn't these apples",
+                "created_at": "2026-10-30T13:53:08.000000Z",
+                "updated_at": "2026-10-30T13:53:08.000000Z"
+            },
+            "pivot": {
+                "question_id": 62571,
+                "option_id": 57163,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57164,
+                "option": "Don't these apples",
+                "created_at": "2026-10-30T13:53:08.000000Z",
+                "updated_at": "2026-10-30T13:53:08.000000Z"
+            },
+            "pivot": {
+                "question_id": 62571,
+                "option_id": 57164,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332234,
+                "question_id": 62571,
+                "marker": "a1",
+                "option_id": 57161,
+                "created_at": "2026-10-30T13:53:08.000000Z",
+                "updated_at": "2026-10-30T13:53:08.000000Z"
+            },
+            "option": {
+                "id": 57161,
+                "option": "Aren't these apples",
+                "created_at": "2026-10-30T13:53:08.000000Z",
+                "updated_at": "2026-10-30T13:53:08.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49568,
+                "question_id": 62571,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 57162,
+                "created_at": "2026-10-30T13:53:08.000000Z",
+                "updated_at": "2026-10-30T13:53:08.000000Z"
+            },
+            "option": {
+                "id": 57162,
+                "option": "Постав заперечне питання про стан кількох предметів. Підмет для введення: ці яблука.",
+                "created_at": "2026-10-30T13:53:08.000000Z",
+                "updated_at": "2026-10-30T13:53:08.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54586,
+            "question_id": 62571,
+            "text": "{a1} ripe yet?",
+            "created_at": "2026-10-30T13:53:08.000000Z",
+            "updated_at": "2026-10-30T13:53:08.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

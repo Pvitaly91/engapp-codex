@@ -1,0 +1,4246 @@
+{
+    "schema_version": 1,
+    "quality_revision": "word-order-v1",
+    "compiled_from": {
+        "path": "docs/content/word-order-quality/common-mistakes.v1.json",
+        "sha256": "bb1f963ddeeadd327aa3cf7d45322af160e866073c88fdaf007b34fd92207cb5"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedCommonMistakesWordOrderQualityBuilderSeeder",
+        "uuid_namespace": "word-order-quality-common-mistakes-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "word_order_quality_common_mistakes": {
+            "name": "Word Order Quality: Порядок слів: типові помилки"
+        }
+    },
+    "tags": {
+        "common_mistakes_word_order_common_mistakes_all_levels": {
+            "name": "common mistakes word order common mistakes all levels",
+            "category": "common_mistakes"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "svo": {
+            "name": "Svo",
+            "category": "topic"
+        },
+        "subject_before_verb": {
+            "name": "Subject Before Verb",
+            "category": "topic"
+        },
+        "question_inversion": {
+            "name": "Question Inversion",
+            "category": "topic"
+        },
+        "negative_word_order": {
+            "name": "Negative Word Order",
+            "category": "topic"
+        },
+        "frequency_adverbs": {
+            "name": "Frequency Adverbs",
+            "category": "topic"
+        },
+        "adverbial_position": {
+            "name": "Adverbial Position",
+            "category": "topic"
+        },
+        "adjective_before_noun": {
+            "name": "Adjective Before Noun",
+            "category": "topic"
+        },
+        "indirect_questions": {
+            "name": "Indirect Questions",
+            "category": "topic"
+        },
+        "object_position": {
+            "name": "Object Position",
+            "category": "topic"
+        },
+        "place_before_time": {
+            "name": "Place Before Time",
+            "category": "topic"
+        },
+        "uk_word_order_transfer": {
+            "name": "Ukrainian Word Order Transfer",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_common_mistakes_word_order_common_mistakes_all_levels": {
+            "name": "Word Order: Common Mistakes",
+            "category": "common_mistakes"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "woq-common-mistakes-a1-c01",
+            "author_id": "a1-c01",
+            "question": "Наш новий сусід дуже добрий.",
+            "level": "A1",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Наш новий сусід дуже добрий.",
+            "target_text": "Our new neighbour is very kind.",
+            "markers": {
+                "a1": {
+                    "answer": "Our",
+                    "verb_hint": "Ознаку новизни постав перед назвою людини; слово «дуже» має стояти перед оцінкою.",
+                    "options": [
+                        "Our",
+                        "Yours",
+                        "Hers",
+                        "Ours"
+                    ]
+                },
+                "a2": {
+                    "answer": "new",
+                    "verb_hint": "Ознаку новизни постав перед назвою людини; слово «дуже» має стояти перед оцінкою.",
+                    "options": [
+                        "new",
+                        "simple",
+                        "happy",
+                        "sad"
+                    ]
+                },
+                "a3": {
+                    "answer": "neighbour",
+                    "verb_hint": "Ознаку новизни постав перед назвою людини; слово «дуже» має стояти перед оцінкою.",
+                    "options": [
+                        "neighbour",
+                        "visitor",
+                        "teacher",
+                        "friend"
+                    ]
+                },
+                "a4": {
+                    "answer": "is",
+                    "verb_hint": "Ознаку новизни постав перед назвою людини; слово «дуже» має стояти перед оцінкою.",
+                    "options": [
+                        "is",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "very",
+                    "verb_hint": "Ознаку новизни постав перед назвою людини; слово «дуже» має стояти перед оцінкою.",
+                    "options": [
+                        "very",
+                        "camera",
+                        "bag",
+                        "book"
+                    ]
+                },
+                "a6": {
+                    "answer": "kind.",
+                    "verb_hint": "Ознаку новизни постав перед назвою людини; слово «дуже» має стояти перед оцінкою.",
+                    "options": [
+                        "kind",
+                        "train",
+                        "bus",
+                        "desk"
+                    ]
+                }
+            },
+            "verb_hint": "Ознаку новизни постав перед назвою людини; слово «дуже» має стояти перед оцінкою.",
+            "accepted_target_texts": [
+                "Our new neighbour is very kind.",
+                "Our new neighbor is very kind."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "neighbor"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "neighbor"
+                ]
+            },
+            "reorder_groups": [
+                "Our new neighbour",
+                "is",
+                "very kind."
+            ],
+            "token_groups": [
+                "Our new neighbour",
+                "is",
+                "very kind."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Our",
+                "new",
+                "neighbour",
+                "is",
+                "very",
+                "kind."
+            ],
+            "options": [
+                "Our",
+                "Yours",
+                "Hers",
+                "Ours",
+                "new",
+                "simple",
+                "happy",
+                "sad",
+                "neighbour",
+                "visitor",
+                "teacher",
+                "friend",
+                "is",
+                "been",
+                "being",
+                "isn't",
+                "very",
+                "camera",
+                "bag",
+                "book",
+                "kind",
+                "train",
+                "bus",
+                "desk"
+            ],
+            "source_text_uk": "Наш новий сусід дуже добрий.",
+            "options_by_marker": {
+                "a1": [
+                    "Our",
+                    "Yours",
+                    "Hers",
+                    "Ours"
+                ],
+                "a2": [
+                    "new",
+                    "simple",
+                    "happy",
+                    "sad"
+                ],
+                "a3": [
+                    "neighbour",
+                    "visitor",
+                    "teacher",
+                    "friend"
+                ],
+                "a4": [
+                    "is",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a5": [
+                    "very",
+                    "camera",
+                    "bag",
+                    "book"
+                ],
+                "a6": [
+                    "kind",
+                    "train",
+                    "bus",
+                    "desk"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "woq-common-mistakes-a1-c02",
+            "author_id": "a1-c02",
+            "question": "Діти хочуть трохи води.",
+            "level": "A1",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Діти хочуть трохи води.",
+            "target_text": "The children want some water.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з назви дітей; після дії «хочуть» постав те, чого вони хочуть.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "children",
+                    "verb_hint": "Почни з назви дітей; після дії «хочуть» постав те, чого вони хочуть.",
+                    "options": [
+                        "children",
+                        "took",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a3": {
+                    "answer": "want",
+                    "verb_hint": "Почни з назви дітей; після дії «хочуть» постав те, чого вони хочуть.",
+                    "options": [
+                        "want",
+                        "work",
+                        "play",
+                        "call"
+                    ]
+                },
+                "a4": {
+                    "answer": "some",
+                    "verb_hint": "Почни з назви дітей; після дії «хочуть» постав те, чого вони хочуть.",
+                    "options": [
+                        "some",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a5": {
+                    "answer": "water.",
+                    "verb_hint": "Почни з назви дітей; після дії «хочуть» постав те, чого вони хочуть.",
+                    "options": [
+                        "water",
+                        "salt",
+                        "butter",
+                        "honey"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з назви дітей; після дії «хочуть» постав те, чого вони хочуть.",
+            "accepted_target_texts": [
+                "The children want some water."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The children",
+                "want",
+                "some water."
+            ],
+            "token_groups": [
+                "The children",
+                "want",
+                "some water."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "The",
+                "children",
+                "want",
+                "some",
+                "water."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "children",
+                "took",
+                "wrote",
+                "rode",
+                "want",
+                "work",
+                "play",
+                "call",
+                "some",
+                "any",
+                "this",
+                "that",
+                "water",
+                "salt",
+                "butter",
+                "honey"
+            ],
+            "source_text_uk": "Діти хочуть трохи води.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "children",
+                    "took",
+                    "wrote",
+                    "rode"
+                ],
+                "a3": [
+                    "want",
+                    "work",
+                    "play",
+                    "call"
+                ],
+                "a4": [
+                    "some",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a5": [
+                    "water",
+                    "salt",
+                    "butter",
+                    "honey"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "woq-common-mistakes-a1-c03",
+            "author_id": "a1-c03",
+            "question": "Твоя камера в машині?",
+            "level": "A1",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Твоя камера в машині?",
+            "target_text": "Is your camera in the car?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "verb_hint": "У загальному питанні спочатку постав дієслово «бути», далі власника й предмет.",
+                    "options": [
+                        "Is",
+                        "Was",
+                        "Were",
+                        "Be"
+                    ]
+                },
+                "a2": {
+                    "answer": "your",
+                    "verb_hint": "У загальному питанні спочатку постав дієслово «бути», далі власника й предмет.",
+                    "options": [
+                        "your",
+                        "her",
+                        "its",
+                        "our"
+                    ]
+                },
+                "a3": {
+                    "answer": "camera",
+                    "verb_hint": "У загальному питанні спочатку постав дієслово «бути», далі власника й предмет.",
+                    "options": [
+                        "camera",
+                        "very",
+                        "kind",
+                        "milk"
+                    ]
+                },
+                "a4": {
+                    "answer": "in",
+                    "verb_hint": "У загальному питанні спочатку постав дієслово «бути», далі власника й предмет.",
+                    "options": [
+                        "in",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "У загальному питанні спочатку постав дієслово «бути», далі власника й предмет.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a6": {
+                    "answer": "car?",
+                    "verb_hint": "У загальному питанні спочатку постав дієслово «бути», далі власника й предмет.",
+                    "options": [
+                        "car",
+                        "boat",
+                        "ship",
+                        "bike"
+                    ]
+                }
+            },
+            "verb_hint": "У загальному питанні спочатку постав дієслово «бути», далі власника й предмет.",
+            "accepted_target_texts": [
+                "Is your camera in the car?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "your camera",
+                "in the car?"
+            ],
+            "token_groups": [
+                "Is",
+                "your camera",
+                "in the car?"
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Is",
+                "your",
+                "camera",
+                "in",
+                "the",
+                "car?"
+            ],
+            "options": [
+                "Is",
+                "Was",
+                "Were",
+                "Be",
+                "your",
+                "her",
+                "its",
+                "our",
+                "camera",
+                "very",
+                "kind",
+                "milk",
+                "in",
+                "by",
+                "with",
+                "without",
+                "the",
+                "an",
+                "some",
+                "any",
+                "car",
+                "boat",
+                "ship",
+                "bike"
+            ],
+            "source_text_uk": "Твоя камера в машині?",
+            "options_by_marker": {
+                "a1": [
+                    "Is",
+                    "Was",
+                    "Were",
+                    "Be"
+                ],
+                "a2": [
+                    "your",
+                    "her",
+                    "its",
+                    "our"
+                ],
+                "a3": [
+                    "camera",
+                    "very",
+                    "kind",
+                    "milk"
+                ],
+                "a4": [
+                    "in",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a5": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a6": [
+                    "car",
+                    "boat",
+                    "ship",
+                    "bike"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "woq-common-mistakes-a2-c01",
+            "author_id": "a2-c01",
+            "question": "Ми вже заплатили за квитки.",
+            "level": "A2",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Ми вже заплатили за квитки.",
+            "target_text": "We have already paid for the tickets.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Слово «вже» постав між допоміжною формою й дієприкметником дії «заплатити».",
+                    "options": [
+                        "We",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "have",
+                    "verb_hint": "Слово «вже» постав між допоміжною формою й дієприкметником дії «заплатити».",
+                    "options": [
+                        "have",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "already",
+                    "verb_hint": "Слово «вже» постав між допоміжною формою й дієприкметником дії «заплатити».",
+                    "options": [
+                        "already",
+                        "just",
+                        "also",
+                        "usually"
+                    ]
+                },
+                "a4": {
+                    "answer": "paid",
+                    "verb_hint": "Слово «вже» постав між допоміжною формою й дієприкметником дії «заплатити».",
+                    "options": [
+                        "paid",
+                        "watched",
+                        "visited",
+                        "cooked"
+                    ]
+                },
+                "a5": {
+                    "answer": "for",
+                    "verb_hint": "Слово «вже» постав між допоміжною формою й дієприкметником дії «заплатити».",
+                    "options": [
+                        "for",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Слово «вже» постав між допоміжною формою й дієприкметником дії «заплатити».",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "tickets.",
+                    "verb_hint": "Слово «вже» постав між допоміжною формою й дієприкметником дії «заплатити».",
+                    "options": [
+                        "tickets",
+                        "cousins",
+                        "doors",
+                        "keys"
+                    ]
+                }
+            },
+            "verb_hint": "Слово «вже» постав між допоміжною формою й дієприкметником дії «заплатити».",
+            "accepted_target_texts": [
+                "We have already paid for the tickets."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We have",
+                "already paid",
+                "for the tickets."
+            ],
+            "token_groups": [
+                "We have",
+                "already paid",
+                "for the tickets."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "We",
+                "have",
+                "already",
+                "paid",
+                "for",
+                "the",
+                "tickets."
+            ],
+            "options": [
+                "We",
+                "You",
+                "He",
+                "She",
+                "have",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "already",
+                "just",
+                "also",
+                "usually",
+                "paid",
+                "watched",
+                "visited",
+                "cooked",
+                "for",
+                "among",
+                "about",
+                "during",
+                "the",
+                "some",
+                "any",
+                "this",
+                "tickets",
+                "cousins",
+                "doors",
+                "keys"
+            ],
+            "source_text_uk": "Ми вже заплатили за квитки.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a2": [
+                    "have",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a3": [
+                    "already",
+                    "just",
+                    "also",
+                    "usually"
+                ],
+                "a4": [
+                    "paid",
+                    "watched",
+                    "visited",
+                    "cooked"
+                ],
+                "a5": [
+                    "for",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a6": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "tickets",
+                    "cousins",
+                    "doors",
+                    "keys"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "woq-common-mistakes-a2-c02",
+            "author_id": "a2-c02",
+            "question": "Твої двоюрідні брати й сестри отримали задоволення від пікніка?",
+            "level": "A2",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Твої двоюрідні брати й сестри отримали задоволення від пікніка?",
+            "target_text": "Did your cousins enjoy the picnic?",
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "verb_hint": "Запитай про минулу подію: допоміжне дієслово має бути перед людьми, а дія — у початковій формі.",
+                    "options": [
+                        "Did",
+                        "Hadn't",
+                        "Do",
+                        "Does"
+                    ]
+                },
+                "a2": {
+                    "answer": "your",
+                    "verb_hint": "Запитай про минулу подію: допоміжне дієслово має бути перед людьми, а дія — у початковій формі.",
+                    "options": [
+                        "your",
+                        "their",
+                        "mine",
+                        "yours"
+                    ]
+                },
+                "a3": {
+                    "answer": "cousins",
+                    "verb_hint": "Запитай про минулу подію: допоміжне дієслово має бути перед людьми, а дія — у початковій формі.",
+                    "options": [
+                        "cousins",
+                        "tickets",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a4": {
+                    "answer": "enjoy",
+                    "verb_hint": "Запитай про минулу подію: допоміжне дієслово має бути перед людьми, а дія — у початковій формі.",
+                    "options": [
+                        "enjoy",
+                        "lunch",
+                        "Please",
+                        "send"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про минулу подію: допоміжне дієслово має бути перед людьми, а дія — у початковій формі.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a6": {
+                    "answer": "picnic?",
+                    "verb_hint": "Запитай про минулу подію: допоміжне дієслово має бути перед людьми, а дія — у початковій формі.",
+                    "options": [
+                        "picnic",
+                        "sad",
+                        "easy",
+                        "difficult"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про минулу подію: допоміжне дієслово має бути перед людьми, а дія — у початковій формі.",
+            "accepted_target_texts": [
+                "Did your cousins enjoy the picnic?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Did your cousins",
+                "enjoy",
+                "the picnic?"
+            ],
+            "token_groups": [
+                "Did your cousins",
+                "enjoy",
+                "the picnic?"
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Did",
+                "your",
+                "cousins",
+                "enjoy",
+                "the",
+                "picnic?"
+            ],
+            "options": [
+                "Did",
+                "Hadn't",
+                "Do",
+                "Does",
+                "your",
+                "their",
+                "mine",
+                "yours",
+                "cousins",
+                "tickets",
+                "people",
+                "men",
+                "enjoy",
+                "lunch",
+                "Please",
+                "send",
+                "the",
+                "that",
+                "these",
+                "those",
+                "picnic",
+                "sad",
+                "easy",
+                "difficult"
+            ],
+            "source_text_uk": "Твої двоюрідні брати й сестри отримали задоволення від пікніка?",
+            "options_by_marker": {
+                "a1": [
+                    "Did",
+                    "Hadn't",
+                    "Do",
+                    "Does"
+                ],
+                "a2": [
+                    "your",
+                    "their",
+                    "mine",
+                    "yours"
+                ],
+                "a3": [
+                    "cousins",
+                    "tickets",
+                    "people",
+                    "men"
+                ],
+                "a4": [
+                    "enjoy",
+                    "lunch",
+                    "Please",
+                    "send"
+                ],
+                "a5": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a6": [
+                    "picnic",
+                    "sad",
+                    "easy",
+                    "difficult"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "woq-common-mistakes-a2-c03",
+            "author_id": "a2-c03",
+            "question": "Будь ласка, надішли мені адресу після обіду.",
+            "level": "A2",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Будь ласка, надішли мені адресу після обіду.",
+            "target_text": "Please send me the address after lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "Please",
+                    "verb_hint": "Після дії постав спочатку одержувача «мені», потім адресу; час залиш наприкінці.",
+                    "options": [
+                        "Please",
+                        "Enjoy",
+                        "Bus",
+                        "Desk"
+                    ]
+                },
+                "a2": {
+                    "answer": "send",
+                    "verb_hint": "Після дії постав спочатку одержувача «мені», потім адресу; час залиш наприкінці.",
+                    "options": [
+                        "send",
+                        "chair",
+                        "table",
+                        "ticket"
+                    ]
+                },
+                "a3": {
+                    "answer": "me",
+                    "verb_hint": "Після дії постав спочатку одержувача «мені», потім адресу; час залиш наприкінці.",
+                    "options": [
+                        "me",
+                        "we",
+                        "they",
+                        "him"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Після дії постав спочатку одержувача «мені», потім адресу; час залиш наприкінці.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a5": {
+                    "answer": "address",
+                    "verb_hint": "Після дії постав спочатку одержувача «мені», потім адресу; час залиш наприкінці.",
+                    "options": [
+                        "address",
+                        "teacher",
+                        "school",
+                        "sister"
+                    ]
+                },
+                "a6": {
+                    "answer": "after",
+                    "verb_hint": "Після дії постав спочатку одержувача «мені», потім адресу; час залиш наприкінці.",
+                    "options": [
+                        "after",
+                        "child",
+                        "brother",
+                        "friend"
+                    ]
+                },
+                "a7": {
+                    "answer": "lunch.",
+                    "verb_hint": "Після дії постав спочатку одержувача «мені», потім адресу; час залиш наприкінці.",
+                    "options": [
+                        "lunch",
+                        "cup",
+                        "door",
+                        "key"
+                    ]
+                }
+            },
+            "verb_hint": "Після дії постав спочатку одержувача «мені», потім адресу; час залиш наприкінці.",
+            "accepted_target_texts": [
+                "Please send me the address after lunch."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please send me",
+                "the address",
+                "after lunch."
+            ],
+            "token_groups": [
+                "Please send me",
+                "the address",
+                "after lunch."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Please",
+                "send",
+                "me",
+                "the",
+                "address",
+                "after",
+                "lunch."
+            ],
+            "options": [
+                "Please",
+                "Enjoy",
+                "Bus",
+                "Desk",
+                "send",
+                "chair",
+                "table",
+                "ticket",
+                "me",
+                "we",
+                "they",
+                "him",
+                "the",
+                "any",
+                "this",
+                "that",
+                "address",
+                "teacher",
+                "school",
+                "sister",
+                "after",
+                "child",
+                "brother",
+                "friend",
+                "lunch",
+                "cup",
+                "door",
+                "key"
+            ],
+            "source_text_uk": "Будь ласка, надішли мені адресу після обіду.",
+            "options_by_marker": {
+                "a1": [
+                    "Please",
+                    "Enjoy",
+                    "Bus",
+                    "Desk"
+                ],
+                "a2": [
+                    "send",
+                    "chair",
+                    "table",
+                    "ticket"
+                ],
+                "a3": [
+                    "me",
+                    "we",
+                    "they",
+                    "him"
+                ],
+                "a4": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a5": [
+                    "address",
+                    "teacher",
+                    "school",
+                    "sister"
+                ],
+                "a6": [
+                    "after",
+                    "child",
+                    "brother",
+                    "friend"
+                ],
+                "a7": [
+                    "lunch",
+                    "cup",
+                    "door",
+                    "key"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "woq-common-mistakes-b1-c01",
+            "author_id": "b1-c01",
+            "question": "Я хотів би знати, скільки коштує ремонт.",
+            "level": "B1",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Я хотів би знати, скільки коштує ремонт.",
+            "target_text": "I would like to know how much the repair costs.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "У залежному питанні збережи стверджувальний порядок «ремонт — коштує», без додаткового допоміжного дієслова.",
+                    "options": [
+                        "I",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "У залежному питанні збережи стверджувальний порядок «ремонт — коштує», без додаткового допоміжного дієслова.",
+                    "options": [
+                        "would",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a3": {
+                    "answer": "like",
+                    "verb_hint": "У залежному питанні збережи стверджувальний порядок «ремонт — коштує», без додаткового допоміжного дієслова.",
+                    "options": [
+                        "like",
+                        "find",
+                        "bring",
+                        "take"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "У залежному питанні збережи стверджувальний порядок «ремонт — коштує», без додаткового допоміжного дієслова.",
+                    "options": [
+                        "to",
+                        "during",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a5": {
+                    "answer": "know",
+                    "verb_hint": "У залежному питанні збережи стверджувальний порядок «ремонт — коштує», без додаткового допоміжного дієслова.",
+                    "options": [
+                        "know",
+                        "walk",
+                        "open",
+                        "close"
+                    ]
+                },
+                "a6": {
+                    "answer": "how",
+                    "verb_hint": "У залежному питанні збережи стверджувальний порядок «ремонт — коштує», без додаткового допоміжного дієслова.",
+                    "options": [
+                        "how",
+                        "whoever",
+                        "whatever",
+                        "wherever"
+                    ]
+                },
+                "a7": {
+                    "answer": "much",
+                    "verb_hint": "У залежному питанні збережи стверджувальний порядок «ремонт — коштує», без додаткового допоміжного дієслова.",
+                    "options": [
+                        "much",
+                        "lead",
+                        "lake",
+                        "actor"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "У залежному питанні збережи стверджувальний порядок «ремонт — коштує», без додаткового допоміжного дієслова.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a9": {
+                    "answer": "repair",
+                    "verb_hint": "У залежному питанні збережи стверджувальний порядок «ремонт — коштує», без додаткового допоміжного дієслова.",
+                    "options": [
+                        "repair",
+                        "nobody",
+                        "car",
+                        "bag"
+                    ]
+                },
+                "a10": {
+                    "answer": "costs.",
+                    "verb_hint": "У залежному питанні збережи стверджувальний порядок «ремонт — коштує», без додаткового допоміжного дієслова.",
+                    "options": [
+                        "costs",
+                        "paths",
+                        "doors",
+                        "keys"
+                    ]
+                }
+            },
+            "verb_hint": "У залежному питанні збережи стверджувальний порядок «ремонт — коштує», без додаткового допоміжного дієслова.",
+            "accepted_target_texts": [
+                "I would like to know how much the repair costs."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I would like",
+                "to know",
+                "how much",
+                "the repair costs."
+            ],
+            "token_groups": [
+                "I would like",
+                "to know",
+                "how much",
+                "the repair costs."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "I",
+                "would",
+                "like",
+                "to",
+                "know",
+                "how",
+                "much",
+                "the",
+                "repair",
+                "costs."
+            ],
+            "options": [
+                "I",
+                "You",
+                "He",
+                "She",
+                "would",
+                "shall",
+                "should",
+                "may",
+                "like",
+                "find",
+                "bring",
+                "take",
+                "to",
+                "during",
+                "from",
+                "for",
+                "know",
+                "walk",
+                "open",
+                "close",
+                "how",
+                "whoever",
+                "whatever",
+                "wherever",
+                "much",
+                "lead",
+                "lake",
+                "actor",
+                "the",
+                "both",
+                "a",
+                "an",
+                "repair",
+                "nobody",
+                "car",
+                "bag",
+                "costs",
+                "paths",
+                "doors",
+                "keys"
+            ],
+            "source_text_uk": "Я хотів би знати, скільки коштує ремонт.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a2": [
+                    "would",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a3": [
+                    "like",
+                    "find",
+                    "bring",
+                    "take"
+                ],
+                "a4": [
+                    "to",
+                    "during",
+                    "from",
+                    "for"
+                ],
+                "a5": [
+                    "know",
+                    "walk",
+                    "open",
+                    "close"
+                ],
+                "a6": [
+                    "how",
+                    "whoever",
+                    "whatever",
+                    "wherever"
+                ],
+                "a7": [
+                    "much",
+                    "lead",
+                    "lake",
+                    "actor"
+                ],
+                "a8": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a9": [
+                    "repair",
+                    "nobody",
+                    "car",
+                    "bag"
+                ],
+                "a10": [
+                    "costs",
+                    "paths",
+                    "doors",
+                    "keys"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "woq-common-mistakes-b1-c02",
+            "author_id": "b1-c02",
+            "question": "Актор говорив так тихо, що ніхто його не почув.",
+            "level": "B1",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Актор говорив так тихо, що ніхто його не почув.",
+            "target_text": "The actor spoke so softly that nobody heard him.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Означення способу дії постав після «говорив»; наслідок введи після слів «так тихо».",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "actor",
+                    "verb_hint": "Означення способу дії постав після «говорив»; наслідок введи після слів «так тихо».",
+                    "options": [
+                        "actor",
+                        "lead",
+                        "lake",
+                        "much"
+                    ]
+                },
+                "a3": {
+                    "answer": "spoke",
+                    "verb_hint": "Означення способу дії постав після «говорив»; наслідок введи після слів «так тихо».",
+                    "options": [
+                        "spoke",
+                        "gave",
+                        "made",
+                        "left"
+                    ]
+                },
+                "a4": {
+                    "answer": "so",
+                    "verb_hint": "Означення способу дії постав після «говорив»; наслідок введи після слів «так тихо».",
+                    "options": [
+                        "so",
+                        "if",
+                        "whether",
+                        "and"
+                    ]
+                },
+                "a5": {
+                    "answer": "softly",
+                    "verb_hint": "Означення способу дії постав після «говорив»; наслідок введи після слів «так тихо».",
+                    "options": [
+                        "softly",
+                        "easily",
+                        "politely",
+                        "loudly"
+                    ]
+                },
+                "a6": {
+                    "answer": "that",
+                    "verb_hint": "Означення способу дії постав після «говорив»; наслідок введи після слів «так тихо».",
+                    "options": [
+                        "that",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a7": {
+                    "answer": "nobody",
+                    "verb_hint": "Означення способу дії постав після «говорив»; наслідок введи після слів «так тихо».",
+                    "options": [
+                        "nobody",
+                        "repair",
+                        "cat",
+                        "person"
+                    ]
+                },
+                "a8": {
+                    "answer": "heard",
+                    "verb_hint": "Означення способу дії постав після «говорив»; наслідок введи після слів «так тихо».",
+                    "options": [
+                        "heard",
+                        "called",
+                        "walked",
+                        "opened"
+                    ]
+                },
+                "a9": {
+                    "answer": "him.",
+                    "verb_hint": "Означення способу дії постав після «говорив»; наслідок введи після слів «так тихо».",
+                    "options": [
+                        "him",
+                        "you",
+                        "he",
+                        "she"
+                    ]
+                }
+            },
+            "verb_hint": "Означення способу дії постав після «говорив»; наслідок введи після слів «так тихо».",
+            "accepted_target_texts": [
+                "The actor spoke so softly that nobody heard him.",
+                "The actor spoke so quietly that nobody heard him."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "quietly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "quietly"
+                ]
+            },
+            "reorder_groups": [
+                "The actor",
+                "spoke so softly",
+                "that nobody",
+                "heard him."
+            ],
+            "token_groups": [
+                "The actor",
+                "spoke so softly",
+                "that nobody",
+                "heard him."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "The",
+                "actor",
+                "spoke",
+                "so",
+                "softly",
+                "that",
+                "nobody",
+                "heard",
+                "him."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "actor",
+                "lead",
+                "lake",
+                "much",
+                "spoke",
+                "gave",
+                "made",
+                "left",
+                "so",
+                "if",
+                "whether",
+                "and",
+                "softly",
+                "easily",
+                "politely",
+                "loudly",
+                "that",
+                "an",
+                "some",
+                "any",
+                "nobody",
+                "repair",
+                "cat",
+                "person",
+                "heard",
+                "called",
+                "walked",
+                "opened",
+                "him",
+                "you",
+                "he",
+                "she"
+            ],
+            "source_text_uk": "Актор говорив так тихо, що ніхто його не почув.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "actor",
+                    "lead",
+                    "lake",
+                    "much"
+                ],
+                "a3": [
+                    "spoke",
+                    "gave",
+                    "made",
+                    "left"
+                ],
+                "a4": [
+                    "so",
+                    "if",
+                    "whether",
+                    "and"
+                ],
+                "a5": [
+                    "softly",
+                    "easily",
+                    "politely",
+                    "loudly"
+                ],
+                "a6": [
+                    "that",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a7": [
+                    "nobody",
+                    "repair",
+                    "cat",
+                    "person"
+                ],
+                "a8": [
+                    "heard",
+                    "called",
+                    "walked",
+                    "opened"
+                ],
+                "a9": [
+                    "him",
+                    "you",
+                    "he",
+                    "she"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "woq-common-mistakes-b1-c03",
+            "author_id": "b1-c03",
+            "question": "Обидві стежки ведуть до озера.",
+            "level": "B1",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Обидві стежки ведуть до озера.",
+            "target_text": "Both of the paths lead to the lake.",
+            "markers": {
+                "a1": {
+                    "answer": "Both",
+                    "verb_hint": "Почни зі слів про обидві стежки; після них постав присудок у множині.",
+                    "options": [
+                        "Both",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "of",
+                    "verb_hint": "Почни зі слів про обидві стежки; після них постав присудок у множині.",
+                    "options": [
+                        "of",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни зі слів про обидві стежки; після них постав присудок у множині.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a4": {
+                    "answer": "paths",
+                    "verb_hint": "Почни зі слів про обидві стежки; після них постав присудок у множині.",
+                    "options": [
+                        "paths",
+                        "costs",
+                        "dogs",
+                        "cats"
+                    ]
+                },
+                "a5": {
+                    "answer": "lead",
+                    "verb_hint": "Почни зі слів про обидві стежки; після них постав присудок у множині.",
+                    "options": [
+                        "lead",
+                        "much",
+                        "repair",
+                        "actor"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Почни зі слів про обидві стежки; після них постав присудок у множині.",
+                    "options": [
+                        "to",
+                        "from",
+                        "for",
+                        "in"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни зі слів про обидві стежки; після них постав присудок у множині.",
+                    "options": [
+                        "the",
+                        "that",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a8": {
+                    "answer": "lake.",
+                    "verb_hint": "Почни зі слів про обидві стежки; після них постав присудок у множині.",
+                    "options": [
+                        "lake",
+                        "nobody",
+                        "phone",
+                        "train"
+                    ]
+                }
+            },
+            "verb_hint": "Почни зі слів про обидві стежки; після них постав присудок у множині.",
+            "accepted_target_texts": [
+                "Both of the paths lead to the lake.",
+                "Both of the trails lead to the lake.",
+                "Both paths lead to the lake.",
+                "Both trails lead to the lake."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "trails"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "trails"
+                ]
+            },
+            "reorder_groups": [
+                "Both of",
+                "the paths",
+                "lead to",
+                "the lake."
+            ],
+            "token_groups": [
+                "Both of",
+                "the paths",
+                "lead to",
+                "the lake."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Both",
+                "of",
+                "the",
+                "paths",
+                "lead",
+                "to",
+                "the",
+                "lake."
+            ],
+            "options": [
+                "Both",
+                "These",
+                "Those",
+                "Each",
+                "of",
+                "into",
+                "onto",
+                "over",
+                "the",
+                "every",
+                "no",
+                "another",
+                "paths",
+                "costs",
+                "dogs",
+                "cats",
+                "lead",
+                "much",
+                "repair",
+                "actor",
+                "to",
+                "from",
+                "for",
+                "in",
+                "that",
+                "either",
+                "neither",
+                "lake",
+                "nobody",
+                "phone",
+                "train"
+            ],
+            "source_text_uk": "Обидві стежки ведуть до озера.",
+            "options_by_marker": {
+                "a1": [
+                    "Both",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "of",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a3": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a4": [
+                    "paths",
+                    "costs",
+                    "dogs",
+                    "cats"
+                ],
+                "a5": [
+                    "lead",
+                    "much",
+                    "repair",
+                    "actor"
+                ],
+                "a6": [
+                    "to",
+                    "from",
+                    "for",
+                    "in"
+                ],
+                "a7": [
+                    "the",
+                    "that",
+                    "either",
+                    "neither"
+                ],
+                "a8": [
+                    "lake",
+                    "nobody",
+                    "phone",
+                    "train"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "woq-common-mistakes-b2-c01",
+            "author_id": "b2-c01",
+            "question": "Я заперечую проти вимоги двічі обґрунтовувати ту саму витрату.",
+            "level": "B2",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Я заперечую проти вимоги двічі обґрунтовувати ту саму витрату.",
+            "target_text": "I object to being asked to justify the same expense twice.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Після заперечення проти чогось використай форму дії, а слово «двічі» віднеси до обґрунтування.",
+                    "options": [
+                        "I",
+                        "She",
+                        "It",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "object",
+                    "verb_hint": "Після заперечення проти чогось використай форму дії, а слово «двічі» віднеси до обґрунтування.",
+                    "options": [
+                        "object",
+                        "support",
+                        "conclusion",
+                        "person"
+                    ]
+                },
+                "a3": {
+                    "answer": "to",
+                    "verb_hint": "Після заперечення проти чогось використай форму дії, а слово «двічі» віднеси до обґрунтування.",
+                    "options": [
+                        "to",
+                        "about",
+                        "during",
+                        "from"
+                    ]
+                },
+                "a4": {
+                    "answer": "being",
+                    "verb_hint": "Після заперечення проти чогось використай форму дії, а слово «двічі» віднеси до обґрунтування.",
+                    "options": [
+                        "being",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a5": {
+                    "answer": "asked",
+                    "verb_hint": "Після заперечення проти чогось використай форму дії, а слово «двічі» віднеси до обґрунтування.",
+                    "options": [
+                        "asked",
+                        "given",
+                        "made",
+                        "left"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Після заперечення проти чогось використай форму дії, а слово «двічі» віднеси до обґрунтування.",
+                    "options": [
+                        "to",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a7": {
+                    "answer": "justify",
+                    "verb_hint": "Після заперечення проти чогось використай форму дії, а слово «двічі» віднеси до обґрунтування.",
+                    "options": [
+                        "justify",
+                        "omission",
+                        "interpreter",
+                        "evidence"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Після заперечення проти чогось використай форму дії, а слово «двічі» віднеси до обґрунтування.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a9": {
+                    "answer": "same",
+                    "verb_hint": "Після заперечення проти чогось використай форму дії, а слово «двічі» віднеси до обґрунтування.",
+                    "options": [
+                        "same",
+                        "map",
+                        "letter",
+                        "window"
+                    ]
+                },
+                "a10": {
+                    "answer": "expense",
+                    "verb_hint": "Після заперечення проти чогось використай форму дії, а слово «двічі» віднеси до обґрунтування.",
+                    "options": [
+                        "expense",
+                        "phone",
+                        "train",
+                        "bus"
+                    ]
+                },
+                "a11": {
+                    "answer": "twice.",
+                    "verb_hint": "Після заперечення проти чогось використай форму дії, а слово «двічі» віднеси до обґрунтування.",
+                    "options": [
+                        "twice",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                }
+            },
+            "verb_hint": "Після заперечення проти чогось використай форму дії, а слово «двічі» віднеси до обґрунтування.",
+            "accepted_target_texts": [
+                "I object to being asked to justify the same expense twice."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I object to",
+                "being asked",
+                "to justify",
+                "the same expense",
+                "twice."
+            ],
+            "token_groups": [
+                "I object to",
+                "being asked",
+                "to justify",
+                "the same expense",
+                "twice."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "I",
+                "object",
+                "to",
+                "being",
+                "asked",
+                "to",
+                "justify",
+                "the",
+                "same",
+                "expense",
+                "twice."
+            ],
+            "options": [
+                "I",
+                "She",
+                "It",
+                "We",
+                "object",
+                "support",
+                "conclusion",
+                "person",
+                "to",
+                "about",
+                "during",
+                "from",
+                "being",
+                "was",
+                "were",
+                "be",
+                "asked",
+                "given",
+                "made",
+                "left",
+                "for",
+                "of",
+                "in",
+                "justify",
+                "omission",
+                "interpreter",
+                "evidence",
+                "the",
+                "every",
+                "no",
+                "another",
+                "same",
+                "map",
+                "letter",
+                "window",
+                "expense",
+                "phone",
+                "train",
+                "bus",
+                "twice",
+                "school",
+                "sister",
+                "brother"
+            ],
+            "source_text_uk": "Я заперечую проти вимоги двічі обґрунтовувати ту саму витрату.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "She",
+                    "It",
+                    "We"
+                ],
+                "a2": [
+                    "object",
+                    "support",
+                    "conclusion",
+                    "person"
+                ],
+                "a3": [
+                    "to",
+                    "about",
+                    "during",
+                    "from"
+                ],
+                "a4": [
+                    "being",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a5": [
+                    "asked",
+                    "given",
+                    "made",
+                    "left"
+                ],
+                "a6": [
+                    "to",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a7": [
+                    "justify",
+                    "omission",
+                    "interpreter",
+                    "evidence"
+                ],
+                "a8": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a9": [
+                    "same",
+                    "map",
+                    "letter",
+                    "window"
+                ],
+                "a10": [
+                    "expense",
+                    "phone",
+                    "train",
+                    "bus"
+                ],
+                "a11": [
+                    "twice",
+                    "school",
+                    "sister",
+                    "brother"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "woq-common-mistakes-b2-c02",
+            "author_id": "b2-c02",
+            "question": "Докази не обов’язково підтверджують цей висновок.",
+            "level": "B2",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Докази не обов’язково підтверджують цей висновок.",
+            "target_text": "The evidence does not necessarily support that conclusion.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Постав «не обов’язково» перед дією, щоб не стверджувати, ніби докази неодмінно спростовують висновок.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "evidence",
+                    "verb_hint": "Постав «не обов’язково» перед дією, щоб не стверджувати, ніби докази неодмінно спростовують висновок.",
+                    "options": [
+                        "evidence",
+                        "person",
+                        "omission",
+                        "interpreter"
+                    ]
+                },
+                "a3": {
+                    "answer": "does",
+                    "verb_hint": "Постав «не обов’язково» перед дією, щоб не стверджувати, ніби докази неодмінно спростовують висновок.",
+                    "options": [
+                        "does",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Постав «не обов’язково» перед дією, щоб не стверджувати, ніби докази неодмінно спростовують висновок.",
+                    "options": [
+                        "not",
+                        "only",
+                        "even",
+                        "almost"
+                    ]
+                },
+                "a5": {
+                    "answer": "necessarily",
+                    "verb_hint": "Постав «не обов’язково» перед дією, щоб не стверджувати, ніби докази неодмінно спростовують висновок.",
+                    "options": [
+                        "necessarily",
+                        "safely",
+                        "happily",
+                        "easily"
+                    ]
+                },
+                "a6": {
+                    "answer": "support",
+                    "verb_hint": "Постав «не обов’язково» перед дією, щоб не стверджувати, ніби докази неодмінно спростовують висновок.",
+                    "options": [
+                        "support",
+                        "justify",
+                        "same",
+                        "expense"
+                    ]
+                },
+                "a7": {
+                    "answer": "that",
+                    "verb_hint": "Постав «не обов’язково» перед дією, щоб не стверджувати, ніби докази неодмінно спростовують висновок.",
+                    "options": [
+                        "that",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "conclusion.",
+                    "verb_hint": "Постав «не обов’язково» перед дією, щоб не стверджувати, ніби докази неодмінно спростовують висновок.",
+                    "options": [
+                        "conclusion",
+                        "object",
+                        "twice",
+                        "box"
+                    ]
+                }
+            },
+            "verb_hint": "Постав «не обов’язково» перед дією, щоб не стверджувати, ніби докази неодмінно спростовують висновок.",
+            "accepted_target_texts": [
+                "The evidence does not necessarily support that conclusion."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The evidence",
+                "does not necessarily",
+                "support that conclusion."
+            ],
+            "token_groups": [
+                "The evidence",
+                "does not necessarily",
+                "support that conclusion."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "The",
+                "evidence",
+                "does",
+                "not",
+                "necessarily",
+                "support",
+                "that",
+                "conclusion."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "evidence",
+                "person",
+                "omission",
+                "interpreter",
+                "does",
+                "had",
+                "haven't",
+                "hasn't",
+                "not",
+                "only",
+                "even",
+                "almost",
+                "necessarily",
+                "safely",
+                "happily",
+                "easily",
+                "support",
+                "justify",
+                "same",
+                "expense",
+                "that",
+                "no",
+                "another",
+                "either",
+                "conclusion",
+                "object",
+                "twice",
+                "box"
+            ],
+            "source_text_uk": "Докази не обов’язково підтверджують цей висновок.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "evidence",
+                    "person",
+                    "omission",
+                    "interpreter"
+                ],
+                "a3": [
+                    "does",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a4": [
+                    "not",
+                    "only",
+                    "even",
+                    "almost"
+                ],
+                "a5": [
+                    "necessarily",
+                    "safely",
+                    "happily",
+                    "easily"
+                ],
+                "a6": [
+                    "support",
+                    "justify",
+                    "same",
+                    "expense"
+                ],
+                "a7": [
+                    "that",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a8": [
+                    "conclusion",
+                    "object",
+                    "twice",
+                    "box"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "woq-common-mistakes-b2-c03",
+            "author_id": "b2-c03",
+            "question": "Єдиною людиною, яка помітила пропуск, був перекладач.",
+            "level": "B2",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Єдиною людиною, яка помітила пропуск, був перекладач.",
+            "target_text": "The only person who noticed the omission was the interpreter.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи означальну частину після людини; назву перекладача постав після зв’язки.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "only",
+                    "verb_hint": "Збережи означальну частину після людини; назву перекладача постав після зв’язки.",
+                    "options": [
+                        "only",
+                        "usually",
+                        "rarely",
+                        "even"
+                    ]
+                },
+                "a3": {
+                    "answer": "person",
+                    "verb_hint": "Збережи означальну частину після людини; назву перекладача постав після зв’язки.",
+                    "options": [
+                        "person",
+                        "twice",
+                        "evidence",
+                        "support"
+                    ]
+                },
+                "a4": {
+                    "answer": "who",
+                    "verb_hint": "Збережи означальну частину після людини; назву перекладача постав після зв’язки.",
+                    "options": [
+                        "who",
+                        "what",
+                        "which",
+                        "where"
+                    ]
+                },
+                "a5": {
+                    "answer": "noticed",
+                    "verb_hint": "Збережи означальну частину після людини; назву перекладача постав після зв’язки.",
+                    "options": [
+                        "noticed",
+                        "made",
+                        "left",
+                        "said"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Збережи означальну частину після людини; назву перекладача постав після зв’язки.",
+                    "options": [
+                        "the",
+                        "those",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a7": {
+                    "answer": "omission",
+                    "verb_hint": "Збережи означальну частину після людини; назву перекладача постав після зв’язки.",
+                    "options": [
+                        "omission",
+                        "justify",
+                        "same",
+                        "expense"
+                    ]
+                },
+                "a8": {
+                    "answer": "was",
+                    "verb_hint": "Збережи означальну частину після людини; назву перекладача постав після зв’язки.",
+                    "options": [
+                        "was",
+                        "is",
+                        "are",
+                        "were"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Збережи означальну частину після людини; назву перекладача постав після зв’язки.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a10": {
+                    "answer": "interpreter.",
+                    "verb_hint": "Збережи означальну частину після людини; назву перекладача постав після зв’язки.",
+                    "options": [
+                        "interpreter",
+                        "conclusion",
+                        "object",
+                        "bike"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи означальну частину після людини; назву перекладача постав після зв’язки.",
+            "accepted_target_texts": [
+                "The only person who noticed the omission was the interpreter.",
+                "The only person who noticed the omission was the translator."
+            ],
+            "answer_synonyms": {
+                "a10": [
+                    "translator."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a10": [
+                    "translator."
+                ]
+            },
+            "reorder_groups": [
+                "The only person",
+                "who noticed",
+                "the omission",
+                "was the interpreter."
+            ],
+            "token_groups": [
+                "The only person",
+                "who noticed",
+                "the omission",
+                "was the interpreter."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "The",
+                "only",
+                "person",
+                "who",
+                "noticed",
+                "the",
+                "omission",
+                "was",
+                "the",
+                "interpreter."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "only",
+                "usually",
+                "rarely",
+                "even",
+                "person",
+                "twice",
+                "evidence",
+                "support",
+                "who",
+                "what",
+                "which",
+                "where",
+                "noticed",
+                "made",
+                "left",
+                "said",
+                "the",
+                "those",
+                "another",
+                "either",
+                "omission",
+                "justify",
+                "same",
+                "expense",
+                "was",
+                "is",
+                "are",
+                "were",
+                "neither",
+                "all",
+                "both",
+                "interpreter",
+                "conclusion",
+                "object",
+                "bike"
+            ],
+            "source_text_uk": "Єдиною людиною, яка помітила пропуск, був перекладач.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "only",
+                    "usually",
+                    "rarely",
+                    "even"
+                ],
+                "a3": [
+                    "person",
+                    "twice",
+                    "evidence",
+                    "support"
+                ],
+                "a4": [
+                    "who",
+                    "what",
+                    "which",
+                    "where"
+                ],
+                "a5": [
+                    "noticed",
+                    "made",
+                    "left",
+                    "said"
+                ],
+                "a6": [
+                    "the",
+                    "those",
+                    "another",
+                    "either"
+                ],
+                "a7": [
+                    "omission",
+                    "justify",
+                    "same",
+                    "expense"
+                ],
+                "a8": [
+                    "was",
+                    "is",
+                    "are",
+                    "were"
+                ],
+                "a9": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a10": [
+                    "interpreter",
+                    "conclusion",
+                    "object",
+                    "bike"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "woq-common-mistakes-c1-c01",
+            "author_id": "c1-c01",
+            "question": "Те, чи застосовується виняток, залежить від того, як тлумачать пункт.",
+            "level": "C1",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Те, чи застосовується виняток, залежить від того, як тлумачать пункт.",
+            "target_text": "Whether the exemption applies depends on how the clause is interpreted.",
+            "markers": {
+                "a1": {
+                    "answer": "Whether",
+                    "verb_hint": "Дві залежні питальні частини мають стверджувальний порядок; не утворюй у них прямих питань.",
+                    "options": [
+                        "Whether",
+                        "Or",
+                        "Nor",
+                        "So"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Дві залежні питальні частини мають стверджувальний порядок; не утворюй у них прямих питань.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a3": {
+                    "answer": "exemption",
+                    "verb_hint": "Дві залежні питальні частини мають стверджувальний порядок; не утворюй у них прямих питань.",
+                    "options": [
+                        "exemption",
+                        "Such",
+                        "force",
+                        "impact"
+                    ]
+                },
+                "a4": {
+                    "answer": "applies",
+                    "verb_hint": "Дві залежні питальні частини мають стверджувальний порядок; не утворюй у них прямих питань.",
+                    "options": [
+                        "applies",
+                        "witnesses",
+                        "phones",
+                        "children"
+                    ]
+                },
+                "a5": {
+                    "answer": "depends",
+                    "verb_hint": "Дві залежні питальні частини мають стверджувальний порядок; не утворюй у них прямих питань.",
+                    "options": [
+                        "depends",
+                        "friends",
+                        "dogs",
+                        "cats"
+                    ]
+                },
+                "a6": {
+                    "answer": "on",
+                    "verb_hint": "Дві залежні питальні частини мають стверджувальний порядок; не утворюй у них прямих питань.",
+                    "options": [
+                        "on",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a7": {
+                    "answer": "how",
+                    "verb_hint": "Дві залежні питальні частини мають стверджувальний порядок; не утворюй у них прямих питань.",
+                    "options": [
+                        "how",
+                        "what",
+                        "which",
+                        "where"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Дві залежні питальні частини мають стверджувальний порядок; не утворюй у них прямих питань.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a9": {
+                    "answer": "clause",
+                    "verb_hint": "Дві залежні питальні частини мають стверджувальний порядок; не утворюй у них прямих питань.",
+                    "options": [
+                        "clause",
+                        "frame",
+                        "identify",
+                        "vehicle"
+                    ]
+                },
+                "a10": {
+                    "answer": "is",
+                    "verb_hint": "Дві залежні питальні частини мають стверджувальний порядок; не утворюй у них прямих питань.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a11": {
+                    "answer": "interpreted.",
+                    "verb_hint": "Дві залежні питальні частини мають стверджувальний порядок; не утворюй у них прямих питань.",
+                    "options": [
+                        "interpreted",
+                        "made",
+                        "left",
+                        "said"
+                    ]
+                }
+            },
+            "verb_hint": "Дві залежні питальні частини мають стверджувальний порядок; не утворюй у них прямих питань.",
+            "accepted_target_texts": [
+                "Whether the exemption applies depends on how the clause is interpreted.",
+                "Whether the exception applies depends on how the clause is interpreted."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "exception"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "exception"
+                ]
+            },
+            "reorder_groups": [
+                "Whether the exemption",
+                "applies depends on",
+                "how the clause",
+                "is interpreted."
+            ],
+            "token_groups": [
+                "Whether the exemption",
+                "applies depends on",
+                "how the clause",
+                "is interpreted."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Whether",
+                "the",
+                "exemption",
+                "applies",
+                "depends",
+                "on",
+                "how",
+                "the",
+                "clause",
+                "is",
+                "interpreted."
+            ],
+            "options": [
+                "Whether",
+                "Or",
+                "Nor",
+                "So",
+                "the",
+                "all",
+                "both",
+                "a",
+                "exemption",
+                "Such",
+                "force",
+                "impact",
+                "applies",
+                "witnesses",
+                "phones",
+                "children",
+                "depends",
+                "friends",
+                "dogs",
+                "cats",
+                "on",
+                "into",
+                "onto",
+                "over",
+                "how",
+                "what",
+                "which",
+                "where",
+                "this",
+                "that",
+                "these",
+                "clause",
+                "frame",
+                "identify",
+                "vehicle",
+                "is",
+                "are",
+                "was",
+                "were",
+                "interpreted",
+                "made",
+                "left",
+                "said"
+            ],
+            "source_text_uk": "Те, чи застосовується виняток, залежить від того, як тлумачать пункт.",
+            "options_by_marker": {
+                "a1": [
+                    "Whether",
+                    "Or",
+                    "Nor",
+                    "So"
+                ],
+                "a2": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a3": [
+                    "exemption",
+                    "Such",
+                    "force",
+                    "impact"
+                ],
+                "a4": [
+                    "applies",
+                    "witnesses",
+                    "phones",
+                    "children"
+                ],
+                "a5": [
+                    "depends",
+                    "friends",
+                    "dogs",
+                    "cats"
+                ],
+                "a6": [
+                    "on",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a7": [
+                    "how",
+                    "what",
+                    "which",
+                    "where"
+                ],
+                "a8": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a9": [
+                    "clause",
+                    "frame",
+                    "identify",
+                    "vehicle"
+                ],
+                "a10": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a11": [
+                    "interpreted",
+                    "made",
+                    "left",
+                    "said"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "woq-common-mistakes-c1-c02",
+            "author_id": "c1-c02",
+            "question": "Кожного зі свідків попросили незалежно впізнати транспортний засіб.",
+            "level": "C1",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Кожного зі свідків попросили незалежно впізнати транспортний засіб.",
+            "target_text": "The witnesses were each asked to identify the vehicle independently.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Розподільне «кожного» постав після допоміжної форми; незалежність віднеси до впізнання.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "witnesses",
+                    "verb_hint": "Розподільне «кожного» постав після допоміжної форми; незалежність віднеси до впізнання.",
+                    "options": [
+                        "witnesses",
+                        "applies",
+                        "depends",
+                        "windows"
+                    ]
+                },
+                "a3": {
+                    "answer": "were",
+                    "verb_hint": "Розподільне «кожного» постав після допоміжної форми; незалежність віднеси до впізнання.",
+                    "options": [
+                        "were",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a4": {
+                    "answer": "each",
+                    "verb_hint": "Розподільне «кожного» постав після допоміжної форми; незалежність віднеси до впізнання.",
+                    "options": [
+                        "each",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "asked",
+                    "verb_hint": "Розподільне «кожного» постав після допоміжної форми; незалежність віднеси до впізнання.",
+                    "options": [
+                        "asked",
+                        "buckled",
+                        "played",
+                        "called"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Розподільне «кожного» постав після допоміжної форми; незалежність віднеси до впізнання.",
+                    "options": [
+                        "to",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a7": {
+                    "answer": "identify",
+                    "verb_hint": "Розподільне «кожного» постав після допоміжної форми; незалежність віднеси до впізнання.",
+                    "options": [
+                        "identify",
+                        "exemption",
+                        "clause",
+                        "Such"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Розподільне «кожного» постав після допоміжної форми; незалежність віднеси до впізнання.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a9": {
+                    "answer": "vehicle",
+                    "verb_hint": "Розподільне «кожного» постав після допоміжної форми; незалежність віднеси до впізнання.",
+                    "options": [
+                        "vehicle",
+                        "force",
+                        "impact",
+                        "frame"
+                    ]
+                },
+                "a10": {
+                    "answer": "independently.",
+                    "verb_hint": "Розподільне «кожного» постав після допоміжної форми; незалежність віднеси до впізнання.",
+                    "options": [
+                        "independently",
+                        "politely",
+                        "loudly",
+                        "quietly"
+                    ]
+                }
+            },
+            "verb_hint": "Розподільне «кожного» постав після допоміжної форми; незалежність віднеси до впізнання.",
+            "accepted_target_texts": [
+                "The witnesses were each asked to identify the vehicle independently.",
+                "The witnesses were each asked to recognise the vehicle independently.",
+                "The witnesses were each asked to recognize the vehicle independently."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "recognise",
+                    "recognize"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "recognise",
+                    "recognize"
+                ]
+            },
+            "reorder_groups": [
+                "The witnesses",
+                "were each asked",
+                "to identify",
+                "the vehicle independently."
+            ],
+            "token_groups": [
+                "The witnesses",
+                "were each asked",
+                "to identify",
+                "the vehicle independently."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "The",
+                "witnesses",
+                "were",
+                "each",
+                "asked",
+                "to",
+                "identify",
+                "the",
+                "vehicle",
+                "independently."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "witnesses",
+                "applies",
+                "depends",
+                "windows",
+                "were",
+                "be",
+                "been",
+                "being",
+                "each",
+                "either",
+                "neither",
+                "all",
+                "asked",
+                "buckled",
+                "played",
+                "called",
+                "to",
+                "through",
+                "across",
+                "between",
+                "identify",
+                "exemption",
+                "clause",
+                "Such",
+                "the",
+                "both",
+                "a",
+                "an",
+                "vehicle",
+                "force",
+                "impact",
+                "frame",
+                "independently",
+                "politely",
+                "loudly",
+                "quietly"
+            ],
+            "source_text_uk": "Кожного зі свідків попросили незалежно впізнати транспортний засіб.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "witnesses",
+                    "applies",
+                    "depends",
+                    "windows"
+                ],
+                "a3": [
+                    "were",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a4": [
+                    "each",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "asked",
+                    "buckled",
+                    "played",
+                    "called"
+                ],
+                "a6": [
+                    "to",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a7": [
+                    "identify",
+                    "exemption",
+                    "clause",
+                    "Such"
+                ],
+                "a8": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a9": [
+                    "vehicle",
+                    "force",
+                    "impact",
+                    "frame"
+                ],
+                "a10": [
+                    "independently",
+                    "politely",
+                    "loudly",
+                    "quietly"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "woq-common-mistakes-c1-c03",
+            "author_id": "c1-c03",
+            "question": "Сила удару була такою, що рама зігнулася.",
+            "level": "C1",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Сила удару була такою, що рама зігнулася.",
+            "target_text": "Such was the force of the impact that the frame buckled.",
+            "markers": {
+                "a1": {
+                    "answer": "Such",
+                    "verb_hint": "Почни зі ступеня ознаки та зв’язки; наслідок приєднай після назви сили удару.",
+                    "options": [
+                        "Such",
+                        "Clause",
+                        "Identify",
+                        "Vehicle"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Почни зі ступеня ознаки та зв’язки; наслідок приєднай після назви сили удару.",
+                    "options": [
+                        "was",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни зі ступеня ознаки та зв’язки; наслідок приєднай після назви сили удару.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "force",
+                    "verb_hint": "Почни зі ступеня ознаки та зв’язки; наслідок приєднай після назви сили удару.",
+                    "options": [
+                        "force",
+                        "exemption",
+                        "cat",
+                        "person"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Почни зі ступеня ознаки та зв’язки; наслідок приєднай після назви сили удару.",
+                    "options": [
+                        "of",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни зі ступеня ознаки та зв’язки; наслідок приєднай після назви сили удару.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "impact",
+                    "verb_hint": "Почни зі ступеня ознаки та зв’язки; наслідок приєднай після назви сили удару.",
+                    "options": [
+                        "impact",
+                        "bag",
+                        "book",
+                        "box"
+                    ]
+                },
+                "a8": {
+                    "answer": "that",
+                    "verb_hint": "Почни зі ступеня ознаки та зв’язки; наслідок приєднай після назви сили удару.",
+                    "options": [
+                        "that",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Почни зі ступеня ознаки та зв’язки; наслідок приєднай після назви сили удару.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "another"
+                    ]
+                },
+                "a10": {
+                    "answer": "frame",
+                    "verb_hint": "Почни зі ступеня ознаки та зв’язки; наслідок приєднай після назви сили удару.",
+                    "options": [
+                        "frame",
+                        "room",
+                        "map",
+                        "letter"
+                    ]
+                },
+                "a11": {
+                    "answer": "buckled.",
+                    "verb_hint": "Почни зі ступеня ознаки та зв’язки; наслідок приєднай після назви сили удару.",
+                    "options": [
+                        "buckled",
+                        "asked",
+                        "rode",
+                        "drove"
+                    ]
+                }
+            },
+            "verb_hint": "Почни зі ступеня ознаки та зв’язки; наслідок приєднай після назви сили удару.",
+            "accepted_target_texts": [
+                "Such was the force of the impact that the frame buckled."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Such was",
+                "the force",
+                "of the impact",
+                "that the frame",
+                "buckled."
+            ],
+            "token_groups": [
+                "Such was",
+                "the force",
+                "of the impact",
+                "that the frame",
+                "buckled."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Such",
+                "was",
+                "the",
+                "force",
+                "of",
+                "the",
+                "impact",
+                "that",
+                "the",
+                "frame",
+                "buckled."
+            ],
+            "options": [
+                "Such",
+                "Clause",
+                "Identify",
+                "Vehicle",
+                "was",
+                "am",
+                "is",
+                "are",
+                "the",
+                "each",
+                "every",
+                "no",
+                "force",
+                "exemption",
+                "cat",
+                "person",
+                "of",
+                "under",
+                "through",
+                "across",
+                "some",
+                "any",
+                "this",
+                "impact",
+                "bag",
+                "book",
+                "box",
+                "that",
+                "neither",
+                "all",
+                "both",
+                "these",
+                "those",
+                "another",
+                "frame",
+                "room",
+                "map",
+                "letter",
+                "buckled",
+                "asked",
+                "rode",
+                "drove"
+            ],
+            "source_text_uk": "Сила удару була такою, що рама зігнулася.",
+            "options_by_marker": {
+                "a1": [
+                    "Such",
+                    "Clause",
+                    "Identify",
+                    "Vehicle"
+                ],
+                "a2": [
+                    "was",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a3": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "force",
+                    "exemption",
+                    "cat",
+                    "person"
+                ],
+                "a5": [
+                    "of",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a6": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "impact",
+                    "bag",
+                    "book",
+                    "box"
+                ],
+                "a8": [
+                    "that",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a9": [
+                    "the",
+                    "these",
+                    "those",
+                    "another"
+                ],
+                "a10": [
+                    "frame",
+                    "room",
+                    "map",
+                    "letter"
+                ],
+                "a11": [
+                    "buckled",
+                    "asked",
+                    "rode",
+                    "drove"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "woq-common-mistakes-c2-c01",
+            "author_id": "c2-c01",
+            "question": "Ще належить з’ясувати, наскільки саме далеко поширюється цей виняток.",
+            "level": "C2",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Ще належить з’ясувати, наскільки саме далеко поширюється цей виняток.",
+            "target_text": "It remains to be seen just how far the exception extends.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Після початкової безособової конструкції постав непряме питання зі звичайним порядком підмета й присудка.",
+                    "options": [
+                        "It",
+                        "He",
+                        "She",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "remains",
+                    "verb_hint": "Після початкової безособової конструкції постав непряме питання зі звичайним порядком підмета й присудка.",
+                    "options": [
+                        "remains",
+                        "implications",
+                        "dogs",
+                        "cats"
+                    ]
+                },
+                "a3": {
+                    "answer": "to",
+                    "verb_hint": "Після початкової безособової конструкції постав непряме питання зі звичайним порядком підмета й присудка.",
+                    "options": [
+                        "to",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Після початкової безособової конструкції постав непряме питання зі звичайним порядком підмета й присудка.",
+                    "options": [
+                        "be",
+                        "is",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a5": {
+                    "answer": "seen",
+                    "verb_hint": "Після початкової безособової конструкції постав непряме питання зі звичайним порядком підмета й присудка.",
+                    "options": [
+                        "seen",
+                        "published",
+                        "contested",
+                        "emerged"
+                    ]
+                },
+                "a6": {
+                    "answer": "just",
+                    "verb_hint": "Після початкової безособової конструкції постав непряме питання зі звичайним порядком підмета й присудка.",
+                    "options": [
+                        "just",
+                        "not",
+                        "never",
+                        "always"
+                    ]
+                },
+                "a7": {
+                    "answer": "how",
+                    "verb_hint": "Після початкової безособової конструкції постав непряме питання зі звичайним порядком підмета й присудка.",
+                    "options": [
+                        "how",
+                        "when",
+                        "why",
+                        "whoever"
+                    ]
+                },
+                "a8": {
+                    "answer": "far",
+                    "verb_hint": "Після початкової безособової конструкції постав непряме питання зі звичайним порядком підмета й присудка.",
+                    "options": [
+                        "far",
+                        "Little",
+                        "evidence",
+                        "substantiate"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Після початкової безособової конструкції постав непряме питання зі звичайним порядком підмета й присудка.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a10": {
+                    "answer": "exception",
+                    "verb_hint": "Після початкової безособової конструкції постав непряме питання зі звичайним порядком підмета й присудка.",
+                    "options": [
+                        "exception",
+                        "allegation",
+                        "sooner",
+                        "than"
+                    ]
+                },
+                "a11": {
+                    "answer": "extends.",
+                    "verb_hint": "Після початкової безособової конструкції постав непряме питання зі звичайним порядком підмета й присудка.",
+                    "options": [
+                        "extends",
+                        "doors",
+                        "keys",
+                        "rooms"
+                    ]
+                }
+            },
+            "verb_hint": "Після початкової безособової конструкції постав непряме питання зі звичайним порядком підмета й присудка.",
+            "accepted_target_texts": [
+                "It remains to be seen just how far the exception extends."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It remains",
+                "to be seen",
+                "just how far",
+                "the exception extends."
+            ],
+            "token_groups": [
+                "It remains",
+                "to be seen",
+                "just how far",
+                "the exception extends."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "It",
+                "remains",
+                "to",
+                "be",
+                "seen",
+                "just",
+                "how",
+                "far",
+                "the",
+                "exception",
+                "extends."
+            ],
+            "options": [
+                "It",
+                "He",
+                "She",
+                "We",
+                "remains",
+                "implications",
+                "dogs",
+                "cats",
+                "to",
+                "for",
+                "of",
+                "in",
+                "be",
+                "is",
+                "are",
+                "was",
+                "seen",
+                "published",
+                "contested",
+                "emerged",
+                "just",
+                "not",
+                "never",
+                "always",
+                "how",
+                "when",
+                "why",
+                "whoever",
+                "far",
+                "Little",
+                "evidence",
+                "substantiate",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "exception",
+                "allegation",
+                "sooner",
+                "than",
+                "extends",
+                "doors",
+                "keys",
+                "rooms"
+            ],
+            "source_text_uk": "Ще належить з’ясувати, наскільки саме далеко поширюється цей виняток.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "He",
+                    "She",
+                    "We"
+                ],
+                "a2": [
+                    "remains",
+                    "implications",
+                    "dogs",
+                    "cats"
+                ],
+                "a3": [
+                    "to",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a4": [
+                    "be",
+                    "is",
+                    "are",
+                    "was"
+                ],
+                "a5": [
+                    "seen",
+                    "published",
+                    "contested",
+                    "emerged"
+                ],
+                "a6": [
+                    "just",
+                    "not",
+                    "never",
+                    "always"
+                ],
+                "a7": [
+                    "how",
+                    "when",
+                    "why",
+                    "whoever"
+                ],
+                "a8": [
+                    "far",
+                    "Little",
+                    "evidence",
+                    "substantiate"
+                ],
+                "a9": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a10": [
+                    "exception",
+                    "allegation",
+                    "sooner",
+                    "than"
+                ],
+                "a11": [
+                    "extends",
+                    "doors",
+                    "keys",
+                    "rooms"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "woq-common-mistakes-c2-c02",
+            "author_id": "c2-c02",
+            "question": "З’явилося мало достовірних доказів, якщо вони взагалі є, які могли б підтвердити звинувачення.",
+            "level": "C2",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "З’явилося мало достовірних доказів, якщо вони взагалі є, які могли б підтвердити звинувачення.",
+            "target_text": "Little, if any, credible evidence has emerged to substantiate the allegation.",
+            "markers": {
+                "a1": {
+                    "answer": "Little,",
+                    "verb_hint": "Вставку про майже повну відсутність доказів залиш усередині підметової групи; присудок став після неї.",
+                    "options": [
+                        "Little",
+                        "Than",
+                        "Far",
+                        "Exception"
+                    ]
+                },
+                "a2": {
+                    "answer": "if",
+                    "verb_hint": "Вставку про майже повну відсутність доказів залиш усередині підметової групи; присудок став після неї.",
+                    "options": [
+                        "if",
+                        "though",
+                        "unless",
+                        "whereas"
+                    ]
+                },
+                "a3": {
+                    "answer": "any,",
+                    "verb_hint": "Вставку про майже повну відсутність доказів залиш усередині підметової групи; присудок став після неї.",
+                    "options": [
+                        "any",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a4": {
+                    "answer": "credible",
+                    "verb_hint": "Вставку про майже повну відсутність доказів залиш усередині підметової групи; присудок став після неї.",
+                    "options": [
+                        "credible",
+                        "young",
+                        "cold",
+                        "warm"
+                    ]
+                },
+                "a5": {
+                    "answer": "evidence",
+                    "verb_hint": "Вставку про майже повну відсутність доказів залиш усередині підметової групи; присудок став після неї.",
+                    "options": [
+                        "evidence",
+                        "sooner",
+                        "window",
+                        "phone"
+                    ]
+                },
+                "a6": {
+                    "answer": "has",
+                    "verb_hint": "Вставку про майже повну відсутність доказів залиш усередині підметової групи; присудок став після неї.",
+                    "options": [
+                        "has",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "emerged",
+                    "verb_hint": "Вставку про майже повну відсутність доказів залиш усередині підметової групи; присудок став після неї.",
+                    "options": [
+                        "emerged",
+                        "contested",
+                        "seen",
+                        "published"
+                    ]
+                },
+                "a8": {
+                    "answer": "to",
+                    "verb_hint": "Вставку про майже повну відсутність доказів залиш усередині підметової групи; присудок став після неї.",
+                    "options": [
+                        "to",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a9": {
+                    "answer": "substantiate",
+                    "verb_hint": "Вставку про майже повну відсутність доказів залиш усередині підметової групи; присудок став після неї.",
+                    "options": [
+                        "substantiate",
+                        "sister",
+                        "brother",
+                        "friend"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Вставку про майже повну відсутність доказів залиш усередині підметової групи; присудок став після неї.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a11": {
+                    "answer": "allegation.",
+                    "verb_hint": "Вставку про майже повну відсутність доказів залиш усередині підметової групи; присудок став після неї.",
+                    "options": [
+                        "allegation",
+                        "bread",
+                        "milk",
+                        "music"
+                    ]
+                }
+            },
+            "verb_hint": "Вставку про майже повну відсутність доказів залиш усередині підметової групи; присудок став після неї.",
+            "accepted_target_texts": [
+                "Little, if any, credible evidence has emerged to substantiate the allegation.",
+                "Little, if any, credible evidence has emerged to substantiate the accusation."
+            ],
+            "answer_synonyms": {
+                "a11": [
+                    "accusation."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a11": [
+                    "accusation."
+                ]
+            },
+            "reorder_groups": [
+                "Little, if any,",
+                "credible evidence",
+                "has emerged",
+                "to substantiate",
+                "the allegation."
+            ],
+            "token_groups": [
+                "Little, if any,",
+                "credible evidence",
+                "has emerged",
+                "to substantiate",
+                "the allegation."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Little,",
+                "if",
+                "any,",
+                "credible",
+                "evidence",
+                "has",
+                "emerged",
+                "to",
+                "substantiate",
+                "the",
+                "allegation."
+            ],
+            "options": [
+                "Little",
+                "Than",
+                "Far",
+                "Exception",
+                "if",
+                "though",
+                "unless",
+                "whereas",
+                "any",
+                "a",
+                "an",
+                "some",
+                "credible",
+                "young",
+                "cold",
+                "warm",
+                "evidence",
+                "sooner",
+                "window",
+                "phone",
+                "has",
+                "did",
+                "don't",
+                "doesn't",
+                "emerged",
+                "contested",
+                "seen",
+                "published",
+                "to",
+                "from",
+                "for",
+                "of",
+                "substantiate",
+                "sister",
+                "brother",
+                "friend",
+                "the",
+                "this",
+                "that",
+                "these",
+                "allegation",
+                "bread",
+                "milk",
+                "music"
+            ],
+            "source_text_uk": "З’явилося мало достовірних доказів, якщо вони взагалі є, які могли б підтвердити звинувачення.",
+            "options_by_marker": {
+                "a1": [
+                    "Little",
+                    "Than",
+                    "Far",
+                    "Exception"
+                ],
+                "a2": [
+                    "if",
+                    "though",
+                    "unless",
+                    "whereas"
+                ],
+                "a3": [
+                    "any",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a4": [
+                    "credible",
+                    "young",
+                    "cold",
+                    "warm"
+                ],
+                "a5": [
+                    "evidence",
+                    "sooner",
+                    "window",
+                    "phone"
+                ],
+                "a6": [
+                    "has",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a7": [
+                    "emerged",
+                    "contested",
+                    "seen",
+                    "published"
+                ],
+                "a8": [
+                    "to",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a9": [
+                    "substantiate",
+                    "sister",
+                    "brother",
+                    "friend"
+                ],
+                "a10": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a11": [
+                    "allegation",
+                    "bread",
+                    "milk",
+                    "music"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "woq-common-mistakes-c2-c03",
+            "author_id": "c2-c03",
+            "question": "Щойно рішення оприлюднили, як його наслідки почали оскаржувати.",
+            "level": "C2",
+            "type": 4,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Щойно рішення оприлюднили, як його наслідки почали оскаржувати.",
+            "target_text": "No sooner had the ruling been published than its implications were contested.",
+            "markers": {
+                "a1": {
+                    "answer": "No",
+                    "verb_hint": "Початкове заперечне зіставлення вимагає допоміжної форми перед підметом; другу подію приєднай належним сполучником.",
+                    "options": [
+                        "No",
+                        "Every",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "sooner",
+                    "verb_hint": "Початкове заперечне зіставлення вимагає допоміжної форми перед підметом; другу подію приєднай належним сполучником.",
+                    "options": [
+                        "sooner",
+                        "far",
+                        "exception",
+                        "Little"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Початкове заперечне зіставлення вимагає допоміжної форми перед підметом; другу подію приєднай належним сполучником.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Початкове заперечне зіставлення вимагає допоміжної форми перед підметом; другу подію приєднай належним сполучником.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a5": {
+                    "answer": "ruling",
+                    "verb_hint": "Початкове заперечне зіставлення вимагає допоміжної форми перед підметом; другу подію приєднай належним сполучником.",
+                    "options": [
+                        "ruling",
+                        "making",
+                        "going",
+                        "taking"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Початкове заперечне зіставлення вимагає допоміжної форми перед підметом; другу подію приєднай належним сполучником.",
+                    "options": [
+                        "been",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a7": {
+                    "answer": "published",
+                    "verb_hint": "Початкове заперечне зіставлення вимагає допоміжної форми перед підметом; другу подію приєднай належним сполучником.",
+                    "options": [
+                        "published",
+                        "seen",
+                        "emerged",
+                        "ridden"
+                    ]
+                },
+                "a8": {
+                    "answer": "than",
+                    "verb_hint": "Початкове заперечне зіставлення вимагає допоміжної форми перед підметом; другу подію приєднай належним сполучником.",
+                    "options": [
+                        "than",
+                        "evidence",
+                        "substantiate",
+                        "allegation"
+                    ]
+                },
+                "a9": {
+                    "answer": "its",
+                    "verb_hint": "Початкове заперечне зіставлення вимагає допоміжної форми перед підметом; другу подію приєднай належним сполучником.",
+                    "options": [
+                        "its",
+                        "their",
+                        "mine",
+                        "yours"
+                    ]
+                },
+                "a10": {
+                    "answer": "implications",
+                    "verb_hint": "Початкове заперечне зіставлення вимагає допоміжної форми перед підметом; другу подію приєднай належним сполучником.",
+                    "options": [
+                        "implications",
+                        "extends",
+                        "remains",
+                        "windows"
+                    ]
+                },
+                "a11": {
+                    "answer": "were",
+                    "verb_hint": "Початкове заперечне зіставлення вимагає допоміжної форми перед підметом; другу подію приєднай належним сполучником.",
+                    "options": [
+                        "were",
+                        "is",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a12": {
+                    "answer": "contested.",
+                    "verb_hint": "Початкове заперечне зіставлення вимагає допоміжної форми перед підметом; другу подію приєднай належним сполучником.",
+                    "options": [
+                        "contested",
+                        "bought",
+                        "checked",
+                        "sent"
+                    ]
+                }
+            },
+            "verb_hint": "Початкове заперечне зіставлення вимагає допоміжної форми перед підметом; другу подію приєднай належним сполучником.",
+            "accepted_target_texts": [
+                "No sooner had the ruling been published than its implications were contested.",
+                "No sooner had the decision been published than its implications were contested."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "decision"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "decision"
+                ]
+            },
+            "reorder_groups": [
+                "No sooner had",
+                "the ruling",
+                "been published",
+                "than its implications",
+                "were contested."
+            ],
+            "token_groups": [
+                "No sooner had",
+                "the ruling",
+                "been published",
+                "than its implications",
+                "were contested."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "No",
+                "sooner",
+                "had",
+                "the",
+                "ruling",
+                "been",
+                "published",
+                "than",
+                "its",
+                "implications",
+                "were",
+                "contested."
+            ],
+            "options": [
+                "No",
+                "Every",
+                "Another",
+                "Either",
+                "sooner",
+                "far",
+                "exception",
+                "Little",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "the",
+                "these",
+                "those",
+                "each",
+                "ruling",
+                "making",
+                "going",
+                "taking",
+                "been",
+                "wasn't",
+                "weren't",
+                "am",
+                "published",
+                "seen",
+                "emerged",
+                "ridden",
+                "than",
+                "evidence",
+                "substantiate",
+                "allegation",
+                "its",
+                "their",
+                "mine",
+                "yours",
+                "implications",
+                "extends",
+                "remains",
+                "windows",
+                "were",
+                "is",
+                "are",
+                "was",
+                "contested",
+                "bought",
+                "checked",
+                "sent"
+            ],
+            "source_text_uk": "Щойно рішення оприлюднили, як його наслідки почали оскаржувати.",
+            "options_by_marker": {
+                "a1": [
+                    "No",
+                    "Every",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "sooner",
+                    "far",
+                    "exception",
+                    "Little"
+                ],
+                "a3": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a4": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a5": [
+                    "ruling",
+                    "making",
+                    "going",
+                    "taking"
+                ],
+                "a6": [
+                    "been",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a7": [
+                    "published",
+                    "seen",
+                    "emerged",
+                    "ridden"
+                ],
+                "a8": [
+                    "than",
+                    "evidence",
+                    "substantiate",
+                    "allegation"
+                ],
+                "a9": [
+                    "its",
+                    "their",
+                    "mine",
+                    "yours"
+                ],
+                "a10": [
+                    "implications",
+                    "extends",
+                    "remains",
+                    "windows"
+                ],
+                "a11": [
+                    "were",
+                    "is",
+                    "are",
+                    "was"
+                ],
+                "a12": [
+                    "contested",
+                    "bought",
+                    "checked",
+                    "sent"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

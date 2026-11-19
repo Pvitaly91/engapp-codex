@@ -1,0 +1,95 @@
+{
+    "schema_version": 1,
+    "bindings": {
+        "advanced-collocation-and-lexical-choice": [
+            {
+                "uuid": "7abcb7df-907d-c68e-6f9c-cdac4e6a3416",
+                "slug": "course-td-advanced-collocation-and-lexical-choice",
+                "filters": {
+                    "mode": "compose_tokens",
+                    "question_type": "4",
+                    "lesson_type": "theory-driven",
+                    "course_slug": "theory-driven",
+                    "lesson_order": 108,
+                    "previous_lesson_slug": "course-td-paraphrase-and-reformulation",
+                    "next_lesson_slug": null,
+                    "theory_page_slug": "advanced-collocation-and-lexical-choice",
+                    "theory_category_slug": "vocabulary-and-collocations",
+                    "theory_category_path": "vocabulary-and-collocations",
+                    "completion": {
+                        "rolling_window": 100,
+                        "min_rating": 4.5
+                    },
+                    "interface_locale": "uk",
+                    "study_locale": "uk",
+                    "target_locale": "en",
+                    "topic": "Advanced Collocation And Lexical Choice",
+                    "tags": [
+                        "Theory-Driven",
+                        "Vocabulary And Collocations"
+                    ],
+                    "prompt_generator": {
+                        "source_type": "theory_page",
+                        "theory_page": {
+                            "slug": "advanced-collocation-and-lexical-choice",
+                            "title": "Advanced Collocation And Lexical Choice",
+                            "category_slug_path": "vocabulary-and-collocations"
+                        }
+                    },
+                    "num_questions": 15,
+                    "generated_from_existing_content": true,
+                    "generated_by": "GLZ-PROMPT-0069-THEORY-DRIVEN-COURSE-STABILIZE"
+                }
+            },
+            {
+                "uuid": "polyglot-advanced-collocation-4ba9e7",
+                "slug": "polyglot-advanced-collocation-and-lexical-choice-c2",
+                "filters": {
+                    "mode": "compose_tokens",
+                    "question_type": 4,
+                    "lesson_type": "polyglot",
+                    "payload_version": 2,
+                    "import_format": "gramlyze_v3_polyglot",
+                    "supports_duplicate_tokens": true,
+                    "course_slug": "polyglot-english-c2",
+                    "lesson_order": 7,
+                    "previous_lesson_slug": "polyglot-stance-register-and-evaluation-c2",
+                    "next_lesson_slug": "polyglot-precision-with-articles-and-determiners-c2",
+                    "completion": {
+                        "type": "score",
+                        "minimum_rating_percent": 80,
+                        "minimum_correct": 38
+                    },
+                    "interface_locale": "uk",
+                    "study_locale": "uk",
+                    "target_locale": "en",
+                    "topic": "advanced collocation and lexical choice",
+                    "level": "C2",
+                    "levels": [
+                        "C2"
+                    ],
+                    "tags": [
+                        "Polyglot",
+                        "Compose Tokens",
+                        "Advanced Collocation And Lexical Choice",
+                        "C2"
+                    ],
+                    "prompt_generator": {
+                        "source_type": "theory_page",
+                        "theory_page": {
+                            "slug": "advanced-collocation-and-lexical-choice",
+                            "title": "Advanced Collocation And Lexical Choice",
+                            "category_slug_path": "vocabulary-and-collocations",
+                            "page_seeder_class": "Database\\Seeders\\Page_V3\\VocabularyAndCollocations\\AdvancedCollocationAndLexicalChoiceTheorySeeder",
+                            "url": "https://gramlyze.com/theory/vocabulary-and-collocations/advanced-collocation-and-lexical-choice"
+                        }
+                    },
+                    "num_questions": 48,
+                    "seeder_classes": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedCollocationAndLexicalChoiceC2LessonSeeder"
+                    ]
+                }
+            }
+        ]
+    }
+}

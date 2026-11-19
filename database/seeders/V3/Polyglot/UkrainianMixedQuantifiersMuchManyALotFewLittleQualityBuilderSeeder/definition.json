@@ -1,0 +1,4808 @@
+{
+    "schema_version": 1,
+    "quality_revision": "nouns-articles-quantity-v1",
+    "compiled_from": {
+        "path": "docs/content/nouns-articles-quantity-quality/quantifiers.v1.json",
+        "sha256": "fed7a46bd0291662e6d9926c115869d410c643c3399fa7663944e0b308f5ae47"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedQuantifiersMuchManyALotFewLittleQualityBuilderSeeder",
+        "uuid_namespace": "nouns-articles-quantity-quality-quantifiers-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "nouns_articles_quantity_quality_quantifiers": {
+            "name": "Nouns Articles Quantity Quality: Кількісні слова та межі їхнього значення"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_quantifiers_much_many_a_lot_few_little": {
+            "name": "Quantifiers Much Many A Lot Few Little",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "many_countable": {
+            "name": "Many Countable",
+            "category": "topic"
+        },
+        "much_uncountable": {
+            "name": "Much Uncountable",
+            "category": "topic"
+        },
+        "a_lot_of": {
+            "name": "A Lot Of",
+            "category": "topic"
+        },
+        "few_a_few": {
+            "name": "Few A Few",
+            "category": "topic"
+        },
+        "little_a_little": {
+            "name": "Little A Little",
+            "category": "topic"
+        },
+        "too_much_too_many": {
+            "name": "Too Much Too Many",
+            "category": "topic"
+        },
+        "not_much_not_many": {
+            "name": "Not Much Not Many",
+            "category": "topic"
+        },
+        "enough": {
+            "name": "Enough",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "naqq-quantifiers-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Над озером багато зірок.",
+            "level": "A1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Над озером багато зірок.",
+            "target_text": "There are many stars above the lake.",
+            "markers": {
+                "a1": {
+                    "answer": "There",
+                    "verb_hint": "Озеро вже відоме; назви велику кількість окремих зірок.",
+                    "options": [
+                        "There",
+                        "Two",
+                        "Picture",
+                        "Brother"
+                    ]
+                },
+                "a2": {
+                    "answer": "are",
+                    "verb_hint": "Озеро вже відоме; назви велику кількість окремих зірок.",
+                    "options": [
+                        "are",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a3": {
+                    "answer": "many",
+                    "verb_hint": "Озеро вже відоме; назви велику кількість окремих зірок.",
+                    "options": [
+                        "many",
+                        "window",
+                        "phone",
+                        "train"
+                    ]
+                },
+                "a4": {
+                    "answer": "stars",
+                    "verb_hint": "Озеро вже відоме; назви велику кількість окремих зірок.",
+                    "options": [
+                        "stars",
+                        "questions",
+                        "oranges",
+                        "cups"
+                    ]
+                },
+                "a5": {
+                    "answer": "above",
+                    "verb_hint": "Озеро вже відоме; назви велику кількість окремих зірок.",
+                    "options": [
+                        "above",
+                        "box",
+                        "chair",
+                        "table"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Озеро вже відоме; назви велику кількість окремих зірок.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a7": {
+                    "answer": "lake.",
+                    "verb_hint": "Озеро вже відоме; назви велику кількість окремих зірок.",
+                    "options": [
+                        "lake",
+                        "room",
+                        "map",
+                        "letter"
+                    ]
+                }
+            },
+            "verb_hint": "Озеро вже відоме; назви велику кількість окремих зірок.",
+            "accepted_target_texts": [
+                "There are many stars above the lake.",
+                "There are a lot of stars above the lake.",
+                "There are lots of stars above the lake."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There are",
+                "many stars",
+                "above the lake."
+            ],
+            "token_groups": [
+                "There are",
+                "many stars",
+                "above the lake."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "There",
+                "are",
+                "many",
+                "stars",
+                "above",
+                "the",
+                "lake."
+            ],
+            "options": [
+                "There",
+                "Two",
+                "Picture",
+                "Brother",
+                "are",
+                "were",
+                "be",
+                "been",
+                "many",
+                "window",
+                "phone",
+                "train",
+                "stars",
+                "questions",
+                "oranges",
+                "cups",
+                "above",
+                "box",
+                "chair",
+                "table",
+                "the",
+                "every",
+                "no",
+                "another",
+                "lake",
+                "room",
+                "map",
+                "letter"
+            ],
+            "source_text_uk": "Над озером багато зірок.",
+            "options_by_marker": {
+                "a1": [
+                    "There",
+                    "Two",
+                    "Picture",
+                    "Brother"
+                ],
+                "a2": [
+                    "are",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a3": [
+                    "many",
+                    "window",
+                    "phone",
+                    "train"
+                ],
+                "a4": [
+                    "stars",
+                    "questions",
+                    "oranges",
+                    "cups"
+                ],
+                "a5": [
+                    "above",
+                    "box",
+                    "chair",
+                    "table"
+                ],
+                "a6": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a7": [
+                    "lake",
+                    "room",
+                    "map",
+                    "letter"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "naqq-quantifiers-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Нам потрібно трохи хліба й два апельсини.",
+            "level": "A1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Нам потрібно трохи хліба й два апельсини.",
+            "target_text": "We need some bread and two oranges.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Назви невизначену кількість продукту та окремо два плоди; число запиши словами.",
+                    "options": [
+                        "We",
+                        "She",
+                        "It",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "need",
+                    "verb_hint": "Назви невизначену кількість продукту та окремо два плоди; число запиши словами.",
+                    "options": [
+                        "need",
+                        "worked",
+                        "played",
+                        "called"
+                    ]
+                },
+                "a3": {
+                    "answer": "some",
+                    "verb_hint": "Назви невизначену кількість продукту та окремо два плоди; число запиши словами.",
+                    "options": [
+                        "some",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a4": {
+                    "answer": "bread",
+                    "verb_hint": "Назви невизначену кількість продукту та окремо два плоди; число запиши словами.",
+                    "options": [
+                        "bread",
+                        "honey",
+                        "milk",
+                        "water"
+                    ]
+                },
+                "a5": {
+                    "answer": "and",
+                    "verb_hint": "Назви невизначену кількість продукту та окремо два плоди; число запиши словами.",
+                    "options": [
+                        "and",
+                        "whereas",
+                        "while",
+                        "if"
+                    ]
+                },
+                "a6": {
+                    "answer": "two",
+                    "verb_hint": "Назви невизначену кількість продукту та окремо два плоди; число запиши словами.",
+                    "options": [
+                        "two",
+                        "many",
+                        "above",
+                        "lake"
+                    ]
+                },
+                "a7": {
+                    "answer": "oranges.",
+                    "verb_hint": "Назви невизначену кількість продукту та окремо два плоди; число запиши словами.",
+                    "options": [
+                        "oranges",
+                        "questions",
+                        "stars",
+                        "books"
+                    ]
+                }
+            },
+            "verb_hint": "Назви невизначену кількість продукту та окремо два плоди; число запиши словами.",
+            "accepted_target_texts": [
+                "We need some bread and two oranges."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We need",
+                "some bread",
+                "and two oranges."
+            ],
+            "token_groups": [
+                "We need",
+                "some bread",
+                "and two oranges."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "We",
+                "need",
+                "some",
+                "bread",
+                "and",
+                "two",
+                "oranges."
+            ],
+            "options": [
+                "We",
+                "She",
+                "It",
+                "They",
+                "need",
+                "worked",
+                "played",
+                "called",
+                "some",
+                "both",
+                "a",
+                "an",
+                "bread",
+                "honey",
+                "milk",
+                "water",
+                "and",
+                "whereas",
+                "while",
+                "if",
+                "two",
+                "many",
+                "above",
+                "lake",
+                "oranges",
+                "questions",
+                "stars",
+                "books"
+            ],
+            "source_text_uk": "Нам потрібно трохи хліба й два апельсини.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "She",
+                    "It",
+                    "They"
+                ],
+                "a2": [
+                    "need",
+                    "worked",
+                    "played",
+                    "called"
+                ],
+                "a3": [
+                    "some",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a4": [
+                    "bread",
+                    "honey",
+                    "milk",
+                    "water"
+                ],
+                "a5": [
+                    "and",
+                    "whereas",
+                    "while",
+                    "if"
+                ],
+                "a6": [
+                    "two",
+                    "many",
+                    "above",
+                    "lake"
+                ],
+                "a7": [
+                    "oranges",
+                    "questions",
+                    "stars",
+                    "books"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "naqq-quantifiers-a1-c03",
+            "author_id": "A1-c03",
+            "question": "У тебе є якісь запитання про картину?",
+            "level": "A1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "У тебе є якісь запитання про картину?",
+            "target_text": "Do you have any questions about the picture?",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "verb_hint": "Побудуй нейтральне питання про наявність невизначеної кількості запитань; картина вже згадана.",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Don't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Побудуй нейтральне питання про наявність невизначеної кількості запитань; картина вже згадана.",
+                    "options": [
+                        "you",
+                        "us",
+                        "them",
+                        "myself"
+                    ]
+                },
+                "a3": {
+                    "answer": "have",
+                    "verb_hint": "Побудуй нейтральне питання про наявність невизначеної кількості запитань; картина вже згадана.",
+                    "options": [
+                        "have",
+                        "doesn't",
+                        "didn't",
+                        "has"
+                    ]
+                },
+                "a4": {
+                    "answer": "any",
+                    "verb_hint": "Побудуй нейтральне питання про наявність невизначеної кількості запитань; картина вже згадана.",
+                    "options": [
+                        "any",
+                        "some",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a5": {
+                    "answer": "questions",
+                    "verb_hint": "Побудуй нейтральне питання про наявність невизначеної кількості запитань; картина вже згадана.",
+                    "options": [
+                        "questions",
+                        "stars",
+                        "oranges",
+                        "schools"
+                    ]
+                },
+                "a6": {
+                    "answer": "about",
+                    "verb_hint": "Побудуй нейтральне питання про наявність невизначеної кількості запитань; картина вже згадана.",
+                    "options": [
+                        "about",
+                        "among",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй нейтральне питання про наявність невизначеної кількості запитань; картина вже згадана.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "picture?",
+                    "verb_hint": "Побудуй нейтральне питання про наявність невизначеної кількості запитань; картина вже згадана.",
+                    "options": [
+                        "picture",
+                        "There",
+                        "many",
+                        "above"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй нейтральне питання про наявність невизначеної кількості запитань; картина вже згадана.",
+            "accepted_target_texts": [
+                "Do you have any questions about the picture?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do you have",
+                "any questions",
+                "about the picture?"
+            ],
+            "token_groups": [
+                "Do you have",
+                "any questions",
+                "about the picture?"
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Do",
+                "you",
+                "have",
+                "any",
+                "questions",
+                "about",
+                "the",
+                "picture?"
+            ],
+            "options": [
+                "Do",
+                "Does",
+                "Did",
+                "Don't",
+                "you",
+                "us",
+                "them",
+                "myself",
+                "have",
+                "doesn't",
+                "didn't",
+                "has",
+                "any",
+                "some",
+                "this",
+                "that",
+                "questions",
+                "stars",
+                "oranges",
+                "schools",
+                "about",
+                "among",
+                "during",
+                "to",
+                "the",
+                "no",
+                "another",
+                "either",
+                "picture",
+                "There",
+                "many",
+                "above"
+            ],
+            "source_text_uk": "У тебе є якісь запитання про картину?",
+            "options_by_marker": {
+                "a1": [
+                    "Do",
+                    "Does",
+                    "Did",
+                    "Don't"
+                ],
+                "a2": [
+                    "you",
+                    "us",
+                    "them",
+                    "myself"
+                ],
+                "a3": [
+                    "have",
+                    "doesn't",
+                    "didn't",
+                    "has"
+                ],
+                "a4": [
+                    "any",
+                    "some",
+                    "this",
+                    "that"
+                ],
+                "a5": [
+                    "questions",
+                    "stars",
+                    "oranges",
+                    "schools"
+                ],
+                "a6": [
+                    "about",
+                    "among",
+                    "during",
+                    "to"
+                ],
+                "a7": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a8": [
+                    "picture",
+                    "There",
+                    "many",
+                    "above"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "naqq-quantifiers-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Кілька пасажирів залишилися на платформі.",
+            "level": "A2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Кілька пасажирів залишилися на платформі.",
+            "target_text": "A few passengers stayed on the platform.",
+            "markers": {
+                "a1": {
+                    "answer": "A",
+                    "verb_hint": "Назви невелику, але наявну групу; платформа вже визначена.",
+                    "options": [
+                        "A",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "few",
+                    "verb_hint": "Назви невелику, але наявну групу; платформа вже визначена.",
+                    "options": [
+                        "few",
+                        "little",
+                        "money",
+                        "there"
+                    ]
+                },
+                "a3": {
+                    "answer": "passengers",
+                    "verb_hint": "Назви невелику, але наявну групу; платформа вже визначена.",
+                    "options": [
+                        "passengers",
+                        "people",
+                        "men",
+                        "women"
+                    ]
+                },
+                "a4": {
+                    "answer": "stayed",
+                    "verb_hint": "Назви невелику, але наявну групу; платформа вже визначена.",
+                    "options": [
+                        "stayed",
+                        "poured",
+                        "cooked",
+                        "found"
+                    ]
+                },
+                "a5": {
+                    "answer": "on",
+                    "verb_hint": "Назви невелику, але наявну групу; платформа вже визначена.",
+                    "options": [
+                        "on",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Назви невелику, але наявну групу; платформа вже визначена.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a7": {
+                    "answer": "platform.",
+                    "verb_hint": "Назви невелику, але наявну групу; платформа вже визначена.",
+                    "options": [
+                        "platform",
+                        "pan",
+                        "enough",
+                        "food"
+                    ]
+                }
+            },
+            "verb_hint": "Назви невелику, але наявну групу; платформа вже визначена.",
+            "accepted_target_texts": [
+                "A few passengers stayed on the platform.",
+                "Several passengers stayed on the platform."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A few passengers",
+                "stayed",
+                "on the platform."
+            ],
+            "token_groups": [
+                "A few passengers",
+                "stayed",
+                "on the platform."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "A",
+                "few",
+                "passengers",
+                "stayed",
+                "on",
+                "the",
+                "platform."
+            ],
+            "options": [
+                "A",
+                "Each",
+                "Every",
+                "No",
+                "few",
+                "little",
+                "money",
+                "there",
+                "passengers",
+                "people",
+                "men",
+                "women",
+                "stayed",
+                "poured",
+                "cooked",
+                "found",
+                "on",
+                "between",
+                "among",
+                "about",
+                "the",
+                "this",
+                "that",
+                "these",
+                "platform",
+                "pan",
+                "enough",
+                "food"
+            ],
+            "source_text_uk": "Кілька пасажирів залишилися на платформі.",
+            "options_by_marker": {
+                "a1": [
+                    "A",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "few",
+                    "little",
+                    "money",
+                    "there"
+                ],
+                "a3": [
+                    "passengers",
+                    "people",
+                    "men",
+                    "women"
+                ],
+                "a4": [
+                    "stayed",
+                    "poured",
+                    "cooked",
+                    "found"
+                ],
+                "a5": [
+                    "on",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a6": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a7": [
+                    "platform",
+                    "pan",
+                    "enough",
+                    "food"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "naqq-quantifiers-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Грошей у нас мало, але їжі достатньо.",
+            "level": "A2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Грошей у нас мало, але їжі достатньо.",
+            "target_text": "We have little money, but there is enough food.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Грошовий запас поданий як недостатній; не змінюй це на позитивне «є трохи».",
+                    "options": [
+                        "We",
+                        "Yourself",
+                        "Herself",
+                        "Ourselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "have",
+                    "verb_hint": "Грошовий запас поданий як недостатній; не змінюй це на позитивне «є трохи».",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "haven't"
+                    ]
+                },
+                "a3": {
+                    "answer": "little",
+                    "verb_hint": "Грошовий запас поданий як недостатній; не змінюй це на позитивне «є трохи».",
+                    "options": [
+                        "little",
+                        "oil",
+                        "empty",
+                        "pan"
+                    ]
+                },
+                "a4": {
+                    "answer": "money,",
+                    "verb_hint": "Грошовий запас поданий як недостатній; не змінюй це на позитивне «є трохи».",
+                    "options": [
+                        "money",
+                        "few",
+                        "platform",
+                        "sister"
+                    ]
+                },
+                "a5": {
+                    "answer": "but",
+                    "verb_hint": "Грошовий запас поданий як недостатній; не змінюй це на позитивне «є трохи».",
+                    "options": [
+                        "but",
+                        "though",
+                        "unless",
+                        "whereas"
+                    ]
+                },
+                "a6": {
+                    "answer": "there",
+                    "verb_hint": "Грошовий запас поданий як недостатній; не змінюй це на позитивне «є трохи».",
+                    "options": [
+                        "there",
+                        "train",
+                        "bus",
+                        "desk"
+                    ]
+                },
+                "a7": {
+                    "answer": "is",
+                    "verb_hint": "Грошовий запас поданий як недостатній; не змінюй це на позитивне «є трохи».",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a8": {
+                    "answer": "enough",
+                    "verb_hint": "Грошовий запас поданий як недостатній; не змінюй це на позитивне «є трохи».",
+                    "options": [
+                        "enough",
+                        "music",
+                        "bike",
+                        "car"
+                    ]
+                },
+                "a9": {
+                    "answer": "food.",
+                    "verb_hint": "Грошовий запас поданий як недостатній; не змінюй це на позитивне «є трохи».",
+                    "options": [
+                        "food",
+                        "bag",
+                        "book",
+                        "box"
+                    ]
+                }
+            },
+            "verb_hint": "Грошовий запас поданий як недостатній; не змінюй це на позитивне «є трохи».",
+            "accepted_target_texts": [
+                "We have little money, but there is enough food."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We have",
+                "little money,",
+                "but there is",
+                "enough food."
+            ],
+            "token_groups": [
+                "We have",
+                "little money,",
+                "but there is",
+                "enough food."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "We",
+                "have",
+                "little",
+                "money,",
+                "but",
+                "there",
+                "is",
+                "enough",
+                "food."
+            ],
+            "options": [
+                "We",
+                "Yourself",
+                "Herself",
+                "Ourselves",
+                "have",
+                "has",
+                "had",
+                "haven't",
+                "little",
+                "oil",
+                "empty",
+                "pan",
+                "money",
+                "few",
+                "platform",
+                "sister",
+                "but",
+                "though",
+                "unless",
+                "whereas",
+                "there",
+                "train",
+                "bus",
+                "desk",
+                "is",
+                "was",
+                "were",
+                "be",
+                "enough",
+                "music",
+                "bike",
+                "car",
+                "food",
+                "bag",
+                "book",
+                "box"
+            ],
+            "source_text_uk": "Грошей у нас мало, але їжі достатньо.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Yourself",
+                    "Herself",
+                    "Ourselves"
+                ],
+                "a2": [
+                    "have",
+                    "has",
+                    "had",
+                    "haven't"
+                ],
+                "a3": [
+                    "little",
+                    "oil",
+                    "empty",
+                    "pan"
+                ],
+                "a4": [
+                    "money",
+                    "few",
+                    "platform",
+                    "sister"
+                ],
+                "a5": [
+                    "but",
+                    "though",
+                    "unless",
+                    "whereas"
+                ],
+                "a6": [
+                    "there",
+                    "train",
+                    "bus",
+                    "desk"
+                ],
+                "a7": [
+                    "is",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a8": [
+                    "enough",
+                    "music",
+                    "bike",
+                    "car"
+                ],
+                "a9": [
+                    "food",
+                    "bag",
+                    "book",
+                    "box"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "naqq-quantifiers-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Вона налила трохи олії на порожню сковороду.",
+            "level": "A2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Вона налила трохи олії на порожню сковороду.",
+            "target_text": "She poured a little oil into the empty pan.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Передай невелику наявну кількість рідини, не її відсутність; сковорода вже відома.",
+                    "options": [
+                        "She",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "poured",
+                    "verb_hint": "Передай невелику наявну кількість рідини, не її відсутність; сковорода вже відома.",
+                    "options": [
+                        "poured",
+                        "stayed",
+                        "needed",
+                        "liked"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Передай невелику наявну кількість рідини, не її відсутність; сковорода вже відома.",
+                    "options": [
+                        "a",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a4": {
+                    "answer": "little",
+                    "verb_hint": "Передай невелику наявну кількість рідини, не її відсутність; сковорода вже відома.",
+                    "options": [
+                        "little",
+                        "money",
+                        "there",
+                        "enough"
+                    ]
+                },
+                "a5": {
+                    "answer": "oil",
+                    "verb_hint": "Передай невелику наявну кількість рідини, не її відсутність; сковорода вже відома.",
+                    "options": [
+                        "oil",
+                        "few",
+                        "platform",
+                        "food"
+                    ]
+                },
+                "a6": {
+                    "answer": "into",
+                    "verb_hint": "Передай невелику наявну кількість рідини, не її відсутність; сковорода вже відома.",
+                    "options": [
+                        "into",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Передай невелику наявну кількість рідини, не її відсутність; сковорода вже відома.",
+                    "options": [
+                        "the",
+                        "both",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a8": {
+                    "answer": "empty",
+                    "verb_hint": "Передай невелику наявну кількість рідини, не її відсутність; сковорода вже відома.",
+                    "options": [
+                        "empty",
+                        "box",
+                        "chair",
+                        "table"
+                    ]
+                },
+                "a9": {
+                    "answer": "pan.",
+                    "verb_hint": "Передай невелику наявну кількість рідини, не її відсутність; сковорода вже відома.",
+                    "options": [
+                        "pan",
+                        "milk",
+                        "music",
+                        "bike"
+                    ]
+                }
+            },
+            "verb_hint": "Передай невелику наявну кількість рідини, не її відсутність; сковорода вже відома.",
+            "accepted_target_texts": [
+                "She poured a little oil into the empty pan.",
+                "She put a little oil into the empty pan.",
+                "She poured a little oil in the empty pan.",
+                "She put a little oil in the empty pan."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "put"
+                ],
+                "a6": [
+                    "in"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "put"
+                ],
+                "a6": [
+                    "in"
+                ]
+            },
+            "reorder_groups": [
+                "She poured",
+                "a little oil",
+                "into",
+                "the empty pan."
+            ],
+            "token_groups": [
+                "She poured",
+                "a little oil",
+                "into",
+                "the empty pan."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "She",
+                "poured",
+                "a",
+                "little",
+                "oil",
+                "into",
+                "the",
+                "empty",
+                "pan."
+            ],
+            "options": [
+                "She",
+                "Us",
+                "Them",
+                "Myself",
+                "poured",
+                "stayed",
+                "needed",
+                "liked",
+                "a",
+                "another",
+                "either",
+                "neither",
+                "little",
+                "money",
+                "there",
+                "enough",
+                "oil",
+                "few",
+                "platform",
+                "food",
+                "into",
+                "over",
+                "under",
+                "through",
+                "the",
+                "both",
+                "an",
+                "some",
+                "empty",
+                "box",
+                "chair",
+                "table",
+                "pan",
+                "milk",
+                "music",
+                "bike"
+            ],
+            "source_text_uk": "Вона налила трохи олії на порожню сковороду.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "poured",
+                    "stayed",
+                    "needed",
+                    "liked"
+                ],
+                "a3": [
+                    "a",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a4": [
+                    "little",
+                    "money",
+                    "there",
+                    "enough"
+                ],
+                "a5": [
+                    "oil",
+                    "few",
+                    "platform",
+                    "food"
+                ],
+                "a6": [
+                    "into",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a7": [
+                    "the",
+                    "both",
+                    "an",
+                    "some"
+                ],
+                "a8": [
+                    "empty",
+                    "box",
+                    "chair",
+                    "table"
+                ],
+                "a9": [
+                    "pan",
+                    "milk",
+                    "music",
+                    "bike"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "naqq-quantifiers-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Волонтерів було замало, щоб тримати відчиненими обидва входи.",
+            "level": "B1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Волонтерів було замало, щоб тримати відчиненими обидва входи.",
+            "target_text": "There were too few volunteers to keep both entrances open.",
+            "markers": {
+                "a1": {
+                    "answer": "There",
+                    "verb_hint": "Оціни число людей як недостатнє для мети; не замінюй нестачу просто невеликою наявною кількістю.",
+                    "options": [
+                        "There",
+                        "Enough",
+                        "Money",
+                        "Replace"
+                    ]
+                },
+                "a2": {
+                    "answer": "were",
+                    "verb_hint": "Оціни число людей як недостатнє для мети; не замінюй нестачу просто невеликою наявною кількістю.",
+                    "options": [
+                        "were",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a3": {
+                    "answer": "too",
+                    "verb_hint": "Оціни число людей як недостатнє для мети; не замінюй нестачу просто невеликою наявною кількістю.",
+                    "options": [
+                        "too",
+                        "deadline",
+                        "cooker",
+                        "before"
+                    ]
+                },
+                "a4": {
+                    "answer": "few",
+                    "verb_hint": "Оціни число людей як недостатнє для мети; не замінюй нестачу просто невеликою наявною кількістю.",
+                    "options": [
+                        "few",
+                        "person",
+                        "water",
+                        "bread"
+                    ]
+                },
+                "a5": {
+                    "answer": "volunteers",
+                    "verb_hint": "Оціни число людей як недостатнє для мети; не замінюй нестачу просто невеликою наявною кількістю.",
+                    "options": [
+                        "volunteers",
+                        "applications",
+                        "phones",
+                        "children"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Оціни число людей як недостатнє для мети; не замінюй нестачу просто невеликою наявною кількістю.",
+                    "options": [
+                        "to",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a7": {
+                    "answer": "keep",
+                    "verb_hint": "Оціни число людей як недостатнє для мети; не замінюй нестачу просто невеликою наявною кількістю.",
+                    "options": [
+                        "keep",
+                        "desk",
+                        "picture",
+                        "child"
+                    ]
+                },
+                "a8": {
+                    "answer": "both",
+                    "verb_hint": "Оціни число людей як недостатнє для мети; не замінюй нестачу просто невеликою наявною кількістю.",
+                    "options": [
+                        "both",
+                        "a",
+                        "an",
+                        "the"
+                    ]
+                },
+                "a9": {
+                    "answer": "entrances",
+                    "verb_hint": "Оціни число людей як недостатнє для мети; не замінюй нестачу просто невеликою наявною кількістю.",
+                    "options": [
+                        "entrances",
+                        "people",
+                        "men",
+                        "women"
+                    ]
+                },
+                "a10": {
+                    "answer": "open.",
+                    "verb_hint": "Оціни число людей як недостатнє для мети; не замінюй нестачу просто невеликою наявною кількістю.",
+                    "options": [
+                        "open",
+                        "saved",
+                        "arrived",
+                        "drove"
+                    ]
+                }
+            },
+            "verb_hint": "Оціни число людей як недостатнє для мети; не замінюй нестачу просто невеликою наявною кількістю.",
+            "accepted_target_texts": [
+                "There were too few volunteers to keep both entrances open."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There were",
+                "too few volunteers",
+                "to keep",
+                "both entrances open."
+            ],
+            "token_groups": [
+                "There were",
+                "too few volunteers",
+                "to keep",
+                "both entrances open."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "There",
+                "were",
+                "too",
+                "few",
+                "volunteers",
+                "to",
+                "keep",
+                "both",
+                "entrances",
+                "open."
+            ],
+            "options": [
+                "There",
+                "Enough",
+                "Money",
+                "Replace",
+                "were",
+                "wasn't",
+                "weren't",
+                "am",
+                "too",
+                "deadline",
+                "cooker",
+                "before",
+                "few",
+                "person",
+                "water",
+                "bread",
+                "volunteers",
+                "applications",
+                "phones",
+                "children",
+                "to",
+                "from",
+                "for",
+                "of",
+                "keep",
+                "desk",
+                "picture",
+                "child",
+                "both",
+                "a",
+                "an",
+                "the",
+                "entrances",
+                "people",
+                "men",
+                "women",
+                "open",
+                "saved",
+                "arrived",
+                "drove"
+            ],
+            "source_text_uk": "Волонтерів було замало, щоб тримати відчиненими обидва входи.",
+            "options_by_marker": {
+                "a1": [
+                    "There",
+                    "Enough",
+                    "Money",
+                    "Replace"
+                ],
+                "a2": [
+                    "were",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a3": [
+                    "too",
+                    "deadline",
+                    "cooker",
+                    "before"
+                ],
+                "a4": [
+                    "few",
+                    "person",
+                    "water",
+                    "bread"
+                ],
+                "a5": [
+                    "volunteers",
+                    "applications",
+                    "phones",
+                    "children"
+                ],
+                "a6": [
+                    "to",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a7": [
+                    "keep",
+                    "desk",
+                    "picture",
+                    "child"
+                ],
+                "a8": [
+                    "both",
+                    "a",
+                    "an",
+                    "the"
+                ],
+                "a9": [
+                    "entrances",
+                    "people",
+                    "men",
+                    "women"
+                ],
+                "a10": [
+                    "open",
+                    "saved",
+                    "arrived",
+                    "drove"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "naqq-quantifiers-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Ми заощадили достатньо грошей, щоб замінити зламану плиту.",
+            "level": "B1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Ми заощадили достатньо грошей, щоб замінити зламану плиту.",
+            "target_text": "We saved enough money to replace the broken cooker.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Передай достатність запасу для конкретної покупки; плита вже відома.",
+                    "options": [
+                        "We",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a2": {
+                    "answer": "saved",
+                    "verb_hint": "Передай достатність запасу для конкретної покупки; плита вже відома.",
+                    "options": [
+                        "saved",
+                        "arrived",
+                        "open",
+                        "made"
+                    ]
+                },
+                "a3": {
+                    "answer": "enough",
+                    "verb_hint": "Передай достатність запасу для конкретної покупки; плита вже відома.",
+                    "options": [
+                        "enough",
+                        "before",
+                        "deadline",
+                        "There"
+                    ]
+                },
+                "a4": {
+                    "answer": "money",
+                    "verb_hint": "Передай достатність запасу для конкретної покупки; плита вже відома.",
+                    "options": [
+                        "money",
+                        "too",
+                        "few",
+                        "keep"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Передай достатність запасу для конкретної покупки; плита вже відома.",
+                    "options": [
+                        "to",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a6": {
+                    "answer": "replace",
+                    "verb_hint": "Передай достатність запасу для конкретної покупки; плита вже відома.",
+                    "options": [
+                        "replace",
+                        "window",
+                        "phone",
+                        "train"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Передай достатність запасу для конкретної покупки; плита вже відома.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a8": {
+                    "answer": "broken",
+                    "verb_hint": "Передай достатність запасу для конкретної покупки; плита вже відома.",
+                    "options": [
+                        "broken",
+                        "closed",
+                        "helped",
+                        "watched"
+                    ]
+                },
+                "a9": {
+                    "answer": "cooker.",
+                    "verb_hint": "Передай достатність запасу для конкретної покупки; плита вже відома.",
+                    "options": [
+                        "cooker",
+                        "table",
+                        "ticket",
+                        "cup"
+                    ]
+                }
+            },
+            "verb_hint": "Передай достатність запасу для конкретної покупки; плита вже відома.",
+            "accepted_target_texts": [
+                "We saved enough money to replace the broken cooker.",
+                "We saved enough money to replace the broken stove."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "stove."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "stove."
+                ]
+            },
+            "reorder_groups": [
+                "We saved",
+                "enough money",
+                "to replace",
+                "the broken cooker."
+            ],
+            "token_groups": [
+                "We saved",
+                "enough money",
+                "to replace",
+                "the broken cooker."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "We",
+                "saved",
+                "enough",
+                "money",
+                "to",
+                "replace",
+                "the",
+                "broken",
+                "cooker."
+            ],
+            "options": [
+                "We",
+                "Them",
+                "Myself",
+                "Yourself",
+                "saved",
+                "arrived",
+                "open",
+                "made",
+                "enough",
+                "before",
+                "deadline",
+                "There",
+                "money",
+                "too",
+                "few",
+                "keep",
+                "to",
+                "from",
+                "for",
+                "of",
+                "replace",
+                "window",
+                "phone",
+                "train",
+                "the",
+                "a",
+                "an",
+                "some",
+                "broken",
+                "closed",
+                "helped",
+                "watched",
+                "cooker",
+                "table",
+                "ticket",
+                "cup"
+            ],
+            "source_text_uk": "Ми заощадили достатньо грошей, щоб замінити зламану плиту.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a2": [
+                    "saved",
+                    "arrived",
+                    "open",
+                    "made"
+                ],
+                "a3": [
+                    "enough",
+                    "before",
+                    "deadline",
+                    "There"
+                ],
+                "a4": [
+                    "money",
+                    "too",
+                    "few",
+                    "keep"
+                ],
+                "a5": [
+                    "to",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a6": [
+                    "replace",
+                    "window",
+                    "phone",
+                    "train"
+                ],
+                "a7": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a8": [
+                    "broken",
+                    "closed",
+                    "helped",
+                    "watched"
+                ],
+                "a9": [
+                    "cooker",
+                    "table",
+                    "ticket",
+                    "cup"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "naqq-quantifiers-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Лише кілька заявок надійшли до кінцевого строку.",
+            "level": "B1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Лише кілька заявок надійшли до кінцевого строку.",
+            "target_text": "Only a few of the applications arrived before the deadline.",
+            "markers": {
+                "a1": {
+                    "answer": "Only",
+                    "verb_hint": "Йдеться про малу частину визначеного набору заявок; збережи обмеження «лише».",
+                    "options": [
+                        "Only",
+                        "Sometimes",
+                        "Already",
+                        "Still"
+                    ]
+                },
+                "a2": {
+                    "answer": "a",
+                    "verb_hint": "Йдеться про малу частину визначеного набору заявок; збережи обмеження «лише».",
+                    "options": [
+                        "a",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a3": {
+                    "answer": "few",
+                    "verb_hint": "Йдеться про малу частину визначеного набору заявок; збережи обмеження «лише».",
+                    "options": [
+                        "few",
+                        "replace",
+                        "cooker",
+                        "There"
+                    ]
+                },
+                "a4": {
+                    "answer": "of",
+                    "verb_hint": "Йдеться про малу частину визначеного набору заявок; збережи обмеження «лише».",
+                    "options": [
+                        "of",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Йдеться про малу частину визначеного набору заявок; збережи обмеження «лише».",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a6": {
+                    "answer": "applications",
+                    "verb_hint": "Йдеться про малу частину визначеного набору заявок; збережи обмеження «лише».",
+                    "options": [
+                        "applications",
+                        "volunteers",
+                        "entrances",
+                        "friends"
+                    ]
+                },
+                "a7": {
+                    "answer": "arrived",
+                    "verb_hint": "Йдеться про малу частину визначеного набору заявок; збережи обмеження «лише».",
+                    "options": [
+                        "arrived",
+                        "open",
+                        "saved",
+                        "drove"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Йдеться про малу частину визначеного набору заявок; збережи обмеження «лише».",
+                    "options": [
+                        "before",
+                        "too",
+                        "keep",
+                        "enough"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Йдеться про малу частину визначеного набору заявок; збережи обмеження «лише».",
+                    "options": [
+                        "the",
+                        "every",
+                        "neither",
+                        "some"
+                    ]
+                },
+                "a10": {
+                    "answer": "deadline.",
+                    "verb_hint": "Йдеться про малу частину визначеного набору заявок; збережи обмеження «лише».",
+                    "options": [
+                        "deadline",
+                        "money",
+                        "music",
+                        "food"
+                    ]
+                }
+            },
+            "verb_hint": "Йдеться про малу частину визначеного набору заявок; збережи обмеження «лише».",
+            "accepted_target_texts": [
+                "Only a few of the applications arrived before the deadline."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Only a few",
+                "of the applications",
+                "arrived",
+                "before the deadline."
+            ],
+            "token_groups": [
+                "Only a few",
+                "of the applications",
+                "arrived",
+                "before the deadline."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Only",
+                "a",
+                "few",
+                "of",
+                "the",
+                "applications",
+                "arrived",
+                "before",
+                "the",
+                "deadline."
+            ],
+            "options": [
+                "Only",
+                "Sometimes",
+                "Already",
+                "Still",
+                "a",
+                "no",
+                "another",
+                "either",
+                "few",
+                "replace",
+                "cooker",
+                "There",
+                "of",
+                "through",
+                "across",
+                "between",
+                "the",
+                "all",
+                "both",
+                "an",
+                "applications",
+                "volunteers",
+                "entrances",
+                "friends",
+                "arrived",
+                "open",
+                "saved",
+                "drove",
+                "before",
+                "too",
+                "keep",
+                "enough",
+                "every",
+                "neither",
+                "some",
+                "deadline",
+                "money",
+                "music",
+                "food"
+            ],
+            "source_text_uk": "Лише кілька заявок надійшли до кінцевого строку.",
+            "options_by_marker": {
+                "a1": [
+                    "Only",
+                    "Sometimes",
+                    "Already",
+                    "Still"
+                ],
+                "a2": [
+                    "a",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a3": [
+                    "few",
+                    "replace",
+                    "cooker",
+                    "There"
+                ],
+                "a4": [
+                    "of",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a5": [
+                    "the",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a6": [
+                    "applications",
+                    "volunteers",
+                    "entrances",
+                    "friends"
+                ],
+                "a7": [
+                    "arrived",
+                    "open",
+                    "saved",
+                    "drove"
+                ],
+                "a8": [
+                    "before",
+                    "too",
+                    "keep",
+                    "enough"
+                ],
+                "a9": [
+                    "the",
+                    "every",
+                    "neither",
+                    "some"
+                ],
+                "a10": [
+                    "deadline",
+                    "money",
+                    "music",
+                    "food"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "naqq-quantifiers-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Майже всі скарги стосувалися затримок, а не якості роботи.",
+            "level": "B2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Майже всі скарги стосувалися затримок, а не якості роботи.",
+            "target_text": "Almost all of the complaints concerned delays rather than the quality of the work.",
+            "markers": {
+                "a1": {
+                    "answer": "Almost",
+                    "verb_hint": "Збережи «майже», визначений набір скарг і предмет порівняння; не перетворюй майже всі на кожну без винятку.",
+                    "options": [
+                        "Almost",
+                        "Sometimes",
+                        "Already",
+                        "Still"
+                    ]
+                },
+                "a2": {
+                    "answer": "all",
+                    "verb_hint": "Збережи «майже», визначений набір скарг і предмет порівняння; не перетворюй майже всі на кожну без винятку.",
+                    "options": [
+                        "all",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Збережи «майже», визначений набір скарг і предмет порівняння; не перетворюй майже всі на кожну без винятку.",
+                    "options": [
+                        "of",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи «майже», визначений набір скарг і предмет порівняння; не перетворюй майже всі на кожну без винятку.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "complaints",
+                    "verb_hint": "Збережи «майже», визначений набір скарг і предмет порівняння; не перетворюй майже всі на кожну без винятку.",
+                    "options": [
+                        "complaints",
+                        "candidates",
+                        "comes",
+                        "projects"
+                    ]
+                },
+                "a6": {
+                    "answer": "concerned",
+                    "verb_hint": "Збережи «майже», визначений набір скарг і предмет порівняння; не перетворюй майже всі на кожну без винятку.",
+                    "options": [
+                        "concerned",
+                        "received",
+                        "saw",
+                        "needed"
+                    ]
+                },
+                "a7": {
+                    "answer": "delays",
+                    "verb_hint": "Збережи «майже», визначений набір скарг і предмет порівняння; не перетворюй майже всі на кожну без винятку.",
+                    "options": [
+                        "delays",
+                        "tables",
+                        "tickets",
+                        "cups"
+                    ]
+                },
+                "a8": {
+                    "answer": "rather",
+                    "verb_hint": "Збережи «майже», визначений набір скарг і предмет порівняння; не перетворюй майже всі на кожну без винятку.",
+                    "options": [
+                        "rather",
+                        "same",
+                        "amount",
+                        "time"
+                    ]
+                },
+                "a9": {
+                    "answer": "than",
+                    "verb_hint": "Збережи «майже», визначений набір скарг і предмет порівняння; не перетворюй майже всі на кожну без винятку.",
+                    "options": [
+                        "than",
+                        "Most",
+                        "experience",
+                        "little"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Збережи «майже», визначений набір скарг і предмет порівняння; не перетворюй майже всі на кожну без винятку.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "some"
+                    ]
+                },
+                "a11": {
+                    "answer": "quality",
+                    "verb_hint": "Збережи «майже», визначений набір скарг і предмет порівняння; не перетворюй майже всі на кожну без винятку.",
+                    "options": [
+                        "quality",
+                        "publicity",
+                        "cat",
+                        "person"
+                    ]
+                },
+                "a12": {
+                    "answer": "of",
+                    "verb_hint": "Збережи «майже», визначений набір скарг і предмет порівняння; не перетворюй майже всі на кожну без винятку.",
+                    "options": [
+                        "of",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a13": {
+                    "answer": "the",
+                    "verb_hint": "Збережи «майже», визначений набір скарг і предмет порівняння; не перетворюй майже всі на кожну без винятку.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a14": {
+                    "answer": "work.",
+                    "verb_hint": "Збережи «майже», визначений набір скарг і предмет порівняння; не перетворюй майже всі на кожну без винятку.",
+                    "options": [
+                        "work",
+                        "visit",
+                        "cook",
+                        "ride"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи «майже», визначений набір скарг і предмет порівняння; не перетворюй майже всі на кожну без винятку.",
+            "accepted_target_texts": [
+                "Almost all of the complaints concerned delays rather than the quality of the work."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Almost all of",
+                "the complaints",
+                "concerned delays",
+                "rather than",
+                "the quality",
+                "of the work."
+            ],
+            "token_groups": [
+                "Almost all of",
+                "the complaints",
+                "concerned delays",
+                "rather than",
+                "the quality",
+                "of the work."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Almost",
+                "all",
+                "of",
+                "the",
+                "complaints",
+                "concerned",
+                "delays",
+                "rather",
+                "than",
+                "the",
+                "quality",
+                "of",
+                "the",
+                "work."
+            ],
+            "options": [
+                "Almost",
+                "Sometimes",
+                "Already",
+                "Still",
+                "all",
+                "these",
+                "those",
+                "each",
+                "of",
+                "in",
+                "on",
+                "at",
+                "the",
+                "both",
+                "a",
+                "an",
+                "complaints",
+                "candidates",
+                "comes",
+                "projects",
+                "concerned",
+                "received",
+                "saw",
+                "needed",
+                "delays",
+                "tables",
+                "tickets",
+                "cups",
+                "rather",
+                "same",
+                "amount",
+                "time",
+                "than",
+                "Most",
+                "experience",
+                "little",
+                "either",
+                "neither",
+                "some",
+                "quality",
+                "publicity",
+                "cat",
+                "person",
+                "by",
+                "with",
+                "without",
+                "any",
+                "this",
+                "that",
+                "work",
+                "visit",
+                "cook",
+                "ride"
+            ],
+            "source_text_uk": "Майже всі скарги стосувалися затримок, а не якості роботи.",
+            "options_by_marker": {
+                "a1": [
+                    "Almost",
+                    "Sometimes",
+                    "Already",
+                    "Still"
+                ],
+                "a2": [
+                    "all",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a3": [
+                    "of",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a4": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a5": [
+                    "complaints",
+                    "candidates",
+                    "comes",
+                    "projects"
+                ],
+                "a6": [
+                    "concerned",
+                    "received",
+                    "saw",
+                    "needed"
+                ],
+                "a7": [
+                    "delays",
+                    "tables",
+                    "tickets",
+                    "cups"
+                ],
+                "a8": [
+                    "rather",
+                    "same",
+                    "amount",
+                    "time"
+                ],
+                "a9": [
+                    "than",
+                    "Most",
+                    "experience",
+                    "little"
+                ],
+                "a10": [
+                    "the",
+                    "either",
+                    "neither",
+                    "some"
+                ],
+                "a11": [
+                    "quality",
+                    "publicity",
+                    "cat",
+                    "person"
+                ],
+                "a12": [
+                    "of",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a13": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a14": [
+                    "work",
+                    "visit",
+                    "cook",
+                    "ride"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "naqq-quantifiers-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Кожному з кандидатів запропонували однакову кількість часу.",
+            "level": "B2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Кожному з кандидатів запропонували однакову кількість часу.",
+            "target_text": "Each of the candidates was offered the same amount of time.",
+            "markers": {
+                "a1": {
+                    "answer": "Each",
+                    "verb_hint": "Покажи індивідуальний розподіл у визначеній групі й узгодь однину дієслова.",
+                    "options": [
+                        "Each",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "of",
+                    "verb_hint": "Покажи індивідуальний розподіл у визначеній групі й узгодь однину дієслова.",
+                    "options": [
+                        "of",
+                        "during",
+                        "to",
+                        "from"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Покажи індивідуальний розподіл у визначеній групі й узгодь однину дієслова.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a4": {
+                    "answer": "candidates",
+                    "verb_hint": "Покажи індивідуальний розподіл у визначеній групі й узгодь однину дієслова.",
+                    "options": [
+                        "candidates",
+                        "comes",
+                        "projects",
+                        "complaints"
+                    ]
+                },
+                "a5": {
+                    "answer": "was",
+                    "verb_hint": "Покажи індивідуальний розподіл у визначеній групі й узгодь однину дієслова.",
+                    "options": [
+                        "was",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a6": {
+                    "answer": "offered",
+                    "verb_hint": "Покажи індивідуальний розподіл у визначеній групі й узгодь однину дієслова.",
+                    "options": [
+                        "offered",
+                        "ridden",
+                        "driven",
+                        "given"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Покажи індивідуальний розподіл у визначеній групі й узгодь однину дієслова.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a8": {
+                    "answer": "same",
+                    "verb_hint": "Покажи індивідуальний розподіл у визначеній групі й узгодь однину дієслова.",
+                    "options": [
+                        "same",
+                        "Most",
+                        "experience",
+                        "little"
+                    ]
+                },
+                "a9": {
+                    "answer": "amount",
+                    "verb_hint": "Покажи індивідуальний розподіл у визначеній групі й узгодь однину дієслова.",
+                    "options": [
+                        "amount",
+                        "quality",
+                        "publicity",
+                        "rather"
+                    ]
+                },
+                "a10": {
+                    "answer": "of",
+                    "verb_hint": "Покажи індивідуальний розподіл у визначеній групі й узгодь однину дієслова.",
+                    "options": [
+                        "of",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a11": {
+                    "answer": "time.",
+                    "verb_hint": "Покажи індивідуальний розподіл у визначеній групі й узгодь однину дієслова.",
+                    "options": [
+                        "time",
+                        "than",
+                        "door",
+                        "key"
+                    ]
+                }
+            },
+            "verb_hint": "Покажи індивідуальний розподіл у визначеній групі й узгодь однину дієслова.",
+            "accepted_target_texts": [
+                "Each of the candidates was offered the same amount of time."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Each of",
+                "the candidates",
+                "was offered",
+                "the same amount",
+                "of time."
+            ],
+            "token_groups": [
+                "Each of",
+                "the candidates",
+                "was offered",
+                "the same amount",
+                "of time."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Each",
+                "of",
+                "the",
+                "candidates",
+                "was",
+                "offered",
+                "the",
+                "same",
+                "amount",
+                "of",
+                "time."
+            ],
+            "options": [
+                "Each",
+                "A",
+                "An",
+                "Some",
+                "of",
+                "during",
+                "to",
+                "from",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "candidates",
+                "comes",
+                "projects",
+                "complaints",
+                "was",
+                "am",
+                "is",
+                "are",
+                "offered",
+                "ridden",
+                "driven",
+                "given",
+                "any",
+                "this",
+                "that",
+                "same",
+                "Most",
+                "experience",
+                "little",
+                "amount",
+                "quality",
+                "publicity",
+                "rather",
+                "onto",
+                "over",
+                "under",
+                "time",
+                "than",
+                "door",
+                "key"
+            ],
+            "source_text_uk": "Кожному з кандидатів запропонували однакову кількість часу.",
+            "options_by_marker": {
+                "a1": [
+                    "Each",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "of",
+                    "during",
+                    "to",
+                    "from"
+                ],
+                "a3": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a4": [
+                    "candidates",
+                    "comes",
+                    "projects",
+                    "complaints"
+                ],
+                "a5": [
+                    "was",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a6": [
+                    "offered",
+                    "ridden",
+                    "driven",
+                    "given"
+                ],
+                "a7": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a8": [
+                    "same",
+                    "Most",
+                    "experience",
+                    "little"
+                ],
+                "a9": [
+                    "amount",
+                    "quality",
+                    "publicity",
+                    "rather"
+                ],
+                "a10": [
+                    "of",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a11": [
+                    "time",
+                    "than",
+                    "door",
+                    "key"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "naqq-quantifiers-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Більша частина нашого досвіду походить із проєктів, які майже не розголошували.",
+            "level": "B2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Більша частина нашого досвіду походить із проєктів, які майже не розголошували.",
+            "target_text": "Most of our experience comes from projects that received little publicity.",
+            "markers": {
+                "a1": {
+                    "answer": "Most",
+                    "verb_hint": "Назви більшу частину вже визначеного досвіду й малу міру публічного висвітлення без позитивного «трохи було».",
+                    "options": [
+                        "Most",
+                        "Time",
+                        "Rather",
+                        "Than"
+                    ]
+                },
+                "a2": {
+                    "answer": "of",
+                    "verb_hint": "Назви більшу частину вже визначеного досвіду й малу міру публічного висвітлення без позитивного «трохи було».",
+                    "options": [
+                        "of",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a3": {
+                    "answer": "our",
+                    "verb_hint": "Назви більшу частину вже визначеного досвіду й малу міру публічного висвітлення без позитивного «трохи було».",
+                    "options": [
+                        "our",
+                        "hers",
+                        "ours",
+                        "theirs"
+                    ]
+                },
+                "a4": {
+                    "answer": "experience",
+                    "verb_hint": "Назви більшу частину вже визначеного досвіду й малу міру публічного висвітлення без позитивного «трохи було».",
+                    "options": [
+                        "experience",
+                        "quality",
+                        "same",
+                        "amount"
+                    ]
+                },
+                "a5": {
+                    "answer": "comes",
+                    "verb_hint": "Назви більшу частину вже визначеного досвіду й малу міру публічного висвітлення без позитивного «трохи було».",
+                    "options": [
+                        "comes",
+                        "complaints",
+                        "delays",
+                        "candidates"
+                    ]
+                },
+                "a6": {
+                    "answer": "from",
+                    "verb_hint": "Назви більшу частину вже визначеного досвіду й малу міру публічного висвітлення без позитивного «трохи було».",
+                    "options": [
+                        "from",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a7": {
+                    "answer": "projects",
+                    "verb_hint": "Назви більшу частину вже визначеного досвіду й малу міру публічного висвітлення без позитивного «трохи було».",
+                    "options": [
+                        "projects",
+                        "maps",
+                        "letters",
+                        "windows"
+                    ]
+                },
+                "a8": {
+                    "answer": "that",
+                    "verb_hint": "Назви більшу частину вже визначеного досвіду й малу міру публічного висвітлення без позитивного «трохи було».",
+                    "options": [
+                        "that",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a9": {
+                    "answer": "received",
+                    "verb_hint": "Назви більшу частину вже визначеного досвіду й малу міру публічного висвітлення без позитивного «трохи було».",
+                    "options": [
+                        "received",
+                        "concerned",
+                        "called",
+                        "walked"
+                    ]
+                },
+                "a10": {
+                    "answer": "little",
+                    "verb_hint": "Назви більшу частину вже визначеного досвіду й малу міру публічного висвітлення без позитивного «трохи було».",
+                    "options": [
+                        "little",
+                        "key",
+                        "room",
+                        "map"
+                    ]
+                },
+                "a11": {
+                    "answer": "publicity.",
+                    "verb_hint": "Назви більшу частину вже визначеного досвіду й малу міру публічного висвітлення без позитивного «трохи було».",
+                    "options": [
+                        "publicity",
+                        "teacher",
+                        "school",
+                        "sister"
+                    ]
+                }
+            },
+            "verb_hint": "Назви більшу частину вже визначеного досвіду й малу міру публічного висвітлення без позитивного «трохи було».",
+            "accepted_target_texts": [
+                "Most of our experience comes from projects that received little publicity."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Most of",
+                "our experience",
+                "comes from projects",
+                "that received",
+                "little publicity."
+            ],
+            "token_groups": [
+                "Most of",
+                "our experience",
+                "comes from projects",
+                "that received",
+                "little publicity."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Most",
+                "of",
+                "our",
+                "experience",
+                "comes",
+                "from",
+                "projects",
+                "that",
+                "received",
+                "little",
+                "publicity."
+            ],
+            "options": [
+                "Most",
+                "Time",
+                "Rather",
+                "Than",
+                "of",
+                "across",
+                "between",
+                "among",
+                "our",
+                "hers",
+                "ours",
+                "theirs",
+                "experience",
+                "quality",
+                "same",
+                "amount",
+                "comes",
+                "complaints",
+                "delays",
+                "candidates",
+                "from",
+                "at",
+                "by",
+                "with",
+                "projects",
+                "maps",
+                "letters",
+                "windows",
+                "that",
+                "each",
+                "every",
+                "no",
+                "received",
+                "concerned",
+                "called",
+                "walked",
+                "little",
+                "key",
+                "room",
+                "map",
+                "publicity",
+                "teacher",
+                "school",
+                "sister"
+            ],
+            "source_text_uk": "Більша частина нашого досвіду походить із проєктів, які майже не розголошували.",
+            "options_by_marker": {
+                "a1": [
+                    "Most",
+                    "Time",
+                    "Rather",
+                    "Than"
+                ],
+                "a2": [
+                    "of",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a3": [
+                    "our",
+                    "hers",
+                    "ours",
+                    "theirs"
+                ],
+                "a4": [
+                    "experience",
+                    "quality",
+                    "same",
+                    "amount"
+                ],
+                "a5": [
+                    "comes",
+                    "complaints",
+                    "delays",
+                    "candidates"
+                ],
+                "a6": [
+                    "from",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a7": [
+                    "projects",
+                    "maps",
+                    "letters",
+                    "windows"
+                ],
+                "a8": [
+                    "that",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a9": [
+                    "received",
+                    "concerned",
+                    "called",
+                    "walked"
+                ],
+                "a10": [
+                    "little",
+                    "key",
+                    "room",
+                    "map"
+                ],
+                "a11": [
+                    "publicity",
+                    "teacher",
+                    "school",
+                    "sister"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "naqq-quantifiers-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Значну частину витрат здійснили до отримання схвалення.",
+            "level": "C1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Значну частину витрат здійснили до отримання схвалення.",
+            "target_text": "A large proportion of the expenditure was incurred before approval had been secured.",
+            "markers": {
+                "a1": {
+                    "answer": "A",
+                    "verb_hint": "Передай велику частку сукупної суми витрат і порядок двох минулих подій.",
+                    "options": [
+                        "A",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "large",
+                    "verb_hint": "Передай велику частку сукупної суми витрат і порядок двох минулих подій.",
+                    "options": [
+                        "large",
+                        "considerable",
+                        "thirsty",
+                        "clear"
+                    ]
+                },
+                "a3": {
+                    "answer": "proportion",
+                    "verb_hint": "Передай велику частку сукупної суми витрат і порядок двох минулих подій.",
+                    "options": [
+                        "proportion",
+                        "suggest",
+                        "proposal",
+                        "support"
+                    ]
+                },
+                "a4": {
+                    "answer": "of",
+                    "verb_hint": "Передай велику частку сукупної суми витрат і порядок двох минулих подій.",
+                    "options": [
+                        "of",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Передай велику частку сукупної суми витрат і порядок двох минулих подій.",
+                    "options": [
+                        "the",
+                        "this",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a6": {
+                    "answer": "expenditure",
+                    "verb_hint": "Передай велику частку сукупної суми витрат і порядок двох минулих подій.",
+                    "options": [
+                        "expenditure",
+                        "Fewer",
+                        "mention",
+                        "incident"
+                    ]
+                },
+                "a7": {
+                    "answer": "was",
+                    "verb_hint": "Передай велику частку сукупної суми витрат і порядок двох минулих подій.",
+                    "options": [
+                        "was",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a8": {
+                    "answer": "incurred",
+                    "verb_hint": "Передай велику частку сукупної суми витрат і порядок двох минулих подій.",
+                    "options": [
+                        "incurred",
+                        "brought",
+                        "taken",
+                        "written"
+                    ]
+                },
+                "a9": {
+                    "answer": "before",
+                    "verb_hint": "Передай велику частку сукупної суми витрат і порядок двох минулих подій.",
+                    "options": [
+                        "before",
+                        "than",
+                        "earlier",
+                        "enough"
+                    ]
+                },
+                "a10": {
+                    "answer": "approval",
+                    "verb_hint": "Передай велику частку сукупної суми витрат і порядок двох минулих подій.",
+                    "options": [
+                        "approval",
+                        "guarantee",
+                        "adoption",
+                        "picture"
+                    ]
+                },
+                "a11": {
+                    "answer": "had",
+                    "verb_hint": "Передай велику частку сукупної суми витрат і порядок двох минулих подій.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a12": {
+                    "answer": "been",
+                    "verb_hint": "Передай велику частку сукупної суми витрат і порядок двох минулих подій.",
+                    "options": [
+                        "been",
+                        "are",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a13": {
+                    "answer": "secured.",
+                    "verb_hint": "Передай велику частку сукупної суми витрат і порядок двох минулих подій.",
+                    "options": [
+                        "secured",
+                        "visited",
+                        "cooked",
+                        "found"
+                    ]
+                }
+            },
+            "verb_hint": "Передай велику частку сукупної суми витрат і порядок двох минулих подій.",
+            "accepted_target_texts": [
+                "A large proportion of the expenditure was incurred before approval had been secured."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A large proportion",
+                "of the expenditure",
+                "was incurred",
+                "before approval",
+                "had been secured."
+            ],
+            "token_groups": [
+                "A large proportion",
+                "of the expenditure",
+                "was incurred",
+                "before approval",
+                "had been secured."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "A",
+                "large",
+                "proportion",
+                "of",
+                "the",
+                "expenditure",
+                "was",
+                "incurred",
+                "before",
+                "approval",
+                "had",
+                "been",
+                "secured."
+            ],
+            "options": [
+                "A",
+                "That",
+                "These",
+                "Those",
+                "large",
+                "considerable",
+                "thirsty",
+                "clear",
+                "proportion",
+                "suggest",
+                "proposal",
+                "support",
+                "of",
+                "across",
+                "between",
+                "among",
+                "the",
+                "this",
+                "each",
+                "every",
+                "expenditure",
+                "Fewer",
+                "mention",
+                "incident",
+                "was",
+                "being",
+                "isn't",
+                "aren't",
+                "incurred",
+                "brought",
+                "taken",
+                "written",
+                "before",
+                "than",
+                "earlier",
+                "enough",
+                "approval",
+                "guarantee",
+                "adoption",
+                "picture",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "been",
+                "are",
+                "were",
+                "be",
+                "secured",
+                "visited",
+                "cooked",
+                "found"
+            ],
+            "source_text_uk": "Значну частину витрат здійснили до отримання схвалення.",
+            "options_by_marker": {
+                "a1": [
+                    "A",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "large",
+                    "considerable",
+                    "thirsty",
+                    "clear"
+                ],
+                "a3": [
+                    "proportion",
+                    "suggest",
+                    "proposal",
+                    "support"
+                ],
+                "a4": [
+                    "of",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a5": [
+                    "the",
+                    "this",
+                    "each",
+                    "every"
+                ],
+                "a6": [
+                    "expenditure",
+                    "Fewer",
+                    "mention",
+                    "incident"
+                ],
+                "a7": [
+                    "was",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a8": [
+                    "incurred",
+                    "brought",
+                    "taken",
+                    "written"
+                ],
+                "a9": [
+                    "before",
+                    "than",
+                    "earlier",
+                    "enough"
+                ],
+                "a10": [
+                    "approval",
+                    "guarantee",
+                    "adoption",
+                    "picture"
+                ],
+                "a11": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a12": [
+                    "been",
+                    "are",
+                    "were",
+                    "be"
+                ],
+                "a13": [
+                    "secured",
+                    "visited",
+                    "cooked",
+                    "found"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "naqq-quantifiers-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Менше зі збережених свідчень згадує інцидент, ніж випливає з попередніх підсумків.",
+            "level": "C1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Менше зі збережених свідчень згадує інцидент, ніж випливає з попередніх підсумків.",
+            "target_text": "Fewer of the surviving accounts mention the incident than the earlier summaries suggest.",
+            "markers": {
+                "a1": {
+                    "answer": "Fewer",
+                    "verb_hint": "Порівняй число окремих свідчень у вже визначеній групі; не замінюй їхній підрахунок загальним обсягом.",
+                    "options": [
+                        "Fewer",
+                        "Adoption",
+                        "Proportion",
+                        "Expenditure"
+                    ]
+                },
+                "a2": {
+                    "answer": "of",
+                    "verb_hint": "Порівняй число окремих свідчень у вже визначеній групі; не замінюй їхній підрахунок загальним обсягом.",
+                    "options": [
+                        "of",
+                        "for",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Порівняй число окремих свідчень у вже визначеній групі; не замінюй їхній підрахунок загальним обсягом.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a4": {
+                    "answer": "surviving",
+                    "verb_hint": "Порівняй число окремих свідчень у вже визначеній групі; не замінюй їхній підрахунок загальним обсягом.",
+                    "options": [
+                        "surviving",
+                        "studying",
+                        "living",
+                        "buying"
+                    ]
+                },
+                "a5": {
+                    "answer": "accounts",
+                    "verb_hint": "Порівняй число окремих свідчень у вже визначеній групі; не замінюй їхній підрахунок загальним обсягом.",
+                    "options": [
+                        "accounts",
+                        "commands",
+                        "letters",
+                        "windows"
+                    ]
+                },
+                "a6": {
+                    "answer": "mention",
+                    "verb_hint": "Порівняй число окремих свідчень у вже визначеній групі; не замінюй їхній підрахунок загальним обсягом.",
+                    "options": [
+                        "mention",
+                        "enough",
+                        "guarantee",
+                        "before"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Порівняй число окремих свідчень у вже визначеній групі; не замінюй їхній підрахунок загальним обсягом.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a8": {
+                    "answer": "incident",
+                    "verb_hint": "Порівняй число окремих свідчень у вже визначеній групі; не замінюй їхній підрахунок загальним обсягом.",
+                    "options": [
+                        "incident",
+                        "approval",
+                        "proposal",
+                        "support"
+                    ]
+                },
+                "a9": {
+                    "answer": "than",
+                    "verb_hint": "Порівняй число окремих свідчень у вже визначеній групі; не замінюй їхній підрахунок загальним обсягом.",
+                    "options": [
+                        "than",
+                        "person",
+                        "water",
+                        "bread"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Порівняй число окремих свідчень у вже визначеній групі; не замінюй їхній підрахунок загальним обсягом.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "each"
+                    ]
+                },
+                "a11": {
+                    "answer": "earlier",
+                    "verb_hint": "Порівняй число окремих свідчень у вже визначеній групі; не замінюй їхній підрахунок загальним обсягом.",
+                    "options": [
+                        "earlier",
+                        "picture",
+                        "child",
+                        "teacher"
+                    ]
+                },
+                "a12": {
+                    "answer": "summaries",
+                    "verb_hint": "Порівняй число окремих свідчень у вже визначеній групі; не замінюй їхній підрахунок загальним обсягом.",
+                    "options": [
+                        "summaries",
+                        "books",
+                        "boxes",
+                        "chairs"
+                    ]
+                },
+                "a13": {
+                    "answer": "suggest.",
+                    "verb_hint": "Порівняй число окремих свідчень у вже визначеній групі; не замінюй їхній підрахунок загальним обсягом.",
+                    "options": [
+                        "suggest",
+                        "dog",
+                        "cat",
+                        "milk"
+                    ]
+                }
+            },
+            "verb_hint": "Порівняй число окремих свідчень у вже визначеній групі; не замінюй їхній підрахунок загальним обсягом.",
+            "accepted_target_texts": [
+                "Fewer of the surviving accounts mention the incident than the earlier summaries suggest."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Fewer of",
+                "the surviving accounts",
+                "mention the incident",
+                "than",
+                "the earlier summaries",
+                "suggest."
+            ],
+            "token_groups": [
+                "Fewer of",
+                "the surviving accounts",
+                "mention the incident",
+                "than",
+                "the earlier summaries",
+                "suggest."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Fewer",
+                "of",
+                "the",
+                "surviving",
+                "accounts",
+                "mention",
+                "the",
+                "incident",
+                "than",
+                "the",
+                "earlier",
+                "summaries",
+                "suggest."
+            ],
+            "options": [
+                "Fewer",
+                "Adoption",
+                "Proportion",
+                "Expenditure",
+                "of",
+                "for",
+                "in",
+                "on",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "surviving",
+                "studying",
+                "living",
+                "buying",
+                "accounts",
+                "commands",
+                "letters",
+                "windows",
+                "mention",
+                "enough",
+                "guarantee",
+                "before",
+                "that",
+                "these",
+                "those",
+                "incident",
+                "approval",
+                "proposal",
+                "support",
+                "than",
+                "person",
+                "water",
+                "bread",
+                "any",
+                "this",
+                "each",
+                "earlier",
+                "picture",
+                "child",
+                "teacher",
+                "summaries",
+                "books",
+                "boxes",
+                "chairs",
+                "suggest",
+                "dog",
+                "cat",
+                "milk"
+            ],
+            "source_text_uk": "Менше зі збережених свідчень згадує інцидент, ніж випливає з попередніх підсумків.",
+            "options_by_marker": {
+                "a1": [
+                    "Fewer",
+                    "Adoption",
+                    "Proportion",
+                    "Expenditure"
+                ],
+                "a2": [
+                    "of",
+                    "for",
+                    "in",
+                    "on"
+                ],
+                "a3": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a4": [
+                    "surviving",
+                    "studying",
+                    "living",
+                    "buying"
+                ],
+                "a5": [
+                    "accounts",
+                    "commands",
+                    "letters",
+                    "windows"
+                ],
+                "a6": [
+                    "mention",
+                    "enough",
+                    "guarantee",
+                    "before"
+                ],
+                "a7": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a8": [
+                    "incident",
+                    "approval",
+                    "proposal",
+                    "support"
+                ],
+                "a9": [
+                    "than",
+                    "person",
+                    "water",
+                    "bread"
+                ],
+                "a10": [
+                    "the",
+                    "any",
+                    "this",
+                    "each"
+                ],
+                "a11": [
+                    "earlier",
+                    "picture",
+                    "child",
+                    "teacher"
+                ],
+                "a12": [
+                    "summaries",
+                    "books",
+                    "boxes",
+                    "chairs"
+                ],
+                "a13": [
+                    "suggest",
+                    "dog",
+                    "cat",
+                    "milk"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "naqq-quantifiers-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Пропозиція має значну підтримку, але недостатню для гарантії ухвалення.",
+            "level": "C1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Пропозиція має значну підтримку, але недостатню для гарантії ухвалення.",
+            "target_text": "The proposal commands considerable support but not enough to guarantee adoption.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Відокрем міру наявної підтримки від достатності для результату; пропозиція вже відома.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "proposal",
+                    "verb_hint": "Відокрем міру наявної підтримки від достатності для результату; пропозиція вже відома.",
+                    "options": [
+                        "proposal",
+                        "than",
+                        "earlier",
+                        "suggest"
+                    ]
+                },
+                "a3": {
+                    "answer": "commands",
+                    "verb_hint": "Відокрем міру наявної підтримки від достатності для результату; пропозиція вже відома.",
+                    "options": [
+                        "commands",
+                        "summaries",
+                        "accounts",
+                        "schools"
+                    ]
+                },
+                "a4": {
+                    "answer": "considerable",
+                    "verb_hint": "Відокрем міру наявної підтримки від достатності для результату; пропозиція вже відома.",
+                    "options": [
+                        "considerable",
+                        "large",
+                        "bright",
+                        "dark"
+                    ]
+                },
+                "a5": {
+                    "answer": "support",
+                    "verb_hint": "Відокрем міру наявної підтримки від достатності для результату; пропозиція вже відома.",
+                    "options": [
+                        "support",
+                        "expenditure",
+                        "before",
+                        "approval"
+                    ]
+                },
+                "a6": {
+                    "answer": "but",
+                    "verb_hint": "Відокрем міру наявної підтримки від достатності для результату; пропозиція вже відома.",
+                    "options": [
+                        "but",
+                        "whether",
+                        "and",
+                        "or"
+                    ]
+                },
+                "a7": {
+                    "answer": "not",
+                    "verb_hint": "Відокрем міру наявної підтримки від достатності для результату; пропозиція вже відома.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a8": {
+                    "answer": "enough",
+                    "verb_hint": "Відокрем міру наявної підтримки від достатності для результату; пропозиція вже відома.",
+                    "options": [
+                        "enough",
+                        "proportion",
+                        "Fewer",
+                        "mention"
+                    ]
+                },
+                "a9": {
+                    "answer": "to",
+                    "verb_hint": "Відокрем міру наявної підтримки від достатності для результату; пропозиція вже відома.",
+                    "options": [
+                        "to",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a10": {
+                    "answer": "guarantee",
+                    "verb_hint": "Відокрем міру наявної підтримки від достатності для результату; пропозиція вже відома.",
+                    "options": [
+                        "guarantee",
+                        "incident",
+                        "window",
+                        "phone"
+                    ]
+                },
+                "a11": {
+                    "answer": "adoption.",
+                    "verb_hint": "Відокрем міру наявної підтримки від достатності для результату; пропозиція вже відома.",
+                    "options": [
+                        "adoption",
+                        "train",
+                        "bus",
+                        "desk"
+                    ]
+                }
+            },
+            "verb_hint": "Відокрем міру наявної підтримки від достатності для результату; пропозиція вже відома.",
+            "accepted_target_texts": [
+                "The proposal commands considerable support but not enough to guarantee adoption."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The proposal",
+                "commands considerable support",
+                "but not enough",
+                "to guarantee adoption."
+            ],
+            "token_groups": [
+                "The proposal",
+                "commands considerable support",
+                "but not enough",
+                "to guarantee adoption."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "proposal",
+                "commands",
+                "considerable",
+                "support",
+                "but",
+                "not",
+                "enough",
+                "to",
+                "guarantee",
+                "adoption."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "proposal",
+                "than",
+                "earlier",
+                "suggest",
+                "commands",
+                "summaries",
+                "accounts",
+                "schools",
+                "considerable",
+                "large",
+                "bright",
+                "dark",
+                "support",
+                "expenditure",
+                "before",
+                "approval",
+                "but",
+                "whether",
+                "and",
+                "or",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "enough",
+                "proportion",
+                "Fewer",
+                "mention",
+                "to",
+                "across",
+                "between",
+                "among",
+                "guarantee",
+                "incident",
+                "window",
+                "phone",
+                "adoption",
+                "train",
+                "bus",
+                "desk"
+            ],
+            "source_text_uk": "Пропозиція має значну підтримку, але недостатню для гарантії ухвалення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "proposal",
+                    "than",
+                    "earlier",
+                    "suggest"
+                ],
+                "a3": [
+                    "commands",
+                    "summaries",
+                    "accounts",
+                    "schools"
+                ],
+                "a4": [
+                    "considerable",
+                    "large",
+                    "bright",
+                    "dark"
+                ],
+                "a5": [
+                    "support",
+                    "expenditure",
+                    "before",
+                    "approval"
+                ],
+                "a6": [
+                    "but",
+                    "whether",
+                    "and",
+                    "or"
+                ],
+                "a7": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a8": [
+                    "enough",
+                    "proportion",
+                    "Fewer",
+                    "mention"
+                ],
+                "a9": [
+                    "to",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a10": [
+                    "guarantee",
+                    "incident",
+                    "window",
+                    "phone"
+                ],
+                "a11": [
+                    "adoption",
+                    "train",
+                    "bus",
+                    "desk"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "naqq-quantifiers-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Відмінність важлива лише тією мірою, якою вона пояснює більше, ніж приховує.",
+            "level": "C2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Відмінність важлива лише тією мірою, якою вона пояснює більше, ніж приховує.",
+            "target_text": "The distinction matters only to the extent that it explains more than it obscures.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи обмеження ступеня важливості й зіставлення двох величин, не безумовну позитивну оцінку.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "distinction",
+                    "verb_hint": "Збережи обмеження ступеня важливості й зіставлення двох величин, не безумовну позитивну оцінку.",
+                    "options": [
+                        "distinction",
+                        "warrant",
+                        "same",
+                        "degree"
+                    ]
+                },
+                "a3": {
+                    "answer": "matters",
+                    "verb_hint": "Збережи обмеження ступеня важливості й зіставлення двох величин, не безумовну позитивну оцінку.",
+                    "options": [
+                        "matters",
+                        "survives",
+                        "inconsistencies",
+                        "tables"
+                    ]
+                },
+                "a4": {
+                    "answer": "only",
+                    "verb_hint": "Збережи обмеження ступеня важливості й зіставлення двох величин, не безумовну позитивну оцінку.",
+                    "options": [
+                        "only",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Збережи обмеження ступеня важливості й зіставлення двох величин, не безумовну позитивну оцінку.",
+                    "options": [
+                        "to",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Збережи обмеження ступеня важливості й зіставлення двох величин, не безумовну позитивну оцінку.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a7": {
+                    "answer": "extent",
+                    "verb_hint": "Збережи обмеження ступеня важливості й зіставлення двох величин, не безумовну позитивну оцінку.",
+                    "options": [
+                        "extent",
+                        "Too",
+                        "little",
+                        "justify"
+                    ]
+                },
+                "a8": {
+                    "answer": "that",
+                    "verb_hint": "Збережи обмеження ступеня важливості й зіставлення двох величин, не безумовну позитивну оцінку.",
+                    "options": [
+                        "that",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a9": {
+                    "answer": "it",
+                    "verb_hint": "Збережи обмеження ступеня важливості й зіставлення двох величин, не безумовну позитивну оцінку.",
+                    "options": [
+                        "it",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a10": {
+                    "answer": "explains",
+                    "verb_hint": "Збережи обмеження ступеня важливості й зіставлення двох величин, не безумовну позитивну оцінку.",
+                    "options": [
+                        "explains",
+                        "people",
+                        "men",
+                        "women"
+                    ]
+                },
+                "a11": {
+                    "answer": "more",
+                    "verb_hint": "Збережи обмеження ступеня важливості й зіставлення двох величин, не безумовну позитивну оцінку.",
+                    "options": [
+                        "more",
+                        "concern",
+                        "confident",
+                        "conclusion"
+                    ]
+                },
+                "a12": {
+                    "answer": "than",
+                    "verb_hint": "Збережи обмеження ступеня важливості й зіставлення двох величин, не безумовну позитивну оцінку.",
+                    "options": [
+                        "than",
+                        "apparent",
+                        "food",
+                        "bike"
+                    ]
+                },
+                "a13": {
+                    "answer": "it",
+                    "verb_hint": "Збережи обмеження ступеня важливості й зіставлення двох величин, не безумовну позитивну оцінку.",
+                    "options": [
+                        "it",
+                        "I",
+                        "you",
+                        "he"
+                    ]
+                },
+                "a14": {
+                    "answer": "obscures.",
+                    "verb_hint": "Збережи обмеження ступеня важливості й зіставлення двох величин, не безумовну позитивну оцінку.",
+                    "options": [
+                        "obscures",
+                        "boxes",
+                        "chairs",
+                        "tickets"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи обмеження ступеня важливості й зіставлення двох величин, не безумовну позитивну оцінку.",
+            "accepted_target_texts": [
+                "The distinction matters only to the extent that it explains more than it obscures."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The distinction",
+                "matters only",
+                "to the extent",
+                "that it explains",
+                "more than",
+                "it obscures."
+            ],
+            "token_groups": [
+                "The distinction",
+                "matters only",
+                "to the extent",
+                "that it explains",
+                "more than",
+                "it obscures."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "distinction",
+                "matters",
+                "only",
+                "to",
+                "the",
+                "extent",
+                "that",
+                "it",
+                "explains",
+                "more",
+                "than",
+                "it",
+                "obscures."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "distinction",
+                "warrant",
+                "same",
+                "degree",
+                "matters",
+                "survives",
+                "inconsistencies",
+                "tables",
+                "only",
+                "sometimes",
+                "already",
+                "still",
+                "to",
+                "onto",
+                "over",
+                "under",
+                "the",
+                "every",
+                "no",
+                "another",
+                "extent",
+                "Too",
+                "little",
+                "justify",
+                "that",
+                "a",
+                "an",
+                "some",
+                "it",
+                "they",
+                "me",
+                "him",
+                "explains",
+                "people",
+                "men",
+                "women",
+                "more",
+                "concern",
+                "confident",
+                "conclusion",
+                "than",
+                "apparent",
+                "food",
+                "bike",
+                "I",
+                "you",
+                "he",
+                "obscures",
+                "boxes",
+                "chairs",
+                "tickets"
+            ],
+            "source_text_uk": "Відмінність важлива лише тією мірою, якою вона пояснює більше, ніж приховує.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "distinction",
+                    "warrant",
+                    "same",
+                    "degree"
+                ],
+                "a3": [
+                    "matters",
+                    "survives",
+                    "inconsistencies",
+                    "tables"
+                ],
+                "a4": [
+                    "only",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a5": [
+                    "to",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a6": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a7": [
+                    "extent",
+                    "Too",
+                    "little",
+                    "justify"
+                ],
+                "a8": [
+                    "that",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a9": [
+                    "it",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a10": [
+                    "explains",
+                    "people",
+                    "men",
+                    "women"
+                ],
+                "a11": [
+                    "more",
+                    "concern",
+                    "confident",
+                    "conclusion"
+                ],
+                "a12": [
+                    "than",
+                    "apparent",
+                    "food",
+                    "bike"
+                ],
+                "a13": [
+                    "it",
+                    "I",
+                    "you",
+                    "he"
+                ],
+                "a14": [
+                    "obscures",
+                    "boxes",
+                    "chairs",
+                    "tickets"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "naqq-quantifiers-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Вихідних міркувань збереглося замало, щоб виправдати такий упевнений висновок.",
+            "level": "C2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Вихідних міркувань збереглося замало, щоб виправдати такий упевнений висновок.",
+            "target_text": "Too little of the underlying reasoning survives to justify so confident a conclusion.",
+            "markers": {
+                "a1": {
+                    "answer": "Too",
+                    "verb_hint": "Передай недостатній залишок сукупного міркування й оцінку впевненості; не рахуй окремі причини.",
+                    "options": [
+                        "Too",
+                        "Concern",
+                        "Distinction",
+                        "Extent"
+                    ]
+                },
+                "a2": {
+                    "answer": "little",
+                    "verb_hint": "Передай недостатній залишок сукупного міркування й оцінку впевненості; не рахуй окремі причини.",
+                    "options": [
+                        "little",
+                        "apparent",
+                        "warrant",
+                        "same"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Передай недостатній залишок сукупного міркування й оцінку впевненості; не рахуй окремі причини.",
+                    "options": [
+                        "of",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Передай недостатній залишок сукупного міркування й оцінку впевненості; не рахуй окремі причини.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a5": {
+                    "answer": "underlying",
+                    "verb_hint": "Передай недостатній залишок сукупного міркування й оцінку впевненості; не рахуй окремі причини.",
+                    "options": [
+                        "underlying",
+                        "buying",
+                        "giving",
+                        "making"
+                    ]
+                },
+                "a6": {
+                    "answer": "reasoning",
+                    "verb_hint": "Передай недостатній залишок сукупного міркування й оцінку впевненості; не рахуй окремі причини.",
+                    "options": [
+                        "reasoning",
+                        "going",
+                        "taking",
+                        "working"
+                    ]
+                },
+                "a7": {
+                    "answer": "survives",
+                    "verb_hint": "Передай недостатній залишок сукупного міркування й оцінку впевненості; не рахуй окремі причини.",
+                    "options": [
+                        "survives",
+                        "inconsistencies",
+                        "matters",
+                        "explains"
+                    ]
+                },
+                "a8": {
+                    "answer": "to",
+                    "verb_hint": "Передай недостатній залишок сукупного міркування й оцінку впевненості; не рахуй окремі причини.",
+                    "options": [
+                        "to",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a9": {
+                    "answer": "justify",
+                    "verb_hint": "Передай недостатній залишок сукупного міркування й оцінку впевненості; не рахуй окремі причини.",
+                    "options": [
+                        "justify",
+                        "degree",
+                        "more",
+                        "than"
+                    ]
+                },
+                "a10": {
+                    "answer": "so",
+                    "verb_hint": "Передай недостатній залишок сукупного міркування й оцінку впевненості; не рахуй окремі причини.",
+                    "options": [
+                        "so",
+                        "but",
+                        "or",
+                        "nor"
+                    ]
+                },
+                "a11": {
+                    "answer": "confident",
+                    "verb_hint": "Передай недостатній залишок сукупного міркування й оцінку впевненості; не рахуй окремі причини.",
+                    "options": [
+                        "confident",
+                        "letter",
+                        "window",
+                        "phone"
+                    ]
+                },
+                "a12": {
+                    "answer": "a",
+                    "verb_hint": "Передай недостатній залишок сукупного міркування й оцінку впевненості; не рахуй окремі причини.",
+                    "options": [
+                        "a",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a13": {
+                    "answer": "conclusion.",
+                    "verb_hint": "Передай недостатній залишок сукупного міркування й оцінку впевненості; не рахуй окремі причини.",
+                    "options": [
+                        "conclusion",
+                        "train",
+                        "bus",
+                        "desk"
+                    ]
+                }
+            },
+            "verb_hint": "Передай недостатній залишок сукупного міркування й оцінку впевненості; не рахуй окремі причини.",
+            "accepted_target_texts": [
+                "Too little of the underlying reasoning survives to justify so confident a conclusion."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Too little of",
+                "the underlying reasoning",
+                "survives to justify",
+                "so confident",
+                "a conclusion."
+            ],
+            "token_groups": [
+                "Too little of",
+                "the underlying reasoning",
+                "survives to justify",
+                "so confident",
+                "a conclusion."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Too",
+                "little",
+                "of",
+                "the",
+                "underlying",
+                "reasoning",
+                "survives",
+                "to",
+                "justify",
+                "so",
+                "confident",
+                "a",
+                "conclusion."
+            ],
+            "options": [
+                "Too",
+                "Concern",
+                "Distinction",
+                "Extent",
+                "little",
+                "apparent",
+                "warrant",
+                "same",
+                "of",
+                "on",
+                "at",
+                "by",
+                "the",
+                "these",
+                "those",
+                "each",
+                "underlying",
+                "buying",
+                "giving",
+                "making",
+                "reasoning",
+                "going",
+                "taking",
+                "working",
+                "survives",
+                "inconsistencies",
+                "matters",
+                "explains",
+                "to",
+                "with",
+                "without",
+                "into",
+                "justify",
+                "degree",
+                "more",
+                "than",
+                "so",
+                "but",
+                "or",
+                "nor",
+                "confident",
+                "letter",
+                "window",
+                "phone",
+                "a",
+                "every",
+                "no",
+                "another",
+                "conclusion",
+                "train",
+                "bus",
+                "desk"
+            ],
+            "source_text_uk": "Вихідних міркувань збереглося замало, щоб виправдати такий упевнений висновок.",
+            "options_by_marker": {
+                "a1": [
+                    "Too",
+                    "Concern",
+                    "Distinction",
+                    "Extent"
+                ],
+                "a2": [
+                    "little",
+                    "apparent",
+                    "warrant",
+                    "same"
+                ],
+                "a3": [
+                    "of",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a4": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a5": [
+                    "underlying",
+                    "buying",
+                    "giving",
+                    "making"
+                ],
+                "a6": [
+                    "reasoning",
+                    "going",
+                    "taking",
+                    "working"
+                ],
+                "a7": [
+                    "survives",
+                    "inconsistencies",
+                    "matters",
+                    "explains"
+                ],
+                "a8": [
+                    "to",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a9": [
+                    "justify",
+                    "degree",
+                    "more",
+                    "than"
+                ],
+                "a10": [
+                    "so",
+                    "but",
+                    "or",
+                    "nor"
+                ],
+                "a11": [
+                    "confident",
+                    "letter",
+                    "window",
+                    "phone"
+                ],
+                "a12": [
+                    "a",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a13": [
+                    "conclusion",
+                    "train",
+                    "bus",
+                    "desk"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "naqq-quantifiers-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Не всі позірні суперечності заслуговують на однакову міру занепокоєння.",
+            "level": "C2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_quantifiers",
+            "translation_uk": "Не всі позірні суперечності заслуговують на однакову міру занепокоєння.",
+            "target_text": "Not all of the apparent inconsistencies warrant the same degree of concern.",
+            "markers": {
+                "a1": {
+                    "answer": "Not",
+                    "verb_hint": "Збережи часткове заперечення: воно стосується всіх як сукупності, а не заперечує кожен випадок окремо.",
+                    "options": [
+                        "Not",
+                        "Never",
+                        "Always",
+                        "Often"
+                    ]
+                },
+                "a2": {
+                    "answer": "all",
+                    "verb_hint": "Збережи часткове заперечення: воно стосується всіх як сукупності, а не заперечує кожен випадок окремо.",
+                    "options": [
+                        "all",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Збережи часткове заперечення: воно стосується всіх як сукупності, а не заперечує кожен випадок окремо.",
+                    "options": [
+                        "of",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи часткове заперечення: воно стосується всіх як сукупності, а не заперечує кожен випадок окремо.",
+                    "options": [
+                        "the",
+                        "these",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "apparent",
+                    "verb_hint": "Збережи часткове заперечення: воно стосується всіх як сукупності, а не заперечує кожен випадок окремо.",
+                    "options": [
+                        "apparent",
+                        "extent",
+                        "more",
+                        "than"
+                    ]
+                },
+                "a6": {
+                    "answer": "inconsistencies",
+                    "verb_hint": "Збережи часткове заперечення: воно стосується всіх як сукупності, а не заперечує кожен випадок окремо.",
+                    "options": [
+                        "inconsistencies",
+                        "obscures",
+                        "survives",
+                        "matters"
+                    ]
+                },
+                "a7": {
+                    "answer": "warrant",
+                    "verb_hint": "Збережи часткове заперечення: воно стосується всіх як сукупності, а не заперечує кожен випадок окремо.",
+                    "options": [
+                        "warrant",
+                        "distinction",
+                        "Too",
+                        "little"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Збережи часткове заперечення: воно стосується всіх як сукупності, а не заперечує кожен випадок окремо.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a9": {
+                    "answer": "same",
+                    "verb_hint": "Збережи часткове заперечення: воно стосується всіх як сукупності, а не заперечує кожен випадок окремо.",
+                    "options": [
+                        "same",
+                        "confident",
+                        "conclusion",
+                        "justify"
+                    ]
+                },
+                "a10": {
+                    "answer": "degree",
+                    "verb_hint": "Збережи часткове заперечення: воно стосується всіх як сукупності, а не заперечує кожен випадок окремо.",
+                    "options": [
+                        "degree",
+                        "milk",
+                        "music",
+                        "food"
+                    ]
+                },
+                "a11": {
+                    "answer": "of",
+                    "verb_hint": "Збережи часткове заперечення: воно стосується всіх як сукупності, а не заперечує кожен випадок окремо.",
+                    "options": [
+                        "of",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a12": {
+                    "answer": "concern.",
+                    "verb_hint": "Збережи часткове заперечення: воно стосується всіх як сукупності, а не заперечує кожен випадок окремо.",
+                    "options": [
+                        "concern",
+                        "water",
+                        "bread",
+                        "bike"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи часткове заперечення: воно стосується всіх як сукупності, а не заперечує кожен випадок окремо.",
+            "accepted_target_texts": [
+                "Not all of the apparent inconsistencies warrant the same degree of concern."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Not all of",
+                "the apparent inconsistencies",
+                "warrant",
+                "the same degree",
+                "of concern."
+            ],
+            "token_groups": [
+                "Not all of",
+                "the apparent inconsistencies",
+                "warrant",
+                "the same degree",
+                "of concern."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Not",
+                "all",
+                "of",
+                "the",
+                "apparent",
+                "inconsistencies",
+                "warrant",
+                "the",
+                "same",
+                "degree",
+                "of",
+                "concern."
+            ],
+            "options": [
+                "Not",
+                "Never",
+                "Always",
+                "Often",
+                "all",
+                "those",
+                "each",
+                "every",
+                "of",
+                "to",
+                "from",
+                "for",
+                "the",
+                "these",
+                "no",
+                "another",
+                "apparent",
+                "extent",
+                "more",
+                "than",
+                "inconsistencies",
+                "obscures",
+                "survives",
+                "matters",
+                "warrant",
+                "distinction",
+                "Too",
+                "little",
+                "an",
+                "some",
+                "any",
+                "same",
+                "confident",
+                "conclusion",
+                "justify",
+                "degree",
+                "milk",
+                "music",
+                "food",
+                "through",
+                "across",
+                "between",
+                "concern",
+                "water",
+                "bread",
+                "bike"
+            ],
+            "source_text_uk": "Не всі позірні суперечності заслуговують на однакову міру занепокоєння.",
+            "options_by_marker": {
+                "a1": [
+                    "Not",
+                    "Never",
+                    "Always",
+                    "Often"
+                ],
+                "a2": [
+                    "all",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a3": [
+                    "of",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a4": [
+                    "the",
+                    "these",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "apparent",
+                    "extent",
+                    "more",
+                    "than"
+                ],
+                "a6": [
+                    "inconsistencies",
+                    "obscures",
+                    "survives",
+                    "matters"
+                ],
+                "a7": [
+                    "warrant",
+                    "distinction",
+                    "Too",
+                    "little"
+                ],
+                "a8": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a9": [
+                    "same",
+                    "confident",
+                    "conclusion",
+                    "justify"
+                ],
+                "a10": [
+                    "degree",
+                    "milk",
+                    "music",
+                    "food"
+                ],
+                "a11": [
+                    "of",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a12": [
+                    "concern",
+                    "water",
+                    "bread",
+                    "bike"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

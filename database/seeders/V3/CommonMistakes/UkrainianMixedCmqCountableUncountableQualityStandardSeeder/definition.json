@@ -1,0 +1,665 @@
+{
+    "schema_version": 1,
+    "quality_revision": "cmq-v1",
+    "compiled_from": {
+        "path": "docs/content/common-mistakes-quality/countable-vs-uncountable-nouns-common-mistakes.v1.json",
+        "sha256": "923f7c159dd1338510b35c1a2179abce119937afcf46c622eac924c77620390b"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\CommonMistakes\\UkrainianMixedCmqCountableUncountableQualityStandardSeeder",
+        "uuid_namespace": "common-mistakes-quality-countable-vs-uncountable-nouns-common-mistakes-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Common Mistakes"
+    },
+    "sources": {
+        "common_mistakes_quality_countable_vs_uncountable_nouns_common_mistakes": {
+            "name": "Common Mistakes Quality: Countable vs Uncountable Nouns: Common Mistakes"
+        }
+    },
+    "tags": {
+        "common_mistakes_countable_vs_uncountable_nouns_common_mistakes_all_levels": {
+            "name": "common mistakes countable vs uncountable nouns common mistakes all levels",
+            "category": "common_mistakes"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "countable_nouns": {
+            "name": "Countable Nouns",
+            "category": "topic"
+        },
+        "uncountable_nouns": {
+            "name": "Uncountable Nouns",
+            "category": "topic"
+        },
+        "common_uncountables": {
+            "name": "Common Uncountables",
+            "category": "topic"
+        },
+        "much_many": {
+            "name": "Much Many",
+            "category": "topic"
+        },
+        "few_little": {
+            "name": "Few Little",
+            "category": "topic"
+        },
+        "a_few_a_little": {
+            "name": "A Few A Little",
+            "category": "topic"
+        },
+        "some_any": {
+            "name": "Some Any",
+            "category": "topic"
+        },
+        "a_lot_of": {
+            "name": "A Lot Of",
+            "category": "topic"
+        },
+        "partitives": {
+            "name": "Partitives",
+            "category": "topic"
+        },
+        "no_plural_uncountable": {
+            "name": "No Plural Uncountable",
+            "category": "topic"
+        },
+        "article_mistakes": {
+            "name": "Article Mistakes",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cmq-countable-a1-g01",
+            "author_id": "A1-g01",
+            "question": "There are three {a1} in the basket.",
+            "level": "A1",
+            "type": 0,
+            "source": "common_mistakes_quality_countable_vs_uncountable_nouns_common_mistakes",
+            "translation_uk": "У кошику три яйця.",
+            "target_text": "There are three eggs in the basket.",
+            "markers": {
+                "a1": {
+                    "answer": "eggs",
+                    "options": [
+                        "eggs",
+                        "egg",
+                        "egges"
+                    ],
+                    "verb_hint": "Яйця: після числа три потрібна множина."
+                }
+            },
+            "verb_hint": "Яйця: після числа три потрібна множина.",
+            "accepted_target_texts": [
+                "There are three eggs in the basket."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There are",
+                "three eggs",
+                "in the basket."
+            ],
+            "token_groups": [
+                "There are",
+                "three eggs",
+                "in the basket."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "cmq-countable-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The milk {a1} fresh.",
+            "level": "A1",
+            "type": 0,
+            "source": "common_mistakes_quality_countable_vs_uncountable_nouns_common_mistakes",
+            "translation_uk": "Молоко свіже.",
+            "target_text": "The milk is fresh.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "Молоко називає речовину; узгодь з нею теперішню форму дієслова."
+                }
+            },
+            "verb_hint": "Молоко називає речовину; узгодь з нею теперішню форму дієслова.",
+            "accepted_target_texts": [
+                "The milk is fresh."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The milk",
+                "is fresh."
+            ],
+            "token_groups": [
+                "The milk",
+                "is fresh."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "cmq-countable-a2-g01",
+            "author_id": "A2-g01",
+            "question": "How {a1} flour goes into this cake?",
+            "level": "A2",
+            "type": 0,
+            "source": "common_mistakes_quality_countable_vs_uncountable_nouns_common_mistakes",
+            "translation_uk": "Скільки борошна йде в цей пиріг?",
+            "target_text": "How much flour goes into this cake?",
+            "markers": {
+                "a1": {
+                    "answer": "much",
+                    "options": [
+                        "much",
+                        "many",
+                        "few"
+                    ],
+                    "verb_hint": "Борошно не рахуємо як окремі предмети; запитай про його кількість."
+                }
+            },
+            "verb_hint": "Борошно не рахуємо як окремі предмети; запитай про його кількість.",
+            "accepted_target_texts": [
+                "How much flour goes into this cake?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How much flour",
+                "goes into",
+                "this cake?"
+            ],
+            "token_groups": [
+                "How much flour",
+                "goes into",
+                "this cake?"
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "cmq-countable-a2-g02",
+            "author_id": "A2-g02",
+            "question": "These {a1} are too blunt for sewing.",
+            "level": "A2",
+            "type": 0,
+            "source": "common_mistakes_quality_countable_vs_uncountable_nouns_common_mistakes",
+            "translation_uk": "Ці ножиці надто тупі для шиття.",
+            "target_text": "These scissors are too blunt for sewing.",
+            "markers": {
+                "a1": {
+                    "answer": "scissors",
+                    "options": [
+                        "scissors",
+                        "scissor",
+                        "scissorses"
+                    ],
+                    "verb_hint": "Ножиці: цей предмет називаємо формою множини без додаткового закінчення."
+                }
+            },
+            "verb_hint": "Ножиці: цей предмет називаємо формою множини без додаткового закінчення.",
+            "accepted_target_texts": [
+                "These scissors are too blunt for sewing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "These scissors",
+                "are too blunt",
+                "for sewing."
+            ],
+            "token_groups": [
+                "These scissors",
+                "are too blunt",
+                "for sewing."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "cmq-countable-b1-g01",
+            "author_id": "B1-g01",
+            "question": "There is {a1} furniture in the attic; we can barely move.",
+            "level": "B1",
+            "type": 0,
+            "source": "common_mistakes_quality_countable_vs_uncountable_nouns_common_mistakes",
+            "translation_uk": "На горищі забагато меблів; ми ледве можемо рухатися.",
+            "target_text": "There is too much furniture in the attic; we can barely move.",
+            "markers": {
+                "a1": {
+                    "answer": "too much",
+                    "options": [
+                        "too much",
+                        "too many",
+                        "a few"
+                    ],
+                    "verb_hint": "Підкресли надмірну кількість меблів; англійська назва тут незлічувана."
+                }
+            },
+            "verb_hint": "Підкресли надмірну кількість меблів; англійська назва тут незлічувана.",
+            "accepted_target_texts": [
+                "There is too much furniture in the attic; we can barely move."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "too much furniture",
+                "in the attic;",
+                "we can",
+                "barely move."
+            ],
+            "token_groups": [
+                "There is",
+                "too much furniture",
+                "in the attic;",
+                "we can",
+                "barely move."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "cmq-countable-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The stall sells three {a1} of honey from different flowers.",
+            "level": "B1",
+            "type": 0,
+            "source": "common_mistakes_quality_countable_vs_uncountable_nouns_common_mistakes",
+            "translation_uk": "На ятці продають три сорти меду з різних квітів.",
+            "target_text": "The stall sells three varieties of honey from different flowers.",
+            "markers": {
+                "a1": {
+                    "answer": "varieties",
+                    "options": [
+                        "varieties",
+                        "variety",
+                        "varietys"
+                    ],
+                    "verb_hint": "Сорти або різновиди: рахуємо види речовини, а не окремі краплі."
+                }
+            },
+            "verb_hint": "Сорти або різновиди: рахуємо види речовини, а не окремі краплі.",
+            "accepted_target_texts": [
+                "The stall sells three varieties of honey from different flowers.",
+                "The stall sells three types of honey from different flowers.",
+                "The stall sells three kinds of honey from different flowers.",
+                "The stall sells three sorts of honey from different flowers."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "types",
+                    "kinds",
+                    "sorts"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "types",
+                    "kinds",
+                    "sorts"
+                ]
+            },
+            "reorder_groups": [
+                "The stall sells",
+                "three varieties",
+                "of honey",
+                "from different flowers."
+            ],
+            "token_groups": [
+                "The stall sells",
+                "three varieties",
+                "of honey",
+                "from different flowers."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "cmq-countable-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The carpenter ordered two {a1} of equipment for the workshop.",
+            "level": "B2",
+            "type": 0,
+            "source": "common_mistakes_quality_countable_vs_uncountable_nouns_common_mistakes",
+            "translation_uk": "Столяр замовив дві одиниці обладнання для майстерні.",
+            "target_text": "The carpenter ordered two pieces of equipment for the workshop.",
+            "markers": {
+                "a1": {
+                    "answer": "pieces",
+                    "options": [
+                        "pieces",
+                        "piece",
+                        "equipments"
+                    ],
+                    "verb_hint": "Одиниці: порахуй окремі предмети обладнання за допомогою злічуваного слова."
+                }
+            },
+            "verb_hint": "Одиниці: порахуй окремі предмети обладнання за допомогою злічуваного слова.",
+            "accepted_target_texts": [
+                "The carpenter ordered two pieces of equipment for the workshop.",
+                "The carpenter ordered two items of equipment for the workshop."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "items"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "items"
+                ]
+            },
+            "reorder_groups": [
+                "The carpenter",
+                "ordered two pieces",
+                "of equipment",
+                "for the workshop."
+            ],
+            "token_groups": [
+                "The carpenter",
+                "ordered two pieces",
+                "of equipment",
+                "for the workshop."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "cmq-countable-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The {a1} from yesterday's trial is still being analysed.",
+            "level": "B2",
+            "type": 0,
+            "source": "common_mistakes_quality_countable_vs_uncountable_nouns_common_mistakes",
+            "translation_uk": "Докази з учорашнього судового процесу досі аналізують.",
+            "target_text": "The evidence from yesterday's trial is still being analysed.",
+            "markers": {
+                "a1": {
+                    "answer": "evidence",
+                    "options": [
+                        "evidence",
+                        "evidences",
+                        "evidencing"
+                    ],
+                    "verb_hint": "Доказові матеріали як сукупність; потрібен незлічуваний іменник, узгоджений з одниною."
+                }
+            },
+            "verb_hint": "Доказові матеріали як сукупність; потрібен незлічуваний іменник, узгоджений з одниною.",
+            "accepted_target_texts": [
+                "The evidence from yesterday's trial is still being analysed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The evidence",
+                "from yesterday's trial",
+                "is still",
+                "being analysed."
+            ],
+            "token_groups": [
+                "The evidence",
+                "from yesterday's trial",
+                "is still",
+                "being analysed."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "cmq-countable-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The inspector noted several {a1} of negligence, not a single incident.",
+            "level": "C1",
+            "type": 0,
+            "source": "common_mistakes_quality_countable_vs_uncountable_nouns_common_mistakes",
+            "translation_uk": "Інспектор зафіксував кілька випадків недбалості, а не один інцидент.",
+            "target_text": "The inspector noted several instances of negligence, not a single incident.",
+            "markers": {
+                "a1": {
+                    "answer": "instances",
+                    "options": [
+                        "instances",
+                        "instance",
+                        "negligences"
+                    ],
+                    "verb_hint": "Випадки або приклади: порахуй окремі прояви абстрактної ознаки."
+                }
+            },
+            "verb_hint": "Випадки або приклади: порахуй окремі прояви абстрактної ознаки.",
+            "accepted_target_texts": [
+                "The inspector noted several instances of negligence, not a single incident.",
+                "The inspector noted several cases of negligence, not a single incident.",
+                "The inspector noted several examples of negligence, not a single incident."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "cases",
+                    "examples"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "cases",
+                    "examples"
+                ]
+            },
+            "reorder_groups": [
+                "The inspector",
+                "noted several instances",
+                "of negligence,",
+                "not a",
+                "single incident."
+            ],
+            "token_groups": [
+                "The inspector",
+                "noted several instances",
+                "of negligence,",
+                "not a",
+                "single incident."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "cmq-countable-c1-g02",
+            "author_id": "C1-g02",
+            "question": "Too {a1} progress has been made to justify closing the investigation.",
+            "level": "C1",
+            "type": 0,
+            "source": "common_mistakes_quality_countable_vs_uncountable_nouns_common_mistakes",
+            "translation_uk": "Досягнуто замало прогресу, щоб обґрунтувати закриття розслідування.",
+            "target_text": "Too little progress has been made to justify closing the investigation.",
+            "markers": {
+                "a1": {
+                    "answer": "little",
+                    "options": [
+                        "little",
+                        "few",
+                        "many"
+                    ],
+                    "verb_hint": "Прогрес — незлічуваний; підкресли його недостатність."
+                }
+            },
+            "verb_hint": "Прогрес — незлічуваний; підкресли його недостатність.",
+            "accepted_target_texts": [
+                "Too little progress has been made to justify closing the investigation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Too little progress",
+                "has been made",
+                "to justify",
+                "closing the investigation."
+            ],
+            "token_groups": [
+                "Too little progress",
+                "has been made",
+                "to justify",
+                "closing the investigation."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "cmq-countable-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The {a1} provided no grounds for treating the correlations as causal.",
+            "level": "C2",
+            "type": 0,
+            "source": "common_mistakes_quality_countable_vs_uncountable_nouns_common_mistakes",
+            "translation_uk": "Дослідницька робота не дала підстав вважати кореляції причинними зв’язками.",
+            "target_text": "The research provided no grounds for treating the correlations as causal.",
+            "markers": {
+                "a1": {
+                    "answer": "research",
+                    "options": [
+                        "research",
+                        "researches",
+                        "researchings"
+                    ],
+                    "verb_hint": "Дослідницька робота як цілісний масив, не кілька названих досліджень; уживи незлічувану назву."
+                }
+            },
+            "verb_hint": "Дослідницька робота як цілісний масив, не кілька названих досліджень; уживи незлічувану назву.",
+            "accepted_target_texts": [
+                "The research provided no grounds for treating the correlations as causal."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The research",
+                "provided no grounds",
+                "for treating",
+                "the correlations",
+                "as causal."
+            ],
+            "token_groups": [
+                "The research",
+                "provided no grounds",
+                "for treating",
+                "the correlations",
+                "as causal."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "cmq-countable-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The committee heard four {a1} of expert testimony, each addressing a different claim.",
+            "level": "C2",
+            "type": 0,
+            "source": "common_mistakes_quality_countable_vs_uncountable_nouns_common_mistakes",
+            "translation_uk": "Комітет заслухав чотири окремі частини експертних свідчень, кожна стосувалася іншого твердження.",
+            "target_text": "The committee heard four pieces of expert testimony, each addressing a different claim.",
+            "markers": {
+                "a1": {
+                    "answer": "pieces",
+                    "options": [
+                        "pieces",
+                        "piece",
+                        "testimonies"
+                    ],
+                    "verb_hint": "Окремі частини: порахуй елементи свідчень, а не утворюй множину назви змісту."
+                }
+            },
+            "verb_hint": "Окремі частини: порахуй елементи свідчень, а не утворюй множину назви змісту.",
+            "accepted_target_texts": [
+                "The committee heard four pieces of expert testimony, each addressing a different claim.",
+                "The committee heard four sections of expert testimony, each addressing a different claim."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "sections"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "sections"
+                ]
+            },
+            "reorder_groups": [
+                "The committee",
+                "heard four pieces",
+                "of expert testimony,",
+                "each addressing",
+                "a different claim."
+            ],
+            "token_groups": [
+                "The committee",
+                "heard four pieces",
+                "of expert testimony,",
+                "each addressing",
+                "a different claim."
+            ],
+            "quality_revision": "cmq-v1"
+        }
+    ]
+}

@@ -51,6 +51,20 @@ class ApplySiteMode
             return $response;
         }
 
+        if ($request->routeIs('theory.navigation')) {
+            // Respect the fragment's private revalidation/miss policy instead
+            // of promoting it (or a response with cookies) to a public cache.
+            return $response;
+        }
+
+        if ($request->routeIs('theory.show', 'theory.category') && $response->isSuccessful()) {
+            // A new visit must see the newly published menu revision. Existing
+            // pages may still fetch their pinned, immutable-on-disk revision.
+            $response->headers->set('Cache-Control', 'private, no-cache');
+
+            return $response;
+        }
+
         if ($this->shouldCache($request, $response)) {
             $ttl = max(0, (int) config('site-mode.response_cache.ttl', 300));
             $visibility = $response->headers->has('Set-Cookie') ? 'private' : 'public';

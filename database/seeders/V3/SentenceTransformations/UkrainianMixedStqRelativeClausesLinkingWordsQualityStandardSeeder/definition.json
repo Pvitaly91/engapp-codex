@@ -1,0 +1,688 @@
+{
+    "schema_version": 1,
+    "quality_revision": "stq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-transformations-quality/relative-clauses-linking-words.v1.json",
+        "sha256": "147589f0ff0016832a57865bba2b26e73956fc7242a221284203caa1bd815247"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SentenceTransformations\\UkrainianMixedStqRelativeClausesLinkingWordsQualityStandardSeeder",
+        "uuid_namespace": "sentence-transformations-quality-relative-clauses-linking-words-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Sentence Transformations"
+    },
+    "sources": {
+        "sentence_transformations_quality_relative_clauses_linking_words": {
+            "name": "Sentence Transformations Quality: Sentence Transformations: Relative Clauses and Linking Words"
+        }
+    },
+    "tags": {
+        "sentence_transformations_relative_clauses_linking_words_all_levels": {
+            "name": "sentence transformations relative clauses linking words all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "relative_pronouns": {
+            "name": "Relative Pronouns",
+            "category": "topic"
+        },
+        "defining_relative": {
+            "name": "Defining Relative",
+            "category": "topic"
+        },
+        "non_defining_relative": {
+            "name": "Non Defining Relative",
+            "category": "topic"
+        },
+        "omitted_relative_pronoun": {
+            "name": "Omitted Relative Pronoun",
+            "category": "topic"
+        },
+        "reduced_relative": {
+            "name": "Reduced Relative",
+            "category": "topic"
+        },
+        "reason_links": {
+            "name": "Reason Links",
+            "category": "topic"
+        },
+        "contrast_links": {
+            "name": "Contrast Links",
+            "category": "topic"
+        },
+        "result_links": {
+            "name": "Result Links",
+            "category": "topic"
+        },
+        "purpose_links": {
+            "name": "Purpose Links",
+            "category": "topic"
+        },
+        "preserve_relation": {
+            "name": "Preserve Relation",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stq-clauses-a1-g01",
+            "author_id": "A1-g01",
+            "question": "My aunt is a baker {a1} makes fresh rolls.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Моя тітка — пекарка. Вона пече свіжі булочки.",
+            "target_text": "My aunt is a baker who makes fresh rolls.",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Об’єднай повідомлення: додай означальну частину «яка пече свіжі булочки» словом для людини, не повторюючи займенник."
+                }
+            },
+            "verb_hint": "Об’єднай повідомлення: додай означальну частину «яка пече свіжі булочки» словом для людини, не повторюючи займенник.",
+            "accepted_target_texts": [
+                "My aunt is a baker who makes fresh rolls.",
+                "My aunt is a baker that makes fresh rolls."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "that"
+                ]
+            },
+            "reorder_groups": [
+                "My aunt",
+                "is a baker",
+                "who makes",
+                "fresh rolls."
+            ],
+            "token_groups": [
+                "My aunt",
+                "is a baker",
+                "who makes",
+                "fresh rolls."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "stq-clauses-a1-g02",
+            "author_id": "A1-g02",
+            "question": "I wanted to walk, {a1} it began to snow.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Я хотів погуляти, але почався сніг.",
+            "target_text": "I wanted to walk, but it began to snow.",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "because"
+                    ],
+                    "verb_hint": "Об’єднай бажання погуляти й початок снігу сполучником протиставлення; причина бажання тут не названа."
+                }
+            },
+            "verb_hint": "Об’єднай бажання погуляти й початок снігу сполучником протиставлення; причина бажання тут не названа.",
+            "accepted_target_texts": [
+                "I wanted to walk, but it began to snow.",
+                "I wanted to walk, yet it began to snow."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "reorder_groups": [
+                "I wanted",
+                "to walk,",
+                "but it began",
+                "to snow."
+            ],
+            "token_groups": [
+                "I wanted",
+                "to walk,",
+                "but it began",
+                "to snow."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "stq-clauses-a2-g01",
+            "author_id": "A2-g01",
+            "question": "I kept the receipt {a1} the shop might ask for it.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Я зберіг чек, бо в магазині могли його попросити.",
+            "target_text": "I kept the receipt because the shop might ask for it.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "although",
+                        "unless"
+                    ],
+                    "verb_hint": "Пов’яжи збереження чека з названою причиною; введи лише причинний сполучник, решта повідомлення вже наведена."
+                }
+            },
+            "verb_hint": "Пов’яжи збереження чека з названою причиною; введи лише причинний сполучник, решта повідомлення вже наведена.",
+            "accepted_target_texts": [
+                "I kept the receipt because the shop might ask for it.",
+                "I kept the receipt since the shop might ask for it.",
+                "I kept the receipt as the shop might ask for it."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "I kept",
+                "the receipt",
+                "because the shop",
+                "might ask",
+                "for it."
+            ],
+            "token_groups": [
+                "I kept",
+                "the receipt",
+                "because the shop",
+                "might ask",
+                "for it."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "stq-clauses-a2-g02",
+            "author_id": "A2-g02",
+            "question": "This is the bench {a1} we painted yesterday.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Ось лавка. Ми пофарбували її вчора.",
+            "target_text": "This is the bench that we painted yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Об’єднай повідомлення явним означальним словом для предмета; у цьому завданні не пропускай його."
+                }
+            },
+            "verb_hint": "Об’єднай повідомлення явним означальним словом для предмета; у цьому завданні не пропускай його.",
+            "accepted_target_texts": [
+                "This is the bench that we painted yesterday.",
+                "This is the bench which we painted yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "which"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "which"
+                ]
+            },
+            "reorder_groups": [
+                "This is",
+                "the bench",
+                "that we painted",
+                "yesterday."
+            ],
+            "token_groups": [
+                "This is",
+                "the bench",
+                "that we painted",
+                "yesterday."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "stq-clauses-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The student {a1} bicycle was stolen called us.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "У студента вкрали велосипед. Цей студент зателефонував нам.",
+            "target_text": "The student whose bicycle was stolen called us.",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who's",
+                        "whom"
+                    ],
+                    "verb_hint": "Об’єднай повідомлення присвійним означальним словом перед назвою велосипеда; власник і предмет мають залишитися пов’язаними."
+                }
+            },
+            "verb_hint": "Об’єднай повідомлення присвійним означальним словом перед назвою велосипеда; власник і предмет мають залишитися пов’язаними.",
+            "accepted_target_texts": [
+                "The student whose bicycle was stolen called us."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The student",
+                "whose bicycle",
+                "was stolen",
+                "called us."
+            ],
+            "token_groups": [
+                "The student",
+                "whose bicycle",
+                "was stolen",
+                "called us."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "stq-clauses-b1-g02",
+            "author_id": "B1-g02",
+            "question": "We stayed indoors {a1} the strong wind.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Ми залишилися в приміщенні, бо вітер був сильним.",
+            "target_text": "We stayed indoors because of the strong wind.",
+            "markers": {
+                "a1": {
+                    "answer": "because of",
+                    "options": [
+                        "because of",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Перебудуй причину з речення на прийменникову групу перед назвою вітру; не додавай нового підмета."
+                }
+            },
+            "verb_hint": "Перебудуй причину з речення на прийменникову групу перед назвою вітру; не додавай нового підмета.",
+            "accepted_target_texts": [
+                "We stayed indoors because of the strong wind.",
+                "We stayed indoors owing to the strong wind.",
+                "We stayed indoors due to the strong wind."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "owing to",
+                    "due to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "owing to",
+                    "due to"
+                ]
+            },
+            "reorder_groups": [
+                "We stayed indoors",
+                "because of",
+                "the strong wind."
+            ],
+            "token_groups": [
+                "We stayed indoors",
+                "because of",
+                "the strong wind."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "stq-clauses-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The archive, {a1} I visit monthly, has moved.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Архів переїхав. Додатково повідомляю: я відвідую цей уже відомий архів щомісяця.",
+            "target_text": "The archive, which I visit monthly, has moved.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "where"
+                    ],
+                    "verb_hint": "Встав означальне слово для предмета в додаткову частину між комами; вона не визначає, який саме архів мається на увазі."
+                }
+            },
+            "verb_hint": "Встав означальне слово для предмета в додаткову частину між комами; вона не визначає, який саме архів мається на увазі.",
+            "accepted_target_texts": [
+                "The archive, which I visit monthly, has moved."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The archive,",
+                "which I visit",
+                "monthly,",
+                "has moved."
+            ],
+            "token_groups": [
+                "The archive,",
+                "which I visit",
+                "monthly,",
+                "has moved."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "stq-clauses-b2-g02",
+            "author_id": "B2-g02",
+            "question": "He wore gloves in order {a1} leave any fingerprints.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Він надягнув рукавички, щоб не залишити відбитків пальців.",
+            "target_text": "He wore gloves in order not to leave any fingerprints.",
+            "markers": {
+                "a1": {
+                    "answer": "not to",
+                    "options": [
+                        "not to",
+                        "not",
+                        "so not to"
+                    ],
+                    "verb_hint": "Перебудуй заперечну мету після вже наведеної початкової частини; введи заперечення й частку перед дієсловом."
+                }
+            },
+            "verb_hint": "Перебудуй заперечну мету після вже наведеної початкової частини; введи заперечення й частку перед дієсловом.",
+            "accepted_target_texts": [
+                "He wore gloves in order not to leave any fingerprints."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He wore gloves",
+                "in order",
+                "not to leave",
+                "any fingerprints."
+            ],
+            "token_groups": [
+                "He wore gloves",
+                "in order",
+                "not to leave",
+                "any fingerprints."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "stq-clauses-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The curator spoke to Mira, {a1} had restored the mural.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Куратор поговорив із Мірою. Додаткова відома обставина: саме вона відреставрувала стінопис.",
+            "target_text": "The curator spoke to Mira, who had restored the mural.",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "whom",
+                        "which"
+                    ],
+                    "verb_hint": "Приєднай додаткове повідомлення про названу людину після коми; означальне слово є виконавцем реставрації."
+                }
+            },
+            "verb_hint": "Приєднай додаткове повідомлення про названу людину після коми; означальне слово є виконавцем реставрації.",
+            "accepted_target_texts": [
+                "The curator spoke to Mira, who had restored the mural."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The curator spoke",
+                "to Mira,",
+                "who had restored",
+                "the mural."
+            ],
+            "token_groups": [
+                "The curator spoke",
+                "to Mira,",
+                "who had restored",
+                "the mural."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "stq-clauses-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The proposal was rejected {a1} it addressed a different problem.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Пропозицію відхилили на тій підставі, що вона стосувалася іншої проблеми.",
+            "target_text": "The proposal was rejected on the grounds that it addressed a different problem.",
+            "markers": {
+                "a1": {
+                    "answer": "on the grounds that",
+                    "options": [
+                        "on the grounds that",
+                        "on the grounds of",
+                        "in order that"
+                    ],
+                    "verb_hint": "Перебудуй причинний зв’язок формальною сполучниковою групою зі значенням підстави; після неї вже наведено ціле речення."
+                }
+            },
+            "verb_hint": "Перебудуй причинний зв’язок формальною сполучниковою групою зі значенням підстави; після неї вже наведено ціле речення.",
+            "accepted_target_texts": [
+                "The proposal was rejected on the grounds that it addressed a different problem.",
+                "The proposal was rejected because it addressed a different problem.",
+                "The proposal was rejected since it addressed a different problem.",
+                "The proposal was rejected as it addressed a different problem."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "because",
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "because",
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "The proposal",
+                "was rejected",
+                "on the grounds",
+                "that it addressed",
+                "a different problem."
+            ],
+            "token_groups": [
+                "The proposal",
+                "was rejected",
+                "on the grounds",
+                "that it addressed",
+                "a different problem."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "stq-clauses-c2-g01",
+            "author_id": "C2-g01",
+            "question": "She offered four explanations, {a1} did much to allay our concerns.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Вона запропонувала чотири пояснення. Жодне з них істотно не розвіяло наших побоювань.",
+            "target_text": "She offered four explanations, none of which did much to allay our concerns.",
+            "markers": {
+                "a1": {
+                    "answer": "none of which",
+                    "options": [
+                        "none of which",
+                        "none of them",
+                        "neither of which"
+                    ],
+                    "verb_hint": "Об’єднай повідомлення додатковою означальною частиною після коми; збережи заперечення щодо всіх чотирьох пояснень."
+                }
+            },
+            "verb_hint": "Об’єднай повідомлення додатковою означальною частиною після коми; збережи заперечення щодо всіх чотирьох пояснень.",
+            "accepted_target_texts": [
+                "She offered four explanations, none of which did much to allay our concerns."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She offered",
+                "four explanations,",
+                "none of which",
+                "did much",
+                "to allay",
+                "our concerns."
+            ],
+            "token_groups": [
+                "She offered",
+                "four explanations,",
+                "none of which",
+                "did much",
+                "to allay",
+                "our concerns."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "stq-clauses-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The audit must be completed, {a1} the launch will be postponed.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_transformations_quality_relative_clauses_linking_words",
+            "translation_uk": "Аудит треба завершити; інакше запуск відкладуть.",
+            "target_text": "The audit must be completed, failing which the launch will be postponed.",
+            "markers": {
+                "a1": {
+                    "answer": "failing which",
+                    "options": [
+                        "failing which",
+                        "despite which",
+                        "insofar as"
+                    ],
+                    "verb_hint": "Стисни умову невиконання попередньої вимоги у формальний зв’язок із наступним наслідком; не перетворюй його на поступку."
+                }
+            },
+            "verb_hint": "Стисни умову невиконання попередньої вимоги у формальний зв’язок із наступним наслідком; не перетворюй його на поступку.",
+            "accepted_target_texts": [
+                "The audit must be completed, failing which the launch will be postponed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The audit",
+                "must be completed,",
+                "failing which",
+                "the launch",
+                "will be postponed."
+            ],
+            "token_groups": [
+                "The audit",
+                "must be completed,",
+                "failing which",
+                "the launch",
+                "will be postponed."
+            ],
+            "quality_revision": "stq-v1"
+        }
+    ]
+}

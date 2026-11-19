@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 64588,
+        "uuid": "pvq-present-simple-b2-g03",
+        "question": "How {a1} when monitoring equipment fails?",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 10,
+        "source_id": 500,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoicePresentSimpleQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "are emissions estimated",
+                "is emissions estimated",
+                "were emissions estimated"
+            ]
+        },
+        "theory_text_block_uuid": "e5f67cca-8c3f-5c78-af4f-948bc74160c8",
+        "created_at": "2026-10-30T20:18:36.000000Z",
+        "updated_at": "2026-10-30T20:18:36.000000Z"
+    },
+    "category": {
+        "id": 10,
+        "name": "Passive Voice",
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
+    },
+    "source": {
+        "id": 500,
+        "name": "Passive Voice Quality: Passive Voice Present Simple",
+        "created_at": "2026-10-30T20:18:34.000000Z",
+        "updated_at": "2026-10-30T20:18:34.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 2702,
+                "name": "Passive Voice Present Simple",
+                "category": "passive_voice",
+                "created_at": "2026-05-21T18:53:51.000000Z",
+                "updated_at": "2026-05-21T18:53:51.000000Z"
+            },
+            "pivot": {
+                "question_id": 64588,
+                "tag_id": 2702,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 49462,
+                "option": "are emissions estimated",
+                "created_at": "2026-10-21T20:34:38.000000Z",
+                "updated_at": "2026-10-21T20:34:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 64588,
+                "option_id": 49462,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 49464,
+                "option": "is emissions estimated",
+                "created_at": "2026-10-21T20:34:38.000000Z",
+                "updated_at": "2026-10-21T20:34:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 64588,
+                "option_id": 49464,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 49465,
+                "option": "were emissions estimated",
+                "created_at": "2026-10-21T20:34:38.000000Z",
+                "updated_at": "2026-10-21T20:34:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 64588,
+                "option_id": 49465,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 336449,
+                "question_id": 64588,
+                "marker": "a1",
+                "option_id": 49462,
+                "created_at": "2026-10-30T20:18:36.000000Z",
+                "updated_at": "2026-10-30T20:18:36.000000Z"
+            },
+            "option": {
+                "id": 49462,
+                "option": "are emissions estimated",
+                "created_at": "2026-10-21T20:34:38.000000Z",
+                "updated_at": "2026-10-21T20:34:38.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 53783,
+                "question_id": 64588,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 49463,
+                "created_at": "2026-10-30T20:18:36.000000Z",
+                "updated_at": "2026-10-30T20:18:36.000000Z"
+            },
+            "option": {
+                "id": 49463,
+                "option": "Запитай, як приблизно обчислюють викиди за відсутності вимірювань; у пропуску потрібні підмет «викиди» та пасив від «оцінювати приблизно».",
+                "created_at": "2026-10-21T20:34:38.000000Z",
+                "updated_at": "2026-10-21T20:34:38.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 56603,
+            "question_id": 64588,
+            "text": "How {a1} when monitoring equipment fails?",
+            "created_at": "2026-10-30T20:18:36.000000Z",
+            "updated_at": "2026-10-30T20:18:36.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

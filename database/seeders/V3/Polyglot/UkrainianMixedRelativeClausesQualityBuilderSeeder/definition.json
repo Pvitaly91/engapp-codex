@@ -1,0 +1,1612 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/relative-clauses.v1.json",
+        "sha256": "3cd9d2502ef43f277a8e676051b7a0b4f7d0ef6847aab81b784e686af9ffe23c"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedRelativeClausesQualityBuilderSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-relative-clauses-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "clauses_linking_words_quality_relative_clauses": {
+            "name": "Clauses and Linking Words Quality: Relative Clauses"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-relative-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Це хлопчик, який годує качок.",
+            "level": "A1",
+            "type": 4,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Це хлопчик, який годує качок.",
+            "target_text": "This is the boy who feeds the ducks.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "verb_hint": "Почни зі слів це є; далі назви хлопчика й його звичну дію.",
+                    "options": [
+                        "This",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Почни зі слів це є; далі назви хлопчика й його звичну дію.",
+                    "options": [
+                        "is",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни зі слів це є; далі назви хлопчика й його звичну дію.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a4": {
+                    "answer": "boy",
+                    "verb_hint": "Почни зі слів це є; далі назви хлопчика й його звичну дію.",
+                    "options": [
+                        "boy",
+                        "teacher",
+                        "school",
+                        "sister"
+                    ]
+                },
+                "a5": {
+                    "answer": "who",
+                    "verb_hint": "Почни зі слів це є; далі назви хлопчика й його звичну дію.",
+                    "options": [
+                        "who",
+                        "when",
+                        "why",
+                        "how"
+                    ]
+                },
+                "a6": {
+                    "answer": "feeds",
+                    "verb_hint": "Почни зі слів це є; далі назви хлопчика й його звичну дію.",
+                    "options": [
+                        "feeds",
+                        "windows",
+                        "explains",
+                        "belongs"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни зі слів це є; далі назви хлопчика й його звичну дію.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a8": {
+                    "answer": "ducks.",
+                    "verb_hint": "Почни зі слів це є; далі назви хлопчика й його звичну дію.",
+                    "options": [
+                        "ducks",
+                        "tickets",
+                        "cups",
+                        "doors"
+                    ]
+                }
+            },
+            "verb_hint": "Почни зі слів це є; далі назви хлопчика й його звичну дію.",
+            "accepted_target_texts": [
+                "This is the boy who feeds the ducks.",
+                "This is the boy that feeds the ducks."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "that"
+                ]
+            },
+            "reorder_groups": [
+                "This is",
+                "the boy",
+                "who feeds",
+                "the ducks."
+            ],
+            "token_groups": [
+                "This is",
+                "the boy",
+                "who feeds",
+                "the ducks."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "This",
+                "is",
+                "the",
+                "boy",
+                "who",
+                "feeds",
+                "the",
+                "ducks."
+            ],
+            "options": [
+                "This",
+                "Every",
+                "No",
+                "Another",
+                "is",
+                "being",
+                "isn't",
+                "aren't",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "boy",
+                "teacher",
+                "school",
+                "sister",
+                "who",
+                "when",
+                "why",
+                "how",
+                "feeds",
+                "windows",
+                "explains",
+                "belongs",
+                "both",
+                "a",
+                "an",
+                "ducks",
+                "tickets",
+                "cups",
+                "doors"
+            ],
+            "source_text_uk": "Це хлопчик, який годує качок.",
+            "options_by_marker": {
+                "a1": [
+                    "This",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "is",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a3": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a4": [
+                    "boy",
+                    "teacher",
+                    "school",
+                    "sister"
+                ],
+                "a5": [
+                    "who",
+                    "when",
+                    "why",
+                    "how"
+                ],
+                "a6": [
+                    "feeds",
+                    "windows",
+                    "explains",
+                    "belongs"
+                ],
+                "a7": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a8": [
+                    "ducks",
+                    "tickets",
+                    "cups",
+                    "doors"
+                ]
+            },
+            "slot_roles": {
+                "a1": "verb_phrase",
+                "a2": "verb_phrase",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "relative_phrase",
+                "a6": "relative_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "clq-relative-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Де парасоля, яку ти позичив мені?",
+            "level": "A2",
+            "type": 4,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Де парасоля, яку ти позичив мені?",
+            "target_text": "Where is the umbrella that you lent me?",
+            "markers": {
+                "a1": {
+                    "answer": "Where",
+                    "verb_hint": "Побудуй питання про місце парасолі; у підрядній частині збережи одержувача.",
+                    "options": [
+                        "Where",
+                        "When",
+                        "Why",
+                        "How"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Побудуй питання про місце парасолі; у підрядній частині збережи одержувача.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй питання про місце парасолі; у підрядній частині збережи одержувача.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a4": {
+                    "answer": "umbrella",
+                    "verb_hint": "Побудуй питання про місце парасолі; у підрядній частині збережи одержувача.",
+                    "options": [
+                        "umbrella",
+                        "bag",
+                        "book",
+                        "box"
+                    ]
+                },
+                "a5": {
+                    "answer": "that",
+                    "verb_hint": "Побудуй питання про місце парасолі; у підрядній частині збережи одержувача.",
+                    "options": [
+                        "that",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a6": {
+                    "answer": "you",
+                    "verb_hint": "Побудуй питання про місце парасолі; у підрядній частині збережи одержувача.",
+                    "options": [
+                        "you",
+                        "us",
+                        "them",
+                        "myself"
+                    ]
+                },
+                "a7": {
+                    "answer": "lent",
+                    "verb_hint": "Побудуй питання про місце парасолі; у підрядній частині збережи одержувача.",
+                    "options": [
+                        "lent",
+                        "had",
+                        "arrived",
+                        "made"
+                    ]
+                },
+                "a8": {
+                    "answer": "me?",
+                    "verb_hint": "Побудуй питання про місце парасолі; у підрядній частині збережи одержувача.",
+                    "options": [
+                        "me",
+                        "he",
+                        "she",
+                        "it"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй питання про місце парасолі; у підрядній частині збережи одержувача.",
+            "accepted_target_texts": [
+                "Where is the umbrella that you lent me?",
+                "Where is the umbrella that you loaned me?",
+                "Where is the umbrella which you lent me?",
+                "Where is the umbrella which you loaned me?",
+                "Where is the umbrella you lent me?",
+                "Where is the umbrella you loaned me?"
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "loaned"
+                ],
+                "a5": [
+                    "which"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "loaned"
+                ],
+                "a5": [
+                    "which"
+                ]
+            },
+            "reorder_groups": [
+                "Where is",
+                "the umbrella",
+                "that you",
+                "lent me?"
+            ],
+            "token_groups": [
+                "Where is",
+                "the umbrella",
+                "that you",
+                "lent me?"
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "Where",
+                "is",
+                "the",
+                "umbrella",
+                "that",
+                "you",
+                "lent",
+                "me?"
+            ],
+            "options": [
+                "Where",
+                "When",
+                "Why",
+                "How",
+                "is",
+                "was",
+                "were",
+                "be",
+                "the",
+                "some",
+                "any",
+                "this",
+                "umbrella",
+                "bag",
+                "book",
+                "box",
+                "that",
+                "both",
+                "a",
+                "an",
+                "you",
+                "us",
+                "them",
+                "myself",
+                "lent",
+                "had",
+                "arrived",
+                "made",
+                "me",
+                "he",
+                "she",
+                "it"
+            ],
+            "source_text_uk": "Де парасоля, яку ти позичив мені?",
+            "options_by_marker": {
+                "a1": [
+                    "Where",
+                    "When",
+                    "Why",
+                    "How"
+                ],
+                "a2": [
+                    "is",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a3": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a4": [
+                    "umbrella",
+                    "bag",
+                    "book",
+                    "box"
+                ],
+                "a5": [
+                    "that",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a6": [
+                    "you",
+                    "us",
+                    "them",
+                    "myself"
+                ],
+                "a7": [
+                    "lent",
+                    "had",
+                    "arrived",
+                    "made"
+                ],
+                "a8": [
+                    "me",
+                    "he",
+                    "she",
+                    "it"
+                ]
+            },
+            "slot_roles": {
+                "a1": "verb_phrase",
+                "a2": "verb_phrase",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "relative_phrase",
+                "a6": "relative_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "clq-relative-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Будинок, дах якого пошкодила буря, тепер порожній.",
+            "level": "B1",
+            "type": 4,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Будинок, дах якого пошкодила буря, тепер порожній.",
+            "target_text": "The house whose roof the storm damaged is empty now.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Назви будинок, потім його дах як предмет пошкодження; не додавай другого власника.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "house",
+                    "verb_hint": "Назви будинок, потім його дах як предмет пошкодження; не додавай другого власника.",
+                    "options": [
+                        "house",
+                        "gardener",
+                        "artist",
+                        "witness"
+                    ]
+                },
+                "a3": {
+                    "answer": "whose",
+                    "verb_hint": "Назви будинок, потім його дах як предмет пошкодження; не додавай другого власника.",
+                    "options": [
+                        "whose",
+                        "his",
+                        "her",
+                        "its"
+                    ]
+                },
+                "a4": {
+                    "answer": "roof",
+                    "verb_hint": "Назви будинок, потім його дах як предмет пошкодження; не додавай другого власника.",
+                    "options": [
+                        "roof",
+                        "cover",
+                        "brother",
+                        "friend"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Назви будинок, потім його дах як предмет пошкодження; не додавай другого власника.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "that"
+                    ]
+                },
+                "a6": {
+                    "answer": "storm",
+                    "verb_hint": "Назви будинок, потім його дах як предмет пошкодження; не додавай другого власника.",
+                    "options": [
+                        "storm",
+                        "reader",
+                        "cousin",
+                        "team"
+                    ]
+                },
+                "a7": {
+                    "answer": "damaged",
+                    "verb_hint": "Назви будинок, потім його дах як предмет пошкодження; не додавай другого власника.",
+                    "options": [
+                        "damaged",
+                        "visited",
+                        "cooked",
+                        "found"
+                    ]
+                },
+                "a8": {
+                    "answer": "is",
+                    "verb_hint": "Назви будинок, потім його дах як предмет пошкодження; не додавай другого власника.",
+                    "options": [
+                        "is",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a9": {
+                    "answer": "empty",
+                    "verb_hint": "Назви будинок, потім його дах як предмет пошкодження; не додавай другого власника.",
+                    "options": [
+                        "empty",
+                        "attention",
+                        "unclear",
+                        "nearby"
+                    ]
+                },
+                "a10": {
+                    "answer": "now.",
+                    "verb_hint": "Назви будинок, потім його дах як предмет пошкодження; не додавай другого власника.",
+                    "options": [
+                        "now",
+                        "box",
+                        "chair",
+                        "table"
+                    ]
+                }
+            },
+            "verb_hint": "Назви будинок, потім його дах як предмет пошкодження; не додавай другого власника.",
+            "accepted_target_texts": [
+                "The house whose roof the storm damaged is empty now."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The house",
+                "whose roof",
+                "the storm",
+                "damaged",
+                "is empty",
+                "now."
+            ],
+            "token_groups": [
+                "The house",
+                "whose roof",
+                "the storm",
+                "damaged",
+                "is empty",
+                "now."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "house",
+                "whose",
+                "roof",
+                "the",
+                "storm",
+                "damaged",
+                "is",
+                "empty",
+                "now."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "house",
+                "gardener",
+                "artist",
+                "witness",
+                "whose",
+                "his",
+                "her",
+                "its",
+                "roof",
+                "cover",
+                "brother",
+                "friend",
+                "the",
+                "a",
+                "an",
+                "that",
+                "storm",
+                "reader",
+                "cousin",
+                "team",
+                "damaged",
+                "visited",
+                "cooked",
+                "found",
+                "is",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "empty",
+                "attention",
+                "unclear",
+                "nearby",
+                "now",
+                "box",
+                "chair",
+                "table"
+            ],
+            "source_text_uk": "Будинок, дах якого пошкодила буря, тепер порожній.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "house",
+                    "gardener",
+                    "artist",
+                    "witness"
+                ],
+                "a3": [
+                    "whose",
+                    "his",
+                    "her",
+                    "its"
+                ],
+                "a4": [
+                    "roof",
+                    "cover",
+                    "brother",
+                    "friend"
+                ],
+                "a5": [
+                    "the",
+                    "a",
+                    "an",
+                    "that"
+                ],
+                "a6": [
+                    "storm",
+                    "reader",
+                    "cousin",
+                    "team"
+                ],
+                "a7": [
+                    "damaged",
+                    "visited",
+                    "cooked",
+                    "found"
+                ],
+                "a8": [
+                    "is",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a9": [
+                    "empty",
+                    "attention",
+                    "unclear",
+                    "nearby"
+                ],
+                "a10": [
+                    "now",
+                    "box",
+                    "chair",
+                    "table"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "relative_phrase",
+                "a4": "relative_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "clq-relative-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Лабораторія, у якій ми випробували датчик, працює цілодобово.",
+            "level": "B2",
+            "type": 4,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Лабораторія, у якій ми випробували датчик, працює цілодобово.",
+            "target_text": "The laboratory in which we tested the sensor operates around the clock.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з лабораторії; використай прийменник перед відносним словом і збережи минуле випробування.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "laboratory",
+                    "verb_hint": "Почни з лабораторії; використай прийменник перед відносним словом і збережи минуле випробування.",
+                    "options": [
+                        "laboratory",
+                        "bad",
+                        "friendly",
+                        "lovely"
+                    ]
+                },
+                "a3": {
+                    "answer": "in",
+                    "verb_hint": "Почни з лабораторії; використай прийменник перед відносним словом і збережи минуле випробування.",
+                    "options": [
+                        "in",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a4": {
+                    "answer": "which",
+                    "verb_hint": "Почни з лабораторії; використай прийменник перед відносним словом і збережи минуле випробування.",
+                    "options": [
+                        "which",
+                        "who",
+                        "whom",
+                        "what"
+                    ]
+                },
+                "a5": {
+                    "answer": "we",
+                    "verb_hint": "Почни з лабораторії; використай прийменник перед відносним словом і збережи минуле випробування.",
+                    "options": [
+                        "we",
+                        "it",
+                        "they",
+                        "me"
+                    ]
+                },
+                "a6": {
+                    "answer": "tested",
+                    "verb_hint": "Почни з лабораторії; використай прийменник перед відносним словом і збережи минуле випробування.",
+                    "options": [
+                        "tested",
+                        "disappeared",
+                        "postponed",
+                        "changed"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з лабораторії; використай прийменник перед відносним словом і збережи минуле випробування.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "sensor",
+                    "verb_hint": "Почни з лабораторії; використай прийменник перед відносним словом і збережи минуле випробування.",
+                    "options": [
+                        "sensor",
+                        "bread",
+                        "milk",
+                        "music"
+                    ]
+                },
+                "a9": {
+                    "answer": "operates",
+                    "verb_hint": "Почни з лабораторії; використай прийменник перед відносним словом і збережи минуле випробування.",
+                    "options": [
+                        "operates",
+                        "cars",
+                        "bags",
+                        "books"
+                    ]
+                },
+                "a10": {
+                    "answer": "around",
+                    "verb_hint": "Почни з лабораторії; використай прийменник перед відносним словом і збережи минуле випробування.",
+                    "options": [
+                        "around",
+                        "near",
+                        "on",
+                        "for"
+                    ]
+                },
+                "a11": {
+                    "answer": "the",
+                    "verb_hint": "Почни з лабораторії; використай прийменник перед відносним словом і збережи минуле випробування.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a12": {
+                    "answer": "clock.",
+                    "verb_hint": "Почни з лабораторії; використай прийменник перед відносним словом і збережи минуле випробування.",
+                    "options": [
+                        "clock",
+                        "case",
+                        "time",
+                        "care"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з лабораторії; використай прийменник перед відносним словом і збережи минуле випробування.",
+            "accepted_target_texts": [
+                "The laboratory in which we tested the sensor operates around the clock.",
+                "The lab in which we tested the sensor operates around the clock."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "lab"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "lab"
+                ]
+            },
+            "reorder_groups": [
+                "The laboratory",
+                "in which",
+                "we tested",
+                "the sensor",
+                "operates",
+                "around the clock."
+            ],
+            "token_groups": [
+                "The laboratory",
+                "in which",
+                "we tested",
+                "the sensor",
+                "operates",
+                "around the clock."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "laboratory",
+                "in",
+                "which",
+                "we",
+                "tested",
+                "the",
+                "sensor",
+                "operates",
+                "around",
+                "the",
+                "clock."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "laboratory",
+                "bad",
+                "friendly",
+                "lovely",
+                "in",
+                "under",
+                "through",
+                "across",
+                "which",
+                "who",
+                "whom",
+                "what",
+                "we",
+                "it",
+                "they",
+                "me",
+                "tested",
+                "disappeared",
+                "postponed",
+                "changed",
+                "the",
+                "no",
+                "another",
+                "either",
+                "sensor",
+                "bread",
+                "milk",
+                "music",
+                "operates",
+                "cars",
+                "bags",
+                "books",
+                "around",
+                "near",
+                "on",
+                "for",
+                "this",
+                "that",
+                "these",
+                "clock",
+                "case",
+                "time",
+                "care"
+            ],
+            "source_text_uk": "Лабораторія, у якій ми випробували датчик, працює цілодобово.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "laboratory",
+                    "bad",
+                    "friendly",
+                    "lovely"
+                ],
+                "a3": [
+                    "in",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a4": [
+                    "which",
+                    "who",
+                    "whom",
+                    "what"
+                ],
+                "a5": [
+                    "we",
+                    "it",
+                    "they",
+                    "me"
+                ],
+                "a6": [
+                    "tested",
+                    "disappeared",
+                    "postponed",
+                    "changed"
+                ],
+                "a7": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a8": [
+                    "sensor",
+                    "bread",
+                    "milk",
+                    "music"
+                ],
+                "a9": [
+                    "operates",
+                    "cars",
+                    "bags",
+                    "books"
+                ],
+                "a10": [
+                    "around",
+                    "near",
+                    "on",
+                    "for"
+                ],
+                "a11": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a12": [
+                    "clock",
+                    "case",
+                    "time",
+                    "care"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "relative_phrase",
+                "a4": "relative_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "verb_phrase",
+                "a10": "adverbial_phrase",
+                "a11": "adverbial_phrase",
+                "a12": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "clq-relative-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Комітет, рекомендації якого ми переглянули, не підтримав зміну.",
+            "level": "C1",
+            "type": 4,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Комітет, рекомендації якого ми переглянули, не підтримав зміну.",
+            "target_text": "The committee whose recommendations we reviewed did not support the change.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи належність рекомендацій комітетові та заперечення його підтримки.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "committee",
+                    "verb_hint": "Збережи належність рекомендацій комітетові та заперечення його підтримки.",
+                    "options": [
+                        "committee",
+                        "team",
+                        "visitor",
+                        "neighbour"
+                    ]
+                },
+                "a3": {
+                    "answer": "whose",
+                    "verb_hint": "Збережи належність рекомендацій комітетові та заперечення його підтримки.",
+                    "options": [
+                        "whose",
+                        "theirs",
+                        "my",
+                        "your"
+                    ]
+                },
+                "a4": {
+                    "answer": "recommendations",
+                    "verb_hint": "Збережи належність рекомендацій комітетові та заперечення його підтримки.",
+                    "options": [
+                        "recommendations",
+                        "windows",
+                        "explains",
+                        "belongs"
+                    ]
+                },
+                "a5": {
+                    "answer": "we",
+                    "verb_hint": "Збережи належність рекомендацій комітетові та заперечення його підтримки.",
+                    "options": [
+                        "we",
+                        "him",
+                        "us",
+                        "them"
+                    ]
+                },
+                "a6": {
+                    "answer": "reviewed",
+                    "verb_hint": "Збережи належність рекомендацій комітетові та заперечення його підтримки.",
+                    "options": [
+                        "reviewed",
+                        "postponed",
+                        "changed",
+                        "open"
+                    ]
+                },
+                "a7": {
+                    "answer": "did",
+                    "verb_hint": "Збережи належність рекомендацій комітетові та заперечення його підтримки.",
+                    "options": [
+                        "did",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a8": {
+                    "answer": "not",
+                    "verb_hint": "Збережи належність рекомендацій комітетові та заперечення його підтримки.",
+                    "options": [
+                        "not",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a9": {
+                    "answer": "support",
+                    "verb_hint": "Збережи належність рекомендацій комітетові та заперечення його підтримки.",
+                    "options": [
+                        "support",
+                        "milk",
+                        "music",
+                        "food"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Збережи належність рекомендацій комітетові та заперечення його підтримки.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "every"
+                    ]
+                },
+                "a11": {
+                    "answer": "change.",
+                    "verb_hint": "Збережи належність рекомендацій комітетові та заперечення його підтримки.",
+                    "options": [
+                        "change",
+                        "bike",
+                        "car",
+                        "bag"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи належність рекомендацій комітетові та заперечення його підтримки.",
+            "accepted_target_texts": [
+                "The committee whose recommendations we reviewed did not support the change."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The committee",
+                "whose recommendations",
+                "we reviewed",
+                "did not support",
+                "the change."
+            ],
+            "token_groups": [
+                "The committee",
+                "whose recommendations",
+                "we reviewed",
+                "did not support",
+                "the change."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "committee",
+                "whose",
+                "recommendations",
+                "we",
+                "reviewed",
+                "did",
+                "not",
+                "support",
+                "the",
+                "change."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "committee",
+                "team",
+                "visitor",
+                "neighbour",
+                "whose",
+                "theirs",
+                "my",
+                "your",
+                "recommendations",
+                "windows",
+                "explains",
+                "belongs",
+                "we",
+                "him",
+                "us",
+                "them",
+                "reviewed",
+                "postponed",
+                "changed",
+                "open",
+                "did",
+                "hasn't",
+                "hadn't",
+                "do",
+                "not",
+                "still",
+                "just",
+                "also",
+                "support",
+                "milk",
+                "music",
+                "food",
+                "the",
+                "this",
+                "that",
+                "every",
+                "change",
+                "bike",
+                "car",
+                "bag"
+            ],
+            "source_text_uk": "Комітет, рекомендації якого ми переглянули, не підтримав зміну.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "committee",
+                    "team",
+                    "visitor",
+                    "neighbour"
+                ],
+                "a3": [
+                    "whose",
+                    "theirs",
+                    "my",
+                    "your"
+                ],
+                "a4": [
+                    "recommendations",
+                    "windows",
+                    "explains",
+                    "belongs"
+                ],
+                "a5": [
+                    "we",
+                    "him",
+                    "us",
+                    "them"
+                ],
+                "a6": [
+                    "reviewed",
+                    "postponed",
+                    "changed",
+                    "open"
+                ],
+                "a7": [
+                    "did",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a8": [
+                    "not",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a9": [
+                    "support",
+                    "milk",
+                    "music",
+                    "food"
+                ],
+                "a10": [
+                    "the",
+                    "this",
+                    "that",
+                    "every"
+                ],
+                "a11": [
+                    "change",
+                    "bike",
+                    "car",
+                    "bag"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "relative_phrase",
+                "a4": "relative_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "clq-relative-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Положення, застосовність якого сторони оспорювали, залишилося без змін.",
+            "level": "C2",
+            "type": 4,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Положення, застосовність якого сторони оспорювали, залишилося без змін.",
+            "target_text": "The provision whose applicability the parties disputed remained unchanged.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи належність застосовності положенню та минуле оспорювання без додаткового факту.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "provision",
+                    "verb_hint": "Збережи належність застосовності положенню та минуле оспорювання без додаткового факту.",
+                    "options": [
+                        "provision",
+                        "artist",
+                        "reader",
+                        "cousin"
+                    ]
+                },
+                "a3": {
+                    "answer": "whose",
+                    "verb_hint": "Збережи належність застосовності положенню та минуле оспорювання без додаткового факту.",
+                    "options": [
+                        "whose",
+                        "her",
+                        "its",
+                        "our"
+                    ]
+                },
+                "a4": {
+                    "answer": "applicability",
+                    "verb_hint": "Збережи належність застосовності положенню та минуле оспорювання без додаткового факту.",
+                    "options": [
+                        "applicability",
+                        "cover",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи належність застосовності положенню та минуле оспорювання без додаткового факту.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a6": {
+                    "answer": "parties",
+                    "verb_hint": "Збережи належність застосовності положенню та минуле оспорювання без додаткового факту.",
+                    "options": [
+                        "parties",
+                        "travellers",
+                        "chairs",
+                        "tables"
+                    ]
+                },
+                "a7": {
+                    "answer": "disputed",
+                    "verb_hint": "Збережи належність застосовності положенню та минуле оспорювання без додаткового факту.",
+                    "options": [
+                        "disputed",
+                        "played",
+                        "called",
+                        "walked"
+                    ]
+                },
+                "a8": {
+                    "answer": "remained",
+                    "verb_hint": "Збережи належність застосовності положенню та минуле оспорювання без додаткового факту.",
+                    "options": [
+                        "remained",
+                        "arrived",
+                        "had",
+                        "cooked"
+                    ]
+                },
+                "a9": {
+                    "answer": "unchanged.",
+                    "verb_hint": "Збережи належність застосовності положенню та минуле оспорювання без додаткового факту.",
+                    "options": [
+                        "unchanged",
+                        "open",
+                        "disappeared",
+                        "postponed"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи належність застосовності положенню та минуле оспорювання без додаткового факту.",
+            "accepted_target_texts": [
+                "The provision whose applicability the parties disputed remained unchanged."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The provision",
+                "whose applicability",
+                "the parties",
+                "disputed",
+                "remained unchanged."
+            ],
+            "token_groups": [
+                "The provision",
+                "whose applicability",
+                "the parties",
+                "disputed",
+                "remained unchanged."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "provision",
+                "whose",
+                "applicability",
+                "the",
+                "parties",
+                "disputed",
+                "remained",
+                "unchanged."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "provision",
+                "artist",
+                "reader",
+                "cousin",
+                "whose",
+                "her",
+                "its",
+                "our",
+                "applicability",
+                "cover",
+                "sister",
+                "brother",
+                "the",
+                "both",
+                "a",
+                "an",
+                "parties",
+                "travellers",
+                "chairs",
+                "tables",
+                "disputed",
+                "played",
+                "called",
+                "walked",
+                "remained",
+                "arrived",
+                "had",
+                "cooked",
+                "unchanged",
+                "open",
+                "disappeared",
+                "postponed"
+            ],
+            "source_text_uk": "Положення, застосовність якого сторони оспорювали, залишилося без змін.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "provision",
+                    "artist",
+                    "reader",
+                    "cousin"
+                ],
+                "a3": [
+                    "whose",
+                    "her",
+                    "its",
+                    "our"
+                ],
+                "a4": [
+                    "applicability",
+                    "cover",
+                    "sister",
+                    "brother"
+                ],
+                "a5": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a6": [
+                    "parties",
+                    "travellers",
+                    "chairs",
+                    "tables"
+                ],
+                "a7": [
+                    "disputed",
+                    "played",
+                    "called",
+                    "walked"
+                ],
+                "a8": [
+                    "remained",
+                    "arrived",
+                    "had",
+                    "cooked"
+                ],
+                "a9": [
+                    "unchanged",
+                    "open",
+                    "disappeared",
+                    "postponed"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "relative_phrase",
+                "a4": "relative_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

@@ -1,0 +1,2116 @@
+{
+  "schema_version": 1,
+  "package": "word-order-native-practice-compact",
+  "source": {
+    "path": "docs/content/word-order-practice-supplement.v1.json",
+    "sha256": "0cd876d53f8a0a4db513166a7bdfc5758c14386ba96ae00f30bafdc7b4ead540"
+  },
+  "targets": [
+    {
+      "topic": "basic",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+        "page_id": 256,
+        "page_category_id": 48,
+        "uuid": "7cc46418-51ed-5f75-b880-9afda56b5739",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 9,
+        "level": null,
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "f227875b73c740946b31265d0cfffb7c97ad82aeffc7620c2af0493d78afcdda"
+      },
+      "after_data_sha256": "cc97b1e0362178a1df4c46c8926bbba1d3807f48f3640e44bc97fa5c3686d394",
+      "groups": [
+        {
+          "key": "selects-model",
+          "kind": "selects",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Обери конструкцію",
+          "instruction": "Обери варіант за короткою умовою."
+        },
+        {
+          "key": "selects-gap",
+          "kind": "selects",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Доповни речення",
+          "instruction": "Передай український зміст у заданій конструкції."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Зістав зміст і будову",
+          "instruction": "Обери правильний варіант."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади відповідь токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        },
+        {
+          "key": "rephrase-1",
+          "kind": "rephrase",
+          "indices": [
+            1,
+            2
+          ],
+          "example_indices": [
+            0
+          ],
+          "title": "Перебудуй речення",
+          "instruction": "Збережи зміст і виконай коротку умову."
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "079e4c6dcd42eb4099d1f0964469f41c02edc09c34e337c9520d19c2adc4d5c6",
+            "instruction_uk": "Обери нейтральне твердження: always перед основним дієсловом, не перед підметом.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) She always drinks coffee."
+              },
+              {
+                "lang": "en",
+                "text": "b) Always she drinks coffee."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "5d45eb31d1e86b7f68dfec1662b63251a39afcc06b2e201ebae1f24625e5e979",
+            "instruction_uk": "Почни з підмета; every day має стояти в кінці.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) I go to work every day."
+              },
+              {
+                "lang": "en",
+                "text": "b) I every day go to work."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "f4a546837d90d0aabc70a478e4e777903506acb9dd60ff60068d96d3c5e7f1b4",
+            "instruction_uk": "Обери нейтральний порядок: підмет, дія, місце.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) He in the office works."
+              },
+              {
+                "lang": "en",
+                "text": "b) He works in the office."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "d1ff918493c6305048ac739eed041ddfb26ff1da398f68d1c9e2dd19490f5750",
+            "instruction_uk": "Передай дію «пити»; напій постав після дієслова.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Немовля п’є молоко."
+              },
+              {
+                "lang": "en",
+                "text": "The baby ____."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "b27cf556c6d45ae0c2a98733784abd9e680801bc03710209106b04b8079eb67c",
+            "instruction_uk": "Передай «подобатися»; дієслово постав перед додатком.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Мії подобаються коти."
+              },
+              {
+                "lang": "en",
+                "text": "Mia ____."
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "bba2b9206c5eaef8f7f153e8821d074c899f756a8794b4839d2511877b4d4418",
+            "instruction_uk": "Визнач, хто допомагає, а хто отримує допомогу.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Tom helps Anna."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "2e1cee1f7ac7f10163058fdab416b0b42d970d01ba23bacdb4deeebe38a6d5ed",
+            "instruction_uk": "Що зміниться, якщо перенести Every Sunday в кінець, не змінюючи інших слів?",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Every Sunday, the children play in the park."
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "048de81d31ddd411c6fe1d2946ae3fd93a493a34ff5576366d6b51ab1a2a6ceb",
+            "instruction_uk": "Почни з She; often постав безпосередньо перед reads. Використай усі слова.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Вона часто читає книги."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "e2678fe45eab99e90407ae63ca3e055d40861c774d857d8fe8c796610ba51f5e",
+            "instruction_uk": "Використай усі слова; час можна поставити на початку або в кінці.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Я щоранку снідаю."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "4501932f90337c5fe8693749f722d7d838074f2920352c032aeb9039261fca32",
+            "instruction_uk": "Використай усі слова; наприкінці постав місце перед часом. Можна почати з часу.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "По неділях ми вечеряємо вдома."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "6f0fe33d680e04da817d497ba4e6951a9c67aafddea77dcfcd3d2bc5b2723a5b",
+            "instruction_uk": "Почни з власника, далі постав дієслово наявності та предмет.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "У Бена є червоний велосипед."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "dcbfd6df07d5b56fac5f58d66f052613faa89ff5aa8ea4dc89c096abe32a6bb7",
+            "instruction_uk": "Спочатку назви виконавця, потім дію та вид спорту.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Мій друг грає в теніс."
+              }
+            ]
+          }
+        ],
+        "rephrase": [
+          {
+            "index": 0,
+            "source_item_sha256": "f2ae311f8e89586d3150abfdadb1682e290bf765e42a6a6dfde6a0bb14d9b281",
+            "instruction_uk": "Зразок: нейтральне твердження.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Plays he football every day."
+              },
+              {
+                "lang": "en",
+                "text": "→ He plays football every day."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "b4adc69f92f1e749cca7d4f4af1def75392f6ee7aff14ba80acb58db7f664f27",
+            "instruction_uk": "Почни з She; always постав перед reads. Решту слів збережи.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She reads always books in the evening."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "f6f7b1d42b61b1d9ac0dde91a3e260b5fdb74eebf6a6d1b9169dc53c64335ebe",
+            "instruction_uk": "Почни з We; наприкінці постав місце перед часом. Слів не змінюй.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "We go every week to the supermarket."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "topic": "questions-negatives",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+        "page_id": 258,
+        "page_category_id": 48,
+        "uuid": "86092f77-4036-5f6e-b5cc-bde8c2111452",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 9,
+        "level": null,
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "10517c6fd560900362e66ea3e4e6d954077469e3b99fc6b7b3eb6dec038e938a"
+      },
+      "after_data_sha256": "892468d5fa02a0e237035d172a1d34a04e2f4d7d2213ba7048c894a319a022e5",
+      "groups": [
+        {
+          "key": "selects-model",
+          "kind": "selects",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Обери конструкцію",
+          "instruction": "Обери варіант за короткою умовою."
+        },
+        {
+          "key": "selects-gap",
+          "kind": "selects",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Доповни речення",
+          "instruction": "Передай український зміст у заданій конструкції."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Зістав зміст і будову",
+          "instruction": "Обери правильний варіант."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади відповідь токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        },
+        {
+          "key": "rephrase-1",
+          "kind": "rephrase",
+          "indices": [
+            1,
+            2
+          ],
+          "example_indices": [
+            0
+          ],
+          "title": "Перебудуй речення",
+          "instruction": "Збережи зміст і виконай коротку умову."
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "802329447e1edcec1f1df348f22edd556e3ff20e6f82b1477732059387eba01b",
+            "instruction_uk": "Обери нейтральне повне питання про теперішню звичку, не розмовне перепитування.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) Do you like coffee?"
+              },
+              {
+                "lang": "en",
+                "text": "b) You like coffee?"
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "addfa2e88ac4a4f5855b555ab48f20262d50865c24a7c45536b0470dfb1ee9f9",
+            "instruction_uk": "Обери повне пряме питання про місце проживання.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) Where does she live?"
+              },
+              {
+                "lang": "en",
+                "text": "b) Where she lives?"
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "84ad3affbb013a1e7509965042fb88607d1d4ec3234fb669cee2b8c958ba83a4",
+            "instruction_uk": "Обери стандартне заперечення у простому теперішньому часі.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) He don't work here."
+              },
+              {
+                "lang": "en",
+                "text": "b) He doesn't work here."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "4fa8196bf7d9efd4e17ed628287eeb24bc7fadf972186639f1174a7e505498db",
+            "instruction_uk": "Постав дієслово-зв’язку перед уже наведеним підметом.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Твоя сестра вдома?"
+              },
+              {
+                "lang": "en",
+                "text": "____ your sister at home?"
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "278e5ef8539426aa9893c944fc515e212c5dce07f9a1818c430f738d7f3c983a",
+            "instruction_uk": "Після питального слова постав допоміжне дієслово, підмет і дію.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Де ти живеш?"
+              },
+              {
+                "lang": "en",
+                "text": "Where ____?"
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "7a26c5f3f1c563515c758733f3515babb7d9180fcf43c23811d20e12a1453a0a",
+            "instruction_uk": "Визнач, якої інформації бракує мовцеві.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Who called Mia?"
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "21e4c03a207aebf1b9e1604adbbfae64a4652d91a84868fb7961c6d4d7f45ab7",
+            "instruction_uk": "Визнач, про що запитують.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Are you ready?"
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "611a0bd1c62c1a3db6df1c1a15830b558a6f8cfdb60a13a2580a4d3caf72cee0",
+            "instruction_uk": "Перетвори на нейтральне повне питання про теперішнє; підмет і мову збережи.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "You speak English."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "67021e95f922718a923de4973e34dfdd9a651558f1f420069b5fcb14602fbe0a",
+            "instruction_uk": "Перетвори на нейтральне повне питання про теперішнє; виконавицю, дію й місце збережи.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She works in a bank."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "68e42fccc19c9558fe464929493af8fb95219410f1a75304667443b02c9d237c",
+            "instruction_uk": "Перетвори на нейтральне повне питання про минуле; людей і подію збережи.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "They went to the party."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "5cc7a02899092a314c9506748f9b453a96872cfa7cce59e0fa684b8b60531255",
+            "instruction_uk": "Постав модальне дієслово перед іменем, а дію — після нього.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Чи вміє Лука плавати?"
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "51b81aad6727eff7ac3c333a35eb3f7443edd89c422642cc31c6d9f3556ef343",
+            "instruction_uk": "Після питального слова постав зв’язку перед підметом.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Чому цей квиток дорогий?"
+              }
+            ]
+          }
+        ],
+        "rephrase": [
+          {
+            "index": 0,
+            "source_item_sha256": "f05fe5a84daad48f4d795f3758a847c26d061c5f2d0aa36c9b004edf2bf40b8d",
+            "instruction_uk": "Зразок: перетворення на заперечення.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "I like apples."
+              },
+              {
+                "lang": "en",
+                "text": "→ I don't like apples."
+              },
+              {
+                "lang": "en",
+                "text": "→ I do not like apples."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "a5468f9b4f3826a1f615a81ef61f5078748d93afb1600e64f5ea49762ed1ebca",
+            "instruction_uk": "Утвори повне заперечення про теперішню звичку; підмет і заняття збережи. Скорочення дозволене.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She plays tennis."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "8fe3f902541916f1e132239080d6ff1683ef170fe6196df3c10e5dc350cde39d",
+            "instruction_uk": "Утвори повне заперечення про минуле; людей і фільм збережи. Скорочення дозволене.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "They watched the movie."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "topic": "adverbs-adverbials",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderAdverbsAdverbialsTheorySeeder",
+        "page_id": 257,
+        "page_category_id": 48,
+        "uuid": "f9d22b4c-40d7-52f2-9f3d-8d1466b804bf",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 11,
+        "level": null,
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "c2ab155565fe81ae4e2ed4676083fa17afe7cbb4eac24f26799b64ac737437e8"
+      },
+      "after_data_sha256": "13bc807bdcc6081bed0e8a8204214ceeca22361fba94d7bea4dd960ae15d7ac5",
+      "groups": [
+        {
+          "key": "selects-model",
+          "kind": "selects",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Обери конструкцію",
+          "instruction": "Обери варіант за короткою умовою."
+        },
+        {
+          "key": "selects-gap",
+          "kind": "selects",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Доповни речення",
+          "instruction": "Передай український зміст у заданій конструкції."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Зістав зміст і будову",
+          "instruction": "Обери правильний варіант."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади відповідь токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        },
+        {
+          "key": "rephrase-1",
+          "kind": "rephrase",
+          "indices": [
+            1,
+            2
+          ],
+          "example_indices": [
+            0
+          ],
+          "title": "Перебудуй речення",
+          "instruction": "Збережи зміст і виконай коротку умову."
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "38d03e66b9780443b00f56d0e4f9fccb084f62b722088b114c7412d17611cd53",
+            "instruction_uk": "Обери нейтральне місце прислівника частотності.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) She always drinks coffee."
+              },
+              {
+                "lang": "en",
+                "text": "b) She drinks always coffee."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "2eec5e973a84b6624ff802367e11407c687bb09c0c417d07e84f467065e04081",
+            "instruction_uk": "Не розривай дієслово й короткий додаток прислівником способу.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) He speaks fluently English."
+              },
+              {
+                "lang": "en",
+                "text": "b) He speaks English fluently."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "512db1b249ab9a2f1bb9c70b03ca05b7eef781baf41d3b453a581878706e39e2",
+            "instruction_uk": "Обери нейтральний порядок із часом наприкінці, без контрастного винесення.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) I yesterday saw him."
+              },
+              {
+                "lang": "en",
+                "text": "b) I saw him yesterday."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "c846d09911e719854e64d55c18b17af123c2a8e0ad39e5cb2ce515fdb703194a",
+            "instruction_uk": "Передай «досі» між допоміжним і основним дієсловами.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Пасажири досі чекають надворі."
+              },
+              {
+                "lang": "en",
+                "text": "The passengers ____ outside."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "c215a5d7c90d747b6ef5a1a92500a71bcef724a21fe9b81696c0c79cf8907126",
+            "instruction_uk": "Постав прислівник завершеності між допоміжним і основним дієсловами.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Я вже знайшов свої ключі."
+              },
+              {
+                "lang": "en",
+                "text": "I ____ my keys."
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "ba4d98e3fe955166cb3678d5f4b3983d5c9fd05f450f6860883c64f51a8c49f1",
+            "instruction_uk": "Обери висновок про not always без доданих фактів.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Marta does not always work at home."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "4d1a1e5ff494435d810d55af8c7b634e0adb0f29a01b25e17206e449c5ebfa0b",
+            "instruction_uk": "Визнач, що уточнює quite.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Nora is quite tired, but she can still work."
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "f8d55d8d32fbba588bb9e3051ef9311b4c9107cc4a524e300f62ba16a5c91ef0",
+            "instruction_uk": "Склади нейтральне твердження; always постав після зв’язки. Використай усі групи.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Вона завжди запізнюється."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "f469be22a8f92480c6e78245590133b27f00ffc91648938054bfca21fc30b0ac",
+            "instruction_uk": "Спосіб дії постав наприкінці, після всього додатка.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Він добре грає на піаніно."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "ab1beb53fa72df04e7f51c1c8e3adaf755869664f56e63211a4993d2821eba0e",
+            "instruction_uk": "Почни з підмета; наприкінці постав місце перед часом. Використай усі групи.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Вони щодня працюють в офісі."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "119d277c13a6b09b08a94c518c88521831b82123882e89219b15fc9f001b87bc",
+            "instruction_uk": "Прислівник нещодавнього завершення постав між допоміжним і основним дієсловами.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Вони щойно повернулися з відпустки."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "45a71e5eca8d691aae80d84210bfe12acd3c6dfba177ae3835832ed3ed2d09c1",
+            "instruction_uk": "Частоту постав після зв’язки, підсилення — безпосередньо перед ознакою.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Марта завжди дуже ввічлива з клієнтами."
+              }
+            ]
+          }
+        ],
+        "rephrase": [
+          {
+            "index": 0,
+            "source_item_sha256": "bcbcdc96ae78b891f5879ba2236ccc7fae5bcf6f53fae4b85afb404880d5b8c8",
+            "instruction_uk": "Зразок: нейтральне місце прислівника.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Always he is happy."
+              },
+              {
+                "lang": "en",
+                "text": "→ He is always happy."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "7fe8395ad4a62642fda82bba3a6042259a86ec8b3c34ab61a687309e2b9b20c0",
+            "instruction_uk": "Постав well після French; збережи всі слова.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She speaks well French."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "23bfed1d7a7003fcadd57d612b9a5fc0c12d99efc71a498106950b3b808e2416",
+            "instruction_uk": "Збережи Never на початку для підсилення; виправ порядок підмета й допоміжного. Решту слів не змінюй.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Never I have been to Japan."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "topic": "verbs-objects",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderVerbsObjectsTheorySeeder",
+        "page_id": 259,
+        "page_category_id": 48,
+        "uuid": "801cbd62-190e-5ce6-9feb-92719d7e1d9a",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 9,
+        "level": null,
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "17fdfd7b7415c6c34df0215d499d82da59762d090d3ab62b1716be15546cf92e"
+      },
+      "after_data_sha256": "c0d00b56e4f6e79009fa0ac636cbed04c741ee4ea9f1ae7843228b90b9b5fddd",
+      "groups": [
+        {
+          "key": "selects-model",
+          "kind": "selects",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Обери конструкцію",
+          "instruction": "Обери варіант за короткою умовою."
+        },
+        {
+          "key": "selects-gap",
+          "kind": "selects",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Доповни речення",
+          "instruction": "Передай український зміст у заданій конструкції."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Зістав зміст і будову",
+          "instruction": "Обери правильний варіант."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади відповідь токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        },
+        {
+          "key": "rephrase-1",
+          "kind": "rephrase",
+          "indices": [
+            1,
+            2
+          ],
+          "example_indices": [
+            0
+          ],
+          "title": "Перебудуй речення",
+          "instruction": "Збережи зміст і виконай коротку умову."
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "187432ac8abc7ed62eec89e3a0b60974a3d40f41c1d033192c573c34813c6199",
+            "instruction_uk": "Обери порядок із займенником у наказі вимкнути прилад.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) Turn it off."
+              },
+              {
+                "lang": "en",
+                "text": "b) Turn off it."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "a75397c9bf438c25de30d4016217ba80b1c75ddeb3b5e75e37a2d6071c136883",
+            "instruction_uk": "Обери правильну форму після can; збережи значення вміння.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) She can to swim."
+              },
+              {
+                "lang": "en",
+                "text": "b) She can swim."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "ffa4f2a3077cefe92146d10876a8aed18f67c8ab1e8cc75f65dd5a2e219d0ccf",
+            "instruction_uk": "Обери нерозділювану конструкцію look after зі значенням догляду.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) Look after the kids."
+              },
+              {
+                "lang": "en",
+                "text": "b) Look the kids after."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "a30c0969087838c733b0a7f62fd79afe66f12600fd5c026c39393beca730ba8a",
+            "instruction_uk": "Постав одержувача перед предметом без прийменника.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Бабуся подарувала мені шарф на день народження."
+              },
+              {
+                "lang": "en",
+                "text": "Grandma ____ for my birthday."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "2ea4bb0f20f65f1ecca0d4f56667f7f6c6fdaf709b0692778175ae0a1d67f3d7",
+            "instruction_uk": "Після дієслова назви одержувача, потім предмет.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Будь ласка, покажи мені свій квиток."
+              },
+              {
+                "lang": "en",
+                "text": "Please ____."
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "e0b4ce99edab3be970757d48bc35705f6d8af47edf3cfbea19ba46e5fa3e914b",
+            "instruction_uk": "Обери висновок, що зберігає зміст обох команд про ту саму посилку.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Pick up the package."
+              },
+              {
+                "lang": "en",
+                "text": "Pick the package up."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "d3b8bbdaf2716c7ee2204e0738dce462769dfec4f0f8f034957b3170c93855fc",
+            "instruction_uk": "Визнач, де have утворює доконану форму, а не називає дію.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "A) We have lunch at noon."
+              },
+              {
+                "lang": "en",
+                "text": "B) We have finished lunch."
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "3e49a0b311a4d10f6b846aceafb304521db8ef5b622aab77f3c64656ebdcbad8",
+            "instruction_uk": "Книга на підлозі. Заміни the book на it; збережи повний наказ підняти її.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Pick up the book."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "c9155770176725e72b9f9a8af326df077f12f07ab84a117f209a195b354bcb27",
+            "instruction_uk": "Телевізор увімкнений. Заміни the TV на it; збережи повний наказ вимкнути його.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Turn off the TV."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "a7cb4de73585ee8711219702a7b20f0454e3b5ed6894906877b6705d1cade966",
+            "instruction_uk": "Заміни your shoes на them; збережи повний наказ взутися.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Put on your shoes."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "f31cd7eea90870361cac7adb7bf2273d779769df037aaf4398afd939ed64513e",
+            "instruction_uk": "Постав одержувача перед надісланим предметом без прийменника.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Вона надіслала мені фото свого нового офісу."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "88010e132c77184a143577b0817e028c832872c1ffdedad80d72109bc0afbaf0",
+            "instruction_uk": "Назви одержувача без прийменника перед подарунком.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Ми купили татові теплі рукавички."
+              }
+            ]
+          }
+        ],
+        "rephrase": [
+          {
+            "index": 0,
+            "source_item_sha256": "39d7571adfeb0a4e7b2083320234ebd0d768089c256eba98bd6dbbbdf1d26b19",
+            "instruction_uk": "Зразок: форма після модального дієслова.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She must calls him."
+              },
+              {
+                "lang": "en",
+                "text": "→ She must call him."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "84cd7d96888cae606782f8aba16da3757dce17efb0ff52ab194ed3a78930f920",
+            "instruction_uk": "Прибери лише зайве to після can; решту слів збережи.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "He can to play the guitar."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "32484639e0a3413eb3498ccc0f3ba663c4801ee1eaccef43acc5d1883b1f66d8",
+            "instruction_uk": "Йдеться про старі чеки. Збережи them і throw away; виправ лише місце займенника.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Throw away them."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "topic": "advanced-emphasis",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\AdvancedWordOrderEmphasisTheorySeeder",
+        "page_id": 255,
+        "page_category_id": 48,
+        "uuid": "47388a9c-40d0-589e-8584-f46b3af68f13",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 10,
+        "level": null,
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "021c9b520c792dc87392f434c08315c0171e4f3012a6ad83d21ad6834bd32e95"
+      },
+      "after_data_sha256": "58846f90dae6a2761dd966e2748a8fb43aacc374f71c43f28eabf90e2e075920",
+      "groups": [
+        {
+          "key": "selects-model",
+          "kind": "selects",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Обери конструкцію",
+          "instruction": "Обери варіант за короткою умовою."
+        },
+        {
+          "key": "selects-gap",
+          "kind": "selects",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Доповни речення",
+          "instruction": "Передай український зміст у заданій конструкції."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Зістав зміст і будову",
+          "instruction": "Обери правильний варіант."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади відповідь токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        },
+        {
+          "key": "rephrase-1",
+          "kind": "rephrase",
+          "indices": [
+            1,
+            2
+          ],
+          "example_indices": [
+            0
+          ],
+          "title": "Перебудуй речення",
+          "instruction": "Збережи зміст і виконай коротку умову."
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "40af8a51bce297ab444623a6b5a95d26f41a78f63d85aeff4540ba4fb3a61d80",
+            "instruction_uk": "Збережи Never на початку; обери правильну повну конструкцію.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) Never I have seen such beauty."
+              },
+              {
+                "lang": "en",
+                "text": "b) Never have I seen such beauty."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "de4885fce4758d7d4a98e9e46d7b522e16fb17e8f3108af4016cac374de0941f",
+            "instruction_uk": "Виділи особу, яка запросила мовця.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) It was you who invited me."
+              },
+              {
+                "lang": "en",
+                "text": "b) It was you which invited me."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "1ea8d0e2b405c9e3ab92a55757d0ca07aa849e6e2ce68a7f9742173a128c89f8",
+            "instruction_uk": "Обери іменну групу після is, не інфінітив. Обидві конструкції можуть бути граматичними.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) What I need is some rest."
+              },
+              {
+                "lang": "en",
+                "text": "b) What I need is to rest."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "61e2aac132d0267bf993d8d8fb78a52ec39c673e874bce9fba401c278c0da29a",
+            "instruction_uk": "Назви причину проблеми іменниковою групою.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Проблему спричинила саме відсутня квитанція."
+              },
+              {
+                "lang": "en",
+                "text": "It was ____ that caused trouble."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "701ce06af600b1525adc09d0364382bad4ecf3406a094b67709e1d6277dd9cb5",
+            "instruction_uk": "Збережи всю початкову частину як підмет, без питального порядку.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Команді потрібні передусім чіткі вказівки."
+              },
+              {
+                "lang": "en",
+                "text": "What the team ____ clear guidance."
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "6ec2924cd0f5ac43d595562fa995f5c8ad1e55e1af450230089d4485231a920b",
+            "instruction_uk": "Виділи саме день зустрічі, не людину; всі факти збережи.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Mia met Leo on Friday."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "1bcd71cf7f23bde6aa86c447a1907d1b099e12e94e21bb342d29f7fa4c398bb7",
+            "instruction_uk": "Визнач зміст; Not only Tom but also Lea — спільний підмет, не початкова обставина.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Not only Tom but also Lea helped us."
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "79f079eaac1e927806d733a0081ecfa47d84b1c92a8f19486b8c1d2c5e24544c",
+            "instruction_uk": "Виділи саме тебе конструкцією It was; дозволені who або that. Запиши повне речення.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "You called me."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "c52c85eeb6ce7f5cab493171a3b431ae8914a89437ee76bb9d6f6a27be4d8579",
+            "instruction_uk": "Виділи вчора конструкцією It was; з’єднай через that. Запиши повне речення.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She left yesterday."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "9628e0d950433a777d83e0648d7c411c3bed5d6db5d9ff3104a211eddf0a8796",
+            "instruction_uk": "Виділи допомогу конструкцією It is; з’єднай через that. Запиши повне речення.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "I need help."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "9586c5c1bc7a4b577efa60483e681bd29effcb37000b34827d882617559fa89d",
+            "instruction_uk": "Виділи причину розщепленою конструкцією; збережи перенаправлення рейсу.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Рейс спрямували в інший аеропорт саме через туман."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "42351f6d678178fbece2ebf7f7cba591f642638662b61d3d0090395efca1b44e",
+            "instruction_uk": "Почни з предмета заперечення; прийменник залиш перед зв’язкою.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Я заперечую саме проти таємності."
+              }
+            ]
+          }
+        ],
+        "rephrase": [
+          {
+            "index": 0,
+            "source_item_sha256": "aaf8a731477394376e4bbb03402619112cf682bf3b20b00329596fd04c1735a3",
+            "instruction_uk": "Зразок: винесення Never без зміни змісту.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "I have never seen such beauty."
+              },
+              {
+                "lang": "en",
+                "text": "→ Never have I seen such beauty."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "b056fe3cd66a848e5033a3f9f433ad0ab0264f4125b9212bb5ffa3d3483bfd37",
+            "instruction_uk": "Почни з Rarely; ужий інверсію й збережи теперішню звичку. Запиши повне речення.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She rarely makes mistakes."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "ff957da4a486bc8ff3563ca7873caef601bee612788a987173cc6cca3bcd9339",
+            "instruction_uk": "Почни з Not only; інвертуй лише першу частину. Після but повтори he; also постав прямо перед helped. Збережи минулий час.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "He not only finished early, but also helped."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "topic": "inversion-basics",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\InversionBasicsTheorySeeder",
+        "page_id": 288,
+        "page_category_id": 48,
+        "uuid": "3f8d3e8b-396b-5182-a71d-4c0609aaac4e",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 8,
+        "level": "B2",
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "738ba0493d04b61c7799002fec6e63b7ae757da633efe9c3dcf2d79591aed7fd"
+      },
+      "after_data_sha256": "115efe43330d93891617e7ada2c994443cfd63fe43445671303c52342aff5cb2",
+      "groups": [
+        {
+          "key": "selects-model",
+          "kind": "selects",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Обери конструкцію",
+          "instruction": "Обери варіант за короткою умовою."
+        },
+        {
+          "key": "selects-gap",
+          "kind": "selects",
+          "indices": [
+            2,
+            3
+          ],
+          "title": "Доповни речення",
+          "instruction": "Передай український зміст у заданій конструкції."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Зістав зміст і будову",
+          "instruction": "Обери правильний варіант."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади відповідь токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            2,
+            3
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "e673d766e878ff635eccf4274c9b5d638a4ea093232563ba5a669a68ca8069b4",
+            "instruction_uk": "Доповни дієсловом «говорити» у потрібній формі.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Гід рідко говорить так швидко."
+              },
+              {
+                "lang": "en",
+                "text": "Rarely does the guide ___ so quickly."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "fe1cdc13fac7cd38c1e5ddccc5a7aa97f89da95cab4f8ddc91440a1a3ab4a918",
+            "instruction_uk": "Доповни дієсловом «полагодити», зберігши обидві минулі дії.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Команда не лише полагодила дах, а й пофарбувала стіни."
+              },
+              {
+                "lang": "en",
+                "text": "Not only did the team ___ the roof, but it also painted the walls."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "51cdaad9919861f8df781dbb292bc3673f8cc627d5c08fe9f77b261ca293614d",
+            "instruction_uk": "Після початкового обмеження інвертуй головну частину.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Лише тоді пілот помітив попередження."
+              },
+              {
+                "lang": "en",
+                "text": "Only then ____ notice the warning."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "c9c8f8d28037d62838b49a69a395f9fe0e488d9746a29c77ad10afe14fae52e1",
+            "instruction_uk": "Постав перше допоміжне дієслово перед множинним підметом.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Рідко коли сади виглядали такими яскравими."
+              },
+              {
+                "lang": "en",
+                "text": "Rarely ____ looked so bright."
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "cec4dc536f7929fe931cb5632a177f93e1bb43bd3653c52f4af15db7618e1c26",
+            "instruction_uk": "Обери правильний порядок підрядної та головної частин.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) Only after did the bell ring the guard opened the door."
+              },
+              {
+                "lang": "en",
+                "text": "b) Only after the bell rang did the guard open the door."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "d74bdf53009f79ba56a5041825bb0d51334678ea0666d3f322777f6d99a81d75",
+            "instruction_uk": "Визнач, яке речення потребує інверсії.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "a) Only the caretaker knew the code."
+              },
+              {
+                "lang": "en",
+                "text": "b) Not only the caretaker but also the manager knew the code."
+              },
+              {
+                "lang": "en",
+                "text": "c) Only then the manager checked the lock."
+              },
+              {
+                "lang": "en",
+                "text": "d) The manager rarely checks that lock."
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "b5870b5d6751c43864a21cf54bf117da92a3b455536bc8f47e8b4a7bd60775e8",
+            "instruction_uk": "Почни з негативного прислівника; перше допоміжне постав перед підметом.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Ніколи раніше я не чув цей оркестр наживо."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "f13fef236d1f8cb709b262d703bd977aa602d0df9bd6e3f56aceaefed22ad540",
+            "instruction_uk": "Винеси часову межу вперед; інвертуй лише головну частину.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Ми змогли прочитати знак лише після того, як увімкнулися ліхтарі."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "3d4c1525b73cd90b51568f14378b8ff21648e40b68755809279784396660f56e",
+            "instruction_uk": "Почни з негативного прислівника; ужий інверсію минулого доконаного часу.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Ніколи раніше куратор не бачив такого крихкого рукопису."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "30b1e14438fdebb98f272a730ed88cdc3eec3947aa43bfe483bc01ea7515ea05",
+            "instruction_uk": "Винеси обмеження дозволу на початок; інвертуй модальне дієслово.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Відвідувачі можуть увійти до вежі лише з чинним дозволом."
+              }
+            ]
+          }
+        ],
+        "rephrase": []
+      }
+    },
+    {
+      "topic": "negative-adverbial-inversion",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\InversionAfterNegativeAdverbialsTheorySeeder",
+        "page_id": 295,
+        "page_category_id": 48,
+        "uuid": "ecf7cd80-5239-5fad-8e1c-8eaf9f2aaba5",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 8,
+        "level": "C1",
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "a27af7e9e98992ece01e4b7ad33b105d2cb32c4fd2a1e8d339e9b129eeb03687"
+      },
+      "after_data_sha256": "b162440fa1c9f8b7034c9a044f01ceb64fee9b3bba456f95088c6a9f4c034d0a",
+      "groups": [
+        {
+          "key": "selects-model",
+          "kind": "selects",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Обери конструкцію",
+          "instruction": "Обери варіант за короткою умовою."
+        },
+        {
+          "key": "selects-gap",
+          "kind": "selects",
+          "indices": [
+            2,
+            3
+          ],
+          "title": "Доповни речення",
+          "instruction": "Передай український зміст у заданій конструкції."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Зістав зміст і будову",
+          "instruction": "Обери правильний варіант."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади відповідь токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            2,
+            3
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "7eb32d8737da77c0acde7817035d84b406ad6dae9fb0e7b1da1c48c838972335",
+            "instruction_uk": "Почни з Rarely; збережи теперішній доконаний пасив, частотність і неназваного виконавця.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "The samples have rarely been stored outside the cold room."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "aa1f6e0046b982e491d70c3317964ad1cb1acd48de819de68610f2d5e9971690",
+            "instruction_uk": "Обери пару; збережи could, актив у A та пасив у B. Розрізняй обмеження підмета й часу.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "A) Only the archivist could open the vault."
+              },
+              {
+                "lang": "en",
+                "text": "B) Only after the check was complete ___ the vault be opened."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "97f4b9a0beea443e3e6fa85a19429d87a007041b113c7c206e7b5ed461b848e2",
+            "instruction_uk": "Передай негайну наступність з інверсією минулого доконаного часу.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Щойно надійшов електронний лист, як суперечка поновилася."
+              },
+              {
+                "lang": "en",
+                "text": "No sooner ____ arrived than the debate resumed."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "2fc5e3ea18288454945331c271d412abf407b8ac3f5ec2e82fc0e82fd5b94a2b",
+            "instruction_uk": "Інвертуй допоміжне дієслово, зберігши дієприкметник.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Щойно я зачинив хвіртку, як собака втік."
+              },
+              {
+                "lang": "en",
+                "text": "Hardly ____ the gate when the dog escaped."
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "6fac45b61eac035829e0e4c17e8e3aa80ff8ecae9799ee2c371482f6170423eb",
+            "instruction_uk": "Обери поєднання Hardly…when і правильну оцінку причинності та триденного інтервалу.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "The dispatcher had finished checking the list. The alarm sounded immediately afterwards."
+              },
+              {
+                "lang": "en",
+                "text": "A) Hardly had the dispatcher finished checking the list when the alarm sounded."
+              },
+              {
+                "lang": "uk",
+                "text": "А: Причинність не доведена; модель не передає інтервал у три дні."
+              },
+              {
+                "lang": "en",
+                "text": "B) Hardly had the dispatcher finished checking the list than the alarm sounded."
+              },
+              {
+                "lang": "uk",
+                "text": "Б: Причинність доведена; модель підходить і для інтервалу в три дні."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "200b2d358fc79df9b908abd013f262369a2dc7a2fb02301e6fb776146e7688a4",
+            "instruction_uk": "Обери пару, що зберігає заборону з may та факт минулого пасиву.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "A) Under no circumstances may visitors remove the seals. At no time during the trial was the access code shared."
+              },
+              {
+                "lang": "en",
+                "text": "B) Under no circumstances may visitors not remove the seals. At no time during the trial may the access code be shared."
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "371228ab532fc15b43087785c3227f7633bc9aa6a895618e93df492a733abc44",
+            "instruction_uk": "У часовій частині збережи нейтральний минулий доконаний час; інвертуй лише пасив головної.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Матеріал оприлюднили лише після того, як редакторка підтвердила згоду."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "e06bf51cc2f4af70f9f9d31859d5b4ecf20a167041065542554492662bfbdf1c",
+            "instruction_uk": "Збережи три речення: негайна наступність; спільний підмет без інверсії; нейтральна частотність без емфатичного do/did.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Щойно встановили стенд, як прибули відвідувачі."
+              },
+              {
+                "lang": "uk",
+                "text": "І архітекторка, і доглядач привітали їх."
+              },
+              {
+                "lang": "uk",
+                "text": "Відвідувачі рідко розмовляють голосно в цьому залі."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "bf8dfa7b51e90f56f867adc579c972fce61295ce3768c87da7a82017ddc00652",
+            "instruction_uk": "Почни конструкцією негайної наступності Scarcely…when; збережи обидві минулі події.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Щойно закінчилася репетиція, як зі стелі почало капати."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "82c1d786c232e59fc1db73747f59bdd02797e358bb7bf09f7ffe7bbadf1182c7",
+            "instruction_uk": "Винеси негативне обмеження часу вперед; збережи минулий пасив.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Пасажирів ані на мить не залишали без допомоги."
+              }
+            ]
+          }
+        ],
+        "rephrase": []
+      }
+    },
+    {
+      "topic": "fronting-emphasis",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\AdvancedFrontingAndEmphasisTheorySeeder",
+        "page_id": 313,
+        "page_category_id": 48,
+        "uuid": "f20bb8f5-2bd7-58c5-9910-c5e0c70d7f0a",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 8,
+        "level": "C2",
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "427a3480402b64a73cc39ac89acd7868b80a8bae6bbf6505297042cec595839b"
+      },
+      "after_data_sha256": "2ae2d06222211a2434f42ca1b8dd5247d36b5609515f2ed4e3f496a50152b0f5",
+      "groups": [
+        {
+          "key": "selects-model",
+          "kind": "selects",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Обери конструкцію",
+          "instruction": "Обери варіант за короткою умовою."
+        },
+        {
+          "key": "selects-gap",
+          "kind": "selects",
+          "indices": [
+            2,
+            3
+          ],
+          "title": "Доповни речення",
+          "instruction": "Передай український зміст у заданій конструкції."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Зістав зміст і будову",
+          "instruction": "Обери правильний варіант."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади відповідь токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            2,
+            3
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "c24eaf5a0aa8e83119febf4e5a7ef047ecb9b51a092a3adc6c6a919296ff4ba4",
+            "instruction_uk": "Доповни особовим займенником у правильному порядку.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Here ___."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "40a10e85bac2fb427e24642c6877ac779adc564dc97a92b39c9644534be11733",
+            "instruction_uk": "Обери нейтральне повідомлення про розклад, не описову інверсію.",
+            "stimuli": []
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "33ddc60da085e21de7ff6575e3201c151bb79276b26514332608a6163b23a9de",
+            "instruction_uk": "Після винесеної ознаки постав зв’язку та новий абстрактний підмет.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "В остаточному звіті не було жодного визнання конфлікту."
+              },
+              {
+                "lang": "en",
+                "text": "Absent from the final report ____ of the conflict."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "6cc8c6e42523c8ff76a277c19cdd8eca65ed5e7ab02c0d554b6e014c32106dcd",
+            "instruction_uk": "Початкову підрядну збережи як додаток; далі потрібен звичайний порядок, не інверсія.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Того, що цифри було скориговано, ніхто серйозно не заперечує."
+              },
+              {
+                "lang": "en",
+                "text": "That the figures had been adjusted ____."
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "b903e0009a1dfe1dfbc8681433b6d1b76a5ad0bb255cbfe5d2fa19175a9b409c",
+            "instruction_uk": "Обери повну класифікацію трьох конструкцій.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "A) That estimate we cannot accept."
+              },
+              {
+                "lang": "en",
+                "text": "B) Only later did we discover the error."
+              },
+              {
+                "lang": "en",
+                "text": "C) Beside the entrance stood a young violinist."
+              },
+              {
+                "lang": "uk",
+                "text": "Варіант a: A — винесення без інверсії; B — інверсія допоміжного; C — інверсія основного дієслова."
+              },
+              {
+                "lang": "uk",
+                "text": "Варіант b: A — інверсія допоміжного; B — інверсія основного дієслова; C — винесення без інверсії."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "17aa8550cf4bea2394e0f0e5ef5e8592063f80f229e030a50592fbaeb4ad5e40",
+            "instruction_uk": "Обери класифікацію та нейтральне перефразування.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "The new model we had to replace after a week."
+              },
+              {
+                "lang": "uk",
+                "text": "Варіант a: винесення без інверсії."
+              },
+              {
+                "lang": "en",
+                "text": "a) We had to replace the new model after a week."
+              },
+              {
+                "lang": "uk",
+                "text": "Варіант b: інверсія допоміжного."
+              },
+              {
+                "lang": "en",
+                "text": "b) Had we to replace the new model after a week."
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "4d6d80a18dd211f96dee1b5bf63e898b29f526099a1c29d8e5fb14add4a26ca6",
+            "instruction_uk": "Винеси додаток для контрасту; порядок підмета й модального дієслова збережи.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Ту умову я можу прийняти."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "53e9f31bb48723c3e15237c65fd4d99a9d2eccae57c721d93df6a477a820d469",
+            "instruction_uk": "Почни з місця; новий іменниковий підмет постав після дієслова.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "За завісою стояло високе дзеркало."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "c3a1867d6720034d638aae7b6c75e57301222e1960333b6fe005db2ebebb01dd",
+            "instruction_uk": "Почни з порівняльної оцінки; постав зв’язку перед новим іменниковим підметом.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Ще важчим для встановлення, ніж мотив, виявився спосіб зникнення записів."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "a61521c2fde4bf7c66ac10ea5073765b0bb3b87eefe2f4f6e60c96cf496663c5",
+            "instruction_uk": "Винеси обмежений обсяг висновку вперед; порядок головної частини збережи.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Принаймні це вцілілі докази дозволяють установити."
+              }
+            ]
+          }
+        ],
+        "rephrase": []
+      }
+    }
+  ]
+}

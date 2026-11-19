@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62528,
+        "uuid": "qnq-tags-b1-g01",
+        "question": "Nobody left a forwarding address, {a1}?",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 60,
+        "source_id": 462,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedQuestionTagsDisjunctiveQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "did they",
+                "didn't they",
+                "have they"
+            ]
+        },
+        "theory_text_block_uuid": "3d3c00b9-03cd-5348-bc97-b50bdbf6a62f",
+        "created_at": "2026-10-30T13:52:59.000000Z",
+        "updated_at": "2026-10-30T13:52:59.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 462,
+        "name": "Questions and Negations Quality: Question Tags: підтвердження та уточнення",
+        "created_at": "2026-10-30T13:52:57.000000Z",
+        "updated_at": "2026-10-30T13:52:57.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 288,
+                "name": "Question Tags",
+                "category": null,
+                "created_at": "2026-04-23T14:33:01.000000Z",
+                "updated_at": "2026-04-23T14:33:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 62528,
+                "tag_id": 288,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 946,
+                "option": "did they",
+                "created_at": "2026-04-23T14:16:10.000000Z",
+                "updated_at": "2026-04-23T14:16:10.000000Z"
+            },
+            "pivot": {
+                "question_id": 62528,
+                "option_id": 946,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 958,
+                "option": "have they",
+                "created_at": "2026-04-23T14:16:11.000000Z",
+                "updated_at": "2026-04-23T14:16:11.000000Z"
+            },
+            "pivot": {
+                "question_id": 62528,
+                "option_id": 958,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 6358,
+                "option": "didn't they",
+                "created_at": "2026-04-23T14:44:46.000000Z",
+                "updated_at": "2026-04-23T14:44:46.000000Z"
+            },
+            "pivot": {
+                "question_id": 62528,
+                "option_id": 6358,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332145,
+                "question_id": 62528,
+                "marker": "a1",
+                "option_id": 946,
+                "created_at": "2026-10-30T13:52:59.000000Z",
+                "updated_at": "2026-10-30T13:52:59.000000Z"
+            },
+            "option": {
+                "id": 946,
+                "option": "did they",
+                "created_at": "2026-04-23T14:16:10.000000Z",
+                "updated_at": "2026-04-23T14:16:10.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49479,
+                "question_id": 62528,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 56996,
+                "created_at": "2026-10-30T13:52:59.000000Z",
+                "updated_at": "2026-10-30T13:52:59.000000Z"
+            },
+            "option": {
+                "id": 56996,
+                "option": "Заперечне за значенням слово вимагає стверджувального хвостика й нейтрального займенника.",
+                "created_at": "2026-10-30T13:52:59.000000Z",
+                "updated_at": "2026-10-30T13:52:59.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54543,
+            "question_id": 62528,
+            "text": "Nobody left a forwarding address, {a1}?",
+            "created_at": "2026-10-30T13:52:59.000000Z",
+            "updated_at": "2026-10-30T13:52:59.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

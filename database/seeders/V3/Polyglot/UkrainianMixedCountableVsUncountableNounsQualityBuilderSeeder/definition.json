@@ -1,0 +1,4737 @@
+{
+    "schema_version": 1,
+    "quality_revision": "nouns-articles-quantity-v1",
+    "compiled_from": {
+        "path": "docs/content/nouns-articles-quantity-quality/countable-uncountable.v1.json",
+        "sha256": "fc230dac3f59d47bf26f22d39e15f0e0f80a5b600631caaad07f89246300369c"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedCountableVsUncountableNounsQualityBuilderSeeder",
+        "uuid_namespace": "nouns-articles-quantity-quality-countable-uncountable-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "nouns_articles_quantity_quality_countable_uncountable": {
+            "name": "Nouns Articles Quantity Quality: Злічувані й незлічувані значення іменників"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_countable_vs_uncountable_nouns": {
+            "name": "Countable Vs Uncountable Nouns",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "countable_singular": {
+            "name": "Countable Singular",
+            "category": "topic"
+        },
+        "countable_plural": {
+            "name": "Countable Plural",
+            "category": "topic"
+        },
+        "uncountable_no_plural": {
+            "name": "Uncountable No Plural",
+            "category": "topic"
+        },
+        "uncountable_singular_verb": {
+            "name": "Uncountable Singular Verb",
+            "category": "topic"
+        },
+        "article_determiner_needed": {
+            "name": "Article Determiner Needed",
+            "category": "topic"
+        },
+        "much_many": {
+            "name": "Much Many",
+            "category": "topic"
+        },
+        "few_little": {
+            "name": "Few Little",
+            "category": "topic"
+        },
+        "common_uncountables": {
+            "name": "Common Uncountables",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "naqq-countable-uncountable-a1-c01",
+            "author_id": "A1-c01",
+            "question": "У коробці є трохи сиру.",
+            "level": "A1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "У коробці є трохи сиру.",
+            "target_text": "There is some cheese in the box.",
+            "markers": {
+                "a1": {
+                    "answer": "There",
+                    "verb_hint": "Йдеться про відому коробку й невизначену кількість продукту, а не про окремі сорти сиру.",
+                    "options": [
+                        "There",
+                        "Soup",
+                        "Hot",
+                        "Two"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Йдеться про відому коробку й невизначену кількість продукту, а не про окремі сорти сиру.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a3": {
+                    "answer": "some",
+                    "verb_hint": "Йдеться про відому коробку й невизначену кількість продукту, а не про окремі сорти сиру.",
+                    "options": [
+                        "some",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a4": {
+                    "answer": "cheese",
+                    "verb_hint": "Йдеться про відому коробку й невизначену кількість продукту, а не про окремі сорти сиру.",
+                    "options": [
+                        "cheese",
+                        "rice",
+                        "coffee",
+                        "tea"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Йдеться про відому коробку й невизначену кількість продукту, а не про окремі сорти сиру.",
+                    "options": [
+                        "in",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Йдеться про відому коробку й невизначену кількість продукту, а не про окремі сорти сиру.",
+                    "options": [
+                        "the",
+                        "an",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "box.",
+                    "verb_hint": "Йдеться про відому коробку й невизначену кількість продукту, а не про окремі сорти сиру.",
+                    "options": [
+                        "box",
+                        "paper",
+                        "music",
+                        "food"
+                    ]
+                }
+            },
+            "verb_hint": "Йдеться про відому коробку й невизначену кількість продукту, а не про окремі сорти сиру.",
+            "accepted_target_texts": [
+                "There is some cheese in the box."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "some cheese",
+                "in the box."
+            ],
+            "token_groups": [
+                "There is",
+                "some cheese",
+                "in the box."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "There",
+                "is",
+                "some",
+                "cheese",
+                "in",
+                "the",
+                "box."
+            ],
+            "options": [
+                "There",
+                "Soup",
+                "Hot",
+                "Two",
+                "is",
+                "was",
+                "were",
+                "be",
+                "some",
+                "another",
+                "either",
+                "neither",
+                "cheese",
+                "rice",
+                "coffee",
+                "tea",
+                "in",
+                "into",
+                "onto",
+                "over",
+                "the",
+                "an",
+                "any",
+                "this",
+                "box",
+                "paper",
+                "music",
+                "food"
+            ],
+            "source_text_uk": "У коробці є трохи сиру.",
+            "options_by_marker": {
+                "a1": [
+                    "There",
+                    "Soup",
+                    "Hot",
+                    "Two"
+                ],
+                "a2": [
+                    "is",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a3": [
+                    "some",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a4": [
+                    "cheese",
+                    "rice",
+                    "coffee",
+                    "tea"
+                ],
+                "a5": [
+                    "in",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a6": [
+                    "the",
+                    "an",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "box",
+                    "paper",
+                    "music",
+                    "food"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "naqq-countable-uncountable-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Мені потрібні два олівці й трохи паперу.",
+            "level": "A1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Мені потрібні два олівці й трохи паперу.",
+            "target_text": "I need two pencils and some paper.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Порахуй олівці, але назви папір як матеріал; не додавай невідомого числа аркушів.",
+                    "options": [
+                        "I",
+                        "We",
+                        "They",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "need",
+                    "verb_hint": "Порахуй олівці, але назви папір як матеріал; не додавай невідомого числа аркушів.",
+                    "options": [
+                        "need",
+                        "took",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a3": {
+                    "answer": "two",
+                    "verb_hint": "Порахуй олівці, але назви папір як матеріал; не додавай невідомого числа аркушів.",
+                    "options": [
+                        "two",
+                        "There",
+                        "box",
+                        "soup"
+                    ]
+                },
+                "a4": {
+                    "answer": "pencils",
+                    "verb_hint": "Порахуй олівці, але назви папір як матеріал; не додавай невідомого числа аркушів.",
+                    "options": [
+                        "pencils",
+                        "carrots",
+                        "chairs",
+                        "tables"
+                    ]
+                },
+                "a5": {
+                    "answer": "and",
+                    "verb_hint": "Порахуй олівці, але назви папір як матеріал; не додавай невідомого числа аркушів.",
+                    "options": [
+                        "and",
+                        "nor",
+                        "so",
+                        "yet"
+                    ]
+                },
+                "a6": {
+                    "answer": "some",
+                    "verb_hint": "Порахуй олівці, але назви папір як матеріал; не додавай невідомого числа аркушів.",
+                    "options": [
+                        "some",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a7": {
+                    "answer": "paper.",
+                    "verb_hint": "Порахуй олівці, але назви папір як матеріал; не додавай невідомого числа аркушів.",
+                    "options": [
+                        "paper",
+                        "hot",
+                        "cat",
+                        "person"
+                    ]
+                }
+            },
+            "verb_hint": "Порахуй олівці, але назви папір як матеріал; не додавай невідомого числа аркушів.",
+            "accepted_target_texts": [
+                "I need two pencils and some paper."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I need",
+                "two pencils",
+                "and some paper."
+            ],
+            "token_groups": [
+                "I need",
+                "two pencils",
+                "and some paper."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "I",
+                "need",
+                "two",
+                "pencils",
+                "and",
+                "some",
+                "paper."
+            ],
+            "options": [
+                "I",
+                "We",
+                "They",
+                "Me",
+                "need",
+                "took",
+                "wrote",
+                "rode",
+                "two",
+                "There",
+                "box",
+                "soup",
+                "pencils",
+                "carrots",
+                "chairs",
+                "tables",
+                "and",
+                "nor",
+                "so",
+                "yet",
+                "some",
+                "no",
+                "another",
+                "either",
+                "paper",
+                "hot",
+                "cat",
+                "person"
+            ],
+            "source_text_uk": "Мені потрібні два олівці й трохи паперу.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "We",
+                    "They",
+                    "Me"
+                ],
+                "a2": [
+                    "need",
+                    "took",
+                    "wrote",
+                    "rode"
+                ],
+                "a3": [
+                    "two",
+                    "There",
+                    "box",
+                    "soup"
+                ],
+                "a4": [
+                    "pencils",
+                    "carrots",
+                    "chairs",
+                    "tables"
+                ],
+                "a5": [
+                    "and",
+                    "nor",
+                    "so",
+                    "yet"
+                ],
+                "a6": [
+                    "some",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a7": [
+                    "paper",
+                    "hot",
+                    "cat",
+                    "person"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "naqq-countable-uncountable-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Суп гарячий, але морквини холодні.",
+            "level": "A1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Суп гарячий, але морквини холодні.",
+            "target_text": "The soup is hot, but the carrots are cold.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Обидві страви вже відомі; збережи різницю між незлічуваною назвою супу та окремими морквинами.",
+                    "options": [
+                        "The",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "soup",
+                    "verb_hint": "Обидві страви вже відомі; збережи різницю між незлічуваною назвою супу та окремими морквинами.",
+                    "options": [
+                        "soup",
+                        "box",
+                        "two",
+                        "paper"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Обидві страви вже відомі; збережи різницю між незлічуваною назвою супу та окремими морквинами.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a4": {
+                    "answer": "hot,",
+                    "verb_hint": "Обидві страви вже відомі; збережи різницю між незлічуваною назвою супу та окремими морквинами.",
+                    "options": [
+                        "hot",
+                        "There",
+                        "train",
+                        "bus"
+                    ]
+                },
+                "a5": {
+                    "answer": "but",
+                    "verb_hint": "Обидві страви вже відомі; збережи різницю між незлічуваною назвою супу та окремими морквинами.",
+                    "options": [
+                        "but",
+                        "yet",
+                        "because",
+                        "although"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Обидві страви вже відомі; збережи різницю між незлічуваною назвою супу та окремими морквинами.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "carrots",
+                    "verb_hint": "Обидві страви вже відомі; збережи різницю між незлічуваною назвою супу та окремими морквинами.",
+                    "options": [
+                        "carrots",
+                        "pencils",
+                        "tables",
+                        "tickets"
+                    ]
+                },
+                "a8": {
+                    "answer": "are",
+                    "verb_hint": "Обидві страви вже відомі; збережи різницю між незлічуваною назвою супу та окремими морквинами.",
+                    "options": [
+                        "are",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a9": {
+                    "answer": "cold.",
+                    "verb_hint": "Обидві страви вже відомі; збережи різницю між незлічуваною назвою супу та окремими морквинами.",
+                    "options": [
+                        "cold",
+                        "warm",
+                        "quiet",
+                        "hungry"
+                    ]
+                }
+            },
+            "verb_hint": "Обидві страви вже відомі; збережи різницю між незлічуваною назвою супу та окремими морквинами.",
+            "accepted_target_texts": [
+                "The soup is hot, but the carrots are cold."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The soup",
+                "is hot,",
+                "but the carrots",
+                "are cold."
+            ],
+            "token_groups": [
+                "The soup",
+                "is hot,",
+                "but the carrots",
+                "are cold."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "soup",
+                "is",
+                "hot,",
+                "but",
+                "the",
+                "carrots",
+                "are",
+                "cold."
+            ],
+            "options": [
+                "The",
+                "This",
+                "That",
+                "These",
+                "soup",
+                "box",
+                "two",
+                "paper",
+                "is",
+                "was",
+                "were",
+                "be",
+                "hot",
+                "There",
+                "train",
+                "bus",
+                "but",
+                "yet",
+                "because",
+                "although",
+                "the",
+                "those",
+                "each",
+                "every",
+                "carrots",
+                "pencils",
+                "tables",
+                "tickets",
+                "are",
+                "wasn't",
+                "weren't",
+                "am",
+                "cold",
+                "warm",
+                "quiet",
+                "hungry"
+            ],
+            "source_text_uk": "Суп гарячий, але морквини холодні.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "soup",
+                    "box",
+                    "two",
+                    "paper"
+                ],
+                "a3": [
+                    "is",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a4": [
+                    "hot",
+                    "There",
+                    "train",
+                    "bus"
+                ],
+                "a5": [
+                    "but",
+                    "yet",
+                    "because",
+                    "although"
+                ],
+                "a6": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "carrots",
+                    "pencils",
+                    "tables",
+                    "tickets"
+                ],
+                "a8": [
+                    "are",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a9": [
+                    "cold",
+                    "warm",
+                    "quiet",
+                    "hungry"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "naqq-countable-uncountable-a2-c01",
+            "author_id": "A2-c01",
+            "question": "На прилавку шість пляшок соку.",
+            "level": "A2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "На прилавку шість пляшок соку.",
+            "target_text": "There are six bottles of juice on the counter.",
+            "markers": {
+                "a1": {
+                    "answer": "There",
+                    "verb_hint": "Прилавок уже відомий; рахуй пляшки, не перетворюй назву напою на множину.",
+                    "options": [
+                        "There",
+                        "Bedroom",
+                        "Furniture",
+                        "Bike"
+                    ]
+                },
+                "a2": {
+                    "answer": "are",
+                    "verb_hint": "Прилавок уже відомий; рахуй пляшки, не перетворюй назву напою на множину.",
+                    "options": [
+                        "are",
+                        "am",
+                        "is",
+                        "was"
+                    ]
+                },
+                "a3": {
+                    "answer": "six",
+                    "verb_hint": "Прилавок уже відомий; рахуй пляшки, не перетворюй назву напою на множину.",
+                    "options": [
+                        "six",
+                        "person",
+                        "water",
+                        "bread"
+                    ]
+                },
+                "a4": {
+                    "answer": "bottles",
+                    "verb_hint": "Прилавок уже відомий; рахуй пляшки, не перетворюй назву напою на множину.",
+                    "options": [
+                        "bottles",
+                        "news",
+                        "hikers",
+                        "bags"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Прилавок уже відомий; рахуй пляшки, не перетворюй назву напою на множину.",
+                    "options": [
+                        "of",
+                        "from",
+                        "for",
+                        "in"
+                    ]
+                },
+                "a6": {
+                    "answer": "juice",
+                    "verb_hint": "Прилавок уже відомий; рахуй пляшки, не перетворюй назву напою на множину.",
+                    "options": [
+                        "juice",
+                        "sugar",
+                        "salt",
+                        "butter"
+                    ]
+                },
+                "a7": {
+                    "answer": "on",
+                    "verb_hint": "Прилавок уже відомий; рахуй пляшки, не перетворюй назву напою на множину.",
+                    "options": [
+                        "on",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Прилавок уже відомий; рахуй пляшки, не перетворюй назву напою на множину.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a9": {
+                    "answer": "counter.",
+                    "verb_hint": "Прилавок уже відомий; рахуй пляшки, не перетворюй назву напою на множину.",
+                    "options": [
+                        "counter",
+                        "window",
+                        "phone",
+                        "train"
+                    ]
+                }
+            },
+            "verb_hint": "Прилавок уже відомий; рахуй пляшки, не перетворюй назву напою на множину.",
+            "accepted_target_texts": [
+                "There are six bottles of juice on the counter."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There are",
+                "six bottles",
+                "of juice",
+                "on the counter."
+            ],
+            "token_groups": [
+                "There are",
+                "six bottles",
+                "of juice",
+                "on the counter."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "There",
+                "are",
+                "six",
+                "bottles",
+                "of",
+                "juice",
+                "on",
+                "the",
+                "counter."
+            ],
+            "options": [
+                "There",
+                "Bedroom",
+                "Furniture",
+                "Bike",
+                "are",
+                "am",
+                "is",
+                "was",
+                "six",
+                "person",
+                "water",
+                "bread",
+                "bottles",
+                "news",
+                "hikers",
+                "bags",
+                "of",
+                "from",
+                "for",
+                "in",
+                "juice",
+                "sugar",
+                "salt",
+                "butter",
+                "on",
+                "at",
+                "by",
+                "with",
+                "the",
+                "any",
+                "this",
+                "that",
+                "counter",
+                "window",
+                "phone",
+                "train"
+            ],
+            "source_text_uk": "На прилавку шість пляшок соку.",
+            "options_by_marker": {
+                "a1": [
+                    "There",
+                    "Bedroom",
+                    "Furniture",
+                    "Bike"
+                ],
+                "a2": [
+                    "are",
+                    "am",
+                    "is",
+                    "was"
+                ],
+                "a3": [
+                    "six",
+                    "person",
+                    "water",
+                    "bread"
+                ],
+                "a4": [
+                    "bottles",
+                    "news",
+                    "hikers",
+                    "bags"
+                ],
+                "a5": [
+                    "of",
+                    "from",
+                    "for",
+                    "in"
+                ],
+                "a6": [
+                    "juice",
+                    "sugar",
+                    "salt",
+                    "butter"
+                ],
+                "a7": [
+                    "on",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a8": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a9": [
+                    "counter",
+                    "window",
+                    "phone",
+                    "train"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "naqq-countable-uncountable-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Новини про зниклих піших туристів обнадійливі.",
+            "level": "A2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Новини про зниклих піших туристів обнадійливі.",
+            "target_text": "The news about the missing hikers is encouraging.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай вже визначені новини; англійська назва інформації потребує однини дієслова.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "news",
+                    "verb_hint": "Передай вже визначені новини; англійська назва інформації потребує однини дієслова.",
+                    "options": [
+                        "news",
+                        "bottles",
+                        "women",
+                        "bikes"
+                    ]
+                },
+                "a3": {
+                    "answer": "about",
+                    "verb_hint": "Передай вже визначені новини; англійська назва інформації потребує однини дієслова.",
+                    "options": [
+                        "about",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Передай вже визначені новини; англійська назва інформації потребує однини дієслова.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a5": {
+                    "answer": "missing",
+                    "verb_hint": "Передай вже визначені новини; англійська назва інформації потребує однини дієслова.",
+                    "options": [
+                        "missing",
+                        "visiting",
+                        "cooking",
+                        "riding"
+                    ]
+                },
+                "a6": {
+                    "answer": "hikers",
+                    "verb_hint": "Передай вже визначені новини; англійська назва інформації потребує однини дієслова.",
+                    "options": [
+                        "hikers",
+                        "doors",
+                        "keys",
+                        "rooms"
+                    ]
+                },
+                "a7": {
+                    "answer": "is",
+                    "verb_hint": "Передай вже визначені новини; англійська назва інформації потребує однини дієслова.",
+                    "options": [
+                        "is",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a8": {
+                    "answer": "encouraging.",
+                    "verb_hint": "Передай вже визначені новини; англійська назва інформації потребує однини дієслова.",
+                    "options": [
+                        "encouraging",
+                        "driving",
+                        "studying",
+                        "living"
+                    ]
+                }
+            },
+            "verb_hint": "Передай вже визначені новини; англійська назва інформації потребує однини дієслова.",
+            "accepted_target_texts": [
+                "The news about the missing hikers is encouraging.",
+                "The news about the missing walkers is encouraging."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "walkers"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "walkers"
+                ]
+            },
+            "reorder_groups": [
+                "The news",
+                "about",
+                "the missing hikers",
+                "is encouraging."
+            ],
+            "token_groups": [
+                "The news",
+                "about",
+                "the missing hikers",
+                "is encouraging."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "news",
+                "about",
+                "the",
+                "missing",
+                "hikers",
+                "is",
+                "encouraging."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "news",
+                "bottles",
+                "women",
+                "bikes",
+                "about",
+                "over",
+                "under",
+                "through",
+                "the",
+                "an",
+                "some",
+                "any",
+                "missing",
+                "visiting",
+                "cooking",
+                "riding",
+                "hikers",
+                "doors",
+                "keys",
+                "rooms",
+                "is",
+                "be",
+                "been",
+                "being",
+                "encouraging",
+                "driving",
+                "studying",
+                "living"
+            ],
+            "source_text_uk": "Новини про зниклих піших туристів обнадійливі.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "news",
+                    "bottles",
+                    "women",
+                    "bikes"
+                ],
+                "a3": [
+                    "about",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a4": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a5": [
+                    "missing",
+                    "visiting",
+                    "cooking",
+                    "riding"
+                ],
+                "a6": [
+                    "hikers",
+                    "doors",
+                    "keys",
+                    "rooms"
+                ],
+                "a7": [
+                    "is",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a8": [
+                    "encouraging",
+                    "driving",
+                    "studying",
+                    "living"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "naqq-countable-uncountable-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Ми купили новий стіл, але жодних нових меблів для спальні.",
+            "level": "A2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Ми купили новий стіл, але жодних нових меблів для спальні.",
+            "target_text": "We bought a new table but no new furniture for the bedroom.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Назви один стіл і сукупну відсутність меблів для вже відомої спальні; не додавай суперечливого висновку про призначення столу.",
+                    "options": [
+                        "We",
+                        "Myself",
+                        "Yourself",
+                        "Herself"
+                    ]
+                },
+                "a2": {
+                    "answer": "bought",
+                    "verb_hint": "Назви один стіл і сукупну відсутність меблів для вже відомої спальні; не додавай суперечливого висновку про призначення столу.",
+                    "options": [
+                        "bought",
+                        "cooked",
+                        "found",
+                        "brought"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Назви один стіл і сукупну відсутність меблів для вже відомої спальні; не додавай суперечливого висновку про призначення столу.",
+                    "options": [
+                        "a",
+                        "each",
+                        "every",
+                        "another"
+                    ]
+                },
+                "a4": {
+                    "answer": "new",
+                    "verb_hint": "Назви один стіл і сукупну відсутність меблів для вже відомої спальні; не додавай суперечливого висновку про призначення столу.",
+                    "options": [
+                        "new",
+                        "old",
+                        "young",
+                        "cold"
+                    ]
+                },
+                "a5": {
+                    "answer": "table",
+                    "verb_hint": "Назви один стіл і сукупну відсутність меблів для вже відомої спальні; не додавай суперечливого висновку про призначення столу.",
+                    "options": [
+                        "table",
+                        "dirty",
+                        "good",
+                        "bad"
+                    ]
+                },
+                "a6": {
+                    "answer": "but",
+                    "verb_hint": "Назви один стіл і сукупну відсутність меблів для вже відомої спальні; не додавай суперечливого висновку про призначення столу.",
+                    "options": [
+                        "but",
+                        "or",
+                        "nor",
+                        "so"
+                    ]
+                },
+                "a7": {
+                    "answer": "no",
+                    "verb_hint": "Назви один стіл і сукупну відсутність меблів для вже відомої спальні; не додавай суперечливого висновку про призначення столу.",
+                    "options": [
+                        "no",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a8": {
+                    "answer": "new",
+                    "verb_hint": "Назви один стіл і сукупну відсутність меблів для вже відомої спальні; не додавай суперечливого висновку про призначення столу.",
+                    "options": [
+                        "new",
+                        "easy",
+                        "difficult",
+                        "bright"
+                    ]
+                },
+                "a9": {
+                    "answer": "furniture",
+                    "verb_hint": "Назви один стіл і сукупну відсутність меблів для вже відомої спальні; не додавай суперечливого висновку про призначення столу.",
+                    "options": [
+                        "furniture",
+                        "There",
+                        "six",
+                        "counter"
+                    ]
+                },
+                "a10": {
+                    "answer": "for",
+                    "verb_hint": "Назви один стіл і сукупну відсутність меблів для вже відомої спальні; не додавай суперечливого висновку про призначення столу.",
+                    "options": [
+                        "for",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a11": {
+                    "answer": "the",
+                    "verb_hint": "Назви один стіл і сукупну відсутність меблів для вже відомої спальні; не додавай суперечливого висновку про призначення столу.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a12": {
+                    "answer": "bedroom.",
+                    "verb_hint": "Назви один стіл і сукупну відсутність меблів для вже відомої спальні; не додавай суперечливого висновку про призначення столу.",
+                    "options": [
+                        "bedroom",
+                        "picture",
+                        "child",
+                        "teacher"
+                    ]
+                }
+            },
+            "verb_hint": "Назви один стіл і сукупну відсутність меблів для вже відомої спальні; не додавай суперечливого висновку про призначення столу.",
+            "accepted_target_texts": [
+                "We bought a new table but no new furniture for the bedroom."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We bought",
+                "a new table",
+                "but no",
+                "new furniture",
+                "for the bedroom."
+            ],
+            "token_groups": [
+                "We bought",
+                "a new table",
+                "but no",
+                "new furniture",
+                "for the bedroom."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "We",
+                "bought",
+                "a",
+                "new",
+                "table",
+                "but",
+                "no",
+                "new",
+                "furniture",
+                "for",
+                "the",
+                "bedroom."
+            ],
+            "options": [
+                "We",
+                "Myself",
+                "Yourself",
+                "Herself",
+                "bought",
+                "cooked",
+                "found",
+                "brought",
+                "a",
+                "each",
+                "every",
+                "another",
+                "new",
+                "old",
+                "young",
+                "cold",
+                "table",
+                "dirty",
+                "good",
+                "bad",
+                "but",
+                "or",
+                "nor",
+                "so",
+                "no",
+                "an",
+                "some",
+                "any",
+                "easy",
+                "difficult",
+                "bright",
+                "furniture",
+                "There",
+                "six",
+                "counter",
+                "for",
+                "about",
+                "during",
+                "to",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "bedroom",
+                "picture",
+                "child",
+                "teacher"
+            ],
+            "source_text_uk": "Ми купили новий стіл, але жодних нових меблів для спальні.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Myself",
+                    "Yourself",
+                    "Herself"
+                ],
+                "a2": [
+                    "bought",
+                    "cooked",
+                    "found",
+                    "brought"
+                ],
+                "a3": [
+                    "a",
+                    "each",
+                    "every",
+                    "another"
+                ],
+                "a4": [
+                    "new",
+                    "old",
+                    "young",
+                    "cold"
+                ],
+                "a5": [
+                    "table",
+                    "dirty",
+                    "good",
+                    "bad"
+                ],
+                "a6": [
+                    "but",
+                    "or",
+                    "nor",
+                    "so"
+                ],
+                "a7": [
+                    "no",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a8": [
+                    "new",
+                    "easy",
+                    "difficult",
+                    "bright"
+                ],
+                "a9": [
+                    "furniture",
+                    "There",
+                    "six",
+                    "counter"
+                ],
+                "a10": [
+                    "for",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a11": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a12": [
+                    "bedroom",
+                    "picture",
+                    "child",
+                    "teacher"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "naqq-countable-uncountable-b1-c01",
+            "author_id": "B1-c01",
+            "question": "У супі одна волосина.",
+            "level": "B1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "У супі одна волосина.",
+            "target_text": "There is a hair in the soup.",
+            "markers": {
+                "a1": {
+                    "answer": "There",
+                    "verb_hint": "Назви одну окрему волосину, не волосся сукупно; суп уже визначений.",
+                    "options": [
+                        "There",
+                        "Fire",
+                        "Dry",
+                        "Wood"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Назви одну окрему волосину, не волосся сукупно; суп уже визначений.",
+                    "options": [
+                        "is",
+                        "am",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Назви одну окрему волосину, не волосся сукупно; суп уже визначений.",
+                    "options": [
+                        "a",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a4": {
+                    "answer": "hair",
+                    "verb_hint": "Назви одну окрему волосину, не волосся сукупно; суп уже визначений.",
+                    "options": [
+                        "hair",
+                        "shop",
+                        "several",
+                        "local"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Назви одну окрему волосину, не волосся сукупно; суп уже визначений.",
+                    "options": [
+                        "in",
+                        "for",
+                        "of",
+                        "on"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Назви одну окрему волосину, не волосся сукупно; суп уже визначений.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a7": {
+                    "answer": "soup.",
+                    "verb_hint": "Назви одну окрему волосину, не волосся сукупно; суп уже визначений.",
+                    "options": [
+                        "soup",
+                        "phone",
+                        "train",
+                        "bus"
+                    ]
+                }
+            },
+            "verb_hint": "Назви одну окрему волосину, не волосся сукупно; суп уже визначений.",
+            "accepted_target_texts": [
+                "There is a hair in the soup."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "a hair",
+                "in the soup."
+            ],
+            "token_groups": [
+                "There is",
+                "a hair",
+                "in the soup."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "There",
+                "is",
+                "a",
+                "hair",
+                "in",
+                "the",
+                "soup."
+            ],
+            "options": [
+                "There",
+                "Fire",
+                "Dry",
+                "Wood",
+                "is",
+                "am",
+                "are",
+                "was",
+                "a",
+                "no",
+                "another",
+                "either",
+                "hair",
+                "shop",
+                "several",
+                "local",
+                "in",
+                "for",
+                "of",
+                "on",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "soup",
+                "phone",
+                "train",
+                "bus"
+            ],
+            "source_text_uk": "У супі одна волосина.",
+            "options_by_marker": {
+                "a1": [
+                    "There",
+                    "Fire",
+                    "Dry",
+                    "Wood"
+                ],
+                "a2": [
+                    "is",
+                    "am",
+                    "are",
+                    "was"
+                ],
+                "a3": [
+                    "a",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a4": [
+                    "hair",
+                    "shop",
+                    "several",
+                    "local"
+                ],
+                "a5": [
+                    "in",
+                    "for",
+                    "of",
+                    "on"
+                ],
+                "a6": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a7": [
+                    "soup",
+                    "phone",
+                    "train",
+                    "bus"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "naqq-countable-uncountable-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Діти розпалили вогнище із сухих дров.",
+            "level": "B1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Діти розпалили вогнище із сухих дров.",
+            "target_text": "The children made a fire with dry wood.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Діти вже відомі; назви одне вогнище й деревину як матеріал, не окремі дерева.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "children",
+                    "verb_hint": "Діти вже відомі; назви одне вогнище й деревину як матеріал, не окремі дерева.",
+                    "options": [
+                        "children",
+                        "opened",
+                        "closed",
+                        "helped"
+                    ]
+                },
+                "a3": {
+                    "answer": "made",
+                    "verb_hint": "Діти вже відомі; назви одне вогнище й деревину як матеріал, не окремі дерева.",
+                    "options": [
+                        "made",
+                        "met",
+                        "went",
+                        "saw"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Діти вже відомі; назви одне вогнище й деревину як матеріал, не окремі дерева.",
+                    "options": [
+                        "a",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "fire",
+                    "verb_hint": "Діти вже відомі; назви одне вогнище й деревину як матеріал, не окремі дерева.",
+                    "options": [
+                        "fire",
+                        "shop",
+                        "several",
+                        "local"
+                    ]
+                },
+                "a6": {
+                    "answer": "with",
+                    "verb_hint": "Діти вже відомі; назви одне вогнище й деревину як матеріал, не окремі дерева.",
+                    "options": [
+                        "with",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a7": {
+                    "answer": "dry",
+                    "verb_hint": "Діти вже відомі; назви одне вогнище й деревину як матеріал, не окремі дерева.",
+                    "options": [
+                        "dry",
+                        "There",
+                        "hair",
+                        "soup"
+                    ]
+                },
+                "a8": {
+                    "answer": "wood.",
+                    "verb_hint": "Діти вже відомі; назви одне вогнище й деревину як матеріал, не окремі дерева.",
+                    "options": [
+                        "wood",
+                        "dog",
+                        "cat",
+                        "person"
+                    ]
+                }
+            },
+            "verb_hint": "Діти вже відомі; назви одне вогнище й деревину як матеріал, не окремі дерева.",
+            "accepted_target_texts": [
+                "The children made a fire with dry wood."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The children",
+                "made a fire",
+                "with dry wood."
+            ],
+            "token_groups": [
+                "The children",
+                "made a fire",
+                "with dry wood."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "children",
+                "made",
+                "a",
+                "fire",
+                "with",
+                "dry",
+                "wood."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "children",
+                "opened",
+                "closed",
+                "helped",
+                "made",
+                "met",
+                "went",
+                "saw",
+                "a",
+                "either",
+                "neither",
+                "all",
+                "fire",
+                "shop",
+                "several",
+                "local",
+                "with",
+                "without",
+                "into",
+                "onto",
+                "dry",
+                "There",
+                "hair",
+                "soup",
+                "wood",
+                "dog",
+                "cat",
+                "person"
+            ],
+            "source_text_uk": "Діти розпалили вогнище із сухих дров.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "children",
+                    "opened",
+                    "closed",
+                    "helped"
+                ],
+                "a3": [
+                    "made",
+                    "met",
+                    "went",
+                    "saw"
+                ],
+                "a4": [
+                    "a",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "fire",
+                    "shop",
+                    "several",
+                    "local"
+                ],
+                "a6": [
+                    "with",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a7": [
+                    "dry",
+                    "There",
+                    "hair",
+                    "soup"
+                ],
+                "a8": [
+                    "wood",
+                    "dog",
+                    "cat",
+                    "person"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "naqq-countable-uncountable-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Цей магазин продає кілька сортів сиру з невеликих місцевих ферм.",
+            "level": "B1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Цей магазин продає кілька сортів сиру з невеликих місцевих ферм.",
+            "target_text": "The shop sells several cheeses from small local farms.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "У цьому повідомленні рахують сорти продукту; магазин уже визначений, ферми вперше названі.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "shop",
+                    "verb_hint": "У цьому повідомленні рахують сорти продукту; магазин уже визначений, ферми вперше названі.",
+                    "options": [
+                        "shop",
+                        "hair",
+                        "soup",
+                        "fire"
+                    ]
+                },
+                "a3": {
+                    "answer": "sells",
+                    "verb_hint": "У цьому повідомленні рахують сорти продукту; магазин уже визначений, ферми вперше названі.",
+                    "options": [
+                        "sells",
+                        "maps",
+                        "letters",
+                        "windows"
+                    ]
+                },
+                "a4": {
+                    "answer": "several",
+                    "verb_hint": "У цьому повідомленні рахують сорти продукту; магазин уже визначений, ферми вперше названі.",
+                    "options": [
+                        "several",
+                        "There",
+                        "dry",
+                        "wood"
+                    ]
+                },
+                "a5": {
+                    "answer": "cheeses",
+                    "verb_hint": "У цьому повідомленні рахують сорти продукту; магазин уже визначений, ферми вперше названі.",
+                    "options": [
+                        "cheeses",
+                        "cats",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a6": {
+                    "answer": "from",
+                    "verb_hint": "У цьому повідомленні рахують сорти продукту; магазин уже визначений, ферми вперше названі.",
+                    "options": [
+                        "from",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a7": {
+                    "answer": "small",
+                    "verb_hint": "У цьому повідомленні рахують сорти продукту; магазин уже визначений, ферми вперше названі.",
+                    "options": [
+                        "small",
+                        "safe",
+                        "useful",
+                        "helpful"
+                    ]
+                },
+                "a8": {
+                    "answer": "local",
+                    "verb_hint": "У цьому повідомленні рахують сорти продукту; магазин уже визначений, ферми вперше названі.",
+                    "options": [
+                        "local",
+                        "friend",
+                        "dog",
+                        "cat"
+                    ]
+                },
+                "a9": {
+                    "answer": "farms.",
+                    "verb_hint": "У цьому повідомленні рахують сорти продукту; магазин уже визначений, ферми вперше названі.",
+                    "options": [
+                        "farms",
+                        "cups",
+                        "doors",
+                        "keys"
+                    ]
+                }
+            },
+            "verb_hint": "У цьому повідомленні рахують сорти продукту; магазин уже визначений, ферми вперше названі.",
+            "accepted_target_texts": [
+                "The shop sells several cheeses from small local farms."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The shop",
+                "sells several cheeses",
+                "from small",
+                "local farms."
+            ],
+            "token_groups": [
+                "The shop",
+                "sells several cheeses",
+                "from small",
+                "local farms."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "shop",
+                "sells",
+                "several",
+                "cheeses",
+                "from",
+                "small",
+                "local",
+                "farms."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "shop",
+                "hair",
+                "soup",
+                "fire",
+                "sells",
+                "maps",
+                "letters",
+                "windows",
+                "several",
+                "There",
+                "dry",
+                "wood",
+                "cheeses",
+                "cats",
+                "people",
+                "men",
+                "from",
+                "onto",
+                "over",
+                "under",
+                "small",
+                "safe",
+                "useful",
+                "helpful",
+                "local",
+                "friend",
+                "dog",
+                "cat",
+                "farms",
+                "cups",
+                "doors",
+                "keys"
+            ],
+            "source_text_uk": "Цей магазин продає кілька сортів сиру з невеликих місцевих ферм.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "shop",
+                    "hair",
+                    "soup",
+                    "fire"
+                ],
+                "a3": [
+                    "sells",
+                    "maps",
+                    "letters",
+                    "windows"
+                ],
+                "a4": [
+                    "several",
+                    "There",
+                    "dry",
+                    "wood"
+                ],
+                "a5": [
+                    "cheeses",
+                    "cats",
+                    "people",
+                    "men"
+                ],
+                "a6": [
+                    "from",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a7": [
+                    "small",
+                    "safe",
+                    "useful",
+                    "helpful"
+                ],
+                "a8": [
+                    "local",
+                    "friend",
+                    "dog",
+                    "cat"
+                ],
+                "a9": [
+                    "farms",
+                    "cups",
+                    "doors",
+                    "keys"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "naqq-countable-uncountable-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Комітету потрібні докази, а не ще один набір упевнених прогнозів.",
+            "level": "B2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Комітету потрібні докази, а не ще один набір упевнених прогнозів.",
+            "target_text": "The committee needs evidence, not another set of confident predictions.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Комітет уже визначений; назви доказовий матеріал сукупно, а набір прогнозів як окремий об’єкт.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "committee",
+                    "verb_hint": "Комітет уже визначений; назви доказовий матеріал сукупно, а набір прогнозів як окремий об’єкт.",
+                    "options": [
+                        "committee",
+                        "accommodation",
+                        "postpone",
+                        "event"
+                    ]
+                },
+                "a3": {
+                    "answer": "needs",
+                    "verb_hint": "Комітет уже визначений; назви доказовий матеріал сукупно, а набір прогнозів як окремий об’єкт.",
+                    "options": [
+                        "needs",
+                        "wants",
+                        "sees",
+                        "finds"
+                    ]
+                },
+                "a4": {
+                    "answer": "evidence,",
+                    "verb_hint": "Комітет уже визначений; назви доказовий матеріал сукупно, а набір прогнозів як окремий об’єкт.",
+                    "options": [
+                        "evidence",
+                        "extra",
+                        "rather",
+                        "than"
+                    ]
+                },
+                "a5": {
+                    "answer": "not",
+                    "verb_hint": "Комітет уже визначений; назви доказовий матеріал сукупно, а набір прогнозів як окремий об’єкт.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a6": {
+                    "answer": "another",
+                    "verb_hint": "Комітет уже визначений; назви доказовий матеріал сукупно, а набір прогнозів як окремий об’єкт.",
+                    "options": [
+                        "another",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "set",
+                    "verb_hint": "Комітет уже визначений; назви доказовий матеріал сукупно, а набір прогнозів як окремий об’єкт.",
+                    "options": [
+                        "set",
+                        "arose",
+                        "forced",
+                        "wrote"
+                    ]
+                },
+                "a8": {
+                    "answer": "of",
+                    "verb_hint": "Комітет уже визначений; назви доказовий матеріал сукупно, а набір прогнозів як окремий об’єкт.",
+                    "options": [
+                        "of",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a9": {
+                    "answer": "confident",
+                    "verb_hint": "Комітет уже визначений; назви доказовий матеріал сукупно, а набір прогнозів як окремий об’єкт.",
+                    "options": [
+                        "confident",
+                        "shortage",
+                        "poor",
+                        "workmanship"
+                    ]
+                },
+                "a10": {
+                    "answer": "predictions.",
+                    "verb_hint": "Комітет уже визначений; назви доказовий матеріал сукупно, а набір прогнозів як окремий об’єкт.",
+                    "options": [
+                        "predictions",
+                        "costs",
+                        "delays",
+                        "organisers"
+                    ]
+                }
+            },
+            "verb_hint": "Комітет уже визначений; назви доказовий матеріал сукупно, а набір прогнозів як окремий об’єкт.",
+            "accepted_target_texts": [
+                "The committee needs evidence, not another set of confident predictions."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The committee",
+                "needs evidence,",
+                "not another set",
+                "of confident predictions."
+            ],
+            "token_groups": [
+                "The committee",
+                "needs evidence,",
+                "not another set",
+                "of confident predictions."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "committee",
+                "needs",
+                "evidence,",
+                "not",
+                "another",
+                "set",
+                "of",
+                "confident",
+                "predictions."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "committee",
+                "accommodation",
+                "postpone",
+                "event",
+                "needs",
+                "wants",
+                "sees",
+                "finds",
+                "evidence",
+                "extra",
+                "rather",
+                "than",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "another",
+                "those",
+                "each",
+                "every",
+                "set",
+                "arose",
+                "forced",
+                "wrote",
+                "of",
+                "at",
+                "by",
+                "with",
+                "confident",
+                "shortage",
+                "poor",
+                "workmanship",
+                "predictions",
+                "costs",
+                "delays",
+                "organisers"
+            ],
+            "source_text_uk": "Комітету потрібні докази, а не ще один набір упевнених прогнозів.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "committee",
+                    "accommodation",
+                    "postpone",
+                    "event"
+                ],
+                "a3": [
+                    "needs",
+                    "wants",
+                    "sees",
+                    "finds"
+                ],
+                "a4": [
+                    "evidence",
+                    "extra",
+                    "rather",
+                    "than"
+                ],
+                "a5": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a6": [
+                    "another",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "set",
+                    "arose",
+                    "forced",
+                    "wrote"
+                ],
+                "a8": [
+                    "of",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a9": [
+                    "confident",
+                    "shortage",
+                    "poor",
+                    "workmanship"
+                ],
+                "a10": [
+                    "predictions",
+                    "costs",
+                    "delays",
+                    "organisers"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "naqq-countable-uncountable-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Брак житла змусив організаторів відкласти захід.",
+            "level": "B2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Брак житла змусив організаторів відкласти захід.",
+            "target_text": "A shortage of accommodation forced the organisers to postpone the event.",
+            "markers": {
+                "a1": {
+                    "answer": "A",
+                    "verb_hint": "Скористайся британською незлічуваною назвою житла; захід та організатори вже відомі.",
+                    "options": [
+                        "A",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "shortage",
+                    "verb_hint": "Скористайся британською незлічуваною назвою житла; захід та організатори вже відомі.",
+                    "options": [
+                        "shortage",
+                        "extra",
+                        "rather",
+                        "than"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Скористайся британською незлічуваною назвою житла; захід та організатори вже відомі.",
+                    "options": [
+                        "of",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a4": {
+                    "answer": "accommodation",
+                    "verb_hint": "Скористайся британською незлічуваною назвою житла; захід та організатори вже відомі.",
+                    "options": [
+                        "accommodation",
+                        "poor",
+                        "workmanship",
+                        "committee"
+                    ]
+                },
+                "a5": {
+                    "answer": "forced",
+                    "verb_hint": "Скористайся британською незлічуваною назвою житла; захід та організатори вже відомі.",
+                    "options": [
+                        "forced",
+                        "arose",
+                        "set",
+                        "visited"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Скористайся британською незлічуваною назвою житла; захід та організатори вже відомі.",
+                    "options": [
+                        "the",
+                        "both",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a7": {
+                    "answer": "organisers",
+                    "verb_hint": "Скористайся британською незлічуваною назвою житла; захід та організатори вже відомі.",
+                    "options": [
+                        "organisers",
+                        "predictions",
+                        "costs",
+                        "delays"
+                    ]
+                },
+                "a8": {
+                    "answer": "to",
+                    "verb_hint": "Скористайся британською незлічуваною назвою житла; захід та організатори вже відомі.",
+                    "options": [
+                        "to",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a9": {
+                    "answer": "postpone",
+                    "verb_hint": "Скористайся британською незлічуваною назвою житла; захід та організатори вже відомі.",
+                    "options": [
+                        "postpone",
+                        "evidence",
+                        "confident",
+                        "bread"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Скористайся британською незлічуваною назвою житла; захід та організатори вже відомі.",
+                    "options": [
+                        "the",
+                        "all",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a11": {
+                    "answer": "event.",
+                    "verb_hint": "Скористайся британською незлічуваною назвою житла; захід та організатори вже відомі.",
+                    "options": [
+                        "event",
+                        "phone",
+                        "train",
+                        "bus"
+                    ]
+                }
+            },
+            "verb_hint": "Скористайся британською незлічуваною назвою житла; захід та організатори вже відомі.",
+            "accepted_target_texts": [
+                "A shortage of accommodation forced the organisers to postpone the event.",
+                "A shortage of accommodation forced the organizers to postpone the event."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "organizers"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "organizers"
+                ]
+            },
+            "reorder_groups": [
+                "A shortage",
+                "of accommodation",
+                "forced the organisers",
+                "to postpone",
+                "the event."
+            ],
+            "token_groups": [
+                "A shortage",
+                "of accommodation",
+                "forced the organisers",
+                "to postpone",
+                "the event."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "A",
+                "shortage",
+                "of",
+                "accommodation",
+                "forced",
+                "the",
+                "organisers",
+                "to",
+                "postpone",
+                "the",
+                "event."
+            ],
+            "options": [
+                "A",
+                "That",
+                "These",
+                "Those",
+                "shortage",
+                "extra",
+                "rather",
+                "than",
+                "of",
+                "across",
+                "between",
+                "among",
+                "accommodation",
+                "poor",
+                "workmanship",
+                "committee",
+                "forced",
+                "arose",
+                "set",
+                "visited",
+                "the",
+                "both",
+                "an",
+                "some",
+                "organisers",
+                "predictions",
+                "costs",
+                "delays",
+                "to",
+                "without",
+                "into",
+                "onto",
+                "postpone",
+                "evidence",
+                "confident",
+                "bread",
+                "all",
+                "any",
+                "this",
+                "event",
+                "phone",
+                "train",
+                "bus"
+            ],
+            "source_text_uk": "Брак житла змусив організаторів відкласти захід.",
+            "options_by_marker": {
+                "a1": [
+                    "A",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "shortage",
+                    "extra",
+                    "rather",
+                    "than"
+                ],
+                "a3": [
+                    "of",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a4": [
+                    "accommodation",
+                    "poor",
+                    "workmanship",
+                    "committee"
+                ],
+                "a5": [
+                    "forced",
+                    "arose",
+                    "set",
+                    "visited"
+                ],
+                "a6": [
+                    "the",
+                    "both",
+                    "an",
+                    "some"
+                ],
+                "a7": [
+                    "organisers",
+                    "predictions",
+                    "costs",
+                    "delays"
+                ],
+                "a8": [
+                    "to",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a9": [
+                    "postpone",
+                    "evidence",
+                    "confident",
+                    "bread"
+                ],
+                "a10": [
+                    "the",
+                    "all",
+                    "any",
+                    "this"
+                ],
+                "a11": [
+                    "event",
+                    "phone",
+                    "train",
+                    "bus"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "naqq-countable-uncountable-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Додаткові витрати виникли через затримки, а не через неякісне виконання роботи.",
+            "level": "B2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Додаткові витрати виникли через затримки, а не через неякісне виконання роботи.",
+            "target_text": "The extra costs arose from delays rather than from poor workmanship.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Назви витрати й окремі затримки у множині, а якість ручної роботи — сукупною назвою.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "extra",
+                    "verb_hint": "Назви витрати й окремі затримки у множині, а якість ручної роботи — сукупною назвою.",
+                    "options": [
+                        "extra",
+                        "committee",
+                        "evidence",
+                        "confident"
+                    ]
+                },
+                "a3": {
+                    "answer": "costs",
+                    "verb_hint": "Назви витрати й окремі затримки у множині, а якість ручної роботи — сукупною назвою.",
+                    "options": [
+                        "costs",
+                        "predictions",
+                        "organisers",
+                        "chairs"
+                    ]
+                },
+                "a4": {
+                    "answer": "arose",
+                    "verb_hint": "Назви витрати й окремі затримки у множині, а якість ручної роботи — сукупною назвою.",
+                    "options": [
+                        "arose",
+                        "set",
+                        "forced",
+                        "saw"
+                    ]
+                },
+                "a5": {
+                    "answer": "from",
+                    "verb_hint": "Назви витрати й окремі затримки у множині, а якість ручної роботи — сукупною назвою.",
+                    "options": [
+                        "from",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a6": {
+                    "answer": "delays",
+                    "verb_hint": "Назви витрати й окремі затримки у множині, а якість ручної роботи — сукупною назвою.",
+                    "options": [
+                        "delays",
+                        "men",
+                        "women",
+                        "bikes"
+                    ]
+                },
+                "a7": {
+                    "answer": "rather",
+                    "verb_hint": "Назви витрати й окремі затримки у множині, а якість ручної роботи — сукупною назвою.",
+                    "options": [
+                        "rather",
+                        "postpone",
+                        "event",
+                        "shortage"
+                    ]
+                },
+                "a8": {
+                    "answer": "than",
+                    "verb_hint": "Назви витрати й окремі затримки у множині, а якість ручної роботи — сукупною назвою.",
+                    "options": [
+                        "than",
+                        "accommodation",
+                        "teacher",
+                        "school"
+                    ]
+                },
+                "a9": {
+                    "answer": "from",
+                    "verb_hint": "Назви витрати й окремі затримки у множині, а якість ручної роботи — сукупною назвою.",
+                    "options": [
+                        "from",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a10": {
+                    "answer": "poor",
+                    "verb_hint": "Назви витрати й окремі затримки у множині, а якість ручної роботи — сукупною назвою.",
+                    "options": [
+                        "poor",
+                        "brother",
+                        "friend",
+                        "dog"
+                    ]
+                },
+                "a11": {
+                    "answer": "workmanship.",
+                    "verb_hint": "Назви витрати й окремі затримки у множині, а якість ручної роботи — сукупною назвою.",
+                    "options": [
+                        "workmanship",
+                        "bag",
+                        "book",
+                        "box"
+                    ]
+                }
+            },
+            "verb_hint": "Назви витрати й окремі затримки у множині, а якість ручної роботи — сукупною назвою.",
+            "accepted_target_texts": [
+                "The extra costs arose from delays rather than from poor workmanship."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The extra costs",
+                "arose from delays",
+                "rather than",
+                "from poor workmanship."
+            ],
+            "token_groups": [
+                "The extra costs",
+                "arose from delays",
+                "rather than",
+                "from poor workmanship."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "extra",
+                "costs",
+                "arose",
+                "from",
+                "delays",
+                "rather",
+                "than",
+                "from",
+                "poor",
+                "workmanship."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "extra",
+                "committee",
+                "evidence",
+                "confident",
+                "costs",
+                "predictions",
+                "organisers",
+                "chairs",
+                "arose",
+                "set",
+                "forced",
+                "saw",
+                "from",
+                "through",
+                "across",
+                "between",
+                "delays",
+                "men",
+                "women",
+                "bikes",
+                "rather",
+                "postpone",
+                "event",
+                "shortage",
+                "than",
+                "accommodation",
+                "teacher",
+                "school",
+                "for",
+                "of",
+                "in",
+                "poor",
+                "brother",
+                "friend",
+                "dog",
+                "workmanship",
+                "bag",
+                "book",
+                "box"
+            ],
+            "source_text_uk": "Додаткові витрати виникли через затримки, а не через неякісне виконання роботи.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "extra",
+                    "committee",
+                    "evidence",
+                    "confident"
+                ],
+                "a3": [
+                    "costs",
+                    "predictions",
+                    "organisers",
+                    "chairs"
+                ],
+                "a4": [
+                    "arose",
+                    "set",
+                    "forced",
+                    "saw"
+                ],
+                "a5": [
+                    "from",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a6": [
+                    "delays",
+                    "men",
+                    "women",
+                    "bikes"
+                ],
+                "a7": [
+                    "rather",
+                    "postpone",
+                    "event",
+                    "shortage"
+                ],
+                "a8": [
+                    "than",
+                    "accommodation",
+                    "teacher",
+                    "school"
+                ],
+                "a9": [
+                    "from",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a10": [
+                    "poor",
+                    "brother",
+                    "friend",
+                    "dog"
+                ],
+                "a11": [
+                    "workmanship",
+                    "bag",
+                    "book",
+                    "box"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "naqq-countable-uncountable-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Кілька кваліфікацій не обов’язково означають фахову компетентність саме в цій галузі.",
+            "level": "C1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Кілька кваліфікацій не обов’язково означають фахову компетентність саме в цій галузі.",
+            "target_text": "Several qualifications do not necessarily amount to expertise in this particular area.",
+            "markers": {
+                "a1": {
+                    "answer": "Several",
+                    "verb_hint": "Порахуй окремі кваліфікації, але передай фаховість як незлічувану властивість.",
+                    "options": [
+                        "Several",
+                        "Two",
+                        "Formal",
+                        "Collection"
+                    ]
+                },
+                "a2": {
+                    "answer": "qualifications",
+                    "verb_hint": "Порахуй окремі кваліфікації, але передай фаховість як незлічувану властивість.",
+                    "options": [
+                        "qualifications",
+                        "complaints",
+                        "contains",
+                        "periods"
+                    ]
+                },
+                "a3": {
+                    "answer": "do",
+                    "verb_hint": "Порахуй окремі кваліфікації, але передай фаховість як незлічувану властивість.",
+                    "options": [
+                        "do",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Порахуй окремі кваліфікації, але передай фаховість як незлічувану властивість.",
+                    "options": [
+                        "not",
+                        "already",
+                        "still",
+                        "just"
+                    ]
+                },
+                "a5": {
+                    "answer": "necessarily",
+                    "verb_hint": "Порахуй окремі кваліфікації, але передай фаховість як незлічувану властивість.",
+                    "options": [
+                        "necessarily",
+                        "safely",
+                        "happily",
+                        "easily"
+                    ]
+                },
+                "a6": {
+                    "answer": "amount",
+                    "verb_hint": "Порахуй окремі кваліфікації, але передай фаховість як незлічувану властивість.",
+                    "options": [
+                        "amount",
+                        "correspondence",
+                        "glass",
+                        "ceremonial"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Порахуй окремі кваліфікації, але передай фаховість як незлічувану властивість.",
+                    "options": [
+                        "to",
+                        "about",
+                        "during",
+                        "from"
+                    ]
+                },
+                "a8": {
+                    "answer": "expertise",
+                    "verb_hint": "Порахуй окремі кваліфікації, але передай фаховість як незлічувану властивість.",
+                    "options": [
+                        "expertise",
+                        "friend",
+                        "dog",
+                        "cat"
+                    ]
+                },
+                "a9": {
+                    "answer": "in",
+                    "verb_hint": "Порахуй окремі кваліфікації, але передай фаховість як незлічувану властивість.",
+                    "options": [
+                        "in",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a10": {
+                    "answer": "this",
+                    "verb_hint": "Порахуй окремі кваліфікації, але передай фаховість як незлічувану властивість.",
+                    "options": [
+                        "this",
+                        "a",
+                        "an",
+                        "the"
+                    ]
+                },
+                "a11": {
+                    "answer": "particular",
+                    "verb_hint": "Порахуй окремі кваліфікації, але передай фаховість як незлічувану властивість.",
+                    "options": [
+                        "particular",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a12": {
+                    "answer": "area.",
+                    "verb_hint": "Порахуй окремі кваліфікації, але передай фаховість як незлічувану властивість.",
+                    "options": [
+                        "area",
+                        "person",
+                        "water",
+                        "bread"
+                    ]
+                }
+            },
+            "verb_hint": "Порахуй окремі кваліфікації, але передай фаховість як незлічувану властивість.",
+            "accepted_target_texts": [
+                "Several qualifications do not necessarily amount to expertise in this particular area."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Several qualifications",
+                "do not necessarily",
+                "amount to expertise",
+                "in",
+                "this particular area."
+            ],
+            "token_groups": [
+                "Several qualifications",
+                "do not necessarily",
+                "amount to expertise",
+                "in",
+                "this particular area."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Several",
+                "qualifications",
+                "do",
+                "not",
+                "necessarily",
+                "amount",
+                "to",
+                "expertise",
+                "in",
+                "this",
+                "particular",
+                "area."
+            ],
+            "options": [
+                "Several",
+                "Two",
+                "Formal",
+                "Collection",
+                "qualifications",
+                "complaints",
+                "contains",
+                "periods",
+                "do",
+                "does",
+                "did",
+                "don't",
+                "not",
+                "already",
+                "still",
+                "just",
+                "necessarily",
+                "safely",
+                "happily",
+                "easily",
+                "amount",
+                "correspondence",
+                "glass",
+                "ceremonial",
+                "to",
+                "about",
+                "during",
+                "from",
+                "expertise",
+                "friend",
+                "dog",
+                "cat",
+                "in",
+                "without",
+                "into",
+                "onto",
+                "this",
+                "a",
+                "an",
+                "the",
+                "particular",
+                "school",
+                "sister",
+                "brother",
+                "area",
+                "person",
+                "water",
+                "bread"
+            ],
+            "source_text_uk": "Кілька кваліфікацій не обов’язково означають фахову компетентність саме в цій галузі.",
+            "options_by_marker": {
+                "a1": [
+                    "Several",
+                    "Two",
+                    "Formal",
+                    "Collection"
+                ],
+                "a2": [
+                    "qualifications",
+                    "complaints",
+                    "contains",
+                    "periods"
+                ],
+                "a3": [
+                    "do",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a4": [
+                    "not",
+                    "already",
+                    "still",
+                    "just"
+                ],
+                "a5": [
+                    "necessarily",
+                    "safely",
+                    "happily",
+                    "easily"
+                ],
+                "a6": [
+                    "amount",
+                    "correspondence",
+                    "glass",
+                    "ceremonial"
+                ],
+                "a7": [
+                    "to",
+                    "about",
+                    "during",
+                    "from"
+                ],
+                "a8": [
+                    "expertise",
+                    "friend",
+                    "dog",
+                    "cat"
+                ],
+                "a9": [
+                    "in",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a10": [
+                    "this",
+                    "a",
+                    "an",
+                    "the"
+                ],
+                "a11": [
+                    "particular",
+                    "school",
+                    "sister",
+                    "brother"
+                ],
+                "a12": [
+                    "area",
+                    "person",
+                    "water",
+                    "bread"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "naqq-countable-uncountable-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Провадження спричинило значне листування, але лише дві офіційні скарги.",
+            "level": "C1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Провадження спричинило значне листування, але лише дві офіційні скарги.",
+            "target_text": "The proceedings generated considerable correspondence but only two formal complaints.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Йдеться про визначене провадження; протистав незлічуване листування двом окремим скаргам.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "proceedings",
+                    "verb_hint": "Йдеться про визначене провадження; протистав незлічуване листування двом окремим скаргам.",
+                    "options": [
+                        "proceedings",
+                        "contains",
+                        "periods",
+                        "glasses"
+                    ]
+                },
+                "a3": {
+                    "answer": "generated",
+                    "verb_hint": "Йдеться про визначене провадження; протистав незлічуване листування двом окремим скаргам.",
+                    "options": [
+                        "generated",
+                        "designed",
+                        "took",
+                        "wrote"
+                    ]
+                },
+                "a4": {
+                    "answer": "considerable",
+                    "verb_hint": "Йдеться про визначене провадження; протистав незлічуване листування двом окремим скаргам.",
+                    "options": [
+                        "considerable",
+                        "new",
+                        "old",
+                        "young"
+                    ]
+                },
+                "a5": {
+                    "answer": "correspondence",
+                    "verb_hint": "Йдеться про визначене провадження; протистав незлічуване листування двом окремим скаргам.",
+                    "options": [
+                        "correspondence",
+                        "collection",
+                        "glass",
+                        "ceremonial"
+                    ]
+                },
+                "a6": {
+                    "answer": "but",
+                    "verb_hint": "Йдеться про визначене провадження; протистав незлічуване листування двом окремим скаргам.",
+                    "options": [
+                        "but",
+                        "nor",
+                        "so",
+                        "yet"
+                    ]
+                },
+                "a7": {
+                    "answer": "only",
+                    "verb_hint": "Йдеться про визначене провадження; протистав незлічуване листування двом окремим скаргам.",
+                    "options": [
+                        "only",
+                        "rarely",
+                        "even",
+                        "almost"
+                    ]
+                },
+                "a8": {
+                    "answer": "two",
+                    "verb_hint": "Йдеться про визначене провадження; протистав незлічуване листування двом окремим скаргам.",
+                    "options": [
+                        "two",
+                        "several",
+                        "amount",
+                        "expertise"
+                    ]
+                },
+                "a9": {
+                    "answer": "formal",
+                    "verb_hint": "Йдеться про визначене провадження; протистав незлічуване листування двом окремим скаргам.",
+                    "options": [
+                        "formal",
+                        "particular",
+                        "area",
+                        "window"
+                    ]
+                },
+                "a10": {
+                    "answer": "complaints.",
+                    "verb_hint": "Йдеться про визначене провадження; протистав незлічуване листування двом окремим скаргам.",
+                    "options": [
+                        "complaints",
+                        "qualifications",
+                        "tickets",
+                        "cups"
+                    ]
+                }
+            },
+            "verb_hint": "Йдеться про визначене провадження; протистав незлічуване листування двом окремим скаргам.",
+            "accepted_target_texts": [
+                "The proceedings generated considerable correspondence but only two formal complaints."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The proceedings",
+                "generated considerable correspondence",
+                "but only two",
+                "formal complaints."
+            ],
+            "token_groups": [
+                "The proceedings",
+                "generated considerable correspondence",
+                "but only two",
+                "formal complaints."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "proceedings",
+                "generated",
+                "considerable",
+                "correspondence",
+                "but",
+                "only",
+                "two",
+                "formal",
+                "complaints."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "proceedings",
+                "contains",
+                "periods",
+                "glasses",
+                "generated",
+                "designed",
+                "took",
+                "wrote",
+                "considerable",
+                "new",
+                "old",
+                "young",
+                "correspondence",
+                "collection",
+                "glass",
+                "ceremonial",
+                "but",
+                "nor",
+                "so",
+                "yet",
+                "only",
+                "rarely",
+                "even",
+                "almost",
+                "two",
+                "several",
+                "amount",
+                "expertise",
+                "formal",
+                "particular",
+                "area",
+                "window",
+                "complaints",
+                "qualifications",
+                "tickets",
+                "cups"
+            ],
+            "source_text_uk": "Провадження спричинило значне листування, але лише дві офіційні скарги.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "proceedings",
+                    "contains",
+                    "periods",
+                    "glasses"
+                ],
+                "a3": [
+                    "generated",
+                    "designed",
+                    "took",
+                    "wrote"
+                ],
+                "a4": [
+                    "considerable",
+                    "new",
+                    "old",
+                    "young"
+                ],
+                "a5": [
+                    "correspondence",
+                    "collection",
+                    "glass",
+                    "ceremonial"
+                ],
+                "a6": [
+                    "but",
+                    "nor",
+                    "so",
+                    "yet"
+                ],
+                "a7": [
+                    "only",
+                    "rarely",
+                    "even",
+                    "almost"
+                ],
+                "a8": [
+                    "two",
+                    "several",
+                    "amount",
+                    "expertise"
+                ],
+                "a9": [
+                    "formal",
+                    "particular",
+                    "area",
+                    "window"
+                ],
+                "a10": [
+                    "complaints",
+                    "qualifications",
+                    "tickets",
+                    "cups"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "naqq-countable-uncountable-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Колекція містить скло кількох періодів і келихи для церемоній.",
+            "level": "C1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Колекція містить скло кількох періодів і келихи для церемоній.",
+            "target_text": "The collection contains glass from several periods and glasses designed for ceremonial use.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи різницю між матеріалом та окремими предметами для пиття; колекція вже відома.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "collection",
+                    "verb_hint": "Збережи різницю між матеріалом та окремими предметами для пиття; колекція вже відома.",
+                    "options": [
+                        "collection",
+                        "particular",
+                        "area",
+                        "correspondence"
+                    ]
+                },
+                "a3": {
+                    "answer": "contains",
+                    "verb_hint": "Збережи різницю між матеріалом та окремими предметами для пиття; колекція вже відома.",
+                    "options": [
+                        "contains",
+                        "complaints",
+                        "qualifications",
+                        "proceedings"
+                    ]
+                },
+                "a4": {
+                    "answer": "glass",
+                    "verb_hint": "Збережи різницю між матеріалом та окремими предметами для пиття; колекція вже відома.",
+                    "options": [
+                        "glass",
+                        "amount",
+                        "expertise",
+                        "two"
+                    ]
+                },
+                "a5": {
+                    "answer": "from",
+                    "verb_hint": "Збережи різницю між матеріалом та окремими предметами для пиття; колекція вже відома.",
+                    "options": [
+                        "from",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a6": {
+                    "answer": "several",
+                    "verb_hint": "Збережи різницю між матеріалом та окремими предметами для пиття; колекція вже відома.",
+                    "options": [
+                        "several",
+                        "formal",
+                        "cup",
+                        "door"
+                    ]
+                },
+                "a7": {
+                    "answer": "periods",
+                    "verb_hint": "Збережи різницю між матеріалом та окремими предметами для пиття; колекція вже відома.",
+                    "options": [
+                        "periods",
+                        "bags",
+                        "books",
+                        "boxes"
+                    ]
+                },
+                "a8": {
+                    "answer": "and",
+                    "verb_hint": "Збережи різницю між матеріалом та окремими предметами для пиття; колекція вже відома.",
+                    "options": [
+                        "and",
+                        "but",
+                        "or",
+                        "nor"
+                    ]
+                },
+                "a9": {
+                    "answer": "glasses",
+                    "verb_hint": "Збережи різницю між матеріалом та окремими предметами для пиття; колекція вже відома.",
+                    "options": [
+                        "glasses",
+                        "women",
+                        "bikes",
+                        "cars"
+                    ]
+                },
+                "a10": {
+                    "answer": "designed",
+                    "verb_hint": "Збережи різницю між матеріалом та окремими предметами для пиття; колекція вже відома.",
+                    "options": [
+                        "designed",
+                        "generated",
+                        "watched",
+                        "visited"
+                    ]
+                },
+                "a11": {
+                    "answer": "for",
+                    "verb_hint": "Збережи різницю між матеріалом та окремими предметами для пиття; колекція вже відома.",
+                    "options": [
+                        "for",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a12": {
+                    "answer": "ceremonial",
+                    "verb_hint": "Збережи різницю між матеріалом та окремими предметами для пиття; колекція вже відома.",
+                    "options": [
+                        "ceremonial",
+                        "chair",
+                        "table",
+                        "ticket"
+                    ]
+                },
+                "a13": {
+                    "answer": "use.",
+                    "verb_hint": "Збережи різницю між матеріалом та окремими предметами для пиття; колекція вже відома.",
+                    "options": [
+                        "use",
+                        "give",
+                        "make",
+                        "get"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи різницю між матеріалом та окремими предметами для пиття; колекція вже відома.",
+            "accepted_target_texts": [
+                "The collection contains glass from several periods and glasses designed for ceremonial use."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The collection",
+                "contains glass",
+                "from several periods",
+                "and glasses designed",
+                "for ceremonial use."
+            ],
+            "token_groups": [
+                "The collection",
+                "contains glass",
+                "from several periods",
+                "and glasses designed",
+                "for ceremonial use."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "collection",
+                "contains",
+                "glass",
+                "from",
+                "several",
+                "periods",
+                "and",
+                "glasses",
+                "designed",
+                "for",
+                "ceremonial",
+                "use."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "collection",
+                "particular",
+                "area",
+                "correspondence",
+                "contains",
+                "complaints",
+                "qualifications",
+                "proceedings",
+                "glass",
+                "amount",
+                "expertise",
+                "two",
+                "from",
+                "onto",
+                "over",
+                "under",
+                "several",
+                "formal",
+                "cup",
+                "door",
+                "periods",
+                "bags",
+                "books",
+                "boxes",
+                "and",
+                "but",
+                "or",
+                "nor",
+                "glasses",
+                "women",
+                "bikes",
+                "cars",
+                "designed",
+                "generated",
+                "watched",
+                "visited",
+                "for",
+                "between",
+                "among",
+                "about",
+                "ceremonial",
+                "chair",
+                "table",
+                "ticket",
+                "use",
+                "give",
+                "make",
+                "get"
+            ],
+            "source_text_uk": "Колекція містить скло кількох періодів і келихи для церемоній.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "collection",
+                    "particular",
+                    "area",
+                    "correspondence"
+                ],
+                "a3": [
+                    "contains",
+                    "complaints",
+                    "qualifications",
+                    "proceedings"
+                ],
+                "a4": [
+                    "glass",
+                    "amount",
+                    "expertise",
+                    "two"
+                ],
+                "a5": [
+                    "from",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a6": [
+                    "several",
+                    "formal",
+                    "cup",
+                    "door"
+                ],
+                "a7": [
+                    "periods",
+                    "bags",
+                    "books",
+                    "boxes"
+                ],
+                "a8": [
+                    "and",
+                    "but",
+                    "or",
+                    "nor"
+                ],
+                "a9": [
+                    "glasses",
+                    "women",
+                    "bikes",
+                    "cars"
+                ],
+                "a10": [
+                    "designed",
+                    "generated",
+                    "watched",
+                    "visited"
+                ],
+                "a11": [
+                    "for",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a12": [
+                    "ceremonial",
+                    "chair",
+                    "table",
+                    "ticket"
+                ],
+                "a13": [
+                    "use",
+                    "give",
+                    "make",
+                    "get"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "naqq-countable-uncountable-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Послідовність окремих несправедливостей сама собою не доводить існування системної несправедливості.",
+            "level": "C2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Послідовність окремих несправедливостей сама собою не доводить існування системної несправедливості.",
+            "target_text": "A sequence of individual injustices does not by itself establish the existence of a systemic injustice.",
+            "markers": {
+                "a1": {
+                    "answer": "A",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "A",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "sequence",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "sequence",
+                        "conduct",
+                        "trade",
+                        "council"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "of",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a4": {
+                    "answer": "individual",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "individual",
+                        "justice",
+                        "defend",
+                        "perpetuate"
+                    ]
+                },
+                "a5": {
+                    "answer": "injustices",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "injustices",
+                        "trades",
+                        "arrangements",
+                        "letters"
+                    ]
+                },
+                "a6": {
+                    "answer": "does",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "does",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "not",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a8": {
+                    "answer": "by",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "by",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a9": {
+                    "answer": "itself",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "itself",
+                        "concrete",
+                        "inquiry",
+                        "Abstract"
+                    ]
+                },
+                "a10": {
+                    "answer": "establish",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "establish",
+                        "picture",
+                        "child",
+                        "teacher"
+                    ]
+                },
+                "a11": {
+                    "answer": "the",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "the",
+                        "both",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a12": {
+                    "answer": "existence",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "existence",
+                        "person",
+                        "water",
+                        "bread"
+                    ]
+                },
+                "a13": {
+                    "answer": "of",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "of",
+                        "for",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a14": {
+                    "answer": "a",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "a",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a15": {
+                    "answer": "systemic",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "systemic",
+                        "final",
+                        "small",
+                        "large"
+                    ]
+                },
+                "a16": {
+                    "answer": "injustice.",
+                    "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+                    "options": [
+                        "injustice",
+                        "chair",
+                        "table",
+                        "ticket"
+                    ]
+                }
+            },
+            "verb_hint": "Розрізни окремі випадки та одну системну проблему; не перетворюй обережний висновок на заперечення самих випадків.",
+            "accepted_target_texts": [
+                "A sequence of individual injustices does not by itself establish the existence of a systemic injustice."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A sequence",
+                "of individual injustices",
+                "does not",
+                "by itself establish",
+                "the existence",
+                "of",
+                "a systemic injustice."
+            ],
+            "token_groups": [
+                "A sequence",
+                "of individual injustices",
+                "does not",
+                "by itself establish",
+                "the existence",
+                "of",
+                "a systemic injustice."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "A",
+                "sequence",
+                "of",
+                "individual",
+                "injustices",
+                "does",
+                "not",
+                "by",
+                "itself",
+                "establish",
+                "the",
+                "existence",
+                "of",
+                "a",
+                "systemic",
+                "injustice."
+            ],
+            "options": [
+                "A",
+                "Any",
+                "This",
+                "That",
+                "sequence",
+                "conduct",
+                "trade",
+                "council",
+                "of",
+                "into",
+                "onto",
+                "over",
+                "individual",
+                "justice",
+                "defend",
+                "perpetuate",
+                "injustices",
+                "trades",
+                "arrangements",
+                "letters",
+                "does",
+                "did",
+                "don't",
+                "doesn't",
+                "not",
+                "never",
+                "always",
+                "often",
+                "by",
+                "under",
+                "through",
+                "across",
+                "itself",
+                "concrete",
+                "inquiry",
+                "Abstract",
+                "establish",
+                "picture",
+                "child",
+                "teacher",
+                "the",
+                "both",
+                "an",
+                "some",
+                "existence",
+                "person",
+                "water",
+                "bread",
+                "for",
+                "in",
+                "on",
+                "a",
+                "these",
+                "those",
+                "each",
+                "systemic",
+                "final",
+                "small",
+                "large",
+                "injustice",
+                "chair",
+                "table",
+                "ticket"
+            ],
+            "source_text_uk": "Послідовність окремих несправедливостей сама собою не доводить існування системної несправедливості.",
+            "options_by_marker": {
+                "a1": [
+                    "A",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "sequence",
+                    "conduct",
+                    "trade",
+                    "council"
+                ],
+                "a3": [
+                    "of",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a4": [
+                    "individual",
+                    "justice",
+                    "defend",
+                    "perpetuate"
+                ],
+                "a5": [
+                    "injustices",
+                    "trades",
+                    "arrangements",
+                    "letters"
+                ],
+                "a6": [
+                    "does",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a7": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a8": [
+                    "by",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a9": [
+                    "itself",
+                    "concrete",
+                    "inquiry",
+                    "Abstract"
+                ],
+                "a10": [
+                    "establish",
+                    "picture",
+                    "child",
+                    "teacher"
+                ],
+                "a11": [
+                    "the",
+                    "both",
+                    "an",
+                    "some"
+                ],
+                "a12": [
+                    "existence",
+                    "person",
+                    "water",
+                    "bread"
+                ],
+                "a13": [
+                    "of",
+                    "for",
+                    "in",
+                    "on"
+                ],
+                "a14": [
+                    "a",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a15": [
+                    "systemic",
+                    "final",
+                    "small",
+                    "large"
+                ],
+                "a16": [
+                    "injustice",
+                    "chair",
+                    "table",
+                    "ticket"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "naqq-countable-uncountable-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Розслідування розрізняло ведення торгівлі та професійні ремесла, представлені в раді.",
+            "level": "C2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Розслідування розрізняло ведення торгівлі та професійні ремесла, представлені в раді.",
+            "target_text": "The inquiry distinguished the conduct of trade from the trades represented on the council.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Назви торгівлю як діяльність, а ремесла — як окремі професійні галузі; розслідування й рада вже визначені.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "inquiry",
+                    "verb_hint": "Назви торгівлю як діяльність, а ремесла — як окремі професійні галузі; розслідування й рада вже визначені.",
+                    "options": [
+                        "inquiry",
+                        "itself",
+                        "establish",
+                        "existence"
+                    ]
+                },
+                "a3": {
+                    "answer": "distinguished",
+                    "verb_hint": "Назви торгівлю як діяльність, а ремесла — як окремі професійні галузі; розслідування й рада вже визначені.",
+                    "options": [
+                        "distinguished",
+                        "needed",
+                        "liked",
+                        "wanted"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Назви торгівлю як діяльність, а ремесла — як окремі професійні галузі; розслідування й рада вже визначені.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a5": {
+                    "answer": "conduct",
+                    "verb_hint": "Назви торгівлю як діяльність, а ремесла — як окремі професійні галузі; розслідування й рада вже визначені.",
+                    "options": [
+                        "conduct",
+                        "Abstract",
+                        "justice",
+                        "defend"
+                    ]
+                },
+                "a6": {
+                    "answer": "of",
+                    "verb_hint": "Назви торгівлю як діяльність, а ремесла — як окремі професійні галузі; розслідування й рада вже визначені.",
+                    "options": [
+                        "of",
+                        "for",
+                        "in",
+                        "at"
+                    ]
+                },
+                "a7": {
+                    "answer": "trade",
+                    "verb_hint": "Назви торгівлю як діяльність, а ремесла — як окремі професійні галузі; розслідування й рада вже визначені.",
+                    "options": [
+                        "trade",
+                        "concrete",
+                        "sequence",
+                        "individual"
+                    ]
+                },
+                "a8": {
+                    "answer": "from",
+                    "verb_hint": "Назви торгівлю як діяльність, а ремесла — як окремі професійні галузі; розслідування й рада вже визначені.",
+                    "options": [
+                        "from",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Назви торгівлю як діяльність, а ремесла — як окремі професійні галузі; розслідування й рада вже визначені.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a10": {
+                    "answer": "trades",
+                    "verb_hint": "Назви торгівлю як діяльність, а ремесла — як окремі професійні галузі; розслідування й рада вже визначені.",
+                    "options": [
+                        "trades",
+                        "arrangements",
+                        "injustices",
+                        "chairs"
+                    ]
+                },
+                "a11": {
+                    "answer": "represented",
+                    "verb_hint": "Назви торгівлю як діяльність, а ремесла — як окремі професійні галузі; розслідування й рада вже визначені.",
+                    "options": [
+                        "represented",
+                        "called",
+                        "walked",
+                        "opened"
+                    ]
+                },
+                "a12": {
+                    "answer": "on",
+                    "verb_hint": "Назви торгівлю як діяльність, а ремесла — як окремі професійні галузі; розслідування й рада вже визначені.",
+                    "options": [
+                        "on",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a13": {
+                    "answer": "the",
+                    "verb_hint": "Назви торгівлю як діяльність, а ремесла — як окремі професійні галузі; розслідування й рада вже визначені.",
+                    "options": [
+                        "the",
+                        "no",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a14": {
+                    "answer": "council.",
+                    "verb_hint": "Назви торгівлю як діяльність, а ремесла — як окремі професійні галузі; розслідування й рада вже визначені.",
+                    "options": [
+                        "council",
+                        "perpetuate",
+                        "injustice",
+                        "book"
+                    ]
+                }
+            },
+            "verb_hint": "Назви торгівлю як діяльність, а ремесла — як окремі професійні галузі; розслідування й рада вже визначені.",
+            "accepted_target_texts": [
+                "The inquiry distinguished the conduct of trade from the trades represented on the council."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inquiry",
+                "distinguished the conduct",
+                "of trade",
+                "from",
+                "the trades represented",
+                "on the council."
+            ],
+            "token_groups": [
+                "The inquiry",
+                "distinguished the conduct",
+                "of trade",
+                "from",
+                "the trades represented",
+                "on the council."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "inquiry",
+                "distinguished",
+                "the",
+                "conduct",
+                "of",
+                "trade",
+                "from",
+                "the",
+                "trades",
+                "represented",
+                "on",
+                "the",
+                "council."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "inquiry",
+                "itself",
+                "establish",
+                "existence",
+                "distinguished",
+                "needed",
+                "liked",
+                "wanted",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "conduct",
+                "Abstract",
+                "justice",
+                "defend",
+                "of",
+                "for",
+                "in",
+                "at",
+                "trade",
+                "concrete",
+                "sequence",
+                "individual",
+                "from",
+                "under",
+                "through",
+                "across",
+                "that",
+                "these",
+                "those",
+                "trades",
+                "arrangements",
+                "injustices",
+                "chairs",
+                "represented",
+                "called",
+                "walked",
+                "opened",
+                "on",
+                "between",
+                "among",
+                "about",
+                "no",
+                "all",
+                "both",
+                "council",
+                "perpetuate",
+                "injustice",
+                "book"
+            ],
+            "source_text_uk": "Розслідування розрізняло ведення торгівлі та професійні ремесла, представлені в раді.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "inquiry",
+                    "itself",
+                    "establish",
+                    "existence"
+                ],
+                "a3": [
+                    "distinguished",
+                    "needed",
+                    "liked",
+                    "wanted"
+                ],
+                "a4": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a5": [
+                    "conduct",
+                    "Abstract",
+                    "justice",
+                    "defend"
+                ],
+                "a6": [
+                    "of",
+                    "for",
+                    "in",
+                    "at"
+                ],
+                "a7": [
+                    "trade",
+                    "concrete",
+                    "sequence",
+                    "individual"
+                ],
+                "a8": [
+                    "from",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a9": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a10": [
+                    "trades",
+                    "arrangements",
+                    "injustices",
+                    "chairs"
+                ],
+                "a11": [
+                    "represented",
+                    "called",
+                    "walked",
+                    "opened"
+                ],
+                "a12": [
+                    "on",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a13": [
+                    "the",
+                    "no",
+                    "all",
+                    "both"
+                ],
+                "a14": [
+                    "council",
+                    "perpetuate",
+                    "injustice",
+                    "book"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "naqq-countable-uncountable-c2-c03",
+            "author_id": "C2-c03",
+            "question": "На абстрактну справедливість можуть посилатися для захисту порядків, що увічнюють конкретні несправедливості.",
+            "level": "C2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "На абстрактну справедливість можуть посилатися для захисту порядків, що увічнюють конкретні несправедливості.",
+            "target_text": "Abstract justice may be invoked to defend arrangements that perpetuate concrete injustices.",
+            "markers": {
+                "a1": {
+                    "answer": "Abstract",
+                    "verb_hint": "Збережи протиставлення загальної ідеї й окремих проявів, а також можливість посилання, не його неминучість.",
+                    "options": [
+                        "Abstract",
+                        "Sequence",
+                        "Individual",
+                        "Itself"
+                    ]
+                },
+                "a2": {
+                    "answer": "justice",
+                    "verb_hint": "Збережи протиставлення загальної ідеї й окремих проявів, а також можливість посилання, не його неминучість.",
+                    "options": [
+                        "justice",
+                        "conduct",
+                        "trade",
+                        "council"
+                    ]
+                },
+                "a3": {
+                    "answer": "may",
+                    "verb_hint": "Збережи протиставлення загальної ідеї й окремих проявів, а також можливість посилання, не його неминучість.",
+                    "options": [
+                        "may",
+                        "can",
+                        "could",
+                        "will"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Збережи протиставлення загальної ідеї й окремих проявів, а також можливість посилання, не його неминучість.",
+                    "options": [
+                        "be",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "invoked",
+                    "verb_hint": "Збережи протиставлення загальної ідеї й окремих проявів, а також можливість посилання, не його неминучість.",
+                    "options": [
+                        "invoked",
+                        "liked",
+                        "wanted",
+                        "worked"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Збережи протиставлення загальної ідеї й окремих проявів, а також можливість посилання, не його неминучість.",
+                    "options": [
+                        "to",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a7": {
+                    "answer": "defend",
+                    "verb_hint": "Збережи протиставлення загальної ідеї й окремих проявів, а також можливість посилання, не його неминучість.",
+                    "options": [
+                        "defend",
+                        "establish",
+                        "existence",
+                        "injustice"
+                    ]
+                },
+                "a8": {
+                    "answer": "arrangements",
+                    "verb_hint": "Збережи протиставлення загальної ідеї й окремих проявів, а також можливість посилання, не його неминучість.",
+                    "options": [
+                        "arrangements",
+                        "trades",
+                        "tickets",
+                        "cups"
+                    ]
+                },
+                "a9": {
+                    "answer": "that",
+                    "verb_hint": "Збережи протиставлення загальної ідеї й окремих проявів, а також можливість посилання, не його неминучість.",
+                    "options": [
+                        "that",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a10": {
+                    "answer": "perpetuate",
+                    "verb_hint": "Збережи протиставлення загальної ідеї й окремих проявів, а також можливість посилання, не його неминучість.",
+                    "options": [
+                        "perpetuate",
+                        "inquiry",
+                        "room",
+                        "map"
+                    ]
+                },
+                "a11": {
+                    "answer": "concrete",
+                    "verb_hint": "Збережи протиставлення загальної ідеї й окремих проявів, а також можливість посилання, не його неминучість.",
+                    "options": [
+                        "concrete",
+                        "picture",
+                        "child",
+                        "teacher"
+                    ]
+                },
+                "a12": {
+                    "answer": "injustices.",
+                    "verb_hint": "Збережи протиставлення загальної ідеї й окремих проявів, а також можливість посилання, не його неминучість.",
+                    "options": [
+                        "injustices",
+                        "rooms",
+                        "maps",
+                        "letters"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи протиставлення загальної ідеї й окремих проявів, а також можливість посилання, не його неминучість.",
+            "accepted_target_texts": [
+                "Abstract justice may be invoked to defend arrangements that perpetuate concrete injustices."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Abstract justice",
+                "may be invoked",
+                "to defend arrangements",
+                "that perpetuate",
+                "concrete injustices."
+            ],
+            "token_groups": [
+                "Abstract justice",
+                "may be invoked",
+                "to defend arrangements",
+                "that perpetuate",
+                "concrete injustices."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Abstract",
+                "justice",
+                "may",
+                "be",
+                "invoked",
+                "to",
+                "defend",
+                "arrangements",
+                "that",
+                "perpetuate",
+                "concrete",
+                "injustices."
+            ],
+            "options": [
+                "Abstract",
+                "Sequence",
+                "Individual",
+                "Itself",
+                "justice",
+                "conduct",
+                "trade",
+                "council",
+                "may",
+                "can",
+                "could",
+                "will",
+                "be",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "invoked",
+                "liked",
+                "wanted",
+                "worked",
+                "to",
+                "among",
+                "about",
+                "during",
+                "defend",
+                "establish",
+                "existence",
+                "injustice",
+                "arrangements",
+                "trades",
+                "tickets",
+                "cups",
+                "that",
+                "no",
+                "another",
+                "either",
+                "perpetuate",
+                "inquiry",
+                "room",
+                "map",
+                "concrete",
+                "picture",
+                "child",
+                "teacher",
+                "injustices",
+                "rooms",
+                "maps",
+                "letters"
+            ],
+            "source_text_uk": "На абстрактну справедливість можуть посилатися для захисту порядків, що увічнюють конкретні несправедливості.",
+            "options_by_marker": {
+                "a1": [
+                    "Abstract",
+                    "Sequence",
+                    "Individual",
+                    "Itself"
+                ],
+                "a2": [
+                    "justice",
+                    "conduct",
+                    "trade",
+                    "council"
+                ],
+                "a3": [
+                    "may",
+                    "can",
+                    "could",
+                    "will"
+                ],
+                "a4": [
+                    "be",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a5": [
+                    "invoked",
+                    "liked",
+                    "wanted",
+                    "worked"
+                ],
+                "a6": [
+                    "to",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a7": [
+                    "defend",
+                    "establish",
+                    "existence",
+                    "injustice"
+                ],
+                "a8": [
+                    "arrangements",
+                    "trades",
+                    "tickets",
+                    "cups"
+                ],
+                "a9": [
+                    "that",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a10": [
+                    "perpetuate",
+                    "inquiry",
+                    "room",
+                    "map"
+                ],
+                "a11": [
+                    "concrete",
+                    "picture",
+                    "child",
+                    "teacher"
+                ],
+                "a12": [
+                    "injustices",
+                    "rooms",
+                    "maps",
+                    "letters"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

@@ -1,0 +1,1619 @@
+{
+    "schema_version": 1,
+    "quality_revision": "nouns-articles-quantity-v1",
+    "compiled_from": {
+        "path": "docs/content/nouns-articles-quantity-quality/zero-article.v1.json",
+        "sha256": "77a9ae504b55261bc0defcf27b16841f70c203530f8df62c87e557b68a45f3e4"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\NounsArticlesQuantity\\UkrainianMixedZeroArticleQualityStandardSeeder",
+        "uuid_namespace": "nouns-articles-quantity-quality-zero-article-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Nouns / Articles / Quantity"
+    },
+    "sources": {
+        "nouns_articles_quantity_quality_zero_article": {
+            "name": "Nouns Articles Quantity Quality: Нульовий артикль: загальні поняття, сталі сполуки й контекстні контрасти"
+        }
+    },
+    "tags": {
+        "zero_article": {
+            "name": "Zero Article",
+            "category": "nouns_articles_quantity"
+        },
+        "plural_general": {
+            "name": "Plural General",
+            "category": "topic"
+        },
+        "uncountable_general": {
+            "name": "Uncountable General",
+            "category": "topic"
+        },
+        "meals_languages_subjects": {
+            "name": "Meals Languages Subjects",
+            "category": "topic"
+        },
+        "fixed_zero_article_phrases": {
+            "name": "Fixed Zero Article Phrases",
+            "category": "topic"
+        },
+        "proper_names": {
+            "name": "Proper Names",
+            "category": "topic"
+        },
+        "zero_vs_the": {
+            "name": "Zero Vs The",
+            "category": "topic"
+        },
+        "abstract_general": {
+            "name": "Abstract General",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "zero_article"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "naqq-zero-article-a1-g01",
+            "author_id": "A1-g01",
+            "question": "We drink {a1} milk with breakfast.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Ми п’ємо молоко за сніданком.",
+            "target_text": "We drink milk with breakfast.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Йдеться про молоко як продукт узагалі, а не про певну порцію; для нульового артикля введи дефіс."
+                }
+            },
+            "verb_hint": "Йдеться про молоко як продукт узагалі, а не про певну порцію; для нульового артикля введи дефіс.",
+            "accepted_target_texts": [
+                "We drink milk with breakfast."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We drink",
+                "milk",
+                "with breakfast."
+            ],
+            "token_groups": [
+                "We drink",
+                "milk",
+                "with breakfast."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "naqq-zero-article-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Tom speaks {a1} Spanish at home.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Том удома розмовляє іспанською.",
+            "target_text": "Tom speaks Spanish at home.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Перед назвою мови артикль не потрібен; познач його відсутність дефісом."
+                }
+            },
+            "verb_hint": "Перед назвою мови артикль не потрібен; познач його відсутність дефісом.",
+            "accepted_target_texts": [
+                "Tom speaks Spanish at home."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Tom speaks",
+                "Spanish",
+                "at home."
+            ],
+            "token_groups": [
+                "Tom speaks",
+                "Spanish",
+                "at home."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "naqq-zero-article-a1-g03",
+            "author_id": "A1-g03",
+            "question": "The children go to school by {a1} bus.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Діти їздять до школи автобусом.",
+            "target_text": "The children go to school by bus.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "У сталій назві способу пересування перед видом транспорту артикля немає; введи дефіс."
+                }
+            },
+            "verb_hint": "У сталій назві способу пересування перед видом транспорту артикля немає; введи дефіс.",
+            "accepted_target_texts": [
+                "The children go to school by bus."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The children go",
+                "to school",
+                "by bus."
+            ],
+            "token_groups": [
+                "The children go",
+                "to school",
+                "by bus."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "naqq-zero-article-a1-g04",
+            "author_id": "A1-g04",
+            "question": "We have {a1} lunch at one.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Ми обідаємо о першій.",
+            "target_text": "We have lunch at one.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Назва звичного прийому їжі не має означення; познач відсутність артикля дефісом."
+                }
+            },
+            "verb_hint": "Назва звичного прийому їжі не має означення; познач відсутність артикля дефісом.",
+            "accepted_target_texts": [
+                "We have lunch at one."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We have",
+                "lunch",
+                "at one."
+            ],
+            "token_groups": [
+                "We have",
+                "lunch",
+                "at one."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "naqq-zero-article-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Please put {a1} juice from this carton in the fridge.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Будь ласка, постав сік із цього пакета в холодильник.",
+            "target_text": "Please put the juice from this carton in the fridge.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Потрібен означений артикль: доповнення вказує на конкретний сік саме з цього пакета."
+                }
+            },
+            "verb_hint": "Потрібен означений артикль: доповнення вказує на конкретний сік саме з цього пакета.",
+            "accepted_target_texts": [
+                "Please put the juice from this carton in the fridge."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please put",
+                "the juice",
+                "from this carton",
+                "in the fridge."
+            ],
+            "token_groups": [
+                "Please put",
+                "the juice",
+                "from this carton",
+                "in the fridge."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "naqq-zero-article-a1-g06",
+            "author_id": "A1-g06",
+            "question": "There is {a1} sandwich on my desk.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "На моєму столі лежить бутерброд.",
+            "target_text": "There is a sandwich on my desk.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "На відміну від назв їжі як речовини, тут названо один окремий бутерброд уперше."
+                }
+            },
+            "verb_hint": "На відміну від назв їжі як речовини, тут названо один окремий бутерброд уперше.",
+            "accepted_target_texts": [
+                "There is a sandwich on my desk."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "a sandwich",
+                "on my desk."
+            ],
+            "token_groups": [
+                "There is",
+                "a sandwich",
+                "on my desk."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "naqq-zero-article-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The cat sleeps during the day and hunts at {a1} night.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Кіт спить удень і полює вночі.",
+            "target_text": "The cat sleeps during the day and hunts at night.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "У сталій обставині зі значенням уночі після прийменника артикль не ставимо; введи дефіс."
+                }
+            },
+            "verb_hint": "У сталій обставині зі значенням уночі після прийменника артикль не ставимо; введи дефіс.",
+            "accepted_target_texts": [
+                "The cat sleeps during the day and hunts at night."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cat sleeps",
+                "during the day",
+                "and hunts",
+                "at night."
+            ],
+            "token_groups": [
+                "The cat sleeps",
+                "during the day",
+                "and hunts",
+                "at night."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "naqq-zero-article-a2-g02",
+            "author_id": "A2-g02",
+            "question": "We play {a1} volleyball after classes.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Після занять ми граємо у волейбол.",
+            "target_text": "We play volleyball after classes.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Перед назвою спортивної гри артикля немає; познач його відсутність дефісом."
+                }
+            },
+            "verb_hint": "Перед назвою спортивної гри артикля немає; познач його відсутність дефісом.",
+            "accepted_target_texts": [
+                "We play volleyball after classes."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We play",
+                "volleyball",
+                "after classes."
+            ],
+            "token_groups": [
+                "We play",
+                "volleyball",
+                "after classes."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "naqq-zero-article-a2-g03",
+            "author_id": "A2-g03",
+            "question": "I always go to {a1} bed before eleven.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Я завжди лягаю спати до одинадцятої.",
+            "target_text": "I always go to bed before eleven.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Йдеться про звичну дію лягати спати, не про конкретне ліжко як меблі; введи дефіс."
+                }
+            },
+            "verb_hint": "Йдеться про звичну дію лягати спати, не про конкретне ліжко як меблі; введи дефіс.",
+            "accepted_target_texts": [
+                "I always go to bed before eleven."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I always go",
+                "to bed",
+                "before eleven."
+            ],
+            "token_groups": [
+                "I always go",
+                "to bed",
+                "before eleven."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "naqq-zero-article-a2-g04",
+            "author_id": "A2-g04",
+            "question": "They stayed at {a1} home because of the storm.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Через бурю вони залишилися вдома.",
+            "target_text": "They stayed at home because of the storm.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "У сталій обставині зі значенням удома артикль не потрібен; введи дефіс."
+                }
+            },
+            "verb_hint": "У сталій обставині зі значенням удома артикль не потрібен; введи дефіс.",
+            "accepted_target_texts": [
+                "They stayed at home because of the storm."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They stayed",
+                "at home",
+                "because of",
+                "the storm."
+            ],
+            "token_groups": [
+                "They stayed",
+                "at home",
+                "because of",
+                "the storm."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "naqq-zero-article-a2-g05",
+            "author_id": "A2-g05",
+            "question": "She left her phone on {a1} bed in our guest room.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Вона залишила телефон на ліжку в нашій гостьовій кімнаті.",
+            "target_text": "She left her phone on the bed in our guest room.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Йдеться про конкретний предмет меблів у названій кімнаті, а не про сон; потрібен означений артикль."
+                }
+            },
+            "verb_hint": "Йдеться про конкретний предмет меблів у названій кімнаті, а не про сон; потрібен означений артикль.",
+            "accepted_target_texts": [
+                "She left her phone on the bed in our guest room."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She left",
+                "her phone",
+                "on the bed",
+                "in",
+                "our guest room."
+            ],
+            "token_groups": [
+                "She left",
+                "her phone",
+                "on the bed",
+                "in",
+                "our guest room."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "naqq-zero-article-a2-g06",
+            "author_id": "A2-g06",
+            "question": "We ordered {a1} large breakfast before the journey.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Перед дорогою ми замовили великий сніданок.",
+            "target_text": "We ordered a large breakfast before the journey.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Тут сніданок представлено як одне окреме велике замовлення з описовим прикметником; потрібен неозначений артикль."
+                }
+            },
+            "verb_hint": "Тут сніданок представлено як одне окреме велике замовлення з описовим прикметником; потрібен неозначений артикль.",
+            "accepted_target_texts": [
+                "We ordered a large breakfast before the journey."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We ordered",
+                "a large breakfast",
+                "before the journey."
+            ],
+            "token_groups": [
+                "We ordered",
+                "a large breakfast",
+                "before the journey."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "naqq-zero-article-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The survey provides {a1} information about local transport.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Опитування дає інформацію про місцевий транспорт.",
+            "target_text": "The survey provides information about local transport.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Інформація тут незлічувана й не визначена як конкретний набір; познач відсутність артикля дефісом."
+                }
+            },
+            "verb_hint": "Інформація тут незлічувана й не визначена як конкретний набір; познач відсутність артикля дефісом.",
+            "accepted_target_texts": [
+                "The survey provides information about local transport."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The survey provides",
+                "information",
+                "about local transport."
+            ],
+            "token_groups": [
+                "The survey provides",
+                "information",
+                "about local transport."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "naqq-zero-article-b1-g02",
+            "author_id": "B1-g02",
+            "question": "We made {a1} progress despite the setbacks.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Попри невдачі ми просунулися вперед.",
+            "target_text": "We made progress despite the setbacks.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Іменник зі значенням поступу вжито як незлічуване поняття; артикля немає, введи дефіс."
+                }
+            },
+            "verb_hint": "Іменник зі значенням поступу вжито як незлічуване поняття; артикля немає, введи дефіс.",
+            "accepted_target_texts": [
+                "We made progress despite the setbacks."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We made",
+                "progress",
+                "despite the setbacks."
+            ],
+            "token_groups": [
+                "We made",
+                "progress",
+                "despite the setbacks."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "naqq-zero-article-b1-g03",
+            "author_id": "B1-g03",
+            "question": "She hopes to study {a1} economics at university.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Вона сподівається вивчати економіку в університеті.",
+            "target_text": "She hopes to study economics at university.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Перед назвою навчальної дисципліни артикль не потрібен; введи дефіс."
+                }
+            },
+            "verb_hint": "Перед назвою навчальної дисципліни артикль не потрібен; введи дефіс.",
+            "accepted_target_texts": [
+                "She hopes to study economics at university."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She hopes",
+                "to study",
+                "economics",
+                "at university."
+            ],
+            "token_groups": [
+                "She hopes",
+                "to study",
+                "economics",
+                "at university."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "naqq-zero-article-b1-g04",
+            "author_id": "B1-g04",
+            "question": "Daniel is at {a1} university and shares a flat with two friends.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Даніель навчається в університеті й ділить квартиру з двома друзями.",
+            "target_text": "Daniel is at university and shares a flat with two friends.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "За британською моделлю йдеться про статус студента, а не про будівлю; перед університетом нульовий артикль, введи дефіс."
+                }
+            },
+            "verb_hint": "За британською моделлю йдеться про статус студента, а не про будівлю; перед університетом нульовий артикль, введи дефіс.",
+            "accepted_target_texts": [
+                "Daniel is at university and shares a flat with two friends."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Daniel is",
+                "at university",
+                "and shares",
+                "a flat",
+                "with two friends."
+            ],
+            "token_groups": [
+                "Daniel is",
+                "at university",
+                "and shares",
+                "a flat",
+                "with two friends."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "naqq-zero-article-b1-g05",
+            "author_id": "B1-g05",
+            "question": "{a1} advice you gave me saved a lot of time.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Порада, яку ти мені дав, заощадила багато часу.",
+            "target_text": "The advice you gave me saved a lot of time.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "options": [
+                        "The",
+                        "A",
+                        "An"
+                    ],
+                    "verb_hint": "Наступна частина визначає конкретну пораду; на початку речення потрібен означений артикль."
+                }
+            },
+            "verb_hint": "Наступна частина визначає конкретну пораду; на початку речення потрібен означений артикль.",
+            "accepted_target_texts": [
+                "The advice you gave me saved a lot of time."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The advice",
+                "you gave me",
+                "saved a lot",
+                "of time."
+            ],
+            "token_groups": [
+                "The advice",
+                "you gave me",
+                "saved a lot",
+                "of time."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "naqq-zero-article-b1-g06",
+            "author_id": "B1-g06",
+            "question": "We tried {a1} local cheese with a strong flavour.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Ми скуштували місцевий сир із виразним смаком.",
+            "target_text": "We tried a local cheese with a strong flavour.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Названо один різновид сиру, а не сир як речовину взагалі; потрібен неозначений артикль."
+                }
+            },
+            "verb_hint": "Названо один різновид сиру, а не сир як речовину взагалі; потрібен неозначений артикль.",
+            "accepted_target_texts": [
+                "We tried a local cheese with a strong flavour.",
+                "We tried a local cheese with a strong flavor."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We tried",
+                "a local cheese",
+                "with a strong",
+                "flavour."
+            ],
+            "token_groups": [
+                "We tried",
+                "a local cheese",
+                "with a strong",
+                "flavour."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "naqq-zero-article-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The team conducts {a1} research into sustainable packaging.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Команда досліджує екологічне пакування.",
+            "target_text": "The team conducts research into sustainable packaging.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Дослідницьку діяльність названо незлічуваним загальним поняттям; нульовий артикль познач дефісом."
+                }
+            },
+            "verb_hint": "Дослідницьку діяльність названо незлічуваним загальним поняттям; нульовий артикль познач дефісом.",
+            "accepted_target_texts": [
+                "The team conducts research into sustainable packaging."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The team conducts",
+                "research",
+                "into sustainable packaging."
+            ],
+            "token_groups": [
+                "The team conducts",
+                "research",
+                "into sustainable packaging."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "naqq-zero-article-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Several witnesses gave {a1} evidence during the hearing.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Кілька свідків надали свідчення під час слухання.",
+            "target_text": "Several witnesses gave evidence during the hearing.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Свідчення тут незлічувані й не мають конкретизувального означення; введи дефіс замість артикля."
+                }
+            },
+            "verb_hint": "Свідчення тут незлічувані й не мають конкретизувального означення; введи дефіс замість артикля.",
+            "accepted_target_texts": [
+                "Several witnesses gave evidence during the hearing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Several witnesses",
+                "gave evidence",
+                "during the hearing."
+            ],
+            "token_groups": [
+                "Several witnesses",
+                "gave evidence",
+                "during the hearing."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "naqq-zero-article-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The suspect remained in {a1} prison throughout the appeal.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Підозрюваний залишався у в’язниці протягом оскарження.",
+            "target_text": "The suspect remained in prison throughout the appeal.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Йдеться про ув’язнення, а не про конкретну будівлю; познач нульовий артикль дефісом."
+                }
+            },
+            "verb_hint": "Йдеться про ув’язнення, а не про конкретну будівлю; познач нульовий артикль дефісом.",
+            "accepted_target_texts": [
+                "The suspect remained in prison throughout the appeal."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The suspect remained",
+                "in prison",
+                "throughout the appeal."
+            ],
+            "token_groups": [
+                "The suspect remained",
+                "in prison",
+                "throughout the appeal."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "naqq-zero-article-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The course offers {a1} training in conflict resolution.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Курс навчає врегулюванню конфліктів.",
+            "target_text": "The course offers training in conflict resolution.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Навчання представлене як діяльність загалом, без назви конкретного заняття; введи дефіс."
+                }
+            },
+            "verb_hint": "Навчання представлене як діяльність загалом, без назви конкретного заняття; введи дефіс.",
+            "accepted_target_texts": [
+                "The course offers training in conflict resolution."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The course offers",
+                "training",
+                "in conflict resolution."
+            ],
+            "token_groups": [
+                "The course offers",
+                "training",
+                "in conflict resolution."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "naqq-zero-article-b2-g05",
+            "author_id": "B2-g05",
+            "question": "We questioned {a1} evidence presented by the prosecution.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Ми поставили під сумнів докази, надані обвинуваченням.",
+            "target_text": "We questioned the evidence presented by the prosecution.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Доповнення про надані обвинуваченням докази визначає конкретний набір; потрібен означений артикль."
+                }
+            },
+            "verb_hint": "Доповнення про надані обвинуваченням докази визначає конкретний набір; потрібен означений артикль.",
+            "accepted_target_texts": [
+                "We questioned the evidence presented by the prosecution."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We questioned",
+                "the evidence",
+                "presented",
+                "by the prosecution."
+            ],
+            "token_groups": [
+                "We questioned",
+                "the evidence",
+                "presented",
+                "by the prosecution."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "naqq-zero-article-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The manager showed {a1} patience that surprised the entire team.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Керівник виявив терплячість, яка здивувала всю команду.",
+            "target_text": "The manager showed a patience that surprised the entire team.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Йдеться про окремий незвичний прояв якості, уточнений наступною частиною; використай неозначений артикль."
+                }
+            },
+            "verb_hint": "Йдеться про окремий незвичний прояв якості, уточнений наступною частиною; використай неозначений артикль.",
+            "accepted_target_texts": [
+                "The manager showed a patience that surprised the entire team."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The manager showed",
+                "a patience",
+                "that surprised",
+                "the entire team."
+            ],
+            "token_groups": [
+                "The manager showed",
+                "a patience",
+                "that surprised",
+                "the entire team."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "naqq-zero-article-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The amendment seeks to improve {a1} access to affordable housing.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Поправка має на меті поліпшити доступ до доступного за ціною житла.",
+            "target_text": "The amendment seeks to improve access to affordable housing.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Доступ названо загальним незлічуваним поняттям, а не конкретним дозволом; введи дефіс."
+                }
+            },
+            "verb_hint": "Доступ названо загальним незлічуваним поняттям, а не конкретним дозволом; введи дефіс.",
+            "accepted_target_texts": [
+                "The amendment seeks to improve access to affordable housing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The amendment seeks",
+                "to improve",
+                "access",
+                "to affordable housing."
+            ],
+            "token_groups": [
+                "The amendment seeks",
+                "to improve",
+                "access",
+                "to affordable housing."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "naqq-zero-article-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The minister has been in {a1} office for less than a year.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Міністр обіймає посаду менше року.",
+            "target_text": "The minister has been in office for less than a year.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Стала конструкція означає перебування при владі, не перебування в кабінеті; потрібен нульовий артикль, введи дефіс."
+                }
+            },
+            "verb_hint": "Стала конструкція означає перебування при владі, не перебування в кабінеті; потрібен нульовий артикль, введи дефіс.",
+            "accepted_target_texts": [
+                "The minister has been in office for less than a year."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The minister has",
+                "been in office",
+                "for less than",
+                "a year."
+            ],
+            "token_groups": [
+                "The minister has",
+                "been in office",
+                "for less than",
+                "a year."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "naqq-zero-article-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The initiative combines {a1} education with practical support for new arrivals.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Ініціатива поєднує освіту з практичною підтримкою новоприбулих.",
+            "target_text": "The initiative combines education with practical support for new arrivals.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Освіту названо видом діяльності загалом; введи дефіс замість відсутнього артикля."
+                }
+            },
+            "verb_hint": "Освіту названо видом діяльності загалом; введи дефіс замість відсутнього артикля.",
+            "accepted_target_texts": [
+                "The initiative combines education with practical support for new arrivals."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The initiative combines",
+                "education",
+                "with practical support",
+                "for new arrivals."
+            ],
+            "token_groups": [
+                "The initiative combines",
+                "education",
+                "with practical support",
+                "for new arrivals."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "naqq-zero-article-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The settlement includes {a1} compensation for loss of earnings.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Угода передбачає компенсацію втраченого заробітку.",
+            "target_text": "The settlement includes compensation for loss of earnings.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Компенсацію тут подано як незлічувану виплату загалом, без визначення окремої конкретної суми; введи дефіс."
+                }
+            },
+            "verb_hint": "Компенсацію тут подано як незлічувану виплату загалом, без визначення окремої конкретної суми; введи дефіс.",
+            "accepted_target_texts": [
+                "The settlement includes compensation for loss of earnings."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The settlement includes",
+                "compensation",
+                "for loss",
+                "of earnings."
+            ],
+            "token_groups": [
+                "The settlement includes",
+                "compensation",
+                "for loss",
+                "of earnings."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "naqq-zero-article-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The inquiry examined {a1} conduct of officials responsible for the procurement process.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Розслідування вивчало поведінку посадовців, відповідальних за закупівлі.",
+            "target_text": "The inquiry examined the conduct of officials responsible for the procurement process.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Наступне доповнення визначає конкретну поведінку саме названих посадовців."
+                }
+            },
+            "verb_hint": "Наступне доповнення визначає конкретну поведінку саме названих посадовців.",
+            "accepted_target_texts": [
+                "The inquiry examined the conduct of officials responsible for the procurement process."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inquiry examined",
+                "the conduct",
+                "of officials",
+                "responsible for",
+                "the procurement process."
+            ],
+            "token_groups": [
+                "The inquiry examined",
+                "the conduct",
+                "of officials",
+                "responsible for",
+                "the procurement process."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "naqq-zero-article-c1-g06",
+            "author_id": "C1-g06",
+            "question": "Her response displayed {a1} sensitivity to local concerns that earlier plans had lacked.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Її відповідь продемонструвала чутливість до місцевих проблем, якої попереднім планам бракувало.",
+            "target_text": "Her response displayed a sensitivity to local concerns that earlier plans had lacked.",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the"
+                    ],
+                    "verb_hint": "Названо окремий характерний прояв чутливості; неозначений артикль доречний завдяки наступному уточненню."
+                }
+            },
+            "verb_hint": "Названо окремий характерний прояв чутливості; неозначений артикль доречний завдяки наступному уточненню.",
+            "accepted_target_texts": [
+                "Her response displayed a sensitivity to local concerns that earlier plans had lacked."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Her response displayed",
+                "a sensitivity",
+                "to local concerns",
+                "that earlier plans",
+                "had lacked."
+            ],
+            "token_groups": [
+                "Her response displayed",
+                "a sensitivity",
+                "to local concerns",
+                "that earlier plans",
+                "had lacked."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "naqq-zero-article-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The doctrine places {a1} responsibility on those who exercise effective control.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Доктрина покладає відповідальність на тих, хто здійснює фактичний контроль.",
+            "target_text": "The doctrine places responsibility on those who exercise effective control.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Відповідальність названо незлічуваним поняттям, не окремим службовим обов’язком; введи дефіс."
+                }
+            },
+            "verb_hint": "Відповідальність названо незлічуваним поняттям, не окремим службовим обов’язком; введи дефіс.",
+            "accepted_target_texts": [
+                "The doctrine places responsibility on those who exercise effective control."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The doctrine places",
+                "responsibility",
+                "on those",
+                "who exercise",
+                "effective control."
+            ],
+            "token_groups": [
+                "The doctrine places",
+                "responsibility",
+                "on those",
+                "who exercise",
+                "effective control."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "naqq-zero-article-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The framework treats {a1} consent as an ongoing process rather than a single event.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Ця система розглядає згоду як тривалий процес, а не одноразову подію.",
+            "target_text": "The framework treats consent as an ongoing process rather than a single event.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Згоду подано як загальне абстрактне поняття без конкретизованого випадку; введи дефіс."
+                }
+            },
+            "verb_hint": "Згоду подано як загальне абстрактне поняття без конкретизованого випадку; введи дефіс.",
+            "accepted_target_texts": [
+                "The framework treats consent as an ongoing process rather than a single event."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The framework treats",
+                "consent",
+                "as",
+                "an ongoing process",
+                "rather than",
+                "a single event."
+            ],
+            "token_groups": [
+                "The framework treats",
+                "consent",
+                "as",
+                "an ongoing process",
+                "rather than",
+                "a single event."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "naqq-zero-article-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The authors distinguish {a1} knowledge from mere familiarity with established terminology.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Автори розрізняють знання і просте знайомство з усталеною термінологією.",
+            "target_text": "The authors distinguish knowledge from mere familiarity with established terminology.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Знання є загальним незлічуваним поняттям; познач нульовий артикль дефісом."
+                }
+            },
+            "verb_hint": "Знання є загальним незлічуваним поняттям; познач нульовий артикль дефісом.",
+            "accepted_target_texts": [
+                "The authors distinguish knowledge from mere familiarity with established terminology."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The authors distinguish",
+                "knowledge",
+                "from mere familiarity",
+                "with established terminology."
+            ],
+            "token_groups": [
+                "The authors distinguish",
+                "knowledge",
+                "from mere familiarity",
+                "with established terminology."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "naqq-zero-article-c2-g04",
+            "author_id": "C2-g04",
+            "question": "As a general principle, {a1} justice must remain accessible regardless of a claimant's resources.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Як загальний принцип, правосуддя має залишатися доступним незалежно від статків позивача.",
+            "target_text": "As a general principle, justice must remain accessible regardless of a claimant's resources.",
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Правосуддя названо загальним принципом, не конкретною системою чи проявом; введи дефіс."
+                }
+            },
+            "verb_hint": "Правосуддя названо загальним принципом, не конкретною системою чи проявом; введи дефіс.",
+            "accepted_target_texts": [
+                "As a general principle, justice must remain accessible regardless of a claimant's resources."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "As",
+                "a general principle,",
+                "justice",
+                "must remain accessible",
+                "regardless of",
+                "a claimant's resources."
+            ],
+            "token_groups": [
+                "As",
+                "a general principle,",
+                "justice",
+                "must remain accessible",
+                "regardless of",
+                "a claimant's resources."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "naqq-zero-article-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The court rejected {a1} reasoning on which the original assessment had relied.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Суд відкинув міркування, на які спиралася початкова оцінка.",
+            "target_text": "The court rejected the reasoning on which the original assessment had relied.",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Наступна частина однозначно визначає конкретний хід міркувань; потрібен означений артикль."
+                }
+            },
+            "verb_hint": "Наступна частина однозначно визначає конкретний хід міркувань; потрібен означений артикль.",
+            "accepted_target_texts": [
+                "The court rejected the reasoning on which the original assessment had relied."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The court rejected",
+                "the reasoning",
+                "on which",
+                "the original assessment",
+                "had relied."
+            ],
+            "token_groups": [
+                "The court rejected",
+                "the reasoning",
+                "on which",
+                "the original assessment",
+                "had relied."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "naqq-zero-article-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The negotiations required {a1} understanding of local customs that neither side had developed.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Переговори вимагали розуміння місцевих звичаїв, якого жодна зі сторін не виробила.",
+            "target_text": "The negotiations required an understanding of local customs that neither side had developed.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Названо окреме розуміння певних звичаїв, уточнене наступною частиною; потрібен неозначений артикль перед голосним звуком."
+                }
+            },
+            "verb_hint": "Названо окреме розуміння певних звичаїв, уточнене наступною частиною; потрібен неозначений артикль перед голосним звуком.",
+            "accepted_target_texts": [
+                "The negotiations required an understanding of local customs that neither side had developed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The negotiations required",
+                "an understanding",
+                "of local customs",
+                "that neither side",
+                "had developed."
+            ],
+            "token_groups": [
+                "The negotiations required",
+                "an understanding",
+                "of local customs",
+                "that neither side",
+                "had developed."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        }
+    ]
+}

@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62632,
+        "uuid": "qnq-embedded-a2-g03",
+        "question": "She has forgotten what {a1}.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 60,
+        "source_id": 464,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedEmbeddedQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "the sign means",
+                "does the sign",
+                "means the sign"
+            ]
+        },
+        "theory_text_block_uuid": "77089cfd-6312-5b1f-b8ee-07b324d3a0d1",
+        "created_at": "2026-10-30T13:53:19.000000Z",
+        "updated_at": "2026-10-30T13:53:19.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 464,
+        "name": "Questions and Negations Quality: Embedded Questions: питання всередині речення",
+        "created_at": "2026-10-30T13:53:18.000000Z",
+        "updated_at": "2026-10-30T13:53:18.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 675,
+                "name": "Embedded Questions",
+                "category": null,
+                "created_at": "2026-04-23T14:37:09.000000Z",
+                "updated_at": "2026-04-23T14:37:09.000000Z"
+            },
+            "pivot": {
+                "question_id": 62632,
+                "tag_id": 675,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 57382,
+                "option": "the sign means",
+                "created_at": "2026-10-30T13:53:19.000000Z",
+                "updated_at": "2026-10-30T13:53:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 62632,
+                "option_id": 57382,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57384,
+                "option": "does the sign",
+                "created_at": "2026-10-30T13:53:19.000000Z",
+                "updated_at": "2026-10-30T13:53:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 62632,
+                "option_id": 57384,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57385,
+                "option": "means the sign",
+                "created_at": "2026-10-30T13:53:19.000000Z",
+                "updated_at": "2026-10-30T13:53:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 62632,
+                "option_id": 57385,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332351,
+                "question_id": 62632,
+                "marker": "a1",
+                "option_id": 57382,
+                "created_at": "2026-10-30T13:53:19.000000Z",
+                "updated_at": "2026-10-30T13:53:19.000000Z"
+            },
+            "option": {
+                "id": 57382,
+                "option": "the sign means",
+                "created_at": "2026-10-30T13:53:19.000000Z",
+                "updated_at": "2026-10-30T13:53:19.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49685,
+                "question_id": 62632,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 57383,
+                "created_at": "2026-10-30T13:53:19.000000Z",
+                "updated_at": "2026-10-30T13:53:19.000000Z"
+            },
+            "option": {
+                "id": 57383,
+                "option": "Назви знак і дієслово значення у прямому порядку; допоміжне питання не потрібне.",
+                "created_at": "2026-10-30T13:53:19.000000Z",
+                "updated_at": "2026-10-30T13:53:19.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54647,
+            "question_id": 62632,
+            "text": "She has forgotten what {a1}.",
+            "created_at": "2026-10-30T13:53:19.000000Z",
+            "updated_at": "2026-10-30T13:53:19.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

@@ -1,0 +1,4 @@
+<?php
+
+// Generated Vocabulary and Collocations quality bank; edit canonical author JSON instead.
+require_once __DIR__ . '/UkrainianMixedVcqAdvancedCollocationAndLexicalChoiceQualityStandardSeeder/UkrainianMixedVcqAdvancedCollocationAndLexicalChoiceQualityStandardSeeder.php';

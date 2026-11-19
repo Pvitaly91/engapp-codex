@@ -1,0 +1,564 @@
+{
+    "schema_version": 1,
+    "topic_key": "omitting-relative-pronouns",
+    "title": "Omitting Relative Pronouns",
+    "choice_pools": {
+        "subject_phrase": [
+            "the visitor",
+            "our neighbour",
+            "the children",
+            "a gardener",
+            "the artist",
+            "the travellers",
+            "the reader",
+            "my cousin",
+            "the team",
+            "the witness"
+        ],
+        "noun_phrase": [
+            "a green door",
+            "the spare button",
+            "a fresh loaf",
+            "the old map",
+            "her little dog",
+            "a small bowl",
+            "the main entrance",
+            "a written reply",
+            "a careful account",
+            "a useful distinction"
+        ],
+        "verb_phrase": [
+            "is open",
+            "lives nearby",
+            "was missing",
+            "needs attention",
+            "arrived early",
+            "had disappeared",
+            "remains unclear",
+            "cannot be verified",
+            "was postponed",
+            "has changed"
+        ],
+        "relative_phrase": [
+            "who lives",
+            "which belongs",
+            "whose windows",
+            "that we found",
+            "whom they trusted",
+            "where she works",
+            "which I borrowed",
+            "who helped us",
+            "whose cover",
+            "which explains"
+        ],
+        "connector_phrase": [
+            "because",
+            "since",
+            "as",
+            "so",
+            "therefore",
+            "consequently",
+            "although",
+            "however",
+            "whereas",
+            "if",
+            "when",
+            "unless"
+        ],
+        "adverbial_phrase": [
+            "after lunch",
+            "near the gate",
+            "on the table",
+            "in the courtyard",
+            "without warning",
+            "for two weeks",
+            "in this case",
+            "at the time",
+            "with great care",
+            "by contrast"
+        ],
+        "proper_noun": [
+            "Mia",
+            "Oleh",
+            "Nora",
+            "Lena",
+            "Tomas",
+            "Iryna",
+            "Ruth",
+            "Ada",
+            "Kyiv",
+            "Bristol"
+        ],
+        "preposition_phrase": [
+            "from the shelf",
+            "by the river",
+            "to the owner",
+            "for the guests",
+            "under the bench",
+            "in the archive",
+            "with the editor",
+            "about the proposal",
+            "on the evidence",
+            "at the workshop"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The toy {a1} is small.",
+            "target": "The toy I want is small.",
+            "uk": "Іграшка, яку я хочу, маленька.",
+            "hint_uk": "Я хочу; назви виконавця перед дієсловом, без окремого відносного слова.",
+            "groups": [
+                "The toy",
+                "I want",
+                "is small."
+            ],
+            "answer": "I want",
+            "options": [
+                "I want",
+                "want I",
+                "I wants"
+            ]
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "This is the song {a1}.",
+            "target": "This is the song we like.",
+            "uk": "Це пісня, яка нам подобається.",
+            "hint_uk": "Ми любимо; у підрядній частині залиш підмет і дієслово без відносного слова.",
+            "groups": [
+                "This is",
+                "the song",
+                "we like."
+            ],
+            "answer": "we like",
+            "options": [
+                "we like",
+                "we likes",
+                "us like"
+            ]
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Книга, яку я читаю, весела.",
+            "target": "The book I read is funny.",
+            "uk": "Книга, яку я читаю, весела.",
+            "hint_uk": "Почни з книги; пропусти відносне слово перед підметом я.",
+            "groups": [
+                "The book",
+                "I read",
+                "is funny."
+            ],
+            "compose_slots": [
+                "The book",
+                "I read",
+                "is funny."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "verb_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [
+                "The book I read is amusing."
+            ],
+            "display_synonyms": {
+                "is funny.": [
+                    "is amusing."
+                ]
+            }
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The scarf {a1} is on the chair.",
+            "target": "The scarf you forgot is on the chair.",
+            "uk": "Шарф, який ти забув, на стільці.",
+            "hint_uk": "Ти забув; постав підмет перед правильною минулою формою без відносного слова.",
+            "groups": [
+                "The scarf",
+                "you forgot",
+                "is",
+                "on the chair."
+            ],
+            "answer": "you forgot",
+            "options": [
+                "you forgot",
+                "you forgetted",
+                "forgot you"
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The sandwiches {a1} were delicious.",
+            "target": "The sandwiches Mum made were delicious.",
+            "uk": "Бутерброди, які мама приготувала, були смачні.",
+            "hint_uk": "Мама приготувала; відносне слово пропущено, але виконавець дії залишається.",
+            "groups": [
+                "The sandwiches",
+                "Mum made",
+                "were delicious."
+            ],
+            "answer": "Mum made",
+            "options": [
+                "Mum made",
+                "Mum make",
+                "made Mum"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Сукня, яку вона вибрала, жовта.",
+            "target": "The dress she chose is yellow.",
+            "uk": "Сукня, яку вона вибрала, жовта.",
+            "hint_uk": "Пропусти відносне слово, але не виконавицю вибору; збережи минулу дію.",
+            "groups": [
+                "The dress",
+                "she chose",
+                "is yellow."
+            ],
+            "compose_slots": [
+                "The dress",
+                "she chose",
+                "is yellow."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "verb_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [
+                "The dress she selected is yellow."
+            ],
+            "display_synonyms": {
+                "she chose": [
+                    "she selected"
+                ]
+            }
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The documentary {a1} last night changed my view.",
+            "target": "The documentary we watched last night changed my view.",
+            "uk": "Документальний фільм, який ми подивилися вчора ввечері, змінив мій погляд.",
+            "hint_uk": "Ми подивилися; у скороченому зв’язку залиш особове минуле дієслово й підмет.",
+            "groups": [
+                "The documentary",
+                "we watched",
+                "last night",
+                "changed my view."
+            ],
+            "answer": "we watched",
+            "options": [
+                "we watched",
+                "watched us",
+                "we watching"
+            ],
+            "answer_synonyms": [
+                "we saw"
+            ]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The colleague {a1} about has just arrived.",
+            "target": "The colleague I told you about has just arrived.",
+            "uk": "Колега, про якого я тобі розповідав, щойно прийшов.",
+            "hint_uk": "Я тобі розповідав; пропусти відносний займенник, а наведений прийменник залиш у кінці.",
+            "groups": [
+                "The colleague",
+                "I told you",
+                "about",
+                "has just arrived."
+            ],
+            "answer": "I told you",
+            "options": [
+                "I told you",
+                "I told to",
+                "told you I"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Готель, у якому ми зупинялися, виходить на гавань.",
+            "target": "The hotel we stayed at overlooks the harbour.",
+            "uk": "Готель, у якому ми зупинялися, виходить на гавань.",
+            "hint_uk": "Не вводь відносного слова; збережи прийменник після дієслова проживання.",
+            "groups": [
+                "The hotel",
+                "we stayed at",
+                "overlooks",
+                "the harbour."
+            ],
+            "compose_slots": [
+                "The hotel",
+                "we stayed at",
+                "overlooks",
+                "the harbour."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "verb_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "The hotel we stayed at overlooks the harbor."
+            ],
+            "display_synonyms": {
+                "the harbour.": [
+                    "the harbor."
+                ]
+            }
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The conditions {a1} to were stricter than expected.",
+            "target": "The conditions they had agreed to were stricter than expected.",
+            "uk": "Умови, на які вони погодилися, були суворішими, ніж очікували.",
+            "hint_uk": "Вони раніше погодилися; потрібен підмет перед доконаною формою, а прийменник уже наведено.",
+            "groups": [
+                "The conditions",
+                "they had agreed",
+                "to",
+                "were stricter",
+                "than expected."
+            ],
+            "answer": "they had agreed",
+            "options": [
+                "they had agreed",
+                "they had agree",
+                "had they agreed"
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The evidence {a1} on proved unreliable.",
+            "target": "The evidence the team relied on proved unreliable.",
+            "uk": "Докази, на які покладалася команда, виявилися ненадійними.",
+            "hint_uk": "Команда покладалася; без відносного слова збережи звичайний порядок підрядної частини.",
+            "groups": [
+                "The evidence",
+                "the team relied",
+                "on",
+                "proved unreliable."
+            ],
+            "answer": "the team relied",
+            "options": [
+                "the team relied",
+                "the team rely",
+                "relied the team"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Заява, яку представник відмовився підтвердити, зникла із сайту.",
+            "target": "The statement the spokesperson refused to confirm disappeared from the website.",
+            "uk": "Заява, яку представник відмовився підтвердити, зникла із сайту.",
+            "hint_uk": "Пропусти об’єктне відносне слово; збережи відмову, а не саме підтвердження.",
+            "groups": [
+                "The statement",
+                "the spokesperson",
+                "refused to confirm",
+                "disappeared",
+                "from the website."
+            ],
+            "compose_slots": [
+                "The statement",
+                "the spokesperson",
+                "refused to confirm",
+                "disappeared",
+                "from the website."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "verb_phrase",
+                "preposition_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The interpretation {a1} upon rests on a mistranslation.",
+            "target": "The interpretation the editors settled upon rests on a mistranslation.",
+            "uk": "Тлумачення, на якому зійшлися редактори, ґрунтується на помилковому перекладі.",
+            "hint_uk": "Редактори зійшлися; відносне слово пропущене, наведений прийменник лишається після дієслова.",
+            "groups": [
+                "The interpretation",
+                "the editors settled",
+                "upon",
+                "rests",
+                "on a mistranslation."
+            ],
+            "answer": "the editors settled",
+            "options": [
+                "the editors settled",
+                "the editors settling",
+                "settled the editors"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The qualification {a1} from the draft was crucial.",
+            "target": "The qualification the author omitted from the draft was crucial.",
+            "uk": "Застереження, яке автор вилучив із проєкту, було істотним.",
+            "hint_uk": "Автор вилучив; виконавець має передувати минулому дієслову без відносного займенника.",
+            "groups": [
+                "The qualification",
+                "the author omitted",
+                "from the draft",
+                "was crucial."
+            ],
+            "answer": "the author omitted",
+            "options": [
+                "the author omitted",
+                "the author omit",
+                "omitted the author"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Заперечення, яке свідок, за його словами, не почув, зафіксували в протоколі.",
+            "target": "The objection the witness claimed not to have heard was recorded in the minutes.",
+            "uk": "Заперечення, яке свідок, за його словами, не почув, зафіксували в протоколі.",
+            "hint_uk": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+            "groups": [
+                "The objection",
+                "the witness",
+                "claimed",
+                "not to have",
+                "heard",
+                "was recorded",
+                "in the minutes."
+            ],
+            "compose_slots": [
+                "The objection",
+                "the witness",
+                "claimed",
+                "not to have",
+                "heard",
+                "was recorded",
+                "in the minutes."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "verb_phrase",
+                "verb_phrase",
+                "verb_phrase",
+                "preposition_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The inference {a1} to draw exceeded the available evidence.",
+            "target": "The inference the tribunal declined to draw exceeded the available evidence.",
+            "uk": "Висновок, який трибунал відмовився робити, виходив за межі наявних доказів.",
+            "hint_uk": "Трибунал відмовився; після пропуску вже наведено інфінітив, тому не повторюй його.",
+            "groups": [
+                "The inference",
+                "the tribunal declined",
+                "to draw",
+                "exceeded",
+                "the available evidence."
+            ],
+            "answer": "the tribunal declined",
+            "options": [
+                "the tribunal declined",
+                "the tribunal decline",
+                "declined the tribunal"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The discrepancy {a1} over later undermined the reconstruction.",
+            "target": "The discrepancy the account glossed over later undermined the reconstruction.",
+            "uk": "Розбіжність, яку виклад замовчав, згодом підірвала реконструкцію.",
+            "hint_uk": "Виклад замовчав; збережи особову минулу форму, а наведену частку не повторюй.",
+            "groups": [
+                "The discrepancy",
+                "the account glossed",
+                "over",
+                "later undermined",
+                "the reconstruction."
+            ],
+            "answer": "the account glossed",
+            "options": [
+                "the account glossed",
+                "the account gloss",
+                "glossed the account"
+            ]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Розрізнення, яке обидві сторони вважали самоочевидним, не витримало перевірки.",
+            "target": "The distinction both parties took for granted did not withstand scrutiny.",
+            "uk": "Розрізнення, яке обидві сторони вважали самоочевидним, не витримало перевірки.",
+            "hint_uk": "Пропусти відносне слово; збережи спільне припущення сторін і негативний підсумок перевірки.",
+            "groups": [
+                "The distinction",
+                "both parties",
+                "took for granted",
+                "did not withstand",
+                "scrutiny."
+            ],
+            "compose_slots": [
+                "The distinction",
+                "both parties",
+                "took for granted",
+                "did not withstand",
+                "scrutiny."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        }
+    ]
+}

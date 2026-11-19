@@ -1,0 +1,637 @@
+{
+    "schema_version": 1,
+    "quality_revision": "stq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-transformations-quality/articles-quantifiers.v1.json",
+        "sha256": "f0ee9a716eb42722a550487875082facffd57042a2c0bfec82941b5165e359f5"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SentenceTransformations\\UkrainianMixedStqArticlesQuantifiersQualityStandardSeeder",
+        "uuid_namespace": "sentence-transformations-quality-articles-quantifiers-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Sentence Transformations"
+    },
+    "sources": {
+        "sentence_transformations_quality_articles_quantifiers": {
+            "name": "Sentence Transformations Quality: Sentence Transformations: Articles and Quantifiers"
+        }
+    },
+    "tags": {
+        "sentence_transformations_articles_quantifiers_all_levels": {
+            "name": "sentence transformations articles quantifiers all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "articles": {
+            "name": "Articles",
+            "category": "topic"
+        },
+        "zero_article": {
+            "name": "Zero Article",
+            "category": "topic"
+        },
+        "countable_uncountable": {
+            "name": "Countable Uncountable",
+            "category": "topic"
+        },
+        "much_many_a_lot": {
+            "name": "Much Many A Lot",
+            "category": "topic"
+        },
+        "few_little": {
+            "name": "Few Little",
+            "category": "topic"
+        },
+        "no_none_neither_either": {
+            "name": "No None Neither Either",
+            "category": "topic"
+        },
+        "another_other": {
+            "name": "Another Other",
+            "category": "topic"
+        },
+        "partitives": {
+            "name": "Partitives",
+            "category": "topic"
+        },
+        "preserve_quantity": {
+            "name": "Preserve Quantity",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stq-articles-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I have {a1} orange scarf.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "У мене є один помаранчевий шарф.",
+            "target_text": "I have an orange scarf.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the"
+                    ],
+                    "verb_hint": "Передай значення «один помаранчевий шарф» неозначеним артиклем; наступне слово починається з голосного звука."
+                }
+            },
+            "verb_hint": "Передай значення «один помаранчевий шарф» неозначеним артиклем; наступне слово починається з голосного звука.",
+            "accepted_target_texts": [
+                "I have an orange scarf."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I have",
+                "an orange scarf."
+            ],
+            "token_groups": [
+                "I have",
+                "an orange scarf."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "stq-articles-a1-g02",
+            "author_id": "A1-g02",
+            "question": "There is {a1} butter on the plate.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "На тарілці є трохи масла.",
+            "target_text": "There is some butter on the plate.",
+            "markers": {
+                "a1": {
+                    "answer": "some",
+                    "options": [
+                        "some",
+                        "a",
+                        "many"
+                    ],
+                    "verb_hint": "Передай невизначену кількість масла у ствердженні; масло тут не рахуємо окремими предметами."
+                }
+            },
+            "verb_hint": "Передай невизначену кількість масла у ствердженні; масло тут не рахуємо окремими предметами.",
+            "accepted_target_texts": [
+                "There is some butter on the plate."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "some butter",
+                "on the plate."
+            ],
+            "token_groups": [
+                "There is",
+                "some butter",
+                "on the plate."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "stq-articles-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Only {a1} biscuits remain.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "Залишилося лише кілька печив.",
+            "target_text": "Only a few biscuits remain.",
+            "markers": {
+                "a1": {
+                    "answer": "a few",
+                    "options": [
+                        "a few",
+                        "a little",
+                        "much"
+                    ],
+                    "verb_hint": "Стисни «кілька печив» у коротку кількісну групу для злічуваної множини; кілька штук усе ж є."
+                }
+            },
+            "verb_hint": "Стисни «кілька печив» у коротку кількісну групу для злічуваної множини; кілька штук усе ж є.",
+            "accepted_target_texts": [
+                "Only a few biscuits remain."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Only a few",
+                "biscuits remain."
+            ],
+            "token_groups": [
+                "Only a few",
+                "biscuits remain."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "stq-articles-a2-g02",
+            "author_id": "A2-g02",
+            "question": "There is {a1} flour in this jar.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "У цій банці зовсім немає борошна.",
+            "target_text": "There is no flour in this jar.",
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "any",
+                        "many"
+                    ],
+                    "verb_hint": "Перебудуй повідомлення про повну відсутність борошна; заперечення має міститися у пропуску."
+                }
+            },
+            "verb_hint": "Перебудуй повідомлення про повну відсутність борошна; заперечення має міститися у пропуску.",
+            "accepted_target_texts": [
+                "There is no flour in this jar.",
+                "There is not any flour in this jar."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "not any"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "not any"
+                ]
+            },
+            "reorder_groups": [
+                "There is",
+                "no flour",
+                "in this jar."
+            ],
+            "token_groups": [
+                "There is",
+                "no flour",
+                "in this jar."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "stq-articles-b1-g01",
+            "author_id": "B1-g01",
+            "question": "{a1} of the twins likes porridge.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "Жоден із двох близнюків не любить кашу.",
+            "target_text": "Neither of the twins likes porridge.",
+            "markers": {
+                "a1": {
+                    "answer": "Neither",
+                    "options": [
+                        "Neither",
+                        "None",
+                        "Every"
+                    ],
+                    "verb_hint": "Об’єднай два заперечення в одну кількісну форму «жоден із двох»; решту речення вже наведено."
+                }
+            },
+            "verb_hint": "Об’єднай два заперечення в одну кількісну форму «жоден із двох»; решту речення вже наведено.",
+            "accepted_target_texts": [
+                "Neither of the twins likes porridge."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Neither of",
+                "the twins",
+                "likes porridge."
+            ],
+            "token_groups": [
+                "Neither of",
+                "the twins",
+                "likes porridge."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "stq-articles-b1-g02",
+            "author_id": "B1-g02",
+            "question": "We have {a1} time to catch the ferry.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "Часу вистачає, щоб ми встигли на пором.",
+            "target_text": "We have enough time to catch the ferry.",
+            "markers": {
+                "a1": {
+                    "answer": "enough",
+                    "options": [
+                        "enough",
+                        "too",
+                        "many"
+                    ],
+                    "verb_hint": "Передай достатню, а не надмірну кількість часу; підмет і дієслово вже стоять перед пропуском."
+                }
+            },
+            "verb_hint": "Передай достатню, а не надмірну кількість часу; підмет і дієслово вже стоять перед пропуском.",
+            "accepted_target_texts": [
+                "We have enough time to catch the ferry."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We have",
+                "enough time",
+                "to catch",
+                "the ferry."
+            ],
+            "token_groups": [
+                "We have",
+                "enough time",
+                "to catch",
+                "the ferry."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "stq-articles-b2-g01",
+            "author_id": "B2-g01",
+            "question": "There are {a1} crumbs on the tray.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "На таці крихт майже немає.",
+            "target_text": "There are hardly any crumbs on the tray.",
+            "markers": {
+                "a1": {
+                    "answer": "hardly any",
+                    "options": [
+                        "hardly any",
+                        "quite a few",
+                        "a great many"
+                    ],
+                    "verb_hint": "Стисни «майже немає» у кількісну групу з майже заперечним значенням; не перетворюй малу кількість на повну відсутність."
+                }
+            },
+            "verb_hint": "Стисни «майже немає» у кількісну групу з майже заперечним значенням; не перетворюй малу кількість на повну відсутність.",
+            "accepted_target_texts": [
+                "There are hardly any crumbs on the tray.",
+                "There are scarcely any crumbs on the tray.",
+                "There are almost no crumbs on the tray."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "scarcely any",
+                    "almost no"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "scarcely any",
+                    "almost no"
+                ]
+            },
+            "reorder_groups": [
+                "There are",
+                "hardly any crumbs",
+                "on the tray."
+            ],
+            "token_groups": [
+                "There are",
+                "hardly any crumbs",
+                "on the tray."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "stq-articles-b2-g02",
+            "author_id": "B2-g02",
+            "question": "She spent {a1} her savings on repairs.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "Вона витратила на ремонт майже всі свої заощадження.",
+            "target_text": "She spent almost all of her savings on repairs.",
+            "markers": {
+                "a1": {
+                    "answer": "almost all of",
+                    "options": [
+                        "almost all of",
+                        "almost every",
+                        "almost all"
+                    ],
+                    "verb_hint": "Передай майже повний обсяг названих заощаджень; перед присвійною формою збережи потрібний прийменник."
+                }
+            },
+            "verb_hint": "Передай майже повний обсяг названих заощаджень; перед присвійною формою збережи потрібний прийменник.",
+            "accepted_target_texts": [
+                "She spent almost all of her savings on repairs.",
+                "She spent nearly all of her savings on repairs."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "nearly all of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "nearly all of"
+                ]
+            },
+            "reorder_groups": [
+                "She spent",
+                "almost all of",
+                "her savings",
+                "on repairs."
+            ],
+            "token_groups": [
+                "She spent",
+                "almost all of",
+                "her savings",
+                "on repairs."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "stq-articles-c1-g01",
+            "author_id": "C1-g01",
+            "question": "All {a1} one of the lanterns stayed lit.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "Усі ліхтарі, крім одного, залишилися запаленими.",
+            "target_text": "All but one of the lanterns stayed lit.",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "except of",
+                        "without"
+                    ],
+                    "verb_hint": "Перебудуй виняток «крім одного» після слова «всі»; жодного другого винятку не додавай."
+                }
+            },
+            "verb_hint": "Перебудуй виняток «крім одного» після слова «всі»; жодного другого винятку не додавай.",
+            "accepted_target_texts": [
+                "All but one of the lanterns stayed lit.",
+                "All except one of the lanterns stayed lit."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "except"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "except"
+                ]
+            },
+            "reorder_groups": [
+                "All but one",
+                "of the lanterns",
+                "stayed lit."
+            ],
+            "token_groups": [
+                "All but one",
+                "of the lanterns",
+                "stayed lit."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "stq-articles-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The recommendation applies to {a1} member without exception.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "Рекомендація стосується абсолютно кожного учасника без винятку.",
+            "target_text": "The recommendation applies to each and every member without exception.",
+            "markers": {
+                "a1": {
+                    "answer": "each and every",
+                    "options": [
+                        "each and every",
+                        "all and every",
+                        "every and all"
+                    ],
+                    "verb_hint": "Посиль значення «кожного» поєднанням двох означальних слів; наступна назва учасника в однині."
+                }
+            },
+            "verb_hint": "Посиль значення «кожного» поєднанням двох означальних слів; наступна назва учасника в однині.",
+            "accepted_target_texts": [
+                "The recommendation applies to each and every member without exception."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The recommendation",
+                "applies to",
+                "each and every",
+                "member without exception."
+            ],
+            "token_groups": [
+                "The recommendation",
+                "applies to",
+                "each and every",
+                "member without exception."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "stq-articles-c2-g01",
+            "author_id": "C2-g01",
+            "question": "It is not {a1} a question of cost as of trust.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "Це питання не стільки вартості, скільки довіри.",
+            "target_text": "It is not so much a question of cost as of trust.",
+            "markers": {
+                "a1": {
+                    "answer": "so much",
+                    "options": [
+                        "so much",
+                        "as much",
+                        "too much"
+                    ],
+                    "verb_hint": "Передай перевагу другого пояснення над першим кількісно-порівняльною парою; друга частина порівняння вже наведена."
+                }
+            },
+            "verb_hint": "Передай перевагу другого пояснення над першим кількісно-порівняльною парою; друга частина порівняння вже наведена.",
+            "accepted_target_texts": [
+                "It is not so much a question of cost as of trust."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "not so much",
+                "a question",
+                "of cost",
+                "as of trust."
+            ],
+            "token_groups": [
+                "It is",
+                "not so much",
+                "a question",
+                "of cost",
+                "as of trust."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "stq-articles-c2-g02",
+            "author_id": "C2-g02",
+            "question": "Each proposal, {a1} merits, must meet the same deadline.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "Кожна пропозиція, незалежно від її переваг, має бути подана до того самого строку.",
+            "target_text": "Each proposal, whatever its merits, must meet the same deadline.",
+            "markers": {
+                "a1": {
+                    "answer": "whatever its",
+                    "options": [
+                        "whatever its",
+                        "whichever its",
+                        "whatever their"
+                    ],
+                    "verb_hint": "Перебудуй «незалежно від її переваг» через вільний вибір ознак; збережи присвійну форму однини для кожної пропозиції."
+                }
+            },
+            "verb_hint": "Перебудуй «незалежно від її переваг» через вільний вибір ознак; збережи присвійну форму однини для кожної пропозиції.",
+            "accepted_target_texts": [
+                "Each proposal, whatever its merits, must meet the same deadline."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Each proposal,",
+                "whatever its merits,",
+                "must meet",
+                "the same deadline."
+            ],
+            "token_groups": [
+                "Each proposal,",
+                "whatever its merits,",
+                "must meet",
+                "the same deadline."
+            ],
+            "quality_revision": "stq-v1"
+        }
+    ]
+}

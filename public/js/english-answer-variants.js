@@ -5,7 +5,38 @@
 })(typeof globalThis !== 'undefined' ? globalThis : this, function (rules) {
     'use strict';
     const typography = value => String(value ?? '').replace(/[‘’ʼ`]/g, "'").trim().replace(/\s+/g, ' ');
-    const normalize = value => typography(value).replace(/[.!?…]+$/u, '').trim().toLowerCase();
+    // Sentence punctuation is not part of a grammar answer. Keep spelling
+    // inside words (can't, well-known) and numeric separators (3.14, 1,000).
+    // Replacing other marks with spaces also keeps a.b distinct from ab.
+    const sentenceQuoteOffsets = text => {
+        const quotes = [...text.matchAll(/'/g)].map(match => match.index);
+        const word = character => /[\p{L}\p{N}]/u.test(character || '');
+        const openings = quotes.filter(offset => !word(text[offset - 1]) && word(text[offset + 1]));
+        const paired = new Set();
+        openings.forEach((opening, index) => {
+            const limit = openings[index + 1] ?? text.length;
+            const closing = quotes.filter(offset => offset > opening && offset < limit
+                && text[offset - 1] && !/\s/u.test(text[offset - 1]) && !word(text[offset + 1])).at(-1);
+            if (closing !== undefined) { paired.add(opening); paired.add(closing); }
+        });
+        return paired;
+    };
+    const withoutSentencePunctuation = value => {
+        const text = typography(value), quotes = sentenceQuoteOffsets(text);
+        return text.replace(/\p{P}/gu, (mark, offset) => {
+            const before = text[offset - 1] || '';
+            const after = text[offset + 1] || '';
+            if ((mark === "'" || mark === '-') && /[\p{L}\p{N}]/u.test(before) && /[\p{L}\p{N}]/u.test(after)) return mark;
+            // Unpaired word-edge apostrophes carry grammar too: students' / James'.
+            // Strip only identified balanced quotation delimiters, not possessives.
+            if (mark === "'" && !quotes.has(offset) && /[\p{L}\p{N}]/u.test(before + after)) return mark;
+            if ((mark === '.' || mark === ',') && /\d/.test(before) && /\d/.test(after)) return mark;
+            return ' ';
+        }).trim().replace(/\s+/g, ' ');
+    };
+    // A literal dash can be the authored grammar answer meaning "no article".
+    // Keep this comparison value, but not an ordinary punctuation-only token.
+    const normalize = value => typography(value) === '-' ? '-' : withoutSentencePunctuation(value).toLowerCase();
     const escape = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const wordPattern = value => new RegExp(`(?<![a-z'])${escape(value)}(?![a-z'])`, 'gi');
     const participle = word => rules.participles.includes(word) || /(?:ed|en)$/.test(word);
@@ -123,6 +154,12 @@
     }
 
     function prepareQuestion(question) {
+        // This finite source-bound bank already supplies canonical word slots
+        // and a whole-sentence synonym contract. Legacy contraction grouping
+        // would manufacture options such as "am am helped" from its word bank.
+        if (question && ['4', 'compose_tokens'].includes(String(question.type))
+            && /^[a-f0-9]{64}$/.test(String(question.psp_content_revision || ''))
+            && Array.isArray(question.compose_accepted_sentences) && question.compose_accepted_sentences.length) return question;
         if (!question || question.contraction_slots_version === 1 || !Array.isArray(question.answers)) return question;
         const q = { ...question };
         const source = question.answers;
@@ -224,5 +261,5 @@
         return q;
     }
 
-    return { typography, normalize, variants, matches, contextFor, prepareQuestion };
+    return { typography, withoutSentencePunctuation, normalize, variants, matches, contextFor, prepareQuestion };
 });

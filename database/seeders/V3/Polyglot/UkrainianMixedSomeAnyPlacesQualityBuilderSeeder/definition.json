@@ -1,0 +1,4634 @@
+{
+    "schema_version": 1,
+    "quality_revision": "saq-v1",
+    "compiled_from": {
+        "path": "docs/content/some-any-quality/places.v1.json",
+        "sha256": "3925528311a6923b3f9cf61f6970f96ebbea077bf23a1940b18b0e7c56063526"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedSomeAnyPlacesQualityBuilderSeeder",
+        "uuid_namespace": "some-any-quality-places-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "some_any_quality_places": {
+            "name": "Some / Any Quality: Some / Any — Places"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_some_any_places": {
+            "name": "Some / Any — Places",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_some_any_places"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "saq-places-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Кіт спить десь нагорі.",
+            "level": "A1",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Кіт спить десь нагорі.",
+            "target_text": "The cat is sleeping somewhere upstairs.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Кіт зараз спить у невідомому місці на верхньому поверсі; десь також можна передати іншим природним прислівником місця.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "cat",
+                    "verb_hint": "Кіт зараз спить у невідомому місці на верхньому поверсі; десь також можна передати іншим природним прислівником місця.",
+                    "options": [
+                        "cat",
+                        "bird",
+                        "horse",
+                        "cow"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Кіт зараз спить у невідомому місці на верхньому поверсі; десь також можна передати іншим природним прислівником місця.",
+                    "options": [
+                        "is",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "sleeping",
+                    "verb_hint": "Кіт зараз спить у невідомому місці на верхньому поверсі; десь також можна передати іншим природним прислівником місця.",
+                    "options": [
+                        "sleeping",
+                        "eating",
+                        "resting",
+                        "hiding"
+                    ]
+                },
+                "a5": {
+                    "answer": "somewhere",
+                    "verb_hint": "Кіт зараз спить у невідомому місці на верхньому поверсі; десь також можна передати іншим природним прислівником місця.",
+                    "options": [
+                        "somewhere",
+                        "anywhere",
+                        "outside",
+                        "nowhere"
+                    ]
+                },
+                "a6": {
+                    "answer": "upstairs.",
+                    "verb_hint": "Кіт зараз спить у невідомому місці на верхньому поверсі; десь також можна передати іншим природним прислівником місця.",
+                    "options": [
+                        "upstairs",
+                        "children",
+                        "teachers",
+                        "schools"
+                    ]
+                }
+            },
+            "verb_hint": "Кіт зараз спить у невідомому місці на верхньому поверсі; десь також можна передати іншим природним прислівником місця.",
+            "accepted_target_texts": [
+                "The cat is sleeping somewhere upstairs.",
+                "The cat is sleeping someplace upstairs."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "someplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "someplace"
+                ]
+            },
+            "reorder_groups": [
+                "The cat",
+                "is sleeping",
+                "somewhere",
+                "upstairs."
+            ],
+            "token_groups": [
+                "The cat",
+                "is sleeping",
+                "somewhere",
+                "upstairs."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "The",
+                "cat",
+                "is",
+                "sleeping",
+                "somewhere",
+                "upstairs."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "cat",
+                "bird",
+                "horse",
+                "cow",
+                "is",
+                "were",
+                "be",
+                "been",
+                "sleeping",
+                "eating",
+                "resting",
+                "hiding",
+                "somewhere",
+                "anywhere",
+                "outside",
+                "nowhere",
+                "upstairs",
+                "children",
+                "teachers",
+                "schools"
+            ],
+            "source_text_uk": "Кіт спить десь нагорі.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "cat",
+                    "bird",
+                    "horse",
+                    "cow"
+                ],
+                "a3": [
+                    "is",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a4": [
+                    "sleeping",
+                    "eating",
+                    "resting",
+                    "hiding"
+                ],
+                "a5": [
+                    "somewhere",
+                    "anywhere",
+                    "outside",
+                    "nowhere"
+                ],
+                "a6": [
+                    "upstairs",
+                    "children",
+                    "teachers",
+                    "schools"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "progressive_intransitive",
+                "a4": "progressive_intransitive",
+                "a5": "place",
+                "a6": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "saq-places-a1-c02",
+            "author_id": "A1-c02",
+            "question": "У цій кімнаті нам ніде сісти.",
+            "level": "A1",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "У цій кімнаті нам ніде сісти.",
+            "target_text": "We cannot sit anywhere in this room.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "У кімнаті немає придатного місця, де ми можемо сісти; заперечення належить модальному дієслову, скорочення теж приймається.",
+                    "options": [
+                        "We",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "cannot",
+                    "verb_hint": "У кімнаті немає придатного місця, де ми можемо сісти; заперечення належить модальному дієслову, скорочення теж приймається.",
+                    "options": [
+                        "cannot",
+                        "could",
+                        "will",
+                        "would"
+                    ]
+                },
+                "a3": {
+                    "answer": "sit",
+                    "verb_hint": "У кімнаті немає придатного місця, де ми можемо сісти; заперечення належить модальному дієслову, скорочення теж приймається.",
+                    "options": [
+                        "sit",
+                        "hide",
+                        "sleep",
+                        "remain"
+                    ]
+                },
+                "a4": {
+                    "answer": "anywhere",
+                    "verb_hint": "У кімнаті немає придатного місця, де ми можемо сісти; заперечення належить модальному дієслову, скорочення теж приймається.",
+                    "options": [
+                        "anywhere",
+                        "nowhere",
+                        "everywhere",
+                        "someplace"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "У кімнаті немає придатного місця, де ми можемо сісти; заперечення належить модальному дієслову, скорочення теж приймається.",
+                    "options": [
+                        "in",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a6": {
+                    "answer": "this",
+                    "verb_hint": "У кімнаті немає придатного місця, де ми можемо сісти; заперечення належить модальному дієслову, скорочення теж приймається.",
+                    "options": [
+                        "this",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a7": {
+                    "answer": "room.",
+                    "verb_hint": "У кімнаті немає придатного місця, де ми можемо сісти; заперечення належить модальному дієслову, скорочення теж приймається.",
+                    "options": [
+                        "room",
+                        "gate",
+                        "closure",
+                        "behalf"
+                    ]
+                }
+            },
+            "verb_hint": "У кімнаті немає придатного місця, де ми можемо сісти; заперечення належить модальному дієслову, скорочення теж приймається.",
+            "accepted_target_texts": [
+                "We cannot sit anywhere in this room.",
+                "We cannot sit anyplace in this room.",
+                "We can't sit anywhere in this room.",
+                "We can't sit anyplace in this room."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "anyplace"
+                ],
+                "a2": [
+                    "can't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "anyplace"
+                ],
+                "a2": [
+                    "can't"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "cannot sit",
+                "anywhere",
+                "in this room."
+            ],
+            "token_groups": [
+                "We",
+                "cannot sit",
+                "anywhere",
+                "in this room."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "We",
+                "cannot",
+                "sit",
+                "anywhere",
+                "in",
+                "this",
+                "room."
+            ],
+            "options": [
+                "We",
+                "They",
+                "Me",
+                "Him",
+                "cannot",
+                "could",
+                "will",
+                "would",
+                "sit",
+                "hide",
+                "sleep",
+                "remain",
+                "anywhere",
+                "nowhere",
+                "everywhere",
+                "someplace",
+                "in",
+                "onto",
+                "over",
+                "under",
+                "this",
+                "these",
+                "those",
+                "each",
+                "room",
+                "gate",
+                "closure",
+                "behalf"
+            ],
+            "source_text_uk": "У цій кімнаті нам ніде сісти.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "cannot",
+                    "could",
+                    "will",
+                    "would"
+                ],
+                "a3": [
+                    "sit",
+                    "hide",
+                    "sleep",
+                    "remain"
+                ],
+                "a4": [
+                    "anywhere",
+                    "nowhere",
+                    "everywhere",
+                    "someplace"
+                ],
+                "a5": [
+                    "in",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a6": [
+                    "this",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a7": [
+                    "room",
+                    "gate",
+                    "closure",
+                    "behalf"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "modal_intransitive",
+                "a3": "modal_intransitive",
+                "a4": "place",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "saq-places-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Після десятої ніде не відчинено.",
+            "level": "A1",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Після десятої ніде не відчинено.",
+            "target_text": "Nowhere is open after ten.",
+            "markers": {
+                "a1": {
+                    "answer": "Nowhere",
+                    "verb_hint": "Жодне місце не працює після десятої; почни із заперечного прислівника місця та не заперечуй дієслово вдруге.",
+                    "options": [
+                        "Nowhere",
+                        "Anyplace",
+                        "Somewhere",
+                        "Anywhere"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Жодне місце не працює після десятої; почни із заперечного прислівника місця та не заперечуй дієслово вдруге.",
+                    "options": [
+                        "is",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a3": {
+                    "answer": "open",
+                    "verb_hint": "Жодне місце не працює після десятої; почни із заперечного прислівника місця та не заперечуй дієслово вдруге.",
+                    "options": [
+                        "open",
+                        "crowded",
+                        "closed",
+                        "given"
+                    ]
+                },
+                "a4": {
+                    "answer": "after",
+                    "verb_hint": "Жодне місце не працює після десятої; почни із заперечного прислівника місця та не заперечуй дієслово вдруге.",
+                    "options": [
+                        "after",
+                        "without",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a5": {
+                    "answer": "ten.",
+                    "verb_hint": "Жодне місце не працює після десятої; почни із заперечного прислівника місця та не заперечуй дієслово вдруге.",
+                    "options": [
+                        "ten",
+                        "helped",
+                        "waited",
+                        "watched"
+                    ]
+                }
+            },
+            "verb_hint": "Жодне місце не працює після десятої; почни із заперечного прислівника місця та не заперечуй дієслово вдруге.",
+            "accepted_target_texts": [
+                "Nowhere is open after ten.",
+                "No place is open after ten."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nowhere",
+                "is open",
+                "after ten."
+            ],
+            "token_groups": [
+                "Nowhere",
+                "is open",
+                "after ten."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "Nowhere",
+                "is",
+                "open",
+                "after",
+                "ten."
+            ],
+            "options": [
+                "Nowhere",
+                "Anyplace",
+                "Somewhere",
+                "Anywhere",
+                "is",
+                "be",
+                "been",
+                "being",
+                "open",
+                "crowded",
+                "closed",
+                "given",
+                "after",
+                "without",
+                "from",
+                "for",
+                "ten",
+                "helped",
+                "waited",
+                "watched"
+            ],
+            "source_text_uk": "Після десятої ніде не відчинено.",
+            "options_by_marker": {
+                "a1": [
+                    "Nowhere",
+                    "Anyplace",
+                    "Somewhere",
+                    "Anywhere"
+                ],
+                "a2": [
+                    "is",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a3": [
+                    "open",
+                    "crowded",
+                    "closed",
+                    "given"
+                ],
+                "a4": [
+                    "after",
+                    "without",
+                    "from",
+                    "for"
+                ],
+                "a5": [
+                    "ten",
+                    "helped",
+                    "waited",
+                    "watched"
+                ]
+            },
+            "slot_roles": {
+                "a1": "place_subject",
+                "a2": "copular_complete",
+                "a3": "copular_complete",
+                "a4": "adjunct",
+                "a5": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "saq-places-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Ми зупинилися десь недорого біля гавані.",
+            "level": "A2",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Ми зупинилися десь недорого біля гавані.",
+            "target_text": "We stayed somewhere cheap near the harbour.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Місце ночівлі біля гавані не названо; ознака недорогий стоїть після прислівника місця та має природний синонім.",
+                    "options": [
+                        "We",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "stayed",
+                    "verb_hint": "Місце ночівлі біля гавані не названо; ознака недорогий стоїть після прислівника місця та має природний синонім.",
+                    "options": [
+                        "stayed",
+                        "sat",
+                        "camped",
+                        "sheltered"
+                    ]
+                },
+                "a3": {
+                    "answer": "somewhere",
+                    "verb_hint": "Місце ночівлі біля гавані не названо; ознака недорогий стоїть після прислівника місця та має природний синонім.",
+                    "options": [
+                        "somewhere",
+                        "nowhere",
+                        "anywhere",
+                        "suitcase"
+                    ]
+                },
+                "a4": {
+                    "answer": "cheap",
+                    "verb_hint": "Місце ночівлі біля гавані не названо; ознака недорогий стоїть після прислівника місця та має природний синонім.",
+                    "options": [
+                        "cheap",
+                        "convenient",
+                        "secure",
+                        "private"
+                    ]
+                },
+                "a5": {
+                    "answer": "near",
+                    "verb_hint": "Місце ночівлі біля гавані не названо; ознака недорогий стоїть після прислівника місця та має природний синонім.",
+                    "options": [
+                        "near",
+                        "for",
+                        "by",
+                        "about"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Місце ночівлі біля гавані не названо; ознака недорогий стоїть після прислівника місця та має природний синонім.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a7": {
+                    "answer": "harbour.",
+                    "verb_hint": "Місце ночівлі біля гавані не названо; ознака недорогий стоїть після прислівника місця та має природний синонім.",
+                    "options": [
+                        "harbour",
+                        "rabbit",
+                        "gate",
+                        "closure"
+                    ]
+                }
+            },
+            "verb_hint": "Місце ночівлі біля гавані не названо; ознака недорогий стоїть після прислівника місця та має природний синонім.",
+            "accepted_target_texts": [
+                "We stayed somewhere cheap near the harbour.",
+                "We stayed somewhere cheap near the port.",
+                "We stayed somewhere inexpensive near the harbour.",
+                "We stayed somewhere inexpensive near the port.",
+                "We stayed someplace cheap near the harbour.",
+                "We stayed someplace cheap near the port.",
+                "We stayed someplace inexpensive near the harbour.",
+                "We stayed someplace inexpensive near the port."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "port."
+                ],
+                "a4": [
+                    "inexpensive"
+                ],
+                "a3": [
+                    "someplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "port."
+                ],
+                "a4": [
+                    "inexpensive"
+                ],
+                "a3": [
+                    "someplace"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "stayed",
+                "somewhere cheap",
+                "near the harbour."
+            ],
+            "token_groups": [
+                "We",
+                "stayed",
+                "somewhere cheap",
+                "near the harbour."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "We",
+                "stayed",
+                "somewhere",
+                "cheap",
+                "near",
+                "the",
+                "harbour."
+            ],
+            "options": [
+                "We",
+                "You",
+                "He",
+                "She",
+                "stayed",
+                "sat",
+                "camped",
+                "sheltered",
+                "somewhere",
+                "nowhere",
+                "anywhere",
+                "suitcase",
+                "cheap",
+                "convenient",
+                "secure",
+                "private",
+                "near",
+                "for",
+                "by",
+                "about",
+                "the",
+                "an",
+                "some",
+                "any",
+                "harbour",
+                "rabbit",
+                "gate",
+                "closure"
+            ],
+            "source_text_uk": "Ми зупинилися десь недорого біля гавані.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a2": [
+                    "stayed",
+                    "sat",
+                    "camped",
+                    "sheltered"
+                ],
+                "a3": [
+                    "somewhere",
+                    "nowhere",
+                    "anywhere",
+                    "suitcase"
+                ],
+                "a4": [
+                    "cheap",
+                    "convenient",
+                    "secure",
+                    "private"
+                ],
+                "a5": [
+                    "near",
+                    "for",
+                    "by",
+                    "about"
+                ],
+                "a6": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a7": [
+                    "harbour",
+                    "rabbit",
+                    "gate",
+                    "closure"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "past_intransitive",
+                "a3": "place_modified",
+                "a4": "place_modified",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "saq-places-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Вона ніде на цьому поверсі не залишала валізи.",
+            "level": "A2",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Вона ніде на цьому поверсі не залишала валізи.",
+            "target_text": "She did not leave her suitcase anywhere on this floor.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "На цьому поверсі валізу не залишали в жодному місці; заперечне дієслово минулого часу допускає скорочення.",
+                    "options": [
+                        "She",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "did",
+                    "verb_hint": "На цьому поверсі валізу не залишали в жодному місці; заперечне дієслово минулого часу допускає скорочення.",
+                    "options": [
+                        "did",
+                        "has",
+                        "had",
+                        "haven't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "На цьому поверсі валізу не залишали в жодному місці; заперечне дієслово минулого часу допускає скорочення.",
+                    "options": [
+                        "not",
+                        "only",
+                        "even",
+                        "almost"
+                    ]
+                },
+                "a4": {
+                    "answer": "leave",
+                    "verb_hint": "На цьому поверсі валізу не залишали в жодному місці; заперечне дієслово минулого часу допускає скорочення.",
+                    "options": [
+                        "leave",
+                        "see",
+                        "find",
+                        "close"
+                    ]
+                },
+                "a5": {
+                    "answer": "her",
+                    "verb_hint": "На цьому поверсі валізу не залишали в жодному місці; заперечне дієслово минулого часу допускає скорочення.",
+                    "options": [
+                        "her",
+                        "mine",
+                        "yours",
+                        "hers"
+                    ]
+                },
+                "a6": {
+                    "answer": "suitcase",
+                    "verb_hint": "На цьому поверсі валізу не залишали в жодному місці; заперечне дієслово минулого часу допускає скорочення.",
+                    "options": [
+                        "suitcase",
+                        "birthday",
+                        "umbrella",
+                        "evidence"
+                    ]
+                },
+                "a7": {
+                    "answer": "anywhere",
+                    "verb_hint": "На цьому поверсі валізу не залишали в жодному місці; заперечне дієслово минулого часу допускає скорочення.",
+                    "options": [
+                        "anywhere",
+                        "everywhere",
+                        "someplace",
+                        "somewhere"
+                    ]
+                },
+                "a8": {
+                    "answer": "on",
+                    "verb_hint": "На цьому поверсі валізу не залишали в жодному місці; заперечне дієслово минулого часу допускає скорочення.",
+                    "options": [
+                        "on",
+                        "in",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a9": {
+                    "answer": "this",
+                    "verb_hint": "На цьому поверсі валізу не залишали в жодному місці; заперечне дієслово минулого часу допускає скорочення.",
+                    "options": [
+                        "this",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a10": {
+                    "answer": "floor.",
+                    "verb_hint": "На цьому поверсі валізу не залишали в жодному місці; заперечне дієслово минулого часу допускає скорочення.",
+                    "options": [
+                        "floor",
+                        "rabbit",
+                        "harbour",
+                        "care"
+                    ]
+                }
+            },
+            "verb_hint": "На цьому поверсі валізу не залишали в жодному місці; заперечне дієслово минулого часу допускає скорочення.",
+            "accepted_target_texts": [
+                "She did not leave her suitcase anywhere on this floor.",
+                "She did not leave her suitcase anyplace on this floor.",
+                "She did not leave her case anywhere on this floor.",
+                "She did not leave her case anyplace on this floor.",
+                "She didn't leave her suitcase anywhere on this floor.",
+                "She didn't leave her suitcase anyplace on this floor.",
+                "She didn't leave her case anywhere on this floor.",
+                "She didn't leave her case anyplace on this floor."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "anyplace"
+                ],
+                "a6": [
+                    "case"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "anyplace"
+                ],
+                "a6": [
+                    "case"
+                ]
+            },
+            "reorder_groups": [
+                "She",
+                "did not leave",
+                "her suitcase",
+                "anywhere",
+                "on this floor."
+            ],
+            "token_groups": [
+                "She",
+                "did not leave",
+                "her suitcase",
+                "anywhere",
+                "on this floor."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "She",
+                "did",
+                "not",
+                "leave",
+                "her",
+                "suitcase",
+                "anywhere",
+                "on",
+                "this",
+                "floor."
+            ],
+            "options": [
+                "She",
+                "They",
+                "Me",
+                "Him",
+                "did",
+                "has",
+                "had",
+                "haven't",
+                "not",
+                "only",
+                "even",
+                "almost",
+                "leave",
+                "see",
+                "find",
+                "close",
+                "her",
+                "mine",
+                "yours",
+                "hers",
+                "suitcase",
+                "birthday",
+                "umbrella",
+                "evidence",
+                "anywhere",
+                "everywhere",
+                "someplace",
+                "somewhere",
+                "on",
+                "in",
+                "at",
+                "by",
+                "this",
+                "each",
+                "every",
+                "no",
+                "floor",
+                "rabbit",
+                "harbour",
+                "care"
+            ],
+            "source_text_uk": "Вона ніде на цьому поверсі не залишала валізи.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "did",
+                    "has",
+                    "had",
+                    "haven't"
+                ],
+                "a3": [
+                    "not",
+                    "only",
+                    "even",
+                    "almost"
+                ],
+                "a4": [
+                    "leave",
+                    "see",
+                    "find",
+                    "close"
+                ],
+                "a5": [
+                    "her",
+                    "mine",
+                    "yours",
+                    "hers"
+                ],
+                "a6": [
+                    "suitcase",
+                    "birthday",
+                    "umbrella",
+                    "evidence"
+                ],
+                "a7": [
+                    "anywhere",
+                    "everywhere",
+                    "someplace",
+                    "somewhere"
+                ],
+                "a8": [
+                    "on",
+                    "in",
+                    "at",
+                    "by"
+                ],
+                "a9": [
+                    "this",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a10": [
+                    "floor",
+                    "rabbit",
+                    "harbour",
+                    "care"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "past_negative_transitive",
+                "a3": "past_negative_transitive",
+                "a4": "past_negative_transitive",
+                "a5": "object",
+                "a6": "object",
+                "a7": "place",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "saq-places-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Маленький хлопчик шукав свого кролика всюди.",
+            "level": "A2",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Маленький хлопчик шукав свого кролика всюди.",
+            "target_text": "The little boy looked everywhere for his rabbit.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Хлопчик обшукав усі місця в пошуках кролика; маленький має два природні відповідники, а після шукати потрібне прийменникове доповнення.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "little",
+                    "verb_hint": "Хлопчик обшукав усі місця в пошуках кролика; маленький має два природні відповідники, а після шукати потрібне прийменникове доповнення.",
+                    "options": [
+                        "little",
+                        "somewhere",
+                        "cheap",
+                        "near"
+                    ]
+                },
+                "a3": {
+                    "answer": "boy",
+                    "verb_hint": "Хлопчик обшукав усі місця в пошуках кролика; маленький має два природні відповідники, а після шукати потрібне прийменникове доповнення.",
+                    "options": [
+                        "boy",
+                        "harbour",
+                        "suitcase",
+                        "anywhere"
+                    ]
+                },
+                "a4": {
+                    "answer": "looked",
+                    "verb_hint": "Хлопчик обшукав усі місця в пошуках кролика; маленький має два природні відповідники, а після шукати потрібне прийменникове доповнення.",
+                    "options": [
+                        "looked",
+                        "hunted",
+                        "checked",
+                        "rummaged"
+                    ]
+                },
+                "a5": {
+                    "answer": "everywhere",
+                    "verb_hint": "Хлопчик обшукав усі місця в пошуках кролика; маленький має два природні відповідники, а після шукати потрібне прийменникове доповнення.",
+                    "options": [
+                        "everywhere",
+                        "outside",
+                        "nearby",
+                        "nowhere"
+                    ]
+                },
+                "a6": {
+                    "answer": "for",
+                    "verb_hint": "Хлопчик обшукав усі місця в пошуках кролика; маленький має два природні відповідники, а після шукати потрібне прийменникове доповнення.",
+                    "options": [
+                        "for",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a7": {
+                    "answer": "his",
+                    "verb_hint": "Хлопчик обшукав усі місця в пошуках кролика; маленький має два природні відповідники, а після шукати потрібне прийменникове доповнення.",
+                    "options": [
+                        "his",
+                        "her",
+                        "its",
+                        "our"
+                    ]
+                },
+                "a8": {
+                    "answer": "rabbit.",
+                    "verb_hint": "Хлопчик обшукав усі місця в пошуках кролика; маленький має два природні відповідники, а після шукати потрібне прийменникове доповнення.",
+                    "options": [
+                        "rabbit",
+                        "chicken",
+                        "dog",
+                        "cat"
+                    ]
+                }
+            },
+            "verb_hint": "Хлопчик обшукав усі місця в пошуках кролика; маленький має два природні відповідники, а після шукати потрібне прийменникове доповнення.",
+            "accepted_target_texts": [
+                "The little boy looked everywhere for his rabbit.",
+                "The small boy looked everywhere for his rabbit."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "small"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "small"
+                ]
+            },
+            "reorder_groups": [
+                "The little boy",
+                "looked",
+                "everywhere",
+                "for his rabbit."
+            ],
+            "token_groups": [
+                "The little boy",
+                "looked",
+                "everywhere",
+                "for his rabbit."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "The",
+                "little",
+                "boy",
+                "looked",
+                "everywhere",
+                "for",
+                "his",
+                "rabbit."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "little",
+                "somewhere",
+                "cheap",
+                "near",
+                "boy",
+                "harbour",
+                "suitcase",
+                "anywhere",
+                "looked",
+                "hunted",
+                "checked",
+                "rummaged",
+                "everywhere",
+                "outside",
+                "nearby",
+                "nowhere",
+                "for",
+                "across",
+                "between",
+                "among",
+                "his",
+                "her",
+                "its",
+                "our",
+                "rabbit",
+                "chicken",
+                "dog",
+                "cat"
+            ],
+            "source_text_uk": "Маленький хлопчик шукав свого кролика всюди.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "little",
+                    "somewhere",
+                    "cheap",
+                    "near"
+                ],
+                "a3": [
+                    "boy",
+                    "harbour",
+                    "suitcase",
+                    "anywhere"
+                ],
+                "a4": [
+                    "looked",
+                    "hunted",
+                    "checked",
+                    "rummaged"
+                ],
+                "a5": [
+                    "everywhere",
+                    "outside",
+                    "nearby",
+                    "nowhere"
+                ],
+                "a6": [
+                    "for",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a7": [
+                    "his",
+                    "her",
+                    "its",
+                    "our"
+                ],
+                "a8": [
+                    "rabbit",
+                    "chicken",
+                    "dog",
+                    "cat"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "search_verb",
+                "a5": "place",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "saq-places-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Туристам було потрібне безпечне місце, де переночувати.",
+            "level": "B1",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Туристам було потрібне безпечне місце, де переночувати.",
+            "target_text": "The hikers needed somewhere safe to spend the night.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Потрібне одне невизначене безпечне місце для ночівлі; безпечний можна також передати як захищений у цьому контексті.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "hikers",
+                    "verb_hint": "Потрібне одне невизначене безпечне місце для ночівлі; безпечний можна також передати як захищений у цьому контексті.",
+                    "options": [
+                        "hikers",
+                        "visitors",
+                        "neighbours",
+                        "delegates"
+                    ]
+                },
+                "a3": {
+                    "answer": "needed",
+                    "verb_hint": "Потрібне одне невизначене безпечне місце для ночівлі; безпечний можна також передати як захищений у цьому контексті.",
+                    "options": [
+                        "needed",
+                        "chose",
+                        "recommended",
+                        "wanted"
+                    ]
+                },
+                "a4": {
+                    "answer": "somewhere",
+                    "verb_hint": "Потрібне одне невизначене безпечне місце для ночівлі; безпечний можна також передати як захищений у цьому контексті.",
+                    "options": [
+                        "somewhere",
+                        "anywhere",
+                        "nowhere",
+                        "symbol"
+                    ]
+                },
+                "a5": {
+                    "answer": "safe",
+                    "verb_hint": "Потрібне одне невизначене безпечне місце для ночівлі; безпечний можна також передати як захищений у цьому контексті.",
+                    "options": [
+                        "safe",
+                        "suitable",
+                        "quiet",
+                        "peaceful"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Потрібне одне невизначене безпечне місце для ночівлі; безпечний можна також передати як захищений у цьому контексті.",
+                    "options": [
+                        "to",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a7": {
+                    "answer": "spend",
+                    "verb_hint": "Потрібне одне невизначене безпечне місце для ночівлі; безпечний можна також передати як захищений у цьому контексті.",
+                    "options": [
+                        "spend",
+                        "endure",
+                        "enjoy",
+                        "finish"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Потрібне одне невизначене безпечне місце для ночівлі; безпечний можна також передати як захищений у цьому контексті.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a9": {
+                    "answer": "night.",
+                    "verb_hint": "Потрібне одне невизначене безпечне місце для ночівлі; безпечний можна також передати як захищений у цьому контексті.",
+                    "options": [
+                        "night",
+                        "month",
+                        "year",
+                        "hour"
+                    ]
+                }
+            },
+            "verb_hint": "Потрібне одне невизначене безпечне місце для ночівлі; безпечний можна також передати як захищений у цьому контексті.",
+            "accepted_target_texts": [
+                "The hikers needed somewhere safe to spend the night.",
+                "The hikers needed somewhere secure to spend the night.",
+                "The hikers needed someplace safe to spend the night.",
+                "The hikers needed someplace secure to spend the night."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "secure"
+                ],
+                "a4": [
+                    "someplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "secure"
+                ],
+                "a4": [
+                    "someplace"
+                ]
+            },
+            "reorder_groups": [
+                "The hikers",
+                "needed",
+                "somewhere safe",
+                "to spend",
+                "the night."
+            ],
+            "token_groups": [
+                "The hikers",
+                "needed",
+                "somewhere safe",
+                "to spend",
+                "the night."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "The",
+                "hikers",
+                "needed",
+                "somewhere",
+                "safe",
+                "to",
+                "spend",
+                "the",
+                "night."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "hikers",
+                "visitors",
+                "neighbours",
+                "delegates",
+                "needed",
+                "chose",
+                "recommended",
+                "wanted",
+                "somewhere",
+                "anywhere",
+                "nowhere",
+                "symbol",
+                "safe",
+                "suitable",
+                "quiet",
+                "peaceful",
+                "to",
+                "through",
+                "across",
+                "between",
+                "spend",
+                "endure",
+                "enjoy",
+                "finish",
+                "the",
+                "both",
+                "a",
+                "an",
+                "night",
+                "month",
+                "year",
+                "hour"
+            ],
+            "source_text_uk": "Туристам було потрібне безпечне місце, де переночувати.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "hikers",
+                    "visitors",
+                    "neighbours",
+                    "delegates"
+                ],
+                "a3": [
+                    "needed",
+                    "chose",
+                    "recommended",
+                    "wanted"
+                ],
+                "a4": [
+                    "somewhere",
+                    "anywhere",
+                    "nowhere",
+                    "symbol"
+                ],
+                "a5": [
+                    "safe",
+                    "suitable",
+                    "quiet",
+                    "peaceful"
+                ],
+                "a6": [
+                    "to",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a7": [
+                    "spend",
+                    "endure",
+                    "enjoy",
+                    "finish"
+                ],
+                "a8": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a9": [
+                    "night",
+                    "month",
+                    "year",
+                    "hour"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "location_transitive",
+                "a4": "place_modified",
+                "a5": "place_modified",
+                "a6": "infinitive_transitive",
+                "a7": "infinitive_transitive",
+                "a8": "duration",
+                "a9": "duration"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "saq-places-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Я раніше ніде не бачив цього символу.",
+            "level": "B1",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Я раніше ніде не бачив цього символу.",
+            "target_text": "I have not seen that symbol anywhere before.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "До теперішнього моменту символ не траплявся в жодному місці; заперечний доконаний час допускає скорочену форму.",
+                    "options": [
+                        "I",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "have",
+                    "verb_hint": "До теперішнього моменту символ не траплявся в жодному місці; заперечний доконаний час допускає скорочену форму.",
+                    "options": [
+                        "have",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "До теперішнього моменту символ не траплявся в жодному місці; заперечний доконаний час допускає скорочену форму.",
+                    "options": [
+                        "not",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a4": {
+                    "answer": "seen",
+                    "verb_hint": "До теперішнього моменту символ не траплявся в жодному місці; заперечний доконаний час допускає скорочену форму.",
+                    "options": [
+                        "seen",
+                        "noticed",
+                        "encountered",
+                        "published"
+                    ]
+                },
+                "a5": {
+                    "answer": "that",
+                    "verb_hint": "До теперішнього моменту символ не траплявся в жодному місці; заперечний доконаний час допускає скорочену форму.",
+                    "options": [
+                        "that",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a6": {
+                    "answer": "symbol",
+                    "verb_hint": "До теперішнього моменту символ не траплявся в жодному місці; заперечний доконаний час допускає скорочену форму.",
+                    "options": [
+                        "symbol",
+                        "evidence",
+                        "claim",
+                        "silence"
+                    ]
+                },
+                "a7": {
+                    "answer": "anywhere",
+                    "verb_hint": "До теперішнього моменту символ не траплявся в жодному місці; заперечний доконаний час допускає скорочену форму.",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere",
+                        "everywhere"
+                    ]
+                },
+                "a8": {
+                    "answer": "before.",
+                    "verb_hint": "До теперішнього моменту символ не траплявся в жодному місці; заперечний доконаний час допускає скорочену форму.",
+                    "options": [
+                        "before",
+                        "island",
+                        "better",
+                        "sunset"
+                    ]
+                }
+            },
+            "verb_hint": "До теперішнього моменту символ не траплявся в жодному місці; заперечний доконаний час допускає скорочену форму.",
+            "accepted_target_texts": [
+                "I have not seen that symbol anywhere before.",
+                "I have not seen that symbol anyplace before.",
+                "I haven't seen that symbol anywhere before.",
+                "I haven't seen that symbol anyplace before."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "anyplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "anyplace"
+                ]
+            },
+            "reorder_groups": [
+                "I",
+                "have not seen",
+                "that symbol",
+                "anywhere",
+                "before."
+            ],
+            "token_groups": [
+                "I",
+                "have not seen",
+                "that symbol",
+                "anywhere",
+                "before."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "I",
+                "have",
+                "not",
+                "seen",
+                "that",
+                "symbol",
+                "anywhere",
+                "before."
+            ],
+            "options": [
+                "I",
+                "Me",
+                "Him",
+                "Us",
+                "have",
+                "don't",
+                "doesn't",
+                "didn't",
+                "not",
+                "still",
+                "just",
+                "also",
+                "seen",
+                "noticed",
+                "encountered",
+                "published",
+                "that",
+                "all",
+                "both",
+                "a",
+                "symbol",
+                "evidence",
+                "claim",
+                "silence",
+                "anywhere",
+                "somewhere",
+                "nowhere",
+                "everywhere",
+                "before",
+                "island",
+                "better",
+                "sunset"
+            ],
+            "source_text_uk": "Я раніше ніде не бачив цього символу.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "have",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a3": [
+                    "not",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a4": [
+                    "seen",
+                    "noticed",
+                    "encountered",
+                    "published"
+                ],
+                "a5": [
+                    "that",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a6": [
+                    "symbol",
+                    "evidence",
+                    "claim",
+                    "silence"
+                ],
+                "a7": [
+                    "anywhere",
+                    "somewhere",
+                    "nowhere",
+                    "everywhere"
+                ],
+                "a8": [
+                    "before",
+                    "island",
+                    "better",
+                    "sunset"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "negative_perfect_transitive",
+                "a3": "negative_perfect_transitive",
+                "a4": "negative_perfect_transitive",
+                "a5": "object",
+                "a6": "object",
+                "a7": "place",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "saq-places-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Ніде на острові немає кращих краєвидів на заході сонця.",
+            "level": "B1",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Ніде на острові немає кращих краєвидів на заході сонця.",
+            "target_text": "Nowhere on the island offers better views at sunset.",
+            "markers": {
+                "a1": {
+                    "answer": "Nowhere",
+                    "verb_hint": "Жодне місце на острові не пропонує кращих краєвидів; після заперечного місця дієслово лишається стверджувальним.",
+                    "options": [
+                        "Nowhere",
+                        "Anywhere",
+                        "Everywhere",
+                        "Someplace"
+                    ]
+                },
+                "a2": {
+                    "answer": "on",
+                    "verb_hint": "Жодне місце на острові не пропонує кращих краєвидів; після заперечного місця дієслово лишається стверджувальним.",
+                    "options": [
+                        "on",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Жодне місце на острові не пропонує кращих краєвидів; після заперечного місця дієслово лишається стверджувальним.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a4": {
+                    "answer": "island",
+                    "verb_hint": "Жодне місце на острові не пропонує кращих краєвидів; після заперечного місця дієслово лишається стверджувальним.",
+                    "options": [
+                        "island",
+                        "window",
+                        "closure",
+                        "behalf"
+                    ]
+                },
+                "a5": {
+                    "answer": "offers",
+                    "verb_hint": "Жодне місце на острові не пропонує кращих краєвидів; після заперечного місця дієслово лишається стверджувальним.",
+                    "options": [
+                        "offers",
+                        "boasts",
+                        "features",
+                        "provides"
+                    ]
+                },
+                "a6": {
+                    "answer": "better",
+                    "verb_hint": "Жодне місце на острові не пропонує кращих краєвидів; після заперечного місця дієслово лишається стверджувальним.",
+                    "options": [
+                        "better",
+                        "a",
+                        "my",
+                        "our"
+                    ]
+                },
+                "a7": {
+                    "answer": "views",
+                    "verb_hint": "Жодне місце на острові не пропонує кращих краєвидів; після заперечного місця дієслово лишається стверджувальним.",
+                    "options": [
+                        "views",
+                        "ducks",
+                        "residents",
+                        "letters"
+                    ]
+                },
+                "a8": {
+                    "answer": "at",
+                    "verb_hint": "Жодне місце на острові не пропонує кращих краєвидів; після заперечного місця дієслово лишається стверджувальним.",
+                    "options": [
+                        "at",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a9": {
+                    "answer": "sunset.",
+                    "verb_hint": "Жодне місце на острові не пропонує кращих краєвидів; після заперечного місця дієслово лишається стверджувальним.",
+                    "options": [
+                        "sunset",
+                        "dawn",
+                        "permission",
+                        "free"
+                    ]
+                }
+            },
+            "verb_hint": "Жодне місце на острові не пропонує кращих краєвидів; після заперечного місця дієслово лишається стверджувальним.",
+            "accepted_target_texts": [
+                "Nowhere on the island offers better views at sunset.",
+                "Nowhere on the island offers finer views at sunset.",
+                "No place on the island offers better views at sunset.",
+                "No place on the island offers finer views at sunset."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "finer"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "finer"
+                ]
+            },
+            "reorder_groups": [
+                "Nowhere",
+                "on the island",
+                "offers",
+                "better views",
+                "at sunset."
+            ],
+            "token_groups": [
+                "Nowhere",
+                "on the island",
+                "offers",
+                "better views",
+                "at sunset."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "Nowhere",
+                "on",
+                "the",
+                "island",
+                "offers",
+                "better",
+                "views",
+                "at",
+                "sunset."
+            ],
+            "options": [
+                "Nowhere",
+                "Anywhere",
+                "Everywhere",
+                "Someplace",
+                "on",
+                "for",
+                "of",
+                "in",
+                "the",
+                "an",
+                "some",
+                "any",
+                "island",
+                "window",
+                "closure",
+                "behalf",
+                "offers",
+                "boasts",
+                "features",
+                "provides",
+                "better",
+                "a",
+                "my",
+                "our",
+                "views",
+                "ducks",
+                "residents",
+                "letters",
+                "at",
+                "by",
+                "with",
+                "without",
+                "sunset",
+                "dawn",
+                "permission",
+                "free"
+            ],
+            "source_text_uk": "Ніде на острові немає кращих краєвидів на заході сонця.",
+            "options_by_marker": {
+                "a1": [
+                    "Nowhere",
+                    "Anywhere",
+                    "Everywhere",
+                    "Someplace"
+                ],
+                "a2": [
+                    "on",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a3": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a4": [
+                    "island",
+                    "window",
+                    "closure",
+                    "behalf"
+                ],
+                "a5": [
+                    "offers",
+                    "boasts",
+                    "features",
+                    "provides"
+                ],
+                "a6": [
+                    "better",
+                    "a",
+                    "my",
+                    "our"
+                ],
+                "a7": [
+                    "views",
+                    "ducks",
+                    "residents",
+                    "letters"
+                ],
+                "a8": [
+                    "at",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a9": [
+                    "sunset",
+                    "dawn",
+                    "permission",
+                    "free"
+                ]
+            },
+            "slot_roles": {
+                "a1": "place_subject",
+                "a2": "adjunct",
+                "a3": "adjunct",
+                "a4": "adjunct",
+                "a5": "present_transitive",
+                "a6": "object",
+                "a7": "object",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "saq-places-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Свідків відвели в усамітнене місце перед допитом.",
+            "level": "B2",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Свідків відвели в усамітнене місце перед допитом.",
+            "target_text": "The witnesses were taken somewhere private before questioning.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Місце призначення не назване, але забезпечує приватність; використай пасивну минулу форму, усамітнене також означає відокремлене.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "witnesses",
+                    "verb_hint": "Місце призначення не назване, але забезпечує приватність; використай пасивну минулу форму, усамітнене також означає відокремлене.",
+                    "options": [
+                        "witnesses",
+                        "visitors",
+                        "neighbours",
+                        "delegates"
+                    ]
+                },
+                "a3": {
+                    "answer": "were",
+                    "verb_hint": "Місце призначення не назване, але забезпечує приватність; використай пасивну минулу форму, усамітнене також означає відокремлене.",
+                    "options": [
+                        "were",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a4": {
+                    "answer": "taken",
+                    "verb_hint": "Місце призначення не назване, але забезпечує приватність; використай пасивну минулу форму, усамітнене також означає відокремлене.",
+                    "options": [
+                        "taken",
+                        "brought",
+                        "directed",
+                        "transported"
+                    ]
+                },
+                "a5": {
+                    "answer": "somewhere",
+                    "verb_hint": "Місце призначення не назване, але забезпечує приватність; використай пасивну минулу форму, усамітнене також означає відокремлене.",
+                    "options": [
+                        "somewhere",
+                        "anywhere",
+                        "nowhere",
+                        "hold"
+                    ]
+                },
+                "a6": {
+                    "answer": "private",
+                    "verb_hint": "Місце призначення не назване, але забезпечує приватність; використай пасивну минулу форму, усамітнене також означає відокремлене.",
+                    "options": [
+                        "private",
+                        "convenient",
+                        "cheap",
+                        "secure"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Місце призначення не назване, але забезпечує приватність; використай пасивну минулу форму, усамітнене також означає відокремлене.",
+                    "options": [
+                        "before",
+                        "from",
+                        "for",
+                        "by"
+                    ]
+                },
+                "a8": {
+                    "answer": "questioning.",
+                    "verb_hint": "Місце призначення не назване, але забезпечує приватність; використай пасивну минулу форму, усамітнене також означає відокремлене.",
+                    "options": [
+                        "questioning",
+                        "hearing",
+                        "working",
+                        "playing"
+                    ]
+                }
+            },
+            "verb_hint": "Місце призначення не назване, але забезпечує приватність; використай пасивну минулу форму, усамітнене також означає відокремлене.",
+            "accepted_target_texts": [
+                "The witnesses were taken somewhere private before questioning.",
+                "The witnesses were taken somewhere secluded before questioning.",
+                "The witnesses were taken someplace private before questioning.",
+                "The witnesses were taken someplace secluded before questioning."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "secluded"
+                ],
+                "a5": [
+                    "someplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "secluded"
+                ],
+                "a5": [
+                    "someplace"
+                ]
+            },
+            "reorder_groups": [
+                "The witnesses",
+                "were taken",
+                "somewhere private",
+                "before questioning."
+            ],
+            "token_groups": [
+                "The witnesses",
+                "were taken",
+                "somewhere private",
+                "before questioning."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "The",
+                "witnesses",
+                "were",
+                "taken",
+                "somewhere",
+                "private",
+                "before",
+                "questioning."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "witnesses",
+                "visitors",
+                "neighbours",
+                "delegates",
+                "were",
+                "wasn't",
+                "weren't",
+                "am",
+                "taken",
+                "brought",
+                "directed",
+                "transported",
+                "somewhere",
+                "anywhere",
+                "nowhere",
+                "hold",
+                "private",
+                "convenient",
+                "cheap",
+                "secure",
+                "before",
+                "from",
+                "for",
+                "by",
+                "questioning",
+                "hearing",
+                "working",
+                "playing"
+            ],
+            "source_text_uk": "Свідків відвели в усамітнене місце перед допитом.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "witnesses",
+                    "visitors",
+                    "neighbours",
+                    "delegates"
+                ],
+                "a3": [
+                    "were",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a4": [
+                    "taken",
+                    "brought",
+                    "directed",
+                    "transported"
+                ],
+                "a5": [
+                    "somewhere",
+                    "anywhere",
+                    "nowhere",
+                    "hold"
+                ],
+                "a6": [
+                    "private",
+                    "convenient",
+                    "cheap",
+                    "secure"
+                ],
+                "a7": [
+                    "before",
+                    "from",
+                    "for",
+                    "by"
+                ],
+                "a8": [
+                    "questioning",
+                    "hearing",
+                    "working",
+                    "playing"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "plural_passive_movement",
+                "a4": "plural_passive_movement",
+                "a5": "place_modified",
+                "a6": "place_modified",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "saq-places-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Ми не можемо проводити слухання ніде з поганою акустикою.",
+            "level": "B2",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Ми не можемо проводити слухання ніде з поганою акустикою.",
+            "target_text": "We cannot hold the hearing anywhere with poor acoustics.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Місця з поганою акустикою виключені; заперечення належить модальному дієслову, приймається також скорочення та синонім поганої якості.",
+                    "options": [
+                        "We",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "cannot",
+                    "verb_hint": "Місця з поганою акустикою виключені; заперечення належить модальному дієслову, приймається також скорочення та синонім поганої якості.",
+                    "options": [
+                        "cannot",
+                        "will",
+                        "would",
+                        "shall"
+                    ]
+                },
+                "a3": {
+                    "answer": "hold",
+                    "verb_hint": "Місця з поганою акустикою виключені; заперечення належить модальному дієслову, приймається також скорочення та синонім поганої якості.",
+                    "options": [
+                        "hold",
+                        "infer",
+                        "conduct",
+                        "organise"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Місця з поганою акустикою виключені; заперечення належить модальному дієслову, приймається також скорочення та синонім поганої якості.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a5": {
+                    "answer": "hearing",
+                    "verb_hint": "Місця з поганою акустикою виключені; заперечення належить модальному дієслову, приймається також скорочення та синонім поганої якості.",
+                    "options": [
+                        "hearing",
+                        "questioning",
+                        "giving",
+                        "making"
+                    ]
+                },
+                "a6": {
+                    "answer": "anywhere",
+                    "verb_hint": "Місця з поганою акустикою виключені; заперечення належить модальному дієслову, приймається також скорочення та синонім поганої якості.",
+                    "options": [
+                        "anywhere",
+                        "outside",
+                        "nearby",
+                        "somewhere"
+                    ]
+                },
+                "a7": {
+                    "answer": "with",
+                    "verb_hint": "Місця з поганою акустикою виключені; заперечення належить модальному дієслову, приймається також скорочення та синонім поганої якості.",
+                    "options": [
+                        "with",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a8": {
+                    "answer": "poor",
+                    "verb_hint": "Місця з поганою акустикою виключені; заперечення належить модальному дієслову, приймається також скорочення та синонім поганої якості.",
+                    "options": [
+                        "poor",
+                        "our",
+                        "unequivocal",
+                        "great"
+                    ]
+                },
+                "a9": {
+                    "answer": "acoustics.",
+                    "verb_hint": "Місця з поганою акустикою виключені; заперечення належить модальному дієслову, приймається також скорочення та синонім поганої якості.",
+                    "options": [
+                        "acoustics",
+                        "consent",
+                        "window",
+                        "report"
+                    ]
+                }
+            },
+            "verb_hint": "Місця з поганою акустикою виключені; заперечення належить модальному дієслову, приймається також скорочення та синонім поганої якості.",
+            "accepted_target_texts": [
+                "We cannot hold the hearing anywhere with poor acoustics.",
+                "We cannot hold the hearing anywhere with bad acoustics.",
+                "We cannot hold the hearing anyplace with poor acoustics.",
+                "We cannot hold the hearing anyplace with bad acoustics.",
+                "We can't hold the hearing anywhere with poor acoustics.",
+                "We can't hold the hearing anywhere with bad acoustics.",
+                "We can't hold the hearing anyplace with poor acoustics.",
+                "We can't hold the hearing anyplace with bad acoustics."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "bad"
+                ],
+                "a6": [
+                    "anyplace"
+                ],
+                "a2": [
+                    "can't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "bad"
+                ],
+                "a6": [
+                    "anyplace"
+                ],
+                "a2": [
+                    "can't"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "cannot hold",
+                "the hearing",
+                "anywhere",
+                "with poor acoustics."
+            ],
+            "token_groups": [
+                "We",
+                "cannot hold",
+                "the hearing",
+                "anywhere",
+                "with poor acoustics."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "We",
+                "cannot",
+                "hold",
+                "the",
+                "hearing",
+                "anywhere",
+                "with",
+                "poor",
+                "acoustics."
+            ],
+            "options": [
+                "We",
+                "They",
+                "Me",
+                "Him",
+                "cannot",
+                "will",
+                "would",
+                "shall",
+                "hold",
+                "infer",
+                "conduct",
+                "organise",
+                "the",
+                "this",
+                "that",
+                "these",
+                "hearing",
+                "questioning",
+                "giving",
+                "making",
+                "anywhere",
+                "outside",
+                "nearby",
+                "somewhere",
+                "with",
+                "without",
+                "into",
+                "onto",
+                "poor",
+                "our",
+                "unequivocal",
+                "great",
+                "acoustics",
+                "consent",
+                "window",
+                "report"
+            ],
+            "source_text_uk": "Ми не можемо проводити слухання ніде з поганою акустикою.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "cannot",
+                    "will",
+                    "would",
+                    "shall"
+                ],
+                "a3": [
+                    "hold",
+                    "infer",
+                    "conduct",
+                    "organise"
+                ],
+                "a4": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a5": [
+                    "hearing",
+                    "questioning",
+                    "giving",
+                    "making"
+                ],
+                "a6": [
+                    "anywhere",
+                    "outside",
+                    "nearby",
+                    "somewhere"
+                ],
+                "a7": [
+                    "with",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a8": [
+                    "poor",
+                    "our",
+                    "unequivocal",
+                    "great"
+                ],
+                "a9": [
+                    "acoustics",
+                    "consent",
+                    "window",
+                    "report"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "negative_modal_transitive",
+                "a3": "negative_modal_transitive",
+                "a4": "object",
+                "a5": "object",
+                "a6": "place",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "saq-places-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Ніде у звіті не пояснено, чому доступ обмежили.",
+            "level": "B2",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Ніде у звіті не пояснено, чому доступ обмежили.",
+            "target_text": "Nowhere in the report does it explain why access was restricted.",
+            "markers": {
+                "a1": {
+                    "answer": "Nowhere",
+                    "verb_hint": "Початкове заперечне місце вимагає інверсії допоміжного дієслова; збережи питальне слово чому всередині підрядної частини.",
+                    "options": [
+                        "Nowhere",
+                        "Somewhere",
+                        "Anywhere",
+                        "Everywhere"
+                    ]
+                },
+                "a2": {
+                    "answer": "in",
+                    "verb_hint": "Початкове заперечне місце вимагає інверсії допоміжного дієслова; збережи питальне слово чому всередині підрядної частини.",
+                    "options": [
+                        "in",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Початкове заперечне місце вимагає інверсії допоміжного дієслова; збережи питальне слово чому всередині підрядної частини.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a4": {
+                    "answer": "report",
+                    "verb_hint": "Початкове заперечне місце вимагає інверсії допоміжного дієслова; збережи питальне слово чому всередині підрядної частини.",
+                    "options": [
+                        "report",
+                        "poster",
+                        "book",
+                        "letter"
+                    ]
+                },
+                "a5": {
+                    "answer": "does",
+                    "verb_hint": "Початкове заперечне місце вимагає інверсії допоміжного дієслова; збережи питальне слово чому всередині підрядної частини.",
+                    "options": [
+                        "does",
+                        "have",
+                        "has",
+                        "had"
+                    ]
+                },
+                "a6": {
+                    "answer": "it",
+                    "verb_hint": "Початкове заперечне місце вимагає інверсії допоміжного дієслова; збережи питальне слово чому всередині підрядної частини.",
+                    "options": [
+                        "it",
+                        "him",
+                        "us",
+                        "them"
+                    ]
+                },
+                "a7": {
+                    "answer": "explain",
+                    "verb_hint": "Початкове заперечне місце вимагає інверсії допоміжного дієслова; збережи питальне слово чому всередині підрядної частини.",
+                    "options": [
+                        "explain",
+                        "indicate",
+                        "show",
+                        "state"
+                    ]
+                },
+                "a8": {
+                    "answer": "why",
+                    "verb_hint": "Початкове заперечне місце вимагає інверсії допоміжного дієслова; збережи питальне слово чому всередині підрядної частини.",
+                    "options": [
+                        "why",
+                        "whoever",
+                        "whatever",
+                        "wherever"
+                    ]
+                },
+                "a9": {
+                    "answer": "access",
+                    "verb_hint": "Початкове заперечне місце вимагає інверсії допоміжного дієслова; збережи питальне слово чому всередині підрядної частини.",
+                    "options": [
+                        "access",
+                        "poor",
+                        "acoustics",
+                        "private"
+                    ]
+                },
+                "a10": {
+                    "answer": "was",
+                    "verb_hint": "Початкове заперечне місце вимагає інверсії допоміжного дієслова; збережи питальне слово чому всередині підрядної частини.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a11": {
+                    "answer": "restricted.",
+                    "verb_hint": "Початкове заперечне місце вимагає інверсії допоміжного дієслова; збережи питальне слово чому всередині підрядної частини.",
+                    "options": [
+                        "restricted",
+                        "denied",
+                        "limited",
+                        "prohibited"
+                    ]
+                }
+            },
+            "verb_hint": "Початкове заперечне місце вимагає інверсії допоміжного дієслова; збережи питальне слово чому всередині підрядної частини.",
+            "accepted_target_texts": [
+                "Nowhere in the report does it explain why access was restricted."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nowhere",
+                "in the report",
+                "does it explain",
+                "why access",
+                "was restricted."
+            ],
+            "token_groups": [
+                "Nowhere",
+                "in the report",
+                "does it explain",
+                "why access",
+                "was restricted."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "Nowhere",
+                "in",
+                "the",
+                "report",
+                "does",
+                "it",
+                "explain",
+                "why",
+                "access",
+                "was",
+                "restricted."
+            ],
+            "options": [
+                "Nowhere",
+                "Somewhere",
+                "Anywhere",
+                "Everywhere",
+                "in",
+                "to",
+                "from",
+                "for",
+                "the",
+                "both",
+                "a",
+                "an",
+                "report",
+                "poster",
+                "book",
+                "letter",
+                "does",
+                "have",
+                "has",
+                "had",
+                "it",
+                "him",
+                "us",
+                "them",
+                "explain",
+                "indicate",
+                "show",
+                "state",
+                "why",
+                "whoever",
+                "whatever",
+                "wherever",
+                "access",
+                "poor",
+                "acoustics",
+                "private",
+                "was",
+                "were",
+                "be",
+                "been",
+                "restricted",
+                "denied",
+                "limited",
+                "prohibited"
+            ],
+            "source_text_uk": "Ніде у звіті не пояснено, чому доступ обмежили.",
+            "options_by_marker": {
+                "a1": [
+                    "Nowhere",
+                    "Somewhere",
+                    "Anywhere",
+                    "Everywhere"
+                ],
+                "a2": [
+                    "in",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a3": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a4": [
+                    "report",
+                    "poster",
+                    "book",
+                    "letter"
+                ],
+                "a5": [
+                    "does",
+                    "have",
+                    "has",
+                    "had"
+                ],
+                "a6": [
+                    "it",
+                    "him",
+                    "us",
+                    "them"
+                ],
+                "a7": [
+                    "explain",
+                    "indicate",
+                    "show",
+                    "state"
+                ],
+                "a8": [
+                    "why",
+                    "whoever",
+                    "whatever",
+                    "wherever"
+                ],
+                "a9": [
+                    "access",
+                    "poor",
+                    "acoustics",
+                    "private"
+                ],
+                "a10": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a11": [
+                    "restricted",
+                    "denied",
+                    "limited",
+                    "prohibited"
+                ]
+            },
+            "slot_roles": {
+                "a1": "place_subject",
+                "a2": "adjunct",
+                "a3": "adjunct",
+                "a4": "adjunct",
+                "a5": "inverted_explanation",
+                "a6": "inverted_explanation",
+                "a7": "inverted_explanation",
+                "a8": "interrogative_subject",
+                "a9": "interrogative_subject",
+                "a10": "singular_passive",
+                "a11": "singular_passive"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "saq-places-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Учасники переговорів шукали справді нейтральне місце за межами столиці.",
+            "level": "C1",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Учасники переговорів шукали справді нейтральне місце за межами столиці.",
+            "target_text": "The negotiators sought somewhere genuinely neutral outside the capital.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Потрібне одне ще не визначене місце на справді нейтральній території; справді також можна передати як по-справжньому.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "negotiators",
+                    "verb_hint": "Потрібне одне ще не визначене місце на справді нейтральній території; справді також можна передати як по-справжньому.",
+                    "options": [
+                        "negotiators",
+                        "delegates",
+                        "participants",
+                        "guests"
+                    ]
+                },
+                "a3": {
+                    "answer": "sought",
+                    "verb_hint": "Потрібне одне ще не визначене місце на справді нейтральній території; справді також можна передати як по-справжньому.",
+                    "options": [
+                        "sought",
+                        "Such",
+                        "restriction",
+                        "anywhere"
+                    ]
+                },
+                "a4": {
+                    "answer": "somewhere",
+                    "verb_hint": "Потрібне одне ще не визначене місце на справді нейтральній території; справді також можна передати як по-справжньому.",
+                    "options": [
+                        "somewhere",
+                        "nowhere",
+                        "statute",
+                        "dissident"
+                    ]
+                },
+                "a5": {
+                    "answer": "genuinely",
+                    "verb_hint": "Потрібне одне ще не визначене місце на справді нейтральній території; справді також можна передати як по-справжньому.",
+                    "options": [
+                        "genuinely",
+                        "wholly",
+                        "sufficiently",
+                        "adequately"
+                    ]
+                },
+                "a6": {
+                    "answer": "neutral",
+                    "verb_hint": "Потрібне одне ще не визначене місце на справді нейтральній території; справді також можна передати як по-справжньому.",
+                    "options": [
+                        "neutral",
+                        "private",
+                        "secure",
+                        "refuge"
+                    ]
+                },
+                "a7": {
+                    "answer": "outside",
+                    "verb_hint": "Потрібне одне ще не визначене місце на справді нейтральній території; справді також можна передати як по-справжньому.",
+                    "options": [
+                        "outside",
+                        "about",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Потрібне одне ще не визначене місце на справді нейтральній території; справді також можна передати як по-справжньому.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a9": {
+                    "answer": "capital.",
+                    "verb_hint": "Потрібне одне ще не визначене місце на справді нейтральній території; справді також можна передати як по-справжньому.",
+                    "options": [
+                        "capital",
+                        "federation",
+                        "care",
+                        "gate"
+                    ]
+                }
+            },
+            "verb_hint": "Потрібне одне ще не визначене місце на справді нейтральній території; справді також можна передати як по-справжньому.",
+            "accepted_target_texts": [
+                "The negotiators sought somewhere genuinely neutral outside the capital.",
+                "The negotiators sought somewhere truly neutral outside the capital.",
+                "The negotiators sought someplace genuinely neutral outside the capital.",
+                "The negotiators sought someplace truly neutral outside the capital."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "truly"
+                ],
+                "a4": [
+                    "someplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "truly"
+                ],
+                "a4": [
+                    "someplace"
+                ]
+            },
+            "reorder_groups": [
+                "The negotiators",
+                "sought",
+                "somewhere genuinely neutral",
+                "outside the capital."
+            ],
+            "token_groups": [
+                "The negotiators",
+                "sought",
+                "somewhere genuinely neutral",
+                "outside the capital."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "The",
+                "negotiators",
+                "sought",
+                "somewhere",
+                "genuinely",
+                "neutral",
+                "outside",
+                "the",
+                "capital."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "negotiators",
+                "delegates",
+                "participants",
+                "guests",
+                "sought",
+                "Such",
+                "restriction",
+                "anywhere",
+                "somewhere",
+                "nowhere",
+                "statute",
+                "dissident",
+                "genuinely",
+                "wholly",
+                "sufficiently",
+                "adequately",
+                "neutral",
+                "private",
+                "secure",
+                "refuge",
+                "outside",
+                "about",
+                "on",
+                "at",
+                "the",
+                "an",
+                "some",
+                "any",
+                "capital",
+                "federation",
+                "care",
+                "gate"
+            ],
+            "source_text_uk": "Учасники переговорів шукали справді нейтральне місце за межами столиці.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "negotiators",
+                    "delegates",
+                    "participants",
+                    "guests"
+                ],
+                "a3": [
+                    "sought",
+                    "Such",
+                    "restriction",
+                    "anywhere"
+                ],
+                "a4": [
+                    "somewhere",
+                    "nowhere",
+                    "statute",
+                    "dissident"
+                ],
+                "a5": [
+                    "genuinely",
+                    "wholly",
+                    "sufficiently",
+                    "adequately"
+                ],
+                "a6": [
+                    "neutral",
+                    "private",
+                    "secure",
+                    "refuge"
+                ],
+                "a7": [
+                    "outside",
+                    "about",
+                    "on",
+                    "at"
+                ],
+                "a8": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a9": [
+                    "capital",
+                    "federation",
+                    "care",
+                    "gate"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "location_transitive",
+                "a4": "place_extended",
+                "a5": "place_extended",
+                "a6": "place_extended",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "saq-places-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Таке обмеження ніде в законі прямо не дозволено.",
+            "level": "C1",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Таке обмеження ніде в законі прямо не дозволено.",
+            "target_text": "Such a restriction is not explicitly authorised anywhere in the statute.",
+            "markers": {
+                "a1": {
+                    "answer": "Such",
+                    "verb_hint": "Таке обмеження прямо не дозволено в жодній частині закону; заперечення належить пасивному дієслову, прямо також означає недвозначно.",
+                    "options": [
+                        "Such",
+                        "Dissident",
+                        "Refuge",
+                        "Within"
+                    ]
+                },
+                "a2": {
+                    "answer": "a",
+                    "verb_hint": "Таке обмеження прямо не дозволено в жодній частині закону; заперечення належить пасивному дієслову, прямо також означає недвозначно.",
+                    "options": [
+                        "a",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a3": {
+                    "answer": "restriction",
+                    "verb_hint": "Таке обмеження прямо не дозволено в жодній частині закону; заперечення належить пасивному дієслову, прямо також означає недвозначно.",
+                    "options": [
+                        "restriction",
+                        "federation",
+                        "sought",
+                        "somewhere"
+                    ]
+                },
+                "a4": {
+                    "answer": "is",
+                    "verb_hint": "Таке обмеження прямо не дозволено в жодній частині закону; заперечення належить пасивному дієслову, прямо також означає недвозначно.",
+                    "options": [
+                        "is",
+                        "been",
+                        "being",
+                        "aren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "not",
+                    "verb_hint": "Таке обмеження прямо не дозволено в жодній частині закону; заперечення належить пасивному дієслову, прямо також означає недвозначно.",
+                    "options": [
+                        "not",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a6": {
+                    "answer": "explicitly",
+                    "verb_hint": "Таке обмеження прямо не дозволено в жодній частині закону; заперечення належить пасивному дієслову, прямо також означає недвозначно.",
+                    "options": [
+                        "explicitly",
+                        "directly",
+                        "implicitly",
+                        "formally"
+                    ]
+                },
+                "a7": {
+                    "answer": "authorised",
+                    "verb_hint": "Таке обмеження прямо не дозволено в жодній частині закону; заперечення належить пасивному дієслову, прямо також означає недвозначно.",
+                    "options": [
+                        "authorised",
+                        "established",
+                        "sanctioned",
+                        "permitted"
+                    ]
+                },
+                "a8": {
+                    "answer": "anywhere",
+                    "verb_hint": "Таке обмеження прямо не дозволено в жодній частині закону; заперечення належить пасивному дієслову, прямо також означає недвозначно.",
+                    "options": [
+                        "anywhere",
+                        "someplace",
+                        "nowhere",
+                        "outside"
+                    ]
+                },
+                "a9": {
+                    "answer": "in",
+                    "verb_hint": "Таке обмеження прямо не дозволено в жодній частині закону; заперечення належить пасивному дієслову, прямо також означає недвозначно.",
+                    "options": [
+                        "in",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Таке обмеження прямо не дозволено в жодній частині закону; заперечення належить пасивному дієслову, прямо також означає недвозначно.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a11": {
+                    "answer": "statute.",
+                    "verb_hint": "Таке обмеження прямо не дозволено в жодній частині закону; заперечення належить пасивному дієслову, прямо також означає недвозначно.",
+                    "options": [
+                        "statute",
+                        "consent",
+                        "gate",
+                        "closure"
+                    ]
+                }
+            },
+            "verb_hint": "Таке обмеження прямо не дозволено в жодній частині закону; заперечення належить пасивному дієслову, прямо також означає недвозначно.",
+            "accepted_target_texts": [
+                "Such a restriction is not explicitly authorised anywhere in the statute.",
+                "Such a restriction is not explicitly authorised anyplace in the statute.",
+                "Such a restriction is not expressly authorised anywhere in the statute.",
+                "Such a restriction is not expressly authorised anyplace in the statute.",
+                "Such a restriction isn't explicitly authorised anywhere in the statute.",
+                "Such a restriction isn't explicitly authorised anyplace in the statute.",
+                "Such a restriction isn't expressly authorised anywhere in the statute.",
+                "Such a restriction isn't expressly authorised anyplace in the statute."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "anyplace"
+                ],
+                "a6": [
+                    "expressly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "anyplace"
+                ],
+                "a6": [
+                    "expressly"
+                ]
+            },
+            "reorder_groups": [
+                "Such a restriction",
+                "is not",
+                "explicitly authorised",
+                "anywhere",
+                "in the statute."
+            ],
+            "token_groups": [
+                "Such a restriction",
+                "is not",
+                "explicitly authorised",
+                "anywhere",
+                "in the statute."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "Such",
+                "a",
+                "restriction",
+                "is",
+                "not",
+                "explicitly",
+                "authorised",
+                "anywhere",
+                "in",
+                "the",
+                "statute."
+            ],
+            "options": [
+                "Such",
+                "Dissident",
+                "Refuge",
+                "Within",
+                "a",
+                "no",
+                "another",
+                "either",
+                "restriction",
+                "federation",
+                "sought",
+                "somewhere",
+                "is",
+                "been",
+                "being",
+                "aren't",
+                "not",
+                "always",
+                "often",
+                "sometimes",
+                "explicitly",
+                "directly",
+                "implicitly",
+                "formally",
+                "authorised",
+                "established",
+                "sanctioned",
+                "permitted",
+                "anywhere",
+                "someplace",
+                "nowhere",
+                "outside",
+                "in",
+                "through",
+                "across",
+                "between",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "statute",
+                "consent",
+                "gate",
+                "closure"
+            ],
+            "source_text_uk": "Таке обмеження ніде в законі прямо не дозволено.",
+            "options_by_marker": {
+                "a1": [
+                    "Such",
+                    "Dissident",
+                    "Refuge",
+                    "Within"
+                ],
+                "a2": [
+                    "a",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a3": [
+                    "restriction",
+                    "federation",
+                    "sought",
+                    "somewhere"
+                ],
+                "a4": [
+                    "is",
+                    "been",
+                    "being",
+                    "aren't"
+                ],
+                "a5": [
+                    "not",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a6": [
+                    "explicitly",
+                    "directly",
+                    "implicitly",
+                    "formally"
+                ],
+                "a7": [
+                    "authorised",
+                    "established",
+                    "sanctioned",
+                    "permitted"
+                ],
+                "a8": [
+                    "anywhere",
+                    "someplace",
+                    "nowhere",
+                    "outside"
+                ],
+                "a9": [
+                    "in",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a10": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a11": [
+                    "statute",
+                    "consent",
+                    "gate",
+                    "closure"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "subject_singular",
+                "a4": "negative_passive_frame",
+                "a5": "negative_passive_frame",
+                "a6": "participle_modified",
+                "a7": "participle_modified",
+                "a8": "place",
+                "a9": "adjunct",
+                "a10": "adjunct",
+                "a11": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "saq-places-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Дисидент ніде в межах федерації не міг знайти притулку.",
+            "level": "C1",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Дисидент ніде в межах федерації не міг знайти притулку.",
+            "target_text": "The dissident could not find refuge anywhere within the federation.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Жодна частина федерації не давала притулку; заперечення належить модальному дієслову минулого часу, а притулок має природний синонім.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "dissident",
+                    "verb_hint": "Жодна частина федерації не давала притулку; заперечення належить модальному дієслову минулого часу, а притулок має природний синонім.",
+                    "options": [
+                        "dissident",
+                        "outside",
+                        "capital",
+                        "Such"
+                    ]
+                },
+                "a3": {
+                    "answer": "could",
+                    "verb_hint": "Жодна частина федерації не давала притулку; заперечення належить модальному дієслову минулого часу, а притулок має природний синонім.",
+                    "options": [
+                        "could",
+                        "can",
+                        "will",
+                        "would"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Жодна частина федерації не давала притулку; заперечення належить модальному дієслову минулого часу, а притулок має природний синонім.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a5": {
+                    "answer": "find",
+                    "verb_hint": "Жодна частина федерації не давала притулку; заперечення належить модальному дієслову минулого часу, а притулок має природний синонім.",
+                    "options": [
+                        "find",
+                        "buy",
+                        "go",
+                        "say"
+                    ]
+                },
+                "a6": {
+                    "answer": "refuge",
+                    "verb_hint": "Жодна частина федерації не давала притулку; заперечення належить модальному дієслову минулого часу, а притулок має природний синонім.",
+                    "options": [
+                        "refuge",
+                        "restriction",
+                        "statute",
+                        "sought"
+                    ]
+                },
+                "a7": {
+                    "answer": "anywhere",
+                    "verb_hint": "Жодна частина федерації не давала притулку; заперечення належить модальному дієслову минулого часу, а притулок має природний синонім.",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere",
+                        "everywhere"
+                    ]
+                },
+                "a8": {
+                    "answer": "within",
+                    "verb_hint": "Жодна частина федерації не давала притулку; заперечення належить модальному дієслову минулого часу, а притулок має природний синонім.",
+                    "options": [
+                        "within",
+                        "about",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Жодна частина федерації не давала притулку; заперечення належить модальному дієслову минулого часу, а притулок має природний синонім.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a10": {
+                    "answer": "federation.",
+                    "verb_hint": "Жодна частина федерації не давала притулку; заперечення належить модальному дієслову минулого часу, а притулок має природний синонім.",
+                    "options": [
+                        "federation",
+                        "care",
+                        "window",
+                        "consent"
+                    ]
+                }
+            },
+            "verb_hint": "Жодна частина федерації не давала притулку; заперечення належить модальному дієслову минулого часу, а притулок має природний синонім.",
+            "accepted_target_texts": [
+                "The dissident could not find refuge anywhere within the federation.",
+                "The dissident could not find refuge anyplace within the federation.",
+                "The dissident could not find sanctuary anywhere within the federation.",
+                "The dissident could not find sanctuary anyplace within the federation.",
+                "The dissident couldn't find refuge anywhere within the federation.",
+                "The dissident couldn't find refuge anyplace within the federation.",
+                "The dissident couldn't find sanctuary anywhere within the federation.",
+                "The dissident couldn't find sanctuary anyplace within the federation."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "anyplace"
+                ],
+                "a6": [
+                    "sanctuary"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "anyplace"
+                ],
+                "a6": [
+                    "sanctuary"
+                ]
+            },
+            "reorder_groups": [
+                "The dissident",
+                "could not find",
+                "refuge",
+                "anywhere",
+                "within the federation."
+            ],
+            "token_groups": [
+                "The dissident",
+                "could not find",
+                "refuge",
+                "anywhere",
+                "within the federation."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "The",
+                "dissident",
+                "could",
+                "not",
+                "find",
+                "refuge",
+                "anywhere",
+                "within",
+                "the",
+                "federation."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "dissident",
+                "outside",
+                "capital",
+                "Such",
+                "could",
+                "can",
+                "will",
+                "would",
+                "not",
+                "never",
+                "always",
+                "often",
+                "find",
+                "buy",
+                "go",
+                "say",
+                "refuge",
+                "restriction",
+                "statute",
+                "sought",
+                "anywhere",
+                "somewhere",
+                "nowhere",
+                "everywhere",
+                "within",
+                "about",
+                "on",
+                "at",
+                "the",
+                "all",
+                "both",
+                "a",
+                "federation",
+                "care",
+                "window",
+                "consent"
+            ],
+            "source_text_uk": "Дисидент ніде в межах федерації не міг знайти притулку.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "dissident",
+                    "outside",
+                    "capital",
+                    "Such"
+                ],
+                "a3": [
+                    "could",
+                    "can",
+                    "will",
+                    "would"
+                ],
+                "a4": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a5": [
+                    "find",
+                    "buy",
+                    "go",
+                    "say"
+                ],
+                "a6": [
+                    "refuge",
+                    "restriction",
+                    "statute",
+                    "sought"
+                ],
+                "a7": [
+                    "anywhere",
+                    "somewhere",
+                    "nowhere",
+                    "everywhere"
+                ],
+                "a8": [
+                    "within",
+                    "about",
+                    "on",
+                    "at"
+                ],
+                "a9": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a10": [
+                    "federation",
+                    "care",
+                    "window",
+                    "consent"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "negative_modal_transitive",
+                "a4": "negative_modal_transitive",
+                "a5": "negative_modal_transitive",
+                "a6": "object",
+                "a7": "place",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "saq-places-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Такої масштабної поступки ніде в перебігу розгляду до того не передбачали.",
+            "level": "C2",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Такої масштабної поступки ніде в перебігу розгляду до того не передбачали.",
+            "target_text": "Such a sweeping concession had never been contemplated anywhere in the proceedings.",
+            "markers": {
+                "a1": {
+                    "answer": "Such",
+                    "verb_hint": "До певного минулого моменту такої масштабної поступки ніде не обмірковували; потрібен минулий доконаний пасив із заперечним прислівником.",
+                    "options": [
+                        "Such",
+                        "An",
+                        "Envoy",
+                        "Somewhere"
+                    ]
+                },
+                "a2": {
+                    "answer": "a",
+                    "verb_hint": "До певного минулого моменту такої масштабної поступки ніде не обмірковували; потрібен минулий доконаний пасив із заперечним прислівником.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "some"
+                    ]
+                },
+                "a3": {
+                    "answer": "sweeping",
+                    "verb_hint": "До певного минулого моменту такої масштабної поступки ніде не обмірковували; потрібен минулий доконаний пасив із заперечним прислівником.",
+                    "options": [
+                        "sweeping",
+                        "existing",
+                        "studying",
+                        "living"
+                    ]
+                },
+                "a4": {
+                    "answer": "concession",
+                    "verb_hint": "До певного минулого моменту такої масштабної поступки ніде не обмірковували; потрібен минулий доконаний пасив із заперечним прислівником.",
+                    "options": [
+                        "concession",
+                        "amendment",
+                        "proposal",
+                        "compromise"
+                    ]
+                },
+                "a5": {
+                    "answer": "had",
+                    "verb_hint": "До певного минулого моменту такої масштабної поступки ніде не обмірковували; потрібен минулий доконаний пасив із заперечним прислівником.",
+                    "options": [
+                        "had",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a6": {
+                    "answer": "never",
+                    "verb_hint": "До певного минулого моменту такої масштабної поступки ніде не обмірковували; потрібен минулий доконаний пасив із заперечним прислівником.",
+                    "options": [
+                        "never",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "До певного минулого моменту такої масштабної поступки ніде не обмірковували; потрібен минулий доконаний пасив із заперечним прислівником.",
+                    "options": [
+                        "been",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a8": {
+                    "answer": "contemplated",
+                    "verb_hint": "До певного минулого моменту такої масштабної поступки ніде не обмірковували; потрібен минулий доконаний пасив із заперечним прислівником.",
+                    "options": [
+                        "contemplated",
+                        "discussed",
+                        "proposed",
+                        "examined"
+                    ]
+                },
+                "a9": {
+                    "answer": "anywhere",
+                    "verb_hint": "До певного минулого моменту такої масштабної поступки ніде не обмірковували; потрібен минулий доконаний пасив із заперечним прислівником.",
+                    "options": [
+                        "anywhere",
+                        "nearby",
+                        "outside",
+                        "nowhere"
+                    ]
+                },
+                "a10": {
+                    "answer": "in",
+                    "verb_hint": "До певного минулого моменту такої масштабної поступки ніде не обмірковували; потрібен минулий доконаний пасив із заперечним прислівником.",
+                    "options": [
+                        "in",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a11": {
+                    "answer": "the",
+                    "verb_hint": "До певного минулого моменту такої масштабної поступки ніде не обмірковували; потрібен минулий доконаний пасив із заперечним прислівником.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a12": {
+                    "answer": "proceedings.",
+                    "verb_hint": "До певного минулого моменту такої масштабної поступки ніде не обмірковували; потрібен минулий доконаний пасив із заперечним прислівником.",
+                    "options": [
+                        "proceedings",
+                        "windows",
+                        "phones",
+                        "children"
+                    ]
+                }
+            },
+            "verb_hint": "До певного минулого моменту такої масштабної поступки ніде не обмірковували; потрібен минулий доконаний пасив із заперечним прислівником.",
+            "accepted_target_texts": [
+                "Such a sweeping concession had never been contemplated anywhere in the proceedings.",
+                "Such a sweeping concession had never been contemplated anyplace in the proceedings.",
+                "Such a sweeping concession had never been envisaged anywhere in the proceedings.",
+                "Such a sweeping concession had never been envisaged anyplace in the proceedings."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "anyplace"
+                ],
+                "a8": [
+                    "envisaged"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "anyplace"
+                ],
+                "a8": [
+                    "envisaged"
+                ]
+            },
+            "reorder_groups": [
+                "Such a sweeping",
+                "concession",
+                "had never been",
+                "contemplated",
+                "anywhere",
+                "in the proceedings."
+            ],
+            "token_groups": [
+                "Such a sweeping",
+                "concession",
+                "had never been",
+                "contemplated",
+                "anywhere",
+                "in the proceedings."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "Such",
+                "a",
+                "sweeping",
+                "concession",
+                "had",
+                "never",
+                "been",
+                "contemplated",
+                "anywhere",
+                "in",
+                "the",
+                "proceedings."
+            ],
+            "options": [
+                "Such",
+                "An",
+                "Envoy",
+                "Somewhere",
+                "a",
+                "all",
+                "both",
+                "some",
+                "sweeping",
+                "existing",
+                "studying",
+                "living",
+                "concession",
+                "amendment",
+                "proposal",
+                "compromise",
+                "had",
+                "does",
+                "did",
+                "don't",
+                "never",
+                "always",
+                "often",
+                "sometimes",
+                "been",
+                "weren't",
+                "am",
+                "is",
+                "contemplated",
+                "discussed",
+                "proposed",
+                "examined",
+                "anywhere",
+                "nearby",
+                "outside",
+                "nowhere",
+                "in",
+                "onto",
+                "over",
+                "under",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "proceedings",
+                "windows",
+                "phones",
+                "children"
+            ],
+            "source_text_uk": "Такої масштабної поступки ніде в перебігу розгляду до того не передбачали.",
+            "options_by_marker": {
+                "a1": [
+                    "Such",
+                    "An",
+                    "Envoy",
+                    "Somewhere"
+                ],
+                "a2": [
+                    "a",
+                    "all",
+                    "both",
+                    "some"
+                ],
+                "a3": [
+                    "sweeping",
+                    "existing",
+                    "studying",
+                    "living"
+                ],
+                "a4": [
+                    "concession",
+                    "amendment",
+                    "proposal",
+                    "compromise"
+                ],
+                "a5": [
+                    "had",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a6": [
+                    "never",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a7": [
+                    "been",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a8": [
+                    "contemplated",
+                    "discussed",
+                    "proposed",
+                    "examined"
+                ],
+                "a9": [
+                    "anywhere",
+                    "nearby",
+                    "outside",
+                    "nowhere"
+                ],
+                "a10": [
+                    "in",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a11": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a12": [
+                    "proceedings",
+                    "windows",
+                    "phones",
+                    "children"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determining_adjective",
+                "a2": "determining_adjective",
+                "a3": "determining_adjective",
+                "a4": "object_singular",
+                "a5": "negative_past_passive_frame",
+                "a6": "negative_past_passive_frame",
+                "a7": "negative_past_passive_frame",
+                "a8": "participle",
+                "a9": "place",
+                "a10": "adjunct",
+                "a11": "adjunct",
+                "a12": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "saq-places-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Посланцеві було потрібне місце, цілком захищене від політичного втручання.",
+            "level": "C2",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Посланцеві було потрібне місце, цілком захищене від політичного втручання.",
+            "target_text": "The envoy needed somewhere wholly insulated from political interference.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Потрібне одне невизначене місце, повністю відокремлене від політичного впливу; цілком має рівнозначний відповідник повністю.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "envoy",
+                    "verb_hint": "Потрібне одне невизначене місце, повністю відокремлене від політичного впливу; цілком має рівнозначний відповідник повністю.",
+                    "options": [
+                        "envoy",
+                        "framework",
+                        "Such",
+                        "concession"
+                    ]
+                },
+                "a3": {
+                    "answer": "needed",
+                    "verb_hint": "Потрібне одне невизначене місце, повністю відокремлене від політичного впливу; цілком має рівнозначний відповідник повністю.",
+                    "options": [
+                        "needed",
+                        "recommended",
+                        "wanted",
+                        "found"
+                    ]
+                },
+                "a4": {
+                    "answer": "somewhere",
+                    "verb_hint": "Потрібне одне невизначене місце, повністю відокремлене від політичного впливу; цілком має рівнозначний відповідник повністю.",
+                    "options": [
+                        "somewhere",
+                        "nowhere",
+                        "anywhere",
+                        "discrepancy"
+                    ]
+                },
+                "a5": {
+                    "answer": "wholly",
+                    "verb_hint": "Потрібне одне невизначене місце, повністю відокремлене від політичного впливу; цілком має рівнозначний відповідник повністю.",
+                    "options": [
+                        "wholly",
+                        "adequately",
+                        "remotely",
+                        "relatively"
+                    ]
+                },
+                "a6": {
+                    "answer": "insulated",
+                    "verb_hint": "Потрібне одне невизначене місце, повністю відокремлене від політичного впливу; цілком має рівнозначний відповідник повністю.",
+                    "options": [
+                        "insulated",
+                        "isolated",
+                        "ventilated",
+                        "visited"
+                    ]
+                },
+                "a7": {
+                    "answer": "from",
+                    "verb_hint": "Потрібне одне невизначене місце, повністю відокремлене від політичного впливу; цілком має рівнозначний відповідник повністю.",
+                    "options": [
+                        "from",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a8": {
+                    "answer": "political",
+                    "verb_hint": "Потрібне одне невизначене місце, повністю відокремлене від політичного впливу; цілком має рівнозначний відповідник повністю.",
+                    "options": [
+                        "political",
+                        "old",
+                        "young",
+                        "cold"
+                    ]
+                },
+                "a9": {
+                    "answer": "interference.",
+                    "verb_hint": "Потрібне одне невизначене місце, повністю відокремлене від політичного впливу; цілком має рівнозначний відповідник повністю.",
+                    "options": [
+                        "interference",
+                        "closure",
+                        "behalf",
+                        "consent"
+                    ]
+                }
+            },
+            "verb_hint": "Потрібне одне невизначене місце, повністю відокремлене від політичного впливу; цілком має рівнозначний відповідник повністю.",
+            "accepted_target_texts": [
+                "The envoy needed somewhere wholly insulated from political interference.",
+                "The envoy needed somewhere completely insulated from political interference.",
+                "The envoy needed someplace wholly insulated from political interference.",
+                "The envoy needed someplace completely insulated from political interference."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "completely"
+                ],
+                "a4": [
+                    "someplace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "completely"
+                ],
+                "a4": [
+                    "someplace"
+                ]
+            },
+            "reorder_groups": [
+                "The envoy",
+                "needed",
+                "somewhere wholly insulated",
+                "from political interference."
+            ],
+            "token_groups": [
+                "The envoy",
+                "needed",
+                "somewhere wholly insulated",
+                "from political interference."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "The",
+                "envoy",
+                "needed",
+                "somewhere",
+                "wholly",
+                "insulated",
+                "from",
+                "political",
+                "interference."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "envoy",
+                "framework",
+                "Such",
+                "concession",
+                "needed",
+                "recommended",
+                "wanted",
+                "found",
+                "somewhere",
+                "nowhere",
+                "anywhere",
+                "discrepancy",
+                "wholly",
+                "adequately",
+                "remotely",
+                "relatively",
+                "insulated",
+                "isolated",
+                "ventilated",
+                "visited",
+                "from",
+                "for",
+                "of",
+                "in",
+                "political",
+                "old",
+                "young",
+                "cold",
+                "interference",
+                "closure",
+                "behalf",
+                "consent"
+            ],
+            "source_text_uk": "Посланцеві було потрібне місце, цілком захищене від політичного втручання.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "envoy",
+                    "framework",
+                    "Such",
+                    "concession"
+                ],
+                "a3": [
+                    "needed",
+                    "recommended",
+                    "wanted",
+                    "found"
+                ],
+                "a4": [
+                    "somewhere",
+                    "nowhere",
+                    "anywhere",
+                    "discrepancy"
+                ],
+                "a5": [
+                    "wholly",
+                    "adequately",
+                    "remotely",
+                    "relatively"
+                ],
+                "a6": [
+                    "insulated",
+                    "isolated",
+                    "ventilated",
+                    "visited"
+                ],
+                "a7": [
+                    "from",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a8": [
+                    "political",
+                    "old",
+                    "young",
+                    "cold"
+                ],
+                "a9": [
+                    "interference",
+                    "closure",
+                    "behalf",
+                    "consent"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "location_transitive",
+                "a4": "place_extended",
+                "a5": "place_extended",
+                "a6": "place_extended",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "saq-places-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Цю розбіжність неможливо узгодити ніде в межах наявної концептуальної системи.",
+            "level": "C2",
+            "type": 4,
+            "source": "some_any_quality_places",
+            "translation_uk": "Цю розбіжність неможливо узгодити ніде в межах наявної концептуальної системи.",
+            "target_text": "The discrepancy cannot be reconciled anywhere within the existing conceptual framework.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Наявна концептуальна система не дає жодного місця для узгодження розбіжності; заперечний пасив допускає скорочення.",
+                    "options": [
+                        "The",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "discrepancy",
+                    "verb_hint": "Наявна концептуальна система не дає жодного місця для узгодження розбіжності; заперечний пасив допускає скорочення.",
+                    "options": [
+                        "discrepancy",
+                        "visitor",
+                        "child",
+                        "envoy"
+                    ]
+                },
+                "a3": {
+                    "answer": "cannot",
+                    "verb_hint": "Наявна концептуальна система не дає жодного місця для узгодження розбіжності; заперечний пасив допускає скорочення.",
+                    "options": [
+                        "cannot",
+                        "may",
+                        "might",
+                        "must"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Наявна концептуальна система не дає жодного місця для узгодження розбіжності; заперечний пасив допускає скорочення.",
+                    "options": [
+                        "be",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a5": {
+                    "answer": "reconciled",
+                    "verb_hint": "Наявна концептуальна система не дає жодного місця для узгодження розбіжності; заперечний пасив допускає скорочення.",
+                    "options": [
+                        "reconciled",
+                        "resolved",
+                        "addressed",
+                        "explained"
+                    ]
+                },
+                "a6": {
+                    "answer": "anywhere",
+                    "verb_hint": "Наявна концептуальна система не дає жодного місця для узгодження розбіжності; заперечний пасив допускає скорочення.",
+                    "options": [
+                        "anywhere",
+                        "nowhere",
+                        "everywhere",
+                        "someplace"
+                    ]
+                },
+                "a7": {
+                    "answer": "within",
+                    "verb_hint": "Наявна концептуальна система не дає жодного місця для узгодження розбіжності; заперечний пасив допускає скорочення.",
+                    "options": [
+                        "within",
+                        "inside",
+                        "in",
+                        "throughout"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Наявна концептуальна система не дає жодного місця для узгодження розбіжності; заперечний пасив допускає скорочення.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a9": {
+                    "answer": "existing",
+                    "verb_hint": "Наявна концептуальна система не дає жодного місця для узгодження розбіжності; заперечний пасив допускає скорочення.",
+                    "options": [
+                        "existing",
+                        "prevailing",
+                        "sweeping",
+                        "closing"
+                    ]
+                },
+                "a10": {
+                    "answer": "conceptual",
+                    "verb_hint": "Наявна концептуальна система не дає жодного місця для узгодження розбіжності; заперечний пасив допускає скорочення.",
+                    "options": [
+                        "conceptual",
+                        "legal",
+                        "policy",
+                        "Such"
+                    ]
+                },
+                "a11": {
+                    "answer": "framework.",
+                    "verb_hint": "Наявна концептуальна система не дає жодного місця для узгодження розбіжності; заперечний пасив допускає скорочення.",
+                    "options": [
+                        "framework",
+                        "model",
+                        "scheme",
+                        "context"
+                    ]
+                }
+            },
+            "verb_hint": "Наявна концептуальна система не дає жодного місця для узгодження розбіжності; заперечний пасив допускає скорочення.",
+            "accepted_target_texts": [
+                "The discrepancy cannot be reconciled anywhere within the existing conceptual framework.",
+                "The discrepancy cannot be reconciled anywhere within the current conceptual framework.",
+                "The discrepancy cannot be reconciled anyplace within the existing conceptual framework.",
+                "The discrepancy cannot be reconciled anyplace within the current conceptual framework.",
+                "The discrepancy can't be reconciled anywhere within the existing conceptual framework.",
+                "The discrepancy can't be reconciled anywhere within the current conceptual framework.",
+                "The discrepancy can't be reconciled anyplace within the existing conceptual framework.",
+                "The discrepancy can't be reconciled anyplace within the current conceptual framework."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "current"
+                ],
+                "a6": [
+                    "anyplace"
+                ],
+                "a3": [
+                    "can't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "current"
+                ],
+                "a6": [
+                    "anyplace"
+                ],
+                "a3": [
+                    "can't"
+                ]
+            },
+            "reorder_groups": [
+                "The discrepancy",
+                "cannot be reconciled",
+                "anywhere",
+                "within the",
+                "existing conceptual framework."
+            ],
+            "token_groups": [
+                "The discrepancy",
+                "cannot be reconciled",
+                "anywhere",
+                "within the",
+                "existing conceptual framework."
+            ],
+            "quality_revision": "saq-v1",
+            "tokens_correct": [
+                "The",
+                "discrepancy",
+                "cannot",
+                "be",
+                "reconciled",
+                "anywhere",
+                "within",
+                "the",
+                "existing",
+                "conceptual",
+                "framework."
+            ],
+            "options": [
+                "The",
+                "This",
+                "That",
+                "These",
+                "discrepancy",
+                "visitor",
+                "child",
+                "envoy",
+                "cannot",
+                "may",
+                "might",
+                "must",
+                "be",
+                "are",
+                "was",
+                "were",
+                "reconciled",
+                "resolved",
+                "addressed",
+                "explained",
+                "anywhere",
+                "nowhere",
+                "everywhere",
+                "someplace",
+                "within",
+                "inside",
+                "in",
+                "throughout",
+                "the",
+                "both",
+                "a",
+                "an",
+                "existing",
+                "prevailing",
+                "sweeping",
+                "closing",
+                "conceptual",
+                "legal",
+                "policy",
+                "Such",
+                "framework",
+                "model",
+                "scheme",
+                "context"
+            ],
+            "source_text_uk": "Цю розбіжність неможливо узгодити ніде в межах наявної концептуальної системи.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "discrepancy",
+                    "visitor",
+                    "child",
+                    "envoy"
+                ],
+                "a3": [
+                    "cannot",
+                    "may",
+                    "might",
+                    "must"
+                ],
+                "a4": [
+                    "be",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a5": [
+                    "reconciled",
+                    "resolved",
+                    "addressed",
+                    "explained"
+                ],
+                "a6": [
+                    "anywhere",
+                    "nowhere",
+                    "everywhere",
+                    "someplace"
+                ],
+                "a7": [
+                    "within",
+                    "inside",
+                    "in",
+                    "throughout"
+                ],
+                "a8": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a9": [
+                    "existing",
+                    "prevailing",
+                    "sweeping",
+                    "closing"
+                ],
+                "a10": [
+                    "conceptual",
+                    "legal",
+                    "policy",
+                    "Such"
+                ],
+                "a11": [
+                    "framework",
+                    "model",
+                    "scheme",
+                    "context"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "modal_passive_complete",
+                "a4": "modal_passive_complete",
+                "a5": "modal_passive_complete",
+                "a6": "place",
+                "a7": "preposition_determiner",
+                "a8": "preposition_determiner",
+                "a9": "bare_framework_phrase",
+                "a10": "bare_framework_phrase",
+                "a11": "bare_framework_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

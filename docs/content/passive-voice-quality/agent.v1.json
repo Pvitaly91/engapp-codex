@@ -1,0 +1,1394 @@
+{
+    "schema_version": 1,
+    "topic_key": "agent",
+    "title": "Виконавець, причина та інструмент у пасиві",
+    "choice_pools": {
+        "sg": [
+            "The parcel",
+            "The portrait",
+            "The cabinet",
+            "The kettle",
+            "The bicycle",
+            "The mirror",
+            "The notice",
+            "The contract",
+            "The manuscript",
+            "The verdict"
+        ],
+        "be_sg": [
+            "is",
+            "was",
+            "has been",
+            "will be",
+            "can be",
+            "must be",
+            "is being",
+            "had been"
+        ],
+        "participle": [
+            "written",
+            "folded",
+            "reviewed",
+            "checked",
+            "delivered",
+            "signed",
+            "examined",
+            "replaced",
+            "approved",
+            "recorded",
+            "withheld",
+            "dismissed",
+            "documented",
+            "preserved",
+            "revised",
+            "published"
+        ],
+        "byagent": [
+            "by our teacher",
+            "by a nurse",
+            "by local residents",
+            "by an expert",
+            "by the judge",
+            "by the owner",
+            "by the panel",
+            "by an archivist"
+        ],
+        "instrument": [
+            "with a marker",
+            "with a shovel",
+            "with a sponge",
+            "with an axe",
+            "with a brush",
+            "with a cloth",
+            "with a key",
+            "with a needle"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The soup was made {a1} my dad.",
+            "target": "The soup was made by my dad.",
+            "uk": "Суп приготував мій тато.",
+            "hint_uk": "Приготував мій тато; потрібно назвати виконавця.",
+            "groups": [
+                "The soup",
+                "was made",
+                "by",
+                "my dad."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "at"
+            ]
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The line was drawn {a1} a pencil.",
+            "target": "The line was drawn with a pencil.",
+            "uk": "Лінію намалювали олівцем.",
+            "hint_uk": "Намалювали олівцем; потрібно назвати інструмент.",
+            "groups": [
+                "The line",
+                "was drawn",
+                "with",
+                "a pencil."
+            ],
+            "answer": "with",
+            "options": [
+                "with",
+                "by",
+                "from"
+            ]
+        },
+        {
+            "id": "A1-g03",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The door was opened {a1} a girl.",
+            "target": "The door was opened by a girl.",
+            "uk": "Двері відчинила дівчинка.",
+            "hint_uk": "Відчинила дівчинка; називаємо виконавицю.",
+            "groups": [
+                "The door",
+                "was opened",
+                "by",
+                "a girl."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "in"
+            ]
+        },
+        {
+            "id": "A1-g04",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The bread was cut {a1} a knife.",
+            "target": "The bread was cut with a knife.",
+            "uk": "Хліб порізали ножем.",
+            "hint_uk": "Порізали ножем; називаємо інструмент.",
+            "groups": [
+                "The bread",
+                "was cut",
+                "with",
+                "a knife."
+            ],
+            "answer": "with",
+            "options": [
+                "with",
+                "by",
+                "at"
+            ]
+        },
+        {
+            "id": "A1-g05",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The song was sung {a1} our class.",
+            "target": "The song was sung by our class.",
+            "uk": "Пісню заспівав наш клас.",
+            "hint_uk": "Заспівав наш клас; називаємо виконавця.",
+            "groups": [
+                "The song",
+                "was sung",
+                "by",
+                "our class."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "on"
+            ]
+        },
+        {
+            "id": "A1-g06",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The box was tied {a1} a red string.",
+            "target": "The box was tied with a red string.",
+            "uk": "Коробку перев’язали червоною мотузкою.",
+            "hint_uk": "Перев’язали червоною мотузкою; називаємо засіб.",
+            "groups": [
+                "The box",
+                "was tied",
+                "with",
+                "a red",
+                "string."
+            ],
+            "answer": "with",
+            "options": [
+                "with",
+                "by",
+                "from"
+            ]
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Ворота відчинив власник.",
+            "target": "The gate was opened by the owner.",
+            "uk": "Ворота відчинив власник.",
+            "hint_uk": "Ворота відчинив власник.",
+            "groups": [
+                "The gate",
+                "was",
+                "opened",
+                "by the owner."
+            ],
+            "compose_slots": [
+                "The gate",
+                "was",
+                "opened",
+                "by the owner."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "byagent"
+            ]
+        },
+        {
+            "id": "A1-c02",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Підлогу помили ганчіркою.",
+            "target": "The floor was washed with a cloth.",
+            "uk": "Підлогу помили ганчіркою.",
+            "hint_uk": "Підлогу помили ганчіркою.",
+            "groups": [
+                "The floor",
+                "was",
+                "washed",
+                "with a cloth."
+            ],
+            "compose_slots": [
+                "The floor",
+                "was",
+                "washed",
+                "with a cloth."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "instrument"
+            ],
+            "display_synonyms": {
+                "washed": [
+                    "cleaned"
+                ]
+            },
+            "accepted_targets": [
+                "The floor was cleaned with a cloth."
+            ]
+        },
+        {
+            "id": "A1-c03",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Оповідання прочитав наш учитель.",
+            "target": "The story was read by our teacher.",
+            "uk": "Оповідання прочитав наш учитель.",
+            "hint_uk": "Оповідання прочитав наш учитель.",
+            "groups": [
+                "The story",
+                "was",
+                "read",
+                "by our teacher."
+            ],
+            "compose_slots": [
+                "The story",
+                "was",
+                "read",
+                "by our teacher."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "byagent"
+            ],
+            "display_synonyms": {
+                "The story": [
+                    "The tale"
+                ]
+            },
+            "accepted_targets": [
+                "The tale was read by our teacher."
+            ]
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The cake was decorated {a1} my cousin.",
+            "target": "The cake was decorated by my cousin.",
+            "uk": "Торт прикрашав мій двоюрідний брат.",
+            "hint_uk": "Прикрашав мій двоюрідний брат.",
+            "groups": [
+                "The cake",
+                "was decorated",
+                "by",
+                "my cousin."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "at"
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The wall was covered {a1} white paint.",
+            "target": "The wall was covered with white paint.",
+            "uk": "Стіну покрили білою фарбою.",
+            "hint_uk": "Покрили білою фарбою; називаємо матеріал.",
+            "groups": [
+                "The wall",
+                "was covered",
+                "with",
+                "white paint."
+            ],
+            "answer": "with",
+            "options": [
+                "with",
+                "by",
+                "for"
+            ]
+        },
+        {
+            "id": "A2-g03",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The window was broken {a1} a falling branch.",
+            "target": "The window was broken by a falling branch.",
+            "uk": "Вікно розбила гілка, що падала.",
+            "hint_uk": "Розбила гілка, що падала; називаємо причину.",
+            "groups": [
+                "The window",
+                "was broken",
+                "by",
+                "a falling",
+                "branch."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "in"
+            ]
+        },
+        {
+            "id": "A2-g04",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The hole was dug {a1} a small spade.",
+            "target": "The hole was dug with a small spade.",
+            "uk": "Яму викопали маленькою лопатою.",
+            "hint_uk": "Викопали маленькою лопатою; називаємо інструмент.",
+            "groups": [
+                "The hole",
+                "was dug",
+                "with",
+                "a small",
+                "spade."
+            ],
+            "answer": "with",
+            "options": [
+                "with",
+                "by",
+                "on"
+            ]
+        },
+        {
+            "id": "A2-g05",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The book was translated {a1} a local poet.",
+            "target": "The book was translated by a local poet.",
+            "uk": "Книгу переклав місцевий поет.",
+            "hint_uk": "Переклав місцевий поет.",
+            "groups": [
+                "The book",
+                "was translated",
+                "by",
+                "a local",
+                "poet."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "at"
+            ]
+        },
+        {
+            "id": "A2-g06",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The labels were attached {a1} glue.",
+            "target": "The labels were attached with glue.",
+            "uk": "Етикетки прикріпили клеєм.",
+            "hint_uk": "Прикріпили клеєм; називаємо засіб.",
+            "groups": [
+                "The labels",
+                "were attached",
+                "with",
+                "glue."
+            ],
+            "answer": "with",
+            "options": [
+                "with",
+                "by",
+                "from"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Стежку розчистили місцеві жителі.",
+            "target": "The path was cleared by local residents.",
+            "uk": "Стежку розчистили місцеві жителі.",
+            "hint_uk": "Стежку розчистили місцеві жителі.",
+            "groups": [
+                "The path",
+                "was",
+                "cleared",
+                "by local residents."
+            ],
+            "compose_slots": [
+                "The path",
+                "was",
+                "cleared",
+                "by local residents."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "byagent"
+            ]
+        },
+        {
+            "id": "A2-c02",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Ескіз розфарбували маркером.",
+            "target": "The sketch was coloured with a marker.",
+            "uk": "Ескіз розфарбували маркером.",
+            "hint_uk": "Ескіз розфарбували маркером.",
+            "groups": [
+                "The sketch",
+                "was",
+                "coloured",
+                "with a marker."
+            ],
+            "compose_slots": [
+                "The sketch",
+                "was",
+                "coloured",
+                "with a marker."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "instrument"
+            ]
+        },
+        {
+            "id": "A2-c03",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Рану очистила медсестра.",
+            "target": "The wound was cleaned by a nurse.",
+            "uk": "Рану очистила медсестра.",
+            "hint_uk": "Рану очистила медсестра.",
+            "groups": [
+                "The wound",
+                "was",
+                "cleaned",
+                "by a nurse."
+            ],
+            "compose_slots": [
+                "The wound",
+                "was",
+                "cleaned",
+                "by a nurse."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "byagent"
+            ]
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The equipment was inspected {a1} a qualified engineer.",
+            "target": "The equipment was inspected by a qualified engineer.",
+            "uk": "Обладнання перевірив кваліфікований інженер.",
+            "hint_uk": "Перевірив кваліфікований інженер.",
+            "groups": [
+                "The equipment",
+                "was inspected",
+                "by",
+                "a qualified",
+                "engineer."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "in"
+            ]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The package was sealed {a1} waterproof tape.",
+            "target": "The package was sealed with waterproof tape.",
+            "uk": "Посилку заклеїли водостійкою стрічкою.",
+            "hint_uk": "Заклеїли водостійкою стрічкою; називаємо матеріал.",
+            "groups": [
+                "The package",
+                "was sealed",
+                "with",
+                "waterproof tape."
+            ],
+            "answer": "with",
+            "options": [
+                "with",
+                "by",
+                "from"
+            ]
+        },
+        {
+            "id": "B1-g03",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The cyclist was struck {a1} a reversing van.",
+            "target": "The cyclist was struck by a reversing van.",
+            "uk": "Велосипедиста збив фургон, що їхав заднім ходом.",
+            "hint_uk": "Збив фургон, що їхав заднім ходом.",
+            "groups": [
+                "The cyclist",
+                "was struck",
+                "by",
+                "a reversing",
+                "van."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "at"
+            ]
+        },
+        {
+            "id": "B1-g04",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The signature was copied {a1} a special pen.",
+            "target": "The signature was copied with a special pen.",
+            "uk": "Підпис скопіювали спеціальною ручкою.",
+            "hint_uk": "Скопіювали спеціальною ручкою.",
+            "groups": [
+                "The signature",
+                "was copied",
+                "with",
+                "a special",
+                "pen."
+            ],
+            "answer": "with",
+            "options": [
+                "with",
+                "by",
+                "on"
+            ]
+        },
+        {
+            "id": "B1-g05",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The prisoners were released {a1} the commander.",
+            "target": "The prisoners were released by the commander.",
+            "uk": "Полонених звільнив командир.",
+            "hint_uk": "Звільнив командир; називаємо виконавця.",
+            "groups": [
+                "The prisoners",
+                "were released",
+                "by",
+                "the commander."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "under"
+            ]
+        },
+        {
+            "id": "B1-g06",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The surface was polished {a1} a soft brush.",
+            "target": "The surface was polished with a soft brush.",
+            "uk": "Поверхню відполірували м’якою щіткою.",
+            "hint_uk": "Відполірували м’якою щіткою.",
+            "groups": [
+                "The surface",
+                "was polished",
+                "with",
+                "a soft",
+                "brush."
+            ],
+            "answer": "with",
+            "options": [
+                "with",
+                "by",
+                "at"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Пропозицію оцінив фахівець.",
+            "target": "The proposal was evaluated by an expert.",
+            "uk": "Пропозицію оцінив фахівець.",
+            "hint_uk": "Пропозицію оцінив фахівець.",
+            "groups": [
+                "The proposal",
+                "was",
+                "evaluated",
+                "by an expert."
+            ],
+            "compose_slots": [
+                "The proposal",
+                "was",
+                "evaluated",
+                "by an expert."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "byagent"
+            ],
+            "display_synonyms": {
+                "evaluated": [
+                    "assessed"
+                ]
+            },
+            "accepted_targets": [
+                "The proposal was assessed by an expert."
+            ]
+        },
+        {
+            "id": "B1-c02",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Стовбур розкололи сокирою.",
+            "target": "The trunk was split with an axe.",
+            "uk": "Стовбур розкололи сокирою.",
+            "hint_uk": "Стовбур розкололи сокирою.",
+            "groups": [
+                "The trunk",
+                "was",
+                "split",
+                "with an axe."
+            ],
+            "compose_slots": [
+                "The trunk",
+                "was",
+                "split",
+                "with an axe."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "instrument"
+            ]
+        },
+        {
+            "id": "B1-c03",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Заяву відхилила комісія.",
+            "target": "The application was rejected by the panel.",
+            "uk": "Заяву відхилила комісія.",
+            "hint_uk": "Заяву відхилила комісія.",
+            "groups": [
+                "The application",
+                "was",
+                "rejected",
+                "by the panel."
+            ],
+            "compose_slots": [
+                "The application",
+                "was",
+                "rejected",
+                "by the panel."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "byagent"
+            ]
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The documentary was directed {a1} an independent filmmaker.",
+            "target": "The documentary was directed by an independent filmmaker.",
+            "uk": "Документальний фільм зняв незалежний режисер.",
+            "hint_uk": "Зняв незалежний режисер.",
+            "groups": [
+                "The documentary",
+                "was directed",
+                "by",
+                "an independent",
+                "filmmaker."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "from"
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The fracture was identified {a1} a portable scanner.",
+            "target": "The fracture was identified using a portable scanner.",
+            "uk": "Тріщину виявили, використовуючи портативний сканер.",
+            "hint_uk": "Виявили, використовуючи портативний сканер; потрібне слово зі значенням використання.",
+            "groups": [
+                "The fracture",
+                "was identified",
+                "using",
+                "a portable",
+                "scanner."
+            ],
+            "answer": "using",
+            "options": [
+                "using",
+                "despite",
+                "without"
+            ],
+            "answer_synonyms": [
+                "with",
+                "by"
+            ],
+            "accepted_targets": [
+                "The fracture was identified with a portable scanner.",
+                "The fracture was identified by a portable scanner."
+            ]
+        },
+        {
+            "id": "B2-g03",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The discrepancy was noticed {a1} an external auditor.",
+            "target": "The discrepancy was noticed by an external auditor.",
+            "uk": "Розбіжність помітив зовнішній аудитор.",
+            "hint_uk": "Помітив зовнішній аудитор.",
+            "groups": [
+                "The discrepancy",
+                "was noticed",
+                "by",
+                "an external",
+                "auditor."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "on"
+            ]
+        },
+        {
+            "id": "B2-g04",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The samples were handled {a1} sterile forceps.",
+            "target": "The samples were handled with sterile forceps.",
+            "uk": "Зразки брали стерильним пінцетом.",
+            "hint_uk": "Брали стерильним пінцетом.",
+            "groups": [
+                "The samples",
+                "were handled",
+                "with",
+                "sterile forceps."
+            ],
+            "answer": "with",
+            "options": [
+                "with",
+                "by",
+                "from"
+            ]
+        },
+        {
+            "id": "B2-g05",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The village was devastated {a1} a landslide.",
+            "target": "The village was devastated by a landslide.",
+            "uk": "Село спустошив зсув.",
+            "hint_uk": "Спустошив зсув; називаємо причину.",
+            "groups": [
+                "The village",
+                "was devastated",
+                "by",
+                "a landslide."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "at"
+            ]
+        },
+        {
+            "id": "B2-g06",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The archive was digitised {a1} a specialist team.",
+            "target": "The archive was digitised by a specialist team.",
+            "uk": "Архів оцифрувала спеціалізована команда.",
+            "hint_uk": "Оцифрувала спеціалізована команда.",
+            "groups": [
+                "The archive",
+                "was digitised",
+                "by",
+                "a specialist",
+                "team."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "in"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Справжність артефакту підтвердив архівіст.",
+            "target": "The artefact was authenticated by an archivist.",
+            "uk": "Справжність артефакту підтвердив архівіст.",
+            "hint_uk": "Справжність артефакту підтвердив архівіст.",
+            "groups": [
+                "The artefact",
+                "was",
+                "authenticated",
+                "by an archivist."
+            ],
+            "compose_slots": [
+                "The artefact",
+                "was",
+                "authenticated",
+                "by an archivist."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "byagent"
+            ],
+            "accepted_targets": [
+                "The artifact was authenticated by an archivist."
+            ],
+            "display_synonyms": {
+                "The artefact": [
+                    "The artifact"
+                ]
+            }
+        },
+        {
+            "id": "B2-c02",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Шов зміцнили голкою.",
+            "target": "The seam was reinforced with a needle.",
+            "uk": "Шов зміцнили голкою.",
+            "hint_uk": "Шов зміцнили голкою.",
+            "groups": [
+                "The seam",
+                "was",
+                "reinforced",
+                "with a needle."
+            ],
+            "compose_slots": [
+                "The seam",
+                "was",
+                "reinforced",
+                "with a needle."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "instrument"
+            ],
+            "display_synonyms": {
+                "reinforced": [
+                    "strengthened"
+                ]
+            },
+            "accepted_targets": [
+                "The seam was strengthened with a needle."
+            ]
+        },
+        {
+            "id": "B2-c03",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Судову заборону видав суддя.",
+            "target": "The injunction was issued by the judge.",
+            "uk": "Судову заборону видав суддя.",
+            "hint_uk": "Судову заборону видав суддя.",
+            "groups": [
+                "The injunction",
+                "was",
+                "issued",
+                "by the judge."
+            ],
+            "compose_slots": [
+                "The injunction",
+                "was",
+                "issued",
+                "by the judge."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "byagent"
+            ]
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The account was corroborated {a1} several independent witnesses.",
+            "target": "The account was corroborated by several independent witnesses.",
+            "uk": "Розповідь підтвердили кілька незалежних свідків.",
+            "hint_uk": "Підтвердили кілька незалежних свідків.",
+            "groups": [
+                "The account",
+                "was corroborated",
+                "by",
+                "several independent",
+                "witnesses."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "at"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The inscriptions were revealed {a1} multispectral imaging.",
+            "target": "The inscriptions were revealed using multispectral imaging.",
+            "uk": "Написи виявили, використовуючи багатоспектральне зображення.",
+            "hint_uk": "Виявили, використовуючи багатоспектральне зображення.",
+            "groups": [
+                "The inscriptions",
+                "were revealed",
+                "using",
+                "multispectral imaging."
+            ],
+            "answer": "using",
+            "options": [
+                "using",
+                "despite",
+                "without"
+            ],
+            "answer_synonyms": [
+                "with",
+                "by"
+            ],
+            "accepted_targets": [
+                "The inscriptions were revealed with multispectral imaging.",
+                "The inscriptions were revealed by multispectral imaging."
+            ]
+        },
+        {
+            "id": "C1-g03",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The presumption was rebutted {a1} documentary evidence.",
+            "target": "The presumption was rebutted by documentary evidence.",
+            "uk": "Презумпцію спростували документальні докази.",
+            "hint_uk": "Спростували документальні докази; докази виступають джерелом спростування.",
+            "groups": [
+                "The presumption",
+                "was rebutted",
+                "by",
+                "documentary evidence."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "on"
+            ]
+        },
+        {
+            "id": "C1-g04",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The tissue was dissected {a1} a microtome blade.",
+            "target": "The tissue was dissected with a microtome blade.",
+            "uk": "Тканину розрізали лезом мікротома.",
+            "hint_uk": "Розрізали лезом мікротома; називаємо інструмент.",
+            "groups": [
+                "The tissue",
+                "was dissected",
+                "with",
+                "a microtome",
+                "blade."
+            ],
+            "answer": "with",
+            "options": [
+                "with",
+                "by",
+                "from"
+            ]
+        },
+        {
+            "id": "C1-g05",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The negotiations were facilitated {a1} an impartial mediator.",
+            "target": "The negotiations were facilitated by an impartial mediator.",
+            "uk": "Переговорам сприяв неупереджений посередник.",
+            "hint_uk": "Сприяв неупереджений посередник.",
+            "groups": [
+                "The negotiations",
+                "were facilitated",
+                "by",
+                "an impartial",
+                "mediator."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "at"
+            ]
+        },
+        {
+            "id": "C1-g06",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The fresco was damaged {a1} prolonged exposure to moisture.",
+            "target": "The fresco was damaged by prolonged exposure to moisture.",
+            "uk": "Фреску пошкодив тривалий вплив вологи.",
+            "hint_uk": "Пошкодив тривалий вплив вологи.",
+            "groups": [
+                "The fresco",
+                "was damaged",
+                "by",
+                "prolonged exposure",
+                "to moisture."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "in"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Статут уклав комітет.",
+            "target": "The charter was drafted by the committee.",
+            "uk": "Статут уклав комітет.",
+            "hint_uk": "Статут уклав комітет.",
+            "groups": [
+                "The charter",
+                "was",
+                "drafted",
+                "by the committee."
+            ],
+            "compose_slots": [
+                "The charter",
+                "was",
+                "drafted",
+                "by the committee."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "byagent"
+            ]
+        },
+        {
+            "id": "C1-c02",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Зразок розрізали скальпелем.",
+            "target": "The specimen was sectioned with a scalpel.",
+            "uk": "Зразок розрізали скальпелем.",
+            "hint_uk": "Зразок розрізали скальпелем.",
+            "groups": [
+                "The specimen",
+                "was",
+                "sectioned",
+                "with a scalpel."
+            ],
+            "compose_slots": [
+                "The specimen",
+                "was",
+                "sectioned",
+                "with a scalpel."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "instrument"
+            ]
+        },
+        {
+            "id": "C1-c03",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Відмову від права дозволив реєстратор.",
+            "target": "The waiver was authorised by the registrar.",
+            "uk": "Відмову від права дозволив реєстратор.",
+            "hint_uk": "Відмову від права дозволив реєстратор.",
+            "groups": [
+                "The waiver",
+                "was",
+                "authorised",
+                "by the registrar."
+            ],
+            "compose_slots": [
+                "The waiver",
+                "was",
+                "authorised",
+                "by the registrar."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "byagent"
+            ]
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The interpretation was propounded {a1} a dissenting jurist.",
+            "target": "The interpretation was propounded by a dissenting jurist.",
+            "uk": "Тлумачення запропонував юрист з окремою позицією.",
+            "hint_uk": "Запропонував юрист з окремою позицією.",
+            "groups": [
+                "The interpretation",
+                "was propounded",
+                "by",
+                "a dissenting",
+                "jurist."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "at"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The palimpsest was deciphered {a1} hyperspectral reconstruction.",
+            "target": "The palimpsest was deciphered using hyperspectral reconstruction.",
+            "uk": "Палімпсест розшифрували, використовуючи гіперспектральну реконструкцію.",
+            "hint_uk": "Розшифрували, використовуючи гіперспектральну реконструкцію.",
+            "groups": [
+                "The palimpsest",
+                "was deciphered",
+                "using",
+                "hyperspectral reconstruction."
+            ],
+            "answer": "using",
+            "options": [
+                "using",
+                "despite",
+                "without"
+            ],
+            "answer_synonyms": [
+                "with",
+                "by"
+            ],
+            "accepted_targets": [
+                "The palimpsest was deciphered with hyperspectral reconstruction.",
+                "The palimpsest was deciphered by hyperspectral reconstruction."
+            ]
+        },
+        {
+            "id": "C2-g03",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The inference was undermined {a1} irreconcilable counterexamples.",
+            "target": "The inference was undermined by irreconcilable counterexamples.",
+            "uk": "Висновок похитнули несумісні з ним контрприклади.",
+            "hint_uk": "Похитнули несумісні з ним контрприклади.",
+            "groups": [
+                "The inference",
+                "was undermined",
+                "by",
+                "irreconcilable counterexamples."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "on"
+            ]
+        },
+        {
+            "id": "C2-g04",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The membrane was perforated {a1} a calibrated probe.",
+            "target": "The membrane was perforated with a calibrated probe.",
+            "uk": "Мембрану прокололи каліброваним зондом.",
+            "hint_uk": "Прокололи каліброваним зондом.",
+            "groups": [
+                "The membrane",
+                "was perforated",
+                "with",
+                "a calibrated",
+                "probe."
+            ],
+            "answer": "with",
+            "options": [
+                "with",
+                "by",
+                "from"
+            ]
+        },
+        {
+            "id": "C2-g05",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The doctrine was repudiated {a1} the appellate chamber.",
+            "target": "The doctrine was repudiated by the appellate chamber.",
+            "uk": "Доктрину відкинула апеляційна палата.",
+            "hint_uk": "Відкинула апеляційна палата.",
+            "groups": [
+                "The doctrine",
+                "was repudiated",
+                "by",
+                "the appellate",
+                "chamber."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "at"
+            ]
+        },
+        {
+            "id": "C2-g06",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The settlement was imperilled {a1} renewed hostilities.",
+            "target": "The settlement was imperilled by renewed hostilities.",
+            "uk": "Врегулювання поставило під загрозу поновлення бойових дій.",
+            "hint_uk": "Поставило під загрозу поновлення бойових дій.",
+            "groups": [
+                "The settlement",
+                "was imperilled",
+                "by",
+                "renewed hostilities."
+            ],
+            "answer": "by",
+            "options": [
+                "by",
+                "with",
+                "in"
+            ]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Документ оформив довірчий власник.",
+            "target": "The instrument was executed by the trustee.",
+            "uk": "Документ оформив довірчий власник.",
+            "hint_uk": "Документ оформив довірчий власник.",
+            "groups": [
+                "The instrument",
+                "was",
+                "executed",
+                "by the trustee."
+            ],
+            "compose_slots": [
+                "The instrument",
+                "was",
+                "executed",
+                "by the trustee."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "byagent"
+            ]
+        },
+        {
+            "id": "C2-c02",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Залишок видалили розчинником.",
+            "target": "The residue was removed with a solvent.",
+            "uk": "Залишок видалили розчинником.",
+            "hint_uk": "Залишок видалили розчинником.",
+            "groups": [
+                "The residue",
+                "was",
+                "removed",
+                "with a solvent."
+            ],
+            "compose_slots": [
+                "The residue",
+                "was",
+                "removed",
+                "with a solvent."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "instrument"
+            ]
+        },
+        {
+            "id": "C2-c03",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Поступки домігся посланець шляхом переговорів.",
+            "target": "The concession was negotiated by the envoy.",
+            "uk": "Поступки домігся посланець шляхом переговорів.",
+            "hint_uk": "Поступки домігся посланець шляхом переговорів.",
+            "groups": [
+                "The concession",
+                "was",
+                "negotiated",
+                "by the envoy."
+            ],
+            "compose_slots": [
+                "The concession",
+                "was",
+                "negotiated",
+                "by the envoy."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "byagent"
+            ]
+        }
+    ]
+}

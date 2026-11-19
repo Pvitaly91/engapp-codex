@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "release": "M65",
+  "technical_revision": "1.0.1",
+  "teaching_version": "1.0.0",
+  "scope": "Formatting-only EOF correction and exclusive source parity receipt rollover; no content, UI, grading, question or SQL changes",
+  "changes": [
+    {
+      "path": "app/Support/M65PurposeGerundInfinitivePackage.php",
+      "before_sha256": "d95d6fc65b99b8b5d0264d74b600ac9ff7311f4759e144f8ddca53adf53937a3",
+      "after_sha256": "23b62621bfb5769ae02f3c8455426929e02f249634cb43be696c0d41718b5572",
+      "exact_diff": "Remove exactly one final empty line; source ends in one LF."
+    },
+    {
+      "path": "app/Services/M65ContentPatch.php",
+      "before_sha256": "499c94b0822da612ebd2d1441caa4c30824a8bb1bd1b66b480b10f9687374fa6",
+      "after_sha256": "02cb20b768afd0e7fb2b4f8567870e934918e7dcbc067d2560f811b4d2731dd8",
+      "exact_diff": "public const SYNC_RECEIPT: source-sync-v1.json -> source-sync-v2.json; original v1 evidence retained."
+    }
+  ],
+  "teaching_master_sha256": "c42c6a24735731b1a958a5aaa173b92a32e2b9f7a883274e8d4110d165706c98",
+  "postconditions_policy": "M65-specific finite literal predecessor/successor pairs only; all other original preview sources remain exact. Existing shared diagnostics/guards unchanged.",
+  "frozen_history": "M63/M64 evidence and frozen teaching bytes are not edited."
+}

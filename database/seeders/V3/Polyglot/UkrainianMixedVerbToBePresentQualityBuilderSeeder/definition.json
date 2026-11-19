@@ -1,0 +1,4411 @@
+{
+    "schema_version": 1,
+    "quality_revision": "verb-to-be-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-to-be-quality/present.v1.json",
+        "sha256": "79618d1d12f1dfe7ecb5eec57df2a5e7a7c525b0399ec358297a3f902a0592cf"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedVerbToBePresentQualityBuilderSeeder",
+        "uuid_namespace": "verb-to-be-quality-present-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "verb_to_be_quality_present": {
+            "name": "Verb to Be Quality: Теперішні форми дієслова бути"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_verb_to_be_present": {
+            "name": "Verb to Be: Present Forms",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_verb_to_be_present"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "beq-present-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Кошеня на дивані.",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Кошеня на дивані.",
+            "target_text": "The kitten is on the sofa.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Назви вже відоме кошеня, теперішню форму «бути» та місце на дивані.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "kitten",
+                    "verb_hint": "Назви вже відоме кошеня, теперішню форму «бути» та місце на дивані.",
+                    "options": [
+                        "kitten",
+                        "kitchen",
+                        "gave",
+                        "made"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Назви вже відоме кошеня, теперішню форму «бути» та місце на дивані.",
+                    "options": [
+                        "is",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "on",
+                    "verb_hint": "Назви вже відоме кошеня, теперішню форму «бути» та місце на дивані.",
+                    "options": [
+                        "on",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Назви вже відоме кошеня, теперішню форму «бути» та місце на дивані.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a6": {
+                    "answer": "sofa.",
+                    "verb_hint": "Назви вже відоме кошеня, теперішню форму «бути» та місце на дивані.",
+                    "options": [
+                        "sofa",
+                        "room",
+                        "map",
+                        "letter"
+                    ]
+                }
+            },
+            "verb_hint": "Назви вже відоме кошеня, теперішню форму «бути» та місце на дивані.",
+            "accepted_target_texts": [
+                "The kitten is on the sofa.",
+                "The kitten is on the couch."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "couch."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "couch."
+                ]
+            },
+            "reorder_groups": [
+                "The kitten",
+                "is",
+                "on the sofa."
+            ],
+            "token_groups": [
+                "The kitten",
+                "is",
+                "on the sofa."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "kitten",
+                "is",
+                "on",
+                "the",
+                "sofa."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "kitten",
+                "kitchen",
+                "gave",
+                "made",
+                "is",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "on",
+                "at",
+                "by",
+                "with",
+                "the",
+                "that",
+                "these",
+                "those",
+                "sofa",
+                "room",
+                "map",
+                "letter"
+            ],
+            "source_text_uk": "Кошеня на дивані.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "kitten",
+                    "kitchen",
+                    "gave",
+                    "made"
+                ],
+                "a3": [
+                    "is",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a4": [
+                    "on",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a5": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a6": [
+                    "sofa",
+                    "room",
+                    "map",
+                    "letter"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "beq-present-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Наші двоюрідні брати голодні.",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Наші двоюрідні брати голодні.",
+            "target_text": "Our cousins are hungry.",
+            "markers": {
+                "a1": {
+                    "answer": "Our",
+                    "verb_hint": "Почни з наших двоюрідних братів; передай теперішній стан «голодні».",
+                    "options": [
+                        "Our",
+                        "Yours",
+                        "Hers",
+                        "Ours"
+                    ]
+                },
+                "a2": {
+                    "answer": "cousins",
+                    "verb_hint": "Почни з наших двоюрідних братів; передай теперішній стан «голодні».",
+                    "options": [
+                        "cousins",
+                        "people",
+                        "men",
+                        "women"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Почни з наших двоюрідних братів; передай теперішній стан «голодні».",
+                    "options": [
+                        "are",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a4": {
+                    "answer": "hungry.",
+                    "verb_hint": "Почни з наших двоюрідних братів; передай теперішній стан «голодні».",
+                    "options": [
+                        "hungry",
+                        "happy",
+                        "sad",
+                        "easy"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з наших двоюрідних братів; передай теперішній стан «голодні».",
+            "accepted_target_texts": [
+                "Our cousins are hungry."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our cousins",
+                "are",
+                "hungry."
+            ],
+            "token_groups": [
+                "Our cousins",
+                "are",
+                "hungry."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Our",
+                "cousins",
+                "are",
+                "hungry."
+            ],
+            "options": [
+                "Our",
+                "Yours",
+                "Hers",
+                "Ours",
+                "cousins",
+                "people",
+                "men",
+                "women",
+                "are",
+                "wasn't",
+                "weren't",
+                "am",
+                "hungry",
+                "happy",
+                "sad",
+                "easy"
+            ],
+            "source_text_uk": "Наші двоюрідні брати голодні.",
+            "options_by_marker": {
+                "a1": [
+                    "Our",
+                    "Yours",
+                    "Hers",
+                    "Ours"
+                ],
+                "a2": [
+                    "cousins",
+                    "people",
+                    "men",
+                    "women"
+                ],
+                "a3": [
+                    "are",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a4": [
+                    "hungry",
+                    "happy",
+                    "sad",
+                    "easy"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "beq-present-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Я на кухні.",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Я на кухні.",
+            "target_text": "I am in the kitchen.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни із займенника мовця й назви місце — кухню.",
+                    "options": [
+                        "I",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "am",
+                    "verb_hint": "Почни із займенника мовця й назви місце — кухню.",
+                    "options": [
+                        "am",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a3": {
+                    "answer": "in",
+                    "verb_hint": "Почни із займенника мовця й назви місце — кухню.",
+                    "options": [
+                        "in",
+                        "of",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни із займенника мовця й назви місце — кухню.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "kitchen.",
+                    "verb_hint": "Почни із займенника мовця й назви місце — кухню.",
+                    "options": [
+                        "kitchen",
+                        "kitten",
+                        "cooked",
+                        "found"
+                    ]
+                }
+            },
+            "verb_hint": "Почни із займенника мовця й назви місце — кухню.",
+            "accepted_target_texts": [
+                "I am in the kitchen."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "am",
+                "in the kitchen."
+            ],
+            "token_groups": [
+                "I",
+                "am",
+                "in the kitchen."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "I",
+                "am",
+                "in",
+                "the",
+                "kitchen."
+            ],
+            "options": [
+                "I",
+                "They",
+                "Me",
+                "Him",
+                "am",
+                "were",
+                "be",
+                "been",
+                "in",
+                "of",
+                "on",
+                "at",
+                "the",
+                "every",
+                "no",
+                "another",
+                "kitchen",
+                "kitten",
+                "cooked",
+                "found"
+            ],
+            "source_text_uk": "Я на кухні.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "am",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a3": [
+                    "in",
+                    "of",
+                    "on",
+                    "at"
+                ],
+                "a4": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "kitchen",
+                    "kitten",
+                    "cooked",
+                    "found"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "beq-present-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Стійка реєстрації поруч зі сходами.",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Стійка реєстрації поруч зі сходами.",
+            "target_text": "The reception desk is next to the stairs.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни зі стійки реєстрації та назви її місце поруч зі сходами.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "reception",
+                    "verb_hint": "Почни зі стійки реєстрації та назви її місце поруч зі сходами.",
+                    "options": [
+                        "reception",
+                        "April",
+                        "proud",
+                        "progress"
+                    ]
+                },
+                "a3": {
+                    "answer": "desk",
+                    "verb_hint": "Почни зі стійки реєстрації та назви її місце поруч зі сходами.",
+                    "options": [
+                        "desk",
+                        "weather",
+                        "rather",
+                        "bike"
+                    ]
+                },
+                "a4": {
+                    "answer": "is",
+                    "verb_hint": "Почни зі стійки реєстрації та назви її місце поруч зі сходами.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a5": {
+                    "answer": "next",
+                    "verb_hint": "Почни зі стійки реєстрації та назви її місце поруч зі сходами.",
+                    "options": [
+                        "next",
+                        "phone",
+                        "train",
+                        "bus"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Почни зі стійки реєстрації та назви її місце поруч зі сходами.",
+                    "options": [
+                        "to",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни зі стійки реєстрації та назви її місце поруч зі сходами.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "every"
+                    ]
+                },
+                "a8": {
+                    "answer": "stairs.",
+                    "verb_hint": "Почни зі стійки реєстрації та назви її місце поруч зі сходами.",
+                    "options": [
+                        "stairs",
+                        "parents",
+                        "cars",
+                        "bags"
+                    ]
+                }
+            },
+            "verb_hint": "Почни зі стійки реєстрації та назви її місце поруч зі сходами.",
+            "accepted_target_texts": [
+                "The reception desk is next to the stairs.",
+                "The front desk is next to the stairs."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "front"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "front"
+                ]
+            },
+            "reorder_groups": [
+                "The reception desk",
+                "is",
+                "next to",
+                "the stairs."
+            ],
+            "token_groups": [
+                "The reception desk",
+                "is",
+                "next to",
+                "the stairs."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "reception",
+                "desk",
+                "is",
+                "next",
+                "to",
+                "the",
+                "stairs."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "reception",
+                "April",
+                "proud",
+                "progress",
+                "desk",
+                "weather",
+                "rather",
+                "bike",
+                "is",
+                "was",
+                "were",
+                "be",
+                "next",
+                "phone",
+                "train",
+                "bus",
+                "to",
+                "of",
+                "in",
+                "on",
+                "the",
+                "this",
+                "that",
+                "every",
+                "stairs",
+                "parents",
+                "cars",
+                "bags"
+            ],
+            "source_text_uk": "Стійка реєстрації поруч зі сходами.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "reception",
+                    "April",
+                    "proud",
+                    "progress"
+                ],
+                "a3": [
+                    "desk",
+                    "weather",
+                    "rather",
+                    "bike"
+                ],
+                "a4": [
+                    "is",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a5": [
+                    "next",
+                    "phone",
+                    "train",
+                    "bus"
+                ],
+                "a6": [
+                    "to",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a7": [
+                    "the",
+                    "this",
+                    "that",
+                    "every"
+                ],
+                "a8": [
+                    "stairs",
+                    "parents",
+                    "cars",
+                    "bags"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "beq-present-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Мої батьки пишаються моїми успіхами.",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Мої батьки пишаються моїми успіхами.",
+            "target_text": "My parents are proud of my progress.",
+            "markers": {
+                "a1": {
+                    "answer": "My",
+                    "verb_hint": "Передай теперішній стан гордості батьків і збережи причину цього стану.",
+                    "options": [
+                        "My",
+                        "Hers",
+                        "Ours",
+                        "Theirs"
+                    ]
+                },
+                "a2": {
+                    "answer": "parents",
+                    "verb_hint": "Передай теперішній стан гордості батьків і збережи причину цього стану.",
+                    "options": [
+                        "parents",
+                        "stairs",
+                        "schools",
+                        "friends"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Передай теперішній стан гордості батьків і збережи причину цього стану.",
+                    "options": [
+                        "are",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "proud",
+                    "verb_hint": "Передай теперішній стан гордості батьків і збережи причину цього стану.",
+                    "options": [
+                        "proud",
+                        "next",
+                        "weather",
+                        "rather"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Передай теперішній стан гордості батьків і збережи причину цього стану.",
+                    "options": [
+                        "of",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a6": {
+                    "answer": "my",
+                    "verb_hint": "Передай теперішній стан гордості батьків і збережи причину цього стану.",
+                    "options": [
+                        "my",
+                        "whose",
+                        "your",
+                        "his"
+                    ]
+                },
+                "a7": {
+                    "answer": "progress.",
+                    "verb_hint": "Передай теперішній стан гордості батьків і збережи причину цього стану.",
+                    "options": [
+                        "progress",
+                        "desk",
+                        "April",
+                        "reception"
+                    ]
+                }
+            },
+            "verb_hint": "Передай теперішній стан гордості батьків і збережи причину цього стану.",
+            "accepted_target_texts": [
+                "My parents are proud of my progress."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My parents",
+                "are",
+                "proud of",
+                "my progress."
+            ],
+            "token_groups": [
+                "My parents",
+                "are",
+                "proud of",
+                "my progress."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "My",
+                "parents",
+                "are",
+                "proud",
+                "of",
+                "my",
+                "progress."
+            ],
+            "options": [
+                "My",
+                "Hers",
+                "Ours",
+                "Theirs",
+                "parents",
+                "stairs",
+                "schools",
+                "friends",
+                "are",
+                "being",
+                "isn't",
+                "aren't",
+                "proud",
+                "next",
+                "weather",
+                "rather",
+                "of",
+                "with",
+                "without",
+                "into",
+                "my",
+                "whose",
+                "your",
+                "his",
+                "progress",
+                "desk",
+                "April",
+                "reception"
+            ],
+            "source_text_uk": "Мої батьки пишаються моїми успіхами.",
+            "options_by_marker": {
+                "a1": [
+                    "My",
+                    "Hers",
+                    "Ours",
+                    "Theirs"
+                ],
+                "a2": [
+                    "parents",
+                    "stairs",
+                    "schools",
+                    "friends"
+                ],
+                "a3": [
+                    "are",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a4": [
+                    "proud",
+                    "next",
+                    "weather",
+                    "rather"
+                ],
+                "a5": [
+                    "of",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a6": [
+                    "my",
+                    "whose",
+                    "your",
+                    "his"
+                ],
+                "a7": [
+                    "progress",
+                    "desk",
+                    "April",
+                    "reception"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "beq-present-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Погода досить холодна для квітня.",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Погода досить холодна для квітня.",
+            "target_text": "The weather is rather cold for April.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з погоди й збережи порівняння зі звичайною квітневою погодою.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "weather",
+                    "verb_hint": "Почни з погоди й збережи порівняння зі звичайною квітневою погодою.",
+                    "options": [
+                        "weather",
+                        "proud",
+                        "progress",
+                        "reception"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Почни з погоди й збережи порівняння зі звичайною квітневою погодою.",
+                    "options": [
+                        "is",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a4": {
+                    "answer": "rather",
+                    "verb_hint": "Почни з погоди й збережи порівняння зі звичайною квітневою погодою.",
+                    "options": [
+                        "rather",
+                        "desk",
+                        "next",
+                        "chair"
+                    ]
+                },
+                "a5": {
+                    "answer": "cold",
+                    "verb_hint": "Почни з погоди й збережи порівняння зі звичайною квітневою погодою.",
+                    "options": [
+                        "cold",
+                        "final",
+                        "small",
+                        "large"
+                    ]
+                },
+                "a6": {
+                    "answer": "for",
+                    "verb_hint": "Почни з погоди й збережи порівняння зі звичайною квітневою погодою.",
+                    "options": [
+                        "for",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a7": {
+                    "answer": "April.",
+                    "verb_hint": "Почни з погоди й збережи порівняння зі звичайною квітневою погодою.",
+                    "options": [
+                        "April",
+                        "Room",
+                        "Map",
+                        "Letter"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з погоди й збережи порівняння зі звичайною квітневою погодою.",
+            "accepted_target_texts": [
+                "The weather is rather cold for April."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The weather",
+                "is",
+                "rather cold",
+                "for April."
+            ],
+            "token_groups": [
+                "The weather",
+                "is",
+                "rather cold",
+                "for April."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "weather",
+                "is",
+                "rather",
+                "cold",
+                "for",
+                "April."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "weather",
+                "proud",
+                "progress",
+                "reception",
+                "is",
+                "be",
+                "been",
+                "being",
+                "rather",
+                "desk",
+                "next",
+                "chair",
+                "cold",
+                "final",
+                "small",
+                "large",
+                "for",
+                "with",
+                "without",
+                "into",
+                "April",
+                "Room",
+                "Map",
+                "Letter"
+            ],
+            "source_text_uk": "Погода досить холодна для квітня.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "weather",
+                    "proud",
+                    "progress",
+                    "reception"
+                ],
+                "a3": [
+                    "is",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a4": [
+                    "rather",
+                    "desk",
+                    "next",
+                    "chair"
+                ],
+                "a5": [
+                    "cold",
+                    "final",
+                    "small",
+                    "large"
+                ],
+                "a6": [
+                    "for",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a7": [
+                    "April",
+                    "Room",
+                    "Map",
+                    "Letter"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "beq-present-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Причина затримки — зламаний ліфт.",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Причина затримки — зламаний ліфт.",
+            "target_text": "The reason for the delay is a broken lift.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з причини затримки й назви зламаний ліфт як її пояснення.",
+                    "options": [
+                        "The",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "reason",
+                    "verb_hint": "Почни з причини затримки й назви зламаний ліфт як її пояснення.",
+                    "options": [
+                        "reason",
+                        "away",
+                        "important",
+                        "keep"
+                    ]
+                },
+                "a3": {
+                    "answer": "for",
+                    "verb_hint": "Почни з причини затримки й назви зламаний ліфт як її пояснення.",
+                    "options": [
+                        "for",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з причини затримки й назви зламаний ліфт як її пояснення.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a5": {
+                    "answer": "delay",
+                    "verb_hint": "Почни з причини затримки й назви зламаний ліфт як її пояснення.",
+                    "options": [
+                        "delay",
+                        "entrance",
+                        "music",
+                        "food"
+                    ]
+                },
+                "a6": {
+                    "answer": "is",
+                    "verb_hint": "Почни з причини затримки й назви зламаний ліфт як її пояснення.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Почни з причини затримки й назви зламаний ліфт як її пояснення.",
+                    "options": [
+                        "a",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a8": {
+                    "answer": "broken",
+                    "verb_hint": "Почни з причини затримки й назви зламаний ліфт як її пояснення.",
+                    "options": [
+                        "broken",
+                        "needed",
+                        "liked",
+                        "wanted"
+                    ]
+                },
+                "a9": {
+                    "answer": "lift.",
+                    "verb_hint": "Почни з причини затримки й назви зламаний ліфт як її пояснення.",
+                    "options": [
+                        "lift",
+                        "map",
+                        "letter",
+                        "window"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з причини затримки й назви зламаний ліфт як її пояснення.",
+            "accepted_target_texts": [
+                "The reason for the delay is a broken lift.",
+                "The reason for the delay is a broken elevator."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "elevator."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "elevator."
+                ]
+            },
+            "reorder_groups": [
+                "The reason",
+                "for the delay",
+                "is",
+                "a broken lift."
+            ],
+            "token_groups": [
+                "The reason",
+                "for the delay",
+                "is",
+                "a broken lift."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "reason",
+                "for",
+                "the",
+                "delay",
+                "is",
+                "a",
+                "broken",
+                "lift."
+            ],
+            "options": [
+                "The",
+                "This",
+                "That",
+                "These",
+                "reason",
+                "away",
+                "important",
+                "keep",
+                "for",
+                "between",
+                "among",
+                "about",
+                "the",
+                "an",
+                "some",
+                "any",
+                "delay",
+                "entrance",
+                "music",
+                "food",
+                "is",
+                "was",
+                "were",
+                "be",
+                "a",
+                "those",
+                "each",
+                "every",
+                "broken",
+                "needed",
+                "liked",
+                "wanted",
+                "lift",
+                "map",
+                "letter",
+                "window"
+            ],
+            "source_text_uk": "Причина затримки — зламаний ліфт.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "reason",
+                    "away",
+                    "important",
+                    "keep"
+                ],
+                "a3": [
+                    "for",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a4": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a5": [
+                    "delay",
+                    "entrance",
+                    "music",
+                    "food"
+                ],
+                "a6": [
+                    "is",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a7": [
+                    "a",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a8": [
+                    "broken",
+                    "needed",
+                    "liked",
+                    "wanted"
+                ],
+                "a9": [
+                    "lift",
+                    "map",
+                    "letter",
+                    "window"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "beq-present-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Наших сусідів цього тижня немає вдома.",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Наших сусідів цього тижня немає вдома.",
+            "target_text": "Our neighbours are away this week.",
+            "markers": {
+                "a1": {
+                    "answer": "Our",
+                    "verb_hint": "Передай тимчасову відсутність сусідів протягом названого тижня.",
+                    "options": [
+                        "Our",
+                        "Its",
+                        "Their",
+                        "Mine"
+                    ]
+                },
+                "a2": {
+                    "answer": "neighbours",
+                    "verb_hint": "Передай тимчасову відсутність сусідів протягом названого тижня.",
+                    "options": [
+                        "neighbours",
+                        "tables",
+                        "tickets",
+                        "cups"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Передай тимчасову відсутність сусідів протягом названого тижня.",
+                    "options": [
+                        "are",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a4": {
+                    "answer": "away",
+                    "verb_hint": "Передай тимчасову відсутність сусідів протягом названого тижня.",
+                    "options": [
+                        "away",
+                        "entrance",
+                        "reason",
+                        "delay"
+                    ]
+                },
+                "a5": {
+                    "answer": "this",
+                    "verb_hint": "Передай тимчасову відсутність сусідів протягом названого тижня.",
+                    "options": [
+                        "this",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a6": {
+                    "answer": "week.",
+                    "verb_hint": "Передай тимчасову відсутність сусідів протягом названого тижня.",
+                    "options": [
+                        "week",
+                        "night",
+                        "day",
+                        "month"
+                    ]
+                }
+            },
+            "verb_hint": "Передай тимчасову відсутність сусідів протягом названого тижня.",
+            "accepted_target_texts": [
+                "Our neighbours are away this week.",
+                "Our neighbors are away this week."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "neighbors"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "neighbors"
+                ]
+            },
+            "reorder_groups": [
+                "Our neighbours",
+                "are",
+                "away this week."
+            ],
+            "token_groups": [
+                "Our neighbours",
+                "are",
+                "away this week."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Our",
+                "neighbours",
+                "are",
+                "away",
+                "this",
+                "week."
+            ],
+            "options": [
+                "Our",
+                "Its",
+                "Their",
+                "Mine",
+                "neighbours",
+                "tables",
+                "tickets",
+                "cups",
+                "are",
+                "was",
+                "were",
+                "be",
+                "away",
+                "entrance",
+                "reason",
+                "delay",
+                "this",
+                "that",
+                "these",
+                "those",
+                "week",
+                "night",
+                "day",
+                "month"
+            ],
+            "source_text_uk": "Наших сусідів цього тижня немає вдома.",
+            "options_by_marker": {
+                "a1": [
+                    "Our",
+                    "Its",
+                    "Their",
+                    "Mine"
+                ],
+                "a2": [
+                    "neighbours",
+                    "tables",
+                    "tickets",
+                    "cups"
+                ],
+                "a3": [
+                    "are",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a4": [
+                    "away",
+                    "entrance",
+                    "reason",
+                    "delay"
+                ],
+                "a5": [
+                    "this",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a6": [
+                    "week",
+                    "night",
+                    "day",
+                    "month"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "beq-present-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Важливо не захаращувати вхід.",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Важливо не захаращувати вхід.",
+            "target_text": "It is important to keep the entrance clear.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Використай формальний підмет і передай важливість вільного входу.",
+                    "options": [
+                        "It",
+                        "She",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Використай формальний підмет і передай важливість вільного входу.",
+                    "options": [
+                        "is",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a3": {
+                    "answer": "important",
+                    "verb_hint": "Використай формальний підмет і передай важливість вільного входу.",
+                    "options": [
+                        "important",
+                        "lift",
+                        "away",
+                        "reason"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Використай формальний підмет і передай важливість вільного входу.",
+                    "options": [
+                        "to",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a5": {
+                    "answer": "keep",
+                    "verb_hint": "Використай формальний підмет і передай важливість вільного входу.",
+                    "options": [
+                        "keep",
+                        "delay",
+                        "table",
+                        "ticket"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Використай формальний підмет і передай важливість вільного входу.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "entrance",
+                    "verb_hint": "Використай формальний підмет і передай важливість вільного входу.",
+                    "options": [
+                        "entrance",
+                        "food",
+                        "bike",
+                        "car"
+                    ]
+                },
+                "a8": {
+                    "answer": "clear.",
+                    "verb_hint": "Використай формальний підмет і передай важливість вільного входу.",
+                    "options": [
+                        "clear",
+                        "different",
+                        "simple",
+                        "happy"
+                    ]
+                }
+            },
+            "verb_hint": "Використай формальний підмет і передай важливість вільного входу.",
+            "accepted_target_texts": [
+                "It is important to keep the entrance clear."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It",
+                "is",
+                "important to keep",
+                "the entrance clear."
+            ],
+            "token_groups": [
+                "It",
+                "is",
+                "important to keep",
+                "the entrance clear."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "It",
+                "is",
+                "important",
+                "to",
+                "keep",
+                "the",
+                "entrance",
+                "clear."
+            ],
+            "options": [
+                "It",
+                "She",
+                "We",
+                "They",
+                "is",
+                "being",
+                "isn't",
+                "aren't",
+                "important",
+                "lift",
+                "away",
+                "reason",
+                "to",
+                "through",
+                "across",
+                "between",
+                "keep",
+                "delay",
+                "table",
+                "ticket",
+                "the",
+                "some",
+                "any",
+                "this",
+                "entrance",
+                "food",
+                "bike",
+                "car",
+                "clear",
+                "different",
+                "simple",
+                "happy"
+            ],
+            "source_text_uk": "Важливо не захаращувати вхід.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "She",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "is",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a3": [
+                    "important",
+                    "lift",
+                    "away",
+                    "reason"
+                ],
+                "a4": [
+                    "to",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a5": [
+                    "keep",
+                    "delay",
+                    "table",
+                    "ticket"
+                ],
+                "a6": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "entrance",
+                    "food",
+                    "bike",
+                    "car"
+                ],
+                "a8": [
+                    "clear",
+                    "different",
+                    "simple",
+                    "happy"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "beq-present-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Висновки незалежної перевірки не дають однозначної відповіді.",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Висновки незалежної перевірки не дають однозначної відповіді.",
+            "target_text": "The findings of the independent review are inconclusive.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з висновків незалежної перевірки й передай, що вони не дають однозначної відповіді.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "findings",
+                    "verb_hint": "Почни з висновків незалежної перевірки й передай, що вони не дають однозначної відповіді.",
+                    "options": [
+                        "findings",
+                        "cats",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Почни з висновків незалежної перевірки й передай, що вони не дають однозначної відповіді.",
+                    "options": [
+                        "of",
+                        "for",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з висновків незалежної перевірки й передай, що вони не дають однозначної відповіді.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "independent",
+                    "verb_hint": "Почни з висновків незалежної перевірки й передай, що вони не дають однозначної відповіді.",
+                    "options": [
+                        "independent",
+                        "proposal",
+                        "sound",
+                        "principle"
+                    ]
+                },
+                "a6": {
+                    "answer": "review",
+                    "verb_hint": "Почни з висновків незалежної перевірки й передай, що вони не дають однозначної відповіді.",
+                    "options": [
+                        "review",
+                        "implement",
+                        "responsibility",
+                        "ensure"
+                    ]
+                },
+                "a7": {
+                    "answer": "are",
+                    "verb_hint": "Почни з висновків незалежної перевірки й передай, що вони не дають однозначної відповіді.",
+                    "options": [
+                        "are",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a8": {
+                    "answer": "inconclusive.",
+                    "verb_hint": "Почни з висновків незалежної перевірки й передай, що вони не дають однозначної відповіді.",
+                    "options": [
+                        "inconclusive",
+                        "difficult",
+                        "dark",
+                        "heavy"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з висновків незалежної перевірки й передай, що вони не дають однозначної відповіді.",
+            "accepted_target_texts": [
+                "The findings of the independent review are inconclusive."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The findings",
+                "of the independent",
+                "review are",
+                "inconclusive."
+            ],
+            "token_groups": [
+                "The findings",
+                "of the independent",
+                "review are",
+                "inconclusive."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "findings",
+                "of",
+                "the",
+                "independent",
+                "review",
+                "are",
+                "inconclusive."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "findings",
+                "cats",
+                "people",
+                "men",
+                "of",
+                "for",
+                "in",
+                "on",
+                "the",
+                "both",
+                "a",
+                "an",
+                "independent",
+                "proposal",
+                "sound",
+                "principle",
+                "review",
+                "implement",
+                "responsibility",
+                "ensure",
+                "are",
+                "was",
+                "were",
+                "be",
+                "inconclusive",
+                "difficult",
+                "dark",
+                "heavy"
+            ],
+            "source_text_uk": "Висновки незалежної перевірки не дають однозначної відповіді.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "findings",
+                    "cats",
+                    "people",
+                    "men"
+                ],
+                "a3": [
+                    "of",
+                    "for",
+                    "in",
+                    "on"
+                ],
+                "a4": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a5": [
+                    "independent",
+                    "proposal",
+                    "sound",
+                    "principle"
+                ],
+                "a6": [
+                    "review",
+                    "implement",
+                    "responsibility",
+                    "ensure"
+                ],
+                "a7": [
+                    "are",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a8": [
+                    "inconclusive",
+                    "difficult",
+                    "dark",
+                    "heavy"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "beq-present-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Саме ти відповідаєш за забезпечення рівного доступу.",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Саме ти відповідаєш за забезпечення рівного доступу.",
+            "target_text": "It is your responsibility to ensure equal access.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Використай формальний початок і передай особисту відповідальність за рівний доступ.",
+                    "options": [
+                        "It",
+                        "We",
+                        "They",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Використай формальний початок і передай особисту відповідальність за рівний доступ.",
+                    "options": [
+                        "is",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a3": {
+                    "answer": "your",
+                    "verb_hint": "Використай формальний початок і передай особисту відповідальність за рівний доступ.",
+                    "options": [
+                        "your",
+                        "hers",
+                        "ours",
+                        "theirs"
+                    ]
+                },
+                "a4": {
+                    "answer": "responsibility",
+                    "verb_hint": "Використай формальний початок і передай особисту відповідальність за рівний доступ.",
+                    "options": [
+                        "responsibility",
+                        "proposal",
+                        "sound",
+                        "principle"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Використай формальний початок і передай особисту відповідальність за рівний доступ.",
+                    "options": [
+                        "to",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a6": {
+                    "answer": "ensure",
+                    "verb_hint": "Використай формальний початок і передай особисту відповідальність за рівний доступ.",
+                    "options": [
+                        "ensure",
+                        "implement",
+                        "independent",
+                        "review"
+                    ]
+                },
+                "a7": {
+                    "answer": "equal",
+                    "verb_hint": "Використай формальний початок і передай особисту відповідальність за рівний доступ.",
+                    "options": [
+                        "equal",
+                        "bus",
+                        "desk",
+                        "picture"
+                    ]
+                },
+                "a8": {
+                    "answer": "access.",
+                    "verb_hint": "Використай формальний початок і передай особисту відповідальність за рівний доступ.",
+                    "options": [
+                        "access",
+                        "bike",
+                        "car",
+                        "bag"
+                    ]
+                }
+            },
+            "verb_hint": "Використай формальний початок і передай особисту відповідальність за рівний доступ.",
+            "accepted_target_texts": [
+                "It is your responsibility to ensure equal access."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "your responsibility",
+                "to ensure",
+                "equal access."
+            ],
+            "token_groups": [
+                "It is",
+                "your responsibility",
+                "to ensure",
+                "equal access."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "It",
+                "is",
+                "your",
+                "responsibility",
+                "to",
+                "ensure",
+                "equal",
+                "access."
+            ],
+            "options": [
+                "It",
+                "We",
+                "They",
+                "Me",
+                "is",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "your",
+                "hers",
+                "ours",
+                "theirs",
+                "responsibility",
+                "proposal",
+                "sound",
+                "principle",
+                "to",
+                "by",
+                "with",
+                "without",
+                "ensure",
+                "implement",
+                "independent",
+                "review",
+                "equal",
+                "bus",
+                "desk",
+                "picture",
+                "access",
+                "bike",
+                "car",
+                "bag"
+            ],
+            "source_text_uk": "Саме ти відповідаєш за забезпечення рівного доступу.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "We",
+                    "They",
+                    "Me"
+                ],
+                "a2": [
+                    "is",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a3": [
+                    "your",
+                    "hers",
+                    "ours",
+                    "theirs"
+                ],
+                "a4": [
+                    "responsibility",
+                    "proposal",
+                    "sound",
+                    "principle"
+                ],
+                "a5": [
+                    "to",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a6": [
+                    "ensure",
+                    "implement",
+                    "independent",
+                    "review"
+                ],
+                "a7": [
+                    "equal",
+                    "bus",
+                    "desk",
+                    "picture"
+                ],
+                "a8": [
+                    "access",
+                    "bike",
+                    "car",
+                    "bag"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "beq-present-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Пропозиція обґрунтована в принципі, але її важко втілити.",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Пропозиція обґрунтована в принципі, але її важко втілити.",
+            "target_text": "The proposal is sound in principle but difficult to implement.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи протиставлення обґрунтованості й труднощів утілення.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "proposal",
+                    "verb_hint": "Збережи протиставлення обґрунтованості й труднощів утілення.",
+                    "options": [
+                        "proposal",
+                        "access",
+                        "independent",
+                        "review"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Збережи протиставлення обґрунтованості й труднощів утілення.",
+                    "options": [
+                        "is",
+                        "weren't",
+                        "am",
+                        "are"
+                    ]
+                },
+                "a4": {
+                    "answer": "sound",
+                    "verb_hint": "Збережи протиставлення обґрунтованості й труднощів утілення.",
+                    "options": [
+                        "sound",
+                        "responsibility",
+                        "ensure",
+                        "equal"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Збережи протиставлення обґрунтованості й труднощів утілення.",
+                    "options": [
+                        "in",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a6": {
+                    "answer": "principle",
+                    "verb_hint": "Збережи протиставлення обґрунтованості й труднощів утілення.",
+                    "options": [
+                        "principle",
+                        "window",
+                        "phone",
+                        "train"
+                    ]
+                },
+                "a7": {
+                    "answer": "but",
+                    "verb_hint": "Збережи протиставлення обґрунтованості й труднощів утілення.",
+                    "options": [
+                        "but",
+                        "nor",
+                        "so",
+                        "yet"
+                    ]
+                },
+                "a8": {
+                    "answer": "difficult",
+                    "verb_hint": "Збережи протиставлення обґрунтованості й труднощів утілення.",
+                    "options": [
+                        "difficult",
+                        "inconclusive",
+                        "bad",
+                        "friendly"
+                    ]
+                },
+                "a9": {
+                    "answer": "to",
+                    "verb_hint": "Збережи протиставлення обґрунтованості й труднощів утілення.",
+                    "options": [
+                        "to",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a10": {
+                    "answer": "implement.",
+                    "verb_hint": "Збережи протиставлення обґрунтованості й труднощів утілення.",
+                    "options": [
+                        "implement",
+                        "bus",
+                        "desk",
+                        "picture"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи протиставлення обґрунтованості й труднощів утілення.",
+            "accepted_target_texts": [
+                "The proposal is sound in principle but difficult to implement.",
+                "The proposal is well-founded in principle but difficult to implement."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "well-founded"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "well-founded"
+                ]
+            },
+            "reorder_groups": [
+                "The proposal",
+                "is sound",
+                "in principle",
+                "but difficult",
+                "to implement."
+            ],
+            "token_groups": [
+                "The proposal",
+                "is sound",
+                "in principle",
+                "but difficult",
+                "to implement."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "proposal",
+                "is",
+                "sound",
+                "in",
+                "principle",
+                "but",
+                "difficult",
+                "to",
+                "implement."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "proposal",
+                "access",
+                "independent",
+                "review",
+                "is",
+                "weren't",
+                "am",
+                "are",
+                "sound",
+                "responsibility",
+                "ensure",
+                "equal",
+                "in",
+                "on",
+                "at",
+                "by",
+                "principle",
+                "window",
+                "phone",
+                "train",
+                "but",
+                "nor",
+                "so",
+                "yet",
+                "difficult",
+                "inconclusive",
+                "bad",
+                "friendly",
+                "to",
+                "without",
+                "into",
+                "onto",
+                "implement",
+                "bus",
+                "desk",
+                "picture"
+            ],
+            "source_text_uk": "Пропозиція обґрунтована в принципі, але її важко втілити.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "proposal",
+                    "access",
+                    "independent",
+                    "review"
+                ],
+                "a3": [
+                    "is",
+                    "weren't",
+                    "am",
+                    "are"
+                ],
+                "a4": [
+                    "sound",
+                    "responsibility",
+                    "ensure",
+                    "equal"
+                ],
+                "a5": [
+                    "in",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a6": [
+                    "principle",
+                    "window",
+                    "phone",
+                    "train"
+                ],
+                "a7": [
+                    "but",
+                    "nor",
+                    "so",
+                    "yet"
+                ],
+                "a8": [
+                    "difficult",
+                    "inconclusive",
+                    "bad",
+                    "friendly"
+                ],
+                "a9": [
+                    "to",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a10": [
+                    "implement",
+                    "bus",
+                    "desk",
+                    "picture"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "beq-present-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Питання не в тому, чи потрібні зміни, а в тому, чи вони здійсненні.",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Питання не в тому, чи потрібні зміни, а в тому, чи вони здійсненні.",
+            "target_text": "The issue is not whether change is necessary but whether it is feasible.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи повне протиставлення необхідності та здійсненності змін.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "issue",
+                    "verb_hint": "Збережи повне протиставлення необхідності та здійсненності змін.",
+                    "options": [
+                        "issue",
+                        "signature",
+                        "sufficient",
+                        "concern"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Збережи повне протиставлення необхідності та здійсненності змін.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Збережи повне протиставлення необхідності та здійсненності змін.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a5": {
+                    "answer": "whether",
+                    "verb_hint": "Збережи повне протиставлення необхідності та здійсненності змін.",
+                    "options": [
+                        "whether",
+                        "although",
+                        "though",
+                        "unless"
+                    ]
+                },
+                "a6": {
+                    "answer": "change",
+                    "verb_hint": "Збережи повне протиставлення необхідності та здійсненності змін.",
+                    "options": [
+                        "change",
+                        "closure",
+                        "least",
+                        "challenge"
+                    ]
+                },
+                "a7": {
+                    "answer": "is",
+                    "verb_hint": "Збережи повне протиставлення необхідності та здійсненності змін.",
+                    "options": [
+                        "is",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a8": {
+                    "answer": "necessary",
+                    "verb_hint": "Збережи повне протиставлення необхідності та здійсненності змін.",
+                    "options": [
+                        "necessary",
+                        "able",
+                        "quiet",
+                        "hungry"
+                    ]
+                },
+                "a9": {
+                    "answer": "but",
+                    "verb_hint": "Збережи повне протиставлення необхідності та здійсненності змін.",
+                    "options": [
+                        "but",
+                        "while",
+                        "if",
+                        "and"
+                    ]
+                },
+                "a10": {
+                    "answer": "whether",
+                    "verb_hint": "Збережи повне протиставлення необхідності та здійсненності змін.",
+                    "options": [
+                        "whether",
+                        "whereas",
+                        "or",
+                        "nor"
+                    ]
+                },
+                "a11": {
+                    "answer": "it",
+                    "verb_hint": "Збережи повне протиставлення необхідності та здійсненності змін.",
+                    "options": [
+                        "it",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a12": {
+                    "answer": "is",
+                    "verb_hint": "Збережи повне протиставлення необхідності та здійсненності змін.",
+                    "options": [
+                        "is",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a13": {
+                    "answer": "feasible.",
+                    "verb_hint": "Збережи повне протиставлення необхідності та здійсненності змін.",
+                    "options": [
+                        "feasible",
+                        "clear",
+                        "safe",
+                        "useful"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи повне протиставлення необхідності та здійсненності змін.",
+            "accepted_target_texts": [
+                "The issue is not whether change is necessary but whether it is feasible."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The issue",
+                "is not",
+                "whether change",
+                "is necessary",
+                "but whether",
+                "it is feasible."
+            ],
+            "token_groups": [
+                "The issue",
+                "is not",
+                "whether change",
+                "is necessary",
+                "but whether",
+                "it is feasible."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "issue",
+                "is",
+                "not",
+                "whether",
+                "change",
+                "is",
+                "necessary",
+                "but",
+                "whether",
+                "it",
+                "is",
+                "feasible."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "issue",
+                "signature",
+                "sufficient",
+                "concern",
+                "is",
+                "are",
+                "was",
+                "were",
+                "not",
+                "never",
+                "always",
+                "often",
+                "whether",
+                "although",
+                "though",
+                "unless",
+                "change",
+                "closure",
+                "least",
+                "challenge",
+                "wasn't",
+                "weren't",
+                "am",
+                "necessary",
+                "able",
+                "quiet",
+                "hungry",
+                "but",
+                "while",
+                "if",
+                "and",
+                "whereas",
+                "or",
+                "nor",
+                "it",
+                "myself",
+                "yourself",
+                "herself",
+                "be",
+                "been",
+                "being",
+                "feasible",
+                "clear",
+                "safe",
+                "useful"
+            ],
+            "source_text_uk": "Питання не в тому, чи потрібні зміни, а в тому, чи вони здійсненні.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "issue",
+                    "signature",
+                    "sufficient",
+                    "concern"
+                ],
+                "a3": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a4": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a5": [
+                    "whether",
+                    "although",
+                    "though",
+                    "unless"
+                ],
+                "a6": [
+                    "change",
+                    "closure",
+                    "least",
+                    "challenge"
+                ],
+                "a7": [
+                    "is",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a8": [
+                    "necessary",
+                    "able",
+                    "quiet",
+                    "hungry"
+                ],
+                "a9": [
+                    "but",
+                    "while",
+                    "if",
+                    "and"
+                ],
+                "a10": [
+                    "whether",
+                    "whereas",
+                    "or",
+                    "nor"
+                ],
+                "a11": [
+                    "it",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a12": [
+                    "is",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a13": [
+                    "feasible",
+                    "clear",
+                    "safe",
+                    "useful"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "beq-present-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Відсутність підпису — достатня підстава для занепокоєння.",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Відсутність підпису — достатня підстава для занепокоєння.",
+            "target_text": "The absence of a signature is sufficient grounds for concern.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Узгодь головну зв'язку з однією відсутністю, а не з подальшим присудковим зворотом.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "absence",
+                    "verb_hint": "Узгодь головну зв'язку з однією відсутністю, а не з подальшим присудковим зворотом.",
+                    "options": [
+                        "absence",
+                        "most",
+                        "closure",
+                        "least"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Узгодь головну зв'язку з однією відсутністю, а не з подальшим присудковим зворотом.",
+                    "options": [
+                        "of",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Узгодь головну зв'язку з однією відсутністю, а не з подальшим присудковим зворотом.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "signature",
+                    "verb_hint": "Узгодь головну зв'язку з однією відсутністю, а не з подальшим присудковим зворотом.",
+                    "options": [
+                        "signature",
+                        "change",
+                        "challenge",
+                        "issue"
+                    ]
+                },
+                "a6": {
+                    "answer": "is",
+                    "verb_hint": "Узгодь головну зв'язку з однією відсутністю, а не з подальшим присудковим зворотом.",
+                    "options": [
+                        "is",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a7": {
+                    "answer": "sufficient",
+                    "verb_hint": "Узгодь головну зв'язку з однією відсутністю, а не з подальшим присудковим зворотом.",
+                    "options": [
+                        "sufficient",
+                        "cat",
+                        "person",
+                        "water"
+                    ]
+                },
+                "a8": {
+                    "answer": "grounds",
+                    "verb_hint": "Узгодь головну зв'язку з однією відсутністю, а не з подальшим присудковим зворотом.",
+                    "options": [
+                        "grounds",
+                        "friends",
+                        "dogs",
+                        "cats"
+                    ]
+                },
+                "a9": {
+                    "answer": "for",
+                    "verb_hint": "Узгодь головну зв'язку з однією відсутністю, а не з подальшим присудковим зворотом.",
+                    "options": [
+                        "for",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a10": {
+                    "answer": "concern.",
+                    "verb_hint": "Узгодь головну зв'язку з однією відсутністю, а не з подальшим присудковим зворотом.",
+                    "options": [
+                        "concern",
+                        "car",
+                        "bag",
+                        "book"
+                    ]
+                }
+            },
+            "verb_hint": "Узгодь головну зв'язку з однією відсутністю, а не з подальшим присудковим зворотом.",
+            "accepted_target_texts": [
+                "The absence of a signature is sufficient grounds for concern."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The absence",
+                "of a signature",
+                "is sufficient",
+                "grounds for concern."
+            ],
+            "token_groups": [
+                "The absence",
+                "of a signature",
+                "is sufficient",
+                "grounds for concern."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "absence",
+                "of",
+                "a",
+                "signature",
+                "is",
+                "sufficient",
+                "grounds",
+                "for",
+                "concern."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "absence",
+                "most",
+                "closure",
+                "least",
+                "of",
+                "on",
+                "at",
+                "by",
+                "a",
+                "all",
+                "both",
+                "an",
+                "signature",
+                "change",
+                "challenge",
+                "issue",
+                "is",
+                "be",
+                "been",
+                "being",
+                "sufficient",
+                "cat",
+                "person",
+                "water",
+                "grounds",
+                "friends",
+                "dogs",
+                "cats",
+                "for",
+                "with",
+                "without",
+                "into",
+                "concern",
+                "car",
+                "bag",
+                "book"
+            ],
+            "source_text_uk": "Відсутність підпису — достатня підстава для занепокоєння.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "absence",
+                    "most",
+                    "closure",
+                    "least"
+                ],
+                "a3": [
+                    "of",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a4": [
+                    "a",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a5": [
+                    "signature",
+                    "change",
+                    "challenge",
+                    "issue"
+                ],
+                "a6": [
+                    "is",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a7": [
+                    "sufficient",
+                    "cat",
+                    "person",
+                    "water"
+                ],
+                "a8": [
+                    "grounds",
+                    "friends",
+                    "dogs",
+                    "cats"
+                ],
+                "a9": [
+                    "for",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a10": [
+                    "concern",
+                    "car",
+                    "bag",
+                    "book"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "beq-present-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Ті, кого закриття зачіпає найбільше, також найменше спроможні його оскаржити.",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Ті, кого закриття зачіпає найбільше, також найменше спроможні його оскаржити.",
+            "target_text": "Those most affected by the closure are also the least able to challenge it.",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "verb_hint": "Почни з найбільш постраждалих людей і збережи подвійне порівняння.",
+                    "options": [
+                        "Those",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "most",
+                    "verb_hint": "Почни з найбільш постраждалих людей і збережи подвійне порівняння.",
+                    "options": [
+                        "most",
+                        "concern",
+                        "issue",
+                        "change"
+                    ]
+                },
+                "a3": {
+                    "answer": "affected",
+                    "verb_hint": "Почни з найбільш постраждалих людей і збережи подвійне порівняння.",
+                    "options": [
+                        "affected",
+                        "wrote",
+                        "rode",
+                        "drove"
+                    ]
+                },
+                "a4": {
+                    "answer": "by",
+                    "verb_hint": "Почни з найбільш постраждалих людей і збережи подвійне порівняння.",
+                    "options": [
+                        "by",
+                        "at",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з найбільш постраждалих людей і збережи подвійне порівняння.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "each"
+                    ]
+                },
+                "a6": {
+                    "answer": "closure",
+                    "verb_hint": "Почни з найбільш постраждалих людей і збережи подвійне порівняння.",
+                    "options": [
+                        "closure",
+                        "absence",
+                        "signature",
+                        "sufficient"
+                    ]
+                },
+                "a7": {
+                    "answer": "are",
+                    "verb_hint": "Почни з найбільш постраждалих людей і збережи подвійне порівняння.",
+                    "options": [
+                        "are",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a8": {
+                    "answer": "also",
+                    "verb_hint": "Почни з найбільш постраждалих людей і збережи подвійне порівняння.",
+                    "options": [
+                        "also",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Почни з найбільш постраждалих людей і збережи подвійне порівняння.",
+                    "options": [
+                        "the",
+                        "this",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a10": {
+                    "answer": "least",
+                    "verb_hint": "Почни з найбільш постраждалих людей і збережи подвійне порівняння.",
+                    "options": [
+                        "least",
+                        "room",
+                        "map",
+                        "letter"
+                    ]
+                },
+                "a11": {
+                    "answer": "able",
+                    "verb_hint": "Почни з найбільш постраждалих людей і збережи подвійне порівняння.",
+                    "options": [
+                        "able",
+                        "necessary",
+                        "feasible",
+                        "large"
+                    ]
+                },
+                "a12": {
+                    "answer": "to",
+                    "verb_hint": "Почни з найбільш постраждалих людей і збережи подвійне порівняння.",
+                    "options": [
+                        "to",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a13": {
+                    "answer": "challenge",
+                    "verb_hint": "Почни з найбільш постраждалих людей і збережи подвійне порівняння.",
+                    "options": [
+                        "challenge",
+                        "bread",
+                        "milk",
+                        "music"
+                    ]
+                },
+                "a14": {
+                    "answer": "it.",
+                    "verb_hint": "Почни з найбільш постраждалих людей і збережи подвійне порівняння.",
+                    "options": [
+                        "it",
+                        "we",
+                        "they",
+                        "me"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з найбільш постраждалих людей і збережи подвійне порівняння.",
+            "accepted_target_texts": [
+                "Those most affected by the closure are also the least able to challenge it."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Those most affected",
+                "by the closure",
+                "are also",
+                "the least able",
+                "to challenge it."
+            ],
+            "token_groups": [
+                "Those most affected",
+                "by the closure",
+                "are also",
+                "the least able",
+                "to challenge it."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Those",
+                "most",
+                "affected",
+                "by",
+                "the",
+                "closure",
+                "are",
+                "also",
+                "the",
+                "least",
+                "able",
+                "to",
+                "challenge",
+                "it."
+            ],
+            "options": [
+                "Those",
+                "An",
+                "Some",
+                "Any",
+                "most",
+                "concern",
+                "issue",
+                "change",
+                "affected",
+                "wrote",
+                "rode",
+                "drove",
+                "by",
+                "at",
+                "with",
+                "without",
+                "the",
+                "that",
+                "these",
+                "each",
+                "closure",
+                "absence",
+                "signature",
+                "sufficient",
+                "are",
+                "weren't",
+                "am",
+                "is",
+                "also",
+                "always",
+                "often",
+                "sometimes",
+                "this",
+                "every",
+                "no",
+                "least",
+                "room",
+                "map",
+                "letter",
+                "able",
+                "necessary",
+                "feasible",
+                "large",
+                "to",
+                "into",
+                "onto",
+                "over",
+                "challenge",
+                "bread",
+                "milk",
+                "music",
+                "it",
+                "we",
+                "they",
+                "me"
+            ],
+            "source_text_uk": "Ті, кого закриття зачіпає найбільше, також найменше спроможні його оскаржити.",
+            "options_by_marker": {
+                "a1": [
+                    "Those",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "most",
+                    "concern",
+                    "issue",
+                    "change"
+                ],
+                "a3": [
+                    "affected",
+                    "wrote",
+                    "rode",
+                    "drove"
+                ],
+                "a4": [
+                    "by",
+                    "at",
+                    "with",
+                    "without"
+                ],
+                "a5": [
+                    "the",
+                    "that",
+                    "these",
+                    "each"
+                ],
+                "a6": [
+                    "closure",
+                    "absence",
+                    "signature",
+                    "sufficient"
+                ],
+                "a7": [
+                    "are",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a8": [
+                    "also",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a9": [
+                    "the",
+                    "this",
+                    "every",
+                    "no"
+                ],
+                "a10": [
+                    "least",
+                    "room",
+                    "map",
+                    "letter"
+                ],
+                "a11": [
+                    "able",
+                    "necessary",
+                    "feasible",
+                    "large"
+                ],
+                "a12": [
+                    "to",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a13": [
+                    "challenge",
+                    "bread",
+                    "milk",
+                    "music"
+                ],
+                "a14": [
+                    "it",
+                    "we",
+                    "they",
+                    "me"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "beq-present-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Позірна одностайність комітету менш заспокійлива, ніж випливає з оприлюдненого протоколу.",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Позірна одностайність комітету менш заспокійлива, ніж випливає з оприлюдненого протоколу.",
+            "target_text": "The apparent unanimity of the committee is less reassuring than the published minutes suggest.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи обережне порівняння позірної одностайності з враженням від протоколу.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "apparent",
+                    "verb_hint": "Збережи обережне порівняння позірної одностайності з враженням від протоколу.",
+                    "options": [
+                        "apparent",
+                        "two",
+                        "same",
+                        "sense"
+                    ]
+                },
+                "a3": {
+                    "answer": "unanimity",
+                    "verb_hint": "Збережи обережне порівняння позірної одностайності з враженням від протоколу.",
+                    "options": [
+                        "unanimity",
+                        "convenience",
+                        "stake",
+                        "credibility"
+                    ]
+                },
+                "a4": {
+                    "answer": "of",
+                    "verb_hint": "Збережи обережне порівняння позірної одностайності з враженням від протоколу.",
+                    "options": [
+                        "of",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи обережне порівняння позірної одностайності з враженням від протоколу.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a6": {
+                    "answer": "committee",
+                    "verb_hint": "Збережи обережне порівняння позірної одностайності з враженням від протоколу.",
+                    "options": [
+                        "committee",
+                        "process",
+                        "rather",
+                        "bike"
+                    ]
+                },
+                "a7": {
+                    "answer": "is",
+                    "verb_hint": "Збережи обережне порівняння позірної одностайності з враженням від протоколу.",
+                    "options": [
+                        "is",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a8": {
+                    "answer": "less",
+                    "verb_hint": "Збережи обережне порівняння позірної одностайності з враженням від протоколу.",
+                    "options": [
+                        "less",
+                        "compatible",
+                        "old",
+                        "young"
+                    ]
+                },
+                "a9": {
+                    "answer": "reassuring",
+                    "verb_hint": "Збережи обережне порівняння позірної одностайності з враженням від протоколу.",
+                    "options": [
+                        "reassuring",
+                        "underlying",
+                        "writing",
+                        "calling"
+                    ]
+                },
+                "a10": {
+                    "answer": "than",
+                    "verb_hint": "Збережи обережне порівняння позірної одностайності з враженням від протоколу.",
+                    "options": [
+                        "than",
+                        "teacher",
+                        "school",
+                        "sister"
+                    ]
+                },
+                "a11": {
+                    "answer": "the",
+                    "verb_hint": "Збережи обережне порівняння позірної одностайності з враженням від протоколу.",
+                    "options": [
+                        "the",
+                        "these",
+                        "no",
+                        "all"
+                    ]
+                },
+                "a12": {
+                    "answer": "published",
+                    "verb_hint": "Збережи обережне порівняння позірної одностайності з враженням від протоколу.",
+                    "options": [
+                        "published",
+                        "cooked",
+                        "found",
+                        "brought"
+                    ]
+                },
+                "a13": {
+                    "answer": "minutes",
+                    "verb_hint": "Збережи обережне порівняння позірної одностайності з враженням від протоколу.",
+                    "options": [
+                        "minutes",
+                        "positions",
+                        "terms",
+                        "administrators"
+                    ]
+                },
+                "a14": {
+                    "answer": "suggest.",
+                    "verb_hint": "Збережи обережне порівняння позірної одностайності з враженням від протоколу.",
+                    "options": [
+                        "suggest",
+                        "letter",
+                        "window",
+                        "phone"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи обережне порівняння позірної одностайності з враженням від протоколу.",
+            "accepted_target_texts": [
+                "The apparent unanimity of the committee is less reassuring than the published minutes suggest."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The apparent unanimity",
+                "of the committee",
+                "is less reassuring",
+                "than the published",
+                "minutes suggest."
+            ],
+            "token_groups": [
+                "The apparent unanimity",
+                "of the committee",
+                "is less reassuring",
+                "than the published",
+                "minutes suggest."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "apparent",
+                "unanimity",
+                "of",
+                "the",
+                "committee",
+                "is",
+                "less",
+                "reassuring",
+                "than",
+                "the",
+                "published",
+                "minutes",
+                "suggest."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "apparent",
+                "two",
+                "same",
+                "sense",
+                "unanimity",
+                "convenience",
+                "stake",
+                "credibility",
+                "of",
+                "under",
+                "through",
+                "across",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "committee",
+                "process",
+                "rather",
+                "bike",
+                "is",
+                "being",
+                "isn't",
+                "aren't",
+                "less",
+                "compatible",
+                "old",
+                "young",
+                "reassuring",
+                "underlying",
+                "writing",
+                "calling",
+                "than",
+                "teacher",
+                "school",
+                "sister",
+                "these",
+                "no",
+                "all",
+                "published",
+                "cooked",
+                "found",
+                "brought",
+                "minutes",
+                "positions",
+                "terms",
+                "administrators",
+                "suggest",
+                "letter",
+                "window",
+                "phone"
+            ],
+            "source_text_uk": "Позірна одностайність комітету менш заспокійлива, ніж випливає з оприлюдненого протоколу.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "apparent",
+                    "two",
+                    "same",
+                    "sense"
+                ],
+                "a3": [
+                    "unanimity",
+                    "convenience",
+                    "stake",
+                    "credibility"
+                ],
+                "a4": [
+                    "of",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a5": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a6": [
+                    "committee",
+                    "process",
+                    "rather",
+                    "bike"
+                ],
+                "a7": [
+                    "is",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a8": [
+                    "less",
+                    "compatible",
+                    "old",
+                    "young"
+                ],
+                "a9": [
+                    "reassuring",
+                    "underlying",
+                    "writing",
+                    "calling"
+                ],
+                "a10": [
+                    "than",
+                    "teacher",
+                    "school",
+                    "sister"
+                ],
+                "a11": [
+                    "the",
+                    "these",
+                    "no",
+                    "all"
+                ],
+                "a12": [
+                    "published",
+                    "cooked",
+                    "found",
+                    "brought"
+                ],
+                "a13": [
+                    "minutes",
+                    "positions",
+                    "terms",
+                    "administrators"
+                ],
+                "a14": [
+                    "suggest",
+                    "letter",
+                    "window",
+                    "phone"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "beq-present-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Ці дві позиції сумісні лише тоді, коли основні терміни розуміють в одному значенні.",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Ці дві позиції сумісні лише тоді, коли основні терміни розуміють в одному значенні.",
+            "target_text": "The two positions are compatible only if the underlying terms are understood in the same sense.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "two",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "two",
+                        "suggest",
+                        "stake",
+                        "credibility"
+                    ]
+                },
+                "a3": {
+                    "answer": "positions",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "positions",
+                        "administrators",
+                        "minutes",
+                        "people"
+                    ]
+                },
+                "a4": {
+                    "answer": "are",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "are",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "compatible",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "compatible",
+                        "less",
+                        "dirty",
+                        "good"
+                    ]
+                },
+                "a6": {
+                    "answer": "only",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "only",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a7": {
+                    "answer": "if",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "if",
+                        "whether",
+                        "and",
+                        "but"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a9": {
+                    "answer": "underlying",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "underlying",
+                        "reassuring",
+                        "writing",
+                        "calling"
+                    ]
+                },
+                "a10": {
+                    "answer": "terms",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "terms",
+                        "tables",
+                        "tickets",
+                        "cups"
+                    ]
+                },
+                "a11": {
+                    "answer": "are",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "are",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a12": {
+                    "answer": "understood",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "understood",
+                        "built",
+                        "bought",
+                        "checked"
+                    ]
+                },
+                "a13": {
+                    "answer": "in",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "in",
+                        "of",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a14": {
+                    "answer": "the",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a15": {
+                    "answer": "same",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "same",
+                        "process",
+                        "rather",
+                        "convenience"
+                    ]
+                },
+                "a16": {
+                    "answer": "sense.",
+                    "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+                    "options": [
+                        "sense",
+                        "unanimity",
+                        "committee",
+                        "than"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з двох позицій і збережи обмежувальну умову однакового розуміння термінів.",
+            "accepted_target_texts": [
+                "The two positions are compatible only if the underlying terms are understood in the same sense."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The two positions",
+                "are compatible",
+                "only if",
+                "the underlying terms",
+                "are understood",
+                "in the same",
+                "sense."
+            ],
+            "token_groups": [
+                "The two positions",
+                "are compatible",
+                "only if",
+                "the underlying terms",
+                "are understood",
+                "in the same",
+                "sense."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "two",
+                "positions",
+                "are",
+                "compatible",
+                "only",
+                "if",
+                "the",
+                "underlying",
+                "terms",
+                "are",
+                "understood",
+                "in",
+                "the",
+                "same",
+                "sense."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "two",
+                "suggest",
+                "stake",
+                "credibility",
+                "positions",
+                "administrators",
+                "minutes",
+                "people",
+                "are",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "compatible",
+                "less",
+                "dirty",
+                "good",
+                "only",
+                "sometimes",
+                "already",
+                "still",
+                "if",
+                "whether",
+                "and",
+                "but",
+                "the",
+                "that",
+                "these",
+                "those",
+                "underlying",
+                "reassuring",
+                "writing",
+                "calling",
+                "terms",
+                "tables",
+                "tickets",
+                "cups",
+                "be",
+                "been",
+                "being",
+                "understood",
+                "built",
+                "bought",
+                "checked",
+                "in",
+                "of",
+                "on",
+                "at",
+                "neither",
+                "all",
+                "both",
+                "same",
+                "process",
+                "rather",
+                "convenience",
+                "sense",
+                "unanimity",
+                "committee",
+                "than"
+            ],
+            "source_text_uk": "Ці дві позиції сумісні лише тоді, коли основні терміни розуміють в одному значенні.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "two",
+                    "suggest",
+                    "stake",
+                    "credibility"
+                ],
+                "a3": [
+                    "positions",
+                    "administrators",
+                    "minutes",
+                    "people"
+                ],
+                "a4": [
+                    "are",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a5": [
+                    "compatible",
+                    "less",
+                    "dirty",
+                    "good"
+                ],
+                "a6": [
+                    "only",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a7": [
+                    "if",
+                    "whether",
+                    "and",
+                    "but"
+                ],
+                "a8": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a9": [
+                    "underlying",
+                    "reassuring",
+                    "writing",
+                    "calling"
+                ],
+                "a10": [
+                    "terms",
+                    "tables",
+                    "tickets",
+                    "cups"
+                ],
+                "a11": [
+                    "are",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a12": [
+                    "understood",
+                    "built",
+                    "bought",
+                    "checked"
+                ],
+                "a13": [
+                    "in",
+                    "of",
+                    "on",
+                    "at"
+                ],
+                "a14": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a15": [
+                    "same",
+                    "process",
+                    "rather",
+                    "convenience"
+                ],
+                "a16": [
+                    "sense",
+                    "unanimity",
+                    "committee",
+                    "than"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "beq-present-c2-c03",
+            "author_id": "C2-c03",
+            "question": "На кону — довіра до процесу, а не зручність його адміністраторів.",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "На кону — довіра до процесу, а не зручність його адміністраторів.",
+            "target_text": "What is at stake is the credibility of the process rather than the convenience of its administrators.",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "What",
+                        "How",
+                        "Whoever",
+                        "Whatever"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a3": {
+                    "answer": "at",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "at",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a4": {
+                    "answer": "stake",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "stake",
+                        "suggest",
+                        "two",
+                        "same"
+                    ]
+                },
+                "a5": {
+                    "answer": "is",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "is",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a7": {
+                    "answer": "credibility",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "credibility",
+                        "sense",
+                        "apparent",
+                        "unanimity"
+                    ]
+                },
+                "a8": {
+                    "answer": "of",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "of",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a10": {
+                    "answer": "process",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "process",
+                        "committee",
+                        "bike",
+                        "car"
+                    ]
+                },
+                "a11": {
+                    "answer": "rather",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "rather",
+                        "child",
+                        "teacher",
+                        "school"
+                    ]
+                },
+                "a12": {
+                    "answer": "than",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "than",
+                        "ticket",
+                        "cup",
+                        "door"
+                    ]
+                },
+                "a13": {
+                    "answer": "the",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a14": {
+                    "answer": "convenience",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "convenience",
+                        "bag",
+                        "book",
+                        "box"
+                    ]
+                },
+                "a15": {
+                    "answer": "of",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "of",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a16": {
+                    "answer": "its",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "its",
+                        "his",
+                        "her",
+                        "our"
+                    ]
+                },
+                "a17": {
+                    "answer": "administrators.",
+                    "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+                    "options": [
+                        "administrators",
+                        "positions",
+                        "terms",
+                        "minutes"
+                    ]
+                }
+            },
+            "verb_hint": "Передай, що саме стоїть на кону, та збережи протиставлення довіри й зручності.",
+            "accepted_target_texts": [
+                "What is at stake is the credibility of the process rather than the convenience of its administrators."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What is",
+                "at stake",
+                "is the credibility",
+                "of the process",
+                "rather than",
+                "the convenience",
+                "of its administrators."
+            ],
+            "token_groups": [
+                "What is",
+                "at stake",
+                "is the credibility",
+                "of the process",
+                "rather than",
+                "the convenience",
+                "of its administrators."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "What",
+                "is",
+                "at",
+                "stake",
+                "is",
+                "the",
+                "credibility",
+                "of",
+                "the",
+                "process",
+                "rather",
+                "than",
+                "the",
+                "convenience",
+                "of",
+                "its",
+                "administrators."
+            ],
+            "options": [
+                "What",
+                "How",
+                "Whoever",
+                "Whatever",
+                "is",
+                "are",
+                "was",
+                "were",
+                "at",
+                "with",
+                "without",
+                "into",
+                "stake",
+                "suggest",
+                "two",
+                "same",
+                "be",
+                "been",
+                "being",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "credibility",
+                "sense",
+                "apparent",
+                "unanimity",
+                "of",
+                "onto",
+                "over",
+                "under",
+                "all",
+                "both",
+                "a",
+                "process",
+                "committee",
+                "bike",
+                "car",
+                "rather",
+                "child",
+                "teacher",
+                "school",
+                "than",
+                "ticket",
+                "cup",
+                "door",
+                "an",
+                "some",
+                "any",
+                "convenience",
+                "bag",
+                "book",
+                "box",
+                "through",
+                "across",
+                "between",
+                "its",
+                "his",
+                "her",
+                "our",
+                "administrators",
+                "positions",
+                "terms",
+                "minutes"
+            ],
+            "source_text_uk": "На кону — довіра до процесу, а не зручність його адміністраторів.",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "How",
+                    "Whoever",
+                    "Whatever"
+                ],
+                "a2": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a3": [
+                    "at",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a4": [
+                    "stake",
+                    "suggest",
+                    "two",
+                    "same"
+                ],
+                "a5": [
+                    "is",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a6": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a7": [
+                    "credibility",
+                    "sense",
+                    "apparent",
+                    "unanimity"
+                ],
+                "a8": [
+                    "of",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a9": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a10": [
+                    "process",
+                    "committee",
+                    "bike",
+                    "car"
+                ],
+                "a11": [
+                    "rather",
+                    "child",
+                    "teacher",
+                    "school"
+                ],
+                "a12": [
+                    "than",
+                    "ticket",
+                    "cup",
+                    "door"
+                ],
+                "a13": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a14": [
+                    "convenience",
+                    "bag",
+                    "book",
+                    "box"
+                ],
+                "a15": [
+                    "of",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a16": [
+                    "its",
+                    "his",
+                    "her",
+                    "our"
+                ],
+                "a17": [
+                    "administrators",
+                    "positions",
+                    "terms",
+                    "minutes"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

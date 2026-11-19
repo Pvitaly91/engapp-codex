@@ -1,0 +1,1703 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/reporting.v1.json",
+        "sha256": "16380c5d5985260b4fde543f5fc3e995bbcb0f563046cd05fac9c934fd5bc669"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveReportingStructuresQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-reporting-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_reporting": {
+            "name": "Passive Voice Quality: Пасивні конструкції повідомлення"
+        }
+    },
+    "tags": {
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "passive_reporting_structures": {
+            "name": "Passive Reporting Structures",
+            "category": "passive_voice"
+        },
+        "impersonal_passive": {
+            "name": "Impersonal Passive",
+            "category": "topic"
+        },
+        "personal_passive": {
+            "name": "Personal Passive",
+            "category": "topic"
+        },
+        "reporting_verbs": {
+            "name": "Reporting Verbs",
+            "category": "topic"
+        },
+        "present_infinitive": {
+            "name": "Present Infinitive",
+            "category": "topic"
+        },
+        "perfect_infinitive": {
+            "name": "Perfect Infinitive",
+            "category": "topic"
+        },
+        "passive_infinitive": {
+            "name": "Passive Infinitive",
+            "category": "topic"
+        },
+        "active_reporting": {
+            "name": "Active Reporting",
+            "category": "topic"
+        },
+        "formal_register": {
+            "name": "Formal Register",
+            "category": "topic"
+        },
+        "tense_match": {
+            "name": "Tense Match",
+            "category": "topic"
+        },
+        "expected_known": {
+            "name": "Expected Known",
+            "category": "topic"
+        },
+        "avoid_mismatch": {
+            "name": "Avoid Mismatch",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "passive_reporting_structures"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-reporting-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Lena is said {a1} kind.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Кажуть, що Лена добра.",
+            "target_text": "Lena is said to be kind.",
+            "markers": {
+                "a1": {
+                    "answer": "to be",
+                    "options": [
+                        "to be",
+                        "be",
+                        "being"
+                    ],
+                    "verb_hint": "Добра; ознайомлювальна модель повідомлення з інфінітивом."
+                }
+            },
+            "verb_hint": "Добра; ознайомлювальна модель повідомлення з інфінітивом.",
+            "accepted_target_texts": [
+                "Lena is said to be kind."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Lena",
+                "is",
+                "said to be",
+                "kind."
+            ],
+            "token_groups": [
+                "Lena",
+                "is",
+                "said to be",
+                "kind."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-reporting-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The cafe is said {a1} at six.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Кажуть, що кафе відчиняється о шостій.",
+            "target_text": "The cafe is said to open at six.",
+            "markers": {
+                "a1": {
+                    "answer": "to open",
+                    "options": [
+                        "to open",
+                        "open",
+                        "opening"
+                    ],
+                    "verb_hint": "Відчиняється о шостій."
+                }
+            },
+            "verb_hint": "Відчиняється о шостій.",
+            "accepted_target_texts": [
+                "The cafe is said to open at six."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cafe",
+                "is said",
+                "to open",
+                "at six."
+            ],
+            "token_groups": [
+                "The cafe",
+                "is said",
+                "to open",
+                "at six."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-reporting-a1-g03",
+            "author_id": "A1-g03",
+            "question": "That dog is known {a1} children.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Відомо, що той собака любить дітей.",
+            "target_text": "That dog is known to like children.",
+            "markers": {
+                "a1": {
+                    "answer": "to like",
+                    "options": [
+                        "to like",
+                        "like",
+                        "liking"
+                    ],
+                    "verb_hint": "Любить дітей."
+                }
+            },
+            "verb_hint": "Любить дітей.",
+            "accepted_target_texts": [
+                "That dog is known to like children."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "That dog",
+                "is known",
+                "to like children."
+            ],
+            "token_groups": [
+                "That dog",
+                "is known",
+                "to like children."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-reporting-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The shop is said {a1} fresh bread.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Кажуть, що магазин продає свіжий хліб.",
+            "target_text": "The shop is said to sell fresh bread.",
+            "markers": {
+                "a1": {
+                    "answer": "to sell",
+                    "options": [
+                        "to sell",
+                        "sell",
+                        "selling"
+                    ],
+                    "verb_hint": "Продає свіжий хліб."
+                }
+            },
+            "verb_hint": "Продає свіжий хліб.",
+            "accepted_target_texts": [
+                "The shop is said to sell fresh bread."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The shop",
+                "is said",
+                "to sell",
+                "fresh bread."
+            ],
+            "token_groups": [
+                "The shop",
+                "is said",
+                "to sell",
+                "fresh bread."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-reporting-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Ivan is believed {a1} at home.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважають, що Іван удома.",
+            "target_text": "Ivan is believed to be at home.",
+            "markers": {
+                "a1": {
+                    "answer": "to be",
+                    "options": [
+                        "to be",
+                        "be",
+                        "being"
+                    ],
+                    "verb_hint": "Перебуває вдома; повідомляють про теперішній стан."
+                }
+            },
+            "verb_hint": "Перебуває вдома; повідомляють про теперішній стан.",
+            "accepted_target_texts": [
+                "Ivan is believed to be at home.",
+                "Ivan is thought to be at home."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Ivan",
+                "is",
+                "believed to be",
+                "at home."
+            ],
+            "token_groups": [
+                "Ivan",
+                "is",
+                "believed to be",
+                "at home."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-reporting-a1-g06",
+            "author_id": "A1-g06",
+            "question": "This bus is expected {a1} here.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Очікують, що цей автобус зупиниться тут.",
+            "target_text": "This bus is expected to stop here.",
+            "markers": {
+                "a1": {
+                    "answer": "to stop",
+                    "options": [
+                        "to stop",
+                        "stop",
+                        "stopping"
+                    ],
+                    "verb_hint": "Зупиниться тут."
+                }
+            },
+            "verb_hint": "Зупиниться тут.",
+            "accepted_target_texts": [
+                "This bus is expected to stop here."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This bus",
+                "is expected",
+                "to stop here."
+            ],
+            "token_groups": [
+                "This bus",
+                "is expected",
+                "to stop here."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-reporting-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The baker is said {a1} at night.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Кажуть, що пекар працює вночі.",
+            "target_text": "The baker is said to work at night.",
+            "markers": {
+                "a1": {
+                    "answer": "to work",
+                    "options": [
+                        "to work",
+                        "work",
+                        "working"
+                    ],
+                    "verb_hint": "Працює вночі."
+                }
+            },
+            "verb_hint": "Працює вночі.",
+            "accepted_target_texts": [
+                "The baker is said to work at night."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The baker",
+                "is said",
+                "to work",
+                "at night."
+            ],
+            "token_groups": [
+                "The baker",
+                "is said",
+                "to work",
+                "at night."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-reporting-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Our neighbours are known {a1} two dogs.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Відомо, що наші сусіди тримають двох собак.",
+            "target_text": "Our neighbours are known to keep two dogs.",
+            "markers": {
+                "a1": {
+                    "answer": "to keep",
+                    "options": [
+                        "to keep",
+                        "keep",
+                        "keeping"
+                    ],
+                    "verb_hint": "Тримають двох собак."
+                }
+            },
+            "verb_hint": "Тримають двох собак.",
+            "accepted_target_texts": [
+                "Our neighbours are known to keep two dogs.",
+                "Our neighbors are known to keep two dogs."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our neighbours",
+                "are known",
+                "to keep",
+                "two dogs."
+            ],
+            "token_groups": [
+                "Our neighbours",
+                "are known",
+                "to keep",
+                "two dogs."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-reporting-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The ferry is expected {a1} before ten.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Очікують, що пором прибуде до десятої.",
+            "target_text": "The ferry is expected to arrive before ten.",
+            "markers": {
+                "a1": {
+                    "answer": "to arrive",
+                    "options": [
+                        "to arrive",
+                        "arrive",
+                        "arriving"
+                    ],
+                    "verb_hint": "Прибуде до десятої."
+                }
+            },
+            "verb_hint": "Прибуде до десятої.",
+            "accepted_target_texts": [
+                "The ferry is expected to arrive before ten."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ferry",
+                "is expected",
+                "to arrive",
+                "before ten."
+            ],
+            "token_groups": [
+                "The ferry",
+                "is expected",
+                "to arrive",
+                "before ten."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-reporting-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The twins are believed {a1} near the beach.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважають, що близнюки живуть біля пляжу.",
+            "target_text": "The twins are believed to live near the beach.",
+            "markers": {
+                "a1": {
+                    "answer": "to live",
+                    "options": [
+                        "to live",
+                        "live",
+                        "living"
+                    ],
+                    "verb_hint": "Живуть біля пляжу."
+                }
+            },
+            "verb_hint": "Живуть біля пляжу.",
+            "accepted_target_texts": [
+                "The twins are believed to live near the beach.",
+                "The twins are thought to live near the beach."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The twins",
+                "are believed",
+                "to live",
+                "near the beach."
+            ],
+            "token_groups": [
+                "The twins",
+                "are believed",
+                "to live",
+                "near the beach."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-reporting-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The old clock is said {a1} slow.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Кажуть, що старий годинник відстає.",
+            "target_text": "The old clock is said to run slow.",
+            "markers": {
+                "a1": {
+                    "answer": "to run",
+                    "options": [
+                        "to run",
+                        "run",
+                        "running"
+                    ],
+                    "verb_hint": "Відстає; потрібен інфінітив після дієслова повідомлення."
+                }
+            },
+            "verb_hint": "Відстає; потрібен інфінітив після дієслова повідомлення.",
+            "accepted_target_texts": [
+                "The old clock is said to run slow."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The old clock",
+                "is",
+                "said to run",
+                "slow."
+            ],
+            "token_groups": [
+                "The old clock",
+                "is",
+                "said to run",
+                "slow."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-reporting-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The tourists are expected {a1} on Saturday.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Очікують, що туристи повернуться в суботу.",
+            "target_text": "The tourists are expected to return on Saturday.",
+            "markers": {
+                "a1": {
+                    "answer": "to return",
+                    "options": [
+                        "to return",
+                        "return",
+                        "returning"
+                    ],
+                    "verb_hint": "Повернуться в суботу."
+                }
+            },
+            "verb_hint": "Повернуться в суботу.",
+            "accepted_target_texts": [
+                "The tourists are expected to return on Saturday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The tourists",
+                "are expected",
+                "to return",
+                "on Saturday."
+            ],
+            "token_groups": [
+                "The tourists",
+                "are expected",
+                "to return",
+                "on Saturday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-reporting-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The missing climber is believed {a1} in a village.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважають, що зниклий альпініст зараз перебуває в селі.",
+            "target_text": "The missing climber is believed to be staying in a village.",
+            "markers": {
+                "a1": {
+                    "answer": "to be staying",
+                    "options": [
+                        "to be staying",
+                        "be staying",
+                        "to been staying"
+                    ],
+                    "verb_hint": "Зараз перебуває в селі."
+                }
+            },
+            "verb_hint": "Зараз перебуває в селі.",
+            "accepted_target_texts": [
+                "The missing climber is believed to be staying in a village.",
+                "The missing climber is thought to be staying in a village."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The missing climber",
+                "is",
+                "believed to be",
+                "staying",
+                "in a village."
+            ],
+            "token_groups": [
+                "The missing climber",
+                "is",
+                "believed to be",
+                "staying",
+                "in a village."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-reporting-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The company is said {a1} fifty people.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Кажуть, що компанія наймає п’ятдесят працівників.",
+            "target_text": "The company is said to employ fifty people.",
+            "markers": {
+                "a1": {
+                    "answer": "to employ",
+                    "options": [
+                        "to employ",
+                        "employ",
+                        "employing"
+                    ],
+                    "verb_hint": "Наймає п’ятдесят працівників."
+                }
+            },
+            "verb_hint": "Наймає п’ятдесят працівників.",
+            "accepted_target_texts": [
+                "The company is said to employ fifty people."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The company",
+                "is said",
+                "to employ",
+                "fifty people."
+            ],
+            "token_groups": [
+                "The company",
+                "is said",
+                "to employ",
+                "fifty people."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-reporting-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The passengers are reported {a1} on the platform.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Повідомляють, що пасажири зараз чекають на платформі.",
+            "target_text": "The passengers are reported to be waiting on the platform.",
+            "markers": {
+                "a1": {
+                    "answer": "to be waiting",
+                    "options": [
+                        "to be waiting",
+                        "be waiting",
+                        "to been waiting"
+                    ],
+                    "verb_hint": "Зараз чекають на платформі."
+                }
+            },
+            "verb_hint": "Зараз чекають на платформі.",
+            "accepted_target_texts": [
+                "The passengers are reported to be waiting on the platform."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The passengers",
+                "are reported",
+                "to be waiting",
+                "on the platform."
+            ],
+            "token_groups": [
+                "The passengers",
+                "are reported",
+                "to be waiting",
+                "on the platform."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-reporting-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The team is expected {a1} another medal.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Очікують, що команда здобуде ще одну медаль.",
+            "target_text": "The team is expected to win another medal.",
+            "markers": {
+                "a1": {
+                    "answer": "to win",
+                    "options": [
+                        "to win",
+                        "win",
+                        "winning"
+                    ],
+                    "verb_hint": "Здобуде ще одну медаль."
+                }
+            },
+            "verb_hint": "Здобуде ще одну медаль.",
+            "accepted_target_texts": [
+                "The team is expected to win another medal."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The team",
+                "is expected",
+                "to win",
+                "another medal."
+            ],
+            "token_groups": [
+                "The team",
+                "is expected",
+                "to win",
+                "another medal."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-reporting-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The island is known {a1} many divers.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Відомо, що острів приваблює багатьох дайверів.",
+            "target_text": "The island is known to attract many divers.",
+            "markers": {
+                "a1": {
+                    "answer": "to attract",
+                    "options": [
+                        "to attract",
+                        "attract",
+                        "attracting"
+                    ],
+                    "verb_hint": "Приваблює багатьох дайверів."
+                }
+            },
+            "verb_hint": "Приваблює багатьох дайверів.",
+            "accepted_target_texts": [
+                "The island is known to attract many divers."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The island",
+                "is known",
+                "to attract",
+                "many divers."
+            ],
+            "token_groups": [
+                "The island",
+                "is known",
+                "to attract",
+                "many divers."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-reporting-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The singer is believed {a1} well.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважають, що співак зараз добре відновлюється.",
+            "target_text": "The singer is believed to be recovering well.",
+            "markers": {
+                "a1": {
+                    "answer": "to be recovering",
+                    "options": [
+                        "to be recovering",
+                        "be recovering",
+                        "to been recovering"
+                    ],
+                    "verb_hint": "Зараз добре відновлюється."
+                }
+            },
+            "verb_hint": "Зараз добре відновлюється.",
+            "accepted_target_texts": [
+                "The singer is believed to be recovering well.",
+                "The singer is thought to be recovering well."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The singer",
+                "is believed",
+                "to be recovering",
+                "well."
+            ],
+            "token_groups": [
+                "The singer",
+                "is believed",
+                "to be recovering",
+                "well."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-reporting-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The treasurer is said {a1} last Friday.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Кажуть, що скарбник подав у відставку минулої п’ятниці.",
+            "target_text": "The treasurer is said to have resigned last Friday.",
+            "markers": {
+                "a1": {
+                    "answer": "to have resigned",
+                    "options": [
+                        "to have resigned",
+                        "to has resigned",
+                        "having resigned"
+                    ],
+                    "verb_hint": "Подав у відставку минулої п’ятниці."
+                }
+            },
+            "verb_hint": "Подав у відставку минулої п’ятниці.",
+            "accepted_target_texts": [
+                "The treasurer is said to have resigned last Friday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The treasurer",
+                "is said",
+                "to have resigned",
+                "last Friday."
+            ],
+            "token_groups": [
+                "The treasurer",
+                "is said",
+                "to have resigned",
+                "last Friday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-reporting-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The painting is believed {a1} to a local family.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважають, що картина раніше належала місцевій родині.",
+            "target_text": "The painting is believed to have belonged to a local family.",
+            "markers": {
+                "a1": {
+                    "answer": "to have belonged",
+                    "options": [
+                        "to have belonged",
+                        "to has belonged",
+                        "having belonged"
+                    ],
+                    "verb_hint": "Раніше належала місцевій родині."
+                }
+            },
+            "verb_hint": "Раніше належала місцевій родині.",
+            "accepted_target_texts": [
+                "The painting is believed to have belonged to a local family.",
+                "The painting is thought to have belonged to a local family."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The painting",
+                "is believed",
+                "to have belonged",
+                "to",
+                "a local family."
+            ],
+            "token_groups": [
+                "The painting",
+                "is believed",
+                "to have belonged",
+                "to",
+                "a local family."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-reporting-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The athletes are reported {a1} three records.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Повідомляють, що спортсмени вже побили три рекорди.",
+            "target_text": "The athletes are reported to have broken three records.",
+            "markers": {
+                "a1": {
+                    "answer": "to have broken",
+                    "options": [
+                        "to have broken",
+                        "to has broken",
+                        "having broken"
+                    ],
+                    "verb_hint": "Вже побили три рекорди."
+                }
+            },
+            "verb_hint": "Вже побили три рекорди.",
+            "accepted_target_texts": [
+                "The athletes are reported to have broken three records."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The athletes",
+                "are reported",
+                "to have broken",
+                "three records."
+            ],
+            "token_groups": [
+                "The athletes",
+                "are reported",
+                "to have broken",
+                "three records."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-reporting-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The missing passenger is thought {a1} a different train.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважають, що зниклий пасажир сів на інший поїзд.",
+            "target_text": "The missing passenger is thought to have boarded a different train.",
+            "markers": {
+                "a1": {
+                    "answer": "to have boarded",
+                    "options": [
+                        "to have boarded",
+                        "to has boarded",
+                        "having boarded"
+                    ],
+                    "verb_hint": "Сів на інший поїзд."
+                }
+            },
+            "verb_hint": "Сів на інший поїзд.",
+            "accepted_target_texts": [
+                "The missing passenger is thought to have boarded a different train.",
+                "The missing passenger is believed to have boarded a different train."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The missing passenger",
+                "is",
+                "thought to have",
+                "boarded",
+                "a different",
+                "train."
+            ],
+            "token_groups": [
+                "The missing passenger",
+                "is",
+                "thought to have",
+                "boarded",
+                "a different",
+                "train."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-reporting-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The firm is expected {a1} a merger soon.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Очікують, що фірма невдовзі оголосить про злиття.",
+            "target_text": "The firm is expected to announce a merger soon.",
+            "markers": {
+                "a1": {
+                    "answer": "to announce",
+                    "options": [
+                        "to announce",
+                        "announce",
+                        "announcing"
+                    ],
+                    "verb_hint": "Невдовзі оголосить про злиття."
+                }
+            },
+            "verb_hint": "Невдовзі оголосить про злиття.",
+            "accepted_target_texts": [
+                "The firm is expected to announce a merger soon."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The firm",
+                "is expected",
+                "to announce",
+                "a merger",
+                "soon."
+            ],
+            "token_groups": [
+                "The firm",
+                "is expected",
+                "to announce",
+                "a merger",
+                "soon."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-reporting-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The author is said {a1} her memoirs.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Кажуть, що авторка зараз переглядає свої мемуари.",
+            "target_text": "The author is said to be revising her memoirs.",
+            "markers": {
+                "a1": {
+                    "answer": "to be revising",
+                    "options": [
+                        "to be revising",
+                        "be revising",
+                        "to been revising"
+                    ],
+                    "verb_hint": "Зараз переглядає свої мемуари."
+                }
+            },
+            "verb_hint": "Зараз переглядає свої мемуари.",
+            "accepted_target_texts": [
+                "The author is said to be revising her memoirs."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The author",
+                "is said",
+                "to be revising",
+                "her memoirs."
+            ],
+            "token_groups": [
+                "The author",
+                "is said",
+                "to be revising",
+                "her memoirs."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-reporting-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The adviser is understood {a1} the minister privately.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважається, що радник раніше приватно поінформував міністра.",
+            "target_text": "The adviser is understood to have briefed the minister privately.",
+            "markers": {
+                "a1": {
+                    "answer": "to have briefed",
+                    "options": [
+                        "to have briefed",
+                        "to has briefed",
+                        "having briefed"
+                    ],
+                    "verb_hint": "Раніше приватно поінформував міністра."
+                }
+            },
+            "verb_hint": "Раніше приватно поінформував міністра.",
+            "accepted_target_texts": [
+                "The adviser is understood to have briefed the minister privately."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The adviser",
+                "is understood",
+                "to have briefed",
+                "the minister",
+                "privately."
+            ],
+            "token_groups": [
+                "The adviser",
+                "is understood",
+                "to have briefed",
+                "the minister",
+                "privately."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-reporting-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The detainees are alleged {a1} the frontier unlawfully.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Стверджують, що затримані раніше незаконно перетнули кордон.",
+            "target_text": "The detainees are alleged to have crossed the frontier unlawfully.",
+            "markers": {
+                "a1": {
+                    "answer": "to have crossed",
+                    "options": [
+                        "to have crossed",
+                        "to has crossed",
+                        "having crossed"
+                    ],
+                    "verb_hint": "Раніше незаконно перетнули кордон."
+                }
+            },
+            "verb_hint": "Раніше незаконно перетнули кордон.",
+            "accepted_target_texts": [
+                "The detainees are alleged to have crossed the frontier unlawfully."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The detainees",
+                "are alleged",
+                "to have crossed",
+                "the frontier",
+                "unlawfully."
+            ],
+            "token_groups": [
+                "The detainees",
+                "are alleged",
+                "to have crossed",
+                "the frontier",
+                "unlawfully."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-reporting-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The settlement is believed {a1} negotiated in secret.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважають, що врегулювання раніше погодили таємно.",
+            "target_text": "The settlement is believed to have been negotiated in secret.",
+            "markers": {
+                "a1": {
+                    "answer": "to have been",
+                    "options": [
+                        "to have been",
+                        "to has been",
+                        "having been"
+                    ],
+                    "verb_hint": "Раніше погодили таємно."
+                }
+            },
+            "verb_hint": "Раніше погодили таємно.",
+            "accepted_target_texts": [
+                "The settlement is believed to have been negotiated in secret.",
+                "The settlement is thought to have been negotiated in secret."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The settlement",
+                "is believed",
+                "to have been",
+                "negotiated in",
+                "secret."
+            ],
+            "token_groups": [
+                "The settlement",
+                "is believed",
+                "to have been",
+                "negotiated in",
+                "secret."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-reporting-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The panel is reported {a1} a further extension.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Повідомляють, що комісія зараз розглядає ще одне продовження.",
+            "target_text": "The panel is reported to be considering a further extension.",
+            "markers": {
+                "a1": {
+                    "answer": "to be considering",
+                    "options": [
+                        "to be considering",
+                        "be considering",
+                        "to been considering"
+                    ],
+                    "verb_hint": "Зараз розглядає ще одне продовження."
+                }
+            },
+            "verb_hint": "Зараз розглядає ще одне продовження.",
+            "accepted_target_texts": [
+                "The panel is reported to be considering a further extension."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The panel",
+                "is reported",
+                "to be considering",
+                "a further",
+                "extension."
+            ],
+            "token_groups": [
+                "The panel",
+                "is reported",
+                "to be considering",
+                "a further",
+                "extension."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-reporting-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The manuscripts are thought {a1} from the twelfth century.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважають, що рукописи походять із дванадцятого століття.",
+            "target_text": "The manuscripts are thought to date from the twelfth century.",
+            "markers": {
+                "a1": {
+                    "answer": "to date",
+                    "options": [
+                        "to date",
+                        "date",
+                        "dating"
+                    ],
+                    "verb_hint": "Походять із дванадцятого століття."
+                }
+            },
+            "verb_hint": "Походять із дванадцятого століття.",
+            "accepted_target_texts": [
+                "The manuscripts are thought to date from the twelfth century.",
+                "The manuscripts are believed to date from the twelfth century."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The manuscripts",
+                "are thought",
+                "to date",
+                "from",
+                "the twelfth century."
+            ],
+            "token_groups": [
+                "The manuscripts",
+                "are thought",
+                "to date",
+                "from",
+                "the twelfth century."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-reporting-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The chair is expected {a1} those reservations directly.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Очікують, що голова прямо відповість на ті застереження.",
+            "target_text": "The chair is expected to address those reservations directly.",
+            "markers": {
+                "a1": {
+                    "answer": "to address",
+                    "options": [
+                        "to address",
+                        "address",
+                        "addressing"
+                    ],
+                    "verb_hint": "Прямо відповість на ті застереження."
+                }
+            },
+            "verb_hint": "Прямо відповість на ті застереження.",
+            "accepted_target_texts": [
+                "The chair is expected to address those reservations directly."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The chair",
+                "is expected",
+                "to address",
+                "those reservations",
+                "directly."
+            ],
+            "token_groups": [
+                "The chair",
+                "is expected",
+                "to address",
+                "those reservations",
+                "directly."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-reporting-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The tribunal is understood {a1} judgment on that issue.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважається, що трибунал раніше відклав ухвалення рішення з того питання.",
+            "target_text": "The tribunal is understood to have reserved judgment on that issue.",
+            "markers": {
+                "a1": {
+                    "answer": "to have reserved",
+                    "options": [
+                        "to have reserved",
+                        "to has reserved",
+                        "having reserved"
+                    ],
+                    "verb_hint": "Раніше відклав ухвалення рішення з того питання."
+                }
+            },
+            "verb_hint": "Раніше відклав ухвалення рішення з того питання.",
+            "accepted_target_texts": [
+                "The tribunal is understood to have reserved judgment on that issue."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The tribunal",
+                "is understood",
+                "to have reserved",
+                "judgment on",
+                "that issue."
+            ],
+            "token_groups": [
+                "The tribunal",
+                "is understood",
+                "to have reserved",
+                "judgment on",
+                "that issue."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-reporting-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The undertaking is alleged {a1} statutory safeguards.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Стверджують, що зобов’язання раніше суперечило законодавчим запобіжникам.",
+            "target_text": "The undertaking is alleged to have contravened statutory safeguards.",
+            "markers": {
+                "a1": {
+                    "answer": "to have contravened",
+                    "options": [
+                        "to have contravened",
+                        "to has contravened",
+                        "having contravened"
+                    ],
+                    "verb_hint": "Раніше суперечило законодавчим запобіжникам."
+                }
+            },
+            "verb_hint": "Раніше суперечило законодавчим запобіжникам.",
+            "accepted_target_texts": [
+                "The undertaking is alleged to have contravened statutory safeguards."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The undertaking",
+                "is alleged",
+                "to have contravened",
+                "statutory safeguards."
+            ],
+            "token_groups": [
+                "The undertaking",
+                "is alleged",
+                "to have contravened",
+                "statutory safeguards."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-reporting-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The envoy is thought {a1} an eleventh-hour accord.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважають, що посланець раніше посприяв угоді в останню мить.",
+            "target_text": "The envoy is thought to have brokered an eleventh-hour accord.",
+            "markers": {
+                "a1": {
+                    "answer": "to have brokered",
+                    "options": [
+                        "to have brokered",
+                        "to has brokered",
+                        "having brokered"
+                    ],
+                    "verb_hint": "Раніше посприяв угоді в останню мить."
+                }
+            },
+            "verb_hint": "Раніше посприяв угоді в останню мить.",
+            "accepted_target_texts": [
+                "The envoy is thought to have brokered an eleventh-hour accord.",
+                "The envoy is believed to have brokered an eleventh-hour accord."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The envoy",
+                "is thought",
+                "to have brokered",
+                "an eleventh-hour",
+                "accord."
+            ],
+            "token_groups": [
+                "The envoy",
+                "is thought",
+                "to have brokered",
+                "an eleventh-hour",
+                "accord."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-reporting-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The artefacts are believed {a1} misattributed for decades.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважають, що артефакти десятиліттями раніше приписували не тому авторові.",
+            "target_text": "The artefacts are believed to have been misattributed for decades.",
+            "markers": {
+                "a1": {
+                    "answer": "to have been",
+                    "options": [
+                        "to have been",
+                        "to has been",
+                        "having been"
+                    ],
+                    "verb_hint": "Десятиліттями раніше приписували не тому авторові."
+                }
+            },
+            "verb_hint": "Десятиліттями раніше приписували не тому авторові.",
+            "accepted_target_texts": [
+                "The artefacts are believed to have been misattributed for decades.",
+                "The artefacts are thought to have been misattributed for decades."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The artefacts",
+                "are believed",
+                "to have been",
+                "misattributed for",
+                "decades."
+            ],
+            "token_groups": [
+                "The artefacts",
+                "are believed",
+                "to have been",
+                "misattributed for",
+                "decades."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-reporting-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The consortium is reported {a1} its contingent liabilities.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Повідомляють, що консорціум зараз переглядає шляхом переговорів свої умовні зобов’язання.",
+            "target_text": "The consortium is reported to be renegotiating its contingent liabilities.",
+            "markers": {
+                "a1": {
+                    "answer": "to be renegotiating",
+                    "options": [
+                        "to be renegotiating",
+                        "be renegotiating",
+                        "to been renegotiating"
+                    ],
+                    "verb_hint": "Зараз переглядає шляхом переговорів свої умовні зобов’язання."
+                }
+            },
+            "verb_hint": "Зараз переглядає шляхом переговорів свої умовні зобов’язання.",
+            "accepted_target_texts": [
+                "The consortium is reported to be renegotiating its contingent liabilities."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The consortium",
+                "is reported",
+                "to be renegotiating",
+                "its contingent",
+                "liabilities."
+            ],
+            "token_groups": [
+                "The consortium",
+                "is reported",
+                "to be renegotiating",
+                "its contingent",
+                "liabilities."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-reporting-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The concession is expected {a1} a constitutional dispute.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Очікують, що поступка спричинить конституційний спір.",
+            "target_text": "The concession is expected to precipitate a constitutional dispute.",
+            "markers": {
+                "a1": {
+                    "answer": "to precipitate",
+                    "options": [
+                        "to precipitate",
+                        "precipitate",
+                        "precipitating"
+                    ],
+                    "verb_hint": "Спричинить конституційний спір."
+                }
+            },
+            "verb_hint": "Спричинить конституційний спір.",
+            "accepted_target_texts": [
+                "The concession is expected to precipitate a constitutional dispute."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The concession",
+                "is expected",
+                "to precipitate",
+                "a constitutional",
+                "dispute."
+            ],
+            "token_groups": [
+                "The concession",
+                "is expected",
+                "to precipitate",
+                "a constitutional",
+                "dispute."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

@@ -1,0 +1,694 @@
+{
+  "schema_version": 1,
+  "topic_key": "b2-mixed-revision",
+  "title": "B2 Mixed Revision",
+  "choice_pools": {
+    "aone_role_a": [
+      "The studio door",
+      "Our kitchen window",
+      "Her bedroom door",
+      "The garage gate",
+      "Your garden gate",
+      "The office window"
+    ],
+    "aone_role_b": [
+      "is closed",
+      "is broken",
+      "looks new",
+      "seems heavy",
+      "is blue",
+      "looks small"
+    ],
+    "atwo_role_a": [
+      "They found",
+      "She ordered",
+      "He carried",
+      "You cooked",
+      "I served",
+      "We sold"
+    ],
+    "atwo_role_b": [
+      "some flour",
+      "a few eggs",
+      "two loaves",
+      "some sugar",
+      "several apples",
+      "a little butter"
+    ],
+    "atwo_role_c": [
+      "from",
+      "near",
+      "beside",
+      "outside",
+      "behind",
+      "opposite"
+    ],
+    "bone_role_a": [
+      "He recommended",
+      "They considered",
+      "We discussed",
+      "I mentioned",
+      "You proposed",
+      "She avoided"
+    ],
+    "bone_role_b": [
+      "cleaning the deck",
+      "tightening the bolts",
+      "moving the crates",
+      "repairing the winch",
+      "drying the sails",
+      "washing the nets"
+    ],
+    "bone_role_c": [
+      "after lunch",
+      "before the race",
+      "during the break",
+      "after the storm",
+      "before midnight",
+      "at the harbour"
+    ],
+    "btwo_role_a": [
+      "Despite heavy rain",
+      "Despite serious objections",
+      "Despite lengthy delays",
+      "Despite repeated warnings",
+      "Despite rising costs",
+      "Despite poor visibility"
+    ],
+    "btwo_role_b": [
+      "the workshop",
+      "our association",
+      "the committee",
+      "their partnership",
+      "the company",
+      "the federation"
+    ],
+    "btwo_role_c": [
+      "completed the repairs",
+      "revised the timetable",
+      "abandoned the plan",
+      "changed its policy",
+      "postponed the launch",
+      "reduced its expenditure"
+    ],
+    "cone_role_a": [
+      "It is",
+      "It will be",
+      "It may be",
+      "It has been",
+      "It must be",
+      "It would be"
+    ],
+    "cone_role_b": [
+      "the earlier proposal",
+      "the detailed forecast",
+      "the written assurance",
+      "the final estimate",
+      "the revised budget",
+      "the public statement"
+    ],
+    "cone_role_c": [
+      "that reassured",
+      "that surprised",
+      "that challenged",
+      "that influenced",
+      "that encouraged",
+      "that prompted"
+    ],
+    "cone_role_d": [
+      "the trustees",
+      "our association",
+      "the inspectors",
+      "the planning committee",
+      "the local authority",
+      "the project team"
+    ],
+    "cone_role_e": [
+      "to withdraw",
+      "to compromise",
+      "to negotiate",
+      "to postpone",
+      "to respond",
+      "to intervene"
+    ],
+    "ctwo_role_a": [
+      "Had it been",
+      "Should it prove",
+      "Were they ready",
+      "Had we known",
+      "Should they fail",
+      "Were she present"
+    ],
+    "ctwo_role_b": [
+      "with",
+      "without",
+      "under",
+      "through",
+      "against",
+      "beyond"
+    ],
+    "ctwo_role_c": [
+      "the external review",
+      "the detailed investigation",
+      "the internal inquiry",
+      "the financial assessment",
+      "the technical inspection",
+      "the independent evaluation"
+    ],
+    "ctwo_role_d": [
+      "the inconsistency",
+      "the omission",
+      "the irregularity",
+      "the distortion",
+      "the miscalculation",
+      "the shortfall"
+    ],
+    "ctwo_role_e": [
+      "would appear insignificant",
+      "might escape scrutiny",
+      "could become irreversible",
+      "would attract criticism",
+      "might prove decisive",
+      "could remain unresolved"
+    ],
+    "atwo_role_d": [
+      "the local market",
+      "our village store",
+      "the nearest supermarket",
+      "the small bakery",
+      "our usual shop",
+      "the village grocer"
+    ]
+  },
+  "questions": [
+    {
+      "id": "A1-g01",
+      "level": "A1",
+      "kind": "gap",
+      "question": "My grandmother {a1} a yellow bag.",
+      "target": "My grandmother has a yellow bag.",
+      "uk": "У моєї бабусі є жовта сумка.",
+      "hint_uk": "Передай «має» у теперішньому часі; підмет уже названо в однині.",
+      "groups": [
+        "My grandmother has",
+        "a yellow bag."
+      ],
+      "answer": "has",
+      "options": [
+        "has",
+        "have",
+        "having"
+      ],
+      "answer_synonyms": [
+        "has got"
+      ]
+    },
+    {
+      "id": "A1-g02",
+      "level": "A1",
+      "kind": "gap",
+      "question": "There {a1} a red ball near the boat.",
+      "target": "There is a red ball near the boat.",
+      "uk": "Біля човна є червоний м’яч.",
+      "hint_uk": "Передай наявність одного предмета; назву предмета вже наведено після пропуску.",
+      "groups": [
+        "There is",
+        "a red ball",
+        "near the boat."
+      ],
+      "answer": "is",
+      "options": [
+        "is",
+        "are",
+        "has"
+      ],
+      "answer_synonyms": []
+    },
+    {
+      "id": "A1-c01",
+      "level": "A1",
+      "kind": "compose",
+      "question": "Двері крамниці відчинені.",
+      "target": "The shop door is open.",
+      "uk": "Двері крамниці відчинені.",
+      "hint_uk": "Почни з дверей крамниці та назви їхній стан; двері тут становлять один вхід.",
+      "groups": [
+        "The shop door",
+        "is open."
+      ],
+      "compose_slots": [
+        "The shop door",
+        "is open."
+      ],
+      "slot_roles": [
+        "aone_role_a",
+        "aone_role_b"
+      ],
+      "accepted_targets": [
+        "The store door is open."
+      ],
+      "display_synonyms": {
+        "The shop door": [
+          "The store door"
+        ]
+      }
+    },
+    {
+      "id": "A2-g01",
+      "level": "A2",
+      "kind": "gap",
+      "question": "We {a1} the ferry tickets yet.",
+      "target": "We haven't booked the ferry tickets yet.",
+      "uk": "Ми ще не забронювали квитки на пором.",
+      "hint_uk": "Передай «ще не забронювали» теперішнім перфектним часом; слово зі значенням «ще» вже наведено наприкінці.",
+      "groups": [
+        "We haven't booked",
+        "the ferry tickets",
+        "yet."
+      ],
+      "answer": "haven't booked",
+      "options": [
+        "haven't booked",
+        "didn't book",
+        "don't book"
+      ],
+      "answer_synonyms": [
+        "have not booked"
+      ]
+    },
+    {
+      "id": "A2-g02",
+      "level": "A2",
+      "kind": "gap",
+      "question": "The band {a1} when the lights went out.",
+      "target": "The band was playing when the lights went out.",
+      "uk": "Гурт грав, коли згасло світло.",
+      "hint_uk": "Передай гру, яка тривала в момент іншої минулої події, минулим тривалим часом.",
+      "groups": [
+        "The band",
+        "was playing",
+        "when the lights",
+        "went out."
+      ],
+      "answer": "was playing",
+      "options": [
+        "was playing",
+        "is playing",
+        "has played"
+      ],
+      "answer_synonyms": [
+        "were playing"
+      ]
+    },
+    {
+      "id": "A2-c01",
+      "level": "A2",
+      "kind": "compose",
+      "question": "Ми купили трохи рису в крамниці на розі.",
+      "target": "We bought some rice at the corner shop.",
+      "uk": "Ми купили трохи рису в крамниці на розі.",
+      "hint_uk": "Передай завершену покупку в минулому; рис назви як незлічувану кількість, а місце додай наприкінці.",
+      "groups": [
+        "We bought",
+        "some rice",
+        "at",
+        "the corner shop."
+      ],
+      "compose_slots": [
+        "We bought",
+        "some rice",
+        "at",
+        "the corner shop."
+      ],
+      "slot_roles": [
+        "atwo_role_a",
+        "atwo_role_b",
+        "atwo_role_c",
+        "atwo_role_d"
+      ],
+      "accepted_targets": [
+        "We purchased some rice at the corner shop.",
+        "We bought some rice in the corner shop.",
+        "We purchased some rice in the corner shop."
+      ],
+      "display_synonyms": {
+        "We bought": [
+          "We purchased"
+        ],
+        "at": [
+          "in"
+        ]
+      }
+    },
+    {
+      "id": "B1-g01",
+      "level": "B1",
+      "kind": "gap",
+      "question": "Unless the harbour master {a1}, the race will start at noon.",
+      "target": "Unless the harbour master objects, the race will start at noon.",
+      "uk": "Якщо начальник порту не заперечить, перегони почнуться опівдні.",
+      "hint_uk": "Передай «заперечить» у реальній майбутній умові: після вже наведеного сполучника потрібен теперішній час; підмет в однині.",
+      "groups": [
+        "Unless",
+        "the harbour master",
+        "objects,",
+        "the race",
+        "will start",
+        "at noon."
+      ],
+      "answer": "objects",
+      "options": [
+        "objects",
+        "object",
+        "will object"
+      ],
+      "answer_synonyms": [
+        "protests"
+      ]
+    },
+    {
+      "id": "B1-g02",
+      "level": "B1",
+      "kind": "gap",
+      "question": "Where {a1} the spare sail yesterday?",
+      "target": "Where did you put the spare sail yesterday?",
+      "uk": "Куди ти поклав запасне вітрило вчора?",
+      "hint_uk": "Питальне слово вже наведено. У пропуску подай допоміжне дієслово минулого часу, займенник співрозмовника та початкову форму «покласти».",
+      "groups": [
+        "Where",
+        "did you put",
+        "the spare sail",
+        "yesterday?"
+      ],
+      "answer": "did you put",
+      "options": [
+        "did you put",
+        "do you put",
+        "did you putted"
+      ],
+      "answer_synonyms": [
+        "did you place"
+      ]
+    },
+    {
+      "id": "B1-c01",
+      "level": "B1",
+      "kind": "compose",
+      "question": "Вона запропонувала перевірити мотузки перед виходом.",
+      "target": "She suggested checking the ropes before departure.",
+      "uk": "Вона запропонувала перевірити мотузки перед виходом.",
+      "hint_uk": "Передай минулу пропозицію, після неї назви перевірку формою із закінченням -інг; збережи часову обставину.",
+      "groups": [
+        "She suggested",
+        "checking the ropes",
+        "before departure."
+      ],
+      "compose_slots": [
+        "She suggested",
+        "checking the ropes",
+        "before departure."
+      ],
+      "slot_roles": [
+        "bone_role_a",
+        "bone_role_b",
+        "bone_role_c"
+      ],
+      "accepted_targets": [
+        "She suggested inspecting the ropes before departure.",
+        "She suggested checking the ropes before leaving.",
+        "She suggested inspecting the ropes before leaving."
+      ],
+      "display_synonyms": {
+        "checking the ropes": [
+          "inspecting the ropes"
+        ],
+        "before departure": [
+          "before leaving"
+        ]
+      }
+    },
+    {
+      "id": "B2-g01",
+      "level": "B2",
+      "kind": "gap",
+      "question": "Had the crew checked the winch, they {a1} the delay.",
+      "target": "Had the crew checked the winch, they would have avoided the delay.",
+      "uk": "Якби екіпаж перевірив лебідку, затримки вдалося б уникнути.",
+      "hint_uk": "Умовна частина вже виражає нездійснену минулу умову. Передай минулий наслідок «уникнули б» модальною перфектною формою.",
+      "groups": [
+        "Had the crew",
+        "checked the winch,",
+        "they would have",
+        "avoided the delay."
+      ],
+      "answer": "would have avoided",
+      "options": [
+        "would have avoided",
+        "would avoid",
+        "will have avoided"
+      ],
+      "answer_synonyms": []
+    },
+    {
+      "id": "B2-g02",
+      "level": "B2",
+      "kind": "gap",
+      "question": "The lighthouse {a1} by Friday, so the scaffolding can come down then.",
+      "target": "The lighthouse will have been repainted by Friday, so the scaffolding can come down then.",
+      "uk": "Маяк буде перефарбовано до п’ятниці, тож тоді риштування можна буде прибрати.",
+      "hint_uk": "Познач завершення перефарбування до майбутньої межі пасивною формою майбутнього перфектного часу.",
+      "groups": [
+        "The lighthouse",
+        "will have been",
+        "repainted by Friday,",
+        "so the scaffolding",
+        "can come down",
+        "then."
+      ],
+      "answer": "will have been repainted",
+      "options": [
+        "will have been repainted",
+        "will have repainted",
+        "will be repainting"
+      ],
+      "answer_synonyms": []
+    },
+    {
+      "id": "B2-c01",
+      "level": "B2",
+      "kind": "compose",
+      "question": "Попри сильний мороз, кооператив відкрив ринок.",
+      "target": "Despite heavy frost, the co-op opened the market.",
+      "uk": "Попри сильний мороз, кооператив відкрив ринок.",
+      "hint_uk": "Почни з прийменника зі значенням «попри», після нього назви сильний мороз; далі передай відкриття ринку в минулому.",
+      "groups": [
+        "Despite heavy frost,",
+        "the co-op",
+        "opened the market."
+      ],
+      "compose_slots": [
+        "Despite heavy frost,",
+        "the co-op",
+        "opened the market."
+      ],
+      "slot_roles": [
+        "btwo_role_a",
+        "btwo_role_b",
+        "btwo_role_c"
+      ],
+      "accepted_targets": [
+        "Despite heavy frost, the co-op opened the marketplace.",
+        "Despite heavy frost, the cooperative opened the market.",
+        "Despite heavy frost, the cooperative opened the marketplace."
+      ],
+      "display_synonyms": {
+        "opened the market": [
+          "opened the marketplace"
+        ],
+        "the co-op": [
+          "the cooperative"
+        ]
+      }
+    },
+    {
+      "id": "C1-g01",
+      "level": "C1",
+      "kind": "gap",
+      "question": "Not until the hull was inspected {a1} how serious the corrosion was.",
+      "target": "Not until the hull was inspected did we realise how serious the corrosion was.",
+      "uk": "Лише після огляду корпусу ми усвідомили, наскільки серйозною була корозія.",
+      "hint_uk": "Початковий обмежувальний зворот вимагає інверсії. У пропуску назви минуле «ми усвідомили», поставивши допоміжне дієслово перед займенником.",
+      "groups": [
+        "Not until",
+        "the hull",
+        "was inspected",
+        "did we realise",
+        "how serious",
+        "the corrosion was."
+      ],
+      "answer": "did we realise",
+      "options": [
+        "did we realise",
+        "we realised",
+        "do we realise"
+      ],
+      "answer_synonyms": [
+        "did we realize"
+      ]
+    },
+    {
+      "id": "C1-g02",
+      "level": "C1",
+      "kind": "gap",
+      "question": "The trust insists that the quay {a1} before reopening.",
+      "target": "The trust insists that the quay be reinforced before reopening.",
+      "uk": "Фонд наполягає, щоб причал укріпили перед повторним відкриттям.",
+      "hint_uk": "Передай вимогу пасивною наказовою моделлю підрядного речення: початкова форма дієслова-зв’язки та дієприкметник; нормативна модальна модель також допустима.",
+      "groups": [
+        "The trust insists",
+        "that the quay",
+        "be reinforced",
+        "before reopening."
+      ],
+      "answer": "be reinforced",
+      "options": [
+        "be reinforced",
+        "be reinforcing",
+        "is reinforce"
+      ],
+      "answer_synonyms": [
+        "should be reinforced",
+        "be strengthened",
+        "should be strengthened"
+      ]
+    },
+    {
+      "id": "C1-c01",
+      "level": "C1",
+      "kind": "compose",
+      "question": "Саме переглянутий розклад переконав раду переглянути рішення.",
+      "target": "It was the revised timetable that persuaded the council to reconsider.",
+      "uk": "Саме переглянутий розклад переконав раду переглянути рішення.",
+      "hint_uk": "Почни з формальної конструкції виділення в минулому, назви переглянутий розклад і через означальну частину передай його вплив на раду.",
+      "groups": [
+        "It was",
+        "the revised timetable",
+        "that persuaded",
+        "the council",
+        "to reconsider."
+      ],
+      "compose_slots": [
+        "It was",
+        "the revised timetable",
+        "that persuaded",
+        "the council",
+        "to reconsider."
+      ],
+      "slot_roles": [
+        "cone_role_a",
+        "cone_role_b",
+        "cone_role_c",
+        "cone_role_d",
+        "cone_role_e"
+      ],
+      "accepted_targets": [
+        "It was the revised timetable that convinced the council to reconsider."
+      ],
+      "display_synonyms": {
+        "that persuaded": [
+          "that convinced"
+        ]
+      }
+    },
+    {
+      "id": "C2-g01",
+      "level": "C2",
+      "kind": "gap",
+      "question": "Be that as it {a1}, withdrawing now would undermine the agreement.",
+      "target": "Be that as it may, withdrawing now would undermine the agreement.",
+      "uk": "Хай там як, відмова від участі зараз підірвала б угоду.",
+      "hint_uk": "Доповни усталений формальний зворот зі значенням «хай там як»; потрібне одне модальне дієслово.",
+      "groups": [
+        "Be that",
+        "as it may,",
+        "withdrawing now",
+        "would undermine",
+        "the agreement."
+      ],
+      "answer": "may",
+      "options": [
+        "may",
+        "might",
+        "could"
+      ],
+      "answer_synonyms": []
+    },
+    {
+      "id": "C2-g02",
+      "level": "C2",
+      "kind": "gap",
+      "question": "So fragile {a1} that a minor setback could unravel the entire settlement.",
+      "target": "So fragile is the consensus that a minor setback could unravel the entire settlement.",
+      "uk": "Згода настільки хитка, що навіть незначна невдача може зруйнувати всю домовленість.",
+      "hint_uk": "Після винесеного ступеневого означення використай інверсію теперішнього часу й подай увесь підмет «згода».",
+      "groups": [
+        "So fragile",
+        "is the consensus",
+        "that",
+        "a minor setback",
+        "could unravel",
+        "the entire settlement."
+      ],
+      "answer": "is the consensus",
+      "options": [
+        "is the consensus",
+        "the consensus is",
+        "does the consensus"
+      ],
+      "answer_synonyms": []
+    },
+    {
+      "id": "C2-c01",
+      "level": "C2",
+      "kind": "compose",
+      "question": "Якби не незалежний аудит, розбіжність залишалася б непоміченою.",
+      "target": "Were it not for the independent audit, the discrepancy would remain undetected.",
+      "uk": "Якби не незалежний аудит, розбіжність залишалася б непоміченою.",
+      "hint_uk": "Почни з інверсійної моделі теперішньої нереальної умови зі значенням «якби не»; після причини назви розбіжність і модальний наслідок.",
+      "groups": [
+        "Were it not",
+        "for",
+        "the independent audit,",
+        "the discrepancy",
+        "would remain undetected."
+      ],
+      "compose_slots": [
+        "Were it not",
+        "for",
+        "the independent audit,",
+        "the discrepancy",
+        "would remain undetected."
+      ],
+      "slot_roles": [
+        "ctwo_role_a",
+        "ctwo_role_b",
+        "ctwo_role_c",
+        "ctwo_role_d",
+        "ctwo_role_e"
+      ],
+      "accepted_targets": [
+        "Were it not for the independent audit, the discrepancy would remain unnoticed.",
+        "Were it not for the independent audit, the inconsistency would remain undetected.",
+        "Were it not for the independent audit, the inconsistency would remain unnoticed."
+      ],
+      "display_synonyms": {
+        "the discrepancy": [
+          "the inconsistency"
+        ],
+        "would remain undetected": [
+          "would remain unnoticed"
+        ]
+      }
+    }
+  ]
+}

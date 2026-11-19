@@ -1,0 +1,3563 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/restrictions.v1.json",
+        "sha256": "10f42835b045b97b11e5075cb4de766560d4a1e1161a50919998038234921499"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedPassiveVoiceRestrictionsQualityBuilderSeeder",
+        "uuid_namespace": "passive-voice-quality-restrictions-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "passive_voice_quality_restrictions": {
+            "name": "Passive Voice Quality: Обмеження пасивного стану"
+        }
+    },
+    "tags": {
+        "polyglot_passive_voice_restrictions": {
+            "name": "Restrictions",
+            "category": "passive_voice"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "transitive_only": {
+            "name": "Transitive Only",
+            "category": "topic"
+        },
+        "intransitive_verbs": {
+            "name": "Intransitive Verbs",
+            "category": "topic"
+        },
+        "common_intransitives": {
+            "name": "Common Intransitives",
+            "category": "topic"
+        },
+        "stative_restrictions": {
+            "name": "Stative Restrictions",
+            "category": "topic"
+        },
+        "reflexive_restrictions": {
+            "name": "Reflexive Restrictions",
+            "category": "topic"
+        },
+        "no_object_no_passive": {
+            "name": "No Object No Passive",
+            "category": "topic"
+        },
+        "unnatural_passive": {
+            "name": "Unnatural Passive",
+            "category": "topic"
+        },
+        "active_alternative": {
+            "name": "Active Alternative",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-restrictions-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Маленька дівчинка усміхнулася дядькові.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Маленька дівчинка усміхнулася дядькові.",
+            "target_text": "The little girl smiled at her uncle.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з дівчинки; вживи минулий актив, бо дія не має прямого об'єкта.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "little",
+                    "verb_hint": "Почни з дівчинки; вживи минулий актив, бо дія не має прямого об'єкта.",
+                    "options": [
+                        "little",
+                        "contingent",
+                        "narrow",
+                        "steep"
+                    ]
+                },
+                "a3": {
+                    "answer": "girl",
+                    "verb_hint": "Почни з дівчинки; вживи минулий актив, бо дія не має прямого об'єкта.",
+                    "options": [
+                        "girl",
+                        "climb",
+                        "shortage",
+                        "concern"
+                    ]
+                },
+                "a4": {
+                    "answer": "smiled",
+                    "verb_hint": "Почни з дівчинки; вживи минулий актив, бо дія не має прямого об'єкта.",
+                    "options": [
+                        "smiled",
+                        "dripped",
+                        "lasted",
+                        "arose"
+                    ]
+                },
+                "a5": {
+                    "answer": "at",
+                    "verb_hint": "Почни з дівчинки; вживи минулий актив, бо дія не має прямого об'єкта.",
+                    "options": [
+                        "at",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a6": {
+                    "answer": "her",
+                    "verb_hint": "Почни з дівчинки; вживи минулий актив, бо дія не має прямого об'єкта.",
+                    "options": [
+                        "her",
+                        "theirs",
+                        "whose",
+                        "my"
+                    ]
+                },
+                "a7": {
+                    "answer": "uncle.",
+                    "verb_hint": "Почни з дівчинки; вживи минулий актив, бо дія не має прямого об'єкта.",
+                    "options": [
+                        "uncle",
+                        "cooperation",
+                        "corroboration",
+                        "termination"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з дівчинки; вживи минулий актив, бо дія не має прямого об'єкта.",
+            "accepted_target_texts": [
+                "The little girl smiled at her uncle."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The little girl",
+                "smiled",
+                "at her uncle."
+            ],
+            "token_groups": [
+                "The little girl",
+                "smiled",
+                "at her uncle."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "little",
+                "girl",
+                "smiled",
+                "at",
+                "her",
+                "uncle."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "little",
+                "contingent",
+                "narrow",
+                "steep",
+                "girl",
+                "climb",
+                "shortage",
+                "concern",
+                "smiled",
+                "dripped",
+                "lasted",
+                "arose",
+                "at",
+                "by",
+                "with",
+                "without",
+                "her",
+                "theirs",
+                "whose",
+                "my",
+                "uncle",
+                "cooperation",
+                "corroboration",
+                "termination"
+            ],
+            "source_text_uk": "Маленька дівчинка усміхнулася дядькові.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "little",
+                    "contingent",
+                    "narrow",
+                    "steep"
+                ],
+                "a3": [
+                    "girl",
+                    "climb",
+                    "shortage",
+                    "concern"
+                ],
+                "a4": [
+                    "smiled",
+                    "dripped",
+                    "lasted",
+                    "arose"
+                ],
+                "a5": [
+                    "at",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a6": [
+                    "her",
+                    "theirs",
+                    "whose",
+                    "my"
+                ],
+                "a7": [
+                    "uncle",
+                    "cooperation",
+                    "corroboration",
+                    "termination"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-restrictions-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Літнє сонце світило крізь вікно.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Літнє сонце світило крізь вікно.",
+            "target_text": "The summer sun shone through the window.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни із сонця; вживи минулий актив, не утворюй неприродного пасиву.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "summer",
+                    "verb_hint": "Почни із сонця; вживи минулий актив, не утворюй неприродного пасиву.",
+                    "options": [
+                        "summer",
+                        "narrow",
+                        "steep",
+                        "abrupt"
+                    ]
+                },
+                "a3": {
+                    "answer": "sun",
+                    "verb_hint": "Почни із сонця; вживи минулий актив, не утворюй неприродного пасиву.",
+                    "options": [
+                        "sun",
+                        "climb",
+                        "shortage",
+                        "concern"
+                    ]
+                },
+                "a4": {
+                    "answer": "shone",
+                    "verb_hint": "Почни із сонця; вживи минулий актив, не утворюй неприродного пасиву.",
+                    "options": [
+                        "shone",
+                        "crystallised",
+                        "slept",
+                        "smiled"
+                    ]
+                },
+                "a5": {
+                    "answer": "through",
+                    "verb_hint": "Почни із сонця; вживи минулий актив, не утворюй неприродного пасиву.",
+                    "options": [
+                        "through",
+                        "under",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни із сонця; вживи минулий актив, не утворюй неприродного пасиву.",
+                    "options": [
+                        "the",
+                        "some",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a7": {
+                    "answer": "window.",
+                    "verb_hint": "Почни із сонця; вживи минулий актив, не утворюй неприродного пасиву.",
+                    "options": [
+                        "window",
+                        "cooperation",
+                        "termination",
+                        "convergence"
+                    ]
+                }
+            },
+            "verb_hint": "Почни із сонця; вживи минулий актив, не утворюй неприродного пасиву.",
+            "accepted_target_texts": [
+                "The summer sun shone through the window."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The summer sun",
+                "shone",
+                "through the window."
+            ],
+            "token_groups": [
+                "The summer sun",
+                "shone",
+                "through the window."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "summer",
+                "sun",
+                "shone",
+                "through",
+                "the",
+                "window."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "summer",
+                "narrow",
+                "steep",
+                "abrupt",
+                "sun",
+                "climb",
+                "shortage",
+                "concern",
+                "shone",
+                "crystallised",
+                "slept",
+                "smiled",
+                "through",
+                "under",
+                "across",
+                "between",
+                "the",
+                "some",
+                "these",
+                "those",
+                "window",
+                "cooperation",
+                "termination",
+                "convergence"
+            ],
+            "source_text_uk": "Літнє сонце світило крізь вікно.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "summer",
+                    "narrow",
+                    "steep",
+                    "abrupt"
+                ],
+                "a3": [
+                    "sun",
+                    "climb",
+                    "shortage",
+                    "concern"
+                ],
+                "a4": [
+                    "shone",
+                    "crystallised",
+                    "slept",
+                    "smiled"
+                ],
+                "a5": [
+                    "through",
+                    "under",
+                    "across",
+                    "between"
+                ],
+                "a6": [
+                    "the",
+                    "some",
+                    "these",
+                    "those"
+                ],
+                "a7": [
+                    "window",
+                    "cooperation",
+                    "termination",
+                    "convergence"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-restrictions-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Наш сірий кіт спав біля вогню.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Наш сірий кіт спав біля вогню.",
+            "target_text": "Our grey cat slept beside the fire.",
+            "markers": {
+                "a1": {
+                    "answer": "Our",
+                    "verb_hint": "Почни з кота; передай минулу неперехідну дію в активі.",
+                    "options": [
+                        "Our",
+                        "Mine",
+                        "Yours",
+                        "Hers"
+                    ]
+                },
+                "a2": {
+                    "answer": "grey",
+                    "verb_hint": "Почни з кота; передай минулу неперехідну дію в активі.",
+                    "options": [
+                        "grey",
+                        "green",
+                        "black",
+                        "white"
+                    ]
+                },
+                "a3": {
+                    "answer": "cat",
+                    "verb_hint": "Почни з кота; передай минулу неперехідну дію в активі.",
+                    "options": [
+                        "cat",
+                        "bird",
+                        "horse",
+                        "cow"
+                    ]
+                },
+                "a4": {
+                    "answer": "slept",
+                    "verb_hint": "Почни з кота; передай минулу неперехідну дію в активі.",
+                    "options": [
+                        "slept",
+                        "smiled",
+                        "shone",
+                        "arrived"
+                    ]
+                },
+                "a5": {
+                    "answer": "beside",
+                    "verb_hint": "Почни з кота; передай минулу неперехідну дію в активі.",
+                    "options": [
+                        "beside",
+                        "at",
+                        "on",
+                        "throughout"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з кота; передай минулу неперехідну дію в активі.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a7": {
+                    "answer": "fire.",
+                    "verb_hint": "Почни з кота; передай минулу неперехідну дію в активі.",
+                    "options": [
+                        "fire",
+                        "night",
+                        "availability",
+                        "cooperation"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з кота; передай минулу неперехідну дію в активі.",
+            "accepted_target_texts": [
+                "Our grey cat slept beside the fire."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our grey cat",
+                "slept",
+                "beside the fire."
+            ],
+            "token_groups": [
+                "Our grey cat",
+                "slept",
+                "beside the fire."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "Our",
+                "grey",
+                "cat",
+                "slept",
+                "beside",
+                "the",
+                "fire."
+            ],
+            "options": [
+                "Our",
+                "Mine",
+                "Yours",
+                "Hers",
+                "grey",
+                "green",
+                "black",
+                "white",
+                "cat",
+                "bird",
+                "horse",
+                "cow",
+                "slept",
+                "smiled",
+                "shone",
+                "arrived",
+                "beside",
+                "at",
+                "on",
+                "throughout",
+                "the",
+                "an",
+                "some",
+                "any",
+                "fire",
+                "night",
+                "availability",
+                "cooperation"
+            ],
+            "source_text_uk": "Наш сірий кіт спав біля вогню.",
+            "options_by_marker": {
+                "a1": [
+                    "Our",
+                    "Mine",
+                    "Yours",
+                    "Hers"
+                ],
+                "a2": [
+                    "grey",
+                    "green",
+                    "black",
+                    "white"
+                ],
+                "a3": [
+                    "cat",
+                    "bird",
+                    "horse",
+                    "cow"
+                ],
+                "a4": [
+                    "slept",
+                    "smiled",
+                    "shone",
+                    "arrived"
+                ],
+                "a5": [
+                    "beside",
+                    "at",
+                    "on",
+                    "throughout"
+                ],
+                "a6": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a7": [
+                    "fire",
+                    "night",
+                    "availability",
+                    "cooperation"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-restrictions-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Маленький пором прибув до заходу сонця.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Маленький пором прибув до заходу сонця.",
+            "target_text": "The little ferry arrived before sunset.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з порома; передай завершене минуле прибуття в активі.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "little",
+                    "verb_hint": "Почни з порома; передай завершене минуле прибуття в активі.",
+                    "options": [
+                        "little",
+                        "summer",
+                        "grey",
+                        "steep"
+                    ]
+                },
+                "a3": {
+                    "answer": "ferry",
+                    "verb_hint": "Почни з порома; передай завершене минуле прибуття в активі.",
+                    "options": [
+                        "ferry",
+                        "gap",
+                        "liability",
+                        "footpath"
+                    ]
+                },
+                "a4": {
+                    "answer": "arrived",
+                    "verb_hint": "Почни з порома; передай завершене минуле прибуття в активі.",
+                    "options": [
+                        "arrived",
+                        "arose",
+                        "crystallised",
+                        "dripped"
+                    ]
+                },
+                "a5": {
+                    "answer": "before",
+                    "verb_hint": "Почни з порома; передай завершене минуле прибуття в активі.",
+                    "options": [
+                        "before",
+                        "narrow",
+                        "beach",
+                        "tap"
+                    ]
+                },
+                "a6": {
+                    "answer": "sunset.",
+                    "verb_hint": "Почни з порома; передай завершене минуле прибуття в активі.",
+                    "options": [
+                        "sunset",
+                        "throughout",
+                        "teacher",
+                        "school"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з порома; передай завершене минуле прибуття в активі.",
+            "accepted_target_texts": [
+                "The little ferry arrived before sunset."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The little ferry",
+                "arrived",
+                "before sunset."
+            ],
+            "token_groups": [
+                "The little ferry",
+                "arrived",
+                "before sunset."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "little",
+                "ferry",
+                "arrived",
+                "before",
+                "sunset."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "little",
+                "summer",
+                "grey",
+                "steep",
+                "ferry",
+                "gap",
+                "liability",
+                "footpath",
+                "arrived",
+                "arose",
+                "crystallised",
+                "dripped",
+                "before",
+                "narrow",
+                "beach",
+                "tap",
+                "sunset",
+                "throughout",
+                "teacher",
+                "school"
+            ],
+            "source_text_uk": "Маленький пором прибув до заходу сонця.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "little",
+                    "summer",
+                    "grey",
+                    "steep"
+                ],
+                "a3": [
+                    "ferry",
+                    "gap",
+                    "liability",
+                    "footpath"
+                ],
+                "a4": [
+                    "arrived",
+                    "arose",
+                    "crystallised",
+                    "dripped"
+                ],
+                "a5": [
+                    "before",
+                    "narrow",
+                    "beach",
+                    "tap"
+                ],
+                "a6": [
+                    "sunset",
+                    "throughout",
+                    "teacher",
+                    "school"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-restrictions-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Вузька стежка веде до пляжу.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Вузька стежка веде до пляжу.",
+            "target_text": "The narrow footpath leads towards the beach.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни зі стежки; передай теперішній напрямок активним дієсловом.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "narrow",
+                    "verb_hint": "Почни зі стежки; передай теперішній напрямок активним дієсловом.",
+                    "options": [
+                        "narrow",
+                        "contingent",
+                        "little",
+                        "summer"
+                    ]
+                },
+                "a3": {
+                    "answer": "footpath",
+                    "verb_hint": "Почни зі стежки; передай теперішній напрямок активним дієсловом.",
+                    "options": [
+                        "footpath",
+                        "shortage",
+                        "concern",
+                        "estimate"
+                    ]
+                },
+                "a4": {
+                    "answer": "leads",
+                    "verb_hint": "Почни зі стежки; передай теперішній напрямок активним дієсловом.",
+                    "options": [
+                        "leads",
+                        "hinges",
+                        "persists",
+                        "subsists"
+                    ]
+                },
+                "a5": {
+                    "answer": "towards",
+                    "verb_hint": "Почни зі стежки; передай теперішній напрямок активним дієсловом.",
+                    "options": [
+                        "towards",
+                        "cats",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни зі стежки; передай теперішній напрямок активним дієсловом.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a7": {
+                    "answer": "beach.",
+                    "verb_hint": "Почни зі стежки; передай теперішній напрямок активним дієсловом.",
+                    "options": [
+                        "beach",
+                        "convergence",
+                        "night",
+                        "window"
+                    ]
+                }
+            },
+            "verb_hint": "Почни зі стежки; передай теперішній напрямок активним дієсловом.",
+            "accepted_target_texts": [
+                "The narrow footpath leads towards the beach."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The narrow footpath",
+                "leads",
+                "towards the beach."
+            ],
+            "token_groups": [
+                "The narrow footpath",
+                "leads",
+                "towards the beach."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "narrow",
+                "footpath",
+                "leads",
+                "towards",
+                "the",
+                "beach."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "narrow",
+                "contingent",
+                "little",
+                "summer",
+                "footpath",
+                "shortage",
+                "concern",
+                "estimate",
+                "leads",
+                "hinges",
+                "persists",
+                "subsists",
+                "towards",
+                "cats",
+                "people",
+                "men",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "beach",
+                "convergence",
+                "night",
+                "window"
+            ],
+            "source_text_uk": "Вузька стежка веде до пляжу.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "narrow",
+                    "contingent",
+                    "little",
+                    "summer"
+                ],
+                "a3": [
+                    "footpath",
+                    "shortage",
+                    "concern",
+                    "estimate"
+                ],
+                "a4": [
+                    "leads",
+                    "hinges",
+                    "persists",
+                    "subsists"
+                ],
+                "a5": [
+                    "towards",
+                    "cats",
+                    "people",
+                    "men"
+                ],
+                "a6": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a7": [
+                    "beach",
+                    "convergence",
+                    "night",
+                    "window"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-restrictions-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Кухонний кран капав протягом усієї ночі.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Кухонний кран капав протягом усієї ночі.",
+            "target_text": "The kitchen tap dripped throughout the night.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з крана; передай завершену минулу неперехідну дію в активі.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "kitchen",
+                    "verb_hint": "Почни з крана; передай завершену минулу неперехідну дію в активі.",
+                    "options": [
+                        "kitchen",
+                        "unexplained",
+                        "revised",
+                        "wooden"
+                    ]
+                },
+                "a3": {
+                    "answer": "tap",
+                    "verb_hint": "Почни з крана; передай завершену минулу неперехідну дію в активі.",
+                    "options": [
+                        "tap",
+                        "liability",
+                        "distinction",
+                        "ferry"
+                    ]
+                },
+                "a4": {
+                    "answer": "dripped",
+                    "verb_hint": "Почни з крана; передай завершену минулу неперехідну дію в активі.",
+                    "options": [
+                        "dripped",
+                        "slept",
+                        "smiled",
+                        "shone"
+                    ]
+                },
+                "a5": {
+                    "answer": "throughout",
+                    "verb_hint": "Почни з крана; передай завершену минулу неперехідну дію в активі.",
+                    "options": [
+                        "throughout",
+                        "upon",
+                        "beneath",
+                        "at"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з крана; передай завершену минулу неперехідну дію в активі.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a7": {
+                    "answer": "night.",
+                    "verb_hint": "Почни з крана; передай завершену минулу неперехідну дію в активі.",
+                    "options": [
+                        "night",
+                        "second",
+                        "morning",
+                        "afternoon"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з крана; передай завершену минулу неперехідну дію в активі.",
+            "accepted_target_texts": [
+                "The kitchen tap dripped throughout the night."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The kitchen tap",
+                "dripped",
+                "throughout the night."
+            ],
+            "token_groups": [
+                "The kitchen tap",
+                "dripped",
+                "throughout the night."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "kitchen",
+                "tap",
+                "dripped",
+                "throughout",
+                "the",
+                "night."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "kitchen",
+                "unexplained",
+                "revised",
+                "wooden",
+                "tap",
+                "liability",
+                "distinction",
+                "ferry",
+                "dripped",
+                "slept",
+                "smiled",
+                "shone",
+                "throughout",
+                "upon",
+                "beneath",
+                "at",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "night",
+                "second",
+                "morning",
+                "afternoon"
+            ],
+            "source_text_uk": "Кухонний кран капав протягом усієї ночі.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "kitchen",
+                    "unexplained",
+                    "revised",
+                    "wooden"
+                ],
+                "a3": [
+                    "tap",
+                    "liability",
+                    "distinction",
+                    "ferry"
+                ],
+                "a4": [
+                    "dripped",
+                    "slept",
+                    "smiled",
+                    "shone"
+                ],
+                "a5": [
+                    "throughout",
+                    "upon",
+                    "beneath",
+                    "at"
+                ],
+                "a6": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a7": [
+                    "night",
+                    "second",
+                    "morning",
+                    "afternoon"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-restrictions-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Переглянутий розклад залежить від наявності працівників.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Переглянутий розклад залежить від наявності працівників.",
+            "target_text": "The revised schedule depends on staff availability.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з розкладу; передай теперішню залежність в активі.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "revised",
+                    "verb_hint": "Почни з розкладу; передай теперішню залежність в активі.",
+                    "options": [
+                        "revised",
+                        "wooden",
+                        "kitchen",
+                        "unexplained"
+                    ]
+                },
+                "a3": {
+                    "answer": "schedule",
+                    "verb_hint": "Почни з розкладу; передай теперішню залежність в активі.",
+                    "options": [
+                        "schedule",
+                        "liability",
+                        "distinction",
+                        "chest"
+                    ]
+                },
+                "a4": {
+                    "answer": "depends",
+                    "verb_hint": "Почни з розкладу; передай теперішню залежність в активі.",
+                    "options": [
+                        "depends",
+                        "contains",
+                        "leads",
+                        "remains"
+                    ]
+                },
+                "a5": {
+                    "answer": "on",
+                    "verb_hint": "Почни з розкладу; передай теперішню залежність в активі.",
+                    "options": [
+                        "on",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a6": {
+                    "answer": "staff",
+                    "verb_hint": "Почни з розкладу; передай теперішню залежність в активі.",
+                    "options": [
+                        "staff",
+                        "procedural",
+                        "further",
+                        "contractual"
+                    ]
+                },
+                "a7": {
+                    "answer": "availability.",
+                    "verb_hint": "Почни з розкладу; передай теперішню залежність в активі.",
+                    "options": [
+                        "availability",
+                        "window",
+                        "fire",
+                        "beach"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з розкладу; передай теперішню залежність в активі.",
+            "accepted_target_texts": [
+                "The revised schedule depends on staff availability."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The revised schedule",
+                "depends",
+                "on staff availability."
+            ],
+            "token_groups": [
+                "The revised schedule",
+                "depends",
+                "on staff availability."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "revised",
+                "schedule",
+                "depends",
+                "on",
+                "staff",
+                "availability."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "revised",
+                "wooden",
+                "kitchen",
+                "unexplained",
+                "schedule",
+                "liability",
+                "distinction",
+                "chest",
+                "depends",
+                "contains",
+                "leads",
+                "remains",
+                "on",
+                "without",
+                "into",
+                "onto",
+                "staff",
+                "procedural",
+                "further",
+                "contractual",
+                "availability",
+                "window",
+                "fire",
+                "beach"
+            ],
+            "source_text_uk": "Переглянутий розклад залежить від наявності працівників.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "revised",
+                    "wooden",
+                    "kitchen",
+                    "unexplained"
+                ],
+                "a3": [
+                    "schedule",
+                    "liability",
+                    "distinction",
+                    "chest"
+                ],
+                "a4": [
+                    "depends",
+                    "contains",
+                    "leads",
+                    "remains"
+                ],
+                "a5": [
+                    "on",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a6": [
+                    "staff",
+                    "procedural",
+                    "further",
+                    "contractual"
+                ],
+                "a7": [
+                    "availability",
+                    "window",
+                    "fire",
+                    "beach"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-restrictions-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Дерев'яна скриня містить кілька старовинних карт.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Дерев'яна скриня містить кілька старовинних карт.",
+            "target_text": "The wooden chest contains several antique maps.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни зі скрині; передай теперішнє значення вмісту природною активною конструкцією.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "wooden",
+                    "verb_hint": "Почни зі скрині; передай теперішнє значення вмісту природною активною конструкцією.",
+                    "options": [
+                        "wooden",
+                        "revised",
+                        "unexplained",
+                        "kitchen"
+                    ]
+                },
+                "a3": {
+                    "answer": "chest",
+                    "verb_hint": "Почни зі скрині; передай теперішнє значення вмісту природною активною конструкцією.",
+                    "options": [
+                        "chest",
+                        "disagreement",
+                        "gap",
+                        "liability"
+                    ]
+                },
+                "a4": {
+                    "answer": "contains",
+                    "verb_hint": "Почни зі скрині; передай теперішнє значення вмісту природною активною конструкцією.",
+                    "options": [
+                        "contains",
+                        "depends",
+                        "leads",
+                        "remains"
+                    ]
+                },
+                "a5": {
+                    "answer": "several",
+                    "verb_hint": "Почни зі скрині; передай теперішнє значення вмісту природною активною конструкцією.",
+                    "options": [
+                        "several",
+                        "at",
+                        "through",
+                        "beside"
+                    ]
+                },
+                "a6": {
+                    "answer": "antique",
+                    "verb_hint": "Почни зі скрині; передай теперішнє значення вмісту природною активною конструкцією.",
+                    "options": [
+                        "antique",
+                        "contractual",
+                        "superficial",
+                        "three"
+                    ]
+                },
+                "a7": {
+                    "answer": "maps.",
+                    "verb_hint": "Почни зі скрині; передай теперішнє значення вмісту природною активною конструкцією.",
+                    "options": [
+                        "maps",
+                        "assumptions",
+                        "failures",
+                        "points"
+                    ]
+                }
+            },
+            "verb_hint": "Почни зі скрині; передай теперішнє значення вмісту природною активною конструкцією.",
+            "accepted_target_texts": [
+                "The wooden chest contains several antique maps.",
+                "The wooden chest has several antique maps."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "has"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "has"
+                ]
+            },
+            "reorder_groups": [
+                "The wooden chest",
+                "contains",
+                "several antique maps."
+            ],
+            "token_groups": [
+                "The wooden chest",
+                "contains",
+                "several antique maps."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "wooden",
+                "chest",
+                "contains",
+                "several",
+                "antique",
+                "maps."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "wooden",
+                "revised",
+                "unexplained",
+                "kitchen",
+                "chest",
+                "disagreement",
+                "gap",
+                "liability",
+                "contains",
+                "depends",
+                "leads",
+                "remains",
+                "several",
+                "at",
+                "through",
+                "beside",
+                "antique",
+                "contractual",
+                "superficial",
+                "three",
+                "maps",
+                "assumptions",
+                "failures",
+                "points"
+            ],
+            "source_text_uk": "Дерев'яна скриня містить кілька старовинних карт.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "wooden",
+                    "revised",
+                    "unexplained",
+                    "kitchen"
+                ],
+                "a3": [
+                    "chest",
+                    "disagreement",
+                    "gap",
+                    "liability"
+                ],
+                "a4": [
+                    "contains",
+                    "depends",
+                    "leads",
+                    "remains"
+                ],
+                "a5": [
+                    "several",
+                    "at",
+                    "through",
+                    "beside"
+                ],
+                "a6": [
+                    "antique",
+                    "contractual",
+                    "superficial",
+                    "three"
+                ],
+                "a7": [
+                    "maps",
+                    "assumptions",
+                    "failures",
+                    "points"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-restrictions-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Крутий підйом тривав майже три години.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Крутий підйом тривав майже три години.",
+            "target_text": "The steep climb lasted nearly three hours.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з підйому; передай завершену минулу тривалість в активі.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "steep",
+                    "verb_hint": "Почни з підйому; передай завершену минулу тривалість в активі.",
+                    "options": [
+                        "steep",
+                        "contingent",
+                        "little",
+                        "summer"
+                    ]
+                },
+                "a3": {
+                    "answer": "climb",
+                    "verb_hint": "Почни з підйому; передай завершену минулу тривалість в активі.",
+                    "options": [
+                        "climb",
+                        "footpath",
+                        "tap",
+                        "shortage"
+                    ]
+                },
+                "a4": {
+                    "answer": "lasted",
+                    "verb_hint": "Почни з підйому; передай завершену минулу тривалість в активі.",
+                    "options": [
+                        "lasted",
+                        "shone",
+                        "slept",
+                        "arrived"
+                    ]
+                },
+                "a5": {
+                    "answer": "nearly",
+                    "verb_hint": "Почни з підйому; передай завершену минулу тривалість в активі.",
+                    "options": [
+                        "nearly",
+                        "easily",
+                        "politely",
+                        "loudly"
+                    ]
+                },
+                "a6": {
+                    "answer": "three",
+                    "verb_hint": "Почни з підйому; передай завершену минулу тривалість в активі.",
+                    "options": [
+                        "three",
+                        "several",
+                        "uncertain",
+                        "procedural"
+                    ]
+                },
+                "a7": {
+                    "answer": "hours.",
+                    "verb_hint": "Почни з підйому; передай завершену минулу тривалість в активі.",
+                    "options": [
+                        "hours",
+                        "failures",
+                        "points",
+                        "assumptions"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з підйому; передай завершену минулу тривалість в активі.",
+            "accepted_target_texts": [
+                "The steep climb lasted nearly three hours."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The steep climb",
+                "lasted",
+                "nearly three hours."
+            ],
+            "token_groups": [
+                "The steep climb",
+                "lasted",
+                "nearly three hours."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "steep",
+                "climb",
+                "lasted",
+                "nearly",
+                "three",
+                "hours."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "steep",
+                "contingent",
+                "little",
+                "summer",
+                "climb",
+                "footpath",
+                "tap",
+                "shortage",
+                "lasted",
+                "shone",
+                "slept",
+                "arrived",
+                "nearly",
+                "easily",
+                "politely",
+                "loudly",
+                "three",
+                "several",
+                "uncertain",
+                "procedural",
+                "hours",
+                "failures",
+                "points",
+                "assumptions"
+            ],
+            "source_text_uk": "Крутий підйом тривав майже три години.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "steep",
+                    "contingent",
+                    "little",
+                    "summer"
+                ],
+                "a3": [
+                    "climb",
+                    "footpath",
+                    "tap",
+                    "shortage"
+                ],
+                "a4": [
+                    "lasted",
+                    "shone",
+                    "slept",
+                    "arrived"
+                ],
+                "a5": [
+                    "nearly",
+                    "easily",
+                    "politely",
+                    "loudly"
+                ],
+                "a6": [
+                    "three",
+                    "several",
+                    "uncertain",
+                    "procedural"
+                ],
+                "a7": [
+                    "hours",
+                    "failures",
+                    "points",
+                    "assumptions"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-restrictions-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Раптова нестача виникла через логістичні збої.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Раптова нестача виникла через логістичні збої.",
+            "target_text": "The abrupt shortage arose from logistical failures.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з нестачі; передай завершене минуле виникнення в активі.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "abrupt",
+                    "verb_hint": "Почни з нестачі; передай завершене минуле виникнення в активі.",
+                    "options": [
+                        "abrupt",
+                        "inferential",
+                        "contingent",
+                        "little"
+                    ]
+                },
+                "a3": {
+                    "answer": "shortage",
+                    "verb_hint": "Почни з нестачі; передай завершене минуле виникнення в активі.",
+                    "options": [
+                        "shortage",
+                        "chest",
+                        "climb",
+                        "disagreement"
+                    ]
+                },
+                "a4": {
+                    "answer": "arose",
+                    "verb_hint": "Почни з нестачі; передай завершене минуле виникнення в активі.",
+                    "options": [
+                        "arose",
+                        "crystallised",
+                        "recurred",
+                        "smiled"
+                    ]
+                },
+                "a5": {
+                    "answer": "from",
+                    "verb_hint": "Почни з нестачі; передай завершене минуле виникнення в активі.",
+                    "options": [
+                        "from",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a6": {
+                    "answer": "logistical",
+                    "verb_hint": "Почни з нестачі; передай завершене минуле виникнення в активі.",
+                    "options": [
+                        "logistical",
+                        "dark",
+                        "heavy",
+                        "light"
+                    ]
+                },
+                "a7": {
+                    "answer": "failures.",
+                    "verb_hint": "Почни з нестачі; передай завершене минуле виникнення в активі.",
+                    "options": [
+                        "failures",
+                        "assumptions",
+                        "points",
+                        "maps"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з нестачі; передай завершене минуле виникнення в активі.",
+            "accepted_target_texts": [
+                "The abrupt shortage arose from logistical failures."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The abrupt shortage",
+                "arose",
+                "from logistical failures."
+            ],
+            "token_groups": [
+                "The abrupt shortage",
+                "arose",
+                "from logistical failures."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "abrupt",
+                "shortage",
+                "arose",
+                "from",
+                "logistical",
+                "failures."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "abrupt",
+                "inferential",
+                "contingent",
+                "little",
+                "shortage",
+                "chest",
+                "climb",
+                "disagreement",
+                "arose",
+                "crystallised",
+                "recurred",
+                "smiled",
+                "from",
+                "with",
+                "without",
+                "into",
+                "logistical",
+                "dark",
+                "heavy",
+                "light",
+                "failures",
+                "assumptions",
+                "points",
+                "maps"
+            ],
+            "source_text_uk": "Раптова нестача виникла через логістичні збої.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "abrupt",
+                    "inferential",
+                    "contingent",
+                    "little"
+                ],
+                "a3": [
+                    "shortage",
+                    "chest",
+                    "climb",
+                    "disagreement"
+                ],
+                "a4": [
+                    "arose",
+                    "crystallised",
+                    "recurred",
+                    "smiled"
+                ],
+                "a5": [
+                    "from",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a6": [
+                    "logistical",
+                    "dark",
+                    "heavy",
+                    "light"
+                ],
+                "a7": [
+                    "failures",
+                    "assumptions",
+                    "points",
+                    "maps"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-restrictions-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Основоположне занепокоєння залишається переважно без відповіді.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Основоположне занепокоєння залишається переважно без відповіді.",
+            "target_text": "The underlying concern remains largely unaddressed.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни із занепокоєння; вживи теперішню дієслівну зв'язку без пасивного допоміжного.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "underlying",
+                    "verb_hint": "Почни із занепокоєння; вживи теперішню дієслівну зв'язку без пасивного допоміжного.",
+                    "options": [
+                        "underlying",
+                        "conflicting",
+                        "visiting",
+                        "cooking"
+                    ]
+                },
+                "a3": {
+                    "answer": "concern",
+                    "verb_hint": "Почни із занепокоєння; вживи теперішню дієслівну зв'язку без пасивного допоміжного.",
+                    "options": [
+                        "concern",
+                        "tap",
+                        "schedule",
+                        "chest"
+                    ]
+                },
+                "a4": {
+                    "answer": "remains",
+                    "verb_hint": "Почни із занепокоєння; вживи теперішню дієслівну зв'язку без пасивного допоміжного.",
+                    "options": [
+                        "remains",
+                        "leads",
+                        "depends",
+                        "contains"
+                    ]
+                },
+                "a5": {
+                    "answer": "largely",
+                    "verb_hint": "Почни із занепокоєння; вживи теперішню дієслівну зв'язку без пасивного допоміжного.",
+                    "options": [
+                        "largely",
+                        "easily",
+                        "politely",
+                        "loudly"
+                    ]
+                },
+                "a6": {
+                    "answer": "unaddressed.",
+                    "verb_hint": "Почни із занепокоєння; вживи теперішню дієслівну зв'язку без пасивного допоміжного.",
+                    "options": [
+                        "unaddressed",
+                        "arose",
+                        "worked",
+                        "played"
+                    ]
+                }
+            },
+            "verb_hint": "Почни із занепокоєння; вживи теперішню дієслівну зв'язку без пасивного допоміжного.",
+            "accepted_target_texts": [
+                "The underlying concern remains largely unaddressed."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The underlying concern",
+                "remains",
+                "largely unaddressed."
+            ],
+            "token_groups": [
+                "The underlying concern",
+                "remains",
+                "largely unaddressed."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "underlying",
+                "concern",
+                "remains",
+                "largely",
+                "unaddressed."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "underlying",
+                "conflicting",
+                "visiting",
+                "cooking",
+                "concern",
+                "tap",
+                "schedule",
+                "chest",
+                "remains",
+                "leads",
+                "depends",
+                "contains",
+                "largely",
+                "easily",
+                "politely",
+                "loudly",
+                "unaddressed",
+                "arose",
+                "worked",
+                "played"
+            ],
+            "source_text_uk": "Основоположне занепокоєння залишається переважно без відповіді.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "underlying",
+                    "conflicting",
+                    "visiting",
+                    "cooking"
+                ],
+                "a3": [
+                    "concern",
+                    "tap",
+                    "schedule",
+                    "chest"
+                ],
+                "a4": [
+                    "remains",
+                    "leads",
+                    "depends",
+                    "contains"
+                ],
+                "a5": [
+                    "largely",
+                    "easily",
+                    "politely",
+                    "loudly"
+                ],
+                "a6": [
+                    "unaddressed",
+                    "arose",
+                    "worked",
+                    "played"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-restrictions-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Суперечливі виклади розходяться в кількох пунктах.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Суперечливі виклади розходяться в кількох пунктах.",
+            "target_text": "The conflicting accounts diverge on several points.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з викладів; передай теперішню відмінність неперехідним активним дієсловом.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "conflicting",
+                    "verb_hint": "Почни з викладів; передай теперішню відмінність неперехідним активним дієсловом.",
+                    "options": [
+                        "conflicting",
+                        "underlying",
+                        "taking",
+                        "working"
+                    ]
+                },
+                "a3": {
+                    "answer": "accounts",
+                    "verb_hint": "Почни з викладів; передай теперішню відмінність неперехідним активним дієсловом.",
+                    "options": [
+                        "accounts",
+                        "failures",
+                        "remains",
+                        "letters"
+                    ]
+                },
+                "a4": {
+                    "answer": "diverge",
+                    "verb_hint": "Почни з викладів; передай теперішню відмінність неперехідним активним дієсловом.",
+                    "options": [
+                        "diverge",
+                        "abrupt",
+                        "shortage",
+                        "concern"
+                    ]
+                },
+                "a5": {
+                    "answer": "on",
+                    "verb_hint": "Почни з викладів; передай теперішню відмінність неперехідним активним дієсловом.",
+                    "options": [
+                        "on",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a6": {
+                    "answer": "several",
+                    "verb_hint": "Почни з викладів; передай теперішню відмінність неперехідним активним дієсловом.",
+                    "options": [
+                        "several",
+                        "staff",
+                        "antique",
+                        "three"
+                    ]
+                },
+                "a7": {
+                    "answer": "points.",
+                    "verb_hint": "Почни з викладів; передай теперішню відмінність неперехідним активним дієсловом.",
+                    "options": [
+                        "points",
+                        "maps",
+                        "hours",
+                        "assumptions"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з викладів; передай теперішню відмінність неперехідним активним дієсловом.",
+            "accepted_target_texts": [
+                "The conflicting accounts diverge on several points."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The conflicting accounts",
+                "diverge",
+                "on several points."
+            ],
+            "token_groups": [
+                "The conflicting accounts",
+                "diverge",
+                "on several points."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "conflicting",
+                "accounts",
+                "diverge",
+                "on",
+                "several",
+                "points."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "conflicting",
+                "underlying",
+                "taking",
+                "working",
+                "accounts",
+                "failures",
+                "remains",
+                "letters",
+                "diverge",
+                "abrupt",
+                "shortage",
+                "concern",
+                "on",
+                "under",
+                "through",
+                "across",
+                "several",
+                "staff",
+                "antique",
+                "three",
+                "points",
+                "maps",
+                "hours",
+                "assumptions"
+            ],
+            "source_text_uk": "Суперечливі виклади розходяться в кількох пунктах.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "conflicting",
+                    "underlying",
+                    "taking",
+                    "working"
+                ],
+                "a3": [
+                    "accounts",
+                    "failures",
+                    "remains",
+                    "letters"
+                ],
+                "a4": [
+                    "diverge",
+                    "abrupt",
+                    "shortage",
+                    "concern"
+                ],
+                "a5": [
+                    "on",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a6": [
+                    "several",
+                    "staff",
+                    "antique",
+                    "three"
+                ],
+                "a7": [
+                    "points",
+                    "maps",
+                    "hours",
+                    "assumptions"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-restrictions-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Переглянута оцінка залежить від непевних припущень.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Переглянута оцінка залежить від непевних припущень.",
+            "target_text": "The revised estimate hinges on uncertain assumptions.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з оцінки; передай теперішню залежність активним дієсловом із прийменником.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "revised",
+                    "verb_hint": "Почни з оцінки; передай теперішню залежність активним дієсловом із прийменником.",
+                    "options": [
+                        "revised",
+                        "unexplained",
+                        "kitchen",
+                        "wooden"
+                    ]
+                },
+                "a3": {
+                    "answer": "estimate",
+                    "verb_hint": "Почни з оцінки; передай теперішню залежність активним дієсловом із прийменником.",
+                    "options": [
+                        "estimate",
+                        "footpath",
+                        "tap",
+                        "schedule"
+                    ]
+                },
+                "a4": {
+                    "answer": "hinges",
+                    "verb_hint": "Почни з оцінки; передай теперішню залежність активним дієсловом із прийменником.",
+                    "options": [
+                        "hinges",
+                        "contains",
+                        "remains",
+                        "subsists"
+                    ]
+                },
+                "a5": {
+                    "answer": "on",
+                    "verb_hint": "Почни з оцінки; передай теперішню залежність активним дієсловом із прийменником.",
+                    "options": [
+                        "on",
+                        "of",
+                        "in",
+                        "at"
+                    ]
+                },
+                "a6": {
+                    "answer": "uncertain",
+                    "verb_hint": "Почни з оцінки; передай теперішню залежність активним дієсловом із прийменником.",
+                    "options": [
+                        "uncertain",
+                        "her",
+                        "staff",
+                        "antique"
+                    ]
+                },
+                "a7": {
+                    "answer": "assumptions.",
+                    "verb_hint": "Почни з оцінки; передай теперішню залежність активним дієсловом із прийменником.",
+                    "options": [
+                        "assumptions",
+                        "hours",
+                        "failures",
+                        "points"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з оцінки; передай теперішню залежність активним дієсловом із прийменником.",
+            "accepted_target_texts": [
+                "The revised estimate hinges on uncertain assumptions."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The revised estimate",
+                "hinges",
+                "on uncertain assumptions."
+            ],
+            "token_groups": [
+                "The revised estimate",
+                "hinges",
+                "on uncertain assumptions."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "revised",
+                "estimate",
+                "hinges",
+                "on",
+                "uncertain",
+                "assumptions."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "revised",
+                "unexplained",
+                "kitchen",
+                "wooden",
+                "estimate",
+                "footpath",
+                "tap",
+                "schedule",
+                "hinges",
+                "contains",
+                "remains",
+                "subsists",
+                "on",
+                "of",
+                "in",
+                "at",
+                "uncertain",
+                "her",
+                "staff",
+                "antique",
+                "assumptions",
+                "hours",
+                "failures",
+                "points"
+            ],
+            "source_text_uk": "Переглянута оцінка залежить від непевних припущень.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "revised",
+                    "unexplained",
+                    "kitchen",
+                    "wooden"
+                ],
+                "a3": [
+                    "estimate",
+                    "footpath",
+                    "tap",
+                    "schedule"
+                ],
+                "a4": [
+                    "hinges",
+                    "contains",
+                    "remains",
+                    "subsists"
+                ],
+                "a5": [
+                    "on",
+                    "of",
+                    "in",
+                    "at"
+                ],
+                "a6": [
+                    "uncertain",
+                    "her",
+                    "staff",
+                    "antique"
+                ],
+                "a7": [
+                    "assumptions",
+                    "hours",
+                    "failures",
+                    "points"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-restrictions-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Змістова незгода зберігається попри процедурну співпрацю.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Змістова незгода зберігається попри процедурну співпрацю.",
+            "target_text": "The substantive disagreement persists despite procedural cooperation.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з незгоди; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "substantive",
+                    "verb_hint": "Почни з незгоди; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "substantive",
+                        "lovely",
+                        "final",
+                        "small"
+                    ]
+                },
+                "a3": {
+                    "answer": "disagreement",
+                    "verb_hint": "Почни з незгоди; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "disagreement",
+                        "ferry",
+                        "tap",
+                        "schedule"
+                    ]
+                },
+                "a4": {
+                    "answer": "persists",
+                    "verb_hint": "Почни з незгоди; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "persists",
+                        "contains",
+                        "remains",
+                        "subsists"
+                    ]
+                },
+                "a5": {
+                    "answer": "despite",
+                    "verb_hint": "Почни з незгоди; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "despite",
+                        "throughout",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a6": {
+                    "answer": "procedural",
+                    "verb_hint": "Почни з незгоди; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "procedural",
+                        "uncertain",
+                        "further",
+                        "her"
+                    ]
+                },
+                "a7": {
+                    "answer": "cooperation.",
+                    "verb_hint": "Почни з незгоди; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "cooperation",
+                        "availability",
+                        "termination",
+                        "convergence"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з незгоди; передай теперішнє збереження стану в активі.",
+            "accepted_target_texts": [
+                "The substantive disagreement persists despite procedural cooperation."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The substantive disagreement",
+                "persists",
+                "despite procedural cooperation."
+            ],
+            "token_groups": [
+                "The substantive disagreement",
+                "persists",
+                "despite procedural cooperation."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "substantive",
+                "disagreement",
+                "persists",
+                "despite",
+                "procedural",
+                "cooperation."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "substantive",
+                "lovely",
+                "final",
+                "small",
+                "disagreement",
+                "ferry",
+                "tap",
+                "schedule",
+                "persists",
+                "contains",
+                "remains",
+                "subsists",
+                "despite",
+                "throughout",
+                "on",
+                "at",
+                "procedural",
+                "uncertain",
+                "further",
+                "her",
+                "cooperation",
+                "availability",
+                "termination",
+                "convergence"
+            ],
+            "source_text_uk": "Змістова незгода зберігається попри процедурну співпрацю.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "substantive",
+                    "lovely",
+                    "final",
+                    "small"
+                ],
+                "a3": [
+                    "disagreement",
+                    "ferry",
+                    "tap",
+                    "schedule"
+                ],
+                "a4": [
+                    "persists",
+                    "contains",
+                    "remains",
+                    "subsists"
+                ],
+                "a5": [
+                    "despite",
+                    "throughout",
+                    "on",
+                    "at"
+                ],
+                "a6": [
+                    "procedural",
+                    "uncertain",
+                    "further",
+                    "her"
+                ],
+                "a7": [
+                    "cooperation",
+                    "availability",
+                    "termination",
+                    "convergence"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-restrictions-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Непояснена розбіжність повторювалася протягом дослідження.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Непояснена розбіжність повторювалася протягом дослідження.",
+            "target_text": "The unexplained discrepancy recurred throughout the study.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з розбіжності; передай завершене минуле повторення неперехідним активним дієсловом.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "unexplained",
+                    "verb_hint": "Почни з розбіжності; передай завершене минуле повторення неперехідним активним дієсловом.",
+                    "options": [
+                        "unexplained",
+                        "revised",
+                        "kitchen",
+                        "wooden"
+                    ]
+                },
+                "a3": {
+                    "answer": "discrepancy",
+                    "verb_hint": "Почни з розбіжності; передай завершене минуле повторення неперехідним активним дієсловом.",
+                    "options": [
+                        "discrepancy",
+                        "cat",
+                        "ferry",
+                        "footpath"
+                    ]
+                },
+                "a4": {
+                    "answer": "recurred",
+                    "verb_hint": "Почни з розбіжності; передай завершене минуле повторення неперехідним активним дієсловом.",
+                    "options": [
+                        "recurred",
+                        "lasted",
+                        "arose",
+                        "crystallised"
+                    ]
+                },
+                "a5": {
+                    "answer": "throughout",
+                    "verb_hint": "Почни з розбіжності; передай завершене минуле повторення неперехідним активним дієсловом.",
+                    "options": [
+                        "throughout",
+                        "despite",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з розбіжності; передай завершене минуле повторення неперехідним активним дієсловом.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "study.",
+                    "verb_hint": "Почни з розбіжності; передай завершене минуле повторення неперехідним активним дієсловом.",
+                    "options": [
+                        "study",
+                        "like",
+                        "know",
+                        "want"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з розбіжності; передай завершене минуле повторення неперехідним активним дієсловом.",
+            "accepted_target_texts": [
+                "The unexplained discrepancy recurred throughout the study."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The unexplained discrepancy",
+                "recurred",
+                "throughout the study."
+            ],
+            "token_groups": [
+                "The unexplained discrepancy",
+                "recurred",
+                "throughout the study."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "unexplained",
+                "discrepancy",
+                "recurred",
+                "throughout",
+                "the",
+                "study."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "unexplained",
+                "revised",
+                "kitchen",
+                "wooden",
+                "discrepancy",
+                "cat",
+                "ferry",
+                "footpath",
+                "recurred",
+                "lasted",
+                "arose",
+                "crystallised",
+                "throughout",
+                "despite",
+                "on",
+                "at",
+                "the",
+                "those",
+                "each",
+                "every",
+                "study",
+                "like",
+                "know",
+                "want"
+            ],
+            "source_text_uk": "Непояснена розбіжність повторювалася протягом дослідження.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "unexplained",
+                    "revised",
+                    "kitchen",
+                    "wooden"
+                ],
+                "a3": [
+                    "discrepancy",
+                    "cat",
+                    "ferry",
+                    "footpath"
+                ],
+                "a4": [
+                    "recurred",
+                    "lasted",
+                    "arose",
+                    "crystallised"
+                ],
+                "a5": [
+                    "throughout",
+                    "despite",
+                    "on",
+                    "at"
+                ],
+                "a6": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "study",
+                    "like",
+                    "know",
+                    "want"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-restrictions-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Прогалина у висновуванні зберігається попри додаткове підтвердження.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Прогалина у висновуванні зберігається попри додаткове підтвердження.",
+            "target_text": "The inferential gap persists notwithstanding further corroboration.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з прогалини; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "inferential",
+                    "verb_hint": "Почни з прогалини; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "inferential",
+                        "summer",
+                        "grey",
+                        "narrow"
+                    ]
+                },
+                "a3": {
+                    "answer": "gap",
+                    "verb_hint": "Почни з прогалини; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "gap",
+                        "schedule",
+                        "chest",
+                        "climb"
+                    ]
+                },
+                "a4": {
+                    "answer": "persists",
+                    "verb_hint": "Почни з прогалини; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "persists",
+                        "hinges",
+                        "subsists",
+                        "remains"
+                    ]
+                },
+                "a5": {
+                    "answer": "notwithstanding",
+                    "verb_hint": "Почни з прогалини; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "notwithstanding",
+                        "opening",
+                        "closing",
+                        "helping"
+                    ]
+                },
+                "a6": {
+                    "answer": "further",
+                    "verb_hint": "Почни з прогалини; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "further",
+                        "several",
+                        "uncertain",
+                        "procedural"
+                    ]
+                },
+                "a7": {
+                    "answer": "corroboration.",
+                    "verb_hint": "Почни з прогалини; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "corroboration",
+                        "window",
+                        "fire",
+                        "beach"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з прогалини; передай теперішнє збереження стану в активі.",
+            "accepted_target_texts": [
+                "The inferential gap persists notwithstanding further corroboration."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inferential gap",
+                "persists",
+                "notwithstanding further corroboration."
+            ],
+            "token_groups": [
+                "The inferential gap",
+                "persists",
+                "notwithstanding further corroboration."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "inferential",
+                "gap",
+                "persists",
+                "notwithstanding",
+                "further",
+                "corroboration."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "inferential",
+                "summer",
+                "grey",
+                "narrow",
+                "gap",
+                "schedule",
+                "chest",
+                "climb",
+                "persists",
+                "hinges",
+                "subsists",
+                "remains",
+                "notwithstanding",
+                "opening",
+                "closing",
+                "helping",
+                "further",
+                "several",
+                "uncertain",
+                "procedural",
+                "corroboration",
+                "window",
+                "fire",
+                "beach"
+            ],
+            "source_text_uk": "Прогалина у висновуванні зберігається попри додаткове підтвердження.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "inferential",
+                    "summer",
+                    "grey",
+                    "narrow"
+                ],
+                "a3": [
+                    "gap",
+                    "schedule",
+                    "chest",
+                    "climb"
+                ],
+                "a4": [
+                    "persists",
+                    "hinges",
+                    "subsists",
+                    "remains"
+                ],
+                "a5": [
+                    "notwithstanding",
+                    "opening",
+                    "closing",
+                    "helping"
+                ],
+                "a6": [
+                    "further",
+                    "several",
+                    "uncertain",
+                    "procedural"
+                ],
+                "a7": [
+                    "corroboration",
+                    "window",
+                    "fire",
+                    "beach"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-restrictions-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Умовне зобов'язання остаточно визначилося після припинення договору.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Умовне зобов'язання остаточно визначилося після припинення договору.",
+            "target_text": "The contingent liability crystallised upon contractual termination.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни із зобов'язання; передай завершене минуле визначення неперехідним активним дієсловом.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "contingent",
+                    "verb_hint": "Почни із зобов'язання; передай завершене минуле визначення неперехідним активним дієсловом.",
+                    "options": [
+                        "contingent",
+                        "narrow",
+                        "steep",
+                        "abrupt"
+                    ]
+                },
+                "a3": {
+                    "answer": "liability",
+                    "verb_hint": "Почни із зобов'язання; передай завершене минуле визначення неперехідним активним дієсловом.",
+                    "options": [
+                        "liability",
+                        "footpath",
+                        "tap",
+                        "schedule"
+                    ]
+                },
+                "a4": {
+                    "answer": "crystallised",
+                    "verb_hint": "Почни із зобов'язання; передай завершене минуле визначення неперехідним активним дієсловом.",
+                    "options": [
+                        "crystallised",
+                        "arose",
+                        "smiled",
+                        "shone"
+                    ]
+                },
+                "a5": {
+                    "answer": "upon",
+                    "verb_hint": "Почни із зобов'язання; передай завершене минуле визначення неперехідним активним дієсловом.",
+                    "options": [
+                        "upon",
+                        "from",
+                        "despite",
+                        "beneath"
+                    ]
+                },
+                "a6": {
+                    "answer": "contractual",
+                    "verb_hint": "Почни із зобов'язання; передай завершене минуле визначення неперехідним активним дієсловом.",
+                    "options": [
+                        "contractual",
+                        "three",
+                        "several",
+                        "uncertain"
+                    ]
+                },
+                "a7": {
+                    "answer": "termination.",
+                    "verb_hint": "Почни із зобов'язання; передай завершене минуле визначення неперехідним активним дієсловом.",
+                    "options": [
+                        "termination",
+                        "fire",
+                        "beach",
+                        "night"
+                    ]
+                }
+            },
+            "verb_hint": "Почни із зобов'язання; передай завершене минуле визначення неперехідним активним дієсловом.",
+            "accepted_target_texts": [
+                "The contingent liability crystallised upon contractual termination."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The contingent liability",
+                "crystallised",
+                "upon contractual termination."
+            ],
+            "token_groups": [
+                "The contingent liability",
+                "crystallised",
+                "upon contractual termination."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "contingent",
+                "liability",
+                "crystallised",
+                "upon",
+                "contractual",
+                "termination."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "contingent",
+                "narrow",
+                "steep",
+                "abrupt",
+                "liability",
+                "footpath",
+                "tap",
+                "schedule",
+                "crystallised",
+                "arose",
+                "smiled",
+                "shone",
+                "upon",
+                "from",
+                "despite",
+                "beneath",
+                "contractual",
+                "three",
+                "several",
+                "uncertain",
+                "termination",
+                "fire",
+                "beach",
+                "night"
+            ],
+            "source_text_uk": "Умовне зобов'язання остаточно визначилося після припинення договору.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "contingent",
+                    "narrow",
+                    "steep",
+                    "abrupt"
+                ],
+                "a3": [
+                    "liability",
+                    "footpath",
+                    "tap",
+                    "schedule"
+                ],
+                "a4": [
+                    "crystallised",
+                    "arose",
+                    "smiled",
+                    "shone"
+                ],
+                "a5": [
+                    "upon",
+                    "from",
+                    "despite",
+                    "beneath"
+                ],
+                "a6": [
+                    "contractual",
+                    "three",
+                    "several",
+                    "uncertain"
+                ],
+                "a7": [
+                    "termination",
+                    "fire",
+                    "beach",
+                    "night"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-restrictions-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Змістова відмінність зберігається за поверховим зближенням.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Змістова відмінність зберігається за поверховим зближенням.",
+            "target_text": "The substantive distinction subsists beneath superficial convergence.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з відмінності; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "substantive",
+                    "verb_hint": "Почни з відмінності; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "substantive",
+                        "good",
+                        "bad",
+                        "friendly"
+                    ]
+                },
+                "a3": {
+                    "answer": "distinction",
+                    "verb_hint": "Почни з відмінності; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "distinction",
+                        "liability",
+                        "gap",
+                        "girl"
+                    ]
+                },
+                "a4": {
+                    "answer": "subsists",
+                    "verb_hint": "Почни з відмінності; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "subsists",
+                        "depends",
+                        "contains",
+                        "remains"
+                    ]
+                },
+                "a5": {
+                    "answer": "beneath",
+                    "verb_hint": "Почни з відмінності; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "beneath",
+                        "on",
+                        "several",
+                        "from"
+                    ]
+                },
+                "a6": {
+                    "answer": "superficial",
+                    "verb_hint": "Почни з відмінності; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "superficial",
+                        "further",
+                        "contractual",
+                        "her"
+                    ]
+                },
+                "a7": {
+                    "answer": "convergence.",
+                    "verb_hint": "Почни з відмінності; передай теперішнє збереження стану в активі.",
+                    "options": [
+                        "convergence",
+                        "corroboration",
+                        "termination",
+                        "beach"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з відмінності; передай теперішнє збереження стану в активі.",
+            "accepted_target_texts": [
+                "The substantive distinction subsists beneath superficial convergence."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The substantive distinction",
+                "subsists",
+                "beneath superficial convergence."
+            ],
+            "token_groups": [
+                "The substantive distinction",
+                "subsists",
+                "beneath superficial convergence."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "substantive",
+                "distinction",
+                "subsists",
+                "beneath",
+                "superficial",
+                "convergence."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "substantive",
+                "good",
+                "bad",
+                "friendly",
+                "distinction",
+                "liability",
+                "gap",
+                "girl",
+                "subsists",
+                "depends",
+                "contains",
+                "remains",
+                "beneath",
+                "on",
+                "several",
+                "from",
+                "superficial",
+                "further",
+                "contractual",
+                "her",
+                "convergence",
+                "corroboration",
+                "termination",
+                "beach"
+            ],
+            "source_text_uk": "Змістова відмінність зберігається за поверховим зближенням.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "substantive",
+                    "good",
+                    "bad",
+                    "friendly"
+                ],
+                "a3": [
+                    "distinction",
+                    "liability",
+                    "gap",
+                    "girl"
+                ],
+                "a4": [
+                    "subsists",
+                    "depends",
+                    "contains",
+                    "remains"
+                ],
+                "a5": [
+                    "beneath",
+                    "on",
+                    "several",
+                    "from"
+                ],
+                "a6": [
+                    "superficial",
+                    "further",
+                    "contractual",
+                    "her"
+                ],
+                "a7": [
+                    "convergence",
+                    "corroboration",
+                    "termination",
+                    "beach"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "active_predicate",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

@@ -1,0 +1,203 @@
+{
+    "schema_version": 1,
+    "package": "relative-clauses-native-practice-supplement",
+    "status": "frozen",
+    "source": {
+        "path": "docs/content/relative-clauses-practice-source.v1.json",
+        "sha256": "0247f7dd71d8b5c1e429d2f0fbbcb6703e166fca61ec6b5a1fda36ce27e386f7"
+    },
+    "targets": [
+        {
+            "topic": "complex-relative-clauses",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\RelativeClauses\\ComplexRelativeClausesTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/relative-clauses/complex-relative-clauses",
+            "definition": "database/seeders/Page_V3/RelativeClauses/ComplexRelativeClausesTheorySeeder/definition.json",
+            "definition_sha256": "af1bcdfdb4f1e70f5b1312cd96ef04b4120c69f41eb71549e7ed9b4d75b00bf9",
+            "release": "database/content-patches/m37-m21-grammar-structures.v1.json",
+            "release_sha256": "0006e0ecbb6d29aee047527bb1739884ad29930ec74eb4e499e5010e3764dbc5",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\RelativeClauses\\ComplexRelativeClausesTheorySeeder",
+                "locale": "uk",
+                "uuid": "9cf9e9a4-e110-5176-8f9c-dcf5c8066ac0",
+                "sort_order": 8,
+                "page_id": 300,
+                "page_category_id": 56,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C1",
+                "css_class": null,
+                "body_sha256": "479dad7ebdd6a34b663474f5174517e6e45abdb156fd12a8c4916d54654859dc"
+            },
+            "design": {
+                "source_index": 7,
+                "uuid": "9cf9e9a4-e110-5176-8f9c-dcf5c8066ac0",
+                "sort_order": 8,
+                "body_sha256": "479dad7ebdd6a34b663474f5174517e6e45abdb156fd12a8c4916d54654859dc",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 7,
+            "before_data_sha256": "479dad7ebdd6a34b663474f5174517e6e45abdb156fd12a8c4916d54654859dc",
+            "after_data_sha256": "b662e84d00d14b4adb68ed899901ee98f69baafbef4de7f909c6316b7d72f454",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "They placed",
+                        "the folder",
+                        "beside the lamp.",
+                        "The folder",
+                        "was damaged."
+                    ],
+                    "condition_uk": "Пошкоджена папка, не лампа. Вони поклали папку біля лампи. Склади два однозначні речення.",
+                    "hint_uk": "Збережи розташування папки та її пошкодження; не приписуй пошкодження лампі."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "The workshop",
+                        "whose three presses",
+                        "need servicing",
+                        "has hired Iva,",
+                        "who maintains them."
+                    ],
+                    "condition_uk": "Є дві майстерні. Та, якій належать три преси, найняла вже відому Іву. Вона обслуговує ці преси; вони потребують обслуговування.",
+                    "hint_uk": "Збережи власницю трьох пресів та Іву як виконавицю обслуговування; не стверджуй, що роботу завершено."
+                }
+            ],
+            "added": [
+                {
+                    "id": "rcq-native-complex-relative-clauses-gap-1",
+                    "kind": "gap",
+                    "condition": "We thanked the engineer {a1} design reduced the noise.",
+                    "answer": "whose",
+                    "accepted": [
+                        "whose"
+                    ],
+                    "hint_uk": "Чий: збережи інженера як автора проєкту; потрібна присвійна відносна форма перед уже наведеним іменником.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 2
+                },
+                {
+                    "id": "rcq-native-complex-relative-clauses-gap-2",
+                    "kind": "gap",
+                    "condition": "The colleague to {a1} I forwarded your message is on leave.",
+                    "answer": "whom",
+                    "accepted": [
+                        "whom"
+                    ],
+                    "hint_uk": "Після вже наведеного прийменника використай формальну форму відносного займенника в ролі додатка для людини; підмет не повторюй.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 3
+                },
+                {
+                    "id": "rcq-native-complex-relative-clauses-translate-1",
+                    "kind": "translation",
+                    "condition": "Це будинок, у якому виріс мій дідусь.",
+                    "answer": "This is the house in which my grandfather grew up.",
+                    "accepted": [
+                        "This is the house in which my grandfather grew up.",
+                        "This is the house where my grandfather grew up.",
+                        "This is the house that my grandfather grew up in.",
+                        "This is the house which my grandfather grew up in.",
+                        "This is the house my grandfather grew up in.",
+                        "This is the house in which my granddad grew up.",
+                        "This is the house where my granddad grew up.",
+                        "This is the house that my granddad grew up in.",
+                        "This is the house which my granddad grew up in.",
+                        "This is the house my granddad grew up in.",
+                        "This is the house in which my grandad grew up.",
+                        "This is the house where my grandad grew up.",
+                        "This is the house that my grandad grew up in.",
+                        "This is the house which my grandad grew up in.",
+                        "This is the house my grandad grew up in.",
+                        "This is the house in which my grandpa grew up.",
+                        "This is the house where my grandpa grew up.",
+                        "This is the house that my grandpa grew up in.",
+                        "This is the house which my grandpa grew up in.",
+                        "This is the house my grandpa grew up in."
+                    ],
+                    "hint_uk": "Почни з указування на будинок; збережи мого дідуся та його дитинство саме там.",
+                    "ordered_groups": [
+                        "This is",
+                        "the house",
+                        "in which",
+                        "my grandfather",
+                        "grew up."
+                    ],
+                    "shuffled_groups": [
+                        "grew up.",
+                        "my grandfather",
+                        "This is",
+                        "in which",
+                        "the house"
+                    ],
+                    "token_labels": {
+                        "in which": "in which (where)",
+                        "my grandfather": "my grandfather (my granddad / my grandad / my grandpa)"
+                    },
+                    "index": 4
+                },
+                {
+                    "id": "rcq-native-complex-relative-clauses-translate-2",
+                    "kind": "translation",
+                    "condition": "Ми зустріли лікарку, чиї дослідження змінили цей метод.",
+                    "answer": "We met a doctor whose research changed this method.",
+                    "accepted": [
+                        "We met a doctor whose research changed this method.",
+                        "We met a doctor whose research altered this method.",
+                        "We met a doctor whose studies changed this method.",
+                        "We met a doctor whose studies altered this method.",
+                        "We met a physician whose research changed this method.",
+                        "We met a physician whose research altered this method.",
+                        "We met a physician whose studies changed this method.",
+                        "We met a physician whose studies altered this method."
+                    ],
+                    "hint_uk": "Почни з «ми»; лікарку вводимо вперше. Дослідження належать саме їй та змінили конкретний метод.",
+                    "ordered_groups": [
+                        "We met",
+                        "a doctor",
+                        "whose research",
+                        "changed this method."
+                    ],
+                    "shuffled_groups": [
+                        "changed this method.",
+                        "We met",
+                        "whose research",
+                        "a doctor"
+                    ],
+                    "token_labels": {
+                        "changed this method.": "changed this method. (altered this method.)",
+                        "whose research": "whose research (whose studies)",
+                        "a doctor": "a doctor (a physician)"
+                    },
+                    "index": 5
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": [],
+                "4": {
+                    "in which": "in which (where)",
+                    "my grandfather": "my grandfather (my granddad / my grandad / my grandpa)"
+                },
+                "5": {
+                    "changed this method.": "changed this method. (altered this method.)",
+                    "whose research": "whose research (whose studies)",
+                    "a doctor": "a doctor (a physician)"
+                }
+            }
+        }
+    ]
+}

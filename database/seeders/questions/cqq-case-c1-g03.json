@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 65728,
+        "uuid": "cqq-case-c1-g03",
+        "question": "Maintain a reserve in case demand {a1} the forecast.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 24,
+        "source_id": 521,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\Conditionals\\UkrainianMixedInCaseQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "exceeds",
+                "will exceed",
+                "exceeding"
+            ]
+        },
+        "theory_text_block_uuid": "0c21167d-21f5-5b01-8f23-6a9657c05687",
+        "created_at": "2026-11-01T17:04:39.000000Z",
+        "updated_at": "2026-11-01T17:04:39.000000Z"
+    },
+    "category": {
+        "id": 24,
+        "name": "Conditionals",
+        "created_at": "2026-04-23T14:48:07.000000Z",
+        "updated_at": "2026-04-23T14:48:07.000000Z"
+    },
+    "source": {
+        "id": 521,
+        "name": "Conditionals Quality: In Case: Precautions and Possible Events",
+        "created_at": "2026-11-01T17:04:38.000000Z",
+        "updated_at": "2026-11-01T17:04:38.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 382,
+                "name": "In Case",
+                "category": null,
+                "created_at": "2026-04-23T14:34:16.000000Z",
+                "updated_at": "2026-04-23T14:34:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 65728,
+                "tag_id": 382,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 67099,
+                "option": "exceeds",
+                "created_at": "2026-11-01T17:04:40.000000Z",
+                "updated_at": "2026-11-01T17:04:40.000000Z"
+            },
+            "pivot": {
+                "question_id": 65728,
+                "option_id": 67099,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 67101,
+                "option": "will exceed",
+                "created_at": "2026-11-01T17:04:40.000000Z",
+                "updated_at": "2026-11-01T17:04:40.000000Z"
+            },
+            "pivot": {
+                "question_id": 65728,
+                "option_id": 67101,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 67102,
+                "option": "exceeding",
+                "created_at": "2026-11-01T17:04:40.000000Z",
+                "updated_at": "2026-11-01T17:04:40.000000Z"
+            },
+            "pivot": {
+                "question_id": 65728,
+                "option_id": 67102,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 339350,
+                "question_id": 65728,
+                "marker": "a1",
+                "option_id": 67099,
+                "created_at": "2026-11-01T17:04:40.000000Z",
+                "updated_at": "2026-11-01T17:04:40.000000Z"
+            },
+            "option": {
+                "id": 67099,
+                "option": "exceeds",
+                "created_at": "2026-11-01T17:04:40.000000Z",
+                "updated_at": "2026-11-01T17:04:40.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 56684,
+                "question_id": 65728,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 67100,
+                "created_at": "2026-11-01T17:04:40.000000Z",
+                "updated_at": "2026-11-01T17:04:40.000000Z"
+            },
+            "option": {
+                "id": 67100,
+                "option": "Можливе перевищення прогнозу після виразу запобіжного заходу не потребує майбутнього допоміжного слова.",
+                "created_at": "2026-11-01T17:04:40.000000Z",
+                "updated_at": "2026-11-01T17:04:40.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 57743,
+            "question_id": 65728,
+            "text": "Maintain a reserve in case demand {a1} the forecast.",
+            "created_at": "2026-11-01T17:04:40.000000Z",
+            "updated_at": "2026-11-01T17:04:40.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

@@ -1,70 +1,81 @@
 {
     "question": {
-        "id": 56,
+        "id": 35758,
         "uuid": "pvps-v3-c1-08",
-        "question": "Fresh bread {a1} here every morning when the agent is not central.",
+        "question": "Under this protocol, a patient's silence {a1} as consent.",
         "difficulty": 5,
         "level": "C1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 10,
+        "source_id": 342,
         "flag": 2,
-        "created_at": "2026-05-26T15:07:37.000000Z",
-        "updated_at": "2026-05-26T15:08:06.000000Z"
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoicePresentSimpleAllLevelsV3Seeder",
+        "options_by_marker": {
+            "a1": [
+                "is not interpreted",
+                "are not interpreted",
+                "was not interpreted",
+                "does not interpret"
+            ]
+        },
+        "theory_text_block_uuid": null,
+        "created_at": "2026-05-21T18:53:59.000000Z",
+        "updated_at": "2026-10-21T20:34:40.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 10,
         "name": "Passive Voice",
-        "created_at": "2026-05-26T15:07:37.000000Z",
-        "updated_at": "2026-05-26T15:07:37.000000Z"
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 342,
         "name": "Passive Voice Present Simple",
-        "created_at": "2026-05-26T15:07:37.000000Z",
-        "updated_at": "2026-05-26T15:07:37.000000Z"
+        "created_at": "2026-05-21T18:53:51.000000Z",
+        "updated_at": "2026-05-21T18:53:51.000000Z"
     },
     "tags": [
         {
             "tag": {
-                "id": 7,
+                "id": 83,
                 "name": "C1",
                 "category": null,
-                "created_at": "2026-05-26T15:07:32.000000Z",
-                "updated_at": "2026-05-26T15:07:32.000000Z"
+                "created_at": "2026-04-23T12:59:15.000000Z",
+                "updated_at": "2026-04-23T12:59:15.000000Z"
             },
             "pivot": {
-                "question_id": 56,
-                "tag_id": 7,
+                "question_id": 35758,
+                "tag_id": 83,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 18,
+                "id": 2702,
                 "name": "Passive Voice Present Simple",
                 "category": "passive_voice",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-05-21T18:53:51.000000Z",
+                "updated_at": "2026-05-21T18:53:51.000000Z"
             },
             "pivot": {
-                "question_id": 56,
-                "tag_id": 18,
+                "question_id": 35758,
+                "tag_id": 2702,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 22,
+                "id": 2704,
                 "name": "Regular Passive Actions",
                 "category": "topic",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-05-21T18:53:51.000000Z",
+                "updated_at": "2026-05-21T18:53:51.000000Z"
             },
             "pivot": {
-                "question_id": 56,
-                "tag_id": 22,
+                "question_id": 35758,
+                "tag_id": 2704,
                 "created_at": null,
                 "updated_at": null
             }
@@ -73,53 +84,53 @@
     "options": [
         {
             "option": {
-                "id": 29,
+                "id": 23420,
                 "option": "is baked",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-05-21T18:53:52.000000Z",
+                "updated_at": "2026-05-21T18:53:52.000000Z"
             },
             "pivot": {
-                "question_id": 56,
-                "option_id": 29,
+                "question_id": 35758,
+                "option_id": 23420,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 30,
+                "id": 23421,
                 "option": "are baked",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-05-21T18:53:52.000000Z",
+                "updated_at": "2026-05-21T18:53:52.000000Z"
             },
             "pivot": {
-                "question_id": 56,
-                "option_id": 30,
+                "question_id": 35758,
+                "option_id": 23421,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 31,
+                "id": 23422,
                 "option": "was baked",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-05-21T18:53:52.000000Z",
+                "updated_at": "2026-05-21T18:53:52.000000Z"
             },
             "pivot": {
-                "question_id": 56,
-                "option_id": 31,
+                "question_id": 35758,
+                "option_id": 23422,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 32,
+                "id": 23423,
                 "option": "bakes",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-05-21T18:53:52.000000Z",
+                "updated_at": "2026-05-21T18:53:52.000000Z"
             },
             "pivot": {
-                "question_id": 56,
-                "option_id": 32,
+                "question_id": 35758,
+                "option_id": 23423,
                 "flag": null
             }
         }
@@ -127,29 +138,29 @@
     "answers": [
         {
             "answer": {
-                "id": 56,
-                "question_id": 56,
+                "id": 188098,
+                "question_id": 35758,
                 "marker": "a1",
-                "option_id": 29,
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "option_id": 23420,
+                "created_at": "2026-05-21T18:54:00.000000Z",
+                "updated_at": "2026-05-21T18:54:00.000000Z"
             },
             "option": {
-                "id": 29,
+                "id": 23420,
                 "option": "is baked",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-05-21T18:53:52.000000Z",
+                "updated_at": "2026-05-21T18:53:52.000000Z"
             }
         }
     ],
     "verb_hints": [],
     "variants": [
         {
-            "id": 56,
-            "question_id": 56,
+            "id": 25397,
+            "question_id": 35758,
             "text": "Fresh bread {a1} here every morning when the agent is not central.",
-            "created_at": "2026-05-26T15:07:37.000000Z",
-            "updated_at": "2026-05-26T15:07:37.000000Z"
+            "created_at": "2026-05-21T18:54:00.000000Z",
+            "updated_at": "2026-05-21T18:54:00.000000Z"
         }
     ],
     "hints": [],

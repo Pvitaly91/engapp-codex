@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60574,
+        "uuid": "beq-there-a1-g03",
+        "question": "There {a1} a sandwich in the bag.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 12,
+        "source_id": 426,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\VerbToBe\\UkrainianMixedThereIsThereAreQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "is",
+                "are",
+                "am"
+            ]
+        },
+        "theory_text_block_uuid": "a18fa134-bb61-5a9e-b38b-6b36b0110d4a",
+        "created_at": "2026-10-27T13:05:34.000000Z",
+        "updated_at": "2026-10-27T13:05:34.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 426,
+        "name": "Verb to Be Quality: Наявність: конструкції з початковим формальним підметом",
+        "created_at": "2026-10-27T13:05:33.000000Z",
+        "updated_at": "2026-10-27T13:05:33.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 101,
+                "name": "There is / There are constructions",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60574,
+                "tag_id": 101,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 96,
+                "option": "am",
+                "created_at": "2026-04-23T11:40:01.000000Z",
+                "updated_at": "2026-04-23T11:40:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 60574,
+                "option_id": 96,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 101,
+                "option": "are",
+                "created_at": "2026-04-23T11:40:01.000000Z",
+                "updated_at": "2026-04-23T11:40:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 60574,
+                "option_id": 101,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 107,
+                "option": "is",
+                "created_at": "2026-04-23T11:40:01.000000Z",
+                "updated_at": "2026-04-23T11:40:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 60574,
+                "option_id": 107,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325472,
+                "question_id": 60574,
+                "marker": "a1",
+                "option_id": 107,
+                "created_at": "2026-10-27T13:05:34.000000Z",
+                "updated_at": "2026-10-27T13:05:34.000000Z"
+            },
+            "option": {
+                "id": 107,
+                "option": "is",
+                "created_at": "2026-04-23T11:40:01.000000Z",
+                "updated_at": "2026-04-23T11:40:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 42806,
+                "question_id": 60574,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53031,
+                "created_at": "2026-10-27T13:05:34.000000Z",
+                "updated_at": "2026-10-27T13:05:34.000000Z"
+            },
+            "option": {
+                "id": 53031,
+                "option": "Передай наявність одного предмета в названому місці.",
+                "created_at": "2026-10-27T13:05:34.000000Z",
+                "updated_at": "2026-10-27T13:05:34.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52589,
+            "question_id": 60574,
+            "text": "There {a1} a sandwich in the bag.",
+            "created_at": "2026-10-27T13:05:34.000000Z",
+            "updated_at": "2026-10-27T13:05:34.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

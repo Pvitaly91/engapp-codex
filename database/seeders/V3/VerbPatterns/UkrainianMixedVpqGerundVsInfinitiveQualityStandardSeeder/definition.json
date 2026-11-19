@@ -1,0 +1,636 @@
+{
+    "schema_version": 1,
+    "quality_revision": "vpq-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-patterns-quality/gerund-vs-infinitive.v1.json",
+        "sha256": "cf9f053766480b3c263cdb8e02e296bcfd121edcd7ae83f91a4ea9b6a80e70d1"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\VerbPatterns\\UkrainianMixedVpqGerundVsInfinitiveQualityStandardSeeder",
+        "uuid_namespace": "verb-patterns-quality-gerund-vs-infinitive-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Verb Patterns"
+    },
+    "sources": {
+        "verb_patterns_quality_gerund_vs_infinitive": {
+            "name": "Verb Patterns Quality: Gerund vs Infinitive"
+        }
+    },
+    "tags": {
+        "gerund_vs_infinitive_all_levels": {
+            "name": "Gerund Vs Infinitive",
+            "category": "verb_patterns"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "gerund_vs_infinitive": {
+            "name": "Gerund Vs Infinitive",
+            "category": "topic"
+        },
+        "only_gerund": {
+            "name": "Only Gerund",
+            "category": "topic"
+        },
+        "only_infinitive": {
+            "name": "Only Infinitive",
+            "category": "topic"
+        },
+        "both_similar": {
+            "name": "Both Similar",
+            "category": "topic"
+        },
+        "meaning_change": {
+            "name": "Meaning Change",
+            "category": "topic"
+        },
+        "meaning_change_verbs": {
+            "name": "Meaning Change Verbs",
+            "category": "topic"
+        },
+        "gerund_after_prepositions": {
+            "name": "Gerund After Prepositions",
+            "category": "topic"
+        },
+        "infinitive_purpose_intention": {
+            "name": "Infinitive Purpose Intention",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "vpq-contrast-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I love {a1} in the sea.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund_vs_infinitive",
+            "translation_uk": "Я люблю плавати в морі.",
+            "target_text": "I love swimming in the sea.",
+            "markers": {
+                "a1": {
+                    "answer": "swimming",
+                    "options": [
+                        "swimming",
+                        "swim",
+                        "swum"
+                    ],
+                    "verb_hint": "Передай «плавати» після дієслова вподобання; можливі форма на -інґ та інфінітив."
+                }
+            },
+            "verb_hint": "Передай «плавати» після дієслова вподобання; можливі форма на -інґ та інфінітив.",
+            "accepted_target_texts": [
+                "I love swimming in the sea.",
+                "I love to swim in the sea."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to swim"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to swim"
+                ]
+            },
+            "reorder_groups": [
+                "I love",
+                "swimming",
+                "in the sea."
+            ],
+            "token_groups": [
+                "I love",
+                "swimming",
+                "in the sea."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "vpq-contrast-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Marta wants {a1} a purple kite.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund_vs_infinitive",
+            "translation_uk": "Марта хоче купити фіолетового повітряного змія.",
+            "target_text": "Marta wants to buy a purple kite.",
+            "markers": {
+                "a1": {
+                    "answer": "to buy",
+                    "options": [
+                        "to buy",
+                        "buying",
+                        "buy"
+                    ],
+                    "verb_hint": "Купити: після дієслова бажання постав інфінітив із часткою."
+                }
+            },
+            "verb_hint": "Купити: після дієслова бажання постав інфінітив із часткою.",
+            "accepted_target_texts": [
+                "Marta wants to buy a purple kite.",
+                "Marta wants to purchase a purple kite."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to purchase"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to purchase"
+                ]
+            },
+            "reorder_groups": [
+                "Marta wants",
+                "to buy",
+                "a purple kite."
+            ],
+            "token_groups": [
+                "Marta wants",
+                "to buy",
+                "a purple kite."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "vpq-contrast-a2-g01",
+            "author_id": "A2-g01",
+            "question": "We hope {a1} the lighthouse.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund_vs_infinitive",
+            "translation_uk": "Ми сподіваємося відвідати маяк.",
+            "target_text": "We hope to visit the lighthouse.",
+            "markers": {
+                "a1": {
+                    "answer": "to visit",
+                    "options": [
+                        "to visit",
+                        "visiting",
+                        "visit"
+                    ],
+                    "verb_hint": "Відвідати: доповни дієслово надії інфінітивом із часткою."
+                }
+            },
+            "verb_hint": "Відвідати: доповни дієслово надії інфінітивом із часткою.",
+            "accepted_target_texts": [
+                "We hope to visit the lighthouse."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We hope",
+                "to visit",
+                "the lighthouse."
+            ],
+            "token_groups": [
+                "We hope",
+                "to visit",
+                "the lighthouse."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "vpq-contrast-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Sofiia finished {a1} the invitation.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund_vs_infinitive",
+            "translation_uk": "Софія закінчила писати запрошення.",
+            "target_text": "Sofiia finished writing the invitation.",
+            "markers": {
+                "a1": {
+                    "answer": "writing",
+                    "options": [
+                        "writing",
+                        "to write",
+                        "write"
+                    ],
+                    "verb_hint": "Писати: після завершення дії потрібна форма на -інґ."
+                }
+            },
+            "verb_hint": "Писати: після завершення дії потрібна форма на -інґ.",
+            "accepted_target_texts": [
+                "Sofiia finished writing the invitation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Sofiia finished",
+                "writing",
+                "the invitation."
+            ],
+            "token_groups": [
+                "Sofiia finished",
+                "writing",
+                "the invitation."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "vpq-contrast-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The cyclist stopped {a1} a loose strap.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund_vs_infinitive",
+            "translation_uk": "Велосипедист зупинився, щоб затягнути ослаблений ремінець.",
+            "target_text": "The cyclist stopped to tighten a loose strap.",
+            "markers": {
+                "a1": {
+                    "answer": "to tighten",
+                    "options": [
+                        "to tighten",
+                        "tightening",
+                        "tighten"
+                    ],
+                    "verb_hint": "Затягнути: зупинка була заради іншої дії, а не припиненням затягування."
+                }
+            },
+            "verb_hint": "Затягнути: зупинка була заради іншої дії, а не припиненням затягування.",
+            "accepted_target_texts": [
+                "The cyclist stopped to tighten a loose strap."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cyclist",
+                "stopped",
+                "to tighten",
+                "a loose strap."
+            ],
+            "token_groups": [
+                "The cyclist",
+                "stopped",
+                "to tighten",
+                "a loose strap."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "vpq-contrast-b1-g02",
+            "author_id": "B1-g02",
+            "question": "I remember {a1} that glass vase.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund_vs_infinitive",
+            "translation_uk": "Я пам’ятаю, як розбив ту скляну вазу.",
+            "target_text": "I remember breaking that glass vase.",
+            "markers": {
+                "a1": {
+                    "answer": "breaking",
+                    "options": [
+                        "breaking",
+                        "to break",
+                        "break"
+                    ],
+                    "verb_hint": "Розбити: йдеться про спогад щодо вже здійсненої дії, не нагадування на майбутнє."
+                }
+            },
+            "verb_hint": "Розбити: йдеться про спогад щодо вже здійсненої дії, не нагадування на майбутнє.",
+            "accepted_target_texts": [
+                "I remember breaking that glass vase."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I remember",
+                "breaking",
+                "that glass vase."
+            ],
+            "token_groups": [
+                "I remember",
+                "breaking",
+                "that glass vase."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "vpq-contrast-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Try {a1} the antenna to improve reception.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund_vs_infinitive",
+            "translation_uk": "Спробуй пересунути антену як спосіб поліпшити прийом.",
+            "target_text": "Try moving the antenna to improve reception.",
+            "markers": {
+                "a1": {
+                    "answer": "moving",
+                    "options": [
+                        "moving",
+                        "to move",
+                        "move"
+                    ],
+                    "verb_hint": "Пересунути: запропонуй експериментальний спосіб, а не просто спробу докласти зусиль."
+                }
+            },
+            "verb_hint": "Пересунути: запропонуй експериментальний спосіб, а не просто спробу докласти зусиль.",
+            "accepted_target_texts": [
+                "Try moving the antenna to improve reception."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Try",
+                "moving",
+                "the antenna",
+                "to improve reception."
+            ],
+            "token_groups": [
+                "Try",
+                "moving",
+                "the antenna",
+                "to improve reception."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "vpq-contrast-b2-g02",
+            "author_id": "B2-g02",
+            "question": "We regret {a1} that your application has been unsuccessful.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund_vs_infinitive",
+            "translation_uk": "З жалем повідомляємо, що ваша заявка виявилася неуспішною.",
+            "target_text": "We regret to announce that your application has been unsuccessful.",
+            "markers": {
+                "a1": {
+                    "answer": "to announce",
+                    "options": [
+                        "to announce",
+                        "announcing",
+                        "announce"
+                    ],
+                    "verb_hint": "Оголосити, повідомити: це ввічливе оголошення неприємної новини зараз, не жаль за минулою дією; можеш явно назвати адресата повідомлення."
+                }
+            },
+            "verb_hint": "Оголосити, повідомити: це ввічливе оголошення неприємної новини зараз, не жаль за минулою дією; можеш явно назвати адресата повідомлення.",
+            "accepted_target_texts": [
+                "We regret to announce that your application has been unsuccessful.",
+                "We regret to inform you that your application has been unsuccessful.",
+                "We regret to tell you that your application has been unsuccessful."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to inform you",
+                    "to tell you"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to inform you",
+                    "to tell you"
+                ]
+            },
+            "reorder_groups": [
+                "We regret",
+                "to announce",
+                "that your application",
+                "has been unsuccessful."
+            ],
+            "token_groups": [
+                "We regret",
+                "to announce",
+                "that your application",
+                "has been unsuccessful."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "vpq-contrast-c1-g01",
+            "author_id": "C1-g01",
+            "question": "She went on {a1} the budget after outlining the aims.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund_vs_infinitive",
+            "translation_uk": "Окресливши цілі, вона перейшла до обговорення бюджету.",
+            "target_text": "She went on to discuss the budget after outlining the aims.",
+            "markers": {
+                "a1": {
+                    "answer": "to discuss",
+                    "options": [
+                        "to discuss",
+                        "discussing",
+                        "discuss"
+                    ],
+                    "verb_hint": "Обговорювати: познач перехід до наступної, іншої дії, не продовження тієї самої."
+                }
+            },
+            "verb_hint": "Обговорювати: познач перехід до наступної, іншої дії, не продовження тієї самої.",
+            "accepted_target_texts": [
+                "She went on to discuss the budget after outlining the aims."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She went on",
+                "to discuss",
+                "the budget",
+                "after outlining",
+                "the aims."
+            ],
+            "token_groups": [
+                "She went on",
+                "to discuss",
+                "the budget",
+                "after outlining",
+                "the aims."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "vpq-contrast-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The curator resented {a1} without consultation.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund_vs_infinitive",
+            "translation_uk": "Кураторові було прикро, що його рішення скасували без обговорення.",
+            "target_text": "The curator resented being overruled without consultation.",
+            "markers": {
+                "a1": {
+                    "answer": "being overruled",
+                    "options": [
+                        "being overruled",
+                        "to be overruled",
+                        "be overruled"
+                    ],
+                    "verb_hint": "Скасувати чуже рішення: куратор зазнав цієї дії; потрібна пасивна форма на -інґ."
+                }
+            },
+            "verb_hint": "Скасувати чуже рішення: куратор зазнав цієї дії; потрібна пасивна форма на -інґ.",
+            "accepted_target_texts": [
+                "The curator resented being overruled without consultation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The curator",
+                "resented",
+                "being overruled",
+                "without consultation."
+            ],
+            "token_groups": [
+                "The curator",
+                "resented",
+                "being overruled",
+                "without consultation."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "vpq-contrast-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The negotiator regretted {a1} the reservation so ambiguously.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund_vs_infinitive",
+            "translation_uk": "Переговорник шкодував, що так неоднозначно сформулював застереження.",
+            "target_text": "The negotiator regretted having phrased the reservation so ambiguously.",
+            "markers": {
+                "a1": {
+                    "answer": "having phrased",
+                    "options": [
+                        "having phrased",
+                        "to have phrased",
+                        "have phrased"
+                    ],
+                    "verb_hint": "Сформулювати: жаль стосується попередньої завершеної дії; використай перфектну форму на -інґ."
+                }
+            },
+            "verb_hint": "Сформулювати: жаль стосується попередньої завершеної дії; використай перфектну форму на -інґ.",
+            "accepted_target_texts": [
+                "The negotiator regretted having phrased the reservation so ambiguously."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The negotiator",
+                "regretted",
+                "having phrased",
+                "the reservation",
+                "so ambiguously."
+            ],
+            "token_groups": [
+                "The negotiator",
+                "regretted",
+                "having phrased",
+                "the reservation",
+                "so ambiguously."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "vpq-contrast-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The methodology proved {a1} under independent scrutiny.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund_vs_infinitive",
+            "translation_uk": "Незалежна перевірка показала стійкість методології.",
+            "target_text": "The methodology proved to be robust under independent scrutiny.",
+            "markers": {
+                "a1": {
+                    "answer": "to be robust",
+                    "options": [
+                        "to be robust",
+                        "being robust",
+                        "be robust"
+                    ],
+                    "verb_hint": "Бути стійкою: доповни дієслово виявленого результату інфінітивною конструкцією."
+                }
+            },
+            "verb_hint": "Бути стійкою: доповни дієслово виявленого результату інфінітивною конструкцією.",
+            "accepted_target_texts": [
+                "The methodology proved to be robust under independent scrutiny."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The methodology",
+                "proved",
+                "to be robust",
+                "under independent scrutiny."
+            ],
+            "token_groups": [
+                "The methodology",
+                "proved",
+                "to be robust",
+                "under independent scrutiny."
+            ],
+            "quality_revision": "vpq-v1"
+        }
+    ]
+}

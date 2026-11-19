@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "targets": [
+    {
+      "identity": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechStatementsTheorySeeder",
+      "definition": "database/seeders/Page_V3/ReportedSpeech/ReportedSpeechStatementsTheorySeeder/definition.json",
+      "local_url": "http://gramlyze.loc/theory/reported-speech/reported-statements",
+      "level": "B1",
+      "bank_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotReportedSpeechStatementsAllLevelsLessonSeeder"
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechQuestionsTheorySeeder",
+      "definition": "database/seeders/Page_V3/ReportedSpeech/ReportedSpeechQuestionsTheorySeeder/definition.json",
+      "local_url": "http://gramlyze.loc/theory/reported-speech/reported-questions",
+      "level": "B1",
+      "bank_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotReportedSpeechQuestionsAllLevelsLessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotReportedQuestionsLessonSeeder"
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechCommandsRequestsTheorySeeder",
+      "definition": "database/seeders/Page_V3/ReportedSpeech/ReportedSpeechCommandsRequestsTheorySeeder/definition.json",
+      "local_url": "http://gramlyze.loc/theory/reported-speech/reported-commands-and-requests",
+      "level": "B1",
+      "bank_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotReportedSpeechCommandsRequestsAllLevelsLessonSeeder"
+      ]
+    }
+  ]
+}

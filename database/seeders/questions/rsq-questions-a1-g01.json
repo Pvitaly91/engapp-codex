@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66134,
+        "uuid": "rsq-questions-a1-g01",
+        "question": "Mum asks where {a1}.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 62,
+        "source_id": 529,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "the ball is",
+                "is the ball",
+                "the ball are"
+            ]
+        },
+        "theory_text_block_uuid": "18c44d6a-938f-590a-b7be-ad91b970972d",
+        "created_at": "2026-11-01T20:04:39.000000Z",
+        "updated_at": "2026-11-01T20:04:39.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 529,
+        "name": "Reported Speech Quality: Reported Questions",
+        "created_at": "2026-11-01T20:04:39.000000Z",
+        "updated_at": "2026-11-01T20:04:39.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 68129,
+                "option": "the ball is",
+                "created_at": "2026-11-01T20:04:39.000000Z",
+                "updated_at": "2026-11-01T20:04:39.000000Z"
+            },
+            "pivot": {
+                "question_id": 66134,
+                "option_id": 68129,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68131,
+                "option": "is the ball",
+                "created_at": "2026-11-01T20:04:39.000000Z",
+                "updated_at": "2026-11-01T20:04:39.000000Z"
+            },
+            "pivot": {
+                "question_id": 66134,
+                "option_id": 68131,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68132,
+                "option": "the ball are",
+                "created_at": "2026-11-01T20:04:39.000000Z",
+                "updated_at": "2026-11-01T20:04:39.000000Z"
+            },
+            "pivot": {
+                "question_id": 66134,
+                "option_id": 68132,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 340823,
+                "question_id": 66134,
+                "marker": "a1",
+                "option_id": 68129,
+                "created_at": "2026-11-01T20:04:39.000000Z",
+                "updated_at": "2026-11-01T20:04:39.000000Z"
+            },
+            "option": {
+                "id": 68129,
+                "option": "the ball is",
+                "created_at": "2026-11-01T20:04:39.000000Z",
+                "updated_at": "2026-11-01T20:04:39.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58157,
+                "question_id": 66134,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68130,
+                "created_at": "2026-11-01T20:04:39.000000Z",
+                "updated_at": "2026-11-01T20:04:39.000000Z"
+            },
+            "option": {
+                "id": 68130,
+                "option": "Де м’яч; після питального слова збережи порядок підмета й зв’язки.",
+                "created_at": "2026-11-01T20:04:39.000000Z",
+                "updated_at": "2026-11-01T20:04:39.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58149,
+            "question_id": 66134,
+            "text": "Mum asks where {a1}.",
+            "created_at": "2026-11-01T20:04:39.000000Z",
+            "updated_at": "2026-11-01T20:04:39.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

@@ -1,0 +1,3963 @@
+{
+    "schema_version": 1,
+    "quality_revision": "aaq-v1",
+    "compiled_from": {
+        "path": "docs/content/adjectives-adverbs-quality/order.v1.json",
+        "sha256": "6b898767badd2caa17eb0e3be2d11980b6ab4121b39391174ad041a035ed6ffa"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedOrderOfAdjectivesQualityBuilderSeeder",
+        "uuid_namespace": "adjectives-adverbs-quality-order-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "adjectives_adverbs_quality_order": {
+            "name": "Adjectives and Adverbs Quality: Порядок прикметників перед іменником"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "page_topic": {
+            "name": "Order of Adjectives",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "page_topic"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "aaq-order-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Ми сиділи за круглим дерев’яним столом.",
+            "level": "A1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Ми сиділи за круглим дерев’яним столом.",
+            "target_text": "We sat at a round wooden table.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Ми сиділи за столом: кругла форма перед дерев’яним матеріалом; дерев’яний має прикметниковий та іменниковий відповідники.",
+                    "options": [
+                        "We",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "sat",
+                    "verb_hint": "Ми сиділи за столом: кругла форма перед дерев’яним матеріалом; дерев’яний має прикметниковий та іменниковий відповідники.",
+                    "options": [
+                        "sat",
+                        "visited",
+                        "opened",
+                        "restored"
+                    ]
+                },
+                "a3": {
+                    "answer": "at",
+                    "verb_hint": "Ми сиділи за столом: кругла форма перед дерев’яним матеріалом; дерев’яний має прикметниковий та іменниковий відповідники.",
+                    "options": [
+                        "at",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Ми сиділи за столом: кругла форма перед дерев’яним матеріалом; дерев’яний має прикметниковий та іменниковий відповідники.",
+                    "options": [
+                        "a",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a5": {
+                    "answer": "round",
+                    "verb_hint": "Ми сиділи за столом: кругла форма перед дерев’яним матеріалом; дерев’яний має прикметниковий та іменниковий відповідники.",
+                    "options": [
+                        "round",
+                        "stylish",
+                        "rare",
+                        "unusual"
+                    ]
+                },
+                "a6": {
+                    "answer": "wooden",
+                    "verb_hint": "Ми сиділи за столом: кругла форма перед дерев’яним матеріалом; дерев’яний має прикметниковий та іменниковий відповідники.",
+                    "options": [
+                        "wooden",
+                        "linen",
+                        "woollen",
+                        "bought"
+                    ]
+                },
+                "a7": {
+                    "answer": "table.",
+                    "verb_hint": "Ми сиділи за столом: кругла форма перед дерев’яним матеріалом; дерев’яний має прикметниковий та іменниковий відповідники.",
+                    "options": [
+                        "table",
+                        "archive",
+                        "comfortable",
+                        "cute"
+                    ]
+                }
+            },
+            "verb_hint": "Ми сиділи за столом: кругла форма перед дерев’яним матеріалом; дерев’яний має прикметниковий та іменниковий відповідники.",
+            "accepted_target_texts": [
+                "We sat at a round wooden table.",
+                "We sat at a round wood table."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "wood"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "wood"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "sat",
+                "at a",
+                "round",
+                "wooden",
+                "table."
+            ],
+            "token_groups": [
+                "We",
+                "sat",
+                "at a",
+                "round",
+                "wooden",
+                "table."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "We",
+                "sat",
+                "at",
+                "a",
+                "round",
+                "wooden",
+                "table."
+            ],
+            "options": [
+                "We",
+                "They",
+                "Me",
+                "Him",
+                "sat",
+                "visited",
+                "opened",
+                "restored",
+                "at",
+                "without",
+                "into",
+                "onto",
+                "a",
+                "those",
+                "each",
+                "every",
+                "round",
+                "stylish",
+                "rare",
+                "unusual",
+                "wooden",
+                "linen",
+                "woollen",
+                "bought",
+                "table",
+                "archive",
+                "comfortable",
+                "cute"
+            ],
+            "source_text_uk": "Ми сиділи за круглим дерев’яним столом.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "sat",
+                    "visited",
+                    "opened",
+                    "restored"
+                ],
+                "a3": [
+                    "at",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a4": [
+                    "a",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a5": [
+                    "round",
+                    "stylish",
+                    "rare",
+                    "unusual"
+                ],
+                "a6": [
+                    "wooden",
+                    "linen",
+                    "woollen",
+                    "bought"
+                ],
+                "a7": [
+                    "table",
+                    "archive",
+                    "comfortable",
+                    "cute"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "preposition_determiner",
+                "a4": "preposition_determiner",
+                "a5": "adjective",
+                "a6": "material",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "aaq-order-a1-c02",
+            "author_id": "A1-c02",
+            "question": "У нього є милий сірий кіт.",
+            "level": "A1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "У нього є милий сірий кіт.",
+            "target_text": "He has a cute grey cat.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Він має милого кота сірого кольору: оцінка перед кольором; милий також означає чарівний, британське й американське написання кольору приймаються.",
+                    "options": [
+                        "He",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a2": {
+                    "answer": "has",
+                    "verb_hint": "Він має милого кота сірого кольору: оцінка перед кольором; милий також означає чарівний, британське й американське написання кольору приймаються.",
+                    "options": [
+                        "has",
+                        "didn't",
+                        "have",
+                        "had"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Він має милого кота сірого кольору: оцінка перед кольором; милий також означає чарівний, британське й американське написання кольору приймаються.",
+                    "options": [
+                        "a",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a4": {
+                    "answer": "cute",
+                    "verb_hint": "Він має милого кота сірого кольору: оцінка перед кольором; милий також означає чарівний, британське й американське написання кольору приймаються.",
+                    "options": [
+                        "cute",
+                        "expensive",
+                        "costly",
+                        "comfortable"
+                    ]
+                },
+                "a5": {
+                    "answer": "grey",
+                    "verb_hint": "Він має милого кота сірого кольору: оцінка перед кольором; милий також означає чарівний, британське й американське написання кольору приймаються.",
+                    "options": [
+                        "grey",
+                        "brown",
+                        "pink",
+                        "purple"
+                    ]
+                },
+                "a6": {
+                    "answer": "cat.",
+                    "verb_hint": "Він має милого кота сірого кольору: оцінка перед кольором; милий також означає чарівний, британське й американське написання кольору приймаються.",
+                    "options": [
+                        "cat",
+                        "bird",
+                        "horse",
+                        "cow"
+                    ]
+                }
+            },
+            "verb_hint": "Він має милого кота сірого кольору: оцінка перед кольором; милий також означає чарівний, британське й американське написання кольору приймаються.",
+            "accepted_target_texts": [
+                "He has a cute grey cat.",
+                "He has a lovely grey cat.",
+                "He has a cute gray cat.",
+                "He has a lovely gray cat."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "lovely"
+                ],
+                "a5": [
+                    "gray"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "lovely"
+                ],
+                "a5": [
+                    "gray"
+                ]
+            },
+            "reorder_groups": [
+                "He",
+                "has",
+                "a",
+                "cute",
+                "grey",
+                "cat."
+            ],
+            "token_groups": [
+                "He",
+                "has",
+                "a",
+                "cute",
+                "grey",
+                "cat."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "He",
+                "has",
+                "a",
+                "cute",
+                "grey",
+                "cat."
+            ],
+            "options": [
+                "He",
+                "Them",
+                "Myself",
+                "Yourself",
+                "has",
+                "didn't",
+                "have",
+                "had",
+                "a",
+                "this",
+                "that",
+                "these",
+                "cute",
+                "expensive",
+                "costly",
+                "comfortable",
+                "grey",
+                "brown",
+                "pink",
+                "purple",
+                "cat",
+                "bird",
+                "horse",
+                "cow"
+            ],
+            "source_text_uk": "У нього є милий сірий кіт.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a2": [
+                    "has",
+                    "didn't",
+                    "have",
+                    "had"
+                ],
+                "a3": [
+                    "a",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a4": [
+                    "cute",
+                    "expensive",
+                    "costly",
+                    "comfortable"
+                ],
+                "a5": [
+                    "grey",
+                    "brown",
+                    "pink",
+                    "purple"
+                ],
+                "a6": [
+                    "cat",
+                    "bird",
+                    "horse",
+                    "cow"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "adjective",
+                "a5": "adjective",
+                "a6": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "aaq-order-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Ми купили зручний коричневий диван.",
+            "level": "A1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Ми купили зручний коричневий диван.",
+            "target_text": "We bought a comfortable brown sofa.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Купівля дивана: зручність перед коричневим кольором; диван має два природні англійські найменування.",
+                    "options": [
+                        "We",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a2": {
+                    "answer": "bought",
+                    "verb_hint": "Купівля дивана: зручність перед коричневим кольором; диван має два природні англійські найменування.",
+                    "options": [
+                        "bought",
+                        "presented",
+                        "acquired",
+                        "visited"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Купівля дивана: зручність перед коричневим кольором; диван має два природні англійські найменування.",
+                    "options": [
+                        "a",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a4": {
+                    "answer": "comfortable",
+                    "verb_hint": "Купівля дивана: зручність перед коричневим кольором; диван має два природні англійські найменування.",
+                    "options": [
+                        "comfortable",
+                        "slim",
+                        "expensive",
+                        "costly"
+                    ]
+                },
+                "a5": {
+                    "answer": "brown",
+                    "verb_hint": "Купівля дивана: зручність перед коричневим кольором; диван має два природні англійські найменування.",
+                    "options": [
+                        "brown",
+                        "gray",
+                        "purple",
+                        "orange"
+                    ]
+                },
+                "a6": {
+                    "answer": "sofa.",
+                    "verb_hint": "Купівля дивана: зручність перед коричневим кольором; диван має два природні англійські найменування.",
+                    "options": [
+                        "sofa",
+                        "lamp",
+                        "vase",
+                        "cat"
+                    ]
+                }
+            },
+            "verb_hint": "Купівля дивана: зручність перед коричневим кольором; диван має два природні англійські найменування.",
+            "accepted_target_texts": [
+                "We bought a comfortable brown sofa.",
+                "We bought a comfortable brown couch."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "couch."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "couch."
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "bought",
+                "a",
+                "comfortable",
+                "brown",
+                "sofa."
+            ],
+            "token_groups": [
+                "We",
+                "bought",
+                "a",
+                "comfortable",
+                "brown",
+                "sofa."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "We",
+                "bought",
+                "a",
+                "comfortable",
+                "brown",
+                "sofa."
+            ],
+            "options": [
+                "We",
+                "Them",
+                "Myself",
+                "Yourself",
+                "bought",
+                "presented",
+                "acquired",
+                "visited",
+                "a",
+                "every",
+                "no",
+                "another",
+                "comfortable",
+                "slim",
+                "expensive",
+                "costly",
+                "brown",
+                "gray",
+                "purple",
+                "orange",
+                "sofa",
+                "lamp",
+                "vase",
+                "cat"
+            ],
+            "source_text_uk": "Ми купили зручний коричневий диван.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a2": [
+                    "bought",
+                    "presented",
+                    "acquired",
+                    "visited"
+                ],
+                "a3": [
+                    "a",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a4": [
+                    "comfortable",
+                    "slim",
+                    "expensive",
+                    "costly"
+                ],
+                "a5": [
+                    "brown",
+                    "gray",
+                    "purple",
+                    "orange"
+                ],
+                "a6": [
+                    "sofa",
+                    "lamp",
+                    "vase",
+                    "cat"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "adjective",
+                "a5": "adjective",
+                "a6": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "aaq-order-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Він купив дорогий старий швейцарський годинник.",
+            "level": "A2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Він купив дорогий старий швейцарський годинник.",
+            "target_text": "He bought an expensive old Swiss watch.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Купівля годинника: висока ціна, потім вік і швейцарське походження; дорогий також можна передати як коштовний.",
+                    "options": [
+                        "He",
+                        "Him",
+                        "Us",
+                        "Them"
+                    ]
+                },
+                "a2": {
+                    "answer": "bought",
+                    "verb_hint": "Купівля годинника: висока ціна, потім вік і швейцарське походження; дорогий також можна передати як коштовний.",
+                    "options": [
+                        "bought",
+                        "found",
+                        "chose",
+                        "carried"
+                    ]
+                },
+                "a3": {
+                    "answer": "an",
+                    "verb_hint": "Купівля годинника: висока ціна, потім вік і швейцарське походження; дорогий також можна передати як коштовний.",
+                    "options": [
+                        "an",
+                        "the",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a4": {
+                    "answer": "expensive",
+                    "verb_hint": "Купівля годинника: висока ціна, потім вік і швейцарське походження; дорогий також можна передати як коштовний.",
+                    "options": [
+                        "expensive",
+                        "new",
+                        "beautiful",
+                        "spacious"
+                    ]
+                },
+                "a5": {
+                    "answer": "old",
+                    "verb_hint": "Купівля годинника: висока ціна, потім вік і швейцарське походження; дорогий також можна передати як коштовний.",
+                    "options": [
+                        "old",
+                        "young",
+                        "stylish",
+                        "large"
+                    ]
+                },
+                "a6": {
+                    "answer": "Swiss",
+                    "verb_hint": "Купівля годинника: висока ціна, потім вік і швейцарське походження; дорогий також можна передати як коштовний.",
+                    "options": [
+                        "Swiss",
+                        "Stone",
+                        "Denim",
+                        "Georgian"
+                    ]
+                },
+                "a7": {
+                    "answer": "watch.",
+                    "verb_hint": "Купівля годинника: висока ціна, потім вік і швейцарське походження; дорогий також можна передати як коштовний.",
+                    "options": [
+                        "watch",
+                        "wait",
+                        "visit",
+                        "cook"
+                    ]
+                }
+            },
+            "verb_hint": "Купівля годинника: висока ціна, потім вік і швейцарське походження; дорогий також можна передати як коштовний.",
+            "accepted_target_texts": [
+                "He bought an expensive old Swiss watch.",
+                "He bought a costly old Swiss watch."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "a"
+                ],
+                "a4": [
+                    "costly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "a"
+                ],
+                "a4": [
+                    "costly"
+                ]
+            },
+            "reorder_groups": [
+                "He",
+                "bought",
+                "an expensive",
+                "old Swiss",
+                "watch."
+            ],
+            "token_groups": [
+                "He",
+                "bought",
+                "an expensive",
+                "old Swiss",
+                "watch."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "He",
+                "bought",
+                "an",
+                "expensive",
+                "old",
+                "Swiss",
+                "watch."
+            ],
+            "options": [
+                "He",
+                "Him",
+                "Us",
+                "Them",
+                "bought",
+                "found",
+                "chose",
+                "carried",
+                "an",
+                "the",
+                "some",
+                "any",
+                "expensive",
+                "new",
+                "beautiful",
+                "spacious",
+                "old",
+                "young",
+                "stylish",
+                "large",
+                "Swiss",
+                "Stone",
+                "Denim",
+                "Georgian",
+                "watch",
+                "wait",
+                "visit",
+                "cook"
+            ],
+            "source_text_uk": "Він купив дорогий старий швейцарський годинник.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "Him",
+                    "Us",
+                    "Them"
+                ],
+                "a2": [
+                    "bought",
+                    "found",
+                    "chose",
+                    "carried"
+                ],
+                "a3": [
+                    "an",
+                    "the",
+                    "some",
+                    "any"
+                ],
+                "a4": [
+                    "expensive",
+                    "new",
+                    "beautiful",
+                    "spacious"
+                ],
+                "a5": [
+                    "old",
+                    "young",
+                    "stylish",
+                    "large"
+                ],
+                "a6": [
+                    "Swiss",
+                    "Stone",
+                    "Denim",
+                    "Georgian"
+                ],
+                "a7": [
+                    "watch",
+                    "wait",
+                    "visit",
+                    "cook"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "adjective_group",
+                "a4": "adjective_group",
+                "a5": "modifier",
+                "a6": "modifier",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "aaq-order-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Вона носила стильну коротку джинсову куртку.",
+            "level": "A2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Вона носила стильну коротку джинсову куртку.",
+            "target_text": "She wore a stylish short denim jacket.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "На ній була куртка: стильна оцінка перед довжиною й джинсовим матеріалом; стильна також означає модна.",
+                    "options": [
+                        "She",
+                        "Him",
+                        "Us",
+                        "Them"
+                    ]
+                },
+                "a2": {
+                    "answer": "wore",
+                    "verb_hint": "На ній була куртка: стильна оцінка перед довжиною й джинсовим матеріалом; стильна також означає модна.",
+                    "options": [
+                        "wore",
+                        "rented",
+                        "ordered",
+                        "bought"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "На ній була куртка: стильна оцінка перед довжиною й джинсовим матеріалом; стильна також означає модна.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a4": {
+                    "answer": "stylish",
+                    "verb_hint": "На ній була куртка: стильна оцінка перед довжиною й джинсовим матеріалом; стильна також означає модна.",
+                    "options": [
+                        "stylish",
+                        "lovely",
+                        "little",
+                        "big"
+                    ]
+                },
+                "a5": {
+                    "answer": "short",
+                    "verb_hint": "На ній була куртка: стильна оцінка перед довжиною й джинсовим матеріалом; стильна також означає модна.",
+                    "options": [
+                        "short",
+                        "charcoal",
+                        "black",
+                        "antique"
+                    ]
+                },
+                "a6": {
+                    "answer": "denim",
+                    "verb_hint": "На ній була куртка: стильна оцінка перед довжиною й джинсовим матеріалом; стильна також означає модна.",
+                    "options": [
+                        "denim",
+                        "stone",
+                        "swiss",
+                        "aluminium"
+                    ]
+                },
+                "a7": {
+                    "answer": "jacket.",
+                    "verb_hint": "На ній була куртка: стильна оцінка перед довжиною й джинсовим матеріалом; стильна також означає модна.",
+                    "options": [
+                        "jacket",
+                        "necklace",
+                        "manuscript",
+                        "agreement"
+                    ]
+                }
+            },
+            "verb_hint": "На ній була куртка: стильна оцінка перед довжиною й джинсовим матеріалом; стильна також означає модна.",
+            "accepted_target_texts": [
+                "She wore a stylish short denim jacket.",
+                "She wore a fashionable short denim jacket."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "fashionable"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "fashionable"
+                ]
+            },
+            "reorder_groups": [
+                "She",
+                "wore",
+                "a",
+                "stylish",
+                "short denim",
+                "jacket."
+            ],
+            "token_groups": [
+                "She",
+                "wore",
+                "a",
+                "stylish",
+                "short denim",
+                "jacket."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "She",
+                "wore",
+                "a",
+                "stylish",
+                "short",
+                "denim",
+                "jacket."
+            ],
+            "options": [
+                "She",
+                "Him",
+                "Us",
+                "Them",
+                "wore",
+                "rented",
+                "ordered",
+                "bought",
+                "a",
+                "all",
+                "both",
+                "an",
+                "stylish",
+                "lovely",
+                "little",
+                "big",
+                "short",
+                "charcoal",
+                "black",
+                "antique",
+                "denim",
+                "stone",
+                "swiss",
+                "aluminium",
+                "jacket",
+                "necklace",
+                "manuscript",
+                "agreement"
+            ],
+            "source_text_uk": "Вона носила стильну коротку джинсову куртку.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "Him",
+                    "Us",
+                    "Them"
+                ],
+                "a2": [
+                    "wore",
+                    "rented",
+                    "ordered",
+                    "bought"
+                ],
+                "a3": [
+                    "a",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a4": [
+                    "stylish",
+                    "lovely",
+                    "little",
+                    "big"
+                ],
+                "a5": [
+                    "short",
+                    "charcoal",
+                    "black",
+                    "antique"
+                ],
+                "a6": [
+                    "denim",
+                    "stone",
+                    "swiss",
+                    "aluminium"
+                ],
+                "a7": [
+                    "jacket",
+                    "necklace",
+                    "manuscript",
+                    "agreement"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "adjective",
+                "a5": "modifier",
+                "a6": "modifier",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "aaq-order-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Вони замовили великий круглий дерев’яний стіл.",
+            "level": "A2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Вони замовили великий круглий дерев’яний стіл.",
+            "target_text": "They ordered a large round wooden table.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Замовлення столу: великий розмір, кругла форма, дерев’яний матеріал; великий має два звичні відповідники.",
+                    "options": [
+                        "They",
+                        "Themselves",
+                        "I",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "ordered",
+                    "verb_hint": "Замовлення столу: великий розмір, кругла форма, дерев’яний матеріал; великий має два звичні відповідники.",
+                    "options": [
+                        "ordered",
+                        "bought",
+                        "wore",
+                        "presented"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Замовлення столу: великий розмір, кругла форма, дерев’яний матеріал; великий має два звичні відповідники.",
+                    "options": [
+                        "a",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a4": {
+                    "answer": "large",
+                    "verb_hint": "Замовлення столу: великий розмір, кругла форма, дерев’яний матеріал; великий має два звичні відповідники.",
+                    "options": [
+                        "large",
+                        "striking",
+                        "remarkable",
+                        "vast"
+                    ]
+                },
+                "a5": {
+                    "answer": "round",
+                    "verb_hint": "Замовлення столу: великий розмір, кругла форма, дерев’яний матеріал; великий має два звичні відповідники.",
+                    "options": [
+                        "round",
+                        "unusual",
+                        "enormous",
+                        "narrow"
+                    ]
+                },
+                "a6": {
+                    "answer": "wooden",
+                    "verb_hint": "Замовлення столу: великий розмір, кругла форма, дерев’яний матеріал; великий має два звичні відповідники.",
+                    "options": [
+                        "wooden",
+                        "linen",
+                        "woollen",
+                        "helped"
+                    ]
+                },
+                "a7": {
+                    "answer": "table.",
+                    "verb_hint": "Замовлення столу: великий розмір, кругла форма, дерев’яний матеріал; великий має два звичні відповідники.",
+                    "options": [
+                        "table",
+                        "archive",
+                        "expensive",
+                        "old"
+                    ]
+                }
+            },
+            "verb_hint": "Замовлення столу: великий розмір, кругла форма, дерев’яний матеріал; великий має два звичні відповідники.",
+            "accepted_target_texts": [
+                "They ordered a large round wooden table.",
+                "They ordered a big round wooden table."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "big"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "big"
+                ]
+            },
+            "reorder_groups": [
+                "They",
+                "ordered",
+                "a",
+                "large",
+                "round",
+                "wooden",
+                "table."
+            ],
+            "token_groups": [
+                "They",
+                "ordered",
+                "a",
+                "large",
+                "round",
+                "wooden",
+                "table."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "They",
+                "ordered",
+                "a",
+                "large",
+                "round",
+                "wooden",
+                "table."
+            ],
+            "options": [
+                "They",
+                "Themselves",
+                "I",
+                "You",
+                "ordered",
+                "bought",
+                "wore",
+                "presented",
+                "a",
+                "every",
+                "no",
+                "another",
+                "large",
+                "striking",
+                "remarkable",
+                "vast",
+                "round",
+                "unusual",
+                "enormous",
+                "narrow",
+                "wooden",
+                "linen",
+                "woollen",
+                "helped",
+                "table",
+                "archive",
+                "expensive",
+                "old"
+            ],
+            "source_text_uk": "Вони замовили великий круглий дерев’яний стіл.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "Themselves",
+                    "I",
+                    "You"
+                ],
+                "a2": [
+                    "ordered",
+                    "bought",
+                    "wore",
+                    "presented"
+                ],
+                "a3": [
+                    "a",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a4": [
+                    "large",
+                    "striking",
+                    "remarkable",
+                    "vast"
+                ],
+                "a5": [
+                    "round",
+                    "unusual",
+                    "enormous",
+                    "narrow"
+                ],
+                "a6": [
+                    "wooden",
+                    "linen",
+                    "woollen",
+                    "helped"
+                ],
+                "a7": [
+                    "table",
+                    "archive",
+                    "expensive",
+                    "old"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "adjective",
+                "a5": "adjective",
+                "a6": "material",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "aaq-order-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Я купила витончене італійське срібне намисто.",
+            "level": "B1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Я купила витончене італійське срібне намисто.",
+            "target_text": "I bought a delicate Italian silver necklace.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Купівля намиста: витончена оцінка, італійське походження, срібний матеріал; витончене також означає вишукане.",
+                    "options": [
+                        "I",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "bought",
+                    "verb_hint": "Купівля намиста: витончена оцінка, італійське походження, срібний матеріал; витончене також означає вишукане.",
+                    "options": [
+                        "bought",
+                        "presented",
+                        "acquired",
+                        "visited"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Купівля намиста: витончена оцінка, італійське походження, срібний матеріал; витончене також означає вишукане.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a4": {
+                    "answer": "delicate",
+                    "verb_hint": "Купівля намиста: витончена оцінка, італійське походження, срібний матеріал; витончене також означає вишукане.",
+                    "options": [
+                        "delicate",
+                        "slim",
+                        "expensive",
+                        "costly"
+                    ]
+                },
+                "a5": {
+                    "answer": "Italian",
+                    "verb_hint": "Купівля намиста: витончена оцінка, італійське походження, срібний матеріал; витончене також означає вишукане.",
+                    "options": [
+                        "Italian",
+                        "Polish",
+                        "Portuguese",
+                        "Japanese"
+                    ]
+                },
+                "a6": {
+                    "answer": "silver",
+                    "verb_hint": "Купівля намиста: витончена оцінка, італійське походження, срібний матеріал; витончене також означає вишукане.",
+                    "options": [
+                        "silver",
+                        "green",
+                        "black",
+                        "white"
+                    ]
+                },
+                "a7": {
+                    "answer": "necklace.",
+                    "verb_hint": "Купівля намиста: витончена оцінка, італійське походження, срібний матеріал; витончене також означає вишукане.",
+                    "options": [
+                        "necklace",
+                        "manuscript",
+                        "cabinet",
+                        "portrait"
+                    ]
+                }
+            },
+            "verb_hint": "Купівля намиста: витончена оцінка, італійське походження, срібний матеріал; витончене також означає вишукане.",
+            "accepted_target_texts": [
+                "I bought a delicate Italian silver necklace.",
+                "I bought a fine Italian silver necklace."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "fine"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "fine"
+                ]
+            },
+            "reorder_groups": [
+                "I",
+                "bought",
+                "a",
+                "delicate",
+                "Italian",
+                "silver",
+                "necklace."
+            ],
+            "token_groups": [
+                "I",
+                "bought",
+                "a",
+                "delicate",
+                "Italian",
+                "silver",
+                "necklace."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "I",
+                "bought",
+                "a",
+                "delicate",
+                "Italian",
+                "silver",
+                "necklace."
+            ],
+            "options": [
+                "I",
+                "Me",
+                "Him",
+                "Us",
+                "bought",
+                "presented",
+                "acquired",
+                "visited",
+                "a",
+                "all",
+                "both",
+                "an",
+                "delicate",
+                "slim",
+                "expensive",
+                "costly",
+                "Italian",
+                "Polish",
+                "Portuguese",
+                "Japanese",
+                "silver",
+                "green",
+                "black",
+                "white",
+                "necklace",
+                "manuscript",
+                "cabinet",
+                "portrait"
+            ],
+            "source_text_uk": "Я купила витончене італійське срібне намисто.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "bought",
+                    "presented",
+                    "acquired",
+                    "visited"
+                ],
+                "a3": [
+                    "a",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a4": [
+                    "delicate",
+                    "slim",
+                    "expensive",
+                    "costly"
+                ],
+                "a5": [
+                    "Italian",
+                    "Polish",
+                    "Portuguese",
+                    "Japanese"
+                ],
+                "a6": [
+                    "silver",
+                    "green",
+                    "black",
+                    "white"
+                ],
+                "a7": [
+                    "necklace",
+                    "manuscript",
+                    "cabinet",
+                    "portrait"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "adjective",
+                "a5": "modifier",
+                "a6": "material",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "aaq-order-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Вона вибрала гарну стару шкіряну валізу.",
+            "level": "B1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Вона вибрала гарну стару шкіряну валізу.",
+            "target_text": "She chose a lovely old leather suitcase.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Вибір валізи: приємна оцінка, потім вік і шкіра; гарна також можна передати як красива.",
+                    "options": [
+                        "She",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "chose",
+                    "verb_hint": "Вибір валізи: приємна оцінка, потім вік і шкіра; гарна також можна передати як красива.",
+                    "options": [
+                        "chose",
+                        "acquired",
+                        "visited",
+                        "opened"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Вибір валізи: приємна оцінка, потім вік і шкіра; гарна також можна передати як красива.",
+                    "options": [
+                        "a",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a4": {
+                    "answer": "lovely",
+                    "verb_hint": "Вибір валізи: приємна оцінка, потім вік і шкіра; гарна також можна передати як красива.",
+                    "options": [
+                        "lovely",
+                        "elegant",
+                        "stylish",
+                        "rare"
+                    ]
+                },
+                "a5": {
+                    "answer": "old",
+                    "verb_hint": "Вибір валізи: приємна оцінка, потім вік і шкіра; гарна також можна передати як красива.",
+                    "options": [
+                        "old",
+                        "costly",
+                        "small",
+                        "little"
+                    ]
+                },
+                "a6": {
+                    "answer": "leather",
+                    "verb_hint": "Вибір валізи: приємна оцінка, потім вік і шкіра; гарна також можна передати як красива.",
+                    "options": [
+                        "leather",
+                        "stone",
+                        "brass",
+                        "silk"
+                    ]
+                },
+                "a7": {
+                    "answer": "suitcase.",
+                    "verb_hint": "Вибір валізи: приємна оцінка, потім вік і шкіра; гарна також можна передати як красива.",
+                    "options": [
+                        "suitcase",
+                        "mirror",
+                        "scarf",
+                        "bridge"
+                    ]
+                }
+            },
+            "verb_hint": "Вибір валізи: приємна оцінка, потім вік і шкіра; гарна також можна передати як красива.",
+            "accepted_target_texts": [
+                "She chose a lovely old leather suitcase.",
+                "She chose a beautiful old leather suitcase."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "beautiful"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "beautiful"
+                ]
+            },
+            "reorder_groups": [
+                "She",
+                "chose",
+                "a",
+                "lovely",
+                "old",
+                "leather",
+                "suitcase."
+            ],
+            "token_groups": [
+                "She",
+                "chose",
+                "a",
+                "lovely",
+                "old",
+                "leather",
+                "suitcase."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "She",
+                "chose",
+                "a",
+                "lovely",
+                "old",
+                "leather",
+                "suitcase."
+            ],
+            "options": [
+                "She",
+                "Us",
+                "Them",
+                "Myself",
+                "chose",
+                "acquired",
+                "visited",
+                "opened",
+                "a",
+                "every",
+                "no",
+                "another",
+                "lovely",
+                "elegant",
+                "stylish",
+                "rare",
+                "old",
+                "costly",
+                "small",
+                "little",
+                "leather",
+                "stone",
+                "brass",
+                "silk",
+                "suitcase",
+                "mirror",
+                "scarf",
+                "bridge"
+            ],
+            "source_text_uk": "Вона вибрала гарну стару шкіряну валізу.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "chose",
+                    "acquired",
+                    "visited",
+                    "opened"
+                ],
+                "a3": [
+                    "a",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a4": [
+                    "lovely",
+                    "elegant",
+                    "stylish",
+                    "rare"
+                ],
+                "a5": [
+                    "old",
+                    "costly",
+                    "small",
+                    "little"
+                ],
+                "a6": [
+                    "leather",
+                    "stone",
+                    "brass",
+                    "silk"
+                ],
+                "a7": [
+                    "suitcase",
+                    "mirror",
+                    "scarf",
+                    "bridge"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "adjective",
+                "a5": "adjective",
+                "a6": "material",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "aaq-order-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Він замовив міцну нову дубову лаву.",
+            "level": "B1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Він замовив міцну нову дубову лаву.",
+            "target_text": "He ordered a sturdy new oak bench.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Замовлення лави: оцінка міцності перед новизною й дубовим матеріалом; міцна також означає надійна.",
+                    "options": [
+                        "He",
+                        "She",
+                        "It",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "ordered",
+                    "verb_hint": "Замовлення лави: оцінка міцності перед новизною й дубовим матеріалом; міцна також означає надійна.",
+                    "options": [
+                        "ordered",
+                        "admired",
+                        "displayed",
+                        "presented"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Замовлення лави: оцінка міцності перед новизною й дубовим матеріалом; міцна також означає надійна.",
+                    "options": [
+                        "a",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a4": {
+                    "answer": "sturdy",
+                    "verb_hint": "Замовлення лави: оцінка міцності перед новизною й дубовим матеріалом; міцна також означає надійна.",
+                    "options": [
+                        "sturdy",
+                        "lovely",
+                        "beautiful",
+                        "small"
+                    ]
+                },
+                "a5": {
+                    "answer": "new",
+                    "verb_hint": "Замовлення лави: оцінка міцності перед новизною й дубовим матеріалом; міцна також означає надійна.",
+                    "options": [
+                        "new",
+                        "big",
+                        "comfortable",
+                        "cosy"
+                    ]
+                },
+                "a6": {
+                    "answer": "oak",
+                    "verb_hint": "Замовлення лави: оцінка міцності перед новизною й дубовим матеріалом; міцна також означає надійна.",
+                    "options": [
+                        "oak",
+                        "bronze",
+                        "marble",
+                        "walnut"
+                    ]
+                },
+                "a7": {
+                    "answer": "bench.",
+                    "verb_hint": "Замовлення лави: оцінка міцності перед новизною й дубовим матеріалом; міцна також означає надійна.",
+                    "options": [
+                        "bench",
+                        "manuscript",
+                        "agreement",
+                        "device"
+                    ]
+                }
+            },
+            "verb_hint": "Замовлення лави: оцінка міцності перед новизною й дубовим матеріалом; міцна також означає надійна.",
+            "accepted_target_texts": [
+                "He ordered a sturdy new oak bench.",
+                "He ordered a robust new oak bench."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "robust"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "robust"
+                ]
+            },
+            "reorder_groups": [
+                "He",
+                "ordered",
+                "a",
+                "sturdy",
+                "new",
+                "oak",
+                "bench."
+            ],
+            "token_groups": [
+                "He",
+                "ordered",
+                "a",
+                "sturdy",
+                "new",
+                "oak",
+                "bench."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "He",
+                "ordered",
+                "a",
+                "sturdy",
+                "new",
+                "oak",
+                "bench."
+            ],
+            "options": [
+                "He",
+                "She",
+                "It",
+                "We",
+                "ordered",
+                "admired",
+                "displayed",
+                "presented",
+                "a",
+                "that",
+                "these",
+                "those",
+                "sturdy",
+                "lovely",
+                "beautiful",
+                "small",
+                "new",
+                "big",
+                "comfortable",
+                "cosy",
+                "oak",
+                "bronze",
+                "marble",
+                "walnut",
+                "bench",
+                "manuscript",
+                "agreement",
+                "device"
+            ],
+            "source_text_uk": "Він замовив міцну нову дубову лаву.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "She",
+                    "It",
+                    "We"
+                ],
+                "a2": [
+                    "ordered",
+                    "admired",
+                    "displayed",
+                    "presented"
+                ],
+                "a3": [
+                    "a",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a4": [
+                    "sturdy",
+                    "lovely",
+                    "beautiful",
+                    "small"
+                ],
+                "a5": [
+                    "new",
+                    "big",
+                    "comfortable",
+                    "cosy"
+                ],
+                "a6": [
+                    "oak",
+                    "bronze",
+                    "marble",
+                    "walnut"
+                ],
+                "a7": [
+                    "bench",
+                    "manuscript",
+                    "agreement",
+                    "device"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "adjective",
+                "a5": "adjective",
+                "a6": "material",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "aaq-order-b2-c01",
+            "author_id": "B2-c01",
+            "question": "На мені була легка водонепроникна туристична куртка.",
+            "level": "B2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "На мені була легка водонепроникна туристична куртка.",
+            "target_text": "I wore a light waterproof hiking jacket.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Куртка для піших походів: мала вага, водонепроникність, призначення; легка також можна передати словом легковага.",
+                    "options": [
+                        "I",
+                        "She",
+                        "It",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "wore",
+                    "verb_hint": "Куртка для піших походів: мала вага, водонепроникність, призначення; легка також можна передати словом легковага.",
+                    "options": [
+                        "wore",
+                        "ordered",
+                        "carried",
+                        "displayed"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Куртка для піших походів: мала вага, водонепроникність, призначення; легка також можна передати словом легковага.",
+                    "options": [
+                        "a",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a4": {
+                    "answer": "light",
+                    "verb_hint": "Куртка для піших походів: мала вага, водонепроникність, призначення; легка також можна передати словом легковага.",
+                    "options": [
+                        "light",
+                        "elegant",
+                        "stylish",
+                        "beautiful"
+                    ]
+                },
+                "a5": {
+                    "answer": "waterproof",
+                    "verb_hint": "Куртка для піших походів: мала вага, водонепроникність, призначення; легка також можна передати словом легковага.",
+                    "options": [
+                        "waterproof",
+                        "slim",
+                        "expensive",
+                        "costly"
+                    ]
+                },
+                "a6": {
+                    "answer": "hiking",
+                    "verb_hint": "Куртка для піших походів: мала вага, водонепроникність, призначення; легка також можна передати словом легковага.",
+                    "options": [
+                        "hiking",
+                        "striking",
+                        "buying",
+                        "giving"
+                    ]
+                },
+                "a7": {
+                    "answer": "jacket.",
+                    "verb_hint": "Куртка для піших походів: мала вага, водонепроникність, призначення; легка також можна передати словом легковага.",
+                    "options": [
+                        "jacket",
+                        "portrait",
+                        "gallery",
+                        "late"
+                    ]
+                }
+            },
+            "verb_hint": "Куртка для піших походів: мала вага, водонепроникність, призначення; легка також можна передати словом легковага.",
+            "accepted_target_texts": [
+                "I wore a light waterproof hiking jacket.",
+                "I wore a lightweight waterproof hiking jacket."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "lightweight"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "lightweight"
+                ]
+            },
+            "reorder_groups": [
+                "I",
+                "wore",
+                "a",
+                "light",
+                "waterproof",
+                "hiking jacket."
+            ],
+            "token_groups": [
+                "I",
+                "wore",
+                "a",
+                "light",
+                "waterproof",
+                "hiking jacket."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "I",
+                "wore",
+                "a",
+                "light",
+                "waterproof",
+                "hiking",
+                "jacket."
+            ],
+            "options": [
+                "I",
+                "She",
+                "It",
+                "We",
+                "wore",
+                "ordered",
+                "carried",
+                "displayed",
+                "a",
+                "every",
+                "no",
+                "another",
+                "light",
+                "elegant",
+                "stylish",
+                "beautiful",
+                "waterproof",
+                "slim",
+                "expensive",
+                "costly",
+                "hiking",
+                "striking",
+                "buying",
+                "giving",
+                "jacket",
+                "portrait",
+                "gallery",
+                "late"
+            ],
+            "source_text_uk": "На мені була легка водонепроникна туристична куртка.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "She",
+                    "It",
+                    "We"
+                ],
+                "a2": [
+                    "wore",
+                    "ordered",
+                    "carried",
+                    "displayed"
+                ],
+                "a3": [
+                    "a",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a4": [
+                    "light",
+                    "elegant",
+                    "stylish",
+                    "beautiful"
+                ],
+                "a5": [
+                    "waterproof",
+                    "slim",
+                    "expensive",
+                    "costly"
+                ],
+                "a6": [
+                    "hiking",
+                    "striking",
+                    "buying",
+                    "giving"
+                ],
+                "a7": [
+                    "jacket",
+                    "portrait",
+                    "gallery",
+                    "late"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "adjective",
+                "a5": "adjective",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "aaq-order-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Вони винайняли простору сучасну квартиру біля річки.",
+            "level": "B2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Вони винайняли простору сучасну квартиру біля річки.",
+            "target_text": "They rented a spacious modern riverside apartment.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Оренда квартири: простір, сучасність, розташування біля річки; квартира має звичний британський відповідник.",
+                    "options": [
+                        "They",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "rented",
+                    "verb_hint": "Оренда квартири: простір, сучасність, розташування біля річки; квартира має звичний британський відповідник.",
+                    "options": [
+                        "rented",
+                        "presented",
+                        "visited",
+                        "opened"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Оренда квартири: простір, сучасність, розташування біля річки; квартира має звичний британський відповідник.",
+                    "options": [
+                        "a",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a4": {
+                    "answer": "spacious",
+                    "verb_hint": "Оренда квартири: простір, сучасність, розташування біля річки; квартира має звичний британський відповідник.",
+                    "options": [
+                        "spacious",
+                        "enormous",
+                        "large",
+                        "old"
+                    ]
+                },
+                "a5": {
+                    "answer": "modern",
+                    "verb_hint": "Оренда квартири: простір, сучасність, розташування біля річки; квартира має звичний британський відповідник.",
+                    "options": [
+                        "modern",
+                        "beautiful",
+                        "lovely",
+                        "small"
+                    ]
+                },
+                "a6": {
+                    "answer": "riverside",
+                    "verb_hint": "Оренда квартири: простір, сучасність, розташування біля річки; квартира має звичний британський відповідник.",
+                    "options": [
+                        "riverside",
+                        "spanish",
+                        "gallery",
+                        "late"
+                    ]
+                },
+                "a7": {
+                    "answer": "apartment.",
+                    "verb_hint": "Оренда квартири: простір, сучасність, розташування біля річки; квартира має звичний британський відповідник.",
+                    "options": [
+                        "apartment",
+                        "device",
+                        "case",
+                        "lamp"
+                    ]
+                }
+            },
+            "verb_hint": "Оренда квартири: простір, сучасність, розташування біля річки; квартира має звичний британський відповідник.",
+            "accepted_target_texts": [
+                "They rented a spacious modern riverside apartment.",
+                "They rented a spacious modern riverside flat."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "flat."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "flat."
+                ]
+            },
+            "reorder_groups": [
+                "They",
+                "rented",
+                "a spacious",
+                "modern",
+                "riverside",
+                "apartment."
+            ],
+            "token_groups": [
+                "They",
+                "rented",
+                "a spacious",
+                "modern",
+                "riverside",
+                "apartment."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "They",
+                "rented",
+                "a",
+                "spacious",
+                "modern",
+                "riverside",
+                "apartment."
+            ],
+            "options": [
+                "They",
+                "Me",
+                "Him",
+                "Us",
+                "rented",
+                "presented",
+                "visited",
+                "opened",
+                "a",
+                "no",
+                "another",
+                "either",
+                "spacious",
+                "enormous",
+                "large",
+                "old",
+                "modern",
+                "beautiful",
+                "lovely",
+                "small",
+                "riverside",
+                "spanish",
+                "gallery",
+                "late",
+                "apartment",
+                "device",
+                "case",
+                "lamp"
+            ],
+            "source_text_uk": "Вони винайняли простору сучасну квартиру біля річки.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "rented",
+                    "presented",
+                    "visited",
+                    "opened"
+                ],
+                "a3": [
+                    "a",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a4": [
+                    "spacious",
+                    "enormous",
+                    "large",
+                    "old"
+                ],
+                "a5": [
+                    "modern",
+                    "beautiful",
+                    "lovely",
+                    "small"
+                ],
+                "a6": [
+                    "riverside",
+                    "spanish",
+                    "gallery",
+                    "late"
+                ],
+                "a7": [
+                    "apartment",
+                    "device",
+                    "case",
+                    "lamp"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "adjective_group",
+                "a4": "adjective_group",
+                "a5": "adjective",
+                "a6": "modifier",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "aaq-order-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Галерея придбала вражаючий іспанський портрет кінця дев’ятнадцятого століття.",
+            "level": "B2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Галерея придбала вражаючий іспанський портрет кінця дев’ятнадцятого століття.",
+            "target_text": "The gallery acquired a striking late nineteenth-century Spanish portrait.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Придбання портрета: вражаюча оцінка перед точною добою та іспанським походженням; вражаючий також означає дивовижний.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "gallery",
+                    "verb_hint": "Придбання портрета: вражаюча оцінка перед точною добою та іспанським походженням; вражаючий також означає дивовижний.",
+                    "options": [
+                        "gallery",
+                        "designer",
+                        "collector",
+                        "museum"
+                    ]
+                },
+                "a3": {
+                    "answer": "acquired",
+                    "verb_hint": "Придбання портрета: вражаюча оцінка перед точною добою та іспанським походженням; вражаючий також означає дивовижний.",
+                    "options": [
+                        "acquired",
+                        "rented",
+                        "admired",
+                        "bought"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Придбання портрета: вражаюча оцінка перед точною добою та іспанським походженням; вражаючий також означає дивовижний.",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a5": {
+                    "answer": "striking",
+                    "verb_hint": "Придбання портрета: вражаюча оцінка перед точною добою та іспанським походженням; вражаючий також означає дивовижний.",
+                    "options": [
+                        "striking",
+                        "hiking",
+                        "visiting",
+                        "cooking"
+                    ]
+                },
+                "a6": {
+                    "answer": "late",
+                    "verb_hint": "Придбання портрета: вражаюча оцінка перед точною добою та іспанським походженням; вражаючий також означає дивовижний.",
+                    "options": [
+                        "late",
+                        "short",
+                        "round",
+                        "charcoal"
+                    ]
+                },
+                "a7": {
+                    "answer": "nineteenth-century",
+                    "verb_hint": "Придбання портрета: вражаюча оцінка перед точною добою та іспанським походженням; вражаючий також означає дивовижний.",
+                    "options": [
+                        "nineteenth-century",
+                        "Chinese",
+                        "medieval",
+                        "French"
+                    ]
+                },
+                "a8": {
+                    "answer": "Spanish",
+                    "verb_hint": "Придбання портрета: вражаюча оцінка перед точною добою та іспанським походженням; вражаючий також означає дивовижний.",
+                    "options": [
+                        "Spanish",
+                        "Italian",
+                        "Ukrainian",
+                        "Polish"
+                    ]
+                },
+                "a9": {
+                    "answer": "portrait.",
+                    "verb_hint": "Придбання портрета: вражаюча оцінка перед точною добою та іспанським походженням; вражаючий також означає дивовижний.",
+                    "options": [
+                        "portrait",
+                        "mirror",
+                        "scarf",
+                        "bridge"
+                    ]
+                }
+            },
+            "verb_hint": "Придбання портрета: вражаюча оцінка перед точною добою та іспанським походженням; вражаючий також означає дивовижний.",
+            "accepted_target_texts": [
+                "The gallery acquired a striking late nineteenth-century Spanish portrait.",
+                "The gallery acquired a remarkable late nineteenth-century Spanish portrait."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "remarkable"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "remarkable"
+                ]
+            },
+            "reorder_groups": [
+                "The gallery",
+                "acquired",
+                "a striking",
+                "late nineteenth-century",
+                "Spanish",
+                "portrait."
+            ],
+            "token_groups": [
+                "The gallery",
+                "acquired",
+                "a striking",
+                "late nineteenth-century",
+                "Spanish",
+                "portrait."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "gallery",
+                "acquired",
+                "a",
+                "striking",
+                "late",
+                "nineteenth-century",
+                "Spanish",
+                "portrait."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "gallery",
+                "designer",
+                "collector",
+                "museum",
+                "acquired",
+                "rented",
+                "admired",
+                "bought",
+                "a",
+                "an",
+                "some",
+                "any",
+                "striking",
+                "hiking",
+                "visiting",
+                "cooking",
+                "late",
+                "short",
+                "round",
+                "charcoal",
+                "nineteenth-century",
+                "Chinese",
+                "medieval",
+                "French",
+                "Spanish",
+                "Italian",
+                "Ukrainian",
+                "Polish",
+                "portrait",
+                "mirror",
+                "scarf",
+                "bridge"
+            ],
+            "source_text_uk": "Галерея придбала вражаючий іспанський портрет кінця дев’ятнадцятого століття.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "gallery",
+                    "designer",
+                    "collector",
+                    "museum"
+                ],
+                "a3": [
+                    "acquired",
+                    "rented",
+                    "admired",
+                    "bought"
+                ],
+                "a4": [
+                    "a",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a5": [
+                    "striking",
+                    "hiking",
+                    "visiting",
+                    "cooking"
+                ],
+                "a6": [
+                    "late",
+                    "short",
+                    "round",
+                    "charcoal"
+                ],
+                "a7": [
+                    "nineteenth-century",
+                    "Chinese",
+                    "medieval",
+                    "French"
+                ],
+                "a8": [
+                    "Spanish",
+                    "Italian",
+                    "Ukrainian",
+                    "Polish"
+                ],
+                "a9": [
+                    "portrait",
+                    "mirror",
+                    "scarf",
+                    "bridge"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adjective_group",
+                "a5": "adjective_group",
+                "a6": "modifier",
+                "a7": "modifier",
+                "a8": "modifier",
+                "a9": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "aaq-order-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Вона купила вдосконалену легку цифрову камеру для подорожей.",
+            "level": "C1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Вона купила вдосконалену легку цифрову камеру для подорожей.",
+            "target_text": "She bought a sophisticated lightweight digital travel camera.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Купівля камери: технологічна досконалість, мала вага, цифровий тип і туристичне призначення; вдосконалена також означає передова.",
+                    "options": [
+                        "She",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "bought",
+                    "verb_hint": "Купівля камери: технологічна досконалість, мала вага, цифровий тип і туристичне призначення; вдосконалена також означає передова.",
+                    "options": [
+                        "bought",
+                        "displayed",
+                        "presented",
+                        "acquired"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Купівля камери: технологічна досконалість, мала вага, цифровий тип і туристичне призначення; вдосконалена також означає передова.",
+                    "options": [
+                        "a",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a4": {
+                    "answer": "sophisticated",
+                    "verb_hint": "Купівля камери: технологічна досконалість, мала вага, цифровий тип і туристичне призначення; вдосконалена також означає передова.",
+                    "options": [
+                        "sophisticated",
+                        "opened",
+                        "toured",
+                        "left"
+                    ]
+                },
+                "a5": {
+                    "answer": "lightweight",
+                    "verb_hint": "Купівля камери: технологічна досконалість, мала вага, цифровий тип і туристичне призначення; вдосконалена також означає передова.",
+                    "options": [
+                        "lightweight",
+                        "narrow",
+                        "expensive",
+                        "costly"
+                    ]
+                },
+                "a6": {
+                    "answer": "digital",
+                    "verb_hint": "Купівля камери: технологічна досконалість, мала вага, цифровий тип і туристичне призначення; вдосконалена також означає передова.",
+                    "options": [
+                        "digital",
+                        "red",
+                        "little",
+                        "large"
+                    ]
+                },
+                "a7": {
+                    "answer": "travel",
+                    "verb_hint": "Купівля камери: технологічна досконалість, мала вага, цифровий тип і туристичне призначення; вдосконалена також означає передова.",
+                    "options": [
+                        "travel",
+                        "university",
+                        "document",
+                        "the"
+                    ]
+                },
+                "a8": {
+                    "answer": "camera.",
+                    "verb_hint": "Купівля камери: технологічна досконалість, мала вага, цифровий тип і туристичне призначення; вдосконалена також означає передова.",
+                    "options": [
+                        "camera",
+                        "file",
+                        "portrait",
+                        "school"
+                    ]
+                }
+            },
+            "verb_hint": "Купівля камери: технологічна досконалість, мала вага, цифровий тип і туристичне призначення; вдосконалена також означає передова.",
+            "accepted_target_texts": [
+                "She bought a sophisticated lightweight digital travel camera.",
+                "She bought an advanced lightweight digital travel camera."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "an"
+                ],
+                "a4": [
+                    "advanced"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "an"
+                ],
+                "a4": [
+                    "advanced"
+                ]
+            },
+            "reorder_groups": [
+                "She",
+                "bought",
+                "a sophisticated",
+                "lightweight",
+                "digital",
+                "travel camera."
+            ],
+            "token_groups": [
+                "She",
+                "bought",
+                "a sophisticated",
+                "lightweight",
+                "digital",
+                "travel camera."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "She",
+                "bought",
+                "a",
+                "sophisticated",
+                "lightweight",
+                "digital",
+                "travel",
+                "camera."
+            ],
+            "options": [
+                "She",
+                "Us",
+                "Them",
+                "Myself",
+                "bought",
+                "displayed",
+                "presented",
+                "acquired",
+                "a",
+                "no",
+                "another",
+                "either",
+                "sophisticated",
+                "opened",
+                "toured",
+                "left",
+                "lightweight",
+                "narrow",
+                "expensive",
+                "costly",
+                "digital",
+                "red",
+                "little",
+                "large",
+                "travel",
+                "university",
+                "document",
+                "the",
+                "camera",
+                "file",
+                "portrait",
+                "school"
+            ],
+            "source_text_uk": "Вона купила вдосконалену легку цифрову камеру для подорожей.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "bought",
+                    "displayed",
+                    "presented",
+                    "acquired"
+                ],
+                "a3": [
+                    "a",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a4": [
+                    "sophisticated",
+                    "opened",
+                    "toured",
+                    "left"
+                ],
+                "a5": [
+                    "lightweight",
+                    "narrow",
+                    "expensive",
+                    "costly"
+                ],
+                "a6": [
+                    "digital",
+                    "red",
+                    "little",
+                    "large"
+                ],
+                "a7": [
+                    "travel",
+                    "university",
+                    "document",
+                    "the"
+                ],
+                "a8": [
+                    "camera",
+                    "file",
+                    "portrait",
+                    "school"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "adjective_group",
+                "a4": "adjective_group",
+                "a5": "adjective",
+                "a6": "adjective",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "aaq-order-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Він відкрив тонку червону пластикову папку для документів.",
+            "level": "C1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Він відкрив тонку червону пластикову папку для документів.",
+            "target_text": "He opened a slim red plastic document file.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Відкриття папки: товщина перед кольором, пластиком і призначенням; тонка також означає невелика завтовшки.",
+                    "options": [
+                        "He",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "opened",
+                    "verb_hint": "Відкриття папки: товщина перед кольором, пластиком і призначенням; тонка також означає невелика завтовшки.",
+                    "options": [
+                        "opened",
+                        "acquired",
+                        "visited",
+                        "restored"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Відкриття папки: товщина перед кольором, пластиком і призначенням; тонка також означає невелика завтовшки.",
+                    "options": [
+                        "a",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a4": {
+                    "answer": "slim",
+                    "verb_hint": "Відкриття папки: товщина перед кольором, пластиком і призначенням; тонка також означає невелика завтовшки.",
+                    "options": [
+                        "slim",
+                        "magnificent",
+                        "beautiful",
+                        "lovely"
+                    ]
+                },
+                "a5": {
+                    "answer": "red",
+                    "verb_hint": "Відкриття папки: товщина перед кольором, пластиком і призначенням; тонка також означає невелика завтовшки.",
+                    "options": [
+                        "red",
+                        "white",
+                        "yellow",
+                        "silver"
+                    ]
+                },
+                "a6": {
+                    "answer": "plastic",
+                    "verb_hint": "Відкриття папки: товщина перед кольором, пластиком і призначенням; тонка також означає невелика завтовшки.",
+                    "options": [
+                        "plastic",
+                        "ceramic",
+                        "library",
+                        "lightweight"
+                    ]
+                },
+                "a7": {
+                    "answer": "document",
+                    "verb_hint": "Відкриття папки: товщина перед кольором, пластиком і призначенням; тонка також означає невелика завтовшки.",
+                    "options": [
+                        "document",
+                        "map",
+                        "notebook",
+                        "folder"
+                    ]
+                },
+                "a8": {
+                    "answer": "file.",
+                    "verb_hint": "Відкриття папки: товщина перед кольором, пластиком і призначенням; тонка також означає невелика завтовшки.",
+                    "options": [
+                        "file",
+                        "camera",
+                        "portrait",
+                        "university"
+                    ]
+                }
+            },
+            "verb_hint": "Відкриття папки: товщина перед кольором, пластиком і призначенням; тонка також означає невелика завтовшки.",
+            "accepted_target_texts": [
+                "He opened a slim red plastic document file.",
+                "He opened a thin red plastic document file."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "thin"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "thin"
+                ]
+            },
+            "reorder_groups": [
+                "He",
+                "opened",
+                "a",
+                "slim",
+                "red",
+                "plastic",
+                "document file."
+            ],
+            "token_groups": [
+                "He",
+                "opened",
+                "a",
+                "slim",
+                "red",
+                "plastic",
+                "document file."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "He",
+                "opened",
+                "a",
+                "slim",
+                "red",
+                "plastic",
+                "document",
+                "file."
+            ],
+            "options": [
+                "He",
+                "They",
+                "Me",
+                "Him",
+                "opened",
+                "acquired",
+                "visited",
+                "restored",
+                "a",
+                "this",
+                "that",
+                "these",
+                "slim",
+                "magnificent",
+                "beautiful",
+                "lovely",
+                "red",
+                "white",
+                "yellow",
+                "silver",
+                "plastic",
+                "ceramic",
+                "library",
+                "lightweight",
+                "document",
+                "map",
+                "notebook",
+                "folder",
+                "file",
+                "camera",
+                "portrait",
+                "university"
+            ],
+            "source_text_uk": "Він відкрив тонку червону пластикову папку для документів.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "opened",
+                    "acquired",
+                    "visited",
+                    "restored"
+                ],
+                "a3": [
+                    "a",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a4": [
+                    "slim",
+                    "magnificent",
+                    "beautiful",
+                    "lovely"
+                ],
+                "a5": [
+                    "red",
+                    "white",
+                    "yellow",
+                    "silver"
+                ],
+                "a6": [
+                    "plastic",
+                    "ceramic",
+                    "library",
+                    "lightweight"
+                ],
+                "a7": [
+                    "document",
+                    "map",
+                    "notebook",
+                    "folder"
+                ],
+                "a8": [
+                    "file",
+                    "camera",
+                    "portrait",
+                    "university"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "adjective",
+                "a5": "adjective",
+                "a6": "material",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "aaq-order-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Ми оглянули розкішну стару університетську бібліотеку.",
+            "level": "C1",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Ми оглянули розкішну стару університетську бібліотеку.",
+            "target_text": "We toured a magnificent old university library.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Огляд бібліотеки: розкішна оцінка перед віком та університетським призначенням; розкішна також означає чудова.",
+                    "options": [
+                        "We",
+                        "I",
+                        "You",
+                        "He"
+                    ]
+                },
+                "a2": {
+                    "answer": "toured",
+                    "verb_hint": "Огляд бібліотеки: розкішна оцінка перед віком та університетським призначенням; розкішна також означає чудова.",
+                    "options": [
+                        "toured",
+                        "wore",
+                        "bought",
+                        "opened"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Огляд бібліотеки: розкішна оцінка перед віком та університетським призначенням; розкішна також означає чудова.",
+                    "options": [
+                        "a",
+                        "both",
+                        "an",
+                        "the"
+                    ]
+                },
+                "a4": {
+                    "answer": "magnificent",
+                    "verb_hint": "Огляд бібліотеки: розкішна оцінка перед віком та університетським призначенням; розкішна також означає чудова.",
+                    "options": [
+                        "magnificent",
+                        "lovely",
+                        "small",
+                        "little"
+                    ]
+                },
+                "a5": {
+                    "answer": "old",
+                    "verb_hint": "Огляд бібліотеки: розкішна оцінка перед віком та університетським призначенням; розкішна також означає чудова.",
+                    "options": [
+                        "old",
+                        "large",
+                        "big",
+                        "comfortable"
+                    ]
+                },
+                "a6": {
+                    "answer": "university",
+                    "verb_hint": "Огляд бібліотеки: розкішна оцінка перед віком та університетським призначенням; розкішна також означає чудова.",
+                    "options": [
+                        "university",
+                        "travel",
+                        "document",
+                        "camera"
+                    ]
+                },
+                "a7": {
+                    "answer": "library.",
+                    "verb_hint": "Огляд бібліотеки: розкішна оцінка перед віком та університетським призначенням; розкішна також означає чудова.",
+                    "options": [
+                        "library",
+                        "lightweight",
+                        "digital",
+                        "slim"
+                    ]
+                }
+            },
+            "verb_hint": "Огляд бібліотеки: розкішна оцінка перед віком та університетським призначенням; розкішна також означає чудова.",
+            "accepted_target_texts": [
+                "We toured a magnificent old university library.",
+                "We toured a splendid old university library."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "splendid"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "splendid"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "toured",
+                "a",
+                "magnificent",
+                "old",
+                "university library."
+            ],
+            "token_groups": [
+                "We",
+                "toured",
+                "a",
+                "magnificent",
+                "old",
+                "university library."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "We",
+                "toured",
+                "a",
+                "magnificent",
+                "old",
+                "university",
+                "library."
+            ],
+            "options": [
+                "We",
+                "I",
+                "You",
+                "He",
+                "toured",
+                "wore",
+                "bought",
+                "opened",
+                "a",
+                "both",
+                "an",
+                "the",
+                "magnificent",
+                "lovely",
+                "small",
+                "little",
+                "old",
+                "large",
+                "big",
+                "comfortable",
+                "university",
+                "travel",
+                "document",
+                "camera",
+                "library",
+                "lightweight",
+                "digital",
+                "slim"
+            ],
+            "source_text_uk": "Ми оглянули розкішну стару університетську бібліотеку.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "I",
+                    "You",
+                    "He"
+                ],
+                "a2": [
+                    "toured",
+                    "wore",
+                    "bought",
+                    "opened"
+                ],
+                "a3": [
+                    "a",
+                    "both",
+                    "an",
+                    "the"
+                ],
+                "a4": [
+                    "magnificent",
+                    "lovely",
+                    "small",
+                    "little"
+                ],
+                "a5": [
+                    "old",
+                    "large",
+                    "big",
+                    "comfortable"
+                ],
+                "a6": [
+                    "university",
+                    "travel",
+                    "document",
+                    "camera"
+                ],
+                "a7": [
+                    "library",
+                    "lightweight",
+                    "digital",
+                    "slim"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "adjective",
+                "a5": "adjective",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "aaq-order-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Дизайнер представив мінімалістичний стіл для нарад із матованої сталі.",
+            "level": "C2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Дизайнер представив мінімалістичний стіл для нарад із матованої сталі.",
+            "target_text": "The designer presented a minimalist brushed-steel conference table.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Представлення столу: мінімалістична оцінка перед обробленою сталлю та призначенням для нарад; представив також означає показав.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "designer",
+                    "verb_hint": "Представлення столу: мінімалістична оцінка перед обробленою сталлю та призначенням для нарад; представив також означає показав.",
+                    "options": [
+                        "designer",
+                        "gallery",
+                        "collector",
+                        "museum"
+                    ]
+                },
+                "a3": {
+                    "answer": "presented",
+                    "verb_hint": "Представлення столу: мінімалістична оцінка перед обробленою сталлю та призначенням для нарад; представив також означає показав.",
+                    "options": [
+                        "presented",
+                        "visited",
+                        "carried",
+                        "displayed"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Представлення столу: мінімалістична оцінка перед обробленою сталлю та призначенням для нарад; представив також означає показав.",
+                    "options": [
+                        "a",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "minimalist",
+                    "verb_hint": "Представлення столу: мінімалістична оцінка перед обробленою сталлю та призначенням для нарад; представив також означає показав.",
+                    "options": [
+                        "minimalist",
+                        "delicate",
+                        "sturdy",
+                        "rare"
+                    ]
+                },
+                "a6": {
+                    "answer": "brushed-steel",
+                    "verb_hint": "Представлення столу: мінімалістична оцінка перед обробленою сталлю та призначенням для нарад; представив також означає показав.",
+                    "options": [
+                        "brushed-steel",
+                        "stone",
+                        "leather",
+                        "brass"
+                    ]
+                },
+                "a7": {
+                    "answer": "conference",
+                    "verb_hint": "Представлення столу: мінімалістична оцінка перед обробленою сталлю та призначенням для нарад; представив також означає показав.",
+                    "options": [
+                        "conference",
+                        "instrument",
+                        "state",
+                        "hard-shell"
+                    ]
+                },
+                "a8": {
+                    "answer": "table.",
+                    "verb_hint": "Представлення столу: мінімалістична оцінка перед обробленою сталлю та призначенням для нарад; представив також означає показав.",
+                    "options": [
+                        "table",
+                        "archive",
+                        "slim",
+                        "young"
+                    ]
+                }
+            },
+            "verb_hint": "Представлення столу: мінімалістична оцінка перед обробленою сталлю та призначенням для нарад; представив також означає показав.",
+            "accepted_target_texts": [
+                "The designer presented a minimalist brushed-steel conference table.",
+                "The designer showcased a minimalist brushed-steel conference table."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "showcased"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "showcased"
+                ]
+            },
+            "reorder_groups": [
+                "The designer",
+                "presented",
+                "a minimalist",
+                "brushed-steel",
+                "conference table."
+            ],
+            "token_groups": [
+                "The designer",
+                "presented",
+                "a minimalist",
+                "brushed-steel",
+                "conference table."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "The",
+                "designer",
+                "presented",
+                "a",
+                "minimalist",
+                "brushed-steel",
+                "conference",
+                "table."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "An",
+                "Some",
+                "designer",
+                "gallery",
+                "collector",
+                "museum",
+                "presented",
+                "visited",
+                "carried",
+                "displayed",
+                "a",
+                "every",
+                "no",
+                "another",
+                "minimalist",
+                "delicate",
+                "sturdy",
+                "rare",
+                "brushed-steel",
+                "stone",
+                "leather",
+                "brass",
+                "conference",
+                "instrument",
+                "state",
+                "hard-shell",
+                "table",
+                "archive",
+                "slim",
+                "young"
+            ],
+            "source_text_uk": "Дизайнер представив мінімалістичний стіл для нарад із матованої сталі.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "designer",
+                    "gallery",
+                    "collector",
+                    "museum"
+                ],
+                "a3": [
+                    "presented",
+                    "visited",
+                    "carried",
+                    "displayed"
+                ],
+                "a4": [
+                    "a",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "minimalist",
+                    "delicate",
+                    "sturdy",
+                    "rare"
+                ],
+                "a6": [
+                    "brushed-steel",
+                    "stone",
+                    "leather",
+                    "brass"
+                ],
+                "a7": [
+                    "conference",
+                    "instrument",
+                    "state",
+                    "hard-shell"
+                ],
+                "a8": [
+                    "table",
+                    "archive",
+                    "slim",
+                    "young"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb",
+                "a4": "adjective_group",
+                "a5": "adjective_group",
+                "a6": "material",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "aaq-order-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Він ніс тонкий алюмінієвий футляр із твердим корпусом для інструмента.",
+            "level": "C2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Він ніс тонкий алюмінієвий футляр із твердим корпусом для інструмента.",
+            "target_text": "He carried a slim hard-shell aluminium instrument case.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Перенесення футляра: мала товщина, твердий корпус, алюміній і призначення для інструмента; тонкий має два відповідники, британська й американська назви матеріалу приймаються.",
+                    "options": [
+                        "He",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "carried",
+                    "verb_hint": "Перенесення футляра: мала товщина, твердий корпус, алюміній і призначення для інструмента; тонкий має два відповідники, британська й американська назви матеріалу приймаються.",
+                    "options": [
+                        "carried",
+                        "ordered",
+                        "displayed",
+                        "acquired"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Перенесення футляра: мала товщина, твердий корпус, алюміній і призначення для інструмента; тонкий має два відповідники, британська й американська назви матеріалу приймаються.",
+                    "options": [
+                        "a",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a4": {
+                    "answer": "slim",
+                    "verb_hint": "Перенесення футляра: мала товщина, твердий корпус, алюміній і призначення для інструмента; тонкий має два відповідники, британська й американська назви матеріалу приймаються.",
+                    "options": [
+                        "slim",
+                        "large",
+                        "big",
+                        "comfortable"
+                    ]
+                },
+                "a5": {
+                    "answer": "hard-shell",
+                    "verb_hint": "Перенесення футляра: мала товщина, твердий корпус, алюміній і призначення для інструмента; тонкий має два відповідники, британська й американська назви матеріалу приймаються.",
+                    "options": [
+                        "hard-shell",
+                        "riverside",
+                        "vast",
+                        "state"
+                    ]
+                },
+                "a6": {
+                    "answer": "aluminium",
+                    "verb_hint": "Перенесення футляра: мала товщина, твердий корпус, алюміній і призначення для інструмента; тонкий має два відповідники, британська й американська назви матеріалу приймаються.",
+                    "options": [
+                        "aluminium",
+                        "oak",
+                        "silver",
+                        "bronze"
+                    ]
+                },
+                "a7": {
+                    "answer": "instrument",
+                    "verb_hint": "Перенесення футляра: мала товщина, твердий корпус, алюміній і призначення для інструмента; тонкий має два відповідники, британська й американська назви матеріалу приймаються.",
+                    "options": [
+                        "instrument",
+                        "conference",
+                        "the",
+                        "brushed-steel"
+                    ]
+                },
+                "a8": {
+                    "answer": "case.",
+                    "verb_hint": "Перенесення футляра: мала товщина, твердий корпус, алюміній і призначення для інструмента; тонкий має два відповідники, британська й американська назви матеріалу приймаються.",
+                    "options": [
+                        "case",
+                        "portrait",
+                        "designer",
+                        "minimalist"
+                    ]
+                }
+            },
+            "verb_hint": "Перенесення футляра: мала товщина, твердий корпус, алюміній і призначення для інструмента; тонкий має два відповідники, британська й американська назви матеріалу приймаються.",
+            "accepted_target_texts": [
+                "He carried a slim hard-shell aluminium instrument case.",
+                "He carried a thin hard-shell aluminium instrument case.",
+                "He carried a slim hard-shell aluminum instrument case.",
+                "He carried a thin hard-shell aluminum instrument case."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "thin"
+                ],
+                "a6": [
+                    "aluminum"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "thin"
+                ],
+                "a6": [
+                    "aluminum"
+                ]
+            },
+            "reorder_groups": [
+                "He",
+                "carried",
+                "a",
+                "slim",
+                "hard-shell",
+                "aluminium",
+                "instrument case."
+            ],
+            "token_groups": [
+                "He",
+                "carried",
+                "a",
+                "slim",
+                "hard-shell",
+                "aluminium",
+                "instrument case."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "He",
+                "carried",
+                "a",
+                "slim",
+                "hard-shell",
+                "aluminium",
+                "instrument",
+                "case."
+            ],
+            "options": [
+                "He",
+                "Us",
+                "Them",
+                "Myself",
+                "carried",
+                "ordered",
+                "displayed",
+                "acquired",
+                "a",
+                "another",
+                "either",
+                "neither",
+                "slim",
+                "large",
+                "big",
+                "comfortable",
+                "hard-shell",
+                "riverside",
+                "vast",
+                "state",
+                "aluminium",
+                "oak",
+                "silver",
+                "bronze",
+                "instrument",
+                "conference",
+                "the",
+                "brushed-steel",
+                "case",
+                "portrait",
+                "designer",
+                "minimalist"
+            ],
+            "source_text_uk": "Він ніс тонкий алюмінієвий футляр із твердим корпусом для інструмента.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "carried",
+                    "ordered",
+                    "displayed",
+                    "acquired"
+                ],
+                "a3": [
+                    "a",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a4": [
+                    "slim",
+                    "large",
+                    "big",
+                    "comfortable"
+                ],
+                "a5": [
+                    "hard-shell",
+                    "riverside",
+                    "vast",
+                    "state"
+                ],
+                "a6": [
+                    "aluminium",
+                    "oak",
+                    "silver",
+                    "bronze"
+                ],
+                "a7": [
+                    "instrument",
+                    "conference",
+                    "the",
+                    "brushed-steel"
+                ],
+                "a8": [
+                    "case",
+                    "portrait",
+                    "designer",
+                    "minimalist"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "adjective",
+                "a5": "modifier",
+                "a6": "material",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "aaq-order-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Ми відвідали величезний державний архів із клімат-контролем.",
+            "level": "C2",
+            "type": 4,
+            "source": "adjectives_adverbs_quality_order",
+            "translation_uk": "Ми відвідали величезний державний архів із клімат-контролем.",
+            "target_text": "We visited a vast climate-controlled state archive.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Відвідини архіву: величезний розмір перед кліматичним обладнанням і державним статусом; величезний також означає неосяжний.",
+                    "options": [
+                        "We",
+                        "She",
+                        "It",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "visited",
+                    "verb_hint": "Відвідини архіву: величезний розмір перед кліматичним обладнанням і державним статусом; величезний також означає неосяжний.",
+                    "options": [
+                        "visited",
+                        "chose",
+                        "ordered",
+                        "displayed"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Відвідини архіву: величезний розмір перед кліматичним обладнанням і державним статусом; величезний також означає неосяжний.",
+                    "options": [
+                        "a",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "vast",
+                    "verb_hint": "Відвідини архіву: величезний розмір перед кліматичним обладнанням і державним статусом; величезний також означає неосяжний.",
+                    "options": [
+                        "vast",
+                        "minimalist",
+                        "rare",
+                        "elegant"
+                    ]
+                },
+                "a5": {
+                    "answer": "climate-controlled",
+                    "verb_hint": "Відвідини архіву: величезний розмір перед кліматичним обладнанням і державним статусом; величезний також означає неосяжний.",
+                    "options": [
+                        "climate-controlled",
+                        "carried",
+                        "presented",
+                        "opened"
+                    ]
+                },
+                "a6": {
+                    "answer": "state",
+                    "verb_hint": "Відвідини архіву: величезний розмір перед кліматичним обладнанням і державним статусом; величезний також означає неосяжний.",
+                    "options": [
+                        "state",
+                        "conference",
+                        "instrument",
+                        "the"
+                    ]
+                },
+                "a7": {
+                    "answer": "archive.",
+                    "verb_hint": "Відвідини архіву: величезний розмір перед кліматичним обладнанням і державним статусом; величезний також означає неосяжний.",
+                    "options": [
+                        "archive",
+                        "table",
+                        "slim",
+                        "cold"
+                    ]
+                }
+            },
+            "verb_hint": "Відвідини архіву: величезний розмір перед кліматичним обладнанням і державним статусом; величезний також означає неосяжний.",
+            "accepted_target_texts": [
+                "We visited a vast climate-controlled state archive.",
+                "We visited an enormous climate-controlled state archive."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "an"
+                ],
+                "a4": [
+                    "enormous"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "an"
+                ],
+                "a4": [
+                    "enormous"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "visited",
+                "a vast",
+                "climate-controlled",
+                "state archive."
+            ],
+            "token_groups": [
+                "We",
+                "visited",
+                "a vast",
+                "climate-controlled",
+                "state archive."
+            ],
+            "quality_revision": "aaq-v1",
+            "tokens_correct": [
+                "We",
+                "visited",
+                "a",
+                "vast",
+                "climate-controlled",
+                "state",
+                "archive."
+            ],
+            "options": [
+                "We",
+                "She",
+                "It",
+                "They",
+                "visited",
+                "chose",
+                "ordered",
+                "displayed",
+                "a",
+                "each",
+                "every",
+                "no",
+                "vast",
+                "minimalist",
+                "rare",
+                "elegant",
+                "climate-controlled",
+                "carried",
+                "presented",
+                "opened",
+                "state",
+                "conference",
+                "instrument",
+                "the",
+                "archive",
+                "table",
+                "slim",
+                "cold"
+            ],
+            "source_text_uk": "Ми відвідали величезний державний архів із клімат-контролем.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "She",
+                    "It",
+                    "They"
+                ],
+                "a2": [
+                    "visited",
+                    "chose",
+                    "ordered",
+                    "displayed"
+                ],
+                "a3": [
+                    "a",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "vast",
+                    "minimalist",
+                    "rare",
+                    "elegant"
+                ],
+                "a5": [
+                    "climate-controlled",
+                    "carried",
+                    "presented",
+                    "opened"
+                ],
+                "a6": [
+                    "state",
+                    "conference",
+                    "instrument",
+                    "the"
+                ],
+                "a7": [
+                    "archive",
+                    "table",
+                    "slim",
+                    "cold"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "verb",
+                "a3": "adjective_group",
+                "a4": "adjective_group",
+                "a5": "modifier",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

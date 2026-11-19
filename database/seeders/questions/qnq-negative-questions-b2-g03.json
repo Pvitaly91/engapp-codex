@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62590,
+        "uuid": "qnq-negative-questions-b2-g03",
+        "question": "{a1} been collecting samples since April?",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 60,
+        "source_id": 463,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedNegativeQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "Hasn't the researcher",
+                "Doesn't the researcher",
+                "Wasn't the researcher"
+            ]
+        },
+        "theory_text_block_uuid": "9c44271a-5eaf-5ed5-ba06-921becdbd041",
+        "created_at": "2026-10-30T13:53:10.000000Z",
+        "updated_at": "2026-10-30T13:53:10.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 463,
+        "name": "Questions and Negations Quality: Negative Questions: заперечні питання",
+        "created_at": "2026-10-30T13:53:08.000000Z",
+        "updated_at": "2026-10-30T13:53:08.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 289,
+                "name": "Negative Questions",
+                "category": null,
+                "created_at": "2026-04-23T14:33:01.000000Z",
+                "updated_at": "2026-04-23T14:33:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 62590,
+                "tag_id": 289,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 57215,
+                "option": "Hasn't the researcher",
+                "created_at": "2026-10-30T13:53:10.000000Z",
+                "updated_at": "2026-10-30T13:53:10.000000Z"
+            },
+            "pivot": {
+                "question_id": 62590,
+                "option_id": 57215,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57217,
+                "option": "Doesn't the researcher",
+                "created_at": "2026-10-30T13:53:10.000000Z",
+                "updated_at": "2026-10-30T13:53:10.000000Z"
+            },
+            "pivot": {
+                "question_id": 62590,
+                "option_id": 57217,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57218,
+                "option": "Wasn't the researcher",
+                "created_at": "2026-10-30T13:53:10.000000Z",
+                "updated_at": "2026-10-30T13:53:10.000000Z"
+            },
+            "pivot": {
+                "question_id": 62590,
+                "option_id": 57218,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332253,
+                "question_id": 62590,
+                "marker": "a1",
+                "option_id": 57215,
+                "created_at": "2026-10-30T13:53:10.000000Z",
+                "updated_at": "2026-10-30T13:53:10.000000Z"
+            },
+            "option": {
+                "id": 57215,
+                "option": "Hasn't the researcher",
+                "created_at": "2026-10-30T13:53:10.000000Z",
+                "updated_at": "2026-10-30T13:53:10.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49587,
+                "question_id": 62590,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 57216,
+                "created_at": "2026-10-30T13:53:10.000000Z",
+                "updated_at": "2026-10-30T13:53:10.000000Z"
+            },
+            "option": {
+                "id": 57216,
+                "option": "Підкресли процес від названого початку до теперішнього моменту. Підмет для введення: дослідник.",
+                "created_at": "2026-10-30T13:53:10.000000Z",
+                "updated_at": "2026-10-30T13:53:10.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54605,
+            "question_id": 62590,
+            "text": "{a1} been collecting samples since April?",
+            "created_at": "2026-10-30T13:53:10.000000Z",
+            "updated_at": "2026-10-30T13:53:10.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

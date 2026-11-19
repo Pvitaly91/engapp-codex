@@ -1,0 +1,708 @@
+{
+    "schema_version": 1,
+    "quality_revision": "rcq-v1",
+    "compiled_from": {
+        "path": "docs/content/relative-clauses-quality/complex-relative-clauses.v1.json",
+        "sha256": "51f55b96d21d565a931bfaa97873053e3828dd558844f1882ba64624000aa371"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\RelativeClauses\\UkrainianMixedRcqComplexRelativeClausesQualityStandardSeeder",
+        "uuid_namespace": "relative-clauses-quality-complex-relative-clauses-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Relative Clauses"
+    },
+    "sources": {
+        "relative_clauses_quality_complex_relative_clauses": {
+            "name": "Relative Clauses Quality: Complex Relative Clauses"
+        }
+    },
+    "tags": {
+        "relative_clauses_complex_relative_clauses_all_levels": {
+            "name": "relative clauses complex relative clauses all levels",
+            "category": "relative_clauses"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "complex_relative_clauses": {
+            "name": "Complex Relative Clauses",
+            "category": "topic"
+        },
+        "defining_non_defining": {
+            "name": "Defining Non Defining",
+            "category": "topic"
+        },
+        "whose": {
+            "name": "Whose",
+            "category": "topic"
+        },
+        "which_whole_clause": {
+            "name": "Which Whole Clause",
+            "category": "topic"
+        },
+        "preposition_relative_pronoun": {
+            "name": "Preposition Relative Pronoun",
+            "category": "topic"
+        },
+        "preposition_at_end": {
+            "name": "Preposition At End",
+            "category": "topic"
+        },
+        "embedded_information": {
+            "name": "Embedded Information",
+            "category": "topic"
+        },
+        "quantifier_of_whom_which": {
+            "name": "Quantifier Of Whom Which",
+            "category": "topic"
+        },
+        "reduced_relative_active": {
+            "name": "Reduced Relative Active",
+            "category": "topic"
+        },
+        "reduced_relative_passive": {
+            "name": "Reduced Relative Passive",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "natural_style": {
+            "name": "Natural Style",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rcq-crc-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The boy {a1} feeds the ducks is my friend.",
+            "level": "A1",
+            "type": 0,
+            "source": "relative_clauses_quality_complex_relative_clauses",
+            "translation_uk": "Хлопчик, який годує качок, — мій друг.",
+            "target_text": "The boy who feeds the ducks is my friend.",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Встав відносне слово для людини, яка годує качок; можливі два звичайні займенники."
+                }
+            },
+            "verb_hint": "Встав відносне слово для людини, яка годує качок; можливі два звичайні займенники.",
+            "accepted_target_texts": [
+                "The boy who feeds the ducks is my friend.",
+                "The boy that feeds the ducks is my friend."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "that"
+                ]
+            },
+            "reorder_groups": [
+                "The boy",
+                "who feeds",
+                "the ducks",
+                "is my friend."
+            ],
+            "token_groups": [
+                "The boy",
+                "who feeds",
+                "the ducks",
+                "is my friend."
+            ],
+            "quality_revision": "rcq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "rcq-crc-a1-g02",
+            "author_id": "A1-g02",
+            "question": "I have a cup {a1} has a red handle.",
+            "level": "A1",
+            "type": 0,
+            "source": "relative_clauses_quality_complex_relative_clauses",
+            "translation_uk": "У мене є чашка, яка має червону ручку.",
+            "target_text": "I have a cup that has a red handle.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "З’єднай назву чашки з її ознакою відносним словом для предмета; можливі два займенники."
+                }
+            },
+            "verb_hint": "З’єднай назву чашки з її ознакою відносним словом для предмета; можливі два займенники.",
+            "accepted_target_texts": [
+                "I have a cup that has a red handle.",
+                "I have a cup which has a red handle."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "which"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "which"
+                ]
+            },
+            "reorder_groups": [
+                "I have",
+                "a cup",
+                "that has",
+                "a red handle."
+            ],
+            "token_groups": [
+                "I have",
+                "a cup",
+                "that has",
+                "a red handle."
+            ],
+            "quality_revision": "rcq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "rcq-crc-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The café {a1} we have breakfast opens at seven.",
+            "level": "A2",
+            "type": 0,
+            "source": "relative_clauses_quality_complex_relative_clauses",
+            "translation_uk": "Кафе, де ми снідаємо, відчиняється о сьомій.",
+            "target_text": "The café where we have breakfast opens at seven.",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "whose",
+                        "which"
+                    ],
+                    "verb_hint": "Назви зв’язок із місцем, де ми снідаємо; можна вжити одне відносне слово або відповідне поєднання з прийменником."
+                }
+            },
+            "verb_hint": "Назви зв’язок із місцем, де ми снідаємо; можна вжити одне відносне слово або відповідне поєднання з прийменником.",
+            "accepted_target_texts": [
+                "The café where we have breakfast opens at seven.",
+                "The café at which we have breakfast opens at seven.",
+                "The café in which we have breakfast opens at seven."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "at which",
+                    "in which"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "at which",
+                    "in which"
+                ]
+            },
+            "reorder_groups": [
+                "The café",
+                "where we",
+                "have breakfast",
+                "opens at seven."
+            ],
+            "token_groups": [
+                "The café",
+                "where we",
+                "have breakfast",
+                "opens at seven."
+            ],
+            "quality_revision": "rcq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "rcq-crc-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The girl {a1} bike is yellow is waiting outside.",
+            "level": "A2",
+            "type": 0,
+            "source": "relative_clauses_quality_complex_relative_clauses",
+            "translation_uk": "Дівчина, чий велосипед жовтий, чекає надворі.",
+            "target_text": "The girl whose bike is yellow is waiting outside.",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "Перед назвою велосипеда покажи, що він належить дівчині; потрібна присвійна відносна форма."
+                }
+            },
+            "verb_hint": "Перед назвою велосипеда покажи, що він належить дівчині; потрібна присвійна відносна форма.",
+            "accepted_target_texts": [
+                "The girl whose bike is yellow is waiting outside."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The girl",
+                "whose bike",
+                "is yellow",
+                "is waiting outside."
+            ],
+            "token_groups": [
+                "The girl",
+                "whose bike",
+                "is yellow",
+                "is waiting outside."
+            ],
+            "quality_revision": "rcq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "rcq-crc-b1-g01",
+            "author_id": "B1-g01",
+            "question": "What is the name of the musician {a1} you were talking to?",
+            "level": "B1",
+            "type": 0,
+            "source": "relative_clauses_quality_complex_relative_clauses",
+            "translation_uk": "Як звати музиканта, з яким ти розмовляв?",
+            "target_text": "What is the name of the musician who you were talking to?",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Встав об’єктний відносний займенник для людини; питальний початок і прийменник уже наведені. Приймаються звичайна, формальна й нейтральна форми."
+                }
+            },
+            "verb_hint": "Встав об’єктний відносний займенник для людини; питальний початок і прийменник уже наведені. Приймаються звичайна, формальна й нейтральна форми.",
+            "accepted_target_texts": [
+                "What is the name of the musician who you were talking to?",
+                "What is the name of the musician whom you were talking to?",
+                "What is the name of the musician that you were talking to?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "whom",
+                    "that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "whom",
+                    "that"
+                ]
+            },
+            "reorder_groups": [
+                "What is",
+                "the name",
+                "of the musician",
+                "who you",
+                "were talking to?"
+            ],
+            "token_groups": [
+                "What is",
+                "the name",
+                "of the musician",
+                "who you",
+                "were talking to?"
+            ],
+            "quality_revision": "rcq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "rcq-crc-b1-g02",
+            "author_id": "B1-g02",
+            "question": "I kept the receipt, {a1} was useful when the printer stopped working.",
+            "level": "B1",
+            "type": 0,
+            "source": "relative_clauses_quality_complex_relative_clauses",
+            "translation_uk": "Я зберіг чек, який знадобився, коли принтер перестав працювати.",
+            "target_text": "I kept the receipt, which was useful when the printer stopped working.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who"
+                    ],
+                    "verb_hint": "Додай після коми відносне слово, яке повідомляє додаткову інформацію про чек, а не про людину."
+                }
+            },
+            "verb_hint": "Додай після коми відносне слово, яке повідомляє додаткову інформацію про чек, а не про людину.",
+            "accepted_target_texts": [
+                "I kept the receipt, which was useful when the printer stopped working."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I kept",
+                "the receipt,",
+                "which was useful",
+                "when the printer",
+                "stopped working."
+            ],
+            "token_groups": [
+                "I kept",
+                "the receipt,",
+                "which was useful",
+                "when the printer",
+                "stopped working."
+            ],
+            "quality_revision": "rcq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "rcq-crc-b2-g01",
+            "author_id": "B2-g01",
+            "question": "We inspected three turbines, two {a1} needed new bearings.",
+            "level": "B2",
+            "type": 0,
+            "source": "relative_clauses_quality_complex_relative_clauses",
+            "translation_uk": "Ми оглянули три турбіни, двом із яких були потрібні нові підшипники.",
+            "target_text": "We inspected three turbines, two of which needed new bearings.",
+            "markers": {
+                "a1": {
+                    "answer": "of which",
+                    "options": [
+                        "of which",
+                        "of whom",
+                        "whose"
+                    ],
+                    "verb_hint": "Після кількісного слова назви дві турбіни з уже згаданої трійки; потрібне поєднання прийменника із займенником для предметів."
+                }
+            },
+            "verb_hint": "Після кількісного слова назви дві турбіни з уже згаданої трійки; потрібне поєднання прийменника із займенником для предметів.",
+            "accepted_target_texts": [
+                "We inspected three turbines, two of which needed new bearings."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We inspected",
+                "three turbines,",
+                "two of which",
+                "needed new bearings."
+            ],
+            "token_groups": [
+                "We inspected",
+                "three turbines,",
+                "two of which",
+                "needed new bearings."
+            ],
+            "quality_revision": "rcq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "rcq-crc-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The technician {a1} I consulted recommended a quieter pump.",
+            "level": "B2",
+            "type": 0,
+            "source": "relative_clauses_quality_complex_relative_clauses",
+            "translation_uk": "Технік, з яким я порадився, порекомендував тихіший насос.",
+            "target_text": "The technician whom I consulted recommended a quieter pump.",
+            "markers": {
+                "a1": {
+                    "answer": "whom",
+                    "options": [
+                        "whom",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Встав відносний займенник, який позначає людину як об’єкт консультації; можливі формальна та звичайні форми."
+                }
+            },
+            "verb_hint": "Встав відносний займенник, який позначає людину як об’єкт консультації; можливі формальна та звичайні форми.",
+            "accepted_target_texts": [
+                "The technician whom I consulted recommended a quieter pump.",
+                "The technician who I consulted recommended a quieter pump.",
+                "The technician that I consulted recommended a quieter pump."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "who",
+                    "that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "who",
+                    "that"
+                ]
+            },
+            "reorder_groups": [
+                "The technician",
+                "whom I consulted",
+                "recommended",
+                "a quieter pump."
+            ],
+            "token_groups": [
+                "The technician",
+                "whom I consulted",
+                "recommended",
+                "a quieter pump."
+            ],
+            "quality_revision": "rcq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "rcq-crc-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The panel interviewed five witnesses, none {a1} could identify the driver.",
+            "level": "C1",
+            "type": 0,
+            "source": "relative_clauses_quality_complex_relative_clauses",
+            "translation_uk": "Комісія опитала п’ятьох свідків, жоден із яких не зміг упізнати водія.",
+            "target_text": "The panel interviewed five witnesses, none of whom could identify the driver.",
+            "markers": {
+                "a1": {
+                    "answer": "of whom",
+                    "options": [
+                        "of whom",
+                        "of which",
+                        "whose"
+                    ],
+                    "verb_hint": "Після слова зі значенням «жоден» утвори кількісний відносний зворот для людей; збережи прийменник у пропуску."
+                }
+            },
+            "verb_hint": "Після слова зі значенням «жоден» утвори кількісний відносний зворот для людей; збережи прийменник у пропуску.",
+            "accepted_target_texts": [
+                "The panel interviewed five witnesses, none of whom could identify the driver."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The panel",
+                "interviewed five witnesses,",
+                "none of whom",
+                "could identify",
+                "the driver."
+            ],
+            "token_groups": [
+                "The panel",
+                "interviewed five witnesses,",
+                "none of whom",
+                "could identify",
+                "the driver."
+            ],
+            "quality_revision": "rcq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "rcq-crc-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The survey uses a classification {a1} many statisticians regard as outdated.",
+            "level": "C1",
+            "type": 0,
+            "source": "relative_clauses_quality_complex_relative_clauses",
+            "translation_uk": "У дослідженні використано класифікацію, яку багато статистиків вважають застарілою.",
+            "target_text": "The survey uses a classification which many statisticians regard as outdated.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "whose",
+                        "where"
+                    ],
+                    "verb_hint": "Встав об’єктний відносний займенник для класифікації; назви статистиків і оцінку застарілості вже наведено."
+                }
+            },
+            "verb_hint": "Встав об’єктний відносний займенник для класифікації; назви статистиків і оцінку застарілості вже наведено.",
+            "accepted_target_texts": [
+                "The survey uses a classification which many statisticians regard as outdated.",
+                "The survey uses a classification that many statisticians regard as outdated."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "that"
+                ]
+            },
+            "reorder_groups": [
+                "The survey uses",
+                "a classification",
+                "which many statisticians",
+                "regard as outdated."
+            ],
+            "token_groups": [
+                "The survey uses",
+                "a classification",
+                "which many statisticians",
+                "regard as outdated."
+            ],
+            "quality_revision": "rcq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "rcq-crc-c2-g01",
+            "author_id": "C2-g01",
+            "question": "These are the procedural safeguards {a1} the validity of the adjudication ultimately depends.",
+            "level": "C2",
+            "type": 0,
+            "source": "relative_clauses_quality_complex_relative_clauses",
+            "translation_uk": "Це процесуальні гарантії, від яких зрештою залежить чинність судового рішення.",
+            "target_text": "These are the procedural safeguards on which the validity of the adjudication ultimately depends.",
+            "markers": {
+                "a1": {
+                    "answer": "on which",
+                    "options": [
+                        "on which",
+                        "with whom",
+                        "whose"
+                    ],
+                    "verb_hint": "У формальному звороті постав перед займенником прийменник, якого потребує дієслово зі значенням залежності; опорою зв’язку є процесуальні гарантії, а не особи."
+                }
+            },
+            "verb_hint": "У формальному звороті постав перед займенником прийменник, якого потребує дієслово зі значенням залежності; опорою зв’язку є процесуальні гарантії, а не особи.",
+            "accepted_target_texts": [
+                "These are the procedural safeguards on which the validity of the adjudication ultimately depends.",
+                "These are the procedural safeguards upon which the validity of the adjudication ultimately depends."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "upon which"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "upon which"
+                ]
+            },
+            "reorder_groups": [
+                "These are",
+                "the procedural safeguards",
+                "on which",
+                "the validity",
+                "of the adjudication",
+                "ultimately depends."
+            ],
+            "token_groups": [
+                "These are",
+                "the procedural safeguards",
+                "on which",
+                "the validity",
+                "of the adjudication",
+                "ultimately depends."
+            ],
+            "quality_revision": "rcq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "rcq-crc-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The dossiers, the authenticity of {a1} the rapporteur had initially questioned, were admitted as evidence.",
+            "level": "C2",
+            "type": 0,
+            "source": "relative_clauses_quality_complex_relative_clauses",
+            "translation_uk": "Досьє, справжність яких доповідач спочатку поставив під сумнів, прийняли як докази.",
+            "target_text": "The dossiers, the authenticity of which the rapporteur had initially questioned, were admitted as evidence.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "whom",
+                        "whose"
+                    ],
+                    "verb_hint": "Встав відносний займенник усередині вкладеної іменникової групи після прийменника; його опорою є досьє, а не доповідач."
+                }
+            },
+            "verb_hint": "Встав відносний займенник усередині вкладеної іменникової групи після прийменника; його опорою є досьє, а не доповідач.",
+            "accepted_target_texts": [
+                "The dossiers, the authenticity of which the rapporteur had initially questioned, were admitted as evidence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dossiers,",
+                "the authenticity",
+                "of which",
+                "the rapporteur",
+                "had initially questioned,",
+                "were admitted",
+                "as evidence."
+            ],
+            "token_groups": [
+                "The dossiers,",
+                "the authenticity",
+                "of which",
+                "the rapporteur",
+                "had initially questioned,",
+                "were admitted",
+                "as evidence."
+            ],
+            "quality_revision": "rcq-v1"
+        }
+    ]
+}

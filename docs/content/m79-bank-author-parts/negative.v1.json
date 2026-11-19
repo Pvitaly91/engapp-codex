@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "lesson": "Negative Questions",
+  "bank_seeder": "Database\\Seeders\\V3\\Polyglot\\M79NegativeFactsSupplementSeeder",
+  "preserved_old_bank": "Database\\Seeders\\V3\\Polyglot\\PolyglotNegativeQuestionsAllLevelsLessonSeeder",
+  "level": "B1",
+  "purpose": "Мінімальне доповнення двома type-4 відповідями за явно відомим фактом. Старі питання, ключі, options та links не переписуються.",
+  "questions": [
+    {
+      "source_uid": "m79-neg-b1-01",
+      "question_uk": "Так, знаю.",
+      "context_uk": "Марта запитує одного Назара: Don’t you know? — Хіба ти не знаєш? Факт: Назар знає потрібну інформацію. Він відповідає про себе короткою позитивною моделлю з допоміжним.",
+      "criterion_uk": "Склади коротку позитивну відповідь із потрібним допоміжним. Підмет — я. Не змінюй її на заперечення й не повторюй питання.",
+      "translation_uk": "Так, знаю.",
+      "ambiguity_note_uk": "Відповідь стверджує знання Назара, а не згоду із запереченням у питанні. Факт про знання названий окремо.",
+      "canonical_en": "Yes, I do.",
+      "tokens_correct": [
+        "Yes,",
+        "I",
+        "do."
+      ],
+      "tokens_shuffled": [
+        "do.",
+        "Yes,",
+        "I"
+      ],
+      "distractors": [
+        "No,",
+        "don't",
+        "you",
+        "does"
+      ],
+      "learning_requirements": [
+        "Позитивна коротка відповідь за явним фактом знання.",
+        "Потрібне допоміжне do зберігається як окремий токен.",
+        "Мовець Назар відповідає про себе: I, не you.",
+        "Кома після Yes і крапка лишаються видимими; окремий контроль пунктуації не заявляється."
+      ]
+    },
+    {
+      "source_uid": "m79-neg-b1-02",
+      "question_uk": "Ні, вона не йде.",
+      "context_uk": "Андрій запитує Олю про Марту: Isn’t she coming? — Хіба вона не йде? Факт: Марта залишиться вдома й не прийде. Оля відповідає про Марту.",
+      "criterion_uk": "Склади коротку негативну відповідь із повною, нескороченою формою допоміжного. Збережи займенник для Марти. Не приписуй їй наміру прийти.",
+      "translation_uk": "Ні, вона не йде.",
+      "ambiguity_note_uk": "Відповідь заперечує участь Марти: вона не прийде. Не роби висновку, що Марта прийде, лише через очікування Андрія.",
+      "canonical_en": "No, she is not.",
+      "tokens_correct": [
+        "No,",
+        "she",
+        "is",
+        "not."
+      ],
+      "tokens_shuffled": [
+        "is",
+        "not.",
+        "No,",
+        "she"
+      ],
+      "distractors": [
+        "Yes,",
+        "isn't",
+        "he",
+        "are"
+      ],
+      "learning_requirements": [
+        "Негативна відповідь за відомим фактом.",
+        "Is і not зберігаються як окремі ordered instances.",
+        "Оля говорить про Марту: she, не I/you.",
+        "Canonical залишається відповіддю, не новим заперечним питанням."
+      ]
+    }
+  ],
+  "review_kind": "Авторська агентна перевірка; не human review.",
+  "sources": [
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/not",
+      "access": "Direct403; indexed editorial body про форму not та відповіді прочитано."
+    },
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/questions-negatives",
+      "access": "Direct timeout; indexed основний body та іменовані LearnEnglish Team replies розрізнені."
+    }
+  ],
+  "acceptance_boundary": "Авторський draft, не запис у SQL і не browser PASS. Main формує stable UUID, матеріалізований exact plan, незалежний backup/apply і native formatter acceptance.",
+  "review_boundaries": "Перший task має природну три-токенну коротку відповідь; її не подовжено заради count. Другий canonical відображає повний нескорочений негативний auxiliary, але unchanged engine може прийняти граматичне скорочення; він не переробляється для заборони aliases. Punctuation-only strict checking не заявляється."
+}

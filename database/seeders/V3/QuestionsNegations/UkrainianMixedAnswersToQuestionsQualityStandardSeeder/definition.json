@@ -1,0 +1,1801 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/answers.v1.json",
+        "sha256": "45497344a35015f7a89a6d74a00b07cdb4816bc7a40898dedada46a3b6a215af"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedAnswersToQuestionsQualityStandardSeeder",
+        "uuid_namespace": "questions-negations-quality-answers-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "questions_negations_quality_answers": {
+            "name": "Questions and Negations Quality: Answers to Questions"
+        }
+    },
+    "tags": {
+        "answers_to_questions": {
+            "name": "Answers to Questions",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "short_answers": {
+            "name": "Short Answers",
+            "category": "topic"
+        },
+        "yes_no_short_answers": {
+            "name": "Yes No Short Answers",
+            "category": "topic"
+        },
+        "to_be_answers": {
+            "name": "To Be Answers",
+            "category": "topic"
+        },
+        "do_does_did_answers": {
+            "name": "Do Does Did Answers",
+            "category": "topic"
+        },
+        "modal_answers": {
+            "name": "Modal Answers",
+            "category": "topic"
+        },
+        "perfect_auxiliary_answers": {
+            "name": "Perfect Auxiliary Answers",
+            "category": "topic"
+        },
+        "full_answers": {
+            "name": "Full Answers",
+            "category": "topic"
+        },
+        "avoid_repetition": {
+            "name": "Avoid Repetition",
+            "category": "topic"
+        },
+        "wh_question_answers": {
+            "name": "Wh Question Answers",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "answers_to_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-answers-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Are you hungry? Yes, {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Ти голодний? — Так.",
+            "target_text": "Are you hungry? Yes, I am.",
+            "markers": {
+                "a1": {
+                    "answer": "I am",
+                    "options": [
+                        "I am",
+                        "I do",
+                        "I is"
+                    ],
+                    "verb_hint": "Дай коротку стверджувальну відповідь від власного імені на питання про голод."
+                }
+            },
+            "verb_hint": "Дай коротку стверджувальну відповідь від власного імені на питання про голод.",
+            "accepted_target_texts": [
+                "Are you hungry? Yes, I am."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are you hungry?",
+                "Yes,",
+                "I am."
+            ],
+            "token_groups": [
+                "Are you hungry?",
+                "Yes,",
+                "I am."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-answers-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Is your sister at home? No, {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Твоя сестра вдома? — Ні.",
+            "target_text": "Is your sister at home? No, she is not.",
+            "markers": {
+                "a1": {
+                    "answer": "she is not",
+                    "options": [
+                        "she is not",
+                        "she does not",
+                        "she are not"
+                    ],
+                    "verb_hint": "У короткій відповіді заміни сестру жіночим займенником і запереч її перебування вдома."
+                }
+            },
+            "verb_hint": "У короткій відповіді заміни сестру жіночим займенником і запереч її перебування вдома.",
+            "accepted_target_texts": [
+                "Is your sister at home? No, she is not.",
+                "Is your sister at home? No, she isn't.",
+                "Is your sister at home? No, she's not."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "she isn't",
+                    "she's not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "she isn't",
+                    "she's not"
+                ]
+            },
+            "reorder_groups": [
+                "Is your sister",
+                "at home?",
+                "No,",
+                "she is not."
+            ],
+            "token_groups": [
+                "Is your sister",
+                "at home?",
+                "No,",
+                "she is not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-answers-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Do your friends play chess? Yes, {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Твої друзі грають у шахи? — Так.",
+            "target_text": "Do your friends play chess? Yes, they do.",
+            "markers": {
+                "a1": {
+                    "answer": "they do",
+                    "options": [
+                        "they do",
+                        "they are",
+                        "they does"
+                    ],
+                    "verb_hint": "Дай коротку стверджувальну відповідь про звичну дію кількох людей."
+                }
+            },
+            "verb_hint": "Дай коротку стверджувальну відповідь про звичну дію кількох людей.",
+            "accepted_target_texts": [
+                "Do your friends play chess? Yes, they do."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do your friends",
+                "play chess?",
+                "Yes,",
+                "they do."
+            ],
+            "token_groups": [
+                "Do your friends",
+                "play chess?",
+                "Yes,",
+                "they do."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-answers-a1-g04",
+            "author_id": "A1-g04",
+            "question": "Can Danylo dive? No, {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Данило вміє пірнати? — Ні.",
+            "target_text": "Can Danylo dive? No, he cannot.",
+            "markers": {
+                "a1": {
+                    "answer": "he cannot",
+                    "options": [
+                        "he cannot",
+                        "he does not",
+                        "he is not"
+                    ],
+                    "verb_hint": "Замінюючи ім’я займенником, коротко запереч уміння пірнати."
+                }
+            },
+            "verb_hint": "Замінюючи ім’я займенником, коротко запереч уміння пірнати.",
+            "accepted_target_texts": [
+                "Can Danylo dive? No, he cannot.",
+                "Can Danylo dive? No, he can't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "he can't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "he can't"
+                ]
+            },
+            "reorder_groups": [
+                "Can Danylo dive?",
+                "No,",
+                "he cannot."
+            ],
+            "token_groups": [
+                "Can Danylo dive?",
+                "No,",
+                "he cannot."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-answers-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Is this your suitcase? Yes, {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Це твоя валіза? — Так.",
+            "target_text": "Is this your suitcase? Yes, it is.",
+            "markers": {
+                "a1": {
+                    "answer": "it is",
+                    "options": [
+                        "it is",
+                        "it does",
+                        "it are"
+                    ],
+                    "verb_hint": "Стверди належність одного предмета короткою відповіддю; повторюй допоміжне дієслово стану."
+                }
+            },
+            "verb_hint": "Стверди належність одного предмета короткою відповіддю; повторюй допоміжне дієслово стану.",
+            "accepted_target_texts": [
+                "Is this your suitcase? Yes, it is."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is this your",
+                "suitcase?",
+                "Yes,",
+                "it is."
+            ],
+            "token_groups": [
+                "Is this your",
+                "suitcase?",
+                "Yes,",
+                "it is."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-answers-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Do you eat meat? No, {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Ви їсте м’ясо? — Ні.",
+            "target_text": "Do you eat meat? No, we do not.",
+            "markers": {
+                "a1": {
+                    "answer": "we do not",
+                    "options": [
+                        "we do not",
+                        "we are not",
+                        "we does not"
+                    ],
+                    "verb_hint": "Дай коротку відповідь від імені групи про відсутність звичної дії."
+                }
+            },
+            "verb_hint": "Дай коротку відповідь від імені групи про відсутність звичної дії.",
+            "accepted_target_texts": [
+                "Do you eat meat? No, we do not.",
+                "Do you eat meat? No, we don't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "we don't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "we don't"
+                ]
+            },
+            "reorder_groups": [
+                "Do you eat",
+                "meat?",
+                "No,",
+                "we do not."
+            ],
+            "token_groups": [
+                "Do you eat",
+                "meat?",
+                "No,",
+                "we do not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-answers-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Did you meet Lesia yesterday? Yes, {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Ви зустрілися з Лесею вчора? — Так.",
+            "target_text": "Did you meet Lesia yesterday? Yes, we did.",
+            "markers": {
+                "a1": {
+                    "answer": "we did",
+                    "options": [
+                        "we did",
+                        "we do",
+                        "we were"
+                    ],
+                    "verb_hint": "Дай коротку стверджувальну відповідь від імені групи на питання про завершену минулу дію."
+                }
+            },
+            "verb_hint": "Дай коротку стверджувальну відповідь від імені групи на питання про завершену минулу дію.",
+            "accepted_target_texts": [
+                "Did you meet Lesia yesterday? Yes, we did."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Did you meet",
+                "Lesia yesterday?",
+                "Yes,",
+                "we did."
+            ],
+            "token_groups": [
+                "Did you meet",
+                "Lesia yesterday?",
+                "Yes,",
+                "we did."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-answers-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Were the guests tired? No, {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Гості були втомлені? — Ні.",
+            "target_text": "Were the guests tired? No, they were not.",
+            "markers": {
+                "a1": {
+                    "answer": "they were not",
+                    "options": [
+                        "they were not",
+                        "they did not",
+                        "they was not"
+                    ],
+                    "verb_hint": "Коротко запереч минулий стан кількох людей; не використовуй допоміжне дієслово дії."
+                }
+            },
+            "verb_hint": "Коротко запереч минулий стан кількох людей; не використовуй допоміжне дієслово дії.",
+            "accepted_target_texts": [
+                "Were the guests tired? No, they were not.",
+                "Were the guests tired? No, they weren't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "they weren't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "they weren't"
+                ]
+            },
+            "reorder_groups": [
+                "Were the guests",
+                "tired?",
+                "No,",
+                "they were not."
+            ],
+            "token_groups": [
+                "Were the guests",
+                "tired?",
+                "No,",
+                "they were not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-answers-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Will Olena phone tomorrow? Yes, {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Олена зателефонує завтра? — Так.",
+            "target_text": "Will Olena phone tomorrow? Yes, she will.",
+            "markers": {
+                "a1": {
+                    "answer": "she will",
+                    "options": [
+                        "she will",
+                        "she does",
+                        "she is"
+                    ],
+                    "verb_hint": "Дай коротку відповідь про майбутню дію жінки, замінивши її ім’я займенником."
+                }
+            },
+            "verb_hint": "Дай коротку відповідь про майбутню дію жінки, замінивши її ім’я займенником.",
+            "accepted_target_texts": [
+                "Will Olena phone tomorrow? Yes, she will."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will Olena phone",
+                "tomorrow?",
+                "Yes,",
+                "she will."
+            ],
+            "token_groups": [
+                "Will Olena phone",
+                "tomorrow?",
+                "Yes,",
+                "she will."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-answers-a2-g04",
+            "author_id": "A2-g04",
+            "question": "Were you sleeping at nine? No, {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Ти спав о дев’ятій? — Ні.",
+            "target_text": "Were you sleeping at nine? No, I was not.",
+            "markers": {
+                "a1": {
+                    "answer": "I was not",
+                    "options": [
+                        "I was not",
+                        "I did not",
+                        "I were not"
+                    ],
+                    "verb_hint": "Коротко запереч власний минулий процес; повтори допоміжну форму тривалого часу."
+                }
+            },
+            "verb_hint": "Коротко запереч власний минулий процес; повтори допоміжну форму тривалого часу.",
+            "accepted_target_texts": [
+                "Were you sleeping at nine? No, I was not.",
+                "Were you sleeping at nine? No, I wasn't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "I wasn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "I wasn't"
+                ]
+            },
+            "reorder_groups": [
+                "Were you sleeping",
+                "at nine?",
+                "No,",
+                "I was not."
+            ],
+            "token_groups": [
+                "Were you sleeping",
+                "at nine?",
+                "No,",
+                "I was not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-answers-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Has Marko finished yet? Yes, {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Марко вже закінчив? — Так.",
+            "target_text": "Has Marko finished yet? Yes, he has.",
+            "markers": {
+                "a1": {
+                    "answer": "he has",
+                    "options": [
+                        "he has",
+                        "he is",
+                        "he does"
+                    ],
+                    "verb_hint": "Коротко стверди результат до теперішнього моменту, замінивши ім’я займенником."
+                }
+            },
+            "verb_hint": "Коротко стверди результат до теперішнього моменту, замінивши ім’я займенником.",
+            "accepted_target_texts": [
+                "Has Marko finished yet? Yes, he has."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Has Marko finished",
+                "yet?",
+                "Yes,",
+                "he has."
+            ],
+            "token_groups": [
+                "Has Marko finished",
+                "yet?",
+                "Yes,",
+                "he has."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-answers-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Will it rain tomorrow? No, {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Завтра дощитиме? — Ні.",
+            "target_text": "Will it rain tomorrow? No, it will not.",
+            "markers": {
+                "a1": {
+                    "answer": "it will not",
+                    "options": [
+                        "it will not",
+                        "it does not",
+                        "it is not"
+                    ],
+                    "verb_hint": "Запереч прогноз короткою відповіддю з безособовим займенником."
+                }
+            },
+            "verb_hint": "Запереч прогноз короткою відповіддю з безособовим займенником.",
+            "accepted_target_texts": [
+                "Will it rain tomorrow? No, it will not.",
+                "Will it rain tomorrow? No, it won't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "it won't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "it won't"
+                ]
+            },
+            "reorder_groups": [
+                "Will it rain",
+                "tomorrow?",
+                "No,",
+                "it will not."
+            ],
+            "token_groups": [
+                "Will it rain",
+                "tomorrow?",
+                "No,",
+                "it will not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-answers-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Should I apologise? Yes, {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Мені слід вибачитися? — Так.",
+            "target_text": "Should I apologise? Yes, you should.",
+            "markers": {
+                "a1": {
+                    "answer": "you should",
+                    "options": [
+                        "you should",
+                        "you do",
+                        "you have"
+                    ],
+                    "verb_hint": "Дай коротку пораду у відповідь співрозмовнику; зміни особу з мовця питання на адресата відповіді."
+                }
+            },
+            "verb_hint": "Дай коротку пораду у відповідь співрозмовнику; зміни особу з мовця питання на адресата відповіді.",
+            "accepted_target_texts": [
+                "Should I apologise? Yes, you should."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Should I apologise?",
+                "Yes,",
+                "you should."
+            ],
+            "token_groups": [
+                "Should I apologise?",
+                "Yes,",
+                "you should."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-answers-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Had she left when the concert began? No, {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Вона вже пішла, коли почався концерт? — Ні.",
+            "target_text": "Had she left when the concert began? No, she had not.",
+            "markers": {
+                "a1": {
+                    "answer": "she had not",
+                    "options": [
+                        "she had not",
+                        "she did not",
+                        "she has not"
+                    ],
+                    "verb_hint": "Коротко запереч попередню минулу дію за допомогою доконаної допоміжної форми."
+                }
+            },
+            "verb_hint": "Коротко запереч попередню минулу дію за допомогою доконаної допоміжної форми.",
+            "accepted_target_texts": [
+                "Had she left when the concert began? No, she had not.",
+                "Had she left when the concert began? No, she hadn't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "she hadn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "she hadn't"
+                ]
+            },
+            "reorder_groups": [
+                "Had she left",
+                "when the concert",
+                "began?",
+                "No,",
+                "she had not."
+            ],
+            "token_groups": [
+                "Had she left",
+                "when the concert",
+                "began?",
+                "No,",
+                "she had not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-answers-b1-g03",
+            "author_id": "B1-g03",
+            "question": "Has the equipment been checked? Yes, {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Обладнання вже перевірили? — Так.",
+            "target_text": "Has the equipment been checked? Yes, it has.",
+            "markers": {
+                "a1": {
+                    "answer": "it has",
+                    "options": [
+                        "it has",
+                        "it is",
+                        "it does"
+                    ],
+                    "verb_hint": "Коротко стверди доконаний пасивний результат; повтори перше допоміжне дієслово."
+                }
+            },
+            "verb_hint": "Коротко стверди доконаний пасивний результат; повтори перше допоміжне дієслово.",
+            "accepted_target_texts": [
+                "Has the equipment been checked? Yes, it has."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Has the equipment",
+                "been checked?",
+                "Yes,",
+                "it has."
+            ],
+            "token_groups": [
+                "Has the equipment",
+                "been checked?",
+                "Yes,",
+                "it has."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-answers-b1-g04",
+            "author_id": "B1-g04",
+            "question": "Would you agree under these conditions? No, {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Ви б погодилися за таких умов? — Ні.",
+            "target_text": "Would you agree under these conditions? No, we would not.",
+            "markers": {
+                "a1": {
+                    "answer": "we would not",
+                    "options": [
+                        "we would not",
+                        "we did not",
+                        "we had not"
+                    ],
+                    "verb_hint": "Запереч гіпотетичну згоду від імені групи; основне дієслово не повторюй."
+                }
+            },
+            "verb_hint": "Запереч гіпотетичну згоду від імені групи; основне дієслово не повторюй.",
+            "accepted_target_texts": [
+                "Would you agree under these conditions? No, we would not.",
+                "Would you agree under these conditions? No, we wouldn't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "we wouldn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "we wouldn't"
+                ]
+            },
+            "reorder_groups": [
+                "Would you agree",
+                "under these conditions?",
+                "No,",
+                "we would not."
+            ],
+            "token_groups": [
+                "Would you agree",
+                "under these conditions?",
+                "No,",
+                "we would not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-answers-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Was he working when you called? Yes, {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Він працював, коли ти зателефонував? — Так.",
+            "target_text": "Was he working when you called? Yes, he was.",
+            "markers": {
+                "a1": {
+                    "answer": "he was",
+                    "options": [
+                        "he was",
+                        "he did",
+                        "he had"
+                    ],
+                    "verb_hint": "Коротко стверди минулий процес, повторивши його допоміжне дієслово."
+                }
+            },
+            "verb_hint": "Коротко стверди минулий процес, повторивши його допоміжне дієслово.",
+            "accepted_target_texts": [
+                "Was he working when you called? Yes, he was."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Was he working",
+                "when you called?",
+                "Yes,",
+                "he was."
+            ],
+            "token_groups": [
+                "Was he working",
+                "when you called?",
+                "Yes,",
+                "he was."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-answers-b1-g06",
+            "author_id": "B1-g06",
+            "question": "Have they been living here for long? No, {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Вони тут уже давно живуть? — Ні.",
+            "target_text": "Have they been living here for long? No, they have not.",
+            "markers": {
+                "a1": {
+                    "answer": "they have not",
+                    "options": [
+                        "they have not",
+                        "they do not",
+                        "they are not"
+                    ],
+                    "verb_hint": "Дай коротку заперечну відповідь про тривалий процес донині; повтори першу допоміжну форму."
+                }
+            },
+            "verb_hint": "Дай коротку заперечну відповідь про тривалий процес донині; повтори першу допоміжну форму.",
+            "accepted_target_texts": [
+                "Have they been living here for long? No, they have not.",
+                "Have they been living here for long? No, they haven't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "they haven't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "they haven't"
+                ]
+            },
+            "reorder_groups": [
+                "Have they been",
+                "living here for",
+                "long?",
+                "No,",
+                "they have not."
+            ],
+            "token_groups": [
+                "Have they been",
+                "living here for",
+                "long?",
+                "No,",
+                "they have not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "qnq-answers-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Must I attend? No, {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Мені обов’язково бути присутнім? — Ні, це не обов’язково.",
+            "target_text": "Must I attend? No, you need not.",
+            "markers": {
+                "a1": {
+                    "answer": "you need not",
+                    "options": [
+                        "you need not",
+                        "you must not",
+                        "you cannot"
+                    ],
+                    "verb_hint": "Коротко запереч необхідність, а не дозвіл чи можливість; звернися до співрозмовника."
+                }
+            },
+            "verb_hint": "Коротко запереч необхідність, а не дозвіл чи можливість; звернися до співрозмовника.",
+            "accepted_target_texts": [
+                "Must I attend? No, you need not.",
+                "Must I attend? No, you needn't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "you needn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "you needn't"
+                ]
+            },
+            "reorder_groups": [
+                "Must I attend?",
+                "No,",
+                "you need not."
+            ],
+            "token_groups": [
+                "Must I attend?",
+                "No,",
+                "you need not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "qnq-answers-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Were there any objections? Yes, {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Чи були якісь заперечення? — Так.",
+            "target_text": "Were there any objections? Yes, there were.",
+            "markers": {
+                "a1": {
+                    "answer": "there were",
+                    "options": [
+                        "there were",
+                        "they did",
+                        "it was"
+                    ],
+                    "verb_hint": "Коротко стверди наявність кількох заперечень; збережи безособову конструкцію існування."
+                }
+            },
+            "verb_hint": "Коротко стверди наявність кількох заперечень; збережи безособову конструкцію існування.",
+            "accepted_target_texts": [
+                "Were there any objections? Yes, there were."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Were there any",
+                "objections?",
+                "Yes,",
+                "there were."
+            ],
+            "token_groups": [
+                "Were there any",
+                "objections?",
+                "Yes,",
+                "there were."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "qnq-answers-b2-g03",
+            "author_id": "B2-g03",
+            "question": "May he enter the vault? No, {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Йому можна входити до сховища? — Ні, це заборонено.",
+            "target_text": "May he enter the vault? No, he must not.",
+            "markers": {
+                "a1": {
+                    "answer": "he must not",
+                    "options": [
+                        "he must not",
+                        "he need not",
+                        "he does not"
+                    ],
+                    "verb_hint": "Передай коротку категоричну заборону, а не відсутність потреби."
+                }
+            },
+            "verb_hint": "Передай коротку категоричну заборону, а не відсутність потреби.",
+            "accepted_target_texts": [
+                "May he enter the vault? No, he must not.",
+                "May he enter the vault? No, he mustn't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "he mustn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "he mustn't"
+                ]
+            },
+            "reorder_groups": [
+                "May he enter",
+                "the vault?",
+                "No,",
+                "he must not."
+            ],
+            "token_groups": [
+                "May he enter",
+                "the vault?",
+                "No,",
+                "he must not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "qnq-answers-b2-g04",
+            "author_id": "B2-g04",
+            "question": "Could she lead the negotiations? Yes, {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Вона могла б очолити переговори? — Так.",
+            "target_text": "Could she lead the negotiations? Yes, she could.",
+            "markers": {
+                "a1": {
+                    "answer": "she could",
+                    "options": [
+                        "she could",
+                        "she did",
+                        "she was"
+                    ],
+                    "verb_hint": "Коротко стверди гіпотетичну здатність, повторивши модальну форму питання."
+                }
+            },
+            "verb_hint": "Коротко стверди гіпотетичну здатність, повторивши модальну форму питання.",
+            "accepted_target_texts": [
+                "Could she lead the negotiations? Yes, she could."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could she lead",
+                "the negotiations?",
+                "Yes,",
+                "she could."
+            ],
+            "token_groups": [
+                "Could she lead",
+                "the negotiations?",
+                "Yes,",
+                "she could."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "qnq-answers-b2-g05",
+            "author_id": "B2-g05",
+            "question": "Had the decision been published before the vote? No, {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Рішення вже було оприлюднене до голосування? — Ні.",
+            "target_text": "Had the decision been published before the vote? No, it had not.",
+            "markers": {
+                "a1": {
+                    "answer": "it had not",
+                    "options": [
+                        "it had not",
+                        "it was not",
+                        "it did not"
+                    ],
+                    "verb_hint": "Коротко запереч доконаний пасив у минулому; повтори лише першу допоміжну форму."
+                }
+            },
+            "verb_hint": "Коротко запереч доконаний пасив у минулому; повтори лише першу допоміжну форму.",
+            "accepted_target_texts": [
+                "Had the decision been published before the vote? No, it had not.",
+                "Had the decision been published before the vote? No, it hadn't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "it hadn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "it hadn't"
+                ]
+            },
+            "reorder_groups": [
+                "Had the decision",
+                "been published before",
+                "the vote?",
+                "No,",
+                "it had not."
+            ],
+            "token_groups": [
+                "Had the decision",
+                "been published before",
+                "the vote?",
+                "No,",
+                "it had not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "qnq-answers-b2-g06",
+            "author_id": "B2-g06",
+            "question": "Will they have completed the audit by Friday? Yes, {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "До п’ятниці вони вже завершать аудит? — Так.",
+            "target_text": "Will they have completed the audit by Friday? Yes, they will.",
+            "markers": {
+                "a1": {
+                    "answer": "they will",
+                    "options": [
+                        "they will",
+                        "they have",
+                        "they are"
+                    ],
+                    "verb_hint": "Стверди майбутній доконаний результат короткою відповіддю з першою допоміжною формою."
+                }
+            },
+            "verb_hint": "Стверди майбутній доконаний результат короткою відповіддю з першою допоміжною формою.",
+            "accepted_target_texts": [
+                "Will they have completed the audit by Friday? Yes, they will."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will they have",
+                "completed the audit",
+                "by Friday?",
+                "Yes,",
+                "they will."
+            ],
+            "token_groups": [
+                "Will they have",
+                "completed the audit",
+                "by Friday?",
+                "Yes,",
+                "they will."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "qnq-answers-c1-g01",
+            "author_id": "C1-g01",
+            "question": "Has the judge considered a similar precedent? Yes, {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Суддя вже розглядала подібний прецедент? — Так.",
+            "target_text": "Has the judge considered a similar precedent? Yes, she has.",
+            "markers": {
+                "a1": {
+                    "answer": "she has",
+                    "options": [
+                        "she has",
+                        "she does",
+                        "she is"
+                    ],
+                    "verb_hint": "Коротко стверди попередній досвід жінки; повтори доконану допоміжну форму."
+                }
+            },
+            "verb_hint": "Коротко стверди попередній досвід жінки; повтори доконану допоміжну форму.",
+            "accepted_target_texts": [
+                "Has the judge considered a similar precedent? Yes, she has."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Has the judge",
+                "considered a similar",
+                "precedent?",
+                "Yes,",
+                "she has."
+            ],
+            "token_groups": [
+                "Has the judge",
+                "considered a similar",
+                "precedent?",
+                "Yes,",
+                "she has."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "qnq-answers-c1-g02",
+            "author_id": "C1-g02",
+            "question": "Should the experts refrain from commenting? No, {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Експертам слід утриматися від оцінки? — Ні, така порада недоречна.",
+            "target_text": "Should the experts refrain from commenting? No, they should not.",
+            "markers": {
+                "a1": {
+                    "answer": "they should not",
+                    "options": [
+                        "they should not",
+                        "they need not",
+                        "they must not"
+                    ],
+                    "verb_hint": "Запереч саме рекомендацію, не перетворюючи її на заборону або необов’язковість."
+                }
+            },
+            "verb_hint": "Запереч саме рекомендацію, не перетворюючи її на заборону або необов’язковість.",
+            "accepted_target_texts": [
+                "Should the experts refrain from commenting? No, they should not.",
+                "Should the experts refrain from commenting? No, they shouldn't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "they shouldn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "they shouldn't"
+                ]
+            },
+            "reorder_groups": [
+                "Should the experts",
+                "refrain from commenting?",
+                "No,",
+                "they should not."
+            ],
+            "token_groups": [
+                "Should the experts",
+                "refrain from commenting?",
+                "No,",
+                "they should not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "qnq-answers-c1-g03",
+            "author_id": "C1-g03",
+            "question": "Would that change the assessment of materiality? Yes, {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Чи змінило б це оцінку суттєвості? — Так.",
+            "target_text": "Would that change the assessment of materiality? Yes, it would.",
+            "markers": {
+                "a1": {
+                    "answer": "it would",
+                    "options": [
+                        "it would",
+                        "it had",
+                        "it did"
+                    ],
+                    "verb_hint": "Стверди гіпотетичний наслідок короткою відповіддю; повтори першу модальну форму."
+                }
+            },
+            "verb_hint": "Стверди гіпотетичний наслідок короткою відповіддю; повтори першу модальну форму.",
+            "accepted_target_texts": [
+                "Would that change the assessment of materiality? Yes, it would."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would that change",
+                "the assessment of",
+                "materiality?",
+                "Yes,",
+                "it would."
+            ],
+            "token_groups": [
+                "Would that change",
+                "the assessment of",
+                "materiality?",
+                "Yes,",
+                "it would."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "qnq-answers-c1-g04",
+            "author_id": "C1-g04",
+            "question": "Has there been any progress since then? No, {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Чи був відтоді бодай якийсь прогрес? — Ні.",
+            "target_text": "Has there been any progress since then? No, there has not.",
+            "markers": {
+                "a1": {
+                    "answer": "there has not",
+                    "options": [
+                        "there has not",
+                        "it has not",
+                        "they have not"
+                    ],
+                    "verb_hint": "Коротко запереч наявність результату донині; збережи безособове позначення існування."
+                }
+            },
+            "verb_hint": "Коротко запереч наявність результату донині; збережи безособове позначення існування.",
+            "accepted_target_texts": [
+                "Has there been any progress since then? No, there has not.",
+                "Has there been any progress since then? No, there hasn't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "there hasn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "there hasn't"
+                ]
+            },
+            "reorder_groups": [
+                "Has there been",
+                "any progress since",
+                "then?",
+                "No,",
+                "there has not."
+            ],
+            "token_groups": [
+                "Has there been",
+                "any progress since",
+                "then?",
+                "No,",
+                "there has not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "qnq-answers-c1-g05",
+            "author_id": "C1-g05",
+            "question": "Had you been negotiating before the panel changed? Yes, {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Ви вже вели переговори до зміни складу комісії? — Так.",
+            "target_text": "Had you been negotiating before the panel changed? Yes, we had.",
+            "markers": {
+                "a1": {
+                    "answer": "we had",
+                    "options": [
+                        "we had",
+                        "we did",
+                        "we were"
+                    ],
+                    "verb_hint": "Від імені групи стверди процес, який почався до встановленої минулої події."
+                }
+            },
+            "verb_hint": "Від імені групи стверди процес, який почався до встановленої минулої події.",
+            "accepted_target_texts": [
+                "Had you been negotiating before the panel changed? Yes, we had."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Had you been",
+                "negotiating before the",
+                "panel changed?",
+                "Yes,",
+                "we had."
+            ],
+            "token_groups": [
+                "Had you been",
+                "negotiating before the",
+                "panel changed?",
+                "Yes,",
+                "we had."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "qnq-answers-c1-g06",
+            "author_id": "C1-g06",
+            "question": "Could the discrepancy have been foreseen? No, {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Чи можна було передбачити цю розбіжність? — Ні.",
+            "target_text": "Could the discrepancy have been foreseen? No, it could not.",
+            "markers": {
+                "a1": {
+                    "answer": "it could not",
+                    "options": [
+                        "it could not",
+                        "it did not",
+                        "it had not"
+                    ],
+                    "verb_hint": "Коротко запереч минулу можливість; повтори модальну форму, а не весь пасивний присудок."
+                }
+            },
+            "verb_hint": "Коротко запереч минулу можливість; повтори модальну форму, а не весь пасивний присудок.",
+            "accepted_target_texts": [
+                "Could the discrepancy have been foreseen? No, it could not.",
+                "Could the discrepancy have been foreseen? No, it couldn't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "it couldn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "it couldn't"
+                ]
+            },
+            "reorder_groups": [
+                "Could the discrepancy",
+                "have been foreseen?",
+                "No,",
+                "it could not."
+            ],
+            "token_groups": [
+                "Could the discrepancy",
+                "have been foreseen?",
+                "No,",
+                "it could not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "qnq-answers-c2-g01",
+            "author_id": "C2-g01",
+            "question": "Should the reservation have been taken into account? Yes, {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Чи слід було врахувати це застереження? — Так.",
+            "target_text": "Should the reservation have been taken into account? Yes, it should.",
+            "markers": {
+                "a1": {
+                    "answer": "it should",
+                    "options": [
+                        "it should",
+                        "it does",
+                        "it had"
+                    ],
+                    "verb_hint": "Коротко підтримай оцінку належної минулої дії; повтори модальну форму питання."
+                }
+            },
+            "verb_hint": "Коротко підтримай оцінку належної минулої дії; повтори модальну форму питання.",
+            "accepted_target_texts": [
+                "Should the reservation have been taken into account? Yes, it should."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Should the reservation",
+                "have been taken",
+                "into account?",
+                "Yes,",
+                "it should."
+            ],
+            "token_groups": [
+                "Should the reservation",
+                "have been taken",
+                "into account?",
+                "Yes,",
+                "it should."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "qnq-answers-c2-g02",
+            "author_id": "C2-g02",
+            "question": "Would the delegates object to different wording? No, {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Чи стали б делегати заперечувати за іншого формулювання? — Ні.",
+            "target_text": "Would the delegates object to different wording? No, they would not.",
+            "markers": {
+                "a1": {
+                    "answer": "they would not",
+                    "options": [
+                        "they would not",
+                        "they did not",
+                        "they had not"
+                    ],
+                    "verb_hint": "Відповідь заперечує гіпотетичну реакцію кількох людей, не фактичну минулу дію."
+                }
+            },
+            "verb_hint": "Відповідь заперечує гіпотетичну реакцію кількох людей, не фактичну минулу дію.",
+            "accepted_target_texts": [
+                "Would the delegates object to different wording? No, they would not.",
+                "Would the delegates object to different wording? No, they wouldn't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "they wouldn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "they wouldn't"
+                ]
+            },
+            "reorder_groups": [
+                "Would the delegates",
+                "object to different",
+                "wording?",
+                "No,",
+                "they would not."
+            ],
+            "token_groups": [
+                "Would the delegates",
+                "object to different",
+                "wording?",
+                "No,",
+                "they would not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "qnq-answers-c2-g03",
+            "author_id": "C2-g03",
+            "question": "Could there have been an implied obligation? Yes, {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Чи могло за цих обставин виникнути мовчазне зобов’язання? — Так.",
+            "target_text": "Could there have been an implied obligation? Yes, there could.",
+            "markers": {
+                "a1": {
+                    "answer": "there could",
+                    "options": [
+                        "there could",
+                        "it could",
+                        "they could"
+                    ],
+                    "verb_hint": "Коротко підтвердь можливість існування; збережи безособовий початок відповіді."
+                }
+            },
+            "verb_hint": "Коротко підтвердь можливість існування; збережи безособовий початок відповіді.",
+            "accepted_target_texts": [
+                "Could there have been an implied obligation? Yes, there could."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could there have",
+                "been an implied",
+                "obligation?",
+                "Yes,",
+                "there could."
+            ],
+            "token_groups": [
+                "Could there have",
+                "been an implied",
+                "obligation?",
+                "Yes,",
+                "there could."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "qnq-answers-c2-g04",
+            "author_id": "C2-g04",
+            "question": "Should we regard silence as consent? No, {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Нам слід вважати мовчання згодою? — Ні, це було б недоречно.",
+            "target_text": "Should we regard silence as consent? No, we should not.",
+            "markers": {
+                "a1": {
+                    "answer": "we should not",
+                    "options": [
+                        "we should not",
+                        "we must not",
+                        "we need not"
+                    ],
+                    "verb_hint": "Від імені групи запереч рекомендацію робити висновок; не замінюй її забороною."
+                }
+            },
+            "verb_hint": "Від імені групи запереч рекомендацію робити висновок; не замінюй її забороною.",
+            "accepted_target_texts": [
+                "Should we regard silence as consent? No, we should not.",
+                "Should we regard silence as consent? No, we shouldn't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "we shouldn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "we shouldn't"
+                ]
+            },
+            "reorder_groups": [
+                "Should we regard",
+                "silence as consent?",
+                "No,",
+                "we should not."
+            ],
+            "token_groups": [
+                "Should we regard",
+                "silence as consent?",
+                "No,",
+                "we should not."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "qnq-answers-c2-g05",
+            "author_id": "C2-g05",
+            "question": "Might he reconsider with different evidence? Yes, {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "За іншої доказової бази він міг би змінити думку? — Так, така можливість є.",
+            "target_text": "Might he reconsider with different evidence? Yes, he might.",
+            "markers": {
+                "a1": {
+                    "answer": "he might",
+                    "options": [
+                        "he might",
+                        "he did",
+                        "he was"
+                    ],
+                    "verb_hint": "Коротко визнай невпевнену гіпотетичну можливість; не перетворюй її на певний факт."
+                }
+            },
+            "verb_hint": "Коротко визнай невпевнену гіпотетичну можливість; не перетворюй її на певний факт.",
+            "accepted_target_texts": [
+                "Might he reconsider with different evidence? Yes, he might."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Might he reconsider",
+                "with different evidence?",
+                "Yes,",
+                "he might."
+            ],
+            "token_groups": [
+                "Might he reconsider",
+                "with different evidence?",
+                "Yes,",
+                "he might."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "qnq-answers-c2-g06",
+            "author_id": "C2-g06",
+            "question": "Need it follow that the right has been waived? No, {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_answers",
+            "translation_uk": "Чи обов’язково з цього випливає відмова від права? — Ні.",
+            "target_text": "Need it follow that the right has been waived? No, it need not.",
+            "markers": {
+                "a1": {
+                    "answer": "it need not",
+                    "options": [
+                        "it need not",
+                        "it must not",
+                        "it cannot"
+                    ],
+                    "verb_hint": "Запереч логічну необхідність наслідку, а не його можливість чи допустимість."
+                }
+            },
+            "verb_hint": "Запереч логічну необхідність наслідку, а не його можливість чи допустимість.",
+            "accepted_target_texts": [
+                "Need it follow that the right has been waived? No, it need not.",
+                "Need it follow that the right has been waived? No, it needn't."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "it needn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "it needn't"
+                ]
+            },
+            "reorder_groups": [
+                "Need it follow",
+                "that the right",
+                "has been waived?",
+                "No,",
+                "it need not."
+            ],
+            "token_groups": [
+                "Need it follow",
+                "that the right",
+                "has been waived?",
+                "No,",
+                "it need not."
+            ],
+            "quality_revision": "qnq-v1"
+        }
+    ]
+}

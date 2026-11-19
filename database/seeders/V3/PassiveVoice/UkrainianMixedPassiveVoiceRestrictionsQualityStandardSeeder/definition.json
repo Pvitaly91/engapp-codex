@@ -1,0 +1,1648 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/restrictions.v1.json",
+        "sha256": "10f42835b045b97b11e5075cb4de766560d4a1e1161a50919998038234921499"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoiceRestrictionsQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-restrictions-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_restrictions": {
+            "name": "Passive Voice Quality: Обмеження пасивного стану"
+        }
+    },
+    "tags": {
+        "passive_voice_restrictions": {
+            "name": "Restrictions",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "transitive_only": {
+            "name": "Transitive Only",
+            "category": "topic"
+        },
+        "intransitive_verbs": {
+            "name": "Intransitive Verbs",
+            "category": "topic"
+        },
+        "common_intransitives": {
+            "name": "Common Intransitives",
+            "category": "topic"
+        },
+        "stative_restrictions": {
+            "name": "Stative Restrictions",
+            "category": "topic"
+        },
+        "reflexive_restrictions": {
+            "name": "Reflexive Restrictions",
+            "category": "topic"
+        },
+        "no_object_no_passive": {
+            "name": "No Object No Passive",
+            "category": "topic"
+        },
+        "unnatural_passive": {
+            "name": "Unnatural Passive",
+            "category": "topic"
+        },
+        "active_alternative": {
+            "name": "Active Alternative",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-restrictions-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The sun {a1} at six yesterday.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Сонце вчора зійшло о шостій.",
+            "target_text": "The sun rose at six yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "rose",
+                    "options": [
+                        "rose",
+                        "rises",
+                        "will rise"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію неперехідного дієслова «сходити» без пасивної форми."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію неперехідного дієслова «сходити» без пасивної форми.",
+            "accepted_target_texts": [
+                "The sun rose at six yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The sun",
+                "rose",
+                "at six yesterday."
+            ],
+            "token_groups": [
+                "The sun",
+                "rose",
+                "at six yesterday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-restrictions-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Our baby {a1} all afternoon.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Наше немовля спало весь день після полудня.",
+            "target_text": "Our baby slept all afternoon.",
+            "markers": {
+                "a1": {
+                    "answer": "slept",
+                    "options": [
+                        "slept",
+                        "sleeps",
+                        "will sleep"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію «спати» без пасивної форми."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію «спати» без пасивної форми.",
+            "accepted_target_texts": [
+                "Our baby slept all afternoon."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our baby",
+                "slept",
+                "all afternoon."
+            ],
+            "token_groups": [
+                "Our baby",
+                "slept",
+                "all afternoon."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-restrictions-a1-g03",
+            "author_id": "A1-g03",
+            "question": "The pink flower {a1} quickly last spring.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Рожева квітка швидко виросла минулої весни.",
+            "target_text": "The pink flower grew quickly last spring.",
+            "markers": {
+                "a1": {
+                    "answer": "grew",
+                    "options": [
+                        "grew",
+                        "grows",
+                        "will grow"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію «рости» без пасивної форми."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію «рости» без пасивної форми.",
+            "accepted_target_texts": [
+                "The pink flower grew quickly last spring."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The pink flower",
+                "grew",
+                "quickly last spring."
+            ],
+            "token_groups": [
+                "The pink flower",
+                "grew",
+                "quickly last spring."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-restrictions-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The children {a1} at the funny hat.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Діти сміялися з кумедного капелюха.",
+            "target_text": "The children laughed at the funny hat.",
+            "markers": {
+                "a1": {
+                    "answer": "laughed",
+                    "options": [
+                        "laughed",
+                        "laughs",
+                        "will laugh"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію «сміятися» без пасивної форми."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію «сміятися» без пасивної форми.",
+            "accepted_target_texts": [
+                "The children laughed at the funny hat."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The children",
+                "laughed",
+                "at",
+                "the funny hat."
+            ],
+            "token_groups": [
+                "The children",
+                "laughed",
+                "at",
+                "the funny hat."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-restrictions-a1-g05",
+            "author_id": "A1-g05",
+            "question": "My red cup {a1} off the table.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Моя червона чашка впала зі столу.",
+            "target_text": "My red cup fell off the table.",
+            "markers": {
+                "a1": {
+                    "answer": "fell",
+                    "options": [
+                        "fell",
+                        "falls",
+                        "will fall"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію «падати» без пасивної форми."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію «падати» без пасивної форми.",
+            "accepted_target_texts": [
+                "My red cup fell off the table."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My red cup",
+                "fell",
+                "off the table."
+            ],
+            "token_groups": [
+                "My red cup",
+                "fell",
+                "off the table."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-restrictions-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The cold wind {a1} all night.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Холодний вітер дув усю ніч.",
+            "target_text": "The cold wind blew all night.",
+            "markers": {
+                "a1": {
+                    "answer": "blew",
+                    "options": [
+                        "blew",
+                        "blows",
+                        "will blow"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію «дути» без пасивної форми."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію «дути» без пасивної форми.",
+            "accepted_target_texts": [
+                "The cold wind blew all night."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cold wind",
+                "blew",
+                "all night."
+            ],
+            "token_groups": [
+                "The cold wind",
+                "blew",
+                "all night."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-restrictions-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The last bus {a1} twenty minutes late.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Останній автобус прибув із запізненням на двадцять хвилин.",
+            "target_text": "The last bus arrived twenty minutes late.",
+            "markers": {
+                "a1": {
+                    "answer": "arrived",
+                    "options": [
+                        "arrived",
+                        "arrives",
+                        "will arrive"
+                    ],
+                    "verb_hint": "Передай завершену минулу дію «прибувати» без пасивної форми."
+                }
+            },
+            "verb_hint": "Передай завершену минулу дію «прибувати» без пасивної форми.",
+            "accepted_target_texts": [
+                "The last bus arrived twenty minutes late."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The last bus",
+                "arrived",
+                "twenty minutes late."
+            ],
+            "token_groups": [
+                "The last bus",
+                "arrived",
+                "twenty minutes late."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-restrictions-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The price of bread {a1} again last month.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Ціна на хліб знову зросла минулого місяця.",
+            "target_text": "The price of bread rose again last month.",
+            "markers": {
+                "a1": {
+                    "answer": "rose",
+                    "options": [
+                        "rose",
+                        "rises",
+                        "will rise"
+                    ],
+                    "verb_hint": "Передай завершене зростання в минулому; тут немає об'єкта для пасивного перетворення."
+                }
+            },
+            "verb_hint": "Передай завершене зростання в минулому; тут немає об'єкта для пасивного перетворення.",
+            "accepted_target_texts": [
+                "The price of bread rose again last month."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The price",
+                "of bread",
+                "rose",
+                "again last month."
+            ],
+            "token_groups": [
+                "The price",
+                "of bread",
+                "rose",
+                "again last month."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-restrictions-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Their little cottage {a1} beside a narrow stream.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Їхня маленька хатина стоїть біля вузького струмка.",
+            "target_text": "Their little cottage stands beside a narrow stream.",
+            "markers": {
+                "a1": {
+                    "answer": "stands",
+                    "options": [
+                        "stands",
+                        "stood",
+                        "will stand"
+                    ],
+                    "verb_hint": "Передай теперішній стан розташування активним неперехідним дієсловом."
+                }
+            },
+            "verb_hint": "Передай теперішній стан розташування активним неперехідним дієсловом.",
+            "accepted_target_texts": [
+                "Their little cottage stands beside a narrow stream."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Their little cottage",
+                "stands",
+                "beside",
+                "a narrow stream."
+            ],
+            "token_groups": [
+                "Their little cottage",
+                "stands",
+                "beside",
+                "a narrow stream."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-restrictions-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The ice {a1} during the warm afternoon.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Лід розтанув протягом теплого дня після полудня.",
+            "target_text": "The ice melted during the warm afternoon.",
+            "markers": {
+                "a1": {
+                    "answer": "melted",
+                    "options": [
+                        "melted",
+                        "melts",
+                        "will melt"
+                    ],
+                    "verb_hint": "Передай завершений самостійний процес танення активним дієсловом."
+                }
+            },
+            "verb_hint": "Передай завершений самостійний процес танення активним дієсловом.",
+            "accepted_target_texts": [
+                "The ice melted during the warm afternoon."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ice",
+                "melted",
+                "during",
+                "the warm afternoon."
+            ],
+            "token_groups": [
+                "The ice",
+                "melted",
+                "during",
+                "the warm afternoon."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-restrictions-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The children {a1} with their grandparents last weekend.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Діти залишалися в бабусі й дідуся минулими вихідними.",
+            "target_text": "The children stayed with their grandparents last weekend.",
+            "markers": {
+                "a1": {
+                    "answer": "stayed",
+                    "options": [
+                        "stayed",
+                        "stays",
+                        "will stay"
+                    ],
+                    "verb_hint": "Передай завершене минуле перебування активним дієсловом без прямого об'єкта."
+                }
+            },
+            "verb_hint": "Передай завершене минуле перебування активним дієсловом без прямого об'єкта.",
+            "accepted_target_texts": [
+                "The children stayed with their grandparents last weekend."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The children",
+                "stayed",
+                "with their grandparents",
+                "last weekend."
+            ],
+            "token_groups": [
+                "The children",
+                "stayed",
+                "with their grandparents",
+                "last weekend."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-restrictions-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The football {a1} to my younger sister.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Футбольний м'яч належить моїй молодшій сестрі.",
+            "target_text": "The football belongs to my younger sister.",
+            "markers": {
+                "a1": {
+                    "answer": "belongs",
+                    "options": [
+                        "belongs",
+                        "belonged",
+                        "will belong"
+                    ],
+                    "verb_hint": "Передай теперішню належність активним дієсловом; пасив тут не утворюють."
+                }
+            },
+            "verb_hint": "Передай теперішню належність активним дієсловом; пасив тут не утворюють.",
+            "accepted_target_texts": [
+                "The football belongs to my younger sister."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The football",
+                "belongs",
+                "to",
+                "my younger sister."
+            ],
+            "token_groups": [
+                "The football",
+                "belongs",
+                "to",
+                "my younger sister."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-restrictions-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The final decision {a1} on the weather forecast.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Остаточне рішення залежить від прогнозу погоди.",
+            "target_text": "The final decision depends on the weather forecast.",
+            "markers": {
+                "a1": {
+                    "answer": "depends",
+                    "options": [
+                        "depends",
+                        "depended",
+                        "will depend"
+                    ],
+                    "verb_hint": "Передай теперішню залежність активною конструкцією; прийменниковий додаток не робить її звичайним пасивом."
+                }
+            },
+            "verb_hint": "Передай теперішню залежність активною конструкцією; прийменниковий додаток не робить її звичайним пасивом.",
+            "accepted_target_texts": [
+                "The final decision depends on the weather forecast."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The final decision",
+                "depends",
+                "on",
+                "the weather forecast."
+            ],
+            "token_groups": [
+                "The final decision",
+                "depends",
+                "on",
+                "the weather forecast."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-restrictions-b1-g02",
+            "author_id": "B1-g02",
+            "question": "A serious misunderstanding {a1} during yesterday's discussion.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Серйозне непорозуміння виникло під час учорашнього обговорення.",
+            "target_text": "A serious misunderstanding occurred during yesterday's discussion.",
+            "markers": {
+                "a1": {
+                    "answer": "occurred",
+                    "options": [
+                        "occurred",
+                        "occurs",
+                        "will occur"
+                    ],
+                    "verb_hint": "Передай завершене минуле виникнення неперехідним активним дієсловом."
+                }
+            },
+            "verb_hint": "Передай завершене минуле виникнення неперехідним активним дієсловом.",
+            "accepted_target_texts": [
+                "A serious misunderstanding occurred during yesterday's discussion."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A serious misunderstanding",
+                "occurred",
+                "during yesterday's discussion."
+            ],
+            "token_groups": [
+                "A serious misunderstanding",
+                "occurred",
+                "during yesterday's discussion."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-restrictions-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The soup {a1} rather salty.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Суп на смак доволі солоний.",
+            "target_text": "The soup tastes rather salty.",
+            "markers": {
+                "a1": {
+                    "answer": "tastes",
+                    "options": [
+                        "tastes",
+                        "tasted",
+                        "will taste"
+                    ],
+                    "verb_hint": "Передай теперішню ознаку смаку дієсловом-зв'язкою без пасивної форми."
+                }
+            },
+            "verb_hint": "Передай теперішню ознаку смаку дієсловом-зв'язкою без пасивної форми.",
+            "accepted_target_texts": [
+                "The soup tastes rather salty."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The soup",
+                "tastes",
+                "rather salty."
+            ],
+            "token_groups": [
+                "The soup",
+                "tastes",
+                "rather salty."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-restrictions-b1-g04",
+            "author_id": "B1-g04",
+            "question": "That woollen scarf {a1} your dark coat.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Той вовняний шарф пасує до твого темного пальта.",
+            "target_text": "That woollen scarf suits your dark coat.",
+            "markers": {
+                "a1": {
+                    "answer": "suits",
+                    "options": [
+                        "suits",
+                        "suited",
+                        "will suit"
+                    ],
+                    "verb_hint": "Передай теперішню відповідність активним дієсловом; пасивне перетворення тут неприродне."
+                }
+            },
+            "verb_hint": "Передай теперішню відповідність активним дієсловом; пасивне перетворення тут неприродне.",
+            "accepted_target_texts": [
+                "That woollen scarf suits your dark coat."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "That woollen scarf",
+                "suits",
+                "your dark coat."
+            ],
+            "token_groups": [
+                "That woollen scarf",
+                "suits",
+                "your dark coat."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-restrictions-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The art class {a1} two hours yesterday.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Учора заняття з мистецтва тривало дві години.",
+            "target_text": "The art class lasted two hours yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "lasted",
+                    "options": [
+                        "lasted",
+                        "lasts",
+                        "will last"
+                    ],
+                    "verb_hint": "Передай завершену минулу тривалість активним неперехідним дієсловом."
+                }
+            },
+            "verb_hint": "Передай завершену минулу тривалість активним неперехідним дієсловом.",
+            "accepted_target_texts": [
+                "The art class lasted two hours yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The art class",
+                "lasted",
+                "two hours yesterday."
+            ],
+            "token_groups": [
+                "The art class",
+                "lasted",
+                "two hours yesterday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-restrictions-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The entire collection {a1} of handmade wooden figures.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Уся колекція складається з дерев'яних фігурок ручної роботи.",
+            "target_text": "The entire collection consists of handmade wooden figures.",
+            "markers": {
+                "a1": {
+                    "answer": "consists",
+                    "options": [
+                        "consists",
+                        "consisted",
+                        "will consist"
+                    ],
+                    "verb_hint": "Передай теперішній склад активним дієсловом із прийменником; не утворюй пасиву."
+                }
+            },
+            "verb_hint": "Передай теперішній склад активним дієсловом із прийменником; не утворюй пасиву.",
+            "accepted_target_texts": [
+                "The entire collection consists of handmade wooden figures."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The entire collection",
+                "consists",
+                "of",
+                "handmade wooden figures."
+            ],
+            "token_groups": [
+                "The entire collection",
+                "consists",
+                "of",
+                "handmade wooden figures."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-restrictions-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The apparent contradiction {a1} from a difference in terminology.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Видима суперечність походить із різниці в термінології.",
+            "target_text": "The apparent contradiction stems from a difference in terminology.",
+            "markers": {
+                "a1": {
+                    "answer": "stems",
+                    "options": [
+                        "stems",
+                        "stemmed",
+                        "will stem"
+                    ],
+                    "verb_hint": "Передай теперішнє походження активним неперехідним дієсловом із прийменником."
+                }
+            },
+            "verb_hint": "Передай теперішнє походження активним неперехідним дієсловом із прийменником.",
+            "accepted_target_texts": [
+                "The apparent contradiction stems from a difference in terminology."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The apparent contradiction",
+                "stems",
+                "from a difference",
+                "in terminology."
+            ],
+            "token_groups": [
+                "The apparent contradiction",
+                "stems",
+                "from a difference",
+                "in terminology."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-restrictions-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Several inconsistencies {a1} during the preliminary review.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Під час попереднього розгляду виявилося кілька невідповідностей.",
+            "target_text": "Several inconsistencies emerged during the preliminary review.",
+            "markers": {
+                "a1": {
+                    "answer": "emerged",
+                    "options": [
+                        "emerged",
+                        "emerges",
+                        "will emerge"
+                    ],
+                    "verb_hint": "Передай завершене минуле виникнення активним неперехідним дієсловом."
+                }
+            },
+            "verb_hint": "Передай завершене минуле виникнення активним неперехідним дієсловом.",
+            "accepted_target_texts": [
+                "Several inconsistencies emerged during the preliminary review."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Several inconsistencies",
+                "emerged",
+                "during",
+                "the preliminary review."
+            ],
+            "token_groups": [
+                "Several inconsistencies",
+                "emerged",
+                "during",
+                "the preliminary review."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-restrictions-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The proposed remedy {a1} disproportionate to the actual harm.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Запропонований засіб захисту видається непропорційним фактичній шкоді.",
+            "target_text": "The proposed remedy seems disproportionate to the actual harm.",
+            "markers": {
+                "a1": {
+                    "answer": "seems",
+                    "options": [
+                        "seems",
+                        "seemed",
+                        "will seem"
+                    ],
+                    "verb_hint": "Передай теперішнє враження дієсловом-зв'язкою, не утворюючи пасиву."
+                }
+            },
+            "verb_hint": "Передай теперішнє враження дієсловом-зв'язкою, не утворюючи пасиву.",
+            "accepted_target_texts": [
+                "The proposed remedy seems disproportionate to the actual harm."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The proposed remedy",
+                "seems disproportionate",
+                "to",
+                "the actual harm."
+            ],
+            "token_groups": [
+                "The proposed remedy",
+                "seems disproportionate",
+                "to",
+                "the actual harm."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-restrictions-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The abandoned quarry {a1} within a protected area.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Покинутий кар'єр розташований у межах заповідної території.",
+            "target_text": "The abandoned quarry lies within a protected area.",
+            "markers": {
+                "a1": {
+                    "answer": "lies",
+                    "options": [
+                        "lies",
+                        "lay",
+                        "will lie"
+                    ],
+                    "verb_hint": "Передай теперішнє розташування активним неперехідним дієсловом."
+                }
+            },
+            "verb_hint": "Передай теперішнє розташування активним неперехідним дієсловом.",
+            "accepted_target_texts": [
+                "The abandoned quarry lies within a protected area."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The abandoned quarry",
+                "lies",
+                "within",
+                "a protected area."
+            ],
+            "token_groups": [
+                "The abandoned quarry",
+                "lies",
+                "within",
+                "a protected area."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-restrictions-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The prolonged disruption {a1} from a series of mechanical faults.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Тривалий збій став наслідком низки механічних несправностей.",
+            "target_text": "The prolonged disruption resulted from a series of mechanical faults.",
+            "markers": {
+                "a1": {
+                    "answer": "resulted",
+                    "options": [
+                        "resulted",
+                        "results",
+                        "will result"
+                    ],
+                    "verb_hint": "Передай завершений минулий наслідок активним неперехідним дієсловом."
+                }
+            },
+            "verb_hint": "Передай завершений минулий наслідок активним неперехідним дієсловом.",
+            "accepted_target_texts": [
+                "The prolonged disruption resulted from a series of mechanical faults."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The prolonged disruption",
+                "resulted",
+                "from a series",
+                "of mechanical faults."
+            ],
+            "token_groups": [
+                "The prolonged disruption",
+                "resulted",
+                "from a series",
+                "of mechanical faults."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-restrictions-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The two accounts {a1} in several important respects.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Два виклади відрізняються в кількох важливих аспектах.",
+            "target_text": "The two accounts differ in several important respects.",
+            "markers": {
+                "a1": {
+                    "answer": "differ",
+                    "options": [
+                        "differ",
+                        "differed",
+                        "will differ"
+                    ],
+                    "verb_hint": "Передай теперішню відмінність активним неперехідним дієсловом."
+                }
+            },
+            "verb_hint": "Передай теперішню відмінність активним неперехідним дієсловом.",
+            "accepted_target_texts": [
+                "The two accounts differ in several important respects."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The two accounts",
+                "differ",
+                "in",
+                "several important respects."
+            ],
+            "token_groups": [
+                "The two accounts",
+                "differ",
+                "in",
+                "several important respects."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-restrictions-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The implicit obligation {a1} from the parties' established course of dealing.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Неявне зобов'язання виникає з усталеної практики відносин сторін.",
+            "target_text": "The implicit obligation arises from the parties' established course of dealing.",
+            "markers": {
+                "a1": {
+                    "answer": "arises",
+                    "options": [
+                        "arises",
+                        "arose",
+                        "will arise"
+                    ],
+                    "verb_hint": "Передай теперішнє виникнення зобов'язання неперехідним активним дієсловом."
+                }
+            },
+            "verb_hint": "Передай теперішнє виникнення зобов'язання неперехідним активним дієсловом.",
+            "accepted_target_texts": [
+                "The implicit obligation arises from the parties' established course of dealing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The implicit obligation",
+                "arises",
+                "from",
+                "the parties'",
+                "established course",
+                "of dealing."
+            ],
+            "token_groups": [
+                "The implicit obligation",
+                "arises",
+                "from",
+                "the parties'",
+                "established course",
+                "of dealing."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-restrictions-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The observed variation {a1} with changes in ambient temperature.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Спостережувана варіація пов'язана зі змінами температури довкілля.",
+            "target_text": "The observed variation correlates with changes in ambient temperature.",
+            "markers": {
+                "a1": {
+                    "answer": "correlates",
+                    "options": [
+                        "correlates",
+                        "correlated",
+                        "will correlate"
+                    ],
+                    "verb_hint": "Передай теперішній взаємозв'язок активним дієсловом із прийменником."
+                }
+            },
+            "verb_hint": "Передай теперішній взаємозв'язок активним дієсловом із прийменником.",
+            "accepted_target_texts": [
+                "The observed variation correlates with changes in ambient temperature."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The observed variation",
+                "correlates",
+                "with changes",
+                "in ambient temperature."
+            ],
+            "token_groups": [
+                "The observed variation",
+                "correlates",
+                "with changes",
+                "in ambient temperature."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-restrictions-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The available evidence {a1} short of the required standard.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Наявні докази не досягають необхідного стандарту.",
+            "target_text": "The available evidence falls short of the required standard.",
+            "markers": {
+                "a1": {
+                    "answer": "falls",
+                    "options": [
+                        "falls",
+                        "fell",
+                        "will fall"
+                    ],
+                    "verb_hint": "Передай теперішню недостатність усталеним активним зворотом, не утворюючи пасиву."
+                }
+            },
+            "verb_hint": "Передай теперішню недостатність усталеним активним зворотом, не утворюючи пасиву.",
+            "accepted_target_texts": [
+                "The available evidence falls short of the required standard."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The available evidence",
+                "falls short",
+                "of",
+                "the required standard."
+            ],
+            "token_groups": [
+                "The available evidence",
+                "falls short",
+                "of",
+                "the required standard."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-restrictions-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The anomaly {a1} despite repeated adjustments to the model.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Аномалія зберігалася попри неодноразове коригування моделі.",
+            "target_text": "The anomaly persisted despite repeated adjustments to the model.",
+            "markers": {
+                "a1": {
+                    "answer": "persisted",
+                    "options": [
+                        "persisted",
+                        "persists",
+                        "will persist"
+                    ],
+                    "verb_hint": "Передай завершене минуле збереження стану неперехідним активним дієсловом."
+                }
+            },
+            "verb_hint": "Передай завершене минуле збереження стану неперехідним активним дієсловом.",
+            "accepted_target_texts": [
+                "The anomaly persisted despite repeated adjustments to the model."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The anomaly",
+                "persisted",
+                "despite repeated adjustments",
+                "to the model."
+            ],
+            "token_groups": [
+                "The anomaly",
+                "persisted",
+                "despite repeated adjustments",
+                "to the model."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-restrictions-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The statutory exception {a1} only to transactions concluded in good faith.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Законодавчий виняток стосується лише добросовісно укладених угод.",
+            "target_text": "The statutory exception pertains only to transactions concluded in good faith.",
+            "markers": {
+                "a1": {
+                    "answer": "pertains",
+                    "options": [
+                        "pertains",
+                        "pertained",
+                        "will pertain"
+                    ],
+                    "verb_hint": "Передай теперішню сферу стосування активним дієсловом із прийменником."
+                }
+            },
+            "verb_hint": "Передай теперішню сферу стосування активним дієсловом із прийменником.",
+            "accepted_target_texts": [
+                "The statutory exception pertains only to transactions concluded in good faith."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The statutory exception",
+                "pertains",
+                "only to transactions",
+                "concluded",
+                "in good faith."
+            ],
+            "token_groups": [
+                "The statutory exception",
+                "pertains",
+                "only to transactions",
+                "concluded",
+                "in good faith."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-restrictions-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The inconsistencies {a1} once the missing entries had been restored.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Невідповідності зникли після відновлення відсутніх записів.",
+            "target_text": "The inconsistencies vanished once the missing entries had been restored.",
+            "markers": {
+                "a1": {
+                    "answer": "vanished",
+                    "options": [
+                        "vanished",
+                        "vanishes",
+                        "will vanish"
+                    ],
+                    "verb_hint": "Передай завершене минуле зникнення неперехідним активним дієсловом."
+                }
+            },
+            "verb_hint": "Передай завершене минуле зникнення неперехідним активним дієсловом.",
+            "accepted_target_texts": [
+                "The inconsistencies vanished once the missing entries had been restored."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inconsistencies",
+                "vanished",
+                "once",
+                "the missing entries",
+                "had been restored."
+            ],
+            "token_groups": [
+                "The inconsistencies",
+                "vanished",
+                "once",
+                "the missing entries",
+                "had been restored."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-restrictions-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The putative entitlement {a1} in the office rather than its temporary occupant.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Гадане право властиве посаді, а не її тимчасовому обіймачеві.",
+            "target_text": "The putative entitlement inheres in the office rather than its temporary occupant.",
+            "markers": {
+                "a1": {
+                    "answer": "inheres",
+                    "options": [
+                        "inheres",
+                        "inhered",
+                        "will inhere"
+                    ],
+                    "verb_hint": "Передай теперішню внутрішню властивість активним дієсловом із прийменником."
+                }
+            },
+            "verb_hint": "Передай теперішню внутрішню властивість активним дієсловом із прийменником.",
+            "accepted_target_texts": [
+                "The putative entitlement inheres in the office rather than its temporary occupant."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The putative entitlement",
+                "inheres",
+                "in the office",
+                "rather than",
+                "its temporary occupant."
+            ],
+            "token_groups": [
+                "The putative entitlement",
+                "inheres",
+                "in the office",
+                "rather than",
+                "its temporary occupant."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-restrictions-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The interpretative difficulty {a1} in the interaction between the two provisos.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Труднощі тлумачення полягають у взаємодії двох застережень.",
+            "target_text": "The interpretative difficulty resides in the interaction between the two provisos.",
+            "markers": {
+                "a1": {
+                    "answer": "resides",
+                    "options": [
+                        "resides",
+                        "resided",
+                        "will reside"
+                    ],
+                    "verb_hint": "Передай теперішнє місце джерела труднощів неперехідним активним дієсловом."
+                }
+            },
+            "verb_hint": "Передай теперішнє місце джерела труднощів неперехідним активним дієсловом.",
+            "accepted_target_texts": [
+                "The interpretative difficulty resides in the interaction between the two provisos."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The interpretative difficulty",
+                "resides",
+                "in the interaction",
+                "between",
+                "the two provisos."
+            ],
+            "token_groups": [
+                "The interpretative difficulty",
+                "resides",
+                "in the interaction",
+                "between",
+                "the two provisos."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-restrictions-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The countervailing considerations {a1} when the foreseeable prejudice is assessed cumulatively.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Протилежні міркування переважають за сукупного оцінювання передбачуваної шкоди.",
+            "target_text": "The countervailing considerations predominate when the foreseeable prejudice is assessed cumulatively.",
+            "markers": {
+                "a1": {
+                    "answer": "predominate",
+                    "options": [
+                        "predominate",
+                        "predominated",
+                        "will predominate"
+                    ],
+                    "verb_hint": "Передай теперішнє переважання активним неперехідним дієсловом."
+                }
+            },
+            "verb_hint": "Передай теперішнє переважання активним неперехідним дієсловом.",
+            "accepted_target_texts": [
+                "The countervailing considerations predominate when the foreseeable prejudice is assessed cumulatively."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The countervailing considerations",
+                "predominate",
+                "when",
+                "the foreseeable prejudice",
+                "is assessed cumulatively."
+            ],
+            "token_groups": [
+                "The countervailing considerations",
+                "predominate",
+                "when",
+                "the foreseeable prejudice",
+                "is assessed cumulatively."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-restrictions-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The apparent consensus {a1} once the latent disagreements became explicit.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Видимий консенсус розвіявся після відкритого прояву прихованих суперечностей.",
+            "target_text": "The apparent consensus dissipated once the latent disagreements became explicit.",
+            "markers": {
+                "a1": {
+                    "answer": "dissipated",
+                    "options": [
+                        "dissipated",
+                        "dissipates",
+                        "will dissipate"
+                    ],
+                    "verb_hint": "Передай завершене минуле розвіювання неперехідним активним дієсловом."
+                }
+            },
+            "verb_hint": "Передай завершене минуле розвіювання неперехідним активним дієсловом.",
+            "accepted_target_texts": [
+                "The apparent consensus dissipated once the latent disagreements became explicit."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The apparent consensus",
+                "dissipated",
+                "once",
+                "the latent disagreements",
+                "became explicit."
+            ],
+            "token_groups": [
+                "The apparent consensus",
+                "dissipated",
+                "once",
+                "the latent disagreements",
+                "became explicit."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-restrictions-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The evidential uncertainty {a1} notwithstanding the additional disclosure.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Доказова невизначеність зберігається попри додаткове розкриття відомостей.",
+            "target_text": "The evidential uncertainty subsists notwithstanding the additional disclosure.",
+            "markers": {
+                "a1": {
+                    "answer": "subsists",
+                    "options": [
+                        "subsists",
+                        "subsisted",
+                        "will subsist"
+                    ],
+                    "verb_hint": "Передай теперішнє збереження стану неперехідним активним дієсловом."
+                }
+            },
+            "verb_hint": "Передай теперішнє збереження стану неперехідним активним дієсловом.",
+            "accepted_target_texts": [
+                "The evidential uncertainty subsists notwithstanding the additional disclosure."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The evidential uncertainty",
+                "subsists",
+                "notwithstanding",
+                "the additional disclosure."
+            ],
+            "token_groups": [
+                "The evidential uncertainty",
+                "subsists",
+                "notwithstanding",
+                "the additional disclosure."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-restrictions-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The jurisdictional objection {a1} after the original pleadings had been filed.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_restrictions",
+            "translation_uk": "Заперечення щодо юрисдикції виникло після подання початкових процесуальних документів.",
+            "target_text": "The jurisdictional objection supervened after the original pleadings had been filed.",
+            "markers": {
+                "a1": {
+                    "answer": "supervened",
+                    "options": [
+                        "supervened",
+                        "supervenes",
+                        "will supervene"
+                    ],
+                    "verb_hint": "Передай завершене минуле додаткове виникнення активним неперехідним дієсловом."
+                }
+            },
+            "verb_hint": "Передай завершене минуле додаткове виникнення активним неперехідним дієсловом.",
+            "accepted_target_texts": [
+                "The jurisdictional objection supervened after the original pleadings had been filed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The jurisdictional objection",
+                "supervened",
+                "after",
+                "the original pleadings",
+                "had been filed."
+            ],
+            "token_groups": [
+                "The jurisdictional objection",
+                "supervened",
+                "after",
+                "the original pleadings",
+                "had been filed."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

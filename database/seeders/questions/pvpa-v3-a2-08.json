@@ -1,70 +1,81 @@
 {
     "question": {
-        "id": 92,
+        "id": 35794,
         "uuid": "pvpa-v3-a2-08",
-        "question": "The meal {a1} by my father.",
+        "question": "Who {a1} for the school team?",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 2,
+        "category_id": 10,
+        "source_id": 343,
         "flag": 2,
-        "created_at": "2026-05-26T15:07:39.000000Z",
-        "updated_at": "2026-05-26T15:08:08.000000Z"
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoicePastSimpleAllLevelsV3Seeder",
+        "options_by_marker": {
+            "a1": [
+                "was chosen",
+                "were chosen",
+                "is chosen",
+                "chosen"
+            ]
+        },
+        "theory_text_block_uuid": null,
+        "created_at": "2026-05-21T18:54:08.000000Z",
+        "updated_at": "2026-10-21T21:31:22.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 10,
         "name": "Passive Voice",
-        "created_at": "2026-05-26T15:07:37.000000Z",
-        "updated_at": "2026-05-26T15:07:37.000000Z"
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 343,
         "name": "Passive Voice Past Simple",
-        "created_at": "2026-05-26T15:07:39.000000Z",
-        "updated_at": "2026-05-26T15:07:39.000000Z"
+        "created_at": "2026-05-21T18:54:05.000000Z",
+        "updated_at": "2026-05-21T18:54:05.000000Z"
     },
     "tags": [
         {
             "tag": {
-                "id": 4,
+                "id": 8,
                 "name": "A2",
-                "category": null,
-                "created_at": "2026-05-26T15:07:32.000000Z",
-                "updated_at": "2026-05-26T15:07:32.000000Z"
+                "category": "level",
+                "created_at": "2026-04-23T11:39:51.000000Z",
+                "updated_at": "2026-04-23T11:39:51.000000Z"
             },
             "pivot": {
-                "question_id": 92,
-                "tag_id": 4,
+                "question_id": 35794,
+                "tag_id": 8,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 25,
+                "id": 2707,
                 "name": "By Agent",
                 "category": "topic",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-05-21T18:53:51.000000Z",
+                "updated_at": "2026-05-21T18:53:51.000000Z"
             },
             "pivot": {
-                "question_id": 92,
-                "tag_id": 25,
+                "question_id": 35794,
+                "tag_id": 2707,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 29,
+                "id": 2709,
                 "name": "Passive Voice Past Simple",
                 "category": "passive_voice",
-                "created_at": "2026-05-26T15:07:39.000000Z",
-                "updated_at": "2026-05-26T15:07:39.000000Z"
+                "created_at": "2026-05-21T18:54:05.000000Z",
+                "updated_at": "2026-05-21T18:54:05.000000Z"
             },
             "pivot": {
-                "question_id": 92,
-                "tag_id": 29,
+                "question_id": 35794,
+                "tag_id": 2709,
                 "created_at": null,
                 "updated_at": null
             }
@@ -73,53 +84,53 @@
     "options": [
         {
             "option": {
-                "id": 73,
-                "option": "was cooked",
-                "created_at": "2026-05-26T15:07:39.000000Z",
-                "updated_at": "2026-05-26T15:07:39.000000Z"
-            },
-            "pivot": {
-                "question_id": 92,
-                "option_id": 73,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 74,
-                "option": "were cooked",
-                "created_at": "2026-05-26T15:07:39.000000Z",
-                "updated_at": "2026-05-26T15:07:39.000000Z"
-            },
-            "pivot": {
-                "question_id": 92,
-                "option_id": 74,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 75,
-                "option": "is cooked",
-                "created_at": "2026-05-26T15:07:39.000000Z",
-                "updated_at": "2026-05-26T15:07:39.000000Z"
-            },
-            "pivot": {
-                "question_id": 92,
-                "option_id": 75,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 76,
+                "id": 456,
                 "option": "cooked",
-                "created_at": "2026-05-26T15:07:39.000000Z",
-                "updated_at": "2026-05-26T15:07:39.000000Z"
+                "created_at": "2026-04-23T11:41:30.000000Z",
+                "updated_at": "2026-04-23T11:41:30.000000Z"
             },
             "pivot": {
-                "question_id": 92,
-                "option_id": 76,
+                "question_id": 35794,
+                "option_id": 456,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 23446,
+                "option": "was cooked",
+                "created_at": "2026-05-21T18:54:06.000000Z",
+                "updated_at": "2026-05-21T18:54:06.000000Z"
+            },
+            "pivot": {
+                "question_id": 35794,
+                "option_id": 23446,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 23447,
+                "option": "were cooked",
+                "created_at": "2026-05-21T18:54:06.000000Z",
+                "updated_at": "2026-05-21T18:54:06.000000Z"
+            },
+            "pivot": {
+                "question_id": 35794,
+                "option_id": 23447,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 23448,
+                "option": "is cooked",
+                "created_at": "2026-05-21T18:54:06.000000Z",
+                "updated_at": "2026-05-21T18:54:06.000000Z"
+            },
+            "pivot": {
+                "question_id": 35794,
+                "option_id": 23448,
                 "flag": null
             }
         }
@@ -127,29 +138,29 @@
     "answers": [
         {
             "answer": {
-                "id": 92,
-                "question_id": 92,
+                "id": 188134,
+                "question_id": 35794,
                 "marker": "a1",
-                "option_id": 73,
-                "created_at": "2026-05-26T15:07:39.000000Z",
-                "updated_at": "2026-05-26T15:07:39.000000Z"
+                "option_id": 23446,
+                "created_at": "2026-05-21T18:54:08.000000Z",
+                "updated_at": "2026-05-21T18:54:08.000000Z"
             },
             "option": {
-                "id": 73,
+                "id": 23446,
                 "option": "was cooked",
-                "created_at": "2026-05-26T15:07:39.000000Z",
-                "updated_at": "2026-05-26T15:07:39.000000Z"
+                "created_at": "2026-05-21T18:54:06.000000Z",
+                "updated_at": "2026-05-21T18:54:06.000000Z"
             }
         }
     ],
     "verb_hints": [],
     "variants": [
         {
-            "id": 92,
-            "question_id": 92,
+            "id": 25433,
+            "question_id": 35794,
             "text": "The meal {a1} by my father.",
-            "created_at": "2026-05-26T15:07:39.000000Z",
-            "updated_at": "2026-05-26T15:07:39.000000Z"
+            "created_at": "2026-05-21T18:54:08.000000Z",
+            "updated_at": "2026-05-21T18:54:08.000000Z"
         }
     ],
     "hints": [],

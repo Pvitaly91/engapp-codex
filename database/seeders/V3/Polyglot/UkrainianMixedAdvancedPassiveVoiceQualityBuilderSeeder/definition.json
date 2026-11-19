@@ -1,0 +1,3800 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/advanced.v1.json",
+        "sha256": "6b4c6099e3c2952ee512f82ef785ec1cb64505be8166c2d7d449e75d52f8aadd"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedAdvancedPassiveVoiceQualityBuilderSeeder",
+        "uuid_namespace": "passive-voice-quality-advanced-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "passive_voice_quality_advanced": {
+            "name": "Passive Voice Quality: Поглиблений пасивний стан"
+        }
+    },
+    "tags": {
+        "advanced_passive_voice": {
+            "name": "Advanced Passive Voice",
+            "category": "passive_voice"
+        },
+        "polyglot_advanced_passive_voice": {
+            "name": "Advanced Passive Voice",
+            "category": "passive_voice"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "perfect_passive": {
+            "name": "Perfect Passive",
+            "category": "topic"
+        },
+        "continuous_passive": {
+            "name": "Continuous Passive",
+            "category": "topic"
+        },
+        "modal_passive": {
+            "name": "Modal Passive",
+            "category": "topic"
+        },
+        "formal_passive": {
+            "name": "Formal Passive",
+            "category": "topic"
+        },
+        "reporting_passive": {
+            "name": "Reporting Passive",
+            "category": "topic"
+        },
+        "academic_formal_style": {
+            "name": "Academic Formal Style",
+            "category": "topic"
+        },
+        "active_passive": {
+            "name": "Active Passive",
+            "category": "topic"
+        },
+        "pattern_choice": {
+            "name": "Pattern Choice",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-advanced-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Місце треба забронювати до обіду.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Місце треба забронювати до обіду.",
+            "target_text": "The seat must be reserved before lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Місце треба забронювати до обіду.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "seat",
+                    "verb_hint": "Місце треба забронювати до обіду.",
+                    "options": [
+                        "seat",
+                        "bag",
+                        "portrait",
+                        "cabinet"
+                    ]
+                },
+                "a3": {
+                    "answer": "must",
+                    "verb_hint": "Місце треба забронювати до обіду.",
+                    "options": [
+                        "must",
+                        "can't",
+                        "couldn't",
+                        "won't"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Місце треба забронювати до обіду.",
+                    "options": [
+                        "be",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a5": {
+                    "answer": "reserved",
+                    "verb_hint": "Місце треба забронювати до обіду.",
+                    "options": [
+                        "reserved",
+                        "withheld",
+                        "dismissed",
+                        "documented"
+                    ]
+                },
+                "a6": {
+                    "answer": "before",
+                    "verb_hint": "Місце треба забронювати до обіду.",
+                    "options": [
+                        "before",
+                        "after",
+                        "at",
+                        "in"
+                    ]
+                },
+                "a7": {
+                    "answer": "lunch.",
+                    "verb_hint": "Місце треба забронювати до обіду.",
+                    "options": [
+                        "lunch",
+                        "reception",
+                        "rehearsal",
+                        "delay"
+                    ]
+                }
+            },
+            "verb_hint": "Місце треба забронювати до обіду.",
+            "accepted_target_texts": [
+                "The seat must be reserved before lunch.",
+                "The seat must be booked before lunch."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "booked"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "booked"
+                ]
+            },
+            "reorder_groups": [
+                "The seat",
+                "must be",
+                "reserved",
+                "before lunch."
+            ],
+            "token_groups": [
+                "The seat",
+                "must be",
+                "reserved",
+                "before lunch."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "seat",
+                "must",
+                "be",
+                "reserved",
+                "before",
+                "lunch."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "seat",
+                "bag",
+                "portrait",
+                "cabinet",
+                "must",
+                "can't",
+                "couldn't",
+                "won't",
+                "be",
+                "wasn't",
+                "weren't",
+                "am",
+                "reserved",
+                "withheld",
+                "dismissed",
+                "documented",
+                "before",
+                "after",
+                "at",
+                "in",
+                "lunch",
+                "reception",
+                "rehearsal",
+                "delay"
+            ],
+            "source_text_uk": "Місце треба забронювати до обіду.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "seat",
+                    "bag",
+                    "portrait",
+                    "cabinet"
+                ],
+                "a3": [
+                    "must",
+                    "can't",
+                    "couldn't",
+                    "won't"
+                ],
+                "a4": [
+                    "be",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a5": [
+                    "reserved",
+                    "withheld",
+                    "dismissed",
+                    "documented"
+                ],
+                "a6": [
+                    "before",
+                    "after",
+                    "at",
+                    "in"
+                ],
+                "a7": [
+                    "lunch",
+                    "reception",
+                    "rehearsal",
+                    "delay"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "be_sg",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-advanced-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Сумку можна нести в руці.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Сумку можна нести в руці.",
+            "target_text": "The bag can be carried by hand.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Сумку можна нести в руці.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "bag",
+                    "verb_hint": "Сумку можна нести в руці.",
+                    "options": [
+                        "bag",
+                        "verdict",
+                        "seat",
+                        "kettle"
+                    ]
+                },
+                "a3": {
+                    "answer": "can",
+                    "verb_hint": "Сумку можна нести в руці.",
+                    "options": [
+                        "can",
+                        "couldn't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Сумку можна нести в руці.",
+                    "options": [
+                        "be",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "carried",
+                    "verb_hint": "Сумку можна нести в руці.",
+                    "options": [
+                        "carried",
+                        "withheld",
+                        "dismissed",
+                        "documented"
+                    ]
+                },
+                "a6": {
+                    "answer": "by",
+                    "verb_hint": "Сумку можна нести в руці.",
+                    "options": [
+                        "by",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a7": {
+                    "answer": "hand.",
+                    "verb_hint": "Сумку можна нести в руці.",
+                    "options": [
+                        "hand",
+                        "reception",
+                        "post",
+                        "rehearsal"
+                    ]
+                }
+            },
+            "verb_hint": "Сумку можна нести в руці.",
+            "accepted_target_texts": [
+                "The bag can be carried by hand."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The bag",
+                "can be",
+                "carried",
+                "by hand."
+            ],
+            "token_groups": [
+                "The bag",
+                "can be",
+                "carried",
+                "by hand."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "bag",
+                "can",
+                "be",
+                "carried",
+                "by",
+                "hand."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "bag",
+                "verdict",
+                "seat",
+                "kettle",
+                "can",
+                "couldn't",
+                "won't",
+                "wouldn't",
+                "be",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "carried",
+                "withheld",
+                "dismissed",
+                "documented",
+                "by",
+                "under",
+                "through",
+                "across",
+                "hand",
+                "reception",
+                "post",
+                "rehearsal"
+            ],
+            "source_text_uk": "Сумку можна нести в руці.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "bag",
+                    "verdict",
+                    "seat",
+                    "kettle"
+                ],
+                "a3": [
+                    "can",
+                    "couldn't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a4": [
+                    "be",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a5": [
+                    "carried",
+                    "withheld",
+                    "dismissed",
+                    "documented"
+                ],
+                "a6": [
+                    "by",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a7": [
+                    "hand",
+                    "reception",
+                    "post",
+                    "rehearsal"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "be_sg",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-advanced-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Взуття слід почистити після прогулянки.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Взуття слід почистити після прогулянки.",
+            "target_text": "The shoes should be cleaned after the walk.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Взуття слід почистити після прогулянки.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "shoes",
+                    "verb_hint": "Взуття слід почистити після прогулянки.",
+                    "options": [
+                        "shoes",
+                        "estimates",
+                        "records",
+                        "witnesses"
+                    ]
+                },
+                "a3": {
+                    "answer": "should",
+                    "verb_hint": "Взуття слід почистити після прогулянки.",
+                    "options": [
+                        "should",
+                        "couldn't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Взуття слід почистити після прогулянки.",
+                    "options": [
+                        "be",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a5": {
+                    "answer": "cleaned",
+                    "verb_hint": "Взуття слід почистити після прогулянки.",
+                    "options": [
+                        "cleaned",
+                        "revised",
+                        "published",
+                        "reserved"
+                    ]
+                },
+                "a6": {
+                    "answer": "after",
+                    "verb_hint": "Взуття слід почистити після прогулянки.",
+                    "options": [
+                        "after",
+                        "at",
+                        "before",
+                        "lunch"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Взуття слід почистити після прогулянки.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a8": {
+                    "answer": "walk.",
+                    "verb_hint": "Взуття слід почистити після прогулянки.",
+                    "options": [
+                        "walk",
+                        "call",
+                        "open",
+                        "close"
+                    ]
+                }
+            },
+            "verb_hint": "Взуття слід почистити після прогулянки.",
+            "accepted_target_texts": [
+                "The shoes should be cleaned after the walk.",
+                "The shoes should be washed after the walk."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "washed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "washed"
+                ]
+            },
+            "reorder_groups": [
+                "The shoes",
+                "should be",
+                "cleaned",
+                "after the walk."
+            ],
+            "token_groups": [
+                "The shoes",
+                "should be",
+                "cleaned",
+                "after the walk."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "shoes",
+                "should",
+                "be",
+                "cleaned",
+                "after",
+                "the",
+                "walk."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "shoes",
+                "estimates",
+                "records",
+                "witnesses",
+                "should",
+                "couldn't",
+                "won't",
+                "wouldn't",
+                "be",
+                "are",
+                "was",
+                "were",
+                "cleaned",
+                "revised",
+                "published",
+                "reserved",
+                "after",
+                "at",
+                "before",
+                "lunch",
+                "the",
+                "these",
+                "those",
+                "each",
+                "walk",
+                "call",
+                "open",
+                "close"
+            ],
+            "source_text_uk": "Взуття слід почистити після прогулянки.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "shoes",
+                    "estimates",
+                    "records",
+                    "witnesses"
+                ],
+                "a3": [
+                    "should",
+                    "couldn't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a4": [
+                    "be",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a5": [
+                    "cleaned",
+                    "revised",
+                    "published",
+                    "reserved"
+                ],
+                "a6": [
+                    "after",
+                    "at",
+                    "before",
+                    "lunch"
+                ],
+                "a7": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a8": [
+                    "walk",
+                    "call",
+                    "open",
+                    "close"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pl",
+                "a2": "pl",
+                "a3": "be_pl",
+                "a4": "be_pl",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-advanced-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Кошик заберуть після сніданку.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Кошик заберуть після сніданку.",
+            "target_text": "The basket will be collected after breakfast.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Кошик заберуть після сніданку.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "basket",
+                    "verb_hint": "Кошик заберуть після сніданку.",
+                    "options": [
+                        "basket",
+                        "luggage",
+                        "mirror",
+                        "notice"
+                    ]
+                },
+                "a3": {
+                    "answer": "will",
+                    "verb_hint": "Кошик заберуть після сніданку.",
+                    "options": [
+                        "will",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Кошик заберуть після сніданку.",
+                    "options": [
+                        "be",
+                        "were",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a5": {
+                    "answer": "collected",
+                    "verb_hint": "Кошик заберуть після сніданку.",
+                    "options": [
+                        "collected",
+                        "stored",
+                        "returned",
+                        "recorded"
+                    ]
+                },
+                "a6": {
+                    "answer": "after",
+                    "verb_hint": "Кошик заберуть після сніданку.",
+                    "options": [
+                        "after",
+                        "by",
+                        "without",
+                        "under"
+                    ]
+                },
+                "a7": {
+                    "answer": "breakfast.",
+                    "verb_hint": "Кошик заберуть після сніданку.",
+                    "options": [
+                        "breakfast",
+                        "rehearsal",
+                        "delay",
+                        "supervision"
+                    ]
+                }
+            },
+            "verb_hint": "Кошик заберуть після сніданку.",
+            "accepted_target_texts": [
+                "The basket will be collected after breakfast.",
+                "The basket will be picked up after breakfast."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The basket",
+                "will be",
+                "collected",
+                "after breakfast."
+            ],
+            "token_groups": [
+                "The basket",
+                "will be",
+                "collected",
+                "after breakfast."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "basket",
+                "will",
+                "be",
+                "collected",
+                "after",
+                "breakfast."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "basket",
+                "luggage",
+                "mirror",
+                "notice",
+                "will",
+                "cannot",
+                "can",
+                "could",
+                "be",
+                "were",
+                "been",
+                "being",
+                "collected",
+                "stored",
+                "returned",
+                "recorded",
+                "after",
+                "by",
+                "without",
+                "under",
+                "breakfast",
+                "rehearsal",
+                "delay",
+                "supervision"
+            ],
+            "source_text_uk": "Кошик заберуть після сніданку.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "basket",
+                    "luggage",
+                    "mirror",
+                    "notice"
+                ],
+                "a3": [
+                    "will",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a4": [
+                    "be",
+                    "were",
+                    "been",
+                    "being"
+                ],
+                "a5": [
+                    "collected",
+                    "stored",
+                    "returned",
+                    "recorded"
+                ],
+                "a6": [
+                    "after",
+                    "by",
+                    "without",
+                    "under"
+                ],
+                "a7": [
+                    "breakfast",
+                    "rehearsal",
+                    "delay",
+                    "supervision"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "be_sg",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-advanced-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Рукавички треба повернути до від’їзду.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Рукавички треба повернути до від’їзду.",
+            "target_text": "The gloves must be returned before departure.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Рукавички треба повернути до від’їзду.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "gloves",
+                    "verb_hint": "Рукавички треба повернути до від’їзду.",
+                    "options": [
+                        "gloves",
+                        "samples",
+                        "proposals",
+                        "provisions"
+                    ]
+                },
+                "a3": {
+                    "answer": "must",
+                    "verb_hint": "Рукавички треба повернути до від’їзду.",
+                    "options": [
+                        "must",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Рукавички треба повернути до від’їзду.",
+                    "options": [
+                        "be",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "returned",
+                    "verb_hint": "Рукавички треба повернути до від’їзду.",
+                    "options": [
+                        "returned",
+                        "revised",
+                        "published",
+                        "stored"
+                    ]
+                },
+                "a6": {
+                    "answer": "before",
+                    "verb_hint": "Рукавички треба повернути до від’їзду.",
+                    "options": [
+                        "before",
+                        "after",
+                        "at",
+                        "in"
+                    ]
+                },
+                "a7": {
+                    "answer": "departure.",
+                    "verb_hint": "Рукавички треба повернути до від’їзду.",
+                    "options": [
+                        "departure",
+                        "dinner",
+                        "post",
+                        "delay"
+                    ]
+                }
+            },
+            "verb_hint": "Рукавички треба повернути до від’їзду.",
+            "accepted_target_texts": [
+                "The gloves must be returned before departure."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The gloves",
+                "must be",
+                "returned",
+                "before departure."
+            ],
+            "token_groups": [
+                "The gloves",
+                "must be",
+                "returned",
+                "before departure."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "gloves",
+                "must",
+                "be",
+                "returned",
+                "before",
+                "departure."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "gloves",
+                "samples",
+                "proposals",
+                "provisions",
+                "must",
+                "shall",
+                "should",
+                "may",
+                "be",
+                "being",
+                "isn't",
+                "aren't",
+                "returned",
+                "revised",
+                "published",
+                "stored",
+                "before",
+                "after",
+                "at",
+                "in",
+                "departure",
+                "dinner",
+                "post",
+                "delay"
+            ],
+            "source_text_uk": "Рукавички треба повернути до від’їзду.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "gloves",
+                    "samples",
+                    "proposals",
+                    "provisions"
+                ],
+                "a3": [
+                    "must",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a4": [
+                    "be",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a5": [
+                    "returned",
+                    "revised",
+                    "published",
+                    "stored"
+                ],
+                "a6": [
+                    "before",
+                    "after",
+                    "at",
+                    "in"
+                ],
+                "a7": [
+                    "departure",
+                    "dinner",
+                    "post",
+                    "delay"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pl",
+                "a2": "pl",
+                "a3": "be_pl",
+                "a4": "be_pl",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-advanced-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Багаж можна зберігати біля стійки реєстрації.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Багаж можна зберігати біля стійки реєстрації.",
+            "target_text": "The luggage can be stored at reception.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Багаж можна зберігати біля стійки реєстрації.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "luggage",
+                    "verb_hint": "Багаж можна зберігати біля стійки реєстрації.",
+                    "options": [
+                        "luggage",
+                        "portrait",
+                        "cabinet",
+                        "kettle"
+                    ]
+                },
+                "a3": {
+                    "answer": "can",
+                    "verb_hint": "Багаж можна зберігати біля стійки реєстрації.",
+                    "options": [
+                        "can",
+                        "wouldn't",
+                        "shouldn't",
+                        "cannot"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Багаж можна зберігати біля стійки реєстрації.",
+                    "options": [
+                        "be",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a5": {
+                    "answer": "stored",
+                    "verb_hint": "Багаж можна зберігати біля стійки реєстрації.",
+                    "options": [
+                        "stored",
+                        "reviewed",
+                        "checked",
+                        "delivered"
+                    ]
+                },
+                "a6": {
+                    "answer": "at",
+                    "verb_hint": "Багаж можна зберігати біля стійки реєстрації.",
+                    "options": [
+                        "at",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a7": {
+                    "answer": "reception.",
+                    "verb_hint": "Багаж можна зберігати біля стійки реєстрації.",
+                    "options": [
+                        "reception",
+                        "confidence",
+                        "breakfast",
+                        "departure"
+                    ]
+                }
+            },
+            "verb_hint": "Багаж можна зберігати біля стійки реєстрації.",
+            "accepted_target_texts": [
+                "The luggage can be stored at reception.",
+                "The baggage can be stored at reception."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "baggage"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "baggage"
+                ]
+            },
+            "reorder_groups": [
+                "The luggage",
+                "can be",
+                "stored",
+                "at reception."
+            ],
+            "token_groups": [
+                "The luggage",
+                "can be",
+                "stored",
+                "at reception."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "luggage",
+                "can",
+                "be",
+                "stored",
+                "at",
+                "reception."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "luggage",
+                "portrait",
+                "cabinet",
+                "kettle",
+                "can",
+                "wouldn't",
+                "shouldn't",
+                "cannot",
+                "be",
+                "wasn't",
+                "weren't",
+                "am",
+                "stored",
+                "reviewed",
+                "checked",
+                "delivered",
+                "at",
+                "onto",
+                "over",
+                "under",
+                "reception",
+                "confidence",
+                "breakfast",
+                "departure"
+            ],
+            "source_text_uk": "Багаж можна зберігати біля стійки реєстрації.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "luggage",
+                    "portrait",
+                    "cabinet",
+                    "kettle"
+                ],
+                "a3": [
+                    "can",
+                    "wouldn't",
+                    "shouldn't",
+                    "cannot"
+                ],
+                "a4": [
+                    "be",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a5": [
+                    "stored",
+                    "reviewed",
+                    "checked",
+                    "delivered"
+                ],
+                "a6": [
+                    "at",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a7": [
+                    "reception",
+                    "confidence",
+                    "breakfast",
+                    "departure"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "be_sg",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-advanced-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Склад зараз перевіряють без попередження.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Склад зараз перевіряють без попередження.",
+            "target_text": "The warehouse is being inspected without warning.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Склад зараз перевіряють без попередження.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "warehouse",
+                    "verb_hint": "Склад зараз перевіряють без попередження.",
+                    "options": [
+                        "warehouse",
+                        "prescription",
+                        "mirror",
+                        "notice"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Склад зараз перевіряють без попередження.",
+                    "options": [
+                        "is",
+                        "am",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a4": {
+                    "answer": "being",
+                    "verb_hint": "Склад зараз перевіряють без попередження.",
+                    "options": [
+                        "being",
+                        "be",
+                        "been",
+                        "isn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "inspected",
+                    "verb_hint": "Склад зараз перевіряють без попередження.",
+                    "options": [
+                        "inspected",
+                        "signed",
+                        "examined",
+                        "replaced"
+                    ]
+                },
+                "a6": {
+                    "answer": "without",
+                    "verb_hint": "Склад зараз перевіряють без попередження.",
+                    "options": [
+                        "without",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a7": {
+                    "answer": "warning.",
+                    "verb_hint": "Склад зараз перевіряють без попередження.",
+                    "options": [
+                        "warning",
+                        "taking",
+                        "working",
+                        "playing"
+                    ]
+                }
+            },
+            "verb_hint": "Склад зараз перевіряють без попередження.",
+            "accepted_target_texts": [
+                "The warehouse is being inspected without warning.",
+                "The warehouse is being checked without warning."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "checked"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "checked"
+                ]
+            },
+            "reorder_groups": [
+                "The warehouse",
+                "is being",
+                "inspected",
+                "without warning."
+            ],
+            "token_groups": [
+                "The warehouse",
+                "is being",
+                "inspected",
+                "without warning."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "warehouse",
+                "is",
+                "being",
+                "inspected",
+                "without",
+                "warning."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "warehouse",
+                "prescription",
+                "mirror",
+                "notice",
+                "is",
+                "am",
+                "are",
+                "was",
+                "being",
+                "be",
+                "been",
+                "isn't",
+                "inspected",
+                "signed",
+                "examined",
+                "replaced",
+                "without",
+                "onto",
+                "over",
+                "under",
+                "warning",
+                "taking",
+                "working",
+                "playing"
+            ],
+            "source_text_uk": "Склад зараз перевіряють без попередження.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "warehouse",
+                    "prescription",
+                    "mirror",
+                    "notice"
+                ],
+                "a3": [
+                    "is",
+                    "am",
+                    "are",
+                    "was"
+                ],
+                "a4": [
+                    "being",
+                    "be",
+                    "been",
+                    "isn't"
+                ],
+                "a5": [
+                    "inspected",
+                    "signed",
+                    "examined",
+                    "replaced"
+                ],
+                "a6": [
+                    "without",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a7": [
+                    "warning",
+                    "taking",
+                    "working",
+                    "playing"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "be_sg",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-advanced-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Пасажирів уже евакуювали до світанку.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Пасажирів уже евакуювали до світанку.",
+            "target_text": "The passengers have been evacuated before dawn.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Пасажирів уже евакуювали до світанку.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "passengers",
+                    "verb_hint": "Пасажирів уже евакуювали до світанку.",
+                    "options": [
+                        "passengers",
+                        "invoices",
+                        "windows",
+                        "records"
+                    ]
+                },
+                "a3": {
+                    "answer": "have",
+                    "verb_hint": "Пасажирів уже евакуювали до світанку.",
+                    "options": [
+                        "have",
+                        "didn't",
+                        "has",
+                        "had"
+                    ]
+                },
+                "a4": {
+                    "answer": "been",
+                    "verb_hint": "Пасажирів уже евакуювали до світанку.",
+                    "options": [
+                        "been",
+                        "were",
+                        "be",
+                        "being"
+                    ]
+                },
+                "a5": {
+                    "answer": "evacuated",
+                    "verb_hint": "Пасажирів уже евакуювали до світанку.",
+                    "options": [
+                        "evacuated",
+                        "approved",
+                        "recorded",
+                        "withheld"
+                    ]
+                },
+                "a6": {
+                    "answer": "before",
+                    "verb_hint": "Пасажирів уже евакуювали до світанку.",
+                    "options": [
+                        "before",
+                        "at",
+                        "in",
+                        "under"
+                    ]
+                },
+                "a7": {
+                    "answer": "dawn.",
+                    "verb_hint": "Пасажирів уже евакуювали до світанку.",
+                    "options": [
+                        "dawn",
+                        "delay",
+                        "supervision",
+                        "publication"
+                    ]
+                }
+            },
+            "verb_hint": "Пасажирів уже евакуювали до світанку.",
+            "accepted_target_texts": [
+                "The passengers have been evacuated before dawn."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The passengers",
+                "have been",
+                "evacuated",
+                "before dawn."
+            ],
+            "token_groups": [
+                "The passengers",
+                "have been",
+                "evacuated",
+                "before dawn."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "passengers",
+                "have",
+                "been",
+                "evacuated",
+                "before",
+                "dawn."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "passengers",
+                "invoices",
+                "windows",
+                "records",
+                "have",
+                "didn't",
+                "has",
+                "had",
+                "been",
+                "were",
+                "be",
+                "being",
+                "evacuated",
+                "approved",
+                "recorded",
+                "withheld",
+                "before",
+                "at",
+                "in",
+                "under",
+                "dawn",
+                "delay",
+                "supervision",
+                "publication"
+            ],
+            "source_text_uk": "Пасажирів уже евакуювали до світанку.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "passengers",
+                    "invoices",
+                    "windows",
+                    "records"
+                ],
+                "a3": [
+                    "have",
+                    "didn't",
+                    "has",
+                    "had"
+                ],
+                "a4": [
+                    "been",
+                    "were",
+                    "be",
+                    "being"
+                ],
+                "a5": [
+                    "evacuated",
+                    "approved",
+                    "recorded",
+                    "withheld"
+                ],
+                "a6": [
+                    "before",
+                    "at",
+                    "in",
+                    "under"
+                ],
+                "a7": [
+                    "dawn",
+                    "delay",
+                    "supervision",
+                    "publication"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pl",
+                "a2": "pl",
+                "a3": "be_pl",
+                "a4": "be_pl",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-advanced-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Рецепт треба ретельно перевірити.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Рецепт треба ретельно перевірити.",
+            "target_text": "The prescription must be checked carefully.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Рецепт треба ретельно перевірити.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "prescription",
+                    "verb_hint": "Рецепт треба ретельно перевірити.",
+                    "options": [
+                        "prescription",
+                        "warehouse",
+                        "manuscript",
+                        "verdict"
+                    ]
+                },
+                "a3": {
+                    "answer": "must",
+                    "verb_hint": "Рецепт треба ретельно перевірити.",
+                    "options": [
+                        "must",
+                        "will",
+                        "would",
+                        "shall"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Рецепт треба ретельно перевірити.",
+                    "options": [
+                        "be",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a5": {
+                    "answer": "checked",
+                    "verb_hint": "Рецепт треба ретельно перевірити.",
+                    "options": [
+                        "checked",
+                        "reviewed",
+                        "delivered",
+                        "signed"
+                    ]
+                },
+                "a6": {
+                    "answer": "carefully.",
+                    "verb_hint": "Рецепт треба ретельно перевірити.",
+                    "options": [
+                        "carefully",
+                        "systematically",
+                        "inadvertently",
+                        "quietly"
+                    ]
+                }
+            },
+            "verb_hint": "Рецепт треба ретельно перевірити.",
+            "accepted_target_texts": [
+                "The prescription must be checked carefully.",
+                "The prescription must be verified carefully."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "verified"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "verified"
+                ]
+            },
+            "reorder_groups": [
+                "The prescription",
+                "must be",
+                "checked",
+                "carefully."
+            ],
+            "token_groups": [
+                "The prescription",
+                "must be",
+                "checked",
+                "carefully."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "prescription",
+                "must",
+                "be",
+                "checked",
+                "carefully."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "prescription",
+                "warehouse",
+                "manuscript",
+                "verdict",
+                "must",
+                "will",
+                "would",
+                "shall",
+                "be",
+                "wasn't",
+                "weren't",
+                "am",
+                "checked",
+                "reviewed",
+                "delivered",
+                "signed",
+                "carefully",
+                "systematically",
+                "inadvertently",
+                "quietly"
+            ],
+            "source_text_uk": "Рецепт треба ретельно перевірити.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "prescription",
+                    "warehouse",
+                    "manuscript",
+                    "verdict"
+                ],
+                "a3": [
+                    "must",
+                    "will",
+                    "would",
+                    "shall"
+                ],
+                "a4": [
+                    "be",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a5": [
+                    "checked",
+                    "reviewed",
+                    "delivered",
+                    "signed"
+                ],
+                "a6": [
+                    "carefully",
+                    "systematically",
+                    "inadvertently",
+                    "quietly"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "be_sg",
+                "a5": "participle",
+                "a6": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-advanced-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Відеоматеріал уже відредагували до трансляції.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Відеоматеріал уже відредагували до трансляції.",
+            "target_text": "The footage had been edited before broadcast.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Відеоматеріал уже відредагували до трансляції.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "footage",
+                    "verb_hint": "Відеоматеріал уже відредагували до трансляції.",
+                    "options": [
+                        "footage",
+                        "notice",
+                        "contract",
+                        "manuscript"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Відеоматеріал уже відредагували до трансляції.",
+                    "options": [
+                        "had",
+                        "didn't",
+                        "have",
+                        "has"
+                    ]
+                },
+                "a4": {
+                    "answer": "been",
+                    "verb_hint": "Відеоматеріал уже відредагували до трансляції.",
+                    "options": [
+                        "been",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "edited",
+                    "verb_hint": "Відеоматеріал уже відредагували до трансляції.",
+                    "options": [
+                        "edited",
+                        "dismissed",
+                        "documented",
+                        "preserved"
+                    ]
+                },
+                "a6": {
+                    "answer": "before",
+                    "verb_hint": "Відеоматеріал уже відредагували до трансляції.",
+                    "options": [
+                        "before",
+                        "at",
+                        "by",
+                        "without"
+                    ]
+                },
+                "a7": {
+                    "answer": "broadcast.",
+                    "verb_hint": "Відеоматеріал уже відредагували до трансляції.",
+                    "options": [
+                        "broadcast",
+                        "supervision",
+                        "publication",
+                        "request"
+                    ]
+                }
+            },
+            "verb_hint": "Відеоматеріал уже відредагували до трансляції.",
+            "accepted_target_texts": [
+                "The footage had been edited before broadcast.",
+                "The video footage had been edited before broadcast."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The footage",
+                "had been",
+                "edited",
+                "before broadcast."
+            ],
+            "token_groups": [
+                "The footage",
+                "had been",
+                "edited",
+                "before broadcast."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "footage",
+                "had",
+                "been",
+                "edited",
+                "before",
+                "broadcast."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "footage",
+                "notice",
+                "contract",
+                "manuscript",
+                "had",
+                "didn't",
+                "have",
+                "has",
+                "been",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "edited",
+                "dismissed",
+                "documented",
+                "preserved",
+                "before",
+                "at",
+                "by",
+                "without",
+                "broadcast",
+                "supervision",
+                "publication",
+                "request"
+            ],
+            "source_text_uk": "Відеоматеріал уже відредагували до трансляції.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "footage",
+                    "notice",
+                    "contract",
+                    "manuscript"
+                ],
+                "a3": [
+                    "had",
+                    "didn't",
+                    "have",
+                    "has"
+                ],
+                "a4": [
+                    "been",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a5": [
+                    "edited",
+                    "dismissed",
+                    "documented",
+                    "preserved"
+                ],
+                "a6": [
+                    "before",
+                    "at",
+                    "by",
+                    "without"
+                ],
+                "a7": [
+                    "broadcast",
+                    "supervision",
+                    "publication",
+                    "request"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "be_sg",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-advanced-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Сертифікати зараз перевіряють незалежно.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Сертифікати зараз перевіряють незалежно.",
+            "target_text": "The certificates are being verified independently.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Сертифікати зараз перевіряють незалежно.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "certificates",
+                    "verb_hint": "Сертифікати зараз перевіряють незалежно.",
+                    "options": [
+                        "certificates",
+                        "proposals",
+                        "provisions",
+                        "exhibits"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Сертифікати зараз перевіряють незалежно.",
+                    "options": [
+                        "are",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "being",
+                    "verb_hint": "Сертифікати зараз перевіряють незалежно.",
+                    "options": [
+                        "being",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a5": {
+                    "answer": "verified",
+                    "verb_hint": "Сертифікати зараз перевіряють незалежно.",
+                    "options": [
+                        "verified",
+                        "delivered",
+                        "signed",
+                        "examined"
+                    ]
+                },
+                "a6": {
+                    "answer": "independently.",
+                    "verb_hint": "Сертифікати зараз перевіряють незалежно.",
+                    "options": [
+                        "independently",
+                        "promptly",
+                        "systematically",
+                        "inadvertently"
+                    ]
+                }
+            },
+            "verb_hint": "Сертифікати зараз перевіряють незалежно.",
+            "accepted_target_texts": [
+                "The certificates are being verified independently.",
+                "The certificates are being checked independently."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "checked"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "checked"
+                ]
+            },
+            "reorder_groups": [
+                "The certificates",
+                "are being",
+                "verified",
+                "independently."
+            ],
+            "token_groups": [
+                "The certificates",
+                "are being",
+                "verified",
+                "independently."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "certificates",
+                "are",
+                "being",
+                "verified",
+                "independently."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "certificates",
+                "proposals",
+                "provisions",
+                "exhibits",
+                "are",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "being",
+                "weren't",
+                "am",
+                "is",
+                "verified",
+                "delivered",
+                "signed",
+                "examined",
+                "independently",
+                "promptly",
+                "systematically",
+                "inadvertently"
+            ],
+            "source_text_uk": "Сертифікати зараз перевіряють незалежно.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "certificates",
+                    "proposals",
+                    "provisions",
+                    "exhibits"
+                ],
+                "a3": [
+                    "are",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a4": [
+                    "being",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a5": [
+                    "verified",
+                    "delivered",
+                    "signed",
+                    "examined"
+                ],
+                "a6": [
+                    "independently",
+                    "promptly",
+                    "systematically",
+                    "inadvertently"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pl",
+                "a2": "pl",
+                "a3": "be_pl",
+                "a4": "be_pl",
+                "a5": "participle",
+                "a6": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-advanced-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Розбіжність можна було б пояснити людською помилкою.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Розбіжність можна було б пояснити людською помилкою.",
+            "target_text": "The discrepancy could be explained by human error.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Розбіжність можна було б пояснити людською помилкою.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "discrepancy",
+                    "verb_hint": "Розбіжність можна було б пояснити людською помилкою.",
+                    "options": [
+                        "discrepancy",
+                        "notice",
+                        "contract",
+                        "manuscript"
+                    ]
+                },
+                "a3": {
+                    "answer": "could",
+                    "verb_hint": "Розбіжність можна було б пояснити людською помилкою.",
+                    "options": [
+                        "could",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Розбіжність можна було б пояснити людською помилкою.",
+                    "options": [
+                        "be",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "explained",
+                    "verb_hint": "Розбіжність можна було б пояснити людською помилкою.",
+                    "options": [
+                        "explained",
+                        "edited",
+                        "verified",
+                        "checked"
+                    ]
+                },
+                "a6": {
+                    "answer": "by",
+                    "verb_hint": "Розбіжність можна було б пояснити людською помилкою.",
+                    "options": [
+                        "by",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a7": {
+                    "answer": "human",
+                    "verb_hint": "Розбіжність можна було б пояснити людською помилкою.",
+                    "options": [
+                        "human",
+                        "footage",
+                        "before",
+                        "broadcast"
+                    ]
+                },
+                "a8": {
+                    "answer": "error.",
+                    "verb_hint": "Розбіжність можна було б пояснити людською помилкою.",
+                    "options": [
+                        "error",
+                        "box",
+                        "chair",
+                        "table"
+                    ]
+                }
+            },
+            "verb_hint": "Розбіжність можна було б пояснити людською помилкою.",
+            "accepted_target_texts": [
+                "The discrepancy could be explained by human error."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The discrepancy",
+                "could be",
+                "explained",
+                "by human error."
+            ],
+            "token_groups": [
+                "The discrepancy",
+                "could be",
+                "explained",
+                "by human error."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "discrepancy",
+                "could",
+                "be",
+                "explained",
+                "by",
+                "human",
+                "error."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "discrepancy",
+                "notice",
+                "contract",
+                "manuscript",
+                "could",
+                "shouldn't",
+                "cannot",
+                "can",
+                "be",
+                "been",
+                "being",
+                "isn't",
+                "explained",
+                "edited",
+                "verified",
+                "checked",
+                "by",
+                "of",
+                "in",
+                "on",
+                "human",
+                "footage",
+                "before",
+                "broadcast",
+                "error",
+                "box",
+                "chair",
+                "table"
+            ],
+            "source_text_uk": "Розбіжність можна було б пояснити людською помилкою.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "discrepancy",
+                    "notice",
+                    "contract",
+                    "manuscript"
+                ],
+                "a3": [
+                    "could",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a4": [
+                    "be",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a5": [
+                    "explained",
+                    "edited",
+                    "verified",
+                    "checked"
+                ],
+                "a6": [
+                    "by",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a7": [
+                    "human",
+                    "footage",
+                    "before",
+                    "broadcast"
+                ],
+                "a8": [
+                    "error",
+                    "box",
+                    "chair",
+                    "table"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "be_sg",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-advanced-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Право вже роз’яснив суд.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Право вже роз’яснив суд.",
+            "target_text": "The entitlement has been clarified by the court.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Право вже роз’яснив суд.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "entitlement",
+                    "verb_hint": "Право вже роз’яснив суд.",
+                    "options": [
+                        "entitlement",
+                        "cabinet",
+                        "parcel",
+                        "kettle"
+                    ]
+                },
+                "a3": {
+                    "answer": "has",
+                    "verb_hint": "Право вже роз’яснив суд.",
+                    "options": [
+                        "has",
+                        "doesn't",
+                        "didn't",
+                        "have"
+                    ]
+                },
+                "a4": {
+                    "answer": "been",
+                    "verb_hint": "Право вже роз’яснив суд.",
+                    "options": [
+                        "been",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a5": {
+                    "answer": "clarified",
+                    "verb_hint": "Право вже роз’яснив суд.",
+                    "options": [
+                        "clarified",
+                        "checked",
+                        "delivered",
+                        "signed"
+                    ]
+                },
+                "a6": {
+                    "answer": "by",
+                    "verb_hint": "Право вже роз’яснив суд.",
+                    "options": [
+                        "by",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Право вже роз’яснив суд.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a8": {
+                    "answer": "court.",
+                    "verb_hint": "Право вже роз’яснив суд.",
+                    "options": [
+                        "court",
+                        "notice",
+                        "future",
+                        "endorsement"
+                    ]
+                }
+            },
+            "verb_hint": "Право вже роз’яснив суд.",
+            "accepted_target_texts": [
+                "The entitlement has been clarified by the court."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The entitlement",
+                "has been",
+                "clarified",
+                "by the court."
+            ],
+            "token_groups": [
+                "The entitlement",
+                "has been",
+                "clarified",
+                "by the court."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "entitlement",
+                "has",
+                "been",
+                "clarified",
+                "by",
+                "the",
+                "court."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "entitlement",
+                "cabinet",
+                "parcel",
+                "kettle",
+                "has",
+                "doesn't",
+                "didn't",
+                "have",
+                "been",
+                "was",
+                "were",
+                "be",
+                "clarified",
+                "checked",
+                "delivered",
+                "signed",
+                "by",
+                "between",
+                "among",
+                "about",
+                "the",
+                "both",
+                "a",
+                "an",
+                "court",
+                "notice",
+                "future",
+                "endorsement"
+            ],
+            "source_text_uk": "Право вже роз’яснив суд.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "entitlement",
+                    "cabinet",
+                    "parcel",
+                    "kettle"
+                ],
+                "a3": [
+                    "has",
+                    "doesn't",
+                    "didn't",
+                    "have"
+                ],
+                "a4": [
+                    "been",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a5": [
+                    "clarified",
+                    "checked",
+                    "delivered",
+                    "signed"
+                ],
+                "a6": [
+                    "by",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a7": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a8": [
+                    "court",
+                    "notice",
+                    "future",
+                    "endorsement"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "be_sg",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-advanced-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Архіви треба зберегти для майбутніх поколінь.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Архіви треба зберегти для майбутніх поколінь.",
+            "target_text": "The archives must be preserved for future generations.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Архіви треба зберегти для майбутніх поколінь.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "archives",
+                    "verb_hint": "Архіви треба зберегти для майбутніх поколінь.",
+                    "options": [
+                        "archives",
+                        "towels",
+                        "invoices",
+                        "windows"
+                    ]
+                },
+                "a3": {
+                    "answer": "must",
+                    "verb_hint": "Архіви треба зберегти для майбутніх поколінь.",
+                    "options": [
+                        "must",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Архіви треба зберегти для майбутніх поколінь.",
+                    "options": [
+                        "be",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a5": {
+                    "answer": "preserved",
+                    "verb_hint": "Архіви треба зберегти для майбутніх поколінь.",
+                    "options": [
+                        "preserved",
+                        "withdrawn",
+                        "clarified",
+                        "replaced"
+                    ]
+                },
+                "a6": {
+                    "answer": "for",
+                    "verb_hint": "Архіви треба зберегти для майбутніх поколінь.",
+                    "options": [
+                        "for",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a7": {
+                    "answer": "future",
+                    "verb_hint": "Архіви треба зберегти для майбутніх поколінь.",
+                    "options": [
+                        "future",
+                        "prior",
+                        "court",
+                        "endorsement"
+                    ]
+                },
+                "a8": {
+                    "answer": "generations.",
+                    "verb_hint": "Архіви треба зберегти для майбутніх поколінь.",
+                    "options": [
+                        "generations",
+                        "cats",
+                        "people",
+                        "men"
+                    ]
+                }
+            },
+            "verb_hint": "Архіви треба зберегти для майбутніх поколінь.",
+            "accepted_target_texts": [
+                "The archives must be preserved for future generations.",
+                "The archives must be kept for future generations."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "kept"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "kept"
+                ]
+            },
+            "reorder_groups": [
+                "The archives",
+                "must be",
+                "preserved",
+                "for future generations."
+            ],
+            "token_groups": [
+                "The archives",
+                "must be",
+                "preserved",
+                "for future generations."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "archives",
+                "must",
+                "be",
+                "preserved",
+                "for",
+                "future",
+                "generations."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "archives",
+                "towels",
+                "invoices",
+                "windows",
+                "must",
+                "cannot",
+                "can",
+                "could",
+                "be",
+                "weren't",
+                "am",
+                "is",
+                "preserved",
+                "withdrawn",
+                "clarified",
+                "replaced",
+                "for",
+                "without",
+                "into",
+                "onto",
+                "future",
+                "prior",
+                "court",
+                "endorsement",
+                "generations",
+                "cats",
+                "people",
+                "men"
+            ],
+            "source_text_uk": "Архіви треба зберегти для майбутніх поколінь.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "archives",
+                    "towels",
+                    "invoices",
+                    "windows"
+                ],
+                "a3": [
+                    "must",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a4": [
+                    "be",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a5": [
+                    "preserved",
+                    "withdrawn",
+                    "clarified",
+                    "replaced"
+                ],
+                "a6": [
+                    "for",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a7": [
+                    "future",
+                    "prior",
+                    "court",
+                    "endorsement"
+                ],
+                "a8": [
+                    "generations",
+                    "cats",
+                    "people",
+                    "men"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pl",
+                "a2": "pl",
+                "a3": "be_pl",
+                "a4": "be_pl",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-advanced-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Підтримку можуть відкликати без попереднього повідомлення.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Підтримку можуть відкликати без попереднього повідомлення.",
+            "target_text": "The endorsement may be withdrawn without prior notice.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Підтримку можуть відкликати без попереднього повідомлення.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "endorsement",
+                    "verb_hint": "Підтримку можуть відкликати без попереднього повідомлення.",
+                    "options": [
+                        "endorsement",
+                        "portrait",
+                        "cabinet",
+                        "kettle"
+                    ]
+                },
+                "a3": {
+                    "answer": "may",
+                    "verb_hint": "Підтримку можуть відкликати без попереднього повідомлення.",
+                    "options": [
+                        "may",
+                        "would",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Підтримку можуть відкликати без попереднього повідомлення.",
+                    "options": [
+                        "be",
+                        "were",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a5": {
+                    "answer": "withdrawn",
+                    "verb_hint": "Підтримку можуть відкликати без попереднього повідомлення.",
+                    "options": [
+                        "withdrawn",
+                        "withheld",
+                        "dismissed",
+                        "documented"
+                    ]
+                },
+                "a6": {
+                    "answer": "without",
+                    "verb_hint": "Підтримку можуть відкликати без попереднього повідомлення.",
+                    "options": [
+                        "without",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a7": {
+                    "answer": "prior",
+                    "verb_hint": "Підтримку можуть відкликати без попереднього повідомлення.",
+                    "options": [
+                        "prior",
+                        "future",
+                        "entitlement",
+                        "court"
+                    ]
+                },
+                "a8": {
+                    "answer": "notice.",
+                    "verb_hint": "Підтримку можуть відкликати без попереднього повідомлення.",
+                    "options": [
+                        "notice",
+                        "bag",
+                        "book",
+                        "box"
+                    ]
+                }
+            },
+            "verb_hint": "Підтримку можуть відкликати без попереднього повідомлення.",
+            "accepted_target_texts": [
+                "The endorsement may be withdrawn without prior notice.",
+                "The support may be withdrawn without prior notice."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "support"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "support"
+                ]
+            },
+            "reorder_groups": [
+                "The endorsement",
+                "may be",
+                "withdrawn",
+                "without prior notice."
+            ],
+            "token_groups": [
+                "The endorsement",
+                "may be",
+                "withdrawn",
+                "without prior notice."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "endorsement",
+                "may",
+                "be",
+                "withdrawn",
+                "without",
+                "prior",
+                "notice."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "endorsement",
+                "portrait",
+                "cabinet",
+                "kettle",
+                "may",
+                "would",
+                "shall",
+                "should",
+                "be",
+                "were",
+                "been",
+                "being",
+                "withdrawn",
+                "withheld",
+                "dismissed",
+                "documented",
+                "without",
+                "about",
+                "during",
+                "to",
+                "prior",
+                "future",
+                "entitlement",
+                "court",
+                "notice",
+                "bag",
+                "book",
+                "box"
+            ],
+            "source_text_uk": "Підтримку можуть відкликати без попереднього повідомлення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "endorsement",
+                    "portrait",
+                    "cabinet",
+                    "kettle"
+                ],
+                "a3": [
+                    "may",
+                    "would",
+                    "shall",
+                    "should"
+                ],
+                "a4": [
+                    "be",
+                    "were",
+                    "been",
+                    "being"
+                ],
+                "a5": [
+                    "withdrawn",
+                    "withheld",
+                    "dismissed",
+                    "documented"
+                ],
+                "a6": [
+                    "without",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a7": [
+                    "prior",
+                    "future",
+                    "entitlement",
+                    "court"
+                ],
+                "a8": [
+                    "notice",
+                    "bag",
+                    "book",
+                    "box"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "be_sg",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-advanced-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Судову заборону вже скасували з негайним набранням чинності.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Судову заборону вже скасували з негайним набранням чинності.",
+            "target_text": "The injunction has been rescinded with immediate effect.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Судову заборону вже скасували з негайним набранням чинності.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "injunction",
+                    "verb_hint": "Судову заборону вже скасували з негайним набранням чинності.",
+                    "options": [
+                        "injunction",
+                        "verdict",
+                        "parcel",
+                        "portrait"
+                    ]
+                },
+                "a3": {
+                    "answer": "has",
+                    "verb_hint": "Судову заборону вже скасували з негайним набранням чинності.",
+                    "options": [
+                        "has",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a4": {
+                    "answer": "been",
+                    "verb_hint": "Судову заборону вже скасували з негайним набранням чинності.",
+                    "options": [
+                        "been",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "rescinded",
+                    "verb_hint": "Судову заборону вже скасували з негайним набранням чинності.",
+                    "options": [
+                        "rescinded",
+                        "assessed",
+                        "circumvented",
+                        "written"
+                    ]
+                },
+                "a6": {
+                    "answer": "with",
+                    "verb_hint": "Судову заборону вже скасували з негайним набранням чинності.",
+                    "options": [
+                        "with",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a7": {
+                    "answer": "immediate",
+                    "verb_hint": "Судову заборону вже скасували з негайним набранням чинності.",
+                    "options": [
+                        "immediate",
+                        "discretion",
+                        "safeguard",
+                        "ticket"
+                    ]
+                },
+                "a8": {
+                    "answer": "effect.",
+                    "verb_hint": "Судову заборону вже скасували з негайним набранням чинності.",
+                    "options": [
+                        "effect",
+                        "chair",
+                        "table",
+                        "cup"
+                    ]
+                }
+            },
+            "verb_hint": "Судову заборону вже скасували з негайним набранням чинності.",
+            "accepted_target_texts": [
+                "The injunction has been rescinded with immediate effect."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The injunction",
+                "has been",
+                "rescinded",
+                "with immediate effect."
+            ],
+            "token_groups": [
+                "The injunction",
+                "has been",
+                "rescinded",
+                "with immediate effect."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "injunction",
+                "has",
+                "been",
+                "rescinded",
+                "with",
+                "immediate",
+                "effect."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "injunction",
+                "verdict",
+                "parcel",
+                "portrait",
+                "has",
+                "does",
+                "did",
+                "don't",
+                "been",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "rescinded",
+                "assessed",
+                "circumvented",
+                "written",
+                "with",
+                "to",
+                "from",
+                "for",
+                "immediate",
+                "discretion",
+                "safeguard",
+                "ticket",
+                "effect",
+                "chair",
+                "table",
+                "cup"
+            ],
+            "source_text_uk": "Судову заборону вже скасували з негайним набранням чинності.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "injunction",
+                    "verdict",
+                    "parcel",
+                    "portrait"
+                ],
+                "a3": [
+                    "has",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a4": [
+                    "been",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a5": [
+                    "rescinded",
+                    "assessed",
+                    "circumvented",
+                    "written"
+                ],
+                "a6": [
+                    "with",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a7": [
+                    "immediate",
+                    "discretion",
+                    "safeguard",
+                    "ticket"
+                ],
+                "a8": [
+                    "effect",
+                    "chair",
+                    "table",
+                    "cup"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "be_sg",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-advanced-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Заяви треба оцінювати неупереджено.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Заяви треба оцінювати неупереджено.",
+            "target_text": "The representations must be assessed dispassionately.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Заяви треба оцінювати неупереджено.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "representations",
+                    "verb_hint": "Заяви треба оцінювати неупереджено.",
+                    "options": [
+                        "representations",
+                        "estimates",
+                        "samples",
+                        "proposals"
+                    ]
+                },
+                "a3": {
+                    "answer": "must",
+                    "verb_hint": "Заяви треба оцінювати неупереджено.",
+                    "options": [
+                        "must",
+                        "can",
+                        "could",
+                        "will"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Заяви треба оцінювати неупереджено.",
+                    "options": [
+                        "be",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a5": {
+                    "answer": "assessed",
+                    "verb_hint": "Заяви треба оцінювати неупереджено.",
+                    "options": [
+                        "assessed",
+                        "preserved",
+                        "revised",
+                        "published"
+                    ]
+                },
+                "a6": {
+                    "answer": "dispassionately.",
+                    "verb_hint": "Заяви треба оцінювати неупереджено.",
+                    "options": [
+                        "dispassionately",
+                        "politely",
+                        "independently",
+                        "officially"
+                    ]
+                }
+            },
+            "verb_hint": "Заяви треба оцінювати неупереджено.",
+            "accepted_target_texts": [
+                "The representations must be assessed dispassionately."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The representations",
+                "must be",
+                "assessed",
+                "dispassionately."
+            ],
+            "token_groups": [
+                "The representations",
+                "must be",
+                "assessed",
+                "dispassionately."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "representations",
+                "must",
+                "be",
+                "assessed",
+                "dispassionately."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "representations",
+                "estimates",
+                "samples",
+                "proposals",
+                "must",
+                "can",
+                "could",
+                "will",
+                "be",
+                "wasn't",
+                "weren't",
+                "am",
+                "assessed",
+                "preserved",
+                "revised",
+                "published",
+                "dispassionately",
+                "politely",
+                "independently",
+                "officially"
+            ],
+            "source_text_uk": "Заяви треба оцінювати неупереджено.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "representations",
+                    "estimates",
+                    "samples",
+                    "proposals"
+                ],
+                "a3": [
+                    "must",
+                    "can",
+                    "could",
+                    "will"
+                ],
+                "a4": [
+                    "be",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a5": [
+                    "assessed",
+                    "preserved",
+                    "revised",
+                    "published"
+                ],
+                "a6": [
+                    "dispassionately",
+                    "politely",
+                    "independently",
+                    "officially"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pl",
+                "a2": "pl",
+                "a3": "be_pl",
+                "a4": "be_pl",
+                "a5": "participle",
+                "a6": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-advanced-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Запобіжник до того часу обійшли шляхом адміністративного розсуду.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_advanced",
+            "translation_uk": "Запобіжник до того часу обійшли шляхом адміністративного розсуду.",
+            "target_text": "The safeguard had been circumvented through administrative discretion.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Запобіжник до того часу обійшли шляхом адміністративного розсуду.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "safeguard",
+                    "verb_hint": "Запобіжник до того часу обійшли шляхом адміністративного розсуду.",
+                    "options": [
+                        "safeguard",
+                        "contract",
+                        "manuscript",
+                        "verdict"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Запобіжник до того часу обійшли шляхом адміністративного розсуду.",
+                    "options": [
+                        "had",
+                        "has",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "been",
+                    "verb_hint": "Запобіжник до того часу обійшли шляхом адміністративного розсуду.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "circumvented",
+                    "verb_hint": "Запобіжник до того часу обійшли шляхом адміністративного розсуду.",
+                    "options": [
+                        "circumvented",
+                        "documented",
+                        "preserved",
+                        "revised"
+                    ]
+                },
+                "a6": {
+                    "answer": "through",
+                    "verb_hint": "Запобіжник до того часу обійшли шляхом адміністративного розсуду.",
+                    "options": [
+                        "through",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a7": {
+                    "answer": "administrative",
+                    "verb_hint": "Запобіжник до того часу обійшли шляхом адміністративного розсуду.",
+                    "options": [
+                        "administrative",
+                        "safe",
+                        "useful",
+                        "helpful"
+                    ]
+                },
+                "a8": {
+                    "answer": "discretion.",
+                    "verb_hint": "Запобіжник до того часу обійшли шляхом адміністративного розсуду.",
+                    "options": [
+                        "discretion",
+                        "effect",
+                        "injunction",
+                        "immediate"
+                    ]
+                }
+            },
+            "verb_hint": "Запобіжник до того часу обійшли шляхом адміністративного розсуду.",
+            "accepted_target_texts": [
+                "The safeguard had been circumvented through administrative discretion."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The safeguard",
+                "had been",
+                "circumvented",
+                "through administrative discretion."
+            ],
+            "token_groups": [
+                "The safeguard",
+                "had been",
+                "circumvented",
+                "through administrative discretion."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "safeguard",
+                "had",
+                "been",
+                "circumvented",
+                "through",
+                "administrative",
+                "discretion."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "safeguard",
+                "contract",
+                "manuscript",
+                "verdict",
+                "had",
+                "has",
+                "haven't",
+                "hasn't",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "circumvented",
+                "documented",
+                "preserved",
+                "revised",
+                "through",
+                "for",
+                "of",
+                "in",
+                "administrative",
+                "safe",
+                "useful",
+                "helpful",
+                "discretion",
+                "effect",
+                "injunction",
+                "immediate"
+            ],
+            "source_text_uk": "Запобіжник до того часу обійшли шляхом адміністративного розсуду.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "safeguard",
+                    "contract",
+                    "manuscript",
+                    "verdict"
+                ],
+                "a3": [
+                    "had",
+                    "has",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a4": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a5": [
+                    "circumvented",
+                    "documented",
+                    "preserved",
+                    "revised"
+                ],
+                "a6": [
+                    "through",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a7": [
+                    "administrative",
+                    "safe",
+                    "useful",
+                    "helpful"
+                ],
+                "a8": [
+                    "discretion",
+                    "effect",
+                    "injunction",
+                    "immediate"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "be_sg",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

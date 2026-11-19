@@ -1,0 +1,1704 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mvq-v1",
+    "compiled_from": {
+        "path": "docs/content/modal-verbs-quality/need-neednt-dont-have-to.v1.json",
+        "sha256": "26391eab861a3ae82586d9541386a998f95a81d305f1e9ba8245326c89512211"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ModalVerbs\\UkrainianMixedNeedNeedntDontHaveToQualityStandardSeeder",
+        "uuid_namespace": "modal-verbs-quality-need-neednt-dont-have-to-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Modal Verbs"
+    },
+    "sources": {
+        "modal_verbs_quality_need_neednt_dont_have_to": {
+            "name": "Modal Verbs Quality: Потреба, відсутність потреби та виконання дії"
+        }
+    },
+    "tags": {
+        "modal_need_neednt_dont_have_to": {
+            "name": "Need / Needn't / Don't have to",
+            "category": "modal-verbs"
+        },
+        "need_to": {
+            "name": "Need To",
+            "category": "topic"
+        },
+        "dont_need_to": {
+            "name": "Do Not Need To",
+            "category": "topic"
+        },
+        "neednt": {
+            "name": "Need Not",
+            "category": "topic"
+        },
+        "dont_have_to": {
+            "name": "Do Not Have To",
+            "category": "topic"
+        },
+        "neednt_have": {
+            "name": "Need Not Have",
+            "category": "topic"
+        },
+        "didnt_need_to_vs_neednt_have": {
+            "name": "Did Not Need To vs Need Not Have",
+            "category": "topic"
+        },
+        "no_obligation": {
+            "name": "No Obligation",
+            "category": "topic"
+        },
+        "unnecessary_past_action": {
+            "name": "Unnecessary Past Action",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "modal_need_neednt_dont_have_to"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mvq-need-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The baby {a1} now.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Немовляті зараз потрібно спати.",
+            "target_text": "The baby needs to sleep now.",
+            "markers": {
+                "a1": {
+                    "answer": "needs to sleep",
+                    "options": [
+                        "needs to sleep",
+                        "need to sleep",
+                        "needs sleep"
+                    ],
+                    "verb_hint": "Вживи звичайне дієслово потреби в однині перед дією «спати»."
+                }
+            },
+            "verb_hint": "Вживи звичайне дієслово потреби в однині перед дією «спати».",
+            "accepted_target_texts": [
+                "The baby needs to sleep now."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The baby",
+                "needs to sleep",
+                "now."
+            ],
+            "token_groups": [
+                "The baby",
+                "needs to sleep",
+                "now."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "mvq-need-a1-g02",
+            "author_id": "A1-g02",
+            "question": "We {a1} some apples.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Нам потрібно купити трохи яблук.",
+            "target_text": "We need to buy some apples.",
+            "markers": {
+                "a1": {
+                    "answer": "need to buy",
+                    "options": [
+                        "need to buy",
+                        "needs to buy",
+                        "need buy"
+                    ],
+                    "verb_hint": "Передай потребу купити яблука через звичайне дієслово потреби."
+                }
+            },
+            "verb_hint": "Передай потребу купити яблука через звичайне дієслово потреби.",
+            "accepted_target_texts": [
+                "We need to buy some apples.",
+                "We need to purchase some apples."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "need to purchase"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "need to purchase"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "need to buy",
+                "some apples."
+            ],
+            "token_groups": [
+                "We",
+                "need to buy",
+                "some apples."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "mvq-need-a1-g03",
+            "author_id": "A1-g03",
+            "question": "You {a1} here.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Тобі не потрібно чекати тут.",
+            "target_text": "You need not wait here.",
+            "markers": {
+                "a1": {
+                    "answer": "need not wait",
+                    "options": [
+                        "need not wait",
+                        "need not to wait",
+                        "needs not wait"
+                    ],
+                    "verb_hint": "Передай відсутність потреби модальним дієсловом без допоміжного заперечення."
+                }
+            },
+            "verb_hint": "Передай відсутність потреби модальним дієсловом без допоміжного заперечення.",
+            "accepted_target_texts": [
+                "You need not wait here."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You",
+                "need not wait",
+                "here."
+            ],
+            "token_groups": [
+                "You",
+                "need not wait",
+                "here."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "mvq-need-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The room is warm; we {a1} a fire.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "У кімнаті тепло; нам не потрібне багаття.",
+            "target_text": "The room is warm; we do not need a fire.",
+            "markers": {
+                "a1": {
+                    "answer": "do not need",
+                    "options": [
+                        "do not need",
+                        "does not need",
+                        "do not needs"
+                    ],
+                    "verb_hint": "Запереч потребу в предметі звичайним дієсловом у множині."
+                }
+            },
+            "verb_hint": "Запереч потребу в предметі звичайним дієсловом у множині.",
+            "accepted_target_texts": [
+                "The room is warm; we do not need a fire."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The room",
+                "is warm;",
+                "we",
+                "do not need",
+                "a fire."
+            ],
+            "token_groups": [
+                "The room",
+                "is warm;",
+                "we",
+                "do not need",
+                "a fire."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "mvq-need-a1-g05",
+            "author_id": "A1-g05",
+            "question": "What {a1} for lunch?",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Що тобі потрібно на обід?",
+            "target_text": "What do you need for lunch?",
+            "markers": {
+                "a1": {
+                    "answer": "do you need",
+                    "options": [
+                        "do you need",
+                        "does you need",
+                        "do you needs"
+                    ],
+                    "verb_hint": "Запитай про потрібний предмет; підмет теж входить у пропуск."
+                }
+            },
+            "verb_hint": "Запитай про потрібний предмет; підмет теж входить у пропуск.",
+            "accepted_target_texts": [
+                "What do you need for lunch?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "do you need",
+                "for lunch?"
+            ],
+            "token_groups": [
+                "What",
+                "do you need",
+                "for lunch?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "mvq-need-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The cook needs to {a1} the rice.",
+            "level": "A1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Кухареві потрібно промити рис.",
+            "target_text": "The cook needs to wash the rice.",
+            "markers": {
+                "a1": {
+                    "answer": "wash",
+                    "options": [
+                        "wash",
+                        "washes",
+                        "to wash"
+                    ],
+                    "verb_hint": "Після готової конструкції вживи початкову форму «мити»."
+                }
+            },
+            "verb_hint": "Після готової конструкції вживи початкову форму «мити».",
+            "accepted_target_texts": [
+                "The cook needs to wash the rice.",
+                "The cook needs to rinse the rice."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "rinse"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "rinse"
+                ]
+            },
+            "reorder_groups": [
+                "The cook",
+                "needs to",
+                "wash",
+                "the rice."
+            ],
+            "token_groups": [
+                "The cook",
+                "needs to",
+                "wash",
+                "the rice."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "mvq-need-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The children {a1} the costumes today.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Дітям потрібно повернути костюми сьогодні.",
+            "target_text": "The children need to return the costumes today.",
+            "markers": {
+                "a1": {
+                    "answer": "need to return",
+                    "options": [
+                        "need to return",
+                        "needs to return",
+                        "need return"
+                    ],
+                    "verb_hint": "Передай теперішню потребу повернути костюми через звичайне дієслово."
+                }
+            },
+            "verb_hint": "Передай теперішню потребу повернути костюми через звичайне дієслово.",
+            "accepted_target_texts": [
+                "The children need to return the costumes today."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The children",
+                "need to return",
+                "the costumes",
+                "today."
+            ],
+            "token_groups": [
+                "The children",
+                "need to return",
+                "the costumes",
+                "today."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "mvq-need-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The photographer {a1} the battery.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Фотографові потрібно замінити батарейку.",
+            "target_text": "The photographer needs to change the battery.",
+            "markers": {
+                "a1": {
+                    "answer": "needs to change",
+                    "options": [
+                        "needs to change",
+                        "need to change",
+                        "needs change"
+                    ],
+                    "verb_hint": "Узгодь звичайне дієслово потреби з одниною й назви заміну батарейки."
+                }
+            },
+            "verb_hint": "Узгодь звичайне дієслово потреби з одниною й назви заміну батарейки.",
+            "accepted_target_texts": [
+                "The photographer needs to change the battery.",
+                "The photographer needs to replace the battery."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "needs to replace"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "needs to replace"
+                ]
+            },
+            "reorder_groups": [
+                "The photographer",
+                "needs to change",
+                "the battery."
+            ],
+            "token_groups": [
+                "The photographer",
+                "needs to change",
+                "the battery."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "mvq-need-a2-g03",
+            "author_id": "A2-g03",
+            "question": "You {a1} pay at this entrance.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "На цьому вході тобі не потрібно платити.",
+            "target_text": "You do not have to pay at this entrance.",
+            "markers": {
+                "a1": {
+                    "answer": "do not have to",
+                    "options": [
+                        "do not have to",
+                        "does not have to",
+                        "do not has to"
+                    ],
+                    "verb_hint": "Передай відсутність обов’язку звичайною заперечною конструкцією, не заборону оплати."
+                }
+            },
+            "verb_hint": "Передай відсутність обов’язку звичайною заперечною конструкцією, не заборону оплати.",
+            "accepted_target_texts": [
+                "You do not have to pay at this entrance."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You",
+                "do not have",
+                "to",
+                "pay at",
+                "this entrance."
+            ],
+            "token_groups": [
+                "You",
+                "do not have",
+                "to",
+                "pay at",
+                "this entrance."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "mvq-need-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The tickets are digital; we {a1} them.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Квитки електронні; нам не потрібно їх друкувати.",
+            "target_text": "The tickets are digital; we need not print them.",
+            "markers": {
+                "a1": {
+                    "answer": "need not print",
+                    "options": [
+                        "need not print",
+                        "need not to print",
+                        "needs not print"
+                    ],
+                    "verb_hint": "Використай модальну відсутність потреби в друці; друк не заборонено."
+                }
+            },
+            "verb_hint": "Використай модальну відсутність потреби в друці; друк не заборонено.",
+            "accepted_target_texts": [
+                "The tickets are digital; we need not print them."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The tickets",
+                "are digital;",
+                "we",
+                "need not print",
+                "them."
+            ],
+            "token_groups": [
+                "The tickets",
+                "are digital;",
+                "we",
+                "need not print",
+                "them."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "mvq-need-a2-g05",
+            "author_id": "A2-g05",
+            "question": "When {a1} the car?",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Коли їй потрібен автомобіль?",
+            "target_text": "When does she need the car?",
+            "markers": {
+                "a1": {
+                    "answer": "does she need",
+                    "options": [
+                        "does she need",
+                        "do she need",
+                        "does she needs"
+                    ],
+                    "verb_hint": "Постав запитання про час потреби; підмет входить у пропуск."
+                }
+            },
+            "verb_hint": "Постав запитання про час потреби; підмет входить у пропуск.",
+            "accepted_target_texts": [
+                "When does she need the car?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "When",
+                "does she need",
+                "the car?"
+            ],
+            "token_groups": [
+                "When",
+                "does she need",
+                "the car?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "mvq-need-a2-g06",
+            "author_id": "A2-g06",
+            "question": "I need to {a1} a ladder.",
+            "level": "A2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Мені потрібно позичити драбину.",
+            "target_text": "I need to borrow a ladder.",
+            "markers": {
+                "a1": {
+                    "answer": "borrow",
+                    "options": [
+                        "borrow",
+                        "borrows",
+                        "to borrow"
+                    ],
+                    "verb_hint": "Назви отримання драбини в тимчасове користування після готової конструкції."
+                }
+            },
+            "verb_hint": "Назви отримання драбини в тимчасове користування після готової конструкції.",
+            "accepted_target_texts": [
+                "I need to borrow a ladder."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "need to",
+                "borrow",
+                "a ladder."
+            ],
+            "token_groups": [
+                "I",
+                "need to",
+                "borrow",
+                "a ladder."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "mvq-need-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The hall provides cups; we {a1} our own.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Зала надає чашки; нам не потрібно приносити свої.",
+            "target_text": "The hall provides cups; we do not need to bring our own.",
+            "markers": {
+                "a1": {
+                    "answer": "do not need to bring",
+                    "options": [
+                        "do not need to bring",
+                        "does not need to bring",
+                        "do not needs to bring"
+                    ],
+                    "verb_hint": "Запереч потребу звичайним дієсловом; не змінюй необов’язковість на заборону."
+                }
+            },
+            "verb_hint": "Запереч потребу звичайним дієсловом; не змінюй необов’язковість на заборону.",
+            "accepted_target_texts": [
+                "The hall provides cups; we do not need to bring our own."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The hall",
+                "provides cups;",
+                "we",
+                "do not need",
+                "to bring",
+                "our own."
+            ],
+            "token_groups": [
+                "The hall",
+                "provides cups;",
+                "we",
+                "do not need",
+                "to bring",
+                "our own."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "mvq-need-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Sonia bought another cable, but she {a1} it.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Соня купила ще один кабель, хоча потреби в цьому не було.",
+            "target_text": "Sonia bought another cable, but she need not have bought it.",
+            "markers": {
+                "a1": {
+                    "answer": "need not have bought",
+                    "options": [
+                        "need not have bought",
+                        "need not has bought",
+                        "need not have buy"
+                    ],
+                    "verb_hint": "Передай виконану зайву покупку перфектною модальною формою відсутності потреби."
+                }
+            },
+            "verb_hint": "Передай виконану зайву покупку перфектною модальною формою відсутності потреби.",
+            "accepted_target_texts": [
+                "Sonia bought another cable, but she need not have bought it."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Sonia",
+                "bought another cable,",
+                "but she",
+                "need not have",
+                "bought",
+                "it."
+            ],
+            "token_groups": [
+                "Sonia",
+                "bought another cable,",
+                "but she",
+                "need not have",
+                "bought",
+                "it."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "mvq-need-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The caretaker {a1} the spare key anymore.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Доглядачеві більше не потрібен запасний ключ.",
+            "target_text": "The caretaker does not need the spare key anymore.",
+            "markers": {
+                "a1": {
+                    "answer": "does not need",
+                    "options": [
+                        "does not need",
+                        "do not need",
+                        "does not needs"
+                    ],
+                    "verb_hint": "Запереч теперішню потребу в предметі, узгодивши допоміжне дієслово з одниною."
+                }
+            },
+            "verb_hint": "Запереч теперішню потребу в предметі, узгодивши допоміжне дієслово з одниною.",
+            "accepted_target_texts": [
+                "The caretaker does not need the spare key anymore."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The caretaker",
+                "does not need",
+                "the spare key",
+                "anymore."
+            ],
+            "token_groups": [
+                "The caretaker",
+                "does not need",
+                "the spare key",
+                "anymore."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "mvq-need-b1-g04",
+            "author_id": "B1-g04",
+            "question": "We {a1} a van; whether we did is not recorded.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Нам не потрібно було наймати фургон; чи ми його найняли, не записано.",
+            "target_text": "We did not need to hire a van; whether we did is not recorded.",
+            "markers": {
+                "a1": {
+                    "answer": "did not need to hire",
+                    "options": [
+                        "did not need to hire",
+                        "did not needed to hire",
+                        "did not need hire"
+                    ],
+                    "verb_hint": "Запереч минулу необхідність звичайним дієсловом, не приписуючи виконання дії."
+                }
+            },
+            "verb_hint": "Запереч минулу необхідність звичайним дієсловом, не приписуючи виконання дії.",
+            "accepted_target_texts": [
+                "We did not need to hire a van; whether we did is not recorded."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "did not need",
+                "to hire",
+                "a van;",
+                "whether we did",
+                "is not recorded."
+            ],
+            "token_groups": [
+                "We",
+                "did not need",
+                "to hire",
+                "a van;",
+                "whether we did",
+                "is not recorded."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "mvq-need-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Why {a1} to queue?",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Чому нам потрібно стояти в черзі?",
+            "target_text": "Why do we need to queue?",
+            "markers": {
+                "a1": {
+                    "answer": "do we need",
+                    "options": [
+                        "do we need",
+                        "does we need",
+                        "do we needs"
+                    ],
+                    "verb_hint": "Запитай про причину необхідності; підмет теж потрібно ввести."
+                }
+            },
+            "verb_hint": "Запитай про причину необхідності; підмет теж потрібно ввести.",
+            "accepted_target_texts": [
+                "Why do we need to queue?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "do we need",
+                "to queue?"
+            ],
+            "token_groups": [
+                "Why",
+                "do we need",
+                "to queue?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "mvq-need-b1-g06",
+            "author_id": "B1-g06",
+            "question": "Members need not {a1} a seat in advance.",
+            "level": "B1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Членам клубу не потрібно бронювати місце заздалегідь.",
+            "target_text": "Members need not reserve a seat in advance.",
+            "markers": {
+                "a1": {
+                    "answer": "reserve",
+                    "options": [
+                        "reserve",
+                        "reserves",
+                        "to reserve"
+                    ],
+                    "verb_hint": "У наведеній модальній конструкції вживи початкову форму «бронювати»."
+                }
+            },
+            "verb_hint": "У наведеній модальній конструкції вживи початкову форму «бронювати».",
+            "accepted_target_texts": [
+                "Members need not reserve a seat in advance.",
+                "Members need not book a seat in advance."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "book"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "book"
+                ]
+            },
+            "reorder_groups": [
+                "Members",
+                "need not",
+                "reserve",
+                "a seat",
+                "in advance."
+            ],
+            "token_groups": [
+                "Members",
+                "need not",
+                "reserve",
+                "a seat",
+                "in advance."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "mvq-need-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The contract {a1} the delivery date.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "У договорі потрібно зазначити дату доставки.",
+            "target_text": "The contract needs to specify the delivery date.",
+            "markers": {
+                "a1": {
+                    "answer": "needs to specify",
+                    "options": [
+                        "needs to specify",
+                        "need to specify",
+                        "needs specify"
+                    ],
+                    "verb_hint": "Узгодь звичайне дієслово потреби з одниною й назви точне зазначення дати."
+                }
+            },
+            "verb_hint": "Узгодь звичайне дієслово потреби з одниною й назви точне зазначення дати.",
+            "accepted_target_texts": [
+                "The contract needs to specify the delivery date."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The contract",
+                "needs to specify",
+                "the delivery date."
+            ],
+            "token_groups": [
+                "The contract",
+                "needs to specify",
+                "the delivery date."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "mvq-need-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The delegates {a1} the optional dinner.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Делегатам не обов’язково відвідувати необов’язкову вечерю.",
+            "target_text": "The delegates do not have to attend the optional dinner.",
+            "markers": {
+                "a1": {
+                    "answer": "do not have to attend",
+                    "options": [
+                        "do not have to attend",
+                        "does not have to attend",
+                        "do not has to attend"
+                    ],
+                    "verb_hint": "Передай відсутність обов’язку відвідувати вечерю, не заборону участі."
+                }
+            },
+            "verb_hint": "Передай відсутність обов’язку відвідувати вечерю, не заборону участі.",
+            "accepted_target_texts": [
+                "The delegates do not have to attend the optional dinner."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The delegates",
+                "do not have",
+                "to attend",
+                "the optional dinner."
+            ],
+            "token_groups": [
+                "The delegates",
+                "do not have",
+                "to attend",
+                "the optional dinner."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "mvq-need-b2-g03",
+            "author_id": "B2-g03",
+            "question": "Elena submitted two copies; she {a1} the second.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Олена подала дві копії, хоча другу подавати не було потреби.",
+            "target_text": "Elena submitted two copies; she need not have submitted the second.",
+            "markers": {
+                "a1": {
+                    "answer": "need not have submitted",
+                    "options": [
+                        "need not have submitted",
+                        "need not have submit",
+                        "need not has submitted"
+                    ],
+                    "verb_hint": "Оціни вже виконане зайве подання перфектною модальною формою відсутності потреби."
+                }
+            },
+            "verb_hint": "Оціни вже виконане зайве подання перфектною модальною формою відсутності потреби.",
+            "accepted_target_texts": [
+                "Elena submitted two copies; she need not have submitted the second."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Elena",
+                "submitted two copies;",
+                "she",
+                "need not have",
+                "submitted",
+                "the second."
+            ],
+            "token_groups": [
+                "Elena",
+                "submitted two copies;",
+                "she",
+                "need not have",
+                "submitted",
+                "the second."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "mvq-need-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The supplier {a1} the formula; its actual disclosure is unknown.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Постачальникові не потрібно було розкривати формулу; чи він її розкрив, невідомо.",
+            "target_text": "The supplier did not need to disclose the formula; its actual disclosure is unknown.",
+            "markers": {
+                "a1": {
+                    "answer": "did not need to disclose",
+                    "options": [
+                        "did not need to disclose",
+                        "did not needed to disclose",
+                        "did not need disclose"
+                    ],
+                    "verb_hint": "Запереч минулу необхідність без висновку про фактичне розкриття."
+                }
+            },
+            "verb_hint": "Запереч минулу необхідність без висновку про фактичне розкриття.",
+            "accepted_target_texts": [
+                "The supplier did not need to disclose the formula; its actual disclosure is unknown."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The supplier",
+                "did not need",
+                "to disclose",
+                "the formula;",
+                "its actual disclosure",
+                "is unknown."
+            ],
+            "token_groups": [
+                "The supplier",
+                "did not need",
+                "to disclose",
+                "the formula;",
+                "its actual disclosure",
+                "is unknown."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "mvq-need-b2-g05",
+            "author_id": "B2-g05",
+            "question": "How much time {a1} need for the inspection?",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Скільки часу команді потрібно для огляду?",
+            "target_text": "How much time does the team need for the inspection?",
+            "markers": {
+                "a1": {
+                    "answer": "does the team",
+                    "options": [
+                        "does the team",
+                        "do the team",
+                        "does the teams"
+                    ],
+                    "verb_hint": "Побудуй допоміжну частину запитання з підметом однини, не повторюючи наведене дієслово потреби."
+                }
+            },
+            "verb_hint": "Побудуй допоміжну частину запитання з підметом однини, не повторюючи наведене дієслово потреби.",
+            "accepted_target_texts": [
+                "How much time does the team need for the inspection?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How much time",
+                "does the team",
+                "need for",
+                "the inspection?"
+            ],
+            "token_groups": [
+                "How much time",
+                "does the team",
+                "need for",
+                "the inspection?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "mvq-need-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The applicant need not {a1} that decision at this stage.",
+            "level": "B2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Заявникові не потрібно обґрунтовувати це рішення на цьому етапі.",
+            "target_text": "The applicant need not justify that decision at this stage.",
+            "markers": {
+                "a1": {
+                    "answer": "justify",
+                    "options": [
+                        "justify",
+                        "justifies",
+                        "to justify"
+                    ],
+                    "verb_hint": "Після наведеної модальної конструкції введи початкову форму «обґрунтовувати»."
+                }
+            },
+            "verb_hint": "Після наведеної модальної конструкції введи початкову форму «обґрунтовувати».",
+            "accepted_target_texts": [
+                "The applicant need not justify that decision at this stage."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The applicant",
+                "need not",
+                "justify",
+                "that decision",
+                "at this stage."
+            ],
+            "token_groups": [
+                "The applicant",
+                "need not",
+                "justify",
+                "that decision",
+                "at this stage."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "mvq-need-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The methodology {a1} eligibility from preference.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "У методології потрібно відрізняти відповідність критеріям від переваги.",
+            "target_text": "The methodology needs to distinguish eligibility from preference.",
+            "markers": {
+                "a1": {
+                    "answer": "needs to distinguish",
+                    "options": [
+                        "needs to distinguish",
+                        "need to distinguish",
+                        "needs distinguish"
+                    ],
+                    "verb_hint": "Узгодь звичайне дієслово потреби з одниною; збережи розмежування двох понять."
+                }
+            },
+            "verb_hint": "Узгодь звичайне дієслово потреби з одниною; збережи розмежування двох понять.",
+            "accepted_target_texts": [
+                "The methodology needs to distinguish eligibility from preference."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The methodology",
+                "needs to distinguish",
+                "eligibility from preference."
+            ],
+            "token_groups": [
+                "The methodology",
+                "needs to distinguish",
+                "eligibility from preference."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "mvq-need-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The institution {a1} identifiable records.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Установі не потрібно зберігати записи, що дозволяють установити особу.",
+            "target_text": "The institution does not need to retain identifiable records.",
+            "markers": {
+                "a1": {
+                    "answer": "does not need to retain",
+                    "options": [
+                        "does not need to retain",
+                        "do not need to retain",
+                        "does not needs to retain"
+                    ],
+                    "verb_hint": "Запереч необхідність зберігання звичайним дієсловом потреби; не оголошуй зберігання забороненим."
+                }
+            },
+            "verb_hint": "Запереч необхідність зберігання звичайним дієсловом потреби; не оголошуй зберігання забороненим.",
+            "accepted_target_texts": [
+                "The institution does not need to retain identifiable records."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The institution",
+                "does not need",
+                "to retain",
+                "identifiable records."
+            ],
+            "token_groups": [
+                "The institution",
+                "does not need",
+                "to retain",
+                "identifiable records."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "mvq-need-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The witnesses {a1} overnight; a video link was already available.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Свідки їхали вночі, хоча потреби в цьому не було: відеозв’язок уже був доступний.",
+            "target_text": "The witnesses need not have travelled overnight; a video link was already available.",
+            "markers": {
+                "a1": {
+                    "answer": "need not have travelled",
+                    "options": [
+                        "need not have travelled",
+                        "need not have travel",
+                        "need not has travelled"
+                    ],
+                    "verb_hint": "Передай виконану зайву подорож; не заперечуй її факту."
+                }
+            },
+            "verb_hint": "Передай виконану зайву подорож; не заперечуй її факту.",
+            "accepted_target_texts": [
+                "The witnesses need not have travelled overnight; a video link was already available.",
+                "The witnesses need not have traveled overnight; a video link was already available."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "need not have traveled"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "need not have traveled"
+                ]
+            },
+            "reorder_groups": [
+                "The witnesses",
+                "need not have",
+                "travelled",
+                "overnight;",
+                "a video link",
+                "was already available."
+            ],
+            "token_groups": [
+                "The witnesses",
+                "need not have",
+                "travelled",
+                "overnight;",
+                "a video link",
+                "was already available."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "mvq-need-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The publisher {a1} further consent; whether it did is unspecified.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Видавцеві не потрібно було отримувати додаткову згоду; чи він її отримав, не зазначено.",
+            "target_text": "The publisher did not need to obtain further consent; whether it did is unspecified.",
+            "markers": {
+                "a1": {
+                    "answer": "did not need to obtain",
+                    "options": [
+                        "did not need to obtain",
+                        "did not needed to obtain",
+                        "did not need obtain"
+                    ],
+                    "verb_hint": "Запереч лише минулу необхідність, не приписуючи факту отримання згоди."
+                }
+            },
+            "verb_hint": "Запереч лише минулу необхідність, не приписуючи факту отримання згоди.",
+            "accepted_target_texts": [
+                "The publisher did not need to obtain further consent; whether it did is unspecified."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The publisher",
+                "did not need",
+                "to obtain",
+                "further consent;",
+                "whether it did",
+                "is unspecified."
+            ],
+            "token_groups": [
+                "The publisher",
+                "did not need",
+                "to obtain",
+                "further consent;",
+                "whether it did",
+                "is unspecified."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "mvq-need-c1-g05",
+            "author_id": "C1-g05",
+            "question": "Why {a1} reveal the address?",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Навіщо свідкові розкривати адресу?",
+            "target_text": "Why need the witness reveal the address?",
+            "markers": {
+                "a1": {
+                    "answer": "need the witness",
+                    "options": [
+                        "need the witness",
+                        "needs the witness",
+                        "does need the witness"
+                    ],
+                    "verb_hint": "Побудуй формальне модальне запитання про необхідність; підмет теж у пропуску."
+                }
+            },
+            "verb_hint": "Побудуй формальне модальне запитання про необхідність; підмет теж у пропуску.",
+            "accepted_target_texts": [
+                "Why need the witness reveal the address?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "need the witness",
+                "reveal the address?"
+            ],
+            "token_groups": [
+                "Why",
+                "need the witness",
+                "reveal the address?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "mvq-need-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The assessor need not {a1} a causal connection.",
+            "level": "C1",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Оцінювачеві не потрібно припускати причинний зв’язок.",
+            "target_text": "The assessor need not presume a causal connection.",
+            "markers": {
+                "a1": {
+                    "answer": "presume",
+                    "options": [
+                        "presume",
+                        "presumes",
+                        "to presume"
+                    ],
+                    "verb_hint": "Після готової модальної конструкції вживи початкову форму «припускати»."
+                }
+            },
+            "verb_hint": "Після готової модальної конструкції вживи початкову форму «припускати».",
+            "accepted_target_texts": [
+                "The assessor need not presume a causal connection.",
+                "The assessor need not assume a causal connection."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "assume"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "assume"
+                ]
+            },
+            "reorder_groups": [
+                "The assessor",
+                "need not",
+                "presume",
+                "a causal connection."
+            ],
+            "token_groups": [
+                "The assessor",
+                "need not",
+                "presume",
+                "a causal connection."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "mvq-need-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The submission {a1} the conflicting commitments.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "У поданні потрібно узгодити суперечні зобов’язання.",
+            "target_text": "The submission needs to reconcile the conflicting commitments.",
+            "markers": {
+                "a1": {
+                    "answer": "needs to reconcile",
+                    "options": [
+                        "needs to reconcile",
+                        "need to reconcile",
+                        "needs reconcile"
+                    ],
+                    "verb_hint": "Використай звичайне дієслово потреби; узгодження можна також передати як «гармонізацію»."
+                }
+            },
+            "verb_hint": "Використай звичайне дієслово потреби; узгодження можна також передати як «гармонізацію».",
+            "accepted_target_texts": [
+                "The submission needs to reconcile the conflicting commitments.",
+                "The submission needs to harmonise the conflicting commitments.",
+                "The submission needs to harmonize the conflicting commitments."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "needs to harmonise",
+                    "needs to harmonize"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "needs to harmonise",
+                    "needs to harmonize"
+                ]
+            },
+            "reorder_groups": [
+                "The submission",
+                "needs to reconcile",
+                "the conflicting commitments."
+            ],
+            "token_groups": [
+                "The submission",
+                "needs to reconcile",
+                "the conflicting commitments."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "mvq-need-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The respondent {a1} an allegation it never made.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Відповідачеві не обов’язково доводити твердження, якого він не висував.",
+            "target_text": "The respondent does not have to substantiate an allegation it never made.",
+            "markers": {
+                "a1": {
+                    "answer": "does not have to substantiate",
+                    "options": [
+                        "does not have to substantiate",
+                        "do not have to substantiate",
+                        "does not has to substantiate"
+                    ],
+                    "verb_hint": "Запереч саме обов’язок доведення, не можливість подати докази."
+                }
+            },
+            "verb_hint": "Запереч саме обов’язок доведення, не можливість подати докази.",
+            "accepted_target_texts": [
+                "The respondent does not have to substantiate an allegation it never made."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The respondent",
+                "does not have",
+                "to substantiate",
+                "an allegation",
+                "it never made."
+            ],
+            "token_groups": [
+                "The respondent",
+                "does not have",
+                "to substantiate",
+                "an allegation",
+                "it never made."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "mvq-need-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The tribunal {a1} the evidential issue; the concession was already binding.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Трибунал повторно відкрив доказове питання, хоча потреби в цьому не було: визнання вже було обов’язковим.",
+            "target_text": "The tribunal need not have reopened the evidential issue; the concession was already binding.",
+            "markers": {
+                "a1": {
+                    "answer": "need not have reopened",
+                    "options": [
+                        "need not have reopened",
+                        "need not have reopen",
+                        "need not has reopened"
+                    ],
+                    "verb_hint": "Передай вже виконану зайву процесуальну дію за наявної обов’язкової передумови."
+                }
+            },
+            "verb_hint": "Передай вже виконану зайву процесуальну дію за наявної обов’язкової передумови.",
+            "accepted_target_texts": [
+                "The tribunal need not have reopened the evidential issue; the concession was already binding."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The tribunal",
+                "need not have",
+                "reopened",
+                "the evidential issue;",
+                "the concession",
+                "was already binding."
+            ],
+            "token_groups": [
+                "The tribunal",
+                "need not have",
+                "reopened",
+                "the evidential issue;",
+                "the concession",
+                "was already binding."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "mvq-need-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The analyst {a1} an unstated qualification; whether she did is not established.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Аналітикині не потрібно було виводити невисловлене застереження; чи вона це зробила, не встановлено.",
+            "target_text": "The analyst did not need to infer an unstated qualification; whether she did is not established.",
+            "markers": {
+                "a1": {
+                    "answer": "did not need to infer",
+                    "options": [
+                        "did not need to infer",
+                        "did not needed to infer",
+                        "did not need infer"
+                    ],
+                    "verb_hint": "Запереч лише минулу необхідність, залишивши сам факт висновування невідомим."
+                }
+            },
+            "verb_hint": "Запереч лише минулу необхідність, залишивши сам факт висновування невідомим.",
+            "accepted_target_texts": [
+                "The analyst did not need to infer an unstated qualification; whether she did is not established."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The analyst",
+                "did not need",
+                "to infer",
+                "an unstated qualification;",
+                "whether she did",
+                "is not established."
+            ],
+            "token_groups": [
+                "The analyst",
+                "did not need",
+                "to infer",
+                "an unstated qualification;",
+                "whether she did",
+                "is not established."
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "mvq-need-c2-g05",
+            "author_id": "C2-g05",
+            "question": "To what extent {a1} depend on foreseeability?",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Якою мірою засіб захисту має залежати від передбачуваності?",
+            "target_text": "To what extent need the remedy depend on foreseeability?",
+            "markers": {
+                "a1": {
+                    "answer": "need the remedy",
+                    "options": [
+                        "need the remedy",
+                        "needs the remedy",
+                        "does need the remedy"
+                    ],
+                    "verb_hint": "Побудуй формальне запитання про необхідну залежність; підмет у пропуску."
+                }
+            },
+            "verb_hint": "Побудуй формальне запитання про необхідну залежність; підмет у пропуску.",
+            "accepted_target_texts": [
+                "To what extent need the remedy depend on foreseeability?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "To what extent",
+                "need the remedy",
+                "depend on foreseeability?"
+            ],
+            "token_groups": [
+                "To what extent",
+                "need the remedy",
+                "depend on foreseeability?"
+            ],
+            "quality_revision": "mvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "mvq-need-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The decision-maker need not {a1} silence with ratification.",
+            "level": "C2",
+            "type": 0,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Особі, яка ухвалює рішення, не потрібно ототожнювати мовчання зі схваленням.",
+            "target_text": "The decision-maker need not equate silence with ratification.",
+            "markers": {
+                "a1": {
+                    "answer": "equate",
+                    "options": [
+                        "equate",
+                        "equates",
+                        "to equate"
+                    ],
+                    "verb_hint": "У наведеній модальній конструкції постав початкову форму «ототожнювати»."
+                }
+            },
+            "verb_hint": "У наведеній модальній конструкції постав початкову форму «ототожнювати».",
+            "accepted_target_texts": [
+                "The decision-maker need not equate silence with ratification."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The decision-maker",
+                "need not",
+                "equate",
+                "silence with ratification."
+            ],
+            "token_groups": [
+                "The decision-maker",
+                "need not",
+                "equate",
+                "silence with ratification."
+            ],
+            "quality_revision": "mvq-v1"
+        }
+    ]
+}

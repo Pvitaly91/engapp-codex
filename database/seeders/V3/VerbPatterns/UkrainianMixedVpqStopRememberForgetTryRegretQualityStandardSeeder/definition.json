@@ -1,0 +1,723 @@
+{
+    "schema_version": 1,
+    "quality_revision": "vpq-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-patterns-quality/stop-remember-forget-try-regret.v1.json",
+        "sha256": "9fc1fd27d802fbb8086b0ae07a44ea7fa2f3e65a8f3ce74fc164c2f627ce4c34"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\VerbPatterns\\UkrainianMixedVpqStopRememberForgetTryRegretQualityStandardSeeder",
+        "uuid_namespace": "verb-patterns-quality-stop-remember-forget-try-regret-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Verb Patterns"
+    },
+    "sources": {
+        "verb_patterns_quality_stop_remember_forget_try_regret": {
+            "name": "Verb Patterns Quality: Stop / Remember / Forget / Try / Regret"
+        }
+    },
+    "tags": {
+        "stop_remember_forget_try_regret": {
+            "name": "Stop Remember Forget Try Regret",
+            "category": "verb_patterns"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "stop_doing": {
+            "name": "Stop Doing",
+            "category": "topic"
+        },
+        "stop_to_do": {
+            "name": "Stop To Do",
+            "category": "topic"
+        },
+        "remember_doing": {
+            "name": "Remember Doing",
+            "category": "topic"
+        },
+        "remember_to_do": {
+            "name": "Remember To Do",
+            "category": "topic"
+        },
+        "forget_doing": {
+            "name": "Forget Doing",
+            "category": "topic"
+        },
+        "forget_to_do": {
+            "name": "Forget To Do",
+            "category": "topic"
+        },
+        "try_doing": {
+            "name": "Try Doing",
+            "category": "topic"
+        },
+        "try_to_do": {
+            "name": "Try To Do",
+            "category": "topic"
+        },
+        "regret_doing": {
+            "name": "Regret Doing",
+            "category": "topic"
+        },
+        "regret_to_say": {
+            "name": "Regret To Say",
+            "category": "topic"
+        },
+        "meaning_changes": {
+            "name": "Meaning Changes",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "vpq-meaning-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The girl stopped {a1} and closed the book.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Дівчинка перестала читати й закрила книжку.",
+            "target_text": "The girl stopped reading and closed the book.",
+            "markers": {
+                "a1": {
+                    "answer": "reading",
+                    "options": [
+                        "reading",
+                        "to read",
+                        "read"
+                    ],
+                    "verb_hint": "Перестала читати: назви припинене заняття формою із закінченням -інг, а не мету зупинки."
+                }
+            },
+            "verb_hint": "Перестала читати: назви припинене заняття формою із закінченням -інг, а не мету зупинки.",
+            "accepted_target_texts": [
+                "The girl stopped reading and closed the book."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The girl stopped",
+                "reading",
+                "and closed",
+                "the book."
+            ],
+            "token_groups": [
+                "The girl stopped",
+                "reading",
+                "and closed",
+                "the book."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "vpq-meaning-a1-g02",
+            "author_id": "A1-g02",
+            "question": "We remembered {a1} the milk.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Ми не забули купити молоко.",
+            "target_text": "We remembered to buy the milk.",
+            "markers": {
+                "a1": {
+                    "answer": "to buy",
+                    "options": [
+                        "to buy",
+                        "buying",
+                        "buy"
+                    ],
+                    "verb_hint": "Не забули купити, придбати: передай виконане доручення, а не спогад про минулу покупку."
+                }
+            },
+            "verb_hint": "Не забули купити, придбати: передай виконане доручення, а не спогад про минулу покупку.",
+            "accepted_target_texts": [
+                "We remembered to buy the milk.",
+                "We remembered to purchase the milk."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to purchase"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to purchase"
+                ]
+            },
+            "reorder_groups": [
+                "We remembered",
+                "to buy",
+                "the milk."
+            ],
+            "token_groups": [
+                "We remembered",
+                "to buy",
+                "the milk."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "vpq-meaning-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The receptionist forgot {a1} the parcel, so it stayed on her desk.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Адміністраторка забула надіслати посилку поштою, тому вона залишилася на її столі.",
+            "target_text": "The receptionist forgot to post the parcel, so it stayed on her desk.",
+            "markers": {
+                "a1": {
+                    "answer": "to post",
+                    "options": [
+                        "to post",
+                        "posting",
+                        "post"
+                    ],
+                    "verb_hint": "Доручення надіслати поштою не виконано; назви забуту дію інфінітивом, не спогад про її виконання."
+                }
+            },
+            "verb_hint": "Доручення надіслати поштою не виконано; назви забуту дію інфінітивом, не спогад про її виконання.",
+            "accepted_target_texts": [
+                "The receptionist forgot to post the parcel, so it stayed on her desk.",
+                "The receptionist forgot to mail the parcel, so it stayed on her desk.",
+                "The receptionist forgot to send the parcel, so it stayed on her desk."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to mail",
+                    "to send"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to mail",
+                    "to send"
+                ]
+            },
+            "reorder_groups": [
+                "The receptionist forgot",
+                "to post",
+                "the parcel,",
+                "so it stayed",
+                "on her desk."
+            ],
+            "token_groups": [
+                "The receptionist forgot",
+                "to post",
+                "the parcel,",
+                "so it stayed",
+                "on her desk."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "vpq-meaning-a2-g02",
+            "author_id": "A2-g02",
+            "question": "I will never forget {a1} a dolphin for the first time.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Я ніколи не забуду, як уперше побачив дельфіна.",
+            "target_text": "I will never forget seeing a dolphin for the first time.",
+            "markers": {
+                "a1": {
+                    "answer": "seeing",
+                    "options": [
+                        "seeing",
+                        "to see",
+                        "see"
+                    ],
+                    "verb_hint": "Передай незабутній минулий досвід «побачити»; це спогад, а не доручення на майбутнє."
+                }
+            },
+            "verb_hint": "Передай незабутній минулий досвід «побачити»; це спогад, а не доручення на майбутнє.",
+            "accepted_target_texts": [
+                "I will never forget seeing a dolphin for the first time."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I will never",
+                "forget seeing",
+                "a dolphin",
+                "for the first",
+                "time."
+            ],
+            "token_groups": [
+                "I will never",
+                "forget seeing",
+                "a dolphin",
+                "for the first",
+                "time."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "vpq-meaning-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The cyclist stopped {a1} his water bottle before the next hill.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Велосипедист зупинився, щоб знову наповнити пляшку водою перед наступним пагорбом.",
+            "target_text": "The cyclist stopped to refill his water bottle before the next hill.",
+            "markers": {
+                "a1": {
+                    "answer": "to refill",
+                    "options": [
+                        "to refill",
+                        "refilling",
+                        "refill"
+                    ],
+                    "verb_hint": "Повторне наповнення пляшки є метою зупинки; назви цю дію інфінітивом, не припинення наповнення."
+                }
+            },
+            "verb_hint": "Повторне наповнення пляшки є метою зупинки; назви цю дію інфінітивом, не припинення наповнення.",
+            "accepted_target_texts": [
+                "The cyclist stopped to refill his water bottle before the next hill.",
+                "The cyclist stopped to fill up his water bottle before the next hill."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to fill up"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to fill up"
+                ]
+            },
+            "reorder_groups": [
+                "The cyclist stopped",
+                "to refill",
+                "his water bottle",
+                "before the next",
+                "hill."
+            ],
+            "token_groups": [
+                "The cyclist stopped",
+                "to refill",
+                "his water bottle",
+                "before the next",
+                "hill."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "vpq-meaning-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The screen froze, so Mira tried {a1} the program.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Екран завис, тому Міра випробувала перезапуск програми як можливе рішення.",
+            "target_text": "The screen froze, so Mira tried restarting the program.",
+            "markers": {
+                "a1": {
+                    "answer": "restarting",
+                    "options": [
+                        "restarting",
+                        "to restart",
+                        "restart"
+                    ],
+                    "verb_hint": "Назви перезапуск як випробуваний спосіб усунути проблему; не описуй лише намагання перезапустити програму."
+                }
+            },
+            "verb_hint": "Назви перезапуск як випробуваний спосіб усунути проблему; не описуй лише намагання перезапустити програму.",
+            "accepted_target_texts": [
+                "The screen froze, so Mira tried restarting the program.",
+                "The screen froze, so Mira tried relaunching the program."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "relaunching"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "relaunching"
+                ]
+            },
+            "reorder_groups": [
+                "The screen froze,",
+                "so Mira tried",
+                "restarting",
+                "the program."
+            ],
+            "token_groups": [
+                "The screen froze,",
+                "so Mira tried",
+                "restarting",
+                "the program."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "vpq-meaning-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The curator regrets {a1} the disputed sketch without checking its history.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Куратор шкодує, що придбав спірний ескіз, не перевіривши його історії.",
+            "target_text": "The curator regrets buying the disputed sketch without checking its history.",
+            "markers": {
+                "a1": {
+                    "answer": "buying",
+                    "options": [
+                        "buying",
+                        "to buy",
+                        "buy"
+                    ],
+                    "verb_hint": "Передай жаль про вже здійснене придбання; прийнятна проста форма герундія або форма, що явно позначає попередню дію."
+                }
+            },
+            "verb_hint": "Передай жаль про вже здійснене придбання; прийнятна проста форма герундія або форма, що явно позначає попередню дію.",
+            "accepted_target_texts": [
+                "The curator regrets buying the disputed sketch without checking its history.",
+                "The curator regrets purchasing the disputed sketch without checking its history.",
+                "The curator regrets having bought the disputed sketch without checking its history.",
+                "The curator regrets having purchased the disputed sketch without checking its history."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "purchasing",
+                    "having bought",
+                    "having purchased"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "purchasing",
+                    "having bought",
+                    "having purchased"
+                ]
+            },
+            "reorder_groups": [
+                "The curator regrets",
+                "buying",
+                "the disputed sketch",
+                "without checking",
+                "its history."
+            ],
+            "token_groups": [
+                "The curator regrets",
+                "buying",
+                "the disputed sketch",
+                "without checking",
+                "its history."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "vpq-meaning-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The agency regrets {a1} applicants that no grants remain available this quarter.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Агенція з прикрістю повідомляє заявникам, що цього кварталу грантів більше немає.",
+            "target_text": "The agency regrets to inform applicants that no grants remain available this quarter.",
+            "markers": {
+                "a1": {
+                    "answer": "to inform",
+                    "options": [
+                        "to inform",
+                        "informing",
+                        "inform"
+                    ],
+                    "verb_hint": "Передай ввічливе офіційне повідомлення зараз, не жаль про минуле повідомлення; назви дію «повідомити» інфінітивом."
+                }
+            },
+            "verb_hint": "Передай ввічливе офіційне повідомлення зараз, не жаль про минуле повідомлення; назви дію «повідомити» інфінітивом.",
+            "accepted_target_texts": [
+                "The agency regrets to inform applicants that no grants remain available this quarter.",
+                "The agency regrets to notify applicants that no grants remain available this quarter.",
+                "The agency regrets to tell applicants that no grants remain available this quarter."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to notify",
+                    "to tell"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to notify",
+                    "to tell"
+                ]
+            },
+            "reorder_groups": [
+                "The agency regrets",
+                "to inform applicants",
+                "that no grants",
+                "remain available",
+                "this quarter."
+            ],
+            "token_groups": [
+                "The agency regrets",
+                "to inform applicants",
+                "that no grants",
+                "remain available",
+                "this quarter."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "vpq-meaning-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The witness remembers {a1} a warning before the bridge was closed.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Свідок пам’ятає, що його попередили до закриття мосту.",
+            "target_text": "The witness remembers having been given a warning before the bridge was closed.",
+            "markers": {
+                "a1": {
+                    "answer": "having been given",
+                    "options": [
+                        "having been given",
+                        "to have given",
+                        "having given"
+                    ],
+                    "verb_hint": "Це спогад про отримане попередження; заповни лише пасивну дієслівну частину. Прийнятна проста або перфектна форма герундія."
+                }
+            },
+            "verb_hint": "Це спогад про отримане попередження; заповни лише пасивну дієслівну частину. Прийнятна проста або перфектна форма герундія.",
+            "accepted_target_texts": [
+                "The witness remembers having been given a warning before the bridge was closed.",
+                "The witness remembers being given a warning before the bridge was closed."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "being given"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "being given"
+                ]
+            },
+            "reorder_groups": [
+                "The witness remembers",
+                "having been given",
+                "a warning",
+                "before the bridge",
+                "was closed."
+            ],
+            "token_groups": [
+                "The witness remembers",
+                "having been given",
+                "a warning",
+                "before the bridge",
+                "was closed."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "vpq-meaning-c1-g02",
+            "author_id": "C1-g02",
+            "question": "Rather than replace the faulty sensor at once, the engineer tried {a1} it first.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Замість одразу замінювати несправний датчик інженер спершу випробував його повторне калібрування.",
+            "target_text": "Rather than replace the faulty sensor at once, the engineer tried recalibrating it first.",
+            "markers": {
+                "a1": {
+                    "answer": "recalibrating",
+                    "options": [
+                        "recalibrating",
+                        "to recalibrate",
+                        "recalibrate"
+                    ],
+                    "verb_hint": "Назви повторне калібрування як випробуваний спосіб; заміну лише відклали, результат випробування не повідомлено."
+                }
+            },
+            "verb_hint": "Назви повторне калібрування як випробуваний спосіб; заміну лише відклали, результат випробування не повідомлено.",
+            "accepted_target_texts": [
+                "Rather than replace the faulty sensor at once, the engineer tried recalibrating it first."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Rather than replace",
+                "the faulty sensor",
+                "at once,",
+                "the engineer tried",
+                "recalibrating it first."
+            ],
+            "token_groups": [
+                "Rather than replace",
+                "the faulty sensor",
+                "at once,",
+                "the engineer tried",
+                "recalibrating it first."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "vpq-meaning-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The investigator will never forget {a1} as the source of the fabricated quotation.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Слідчий ніколи не забуде, як його помилково назвали джерелом сфабрикованої цитати.",
+            "target_text": "The investigator will never forget being misidentified as the source of the fabricated quotation.",
+            "markers": {
+                "a1": {
+                    "answer": "being misidentified",
+                    "options": [
+                        "being misidentified",
+                        "to be misidentified",
+                        "misidentifying"
+                    ],
+                    "verb_hint": "Передай спогад про те, як людину помилково визначили як джерело цитати; потрібна пасивна форма герундія, проста або перфектна."
+                }
+            },
+            "verb_hint": "Передай спогад про те, як людину помилково визначили як джерело цитати; потрібна пасивна форма герундія, проста або перфектна.",
+            "accepted_target_texts": [
+                "The investigator will never forget being misidentified as the source of the fabricated quotation.",
+                "The investigator will never forget having been misidentified as the source of the fabricated quotation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "having been misidentified"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "having been misidentified"
+                ]
+            },
+            "reorder_groups": [
+                "The investigator will",
+                "never forget",
+                "being misidentified",
+                "as the source",
+                "of the fabricated",
+                "quotation."
+            ],
+            "token_groups": [
+                "The investigator will",
+                "never forget",
+                "being misidentified",
+                "as the source",
+                "of the fabricated",
+                "quotation."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "vpq-meaning-c2-g02",
+            "author_id": "C2-g02",
+            "question": "By dawn, the exhausted mediator had stopped {a1} the irreconcilable positions.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "До світанку виснажений посередник припинив намагатися узгодити непримиренні позиції.",
+            "target_text": "By dawn, the exhausted mediator had stopped trying to reconcile the irreconcilable positions.",
+            "markers": {
+                "a1": {
+                    "answer": "trying to reconcile",
+                    "options": [
+                        "trying to reconcile",
+                        "to try reconciling",
+                        "try to reconcile"
+                    ],
+                    "verb_hint": "Припинилися саме намагання узгодити позиції; введи всю трислівну групу, не лише дієслово спроби. Самої зупинки заради спроби тут немає."
+                }
+            },
+            "verb_hint": "Припинилися саме намагання узгодити позиції; введи всю трислівну групу, не лише дієслово спроби. Самої зупинки заради спроби тут немає.",
+            "accepted_target_texts": [
+                "By dawn, the exhausted mediator had stopped trying to reconcile the irreconcilable positions.",
+                "By dawn, the exhausted mediator had stopped attempting to reconcile the irreconcilable positions."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "attempting to reconcile"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "attempting to reconcile"
+                ]
+            },
+            "reorder_groups": [
+                "By dawn,",
+                "the exhausted mediator",
+                "had stopped trying",
+                "to reconcile",
+                "the irreconcilable positions."
+            ],
+            "token_groups": [
+                "By dawn,",
+                "the exhausted mediator",
+                "had stopped trying",
+                "to reconcile",
+                "the irreconcilable positions."
+            ],
+            "quality_revision": "vpq-v1"
+        }
+    ]
+}

@@ -1,0 +1,625 @@
+{
+    "schema_version": 1,
+    "topic_key": "precision-with-articles-and-determiners",
+    "title": "Precision with Articles and Determiners",
+    "choice_pools": {
+        "aone_subject": [
+            "Both cups",
+            "Both plates",
+            "Both bowls",
+            "Both glasses",
+            "Both spoons",
+            "Both mugs"
+        ],
+        "aone_verb": [
+            "are",
+            "were",
+            "will be",
+            "have been",
+            "are not",
+            "were not"
+        ],
+        "aone_object": [
+            "on the shelf.",
+            "on the table",
+            "in the sink",
+            "by the window",
+            "under the bench",
+            "on the counter"
+        ],
+        "atwo_subject": [
+            "These are",
+            "Those were",
+            "These were",
+            "Those are",
+            "Here were",
+            "There are"
+        ],
+        "atwo_verb": [
+            "our bags,",
+            "my bags",
+            "your coats",
+            "her books",
+            "his shoes",
+            "their boxes"
+        ],
+        "atwo_object": [
+            "not theirs.",
+            "not yours",
+            "not mine",
+            "not hers",
+            "not his",
+            "not ours"
+        ],
+        "bone_subject": [
+            "All the fruit",
+            "All the milk",
+            "All the bread",
+            "All the cheese",
+            "All the rice",
+            "All the butter"
+        ],
+        "bone_verb": [
+            "in this bowl",
+            "on this plate",
+            "in this basket",
+            "in that bag",
+            "on that tray",
+            "inside this box"
+        ],
+        "bone_object": [
+            "is ripe.",
+            "is fresh",
+            "is expensive",
+            "is local",
+            "is frozen",
+            "is organic"
+        ],
+        "btwo_subject": [
+            "Each of",
+            "Both of",
+            "Neither of",
+            "Most of",
+            "All of",
+            "None of"
+        ],
+        "btwo_verb": [
+            "the witnesses",
+            "the applicants",
+            "the residents",
+            "the delegates",
+            "the visitors",
+            "the observers"
+        ],
+        "btwo_object": [
+            "gave",
+            "gives",
+            "will give",
+            "has given",
+            "was giving",
+            "had given"
+        ],
+        "btwo_context": [
+            "a different account.",
+            "an identical account",
+            "a brief account",
+            "a detailed account",
+            "a vague account",
+            "a consistent account"
+        ],
+        "cone_subject": [
+            "Every other applicant",
+            "Every eligible applicant",
+            "Each shortlisted applicant",
+            "The successful applicant",
+            "The first applicant",
+            "The remaining applicant"
+        ],
+        "cone_verb": [
+            "was asked",
+            "is asked",
+            "will be asked",
+            "had been asked",
+            "has been asked",
+            "was allowed"
+        ],
+        "cone_object": [
+            "to provide",
+            "to submit",
+            "to obtain",
+            "to discuss",
+            "to sign",
+            "to verify"
+        ],
+        "cone_context": [
+            "a reference.",
+            "a certificate",
+            "a photograph",
+            "a transcript",
+            "a portfolio",
+            "a statement"
+        ],
+        "ctwo_subject": [
+            "The proposal",
+            "The objection",
+            "The amendment",
+            "The restriction",
+            "The concession",
+            "The exemption"
+        ],
+        "ctwo_verb": [
+            "concerns",
+            "concerned",
+            "will concern",
+            "has concerned",
+            "had concerned",
+            "would concern"
+        ],
+        "ctwo_object": [
+            "neither the former",
+            "only the former",
+            "both the former",
+            "mainly the former",
+            "even the former",
+            "not the former"
+        ],
+        "ctwo_context": [
+            "nor the latter",
+            "and the latter",
+            "but the latter",
+            "or the latter",
+            "except the latter",
+            "including the latter"
+        ],
+        "ctwo_ending": [
+            "group.",
+            "category",
+            "population",
+            "cohort",
+            "committee",
+            "class"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "I have two pencils. {a1} pencils are blue.",
+            "answer": "The",
+            "options": [
+                "The",
+                "A",
+                "An"
+            ],
+            "target": "I have two pencils. The pencils are blue.",
+            "groups": [
+                "I have",
+                "two pencils.",
+                "The pencils",
+                "are blue."
+            ],
+            "uk": "У мене два олівці. Ці олівці сині.",
+            "hint_uk": "Познач уже названі два предмети означеним артиклем."
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "This is {a1} old bike.",
+            "answer": "my uncle's",
+            "options": [
+                "my uncle's",
+                "my uncle",
+                "me uncle"
+            ],
+            "target": "This is my uncle's old bike.",
+            "groups": [
+                "This is",
+                "my uncle's",
+                "old bike."
+            ],
+            "uk": "Це старий велосипед мого дядька.",
+            "hint_uk": "Назви належність дядькові мовця; присвійна форма замінює артикль."
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Обидві чашки стоять на полиці.",
+            "target": "Both cups are on the shelf.",
+            "groups": [
+                "Both cups",
+                "are",
+                "on the shelf."
+            ],
+            "compose_slots": [
+                "Both cups",
+                "are",
+                "on the shelf."
+            ],
+            "slot_roles": [
+                "aone_subject",
+                "aone_verb",
+                "aone_object"
+            ],
+            "uk": "Обидві чашки стоять на полиці.",
+            "hint_uk": "Почни з двох чашок разом і збережи теперішнє місце на полиці."
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "{a1} of these two keys opens the gate; they both work.",
+            "answer": "Either",
+            "options": [
+                "Either",
+                "Neither",
+                "Every"
+            ],
+            "target": "Either of these two keys opens the gate; they both work.",
+            "groups": [
+                "Either of",
+                "these two keys",
+                "opens the gate;",
+                "they both work."
+            ],
+            "uk": "Будь-який із цих двох ключів відчиняє ворота; обидва справні.",
+            "hint_uk": "Назви будь-який один із двох справних ключів, не обидва разом."
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "Every child {a1} a clean towel.",
+            "answer": "has",
+            "options": [
+                "has",
+                "have",
+                "are"
+            ],
+            "target": "Every child has a clean towel.",
+            "groups": [
+                "Every child",
+                "has",
+                "a clean towel."
+            ],
+            "uk": "Кожна дитина має чистий рушник.",
+            "hint_uk": "Узгодь дієслово належності з кожною дитиною окремо в теперішньому часі."
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Це наші сумки, а не їхні.",
+            "target": "These are our bags, not theirs.",
+            "groups": [
+                "These are",
+                "our bags,",
+                "not theirs."
+            ],
+            "compose_slots": [
+                "These are",
+                "our bags,",
+                "not theirs."
+            ],
+            "slot_roles": [
+                "atwo_subject",
+                "atwo_verb",
+                "atwo_object"
+            ],
+            "uk": "Це наші сумки, а не їхні.",
+            "hint_uk": "Почни з близьких предметів; збережи протиставлення наших сумок і належності іншим людям."
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "I spoke to {a1} of the three guides individually.",
+            "answer": "each",
+            "options": [
+                "each",
+                "every",
+                "both"
+            ],
+            "target": "I spoke to each of the three guides individually.",
+            "groups": [
+                "I spoke",
+                "to each",
+                "of the three",
+                "guides individually."
+            ],
+            "uk": "Я поговорив окремо з кожним із трьох гідів.",
+            "hint_uk": "Охопи всіх трьох поодинці; наступний прийменник уже наведений. Приймаються коротка та розгорнута форми слова кожен.",
+            "answer_synonyms": ["every one"]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "Neither of the answers {a1} completely correct.",
+            "answer": "is",
+            "options": [
+                "is",
+                "are",
+                "have"
+            ],
+            "target": "Neither of the answers is completely correct.",
+            "groups": [
+                "Neither of",
+                "the answers",
+                "is completely correct."
+            ],
+            "uk": "Жодна з двох відповідей не є цілком правильною.",
+            "hint_uk": "За формальним зразком узгодь заперечення щодо кожної з двох відповідей в однині."
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Усі фрукти в цій мисці стиглі.",
+            "target": "All the fruit in this bowl is ripe.",
+            "groups": [
+                "All the fruit",
+                "in this bowl",
+                "is ripe."
+            ],
+            "compose_slots": [
+                "All the fruit",
+                "in this bowl",
+                "is ripe."
+            ],
+            "slot_roles": [
+                "bone_subject",
+                "bone_verb",
+                "bone_object"
+            ],
+            "uk": "Усі фрукти в цій мисці стиглі.",
+            "hint_uk": "Почни з усіх конкретних фруктів як сукупності; збережи миску та стиглість. Для посудини приймаються два близькі слова.",
+            "display_synonyms": {
+                "in this bowl": [
+                    "in this dish"
+                ]
+            },
+            "accepted_targets": [
+                "All the fruit in this dish is ripe."
+            ]
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "We hired {a1} assistant whose experience matched the brief.",
+            "answer": "the only",
+            "options": [
+                "the only",
+                "an only",
+                "only an"
+            ],
+            "target": "We hired the only assistant whose experience matched the brief.",
+            "groups": [
+                "We hired",
+                "the only assistant",
+                "whose experience",
+                "matched the brief."
+            ],
+            "uk": "Ми найняли єдиного асистента, чий досвід відповідав вимогам.",
+            "hint_uk": "Передай єдиного придатного асистента як визначену особу; збережи місце означення перед іменником."
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "Most of the furniture {a1} before the move.",
+            "answer": "was sold",
+            "options": [
+                "was sold",
+                "were sold",
+                "have sold"
+            ],
+            "target": "Most of the furniture was sold before the move.",
+            "groups": [
+                "Most of",
+                "the furniture",
+                "was sold",
+                "before the move."
+            ],
+            "uk": "Більшість меблів продали до переїзду.",
+            "hint_uk": "Передай продаж більшої частини конкретних меблів у минулому; сукупний іменник потребує однини."
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Кожен зі свідків подав іншу версію.",
+            "target": "Each of the witnesses gave a different account.",
+            "groups": [
+                "Each of",
+                "the witnesses",
+                "gave",
+                "a different account."
+            ],
+            "compose_slots": [
+                "Each of",
+                "the witnesses",
+                "gave",
+                "a different account."
+            ],
+            "slot_roles": [
+                "btwo_subject",
+                "btwo_verb",
+                "btwo_object",
+                "btwo_context"
+            ],
+            "uk": "Кожен зі свідків подав іншу версію.",
+            "hint_uk": "Почни з кожного свідка окремо, збережи минулий час і відмінність версій; останній іменник має два природні відповідники.",
+            "display_synonyms": {
+                "a different account.": [
+                    "a different version."
+                ]
+            },
+            "accepted_targets": [
+                "Each of the witnesses gave a different version."
+            ]
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "There was {a1} increase in demand, not the dramatic surge predicted.",
+            "answer": "a slight",
+            "options": [
+                "a slight",
+                "a dramatic",
+                "a negligible"
+            ],
+            "target": "There was a slight increase in demand, not the dramatic surge predicted.",
+            "groups": [
+                "There was",
+                "a slight increase",
+                "in demand,",
+                "not the dramatic",
+                "surge predicted."
+            ],
+            "uk": "Попит дещо зріс, а не різко підскочив, як прогнозували.",
+            "hint_uk": "Назви невелике, але помітне зростання; приймаються три близькі означення невеликого розміру.",
+            "answer_synonyms": [
+                "a small",
+                "a modest"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The little information available was independently {a1}.",
+            "answer": "verified",
+            "options": [
+                "verified",
+                "verifying",
+                "verification"
+            ],
+            "target": "The little information available was independently verified.",
+            "groups": [
+                "The little",
+                "information available",
+                "was independently verified."
+            ],
+            "uk": "Ту невелику кількість наявних відомостей перевірили незалежно.",
+            "hint_uk": "Передай перевірку саме наявного обмеженого набору відомостей; приймається також близьке дієслово перевіряння.",
+            "answer_synonyms": [
+                "checked"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Кожного другого претендента попросили надати рекомендацію.",
+            "target": "Every other applicant was asked to provide a reference.",
+            "groups": [
+                "Every other applicant",
+                "was asked",
+                "to provide",
+                "a reference."
+            ],
+            "compose_slots": [
+                "Every other applicant",
+                "was asked",
+                "to provide",
+                "a reference."
+            ],
+            "slot_roles": [
+                "cone_subject",
+                "cone_verb",
+                "cone_object",
+                "cone_context"
+            ],
+            "uk": "Кожного другого претендента попросили надати рекомендацію.",
+            "hint_uk": "Почни з кожного другого претендента, а не всіх інших; збережи минуле прохання й рекомендацію. Надання рекомендації можна передати двома природними дієсловами.",
+            "display_synonyms": {"to provide": ["to submit"]},
+            "accepted_targets": ["Every other applicant was asked to submit a reference."]
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "{a1} of the available evidence warrants treating the two cases as identical.",
+            "answer": "None",
+            "options": [
+                "None",
+                "Neither",
+                "Every"
+            ],
+            "target": "None of the available evidence warrants treating the two cases as identical.",
+            "groups": [
+                "None of",
+                "the available evidence",
+                "warrants treating",
+                "the two cases",
+                "as identical."
+            ],
+            "uk": "Жодні з наявних свідчень не дають підстав вважати ці два випадки однаковими.",
+            "hint_uk": "Відкинь усю наявну доказову підтримку такого ототожнення; свідчення не поділені на два окремі предмети."
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The few objections that remained {a1} individually.",
+            "answer": "were addressed",
+            "options": [
+                "were addressed",
+                "was addressed",
+                "were addressing"
+            ],
+            "target": "The few objections that remained were addressed individually.",
+            "groups": [
+                "The few objections",
+                "that remained",
+                "were addressed individually."
+            ],
+            "uk": "Кілька заперечень, що залишилися, розглянули окремо.",
+            "hint_uk": "Передай завершений розгляд решти конкретних заперечень; потрібен пасив у множині. Приймаються чотири близькі дієслова розгляду.",
+            "answer_synonyms": ["were considered", "were examined", "were reviewed"]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Пропозиція не стосується ні першої, ні другої з двох названих груп.",
+            "target": "The proposal concerns neither the former nor the latter group.",
+            "groups": [
+                "The proposal",
+                "concerns",
+                "neither the former",
+                "nor the latter",
+                "group."
+            ],
+            "compose_slots": [
+                "The proposal",
+                "concerns",
+                "neither the former",
+                "nor the latter",
+                "group."
+            ],
+            "slot_roles": [
+                "ctwo_subject",
+                "ctwo_verb",
+                "ctwo_object",
+                "ctwo_context",
+                "ctwo_ending"
+            ],
+            "uk": "Пропозиція не стосується ні першої, ні другої з двох названих груп.",
+            "hint_uk": "Почни з конкретної пропозиції; збережи повне заперечення щодо обох раніше названих груп. Стосуватися можна передати двома дієслівними моделями.",
+            "display_synonyms": {
+                "concerns": [
+                    "relates to"
+                ]
+            },
+            "accepted_targets": [
+                "The proposal relates to neither the former nor the latter group."
+            ]
+        }
+    ]
+}

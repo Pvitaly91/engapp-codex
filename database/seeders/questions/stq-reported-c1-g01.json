@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 67168,
+        "uuid": "stq-reported-c1-g01",
+        "question": "The researcher said that the data {a1} distorted.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 63,
+        "source_id": 574,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\SentenceTransformations\\UkrainianMixedStqReportedSpeechQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "might have been",
+                "might be",
+                "might have"
+            ]
+        },
+        "theory_text_block_uuid": "3bbe3eae-de1f-546b-aa69-c2df4e53b382",
+        "created_at": "2026-11-03T01:30:42.000000Z",
+        "updated_at": "2026-11-03T01:30:42.000000Z"
+    },
+    "category": {
+        "id": 63,
+        "name": "Sentence Transformations",
+        "created_at": "2026-05-22T21:37:33.000000Z",
+        "updated_at": "2026-05-22T21:37:33.000000Z"
+    },
+    "source": {
+        "id": 574,
+        "name": "Sentence Transformations Quality: Sentence Transformations: Reported Speech",
+        "created_at": "2026-11-03T01:30:42.000000Z",
+        "updated_at": "2026-11-03T01:30:42.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 6875,
+                "option": "might have been",
+                "created_at": "2026-04-23T14:46:35.000000Z",
+                "updated_at": "2026-04-23T14:46:35.000000Z"
+            },
+            "pivot": {
+                "question_id": 67168,
+                "option_id": 6875,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 6877,
+                "option": "might have",
+                "created_at": "2026-04-23T14:46:35.000000Z",
+                "updated_at": "2026-04-23T14:46:35.000000Z"
+            },
+            "pivot": {
+                "question_id": 67168,
+                "option_id": 6877,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 7978,
+                "option": "might be",
+                "created_at": "2026-04-23T14:48:47.000000Z",
+                "updated_at": "2026-04-23T14:48:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 67168,
+                "option_id": 7978,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 343241,
+                "question_id": 67168,
+                "marker": "a1",
+                "option_id": 6875,
+                "created_at": "2026-11-03T01:30:42.000000Z",
+                "updated_at": "2026-11-03T01:30:42.000000Z"
+            },
+            "option": {
+                "id": 6875,
+                "option": "might have been",
+                "created_at": "2026-04-23T14:46:35.000000Z",
+                "updated_at": "2026-04-23T14:46:35.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 60575,
+                "question_id": 67168,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 71274,
+                "created_at": "2026-11-03T01:30:42.000000Z",
+                "updated_at": "2026-11-03T01:30:42.000000Z"
+            },
+            "option": {
+                "id": 71274,
+                "option": "Початкове: «Дослідниця сказала: „Ці дані, можливо, було спотворено“; припущення досі чинне». Передай припущення про попереднє спотворення, не перетворюючи його на факт.",
+                "created_at": "2026-11-03T01:30:42.000000Z",
+                "updated_at": "2026-11-03T01:30:42.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 59183,
+            "question_id": 67168,
+            "text": "The researcher said that the data {a1} distorted.",
+            "created_at": "2026-11-03T01:30:42.000000Z",
+            "updated_at": "2026-11-03T01:30:42.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

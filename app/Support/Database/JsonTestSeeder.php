@@ -28,6 +28,7 @@ abstract class JsonTestSeeder extends QuestionSeeder
             $this->definitionPath(),
             static::class
         );
+        $definition = \App\Support\FinitePracticeQualityCatalogs::definitionMetadata($definition, app()->getLocale());
 
         $this->seedDefinition($definition, $this->resolveSeederClassName($definition));
     }
@@ -624,6 +625,10 @@ abstract class JsonTestSeeder extends QuestionSeeder
 
         $legacyDefault = [];
 
+        if (isset($questionDefinition['source_text_uk'])) {
+            $legacyDefault['source_text'] = trim((string) $questionDefinition['source_text_uk']);
+        }
+
         if (array_key_exists('hints', $questionDefinition)) {
             $legacyDefault['hints'] = $questionDefinition['hints'];
         }
@@ -655,6 +660,7 @@ abstract class JsonTestSeeder extends QuestionSeeder
             $provider = $provider !== '' ? $provider : 'chatgpt';
 
             $hints = $this->normalizeHints($payload['hints'] ?? [], $markers);
+            $sourceText = trim((string) ($payload['source_text'] ?? ''));
             $verbHints = $this->normalizeLocalizedVerbHints($payload['verb_hints'] ?? [], $markers);
             $explanations = $this->normalizeLocalizedExplanations(
                 $payload['explanations'] ?? [],
@@ -662,12 +668,13 @@ abstract class JsonTestSeeder extends QuestionSeeder
                 $optionMarkers
             );
 
-            if ($hints === [] && $verbHints === [] && $explanations === []) {
+            if ($hints === [] && $verbHints === [] && $explanations === [] && $sourceText === '') {
                 continue;
             }
 
             $normalized[$normalizedLocale] = [
                 'provider' => $provider,
+                'source_text' => $sourceText,
                 'hints' => $hints,
                 'verb_hints' => $verbHints,
                 'explanations' => $explanations,
@@ -919,6 +926,14 @@ abstract class JsonTestSeeder extends QuestionSeeder
 
                 $hintText = $this->formatHints($payload['hints'] ?? []);
 
+                if (filled($payload['source_text'] ?? null)) {
+                    QuestionHint::updateOrCreate([
+                        'question_id' => $question->id,
+                        'provider' => \App\Support\LocalizedComposeText::PROVIDER,
+                        'locale' => $this->normalizeLocale((string) $locale),
+                    ], ['hint' => trim((string) $payload['source_text'])]);
+                }
+
                 if ($hintText !== null) {
                     QuestionHint::updateOrCreate(
                         [
@@ -1045,6 +1060,7 @@ abstract class JsonTestSeeder extends QuestionSeeder
 
         $filters['seeder_classes'] = $seederClasses;
         $filters['num_questions'] = (int) ($filters['num_questions'] ?? count($orderedQuestionUuids));
+        $filters = \App\Support\FinitePracticeQualityCatalogs::savedTestFilters($payload, $seederClass, $filters, app()->getLocale());
 
         $savedTest = SavedGrammarTest::query()
             ->where('uuid', $uuid)

@@ -1,0 +1,2015 @@
+{
+  "schema_version": 1,
+  "version": "1.0.0",
+  "status": "frozen",
+  "id": "m56-gerund-simple-passives",
+  "base_sha": "fff71b7daa371497b3df100c2d97d108058dc175",
+  "scope": "Рівно три чинні UK owners: Passive Gerund, Present Simple Passive, Past Simple Passive. Навчальні дані під чинні native-компоненти; без дизайну, зміни grader або production.",
+  "policy": {
+    "native_components": true,
+    "visual_changes": false,
+    "course_content_changes": false,
+    "production_access": false,
+    "existing_question_rows_unchanged": true,
+    "existing_answers_progress_unchanged": true,
+    "linked_bank_contract_status": "independently-reviewed-existing-exact-B2-A2-A2-three-topics"
+  },
+  "editorial_review": {
+    "status": "reviewed-before-apply",
+    "new_own_tasks": 18,
+    "groups_per_lesson": {
+      "selects": 2,
+      "choices": 2,
+      "inputs": 2
+    },
+    "input_methods": [
+      "manual",
+      "tokens"
+    ],
+    "linked_bank_questions_separate": 15,
+    "old_continuing_blocks_per_lesson": [
+      10,
+      9,
+      10
+    ],
+    "new_practice_blocks": 3,
+    "meaningful_details": {
+      "passive_gerund": 2,
+      "present_simple": 1,
+      "past_simple": 1
+    },
+    "translation_visibility_exceptions": [
+      "У шести meaning choices точний переклад стимулу показується після Check, коли він розкриває відповідь; український критерій видимий одразу."
+    ],
+    "before_source_db_http_sha256": "8198c1bcff87fbf270ab5d71a7d6c3343b728846ce9cc7be59e1ff44e5bee406",
+    "note": "Main незалежно перевірив повну авторську редакцію проти source/DB/HTTP BEFORE: граматику, переклади, час, ролі, A2 доступність, native fields, 18 keys та 4 meaningful details. Чотири погоджені wording уточнення внесено до freeze; незалежний offline suite 22/22 PASS. Це не доказ DB apply чи browser acceptance; фактичні runtime результати — в окремому звіті.",
+    "pre_apply_metadata": [
+      {
+        "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\InfinitivesGerund\\PassiveVoicePassiveGerundTheorySeeder",
+        "page_id": 102,
+        "category_id": 17,
+        "raw_page_title": "Passive Gerund",
+        "h1": "Passive Gerund",
+        "expected_seo": {
+          "title": "Passive Gerund — правила | Gramlyze",
+          "description": "Passive Gerund. Пасивна -ing форма називає дію, якої зазнає відповідний учасник."
+        }
+      },
+      {
+        "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoicePresentSimpleTheorySeeder",
+        "page_id": 113,
+        "category_id": 1,
+        "raw_page_title": "Present Simple Passive — Теперішній простий пасив",
+        "h1": "Present Simple Passive",
+        "expected_seo": {
+          "title": "Present Simple Passive — Теперішній простий пасив — правила | Gramlyze",
+          "description": "Present Simple Passive — Теперішній простий пасив. Present Simple Passive допомагає сказати, що регулярно роблять із кимось або чимось, не починаючи з виконавця."
+        }
+      },
+      {
+        "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoicePastSimpleTheorySeeder",
+        "page_id": 110,
+        "category_id": 1,
+        "raw_page_title": "Past Simple Passive — Минулий простий пасив",
+        "h1": "Past Simple Passive",
+        "expected_seo": {
+          "title": "Past Simple Passive — Минулий простий пасив — правила | Gramlyze",
+          "description": "Past Simple Passive — Минулий простий пасив. Past Simple Passive повідомляє, що зробили з кимось або чимось у минулому."
+        }
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/passive-forms",
+      "access": "direct-403; publisher-indexed-editorial-body-read",
+      "reviewed": "Be + V3, finite simple/continuous distinctions; не копіювали вправи."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/remember",
+      "access": "direct-403; publisher-indexed-editorial-body-read",
+      "reviewed": "Remember + -ing як спогад; не прирівнювати being до одночасності."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/worth",
+      "access": "direct-403; publisher-indexed-editorial-dictionary-body-read",
+      "reviewed": "Worth doing/reading; corpus rows і приклади користувачів не є редакційним правилом."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/passive-other-forms",
+      "access": "direct-tool-error; no-body-read",
+      "reviewed": "Не заявляється пряме читання недоступної сторінки."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/verbs-followed-by-ing",
+      "access": "publisher-indexed-editorial-body-read; direct-tool-error",
+      "reviewed": "Дієслова з -ing, можливий власний учасник; actual indexed URL нижче."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/infinitive-verbs",
+      "access": "publisher-indexed-editorial-body-read",
+      "reviewed": "Повний редакційний verb-patterns текст; не використовували видавничі exercises."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/look-forward-to.",
+      "access": "publisher-indexed-editorial-body-read",
+      "reviewed": "To як прийменник і власний учасник перед -ing."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/hate-like-love-and-prefer",
+      "access": "publisher-indexed-editorial-body-read",
+      "reviewed": "Доступність -ing та to-infinitive без глобальної заборони."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/passives-with-and-",
+      "access": "publisher-indexed-editorial-body-read",
+      "reviewed": "Агент через by, можливість його опускання й зміна фокуса."
+    },
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/active-passive-voice",
+      "access": "direct-editorial-body-read",
+      "reviewed": "Be + V3 і роль by; учнівські коментарі та ready exercise banks не використані."
+    },
+    {
+      "url": "https://learnenglish.britishcouncil.org/grammar/c1-grammar/participle-clauses",
+      "access": "direct-redirect-to-editorial-body-read",
+      "reviewed": "Actual destination /free-resources/grammar/c1/participle-clauses; функція зворотів, non-finite час і контроль учасника."
+    },
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/participle-clauses",
+      "access": "direct-editorial-body-read",
+      "reviewed": "Розділ grammar explanation, не коментарі учнів; власні приклади."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "access": "direct-editorial-body-read",
+      "reviewed": "People-first самодостатність, оригінальна редактура, без word quota чи вигаданих ranking gains."
+    }
+  ],
+  "lessons": [
+    {
+      "schema_version": 1,
+      "status": "frozen",
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\InfinitivesGerund\\PassiveVoicePassiveGerundTheorySeeder",
+      "slug": "theory-passive-voice-passive-gerund",
+      "locale": "uk",
+      "display_level": "B2–C1",
+      "technical_block_level": "B2",
+      "category_ancestry": [
+        "passive-voice",
+        "passive-voice-infinitives-gerund"
+      ],
+      "local_url": "http://gramlyze.loc/theory/passive-voice/passive-voice-infinitives-gerund/theory-passive-voice-passive-gerund",
+      "subtitle_html": "<p><strong>Passive Gerund</strong> — як утворювати being + V3 і having been + V3, зберігати ролі учасників та визначати час за конструкцією й контекстом.</p>",
+      "subtitle_text": "Пасивний герундій: being + V3, having been + V3, заперечення, прийменники, переклади й практика.",
+      "blocks": [
+        {
+          "key": "gerund-hero",
+          "existing_source_index": 0,
+          "type": "hero",
+          "column": "header",
+          "level": "B2",
+          "data": {
+            "level": "B2–C1",
+            "intro": "Пасивна -ing форма називає дію, якої зазнає відповідний учасник. У цьому уроці «герундій» — це -ing конструкція після дієслова чи прийменника або в іменниковій позиції. Схожі початкові обставинні звороти розрізняємо за функцією, а час — не лише за словом being.",
+            "rules": [
+              {
+                "label": "ПРОСТА ФОРМА",
+                "color": "emerald",
+                "text": "Being + V3: час визначають головна конструкція та контекст.",
+                "example": "<span lang=\"en\">I remember being told about it.</span><br><span lang=\"uk\">Я пам’ятаю, що мені про це казали.</span>"
+              },
+              {
+                "label": "ПЕРФЕКТНА ФОРМА",
+                "color": "blue",
+                "text": "Having been + V3 підкреслює дію до відповідної точки відліку.",
+                "example": "<span lang=\"en\">She denied having been warned.</span><br><span lang=\"uk\">Вона заперечувала, що її попередили.</span>"
+              },
+              {
+                "label": "РОЛЬ УЧАСНИКА",
+                "color": "amber",
+                "text": "У пасиві відповідний учасник зазнає дії, але не обов’язково є підметом головного речення.",
+                "example": "<span lang=\"en\">I object to Leo being blamed.</span><br><span lang=\"uk\">Я заперечую проти того, щоб звинувачували Лео.</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "gerund-forms",
+          "existing_source_index": 1,
+          "type": "forms-grid",
+          "column": "left",
+          "level": "B2",
+          "data": {
+            "title": "1. Чотири пасивні форми",
+            "intro": "V3 — третя форма дієслова. Being і having не змінюються через особу чи число. Заперечення not ставимо перед тією -ing конструкцією, яку заперечуємо.",
+            "items": [
+              {
+                "label": "ПРОСТА",
+                "title": "being + V3",
+                "subtitle": "<span lang=\"en\">He dislikes being criticized.</span><br><span lang=\"uk\">Йому не подобається, коли його критикують.</span>"
+              },
+              {
+                "label": "ПЕРФЕКТНА",
+                "title": "having been + V3",
+                "subtitle": "<span lang=\"en\">She denied having been paid.</span><br><span lang=\"uk\">Вона заперечувала, що їй заплатили.</span>"
+              },
+              {
+                "label": "ПРОСТА З NOT",
+                "title": "not being + V3",
+                "subtitle": "<span lang=\"en\">He complained about not being invited.</span><br><span lang=\"uk\">Він скаржився, що його не запросили.</span>"
+              },
+              {
+                "label": "ПЕРФЕКТНА З NOT",
+                "title": "not having been + V3",
+                "subtitle": "<span lang=\"en\">She complained about not having been informed earlier.</span><br><span lang=\"uk\">Вона скаржилася, що її не поінформували раніше.</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "gerund-simple",
+          "existing_source_index": 2,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B2",
+          "data": {
+            "title": "2. Де потрібне being + V3",
+            "sections": [
+              {
+                "label": "ПІСЛЯ ДІЄСЛОВА З -ING",
+                "color": "emerald",
+                "description": "Enjoy, avoid, mind, dislike та інші дієслова мають власні моделі. Avoid означає уникати, а не належить до «дієслів почуттів». Якщо учасника критикують, хвалять чи помічають, у відповідній -ing моделі потрібне being + V3.",
+                "examples": [
+                  {
+                    "en": "She hates being interrupted.",
+                    "ua": "Вона ненавидить, коли її перебивають."
+                  },
+                  {
+                    "en": "He enjoys being praised.",
+                    "ua": "Йому подобається, коли його хвалять."
+                  },
+                  {
+                    "en": "She avoids being seen by him.",
+                    "ua": "Вона уникає того, щоб він її бачив."
+                  }
+                ],
+                "note": "Like, love, hate і prefer допускають також інфінітивні моделі у відповідних значеннях. Це не глобальна заборона інфінітива після цих слів."
+              },
+              {
+                "label": "ПІСЛЯ ПРИЙМЕННИКА",
+                "color": "blue",
+                "description": "Після without, after, before, despite та інших прийменників можна використати -ing конструкцію. Сам прийменник часто вже встановлює часовий зв’язок; after не робить perfect обов’язковим.",
+                "examples": [
+                  {
+                    "en": "He left without being noticed.",
+                    "ua": "Він пішов так, що його не помітили."
+                  },
+                  {
+                    "en": "After being rejected, she applied again.",
+                    "ua": "Після того як їй відмовили, вона подала заявку знову."
+                  },
+                  {
+                    "en": "Before being hired, she had to pass a test.",
+                    "ua": "Перш ніж її найняли, вона мала скласти тест."
+                  }
+                ]
+              },
+              {
+                "label": "СПОГАД АБО ПІДМЕТ",
+                "color": "amber",
+                "description": "Remember + -ing називає спогад: проста форма може стосуватися минулого. У позиції підмета вся -ing конструкція називає ситуацію; вона не стає окремим часом.",
+                "examples": [
+                  {
+                    "en": "I remember being told about it.",
+                    "ua": "Я пам’ятаю, що мені про це казали."
+                  },
+                  {
+                    "en": "Being listened to matters to everyone.",
+                    "ua": "Кожному важливо, щоб його вислуховували."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "gerund-perfect",
+          "existing_source_index": 3,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "C1",
+          "data": {
+            "title": "3. Having been + V3: попередність, не готова причина",
+            "sections": [
+              {
+                "label": "ДОПОВНЕННЯ ПРО РАНІШУ ДІЮ",
+                "color": "emerald",
+                "description": "Після remember, deny або прийменника having been + V3 робить попередність явною. Причину чи наслідок установлює весь зміст речення, а не сам ланцюжок having been.",
+                "examples": [
+                  {
+                    "en": "She denied having been warned.",
+                    "ua": "Вона заперечувала, що її попередили."
+                  },
+                  {
+                    "en": "He was grateful for having been helped.",
+                    "ua": "Він був вдячний за те, що йому допомогли."
+                  }
+                ],
+                "note": "Після after можливе й after being informed: прийменник уже задає порядок. Не виправляй кожну просту форму на perfect автоматично."
+              },
+              {
+                "label": "ОКРЕМИЙ ОБСТАВИННИЙ ЗВОРОТ",
+                "color": "blue",
+                "description": "Початкове Having been warned додає обставину до головної частини. Тут це participle clause, а не доповнення після дієслова. У наведеній моделі попереджений учасник має бути підметом головної частини.",
+                "examples": [
+                  {
+                    "en": "Having been warned, he was more careful.",
+                    "ua": "Після того як його попередили, він був обережнішим."
+                  },
+                  {
+                    "en": "Having finished the work, she left.",
+                    "ua": "Закінчивши роботу, вона пішла."
+                  }
+                ],
+                "note": "Другий приклад — активний зворот: вона виконала роботу. Повний розбір — у сусідній темі Participle Clauses; форму не слід ототожнювати з її функцією."
+              }
+            ]
+          }
+        },
+        {
+          "key": "gerund-patterns",
+          "existing_source_index": 4,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B2",
+          "data": {
+            "title": "4. Прийменникове to, питання та межа заперечення",
+            "sections": [
+              {
+                "label": "TO МОЖЕ БУТИ ПРИЙМЕННИКОМ",
+                "color": "emerald",
+                "description": "У look forward to і be used to слово to — прийменник, тому далі можлива -ing форма. У want to be invited це інфінітивне to: інша модель, не помилка герундія.",
+                "examples": [
+                  {
+                    "en": "She is used to being watched.",
+                    "ua": "Вона звикла до того, що за нею спостерігають."
+                  },
+                  {
+                    "en": "I look forward to being included in the team.",
+                    "ua": "Я з нетерпінням чекаю, коли мене включать до команди."
+                  },
+                  {
+                    "en": "I want to be included in the team.",
+                    "ua": "Я хочу, щоб мене включили до команди."
+                  }
+                ],
+                "note": "Інфінітивну модель окремо пояснено в <a href=\"http://gramlyze.loc/theory/passive-voice/passive-voice-infinitives-gerund/theory-passive-voice-passive-infinitive\">Passive Infinitive</a>."
+              },
+              {
+                "label": "ПИТАННЯ БУДУЄ ГОЛОВНЕ ДІЄСЛОВО",
+                "color": "blue",
+                "description": "Не робимо інверсію всередині being + V3. У питанні з like допоміжне does належить головному дієслову; у запереченні місце not визначає, що саме заперечено.",
+                "examples": [
+                  {
+                    "en": "Does she like being asked for advice?",
+                    "ua": "Їй подобається, коли до неї звертаються по пораду?"
+                  },
+                  {
+                    "en": "She doesn't like being asked for advice.",
+                    "ua": "Їй не подобається, коли до неї звертаються по пораду."
+                  },
+                  {
+                    "en": "She likes not being asked for advice.",
+                    "ua": "Їй подобається, коли до неї не звертаються по пораду."
+                  }
+                ],
+                "note": "Останні два речення не взаємозамінні: не подобається сама дія ≠ подобається її відсутність."
+              },
+              {
+                "label": "НЕ КОЖНЕ BEING — ПАСИВ",
+                "color": "amber",
+                "description": "У being wrong слово wrong — прикметник, не пасивний V3. Worth reading природно означає «варто прочитати»: пасивний за змістом вислів не зобов’язаний містити being.",
+                "examples": [
+                  {
+                    "en": "He admitted being wrong.",
+                    "ua": "Він визнав, що помилявся."
+                  },
+                  {
+                    "en": "The book is worth reading.",
+                    "ua": "Книжку варто прочитати."
+                  }
+                ],
+                "note": "Перше речення — чітке зіставлення з прикметником, не цільовий passive gerund. Для звичайної рекомендації обираємо worth reading; громіздке worth being read не нав’язуємо як основний зразок."
+              }
+            ]
+          }
+        },
+        {
+          "key": "gerund-time",
+          "existing_source_index": 5,
+          "type": "comparison-table",
+          "column": "left",
+          "level": "B2",
+          "data": {
+            "title": "5. Час і функція: перевір контекст",
+            "intro": "Being не означає автоматично «зараз». Розрізняй неособове доповнення, perfect-попередність і особову форму Continuous.",
+            "headers": [
+              "Форма та переклад",
+              "Що встановлює час або функцію",
+              "Висновок"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "<span lang=\"en\">I remember being told about it.</span><br><span lang=\"uk\">Я пам’ятаю, що мені про це казали.</span>",
+                  "Remember називає спогад про попередню подію.",
+                  "Проста -ing форма можлива для минулої події."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">After being rejected, she applied again.</span><br><span lang=\"uk\">Після того як їй відмовили, вона подала заявку знову.</span>",
+                  "After прямо задає порядок: відмова, потім нова заявка.",
+                  "Having been rejected теж можливе; perfect не єдиний ключ без спеціального обмеження."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">She denied having been warned.</span><br><span lang=\"uk\">Вона заперечувала, що її попередили.</span>",
+                  "Perfect робить попередність щодо заперечення явною.",
+                  "Це доповнення після denied; заперечення не доводить, що попередження справді було."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">She is being interviewed now.</span><br><span lang=\"uk\">З нею зараз проводять співбесіду.</span>",
+                  "Is + being + interviewed — особовий Present Continuous passive.",
+                  "Не називаємо весь ланцюжок герундієм лише через being."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "gerund-roles",
+          "existing_source_index": 6,
+          "type": "comparison-table",
+          "column": "left",
+          "level": "B2",
+          "data": {
+            "title": "6. Хто виконує дію, а хто її зазнає?",
+            "intro": "Знайди учасника саме -ing конструкції, а не механічно підставляй підмет головної частини.",
+            "headers": [
+              "Речення та переклад",
+              "Виконавець / учасник",
+              "Що змінює пасив"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "<span lang=\"en\">He likes helping others.</span><br><span lang=\"uk\">Йому подобається допомагати іншим.</span>",
+                  "He сам допомагає.",
+                  "Активна -ing форма."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">He likes being helped.</span><br><span lang=\"uk\">Йому подобається, коли йому допомагають.</span>",
+                  "He отримує допомогу; помічника не названо.",
+                  "Пасив змінює роль he."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">I object to Leo being blamed.</span><br><span lang=\"uk\">Я заперечую проти того, щоб звинувачували Лео.</span>",
+                  "I заперечує; Leo зазнає звинувачення.",
+                  "Логічний підмет being blamed — Leo, не I."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">The editor insisted on the names being removed.</span><br><span lang=\"uk\">Редактор наполіг на тому, щоб імена прибрали.</span>",
+                  "Editor наполягає; names зазнають вилучення.",
+                  "Власний учасник може бути явно названий перед being."
+                ]
+              }
+            ],
+            "warning": "Обставинний зворот на початку й доповнення з власним учасником — різні конструкції. Перевіряй їхні ролі окремо."
+          }
+        },
+        {
+          "key": "gerund-mistakes",
+          "existing_source_index": 7,
+          "type": "mistakes-grid",
+          "column": "left",
+          "level": "B2",
+          "data": {
+            "title": "7. Типові помилки у формі",
+            "items": [
+              {
+                "label": "ПОВНИЙ ПАСИВНИЙ ЛАНЦЮЖОК",
+                "color": "rose",
+                "title": "У заданому значенні її критикують, а не вона когось критикує.",
+                "wrong_en": "She hates criticized.",
+                "wrong_ua": "Задум: Вона ненавидить, коли її критикують.",
+                "right_en": "She hates being criticized.",
+                "right_ua": "Вона ненавидить, коли її критикують.",
+                "note": "Після hates у цій -ing моделі потрібне being + V3."
+              },
+              {
+                "label": "V3 ПІСЛЯ BEING",
+                "color": "amber",
+                "title": "Praise має V3 praised.",
+                "wrong_en": "He enjoys being praise.",
+                "wrong_ua": "Задум: Йому подобається, коли його хвалять.",
+                "right_en": "He enjoys being praised.",
+                "right_ua": "Йому подобається, коли його хвалять.",
+                "note": "Виправляємо форму основного дієслова, не час головного enjoys."
+              },
+              {
+                "label": "ПОРЯДОК PERFECT",
+                "color": "sky",
+                "title": "Для прямо заданої perfect-форми порядок — having been + V3.",
+                "wrong_en": "She denied been having warned.",
+                "wrong_ua": "Задум: Вона заперечувала, що її попередили.",
+                "right_en": "She denied having been warned.",
+                "right_ua": "Вона заперечувала, що її попередили.",
+                "note": "Yesterday саме по собі не доводить помилки being. Тут перевіряємо справді неправильний порядок допоміжних, а не вигадану заборону простої форми."
+              }
+            ]
+          }
+        },
+        {
+          "key": "gerund-summary",
+          "existing_source_index": 8,
+          "type": "summary-list",
+          "column": "left",
+          "level": "B2",
+          "data": {
+            "title": "8. Короткий підсумок",
+            "items": [
+              "Пасивні -ing форми: <strong>being + V3</strong> і <strong>having been + V3</strong>; заперечні — <strong>not being / not having been + V3</strong>.",
+              "Час установлюють головна конструкція, прийменник і контекст; perfect підкреслює попередність, не гарантує причини.",
+              "Перевір pattern після дієслова чи прийменника та учасника саме -ing конструкції. Власний учасник може відрізнятися від підмета головної частини.",
+              "Доповнення, підмет і початковий participle clause мають різні функції. Being + прикметник не стає пасивом."
+            ]
+          }
+        },
+        {
+          "key": "gerund-navigation",
+          "existing_source_index": 9,
+          "type": "navigation-chips",
+          "column": "footer",
+          "level": null,
+          "data": {
+            "title": "Passive Infinitive and Gerund",
+            "items": [
+              {
+                "label": "Passive Infinitive — to be done / to have been done",
+                "url": "/theory/passive-voice/passive-voice-infinitives-gerund/theory-passive-voice-passive-infinitive",
+                "current": false
+              },
+              {
+                "label": "Passive Gerund — being done / having been done",
+                "url": "/theory/passive-voice/passive-voice-infinitives-gerund/theory-passive-voice-passive-gerund",
+                "current": true
+              }
+            ]
+          }
+        },
+        {
+          "key": "gerund-practice",
+          "existing_source_index": null,
+          "type": "practice-set",
+          "column": "left",
+          "level": "B2",
+          "data": {
+            "title": "9. Практика",
+            "select_title": "Доповни пасивну -ing форму",
+            "select_intro": "Перевір pattern, повний ланцюжок і V3. Perfect обирай там, де його прямо просить умова.",
+            "selects": [
+              {
+                "id": "m56-gerund-form-simple",
+                "source_index": 1,
+                "label": "На співбесіді Єва уникала того, щоб її перебивали. Доповни саме -ing модель.<br><span lang=\"en\">Eva avoided ___ during the interview.</span><br><span lang=\"uk\">Єва уникала того, щоб її перебивали під час співбесіди.</span>",
+                "options": [
+                  "being interrupted",
+                  "being interrupt",
+                  "be interrupted"
+                ],
+                "answer": "being interrupted",
+                "accepted": [
+                  "being interrupted"
+                ],
+                "feedback": {
+                  "being interrupted": "Правильно: Eva avoided being interrupted during the interview. — Єва уникала того, щоб її перебивали під час співбесіди. Avoid + being + V3 зберігає Єву учасницею, яку можуть перебити.",
+                  "being interrupt": "Eva avoided being interrupted during the interview. — Єва уникала того, щоб її перебивали під час співбесіди. Після being потрібне V3 interrupted.",
+                  "be interrupted": "Eva avoided being interrupted during the interview. — Єва уникала того, щоб її перебивали під час співбесіди. Після avoided у заданій моделі потрібне -ing: being."
+                }
+              },
+              {
+                "id": "m56-gerund-form-perfect",
+                "source_index": 2,
+                "label": "Бухгалтер заперечував, що до цієї розмови йому двічі заплатили. Використай прямо заданий перфектний пасивний герундій.<br><span lang=\"en\">The accountant denied ___ twice.</span><br><span lang=\"uk\">Бухгалтер заперечував, що йому двічі заплатили.</span>",
+                "options": [
+                  "having being paid",
+                  "having been paid",
+                  "having been pay"
+                ],
+                "answer": "having been paid",
+                "accepted": [
+                  "having been paid"
+                ],
+                "feedback": {
+                  "having being paid": "The accountant denied having been paid twice. — Бухгалтер заперечував, що йому двічі заплатили. Після having тут потрібне been.",
+                  "having been paid": "Правильно: The accountant denied having been paid twice. — Бухгалтер заперечував, що йому двічі заплатили. Заданий ланцюжок: having + been + paid; бухгалтер зазнає оплати.",
+                  "having been pay": "The accountant denied having been paid twice. — Бухгалтер заперечував, що йому двічі заплатили. Після been потрібне V3 paid."
+                }
+              }
+            ],
+            "choice_title": "Визнач учасника та часовий зв’язок",
+            "choice_intro": "Український контекст видно одразу; точний переклад стимулу — після перевірки.",
+            "choices": [
+              {
+                "id": "m56-gerund-meaning-roles",
+                "source_index": 3,
+                "label": "Я, Бен і керівниця обговорюємо звинувачення. Хто зазнає звинувачення в цьому повідомленні?",
+                "options": [
+                  "Я.",
+                  "Бен.",
+                  "Керівниця обов’язково."
+                ],
+                "answer": "Бен.",
+                "accepted": [
+                  "Бен."
+                ],
+                "feedback": {
+                  "я.": "I object to Ben being blamed. — Я заперечую проти того, щоб звинувачували Бена. Ben — власний учасник being blamed; I виражає заперечення. Виконавця звинувачення не названо.",
+                  "бен.": "Правильно: I object to Ben being blamed. — Я заперечую проти того, щоб звинувачували Бена. Ben — власний учасник being blamed; I виражає заперечення. Виконавця звинувачення не названо.",
+                  "керівниця обов’язково.": "I object to Ben being blamed. — Я заперечую проти того, щоб звинувачували Бена. Ben — власний учасник being blamed; I виражає заперечення. Виконавця звинувачення не названо."
+                },
+                "prompt": "<span lang=\"en\">I object to Ben being blamed.</span>"
+              },
+              {
+                "id": "m56-gerund-meaning-memory",
+                "source_index": 4,
+                "label": "Визнач часовий зміст лише з повідомлення про спогад. Не домислюй дію, що триває зараз.",
+                "options": [
+                  "Мені зараз саме видають бейдж.",
+                  "Я згадую, як мені видали червоний бейдж.",
+                  "Я сам видав комусь бейдж."
+                ],
+                "answer": "Я згадую, як мені видали червоний бейдж.",
+                "accepted": [
+                  "Я згадую, як мені видали червоний бейдж."
+                ],
+                "feedback": {
+                  "мені зараз саме видають бейдж.": "I remember being given a red badge. — Я пам’ятаю, як мені видали червоний бейдж. Remember + -ing передає спогад про попередню подію; being given робить мовця отримувачем.",
+                  "я згадую, як мені видали червоний бейдж.": "Правильно: I remember being given a red badge. — Я пам’ятаю, як мені видали червоний бейдж. Remember + -ing передає спогад про попередню подію; being given робить мовця отримувачем.",
+                  "я сам видав комусь бейдж.": "I remember being given a red badge. — Я пам’ятаю, як мені видали червоний бейдж. Remember + -ing передає спогад про попередню подію; being given робить мовця отримувачем."
+                },
+                "prompt": "<span lang=\"en\">I remember being given a red badge.</span>"
+              }
+            ],
+            "input_title": "Побудуй доповнення з пасивним герундієм",
+            "input_intro": "Напиши повне речення вручну або склади всі токени. Дотримуйся заданої моделі та початку.",
+            "inputs": [
+              {
+                "id": "m56-gerund-build-memory",
+                "source_index": 5,
+                "before": "map. / being / I / the / remember / shown",
+                "after": "Скажи: «Я пам’ятаю, як мені показали карту». Почни з I remember, використай простий пасивний герундій із show. Лексика: map — карта.",
+                "answer": "I remember being shown the map.",
+                "accepted": [
+                  "I remember being shown the map."
+                ],
+                "feedback": {
+                  "i remember being shown the map.": "Правильно: I remember being shown the map. — Я пам’ятаю, як мені показали карту. Shown — V3; карту показали мені, не я її показав.",
+                  "i remember being shown the map": "Правильно: I remember being shown the map. — Я пам’ятаю, як мені показали карту. Shown — V3; карту показали мені, не я її показав.",
+                  "i remember showing the map.": "I remember showing the map. — Я пам’ятаю, як показував карту. Це інша роль; умова просить, щоб карту показали мовцеві."
+                }
+              },
+              {
+                "id": "m56-gerund-build-denial",
+                "source_index": 6,
+                "before": "twice. / been / He / paid / having / denied",
+                "after": "Скажи: «Він заперечував, що йому двічі заплатили». Почни з He denied і використай саме перфектний пасивний герундій із pay; twice постав наприкінці.",
+                "answer": "He denied having been paid twice.",
+                "accepted": [
+                  "He denied having been paid twice."
+                ],
+                "feedback": {
+                  "he denied having been paid twice.": "Правильно: He denied having been paid twice. — Він заперечував, що йому двічі заплатили. Having been paid — доповнення після denied; збережено отримувача та twice.",
+                  "he denied having been paid twice": "Правильно: He denied having been paid twice. — Він заперечував, що йому двічі заплатили. Having been paid — доповнення після denied; збережено отримувача та twice.",
+                  "he denied having paid twice.": "He denied having paid twice. — Він заперечував, що двічі платив. Це граматичний актив, але він змінює роль учасника заданої ситуації."
+                }
+              }
+            ],
+            "rephrase": [],
+            "linked_practice": {
+              "source": "theory_links",
+              "question_types": [
+                "4"
+              ],
+              "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoicePassiveGerundAllLevelsLessonSeeder"
+              ],
+              "title": "Вправа 4. Побудуй речення",
+              "intro": "Склади англійське речення за українською умовою, клікаючи на слова. Збережи задану конструкцію, ролі учасників і всі обставини.",
+              "footer": "Завдання підібрані лише для цієї теми."
+            }
+          }
+        }
+      ],
+      "details": [
+        {
+          "key": "gerund-time-context",
+          "title": "Чому being може стосуватися минулого",
+          "owner_block_key": "gerund-simple",
+          "owner_pointer": "/sections/2",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "ФОРМА НЕ Є САМОСТІЙНИМ ЧАСОМ",
+                  "color": "slate",
+                  "description": "Remember задає теперішній спогад про вже пережиту ситуацію; being не зобов’язує подію тривати зараз. Після after порядок також зрозумілий без perfect. Having been робить попередність явною, але не є механічним виправленням кожного being. У конкретній розповіді повідомлення про раннє попередження й подальшу обережність може підтримувати причинне прочитання; сама форма його не доводить.",
+                  "examples": [
+                    {
+                      "en": "At nine, he recalled having been warned at eight.",
+                      "ua": "О дев’ятій він пригадав, що його попередили о восьмій."
+                    },
+                    {
+                      "en": "After being informed, she phoned the office.",
+                      "ua": "Після того як її поінформували, вона зателефонувала до офісу."
+                    },
+                    {
+                      "en": "After having been informed, she phoned the office.",
+                      "ua": "Після того як її поінформували, вона зателефонувала до офісу."
+                    }
+                  ],
+                  "note": "Останні два речення прийнятні в цій часовій ситуації. Без прямої вимоги perfect завдання не повинне робити другу версію єдиною граматичною відповіддю."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "gerund-negation-scope",
+          "title": "Не подобається дія чи подобається її відсутність?",
+          "owner_block_key": "gerund-patterns",
+          "owner_pointer": "/sections/1",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "МІСЦЕ NOT ЗМІНЮЄ ТВЕРДЖЕННЯ",
+                  "color": "slate",
+                  "description": "У doesn't like заперечено ставлення до дії; у likes not being asked стверджено позитивне ставлення до відсутності дії. У реальній ситуації ці ставлення можуть збігтися, але одне не є дослівною заміною іншого. Зберігай місце заперечення, якщо вправою задано конкретний зміст. Так само в доповненні може бути власний учасник: це не правило «всяка -ing форма стосується головного підмета».",
+                  "examples": [
+                    {
+                      "en": "Maya doesn't like being asked personal questions.",
+                      "ua": "Майї не подобається, коли їй ставлять особисті запитання."
+                    },
+                    {
+                      "en": "Maya likes not being asked personal questions.",
+                      "ua": "Майї подобається, коли їй не ставлять особистих запитань."
+                    },
+                    {
+                      "en": "Maya dislikes her brother being blamed.",
+                      "ua": "Майї не подобається, коли звинувачують її брата."
+                    }
+                  ],
+                  "note": "У третьому реченні Maya оцінює ситуацію, а her brother зазнає звинувачення. Це доповнення з власним учасником, не початковий обставинний зворот."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "status": "frozen",
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoicePresentSimpleTheorySeeder",
+      "slug": "theory-passive-voice-present-simple",
+      "locale": "uk",
+      "display_level": "A2",
+      "technical_block_level": "A2",
+      "category_ancestry": [
+        "passive-voice"
+      ],
+      "local_url": "http://gramlyze.loc/theory/passive-voice/theory-passive-voice-present-simple",
+      "subtitle_html": "<p><strong>Present Simple Passive</strong> — регулярні дії та загальні правила з am/is/are + V3: ствердження, заперечення, питання, переклади й практика.</p>",
+      "subtitle_text": "Теперішній простий пасив: am/is/are + V3, узгодження, регулярні дії, заперечення, питання й короткі відповіді.",
+      "blocks": [
+        {
+          "key": "present-hero",
+          "existing_source_index": 0,
+          "type": "hero",
+          "column": "header",
+          "level": "A2",
+          "data": {
+            "level": "A2",
+            "intro": "Present Simple Passive допомагає сказати, що регулярно роблять із кимось або чимось, не починаючи з виконавця. Будова — am/is/are + V3. Форму be вибираємо за підметом пасивного речення; V3 не отримує -s через he, she або it.",
+            "rules": [
+              {
+                "label": "РЕГУЛЯРНА ДІЯ",
+                "color": "emerald",
+                "text": "Предмет дії + am/is/are + V3; частота уточнює звичайний порядок.",
+                "example": "<span lang=\"en\">The rooms are cleaned every day.</span><br><span lang=\"uk\">Кімнати прибирають щодня.</span>"
+              },
+              {
+                "label": "ЗАПЕРЕЧЕННЯ",
+                "color": "rose",
+                "text": "Not стоїть після am/is/are, перед V3.",
+                "example": "<span lang=\"en\">These cars are not made in Japan.</span><br><span lang=\"uk\">Ці машини не виробляють у Японії.</span>"
+              },
+              {
+                "label": "ПИТАННЯ",
+                "color": "blue",
+                "text": "У звичайному питанні am/is/are ставимо перед підметом.",
+                "example": "<span lang=\"en\">Is English spoken here?</span><br><span lang=\"uk\">Тут розмовляють англійською?</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "present-forms",
+          "existing_source_index": 1,
+          "type": "forms-grid",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "1. Вибір am, is та are",
+            "intro": "Дивись на підмет перед be, а не на виконавця після by. V3 має ту саму форму після am, is та are.",
+            "items": [
+              {
+                "label": "I",
+                "title": "am + V3",
+                "subtitle": "<span lang=\"en\">I am paid monthly.</span><br><span lang=\"uk\">Мені платять щомісяця.</span>"
+              },
+              {
+                "label": "HE / SHE / IT АБО ОДНИНА",
+                "title": "is + V3",
+                "subtitle": "<span lang=\"en\">The room is cleaned by two workers.</span><br><span lang=\"uk\">Кімнату прибирають двоє працівників.</span>",
+                "rules": [
+                  {
+                    "label": "ПЕРЕВІРКА",
+                    "text": "Room — однина, тому is, хоча workers — множина."
+                  }
+                ]
+              },
+              {
+                "label": "YOU / WE / THEY",
+                "title": "are + V3",
+                "subtitle": "<span lang=\"en\">You are given a new code every week.</span><br><span lang=\"uk\">Тобі щотижня дають новий код.</span>",
+                "rules": [
+                  {
+                    "label": "ПЕРЕВІРКА",
+                    "text": "You вживається з are і коли звертаємося до однієї людини."
+                  }
+                ]
+              },
+              {
+                "label": "МНОЖИНА",
+                "title": "are + V3",
+                "subtitle": "<span lang=\"en\">Cars are produced here.</span><br><span lang=\"uk\">Тут виробляють автомобілі.</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "present-affirmative",
+          "existing_source_index": 2,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "2. Регулярні дії, загальні факти та правила",
+            "sections": [
+              {
+                "label": "ЩО РОБЛЯТЬ І ЯК ЧАСТО",
+                "color": "emerald",
+                "description": "Порядок: підмет + am/is/are + V3. Вибираємо пасив, коли важливі кімнати, газети чи інший предмет дії; виконавця можна назвати через by.",
+                "examples": [
+                  {
+                    "en": "The rooms are cleaned every day.",
+                    "ua": "Кімнати прибирають щодня."
+                  },
+                  {
+                    "en": "Newspapers are delivered every morning.",
+                    "ua": "Газети доставляють щоранку."
+                  }
+                ],
+                "note": "Ці приклади описують звичайний порядок, а не стверджують, що дія відбувається просто зараз."
+              },
+              {
+                "label": "ЗАГАЛЬНА СИТУАЦІЯ АБО ПРАВИЛО",
+                "color": "blue",
+                "description": "Пасив може повідомляти про звичайну ситуацію або встановлену процедуру без окремого слова every. Перекладаємо природно українською, не копіюємо англійський порядок.",
+                "examples": [
+                  {
+                    "en": "English is spoken in many countries.",
+                    "ua": "У багатьох країнах розмовляють англійською."
+                  },
+                  {
+                    "en": "Visitors are asked to leave their bags here.",
+                    "ua": "Відвідувачів просять залишати сумки тут."
+                  }
+                ],
+                "note": "Слова often або always допомагають зрозуміти частоту, але самі по собі не визначають час чи стан."
+              }
+            ]
+          }
+        },
+        {
+          "key": "present-negative",
+          "existing_source_index": 3,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "3. Заперечення та скорочення",
+            "sections": [
+              {
+                "label": "AM / IS / ARE + NOT + V3",
+                "color": "rose",
+                "description": "Not ставимо після be. Для регулярної дії додаємо зрозумілий контекст. Можливі is not → isn't, are not → aren't та I am not → I'm not; базова навчальна форма для I — I'm not, не amn't.",
+                "examples": [
+                  {
+                    "en": "These cars are not made in Japan.",
+                    "ua": "Ці машини не виробляють у Японії."
+                  },
+                  {
+                    "en": "The bins aren't emptied on Sundays.",
+                    "ua": "Контейнери не спорожнюють по неділях."
+                  },
+                  {
+                    "en": "I'm not asked to work on Sundays.",
+                    "ua": "Мене не просять працювати по неділях."
+                  }
+                ],
+                "note": "The door is not locked. — Двері не замкнені. Це може описувати стан. The reports aren't finished yet. — Звіти ще не готові. Таке речення не є помилкою, але воно не однозначний зразок регулярної дії."
+              }
+            ]
+          }
+        },
+        {
+          "key": "present-questions",
+          "existing_source_index": 4,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "4. Питання та короткі відповіді",
+            "sections": [
+              {
+                "label": "ЗВИЧАЙНЕ ПИТАННЯ З BE",
+                "color": "blue",
+                "description": "Am/Is/Are + підмет + V3? У цій be-passive моделі не додаємо do або does: особова допоміжна форма вже є.",
+                "examples": [
+                  {
+                    "en": "Are the rooms cleaned daily?",
+                    "ua": "Кімнати прибирають щодня?"
+                  },
+                  {
+                    "en": "Are you paid monthly? — Yes, I am. / No, I'm not.",
+                    "ua": "Тобі платять щомісяця? — Так. / Ні."
+                  },
+                  {
+                    "en": "Am I asked to help every Friday? — Yes, you are. / No, you aren't.",
+                    "ua": "Мене просять допомагати щоп’ятниці? — Так. / Ні."
+                  }
+                ],
+                "note": "На Am I...? співрозмовник відповідає про you; на Are you...? мовець відповідає про I. У ствердній короткій відповіді be наприкінці не скорочуємо."
+              },
+              {
+                "label": "МІСЦЕ, ЧАСТОТА АБО ПРИЧИНА",
+                "color": "sky",
+                "description": "Питальне слово + am/is/are + підмет + V3? Питаємо саме те, чого не знаємо; форма be залишається перед підметом.",
+                "examples": [
+                  {
+                    "en": "Where is coffee grown?",
+                    "ua": "Де вирощують каву?"
+                  },
+                  {
+                    "en": "How often are the rooms cleaned?",
+                    "ua": "Як часто прибирають кімнати?"
+                  },
+                  {
+                    "en": "Why are these bags checked?",
+                    "ua": "Чому перевіряють ці сумки?"
+                  }
+                ]
+              },
+              {
+                "label": "ХТО АБО ЩО Є ПІДМЕТОМ",
+                "color": "amber",
+                "description": "Коли who або what замінює того, хто зазнає дії, окремого підмета після be немає. Питання про виконавця має іншу роль.",
+                "examples": [
+                  {
+                    "en": "Who is invited to the weekly meeting?",
+                    "ua": "Кого запрошують на щотижневу зустріч?"
+                  },
+                  {
+                    "en": "What is checked before each trip?",
+                    "ua": "Що перевіряють перед кожною поїздкою?"
+                  },
+                  {
+                    "en": "Who are the rooms cleaned by?",
+                    "ua": "Хто прибирає кімнати?"
+                  }
+                ],
+                "note": "Why is this product so popular? — Чому цей продукт такий популярний? Popular — прикметник: це питання з be, але не пасивне питання."
+              }
+            ]
+          }
+        },
+        {
+          "key": "present-comparison",
+          "existing_source_index": 5,
+          "type": "comparison-table",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "5. Active → Passive: збережи потрібну інформацію",
+            "intro": "Об’єкт активного речення стає підметом пасиву. Час і частота зберігаються; якщо потрібно зберегти названого виконавця, додаємо by.",
+            "headers": [
+              "Актив і переклад",
+              "Пасив і переклад",
+              "Перевірка"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "<span lang=\"en\">Tom writes letters every day.</span><br><span lang=\"uk\">Том пише листи щодня.</span>",
+                  "<span lang=\"en\">Letters are written by Tom every day.</span><br><span lang=\"uk\">Листи щодня пише Том.</span>",
+                  "Letters — множина: are; Tom збережений через by."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">They clean the rooms daily.</span><br><span lang=\"uk\">Вони прибирають кімнати щодня.</span>",
+                  "<span lang=\"en\">The rooms are cleaned daily.</span><br><span lang=\"uk\">Кімнати прибирають щодня.</span>",
+                  "Виконавців вони більше не названо. Якщо вони важливі, потрібне by them."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">People speak English here.</span><br><span lang=\"uk\">Люди тут розмовляють англійською.</span>",
+                  "<span lang=\"en\">English is spoken here.</span><br><span lang=\"uk\">Тут розмовляють англійською.</span>",
+                  "Загального виконавця people опущено; ситуація та місце збережені."
+                ]
+              }
+            ],
+            "warning": "Потрібен інший час? Порівняй <a href=\"http://gramlyze.loc/theory/passive-voice/theory-passive-voice-past-simple\">Past Simple Passive</a>. Загальна будова — у <a href=\"http://gramlyze.loc/theory/passive-voice/theory-passive-voice-formation-rules\">Formation Rules</a>."
+          }
+        },
+        {
+          "key": "present-mistakes",
+          "existing_source_index": 6,
+          "type": "mistakes-grid",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "6. Типові помилки у формі",
+            "items": [
+              {
+                "label": "УЗГОДЖЕННЯ",
+                "color": "rose",
+                "title": "Letters — множина, тому are.",
+                "wrong_en": "The letters is sent every day.",
+                "wrong_ua": "Задум: Листи надсилають щодня.",
+                "right_en": "The letters are sent every day.",
+                "right_ua": "Листи надсилають щодня.",
+                "note": "Send має V3 sent; множина змінює be, не V3."
+              },
+              {
+                "label": "ЗВИЧАЙНЕ ПИТАННЯ",
+                "color": "amber",
+                "title": "Потрібно нейтрально запитати про щоденне прибирання.",
+                "wrong_en": "Does the room is cleaned daily?",
+                "wrong_ua": "Задум: Кімнату прибирають щодня?",
+                "right_en": "Is the room cleaned daily?",
+                "right_ua": "Кімнату прибирають щодня?",
+                "note": "Is уже є допоміжним у цій be-passive моделі; does не додаємо. Це не заборона do в усіх можливих англійських конструкціях."
+              },
+              {
+                "label": "НЕ ДОДАВАЙ -S ДО V3",
+                "color": "sky",
+                "title": "Для однини використай is, але V3 залиш written.",
+                "wrong_en": "The note is writtens every morning.",
+                "wrong_ua": "Задум: Записку пишуть щоранку.",
+                "right_en": "The note is written every morning.",
+                "right_ua": "Записку пишуть щоранку.",
+                "note": "У write третя форма written. Закінчення -s тут не потрібне."
+              }
+            ]
+          }
+        },
+        {
+          "key": "present-summary",
+          "existing_source_index": 7,
+          "type": "summary-list",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "7. Короткий підсумок",
+            "items": [
+              "<strong>Am/is/are + V3</strong>: підмет зазнає дії; be узгоджується саме з ним.",
+              "<strong>I → am</strong>; he/she/it та однина → <strong>is</strong>; you/we/they та множина → <strong>are</strong>. You має are і для однієї людини.",
+              "Заперечення: <strong>be + not + V3</strong>. Питання в цій моделі: <strong>be + підмет + V3?</strong>",
+              "Present Simple описує регулярні дії й загальні ситуації. Стан або процес зараз розрізняй за цілим контекстом, не лише за маркером."
+            ]
+          }
+        },
+        {
+          "key": "present-navigation",
+          "existing_source_index": 8,
+          "type": "navigation-chips",
+          "column": "footer",
+          "level": "A2",
+          "data": {
+            "title": "Passive in Tenses",
+            "items": [
+              {
+                "label": "Present Simple Passive — Теперішній простий пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-present-simple",
+                "current": true
+              },
+              {
+                "label": "Present Continuous Passive — Теперішній тривалий пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-present-continuous",
+                "current": false
+              },
+              {
+                "label": "Present Perfect Passive — Теперішній доконаний пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-present-perfect",
+                "current": false
+              },
+              {
+                "label": "Past Simple Passive — Минулий простий пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-past-simple",
+                "current": false
+              },
+              {
+                "label": "Past Continuous Passive — Минулий тривалий пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-past-continuous",
+                "current": false
+              },
+              {
+                "label": "Past Perfect Passive — Минулий доконаний пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-past-perfect",
+                "current": false
+              },
+              {
+                "label": "Future Simple Passive — Майбутній простий пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-future-simple",
+                "current": false
+              },
+              {
+                "label": "Future Continuous Passive — Майбутній тривалий пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-future-continuous",
+                "current": false
+              },
+              {
+                "label": "Future Perfect Passive — Майбутній доконаний пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-future-perfect",
+                "current": false
+              }
+            ]
+          }
+        },
+        {
+          "key": "present-practice",
+          "existing_source_index": null,
+          "type": "practice-set",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "8. Практика",
+            "select_title": "Обери форму be або V3",
+            "select_intro": "Умови описують звичайну процедуру. Заповни лише пропуск.",
+            "selects": [
+              {
+                "id": "m56-present-form-agreement",
+                "source_index": 1,
+                "label": "<span lang=\"en\">The labels ___ checked every morning.</span><br><span lang=\"uk\">Етикетки перевіряють щоранку.</span>",
+                "options": [
+                  "is",
+                  "are",
+                  "be"
+                ],
+                "answer": "are",
+                "accepted": [
+                  "are"
+                ],
+                "feedback": {
+                  "is": "The labels are checked every morning. — Етикетки перевіряють щоранку. Labels — множина, тому are; checked уже є V3.",
+                  "are": "Правильно: The labels are checked every morning. — Етикетки перевіряють щоранку. Labels — множина, тому are; checked уже є V3.",
+                  "be": "The labels are checked every morning. — Етикетки перевіряють щоранку. Labels — множина, тому are; checked уже є V3."
+                }
+              },
+              {
+                "id": "m56-present-form-v3",
+                "source_index": 2,
+                "label": "<span lang=\"en\">A copy is ___ to each customer.</span><br><span lang=\"uk\">Кожному клієнтові дають копію.</span>",
+                "options": [
+                  "gave",
+                  "give",
+                  "given"
+                ],
+                "answer": "given",
+                "accepted": [
+                  "given"
+                ],
+                "feedback": {
+                  "gave": "A copy is given to each customer. — Кожному клієнтові дають копію. Після is у пасиві потрібне V3 given, не give або V2 gave.",
+                  "give": "A copy is given to each customer. — Кожному клієнтові дають копію. Після is у пасиві потрібне V3 given, не give або V2 gave.",
+                  "given": "Правильно: A copy is given to each customer. — Кожному клієнтові дають копію. Після is у пасиві потрібне V3 given, не give або V2 gave."
+                }
+              }
+            ],
+            "choice_title": "Зрозумій учасників і регулярність",
+            "choice_intro": "Обери висновок за англійським повідомленням. Повний переклад — після перевірки.",
+            "choices": [
+              {
+                "id": "m56-present-meaning-short-answer",
+                "source_index": 3,
+                "label": "Джо питає Марка про свій звичайний графік. Марк відповідає Джо. Кого просять допомагати щоп’ятниці?",
+                "options": [
+                  "Джо.",
+                  "Марк.",
+                  "Джо й Марк обов’язково."
+                ],
+                "answer": "Джо.",
+                "accepted": [
+                  "Джо."
+                ],
+                "feedback": {
+                  "джо.": "Правильно: Am I asked to help every Friday? — Yes, you are. — Мене просять допомагати щоп’ятниці? — Так. I в питанні й you у відповіді позначають Джо. Займенник змінюється разом із мовцем.",
+                  "марк.": "Am I asked to help every Friday? — Yes, you are. — Мене просять допомагати щоп’ятниці? — Так. I в питанні й you у відповіді позначають Джо. Займенник змінюється разом із мовцем.",
+                  "джо й марк обов’язково.": "Am I asked to help every Friday? — Yes, you are. — Мене просять допомагати щоп’ятниці? — Так. I в питанні й you у відповіді позначають Джо. Займенник змінюється разом із мовцем."
+                },
+                "prompt": "<span lang=\"en\">Am I asked to help every Friday? — Yes, you are.</span>"
+              },
+              {
+                "id": "m56-present-meaning-routine",
+                "source_index": 4,
+                "label": "Що повідомляє правило готелю? Не додавай відомостей про те, що відбувається цієї секунди.",
+                "options": [
+                  "Кімнати зараз обов’язково прибирають.",
+                  "Це звичайний щоденний порядок прибирання.",
+                  "Кімнати прибрали тільки одного разу."
+                ],
+                "answer": "Це звичайний щоденний порядок прибирання.",
+                "accepted": [
+                  "Це звичайний щоденний порядок прибирання."
+                ],
+                "feedback": {
+                  "кімнати зараз обов’язково прибирають.": "The rooms are cleaned every day. — Кімнати прибирають щодня. Present Simple описує звичайний порядок; це речення саме по собі не показує процес зараз.",
+                  "це звичайний щоденний порядок прибирання.": "Правильно: The rooms are cleaned every day. — Кімнати прибирають щодня. Present Simple описує звичайний порядок; це речення саме по собі не показує процес зараз.",
+                  "кімнати прибрали тільки одного разу.": "The rooms are cleaned every day. — Кімнати прибирають щодня. Present Simple описує звичайний порядок; це речення саме по собі не показує процес зараз."
+                },
+                "prompt": "<span lang=\"en\">The rooms are cleaned every day.</span>"
+              }
+            ],
+            "input_title": "Побудуй питання та заперечення",
+            "input_intro": "Напиши повне речення або склади всі слова банку; збережи заданий час і порядок.",
+            "inputs": [
+              {
+                "id": "m56-present-build-question",
+                "source_index": 5,
+                "before": "Monday? / checked / Are / every / the / tools",
+                "after": "Запитай: «Інструменти перевіряють щопонеділка?» Почни з Are, використай tools — інструменти, check — перевіряти. Every Monday залиш наприкінці.",
+                "answer": "Are the tools checked every Monday?",
+                "accepted": [
+                  "Are the tools checked every Monday?"
+                ],
+                "feedback": {
+                  "are the tools checked every monday?": "Правильно: Are the tools checked every Monday? — Інструменти перевіряють щопонеділка? Are стоїть перед підметом the tools; checked — V3.",
+                  "are the tools checked every monday": "Правильно: Are the tools checked every Monday? — Інструменти перевіряють щопонеділка? Are стоїть перед підметом the tools; checked — V3.",
+                  "is the tools checked every monday?": "Are the tools checked every Monday? — Інструменти перевіряють щопонеділка? Tools — множина, тому are."
+                }
+              },
+              {
+                "id": "m56-present-build-negative",
+                "source_index": 6,
+                "before": "cash. / not / I / in / paid / am",
+                "after": "Скажи про звичайний спосіб оплати: «Мені не платять готівкою». Почни з I; використай pay — платити та in cash — готівкою. Можлива повна форма або I'm not.",
+                "answer": "I am not paid in cash.",
+                "accepted": [
+                  "I am not paid in cash.",
+                  "I'm not paid in cash."
+                ],
+                "feedback": {
+                  "i am not paid in cash.": "Правильно: I am not paid in cash. — Мені не платять готівкою. I узгоджується з am; not стоїть перед V3 paid.",
+                  "i am not paid in cash": "Правильно: I am not paid in cash. — Мені не платять готівкою. I узгоджується з am; not стоїть перед V3 paid.",
+                  "i'm not paid in cash.": "Правильно: I'm not paid in cash. — Мені не платять готівкою. I узгоджується з am; not стоїть перед V3 paid.",
+                  "i'm not paid in cash": "Правильно: I'm not paid in cash. — Мені не платять готівкою. I узгоджується з am; not стоїть перед V3 paid.",
+                  "i do not paid in cash.": "I am not paid in cash. — Мені не платять готівкою. У заданій be-passive моделі потрібне am not + paid."
+                }
+              }
+            ],
+            "rephrase": [],
+            "linked_practice": {
+              "source": "theory_links",
+              "question_types": [
+                "4"
+              ],
+              "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoicePresentSimpleAllLevelsLessonSeeder"
+              ],
+              "title": "Вправа 4. Побудуй речення",
+              "intro": "Склади англійське речення за українською умовою, клікаючи на слова. Перевір am/is/are, V3 і частоту дії.",
+              "footer": "Завдання підібрані лише для цієї теми."
+            }
+          }
+        }
+      ],
+      "details": [
+        {
+          "key": "present-state-process",
+          "title": "Звичайна дія, процес зараз чи стан?",
+          "owner_block_key": "present-negative",
+          "owner_pointer": "/sections/0",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "ПРОЧИТАЙ УСЮ СИТУАЦІЮ",
+                  "color": "slate",
+                  "description": "Одна форма be з дієприкметником може описувати дію або стан залежно від контексту. Щоденне замикання — процедура; незамкнені двері — можливий опис їхнього стану. Коли важливо сказати, що дія саме триває, потрібна відповідна Continuous-модель. Це не означає, що every чи now автоматично вирішують будь-який приклад: спочатку з’ясовуємо задум мовця.",
+                  "examples": [
+                    {
+                      "en": "The doors are locked at six every evening.",
+                      "ua": "Двері замикають о шостій щовечора."
+                    },
+                    {
+                      "en": "The door is not locked.",
+                      "ua": "Двері не замкнені."
+                    },
+                    {
+                      "en": "The door is being painted now.",
+                      "ua": "Двері зараз фарбують."
+                    }
+                  ],
+                  "note": "Третій приклад — лише коротке зіставлення; будову процесу пояснює <a href=\"http://gramlyze.loc/theory/passive-voice/theory-passive-voice-present-continuous\">Present Continuous Passive</a>. У першому й третьому йдеться про різні ситуації, а не про граматичну правильність одного-єдиного часу."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "status": "frozen",
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoicePastSimpleTheorySeeder",
+      "slug": "theory-passive-voice-past-simple",
+      "locale": "uk",
+      "display_level": "A2",
+      "technical_block_level": "A2",
+      "category_ancestry": [
+        "passive-voice"
+      ],
+      "local_url": "http://gramlyze.loc/theory/passive-voice/theory-passive-voice-past-simple",
+      "subtitle_html": "<p><strong>Past Simple Passive</strong> — минулі події та повторювані дії з was/were + V3: заперечення, питання, переклади й практика.</p>",
+      "subtitle_text": "Минулий простий пасив: was/were + V3, минулі події й повтори, заперечення, питання та короткі відповіді.",
+      "blocks": [
+        {
+          "key": "past-hero",
+          "existing_source_index": 0,
+          "type": "hero",
+          "column": "header",
+          "level": "A2",
+          "data": {
+            "level": "A2",
+            "intro": "Past Simple Passive повідомляє, що зробили з кимось або чимось у минулому. Будова — was/were + V3: was/were задає час і узгоджується з підметом; V3 — потрібна форма головного дієслова. Можлива одна подія або повтор у минулому періоді.",
+            "rules": [
+              {
+                "label": "МИНУЛА ПОДІЯ",
+                "color": "emerald",
+                "text": "Підмет + was/were + V3; подію розміщено в минулому.",
+                "example": "<span lang=\"en\">The house was built in 1990.</span><br><span lang=\"uk\">Будинок побудували в 1990 році.</span>"
+              },
+              {
+                "label": "ЗАПЕРЕЧЕННЯ",
+                "color": "rose",
+                "text": "Not після was/were; скорочення wasn't / weren't.",
+                "example": "<span lang=\"en\">The email was not sent.</span><br><span lang=\"uk\">Електронний лист не надіслали.</span>"
+              },
+              {
+                "label": "ПИТАННЯ",
+                "color": "blue",
+                "text": "У звичайному питанні was/were ставимо перед підметом.",
+                "example": "<span lang=\"en\">Were the documents signed?</span><br><span lang=\"uk\">Документи підписали?</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "past-forms",
+          "existing_source_index": 1,
+          "type": "forms-grid",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "1. Вибір was і were",
+            "intro": "Форму визначає підмет пасивного речення, не виконавець після by. You має were і коли позначає одну людину.",
+            "items": [
+              {
+                "label": "I / HE / SHE / IT",
+                "title": "was + V3",
+                "subtitle": "<span lang=\"en\">I was invited to the party.</span><br><span lang=\"uk\">Мене запросили на вечірку.</span>"
+              },
+              {
+                "label": "YOU / WE / THEY",
+                "title": "were + V3",
+                "subtitle": "<span lang=\"en\">You were given a key.</span><br><span lang=\"uk\">Тобі дали ключ.</span>",
+                "rules": [
+                  {
+                    "label": "ПЕРЕВІРКА",
+                    "text": "У цьому прикладі звертаємося до однієї людини: усе одно were."
+                  }
+                ]
+              },
+              {
+                "label": "ІМЕННИК В ОДНИНІ",
+                "title": "was + V3",
+                "subtitle": "<span lang=\"en\">The car was stolen.</span><br><span lang=\"uk\">Автомобіль викрали.</span>"
+              },
+              {
+                "label": "ІМЕННИК У МНОЖИНІ",
+                "title": "were + V3",
+                "subtitle": "<span lang=\"en\">The documents were signed by Olia.</span><br><span lang=\"uk\">Документи підписала Оля.</span>",
+                "rules": [
+                  {
+                    "label": "ПЕРЕВІРКА",
+                    "text": "Documents — множина: were, хоча Olia — одна виконавиця."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "past-affirmative",
+          "existing_source_index": 2,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "2. Подія або повтор у минулому",
+            "sections": [
+              {
+                "label": "ЩО СТАЛОСЯ З ПРЕДМЕТОМ",
+                "color": "emerald",
+                "description": "Підмет + was/were + V3. Називаємо минулу подію; час може бути прямо в реченні або вже відомий із розмови.",
+                "examples": [
+                  {
+                    "en": "The house was built in 1990.",
+                    "ua": "Будинок побудували в 1990 році."
+                  },
+                  {
+                    "en": "The letter was sent last week.",
+                    "ua": "Листа надіслали минулого тижня."
+                  },
+                  {
+                    "en": "The window was broken during the storm.",
+                    "ua": "Вікно було розбите під час бурі."
+                  }
+                ],
+                "note": "Слово yesterday не є обов’язковим і саме не робить речення пасивним."
+              },
+              {
+                "label": "ПОВТОР У МИНУЛОМУ ПЕРІОДІ",
+                "color": "blue",
+                "description": "Past Simple не обмежується однією короткою дією. Якщо період минулий, повтор теж може бути в Past Simple; every day не змушує автоматично вибрати теперішній час.",
+                "examples": [
+                  {
+                    "en": "During the camp, the rooms were cleaned every day.",
+                    "ua": "Під час табору кімнати прибирали щодня."
+                  },
+                  {
+                    "en": "When the old office was open, letters were collected twice a day.",
+                    "ua": "Коли старий офіс працював, листи забирали двічі на день."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "past-negative",
+          "existing_source_index": 3,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "3. Заперечні речення",
+            "sections": [
+              {
+                "label": "WAS / WERE + NOT + V3",
+                "color": "rose",
+                "description": "Not ставимо після was/were. Зберігаємо час, учасника й обставини: заперечуємо саме названу минулу дію.",
+                "examples": [
+                  {
+                    "en": "The email was not sent.",
+                    "ua": "Електронний лист не надіслали."
+                  },
+                  {
+                    "en": "I was not informed about the meeting.",
+                    "ua": "Мене не повідомили про зустріч."
+                  }
+                ]
+              },
+              {
+                "label": "WASN'T ТА WEREN'T",
+                "color": "amber",
+                "description": "Скорочені форми передають те саме заперечення. Для конкретної події можна прямо назвати час або дію виконавця.",
+                "examples": [
+                  {
+                    "en": "The rooms weren't cleaned yesterday.",
+                    "ua": "Кімнати вчора не прибирали."
+                  },
+                  {
+                    "en": "The caretaker didn't lock the door at six; it wasn't locked until eight.",
+                    "ua": "Доглядач не замкнув двері о шостій; їх замкнули лише о восьмій."
+                  }
+                ],
+                "note": "The door wasn't locked. — Двері не були замкнені. Без ширшого контексту це може бути описом стану, а не повідомленням про окреме замикання. Це не робить речення неправильним."
+              }
+            ]
+          }
+        },
+        {
+          "key": "past-questions",
+          "existing_source_index": 4,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "4. Питання та короткі відповіді",
+            "sections": [
+              {
+                "label": "ЗВИЧАЙНЕ ПИТАННЯ",
+                "color": "blue",
+                "description": "Was/Were + підмет + V3? У цій моделі did не додаємо: особове допоміжне was або were вже є.",
+                "examples": [
+                  {
+                    "en": "Was the car repaired?",
+                    "ua": "Автомобіль відремонтували?"
+                  },
+                  {
+                    "en": "Were the documents signed?",
+                    "ua": "Документи підписали?"
+                  },
+                  {
+                    "en": "Were you invited? — Yes, I was. / No, I wasn't.",
+                    "ua": "Тебе запросили? — Так. / Ні."
+                  }
+                ],
+                "note": "У відповіді враховуємо займенник: про себе кажемо I was, хоча співрозмовник запитував Were you...?"
+              },
+              {
+                "label": "ЧАС, МІСЦЕ ТА УЧАСНИК",
+                "color": "sky",
+                "description": "Питальне слово + was/were + підмет + V3? Якщо who саме є підметом — того, кого запросили, — іншого підмета не додаємо.",
+                "examples": [
+                  {
+                    "en": "When was the house built?",
+                    "ua": "Коли побудували будинок?"
+                  },
+                  {
+                    "en": "Where was the car found?",
+                    "ua": "Де знайшли автомобіль?"
+                  },
+                  {
+                    "en": "Who was invited to the meeting?",
+                    "ua": "Кого запросили на зустріч?"
+                  },
+                  {
+                    "en": "Who was the letter written by?",
+                    "ua": "Хто написав листа?"
+                  }
+                ],
+                "note": "Who was invited...? питає про запрошеного; who ... by? — про виконавця написання."
+              },
+              {
+                "label": "КОРОТКА ВІДПОВІДЬ З WAS / WERE",
+                "color": "amber",
+                "description": "Повторюємо відповідне допоміжне, а не тільки V3. Ствердну форму наприкінці короткої відповіді не скорочуємо.",
+                "examples": [
+                  {
+                    "en": "Was the letter sent? — Yes, it was. / No, it wasn't.",
+                    "ua": "Листа надіслали? — Так. / Ні."
+                  },
+                  {
+                    "en": "Were they informed? — Yes, they were. / No, they weren't.",
+                    "ua": "Їх повідомили? — Так. / Ні."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "past-comparison",
+          "existing_source_index": 5,
+          "type": "comparison-table",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "5. Active → Passive: не губи виконавця чи час",
+            "intro": "Переносимо предмет дії на позицію підмета. Якщо потрібна вся вихідна інформація, названого агента зберігаємо через by.",
+            "headers": [
+              "Актив і переклад",
+              "Пасив і переклад",
+              "Що збережено"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "<span lang=\"en\">Tom wrote the letter yesterday.</span><br><span lang=\"uk\">Том написав листа вчора.</span>",
+                  "<span lang=\"en\">The letter was written by Tom yesterday.</span><br><span lang=\"uk\">Листа вчора написав Том.</span>",
+                  "Том, лист і вчорашній час збережені; wrote → was written."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">They built this house in 1990.</span><br><span lang=\"uk\">Вони побудували цей будинок у 1990 році.</span>",
+                  "<span lang=\"en\">This house was built by them in 1990.</span><br><span lang=\"uk\">Цей будинок побудували вони в 1990 році.</span>",
+                  "Built однаково пишеться як V2 і V3, але функція змінюється. By them збережено; його можна опустити лише з розумінням втрати названого агента."
+                ]
+              },
+              {
+                "cells": [
+                  "<span lang=\"en\">Someone stole my bike.</span><br><span lang=\"uk\">Хтось украв мій велосипед.</span>",
+                  "<span lang=\"en\">My bike was stolen.</span><br><span lang=\"uk\">Мій велосипед украли.</span>",
+                  "Невідомого виконавця не названо. Минула подія лишається минулою."
+                ]
+              }
+            ],
+            "warning": "Загальна будова — у <a href=\"http://gramlyze.loc/theory/passive-voice/theory-passive-voice-formation-rules\">Formation Rules</a>; регулярні теперішні дії — у <a href=\"http://gramlyze.loc/theory/passive-voice/theory-passive-voice-present-simple\">Present Simple Passive</a>."
+          }
+        },
+        {
+          "key": "past-time",
+          "existing_source_index": 6,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "6. Як зрозуміти минулий час",
+            "sections": [
+              {
+                "label": "МАРКЕР І ПОВНИЙ ПРИКЛАД",
+                "color": "emerald",
+                "description": "Yesterday — учора; last week — минулого тижня; two days ago — два дні тому; in 1990 — у 1990 році. Маркер і його переклад не замінюють повного речення.",
+                "examples": [
+                  {
+                    "en": "The report was finished yesterday.",
+                    "ua": "Звіт завершили вчора."
+                  },
+                  {
+                    "en": "The car was sold last week.",
+                    "ua": "Автомобіль продали минулого тижня."
+                  },
+                  {
+                    "en": "The email was sent two days ago.",
+                    "ua": "Електронний лист надіслали два дні тому."
+                  },
+                  {
+                    "en": "The bridge was built in 1990.",
+                    "ua": "Міст побудували в 1990 році."
+                  }
+                ]
+              },
+              {
+                "label": "ЧАС УЖЕ ВСТАНОВЛЕНИЙ РОЗМОВОЮ",
+                "color": "blue",
+                "description": "Не потрібно додавати yesterday у кожну репліку. Коли обговорюємо певну минулу подію, коротка відповідь може зберігати той самий часовий контекст.",
+                "examples": [
+                  {
+                    "en": "What happened at the workshop? — The old sign was replaced.",
+                    "ua": "Що сталося в майстерні? — Стару вивіску замінили."
+                  }
+                ],
+                "note": "Was/were + V3 називає минулу дію; was/were being + V3 показує процес у відповідний момент. Процес — окрема тема <a href=\"http://gramlyze.loc/theory/passive-voice/theory-passive-voice-past-continuous\">Past Continuous Passive</a>; не додаємо being без потреби."
+              }
+            ]
+          }
+        },
+        {
+          "key": "past-mistakes",
+          "existing_source_index": 7,
+          "type": "mistakes-grid",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "7. Типові помилки у формі",
+            "items": [
+              {
+                "label": "УЗГОДЖЕННЯ",
+                "color": "rose",
+                "title": "Documents — множина: were.",
+                "wrong_en": "The documents was signed.",
+                "wrong_ua": "Задум: Документи підписали.",
+                "right_en": "The documents were signed.",
+                "right_ua": "Документи підписали.",
+                "note": "Was/were погоджується з documents, не з можливим виконавцем."
+              },
+              {
+                "label": "НЕПРАВИЛЬНЕ ДІЄСЛОВО",
+                "color": "amber",
+                "title": "У build форми V2 і V3 — built, не builded.",
+                "wrong_en": "The house was builded in 1990.",
+                "wrong_ua": "Задум: Будинок побудували в 1990 році.",
+                "right_en": "The house was built in 1990.",
+                "right_ua": "Будинок побудували в 1990 році.",
+                "note": "Builded тут не є правильною V2. Це помилкове утворення форми неправильного дієслова."
+              },
+              {
+                "label": "V2 І V3 ВІДРІЗНЯЮТЬСЯ",
+                "color": "sky",
+                "title": "Write має V2 wrote, але V3 written.",
+                "wrong_en": "The letter was wrote yesterday.",
+                "wrong_ua": "Задум: Листа написали вчора.",
+                "right_en": "The letter was written yesterday.",
+                "right_ua": "Листа написали вчора.",
+                "note": "Was задає минулий час; після нього в пасиві потрібне V3 written."
+              },
+              {
+                "label": "ЗВИЧАЙНЕ ПИТАННЯ",
+                "color": "rose",
+                "title": "Почни нейтральне питання з was.",
+                "wrong_en": "Did the letter was sent yesterday?",
+                "wrong_ua": "Задум: Листа надіслали вчора?",
+                "right_en": "Was the letter sent yesterday?",
+                "right_ua": "Листа надіслали вчора?",
+                "note": "Did не додаємо до цієї be-passive моделі; sent лишається V3."
+              }
+            ]
+          }
+        },
+        {
+          "key": "past-summary",
+          "existing_source_index": 8,
+          "type": "summary-list",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "8. Короткий підсумок",
+            "items": [
+              "<strong>Was/were + V3</strong>: час передає was/were, головне дієслово має V3.",
+              "<strong>I/he/she/it та однина → was</strong>; <strong>you/we/they та множина → were</strong>. You для однієї людини також поєднується з were.",
+              "Заперечення: <strong>wasn't/weren't + V3</strong>. Питання: <strong>was/were + підмет + V3?</strong>",
+              "Можлива одна подія або повтор у минулому періоді. Час може бути встановлений попередньою реплікою.",
+              "Надісланий лист не обов’язково отримано; запрошена людина не обов’язково прийшла. Не додавай незазначених наслідків."
+            ]
+          }
+        },
+        {
+          "key": "past-navigation",
+          "existing_source_index": 9,
+          "type": "navigation-chips",
+          "column": "footer",
+          "level": "A2",
+          "data": {
+            "title": "Passive in Tenses",
+            "items": [
+              {
+                "label": "Present Simple Passive — Теперішній простий пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-present-simple",
+                "current": false
+              },
+              {
+                "label": "Present Continuous Passive — Теперішній тривалий пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-present-continuous",
+                "current": false
+              },
+              {
+                "label": "Present Perfect Passive — Теперішній доконаний пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-present-perfect",
+                "current": false
+              },
+              {
+                "label": "Past Simple Passive — Минулий простий пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-past-simple",
+                "current": true
+              },
+              {
+                "label": "Past Continuous Passive — Минулий тривалий пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-past-continuous",
+                "current": false
+              },
+              {
+                "label": "Past Perfect Passive — Минулий доконаний пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-past-perfect",
+                "current": false
+              },
+              {
+                "label": "Future Simple Passive — Майбутній простий пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-future-simple",
+                "current": false
+              },
+              {
+                "label": "Future Continuous Passive — Майбутній тривалий пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-future-continuous",
+                "current": false
+              },
+              {
+                "label": "Future Perfect Passive — Майбутній доконаний пасив",
+                "url": "/theory/passive-voice/theory-passive-voice-future-perfect",
+                "current": false
+              }
+            ]
+          }
+        },
+        {
+          "key": "past-practice",
+          "existing_source_index": null,
+          "type": "practice-set",
+          "column": "left",
+          "level": "A2",
+          "data": {
+            "title": "9. Практика",
+            "select_title": "Обери was/were або V3",
+            "select_intro": "Умови задають минулу ситуацію. Не змінюй учасника й час.",
+            "selects": [
+              {
+                "id": "m56-past-form-singular-you",
+                "source_index": 1,
+                "label": "Звертаємося до однієї гості. Доповни повідомлення.<br><span lang=\"en\">You ___ given a key when you arrived.</span><br><span lang=\"uk\">Тобі дали ключ, коли ти приїхала.</span>",
+                "options": [
+                  "was",
+                  "are",
+                  "were"
+                ],
+                "answer": "were",
+                "accepted": [
+                  "were"
+                ],
+                "feedback": {
+                  "was": "You were given a key when you arrived. — Тобі дали ключ, коли ти приїхала. You має were навіть для однієї людини; when you arrived задає минулу ситуацію.",
+                  "are": "You were given a key when you arrived. — Тобі дали ключ, коли ти приїхала. You має were навіть для однієї людини; when you arrived задає минулу ситуацію.",
+                  "were": "Правильно: You were given a key when you arrived. — Тобі дали ключ, коли ти приїхала. You має were навіть для однієї людини; when you arrived задає минулу ситуацію."
+                }
+              },
+              {
+                "id": "m56-past-form-v3",
+                "source_index": 2,
+                "label": "<span lang=\"en\">The message was ___ before lunch.</span><br><span lang=\"uk\">Повідомлення надіслали до обіду.</span>",
+                "options": [
+                  "send",
+                  "sent",
+                  "sended"
+                ],
+                "answer": "sent",
+                "accepted": [
+                  "sent"
+                ],
+                "feedback": {
+                  "send": "The message was sent before lunch. — Повідомлення надіслали до обіду. У send форми V2 та V3 однакові: sent. Тут sent — V3 після was.",
+                  "sent": "Правильно: The message was sent before lunch. — Повідомлення надіслали до обіду. У send форми V2 та V3 однакові: sent. Тут sent — V3 після was.",
+                  "sended": "The message was sent before lunch. — Повідомлення надіслали до обіду. У send форми V2 та V3 однакові: sent. Тут sent — V3 після was."
+                }
+              }
+            ],
+            "choice_title": "Не додавай прихованих наслідків",
+            "choice_intro": "Обери висновок лише з повідомлення. Точний переклад з’явиться після перевірки.",
+            "choices": [
+              {
+                "id": "m56-past-meaning-sent",
+                "source_index": 3,
+                "label": "У журналі є тільки цей запис. Що він підтверджує, не кажучи більше?",
+                "options": [
+                  "Посилку відправили у вівторок.",
+                  "Посилку точно отримали у вівторок.",
+                  "Адресат уже відкрив посилку."
+                ],
+                "answer": "Посилку відправили у вівторок.",
+                "accepted": [
+                  "Посилку відправили у вівторок."
+                ],
+                "feedback": {
+                  "посилку відправили у вівторок.": "Правильно: The parcel was sent on Tuesday. — Посилку відправили у вівторок. Was sent підтверджує відправлення, не отримання чи відкриття.",
+                  "посилку точно отримали у вівторок.": "The parcel was sent on Tuesday. — Посилку відправили у вівторок. Was sent підтверджує відправлення, не отримання чи відкриття.",
+                  "адресат уже відкрив посилку.": "The parcel was sent on Tuesday. — Посилку відправили у вівторок. Was sent підтверджує відправлення, не отримання чи відкриття."
+                },
+                "prompt": "<span lang=\"en\">The parcel was sent on Tuesday.</span>"
+              },
+              {
+                "id": "m56-past-meaning-repeat",
+                "source_index": 4,
+                "label": "Табір уже закінчився. Що описує це речення?",
+                "options": [
+                  "Лише одну заміну рушників за весь табір.",
+                  "Повторювану заміну рушників у минулому періоді.",
+                  "Правило, яке обов’язково діє й тепер."
+                ],
+                "answer": "Повторювану заміну рушників у минулому періоді.",
+                "accepted": [
+                  "Повторювану заміну рушників у минулому періоді."
+                ],
+                "feedback": {
+                  "лише одну заміну рушників за весь табір.": "During the camp, towels were changed every day. — Під час табору рушники міняли щодня. During the camp задає минулий період; every day позначає повтор усередині нього.",
+                  "повторювану заміну рушників у минулому періоді.": "Правильно: During the camp, towels were changed every day. — Під час табору рушники міняли щодня. During the camp задає минулий період; every day позначає повтор усередині нього.",
+                  "правило, яке обов’язково діє й тепер.": "During the camp, towels were changed every day. — Під час табору рушники міняли щодня. During the camp задає минулий період; every day позначає повтор усередині нього."
+                },
+                "prompt": "<span lang=\"en\">During the camp, towels were changed every day.</span>"
+              }
+            ],
+            "input_title": "Побудуй минуле питання та заперечення",
+            "input_intro": "Напиши речення або склади всі токени. Збережи заданий початок, часову обставину й заперечення.",
+            "inputs": [
+              {
+                "id": "m56-past-build-question",
+                "source_index": 5,
+                "before": "Thursday? / were / the / Where / on / tickets / printed",
+                "after": "Запитай: «Де в четвер надрукували квитки?» Почни з Where, використай tickets — квитки та print — друкувати. On Thursday залиш наприкінці.",
+                "answer": "Where were the tickets printed on Thursday?",
+                "accepted": [
+                  "Where were the tickets printed on Thursday?"
+                ],
+                "feedback": {
+                  "where were the tickets printed on thursday?": "Правильно: Where were the tickets printed on Thursday? — Де в четвер надрукували квитки? Were погоджується з tickets; printed — V3. Питаємо про місце друку.",
+                  "where were the tickets printed on thursday": "Правильно: Where were the tickets printed on Thursday? — Де в четвер надрукували квитки?",
+                  "where was the tickets printed on thursday?": "Where were the tickets printed on Thursday? — Де в четвер надрукували квитки? Tickets — множина, тому were."
+                }
+              },
+              {
+                "id": "m56-past-build-negative",
+                "source_index": 6,
+                "before": "meeting. / signed / were / The / not / at / the / forms",
+                "after": "Скажи: «Бланки не підписали на зустрічі». Почни з The forms, використай sign — підписувати; at the meeting — на зустрічі — постав наприкінці. Можлива повна форма або weren't.",
+                "answer": "The forms were not signed at the meeting.",
+                "accepted": [
+                  "The forms were not signed at the meeting.",
+                  "The forms weren't signed at the meeting."
+                ],
+                "feedback": {
+                  "the forms were not signed at the meeting.": "Правильно: The forms were not signed at the meeting. — Бланки не підписали на зустрічі. Were not / weren't заперечує минулу дію з бланками; місце at the meeting збережено.",
+                  "the forms were not signed at the meeting": "Правильно: The forms were not signed at the meeting. — Бланки не підписали на зустрічі. Were not / weren't заперечує минулу дію з бланками; місце at the meeting збережено.",
+                  "the forms weren't signed at the meeting.": "Правильно: The forms weren't signed at the meeting. — Бланки не підписали на зустрічі. Were not / weren't заперечує минулу дію з бланками; місце at the meeting збережено.",
+                  "the forms weren't signed at the meeting": "Правильно: The forms weren't signed at the meeting. — Бланки не підписали на зустрічі. Were not / weren't заперечує минулу дію з бланками; місце at the meeting збережено.",
+                  "the forms did not signed at the meeting.": "The forms were not signed at the meeting. — Бланки не підписали на зустрічі. У цій пасивній моделі потрібне were not + V3."
+                }
+              }
+            ],
+            "rephrase": [],
+            "linked_practice": {
+              "source": "theory_links",
+              "question_types": [
+                "4"
+              ],
+              "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoicePastSimpleAllLevelsLessonSeeder"
+              ],
+              "title": "Вправа 4. Побудуй речення",
+              "intro": "Склади англійське речення за українською умовою, клікаючи на слова. Перевір was/were, V3, минулий контекст і потрібного виконавця.",
+              "footer": "Завдання підібрані лише для цієї теми."
+            }
+          }
+        }
+      ],
+      "details": [
+        {
+          "key": "past-event-inference",
+          "title": "Яку подію підтверджено, а який наслідок ще невідомий?",
+          "owner_block_key": "past-affirmative",
+          "owner_pointer": "/sections/0",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "НЕ ДОДАВАЙ ДРУГУ ПОДІЮ",
+                  "color": "slate",
+                  "description": "Відправлення, отримання й відкриття листа — різні події. Пасив was sent повідомляє тільки про першу; для другої потрібна окрема інформація. Так само запрошення не доводить присутності на події. Коли перетворюємо active на passive або відповідаємо на meaning question, зберігаємо названу подію, а не дописуємо правдоподібне продовження.",
+                  "examples": [
+                    {
+                      "en": "The letter was sent on Monday, but it arrived on Wednesday.",
+                      "ua": "Листа надіслали в понеділок, але він надійшов у середу."
+                    },
+                    {
+                      "en": "Nina was invited, but she did not come.",
+                      "ua": "Ніну запросили, але вона не прийшла."
+                    }
+                  ],
+                  "note": "Обидва продовження сумісні з першою частиною. Was sent і was invited не стають неправильними через те, що наступна очікувана подія відбулася пізніше або не відбулася."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

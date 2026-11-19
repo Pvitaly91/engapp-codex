@@ -1,0 +1,1422 @@
+{
+    "schema_version": 1,
+    "topic_key": "advanced",
+    "title": "Поглиблений пасивний стан",
+    "choice_pools": {
+        "sg": [
+            "The parcel",
+            "The portrait",
+            "The cabinet",
+            "The kettle",
+            "The bicycle",
+            "The mirror",
+            "The notice",
+            "The contract",
+            "The manuscript",
+            "The verdict"
+        ],
+        "be_sg": [
+            "is",
+            "was",
+            "has been",
+            "will be",
+            "can be",
+            "must be",
+            "is being",
+            "had been"
+        ],
+        "participle": [
+            "written",
+            "folded",
+            "reviewed",
+            "checked",
+            "delivered",
+            "signed",
+            "examined",
+            "replaced",
+            "approved",
+            "recorded",
+            "withheld",
+            "dismissed",
+            "documented",
+            "preserved",
+            "revised",
+            "published"
+        ],
+        "adjunct": [
+            "before noon",
+            "after dinner",
+            "at reception",
+            "in public",
+            "by post",
+            "during rehearsal",
+            "without delay",
+            "under supervision",
+            "before publication",
+            "at the hearing",
+            "on request",
+            "in confidence"
+        ],
+        "pl": [
+            "The towels",
+            "The invoices",
+            "The windows",
+            "The records",
+            "The witnesses",
+            "The samples",
+            "The proposals",
+            "The provisions",
+            "The exhibits",
+            "The estimates"
+        ],
+        "be_pl": [
+            "are",
+            "were",
+            "have been",
+            "will be",
+            "could be",
+            "should be",
+            "are being",
+            "had been"
+        ],
+        "adverb": [
+            "carefully",
+            "quietly",
+            "politely",
+            "independently",
+            "officially",
+            "promptly",
+            "systematically",
+            "inadvertently"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The helmet must {a1} on this ride.",
+            "target": "The helmet must be worn on this ride.",
+            "uk": "Шолом треба надягати на цьому атракціоні.",
+            "hint_uk": "Треба надягати на цьому атракціоні.",
+            "groups": [
+                "The helmet",
+                "must be worn",
+                "on this ride."
+            ],
+            "answer": "be worn",
+            "options": [
+                "be worn",
+                "been worn",
+                "be wear"
+            ]
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The puppy can {a1} in a bag.",
+            "target": "The puppy can be carried in a bag.",
+            "uk": "Цуценя можна нести в сумці.",
+            "hint_uk": "Можна нести в сумці.",
+            "groups": [
+                "The puppy",
+                "can be carried",
+                "in a bag."
+            ],
+            "answer": "be carried",
+            "options": [
+                "be carried",
+                "been carried",
+                "be carry"
+            ]
+        },
+        {
+            "id": "A1-g03",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The wet boots should {a1} outside.",
+            "target": "The wet boots should be left outside.",
+            "uk": "Мокрі чоботи слід залишити надворі.",
+            "hint_uk": "Слід залишити надворі.",
+            "groups": [
+                "The wet boots",
+                "should",
+                "be left",
+                "outside."
+            ],
+            "answer": "be left",
+            "options": [
+                "be left",
+                "been left",
+                "be leave"
+            ]
+        },
+        {
+            "id": "A1-g04",
+            "level": "A1",
+            "kind": "gap",
+            "question": "This lid cannot {a1} by a child.",
+            "target": "This lid cannot be opened by a child.",
+            "uk": "Цю кришку дитина не може відкрити.",
+            "hint_uk": "Дитина не може відкрити.",
+            "groups": [
+                "This lid",
+                "cannot be opened",
+                "by a child."
+            ],
+            "answer": "be opened",
+            "options": [
+                "be opened",
+                "been opened",
+                "be open"
+            ]
+        },
+        {
+            "id": "A1-g05",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The fruit must {a1} before eating.",
+            "target": "The fruit must be washed before eating.",
+            "uk": "Фрукти треба мити перед їжею.",
+            "hint_uk": "Треба мити перед їжею.",
+            "groups": [
+                "The fruit",
+                "must be washed",
+                "before eating."
+            ],
+            "answer": "be washed",
+            "options": [
+                "be washed",
+                "been washed",
+                "be wash"
+            ]
+        },
+        {
+            "id": "A1-g06",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The table can {a1} near the window.",
+            "target": "The table can be moved near the window.",
+            "uk": "Стіл можна пересунути ближче до вікна.",
+            "hint_uk": "Можна пересунути ближче до вікна.",
+            "groups": [
+                "The table",
+                "can be moved",
+                "near the window."
+            ],
+            "answer": "be moved",
+            "options": [
+                "be moved",
+                "been moved",
+                "be move"
+            ]
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Місце треба забронювати до обіду.",
+            "target": "The seat must be reserved before lunch.",
+            "uk": "Місце треба забронювати до обіду.",
+            "hint_uk": "Місце треба забронювати до обіду.",
+            "groups": [
+                "The seat",
+                "must be",
+                "reserved",
+                "before lunch."
+            ],
+            "compose_slots": [
+                "The seat",
+                "must be",
+                "reserved",
+                "before lunch."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "adjunct"
+            ],
+            "display_synonyms": {
+                "reserved": [
+                    "booked"
+                ]
+            },
+            "accepted_targets": [
+                "The seat must be booked before lunch."
+            ]
+        },
+        {
+            "id": "A1-c02",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Сумку можна нести в руці.",
+            "target": "The bag can be carried by hand.",
+            "uk": "Сумку можна нести в руці.",
+            "hint_uk": "Сумку можна нести в руці.",
+            "groups": [
+                "The bag",
+                "can be",
+                "carried",
+                "by hand."
+            ],
+            "compose_slots": [
+                "The bag",
+                "can be",
+                "carried",
+                "by hand."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "adjunct"
+            ]
+        },
+        {
+            "id": "A1-c03",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Взуття слід почистити після прогулянки.",
+            "target": "The shoes should be cleaned after the walk.",
+            "uk": "Взуття слід почистити після прогулянки.",
+            "hint_uk": "Взуття слід почистити після прогулянки.",
+            "groups": [
+                "The shoes",
+                "should be",
+                "cleaned",
+                "after the walk."
+            ],
+            "compose_slots": [
+                "The shoes",
+                "should be",
+                "cleaned",
+                "after the walk."
+            ],
+            "slot_roles": [
+                "pl",
+                "be_pl",
+                "participle",
+                "adjunct"
+            ],
+            "display_synonyms": {
+                "cleaned": [
+                    "washed"
+                ]
+            },
+            "accepted_targets": [
+                "The shoes should be washed after the walk."
+            ]
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The cake is going to {a1} after the game.",
+            "target": "The cake is going to be shared after the game.",
+            "uk": "Торт збираються поділити після гри.",
+            "hint_uk": "Збираються поділити після гри.",
+            "groups": [
+                "The cake",
+                "is going",
+                "to be shared",
+                "after the game."
+            ],
+            "answer": "be shared",
+            "options": [
+                "be shared",
+                "been shared",
+                "be share"
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The lost hat might {a1} at school.",
+            "target": "The lost hat might be found at school.",
+            "uk": "Загублений капелюх можуть знайти у школі.",
+            "hint_uk": "Можуть знайти у школі.",
+            "groups": [
+                "The lost hat",
+                "might",
+                "be found",
+                "at school."
+            ],
+            "answer": "be found",
+            "options": [
+                "be found",
+                "been found",
+                "be find"
+            ]
+        },
+        {
+            "id": "A2-g03",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The payment has to {a1} in cash.",
+            "target": "The payment has to be made in cash.",
+            "uk": "Оплату треба здійснити готівкою.",
+            "hint_uk": "Треба здійснити готівкою.",
+            "groups": [
+                "The payment",
+                "has to",
+                "be made",
+                "in cash."
+            ],
+            "answer": "be made",
+            "options": [
+                "be made",
+                "been made",
+                "be make"
+            ]
+        },
+        {
+            "id": "A2-g04",
+            "level": "A2",
+            "kind": "gap",
+            "question": "These blankets can {a1} for the night.",
+            "target": "These blankets can be borrowed for the night.",
+            "uk": "Ці ковдри можна позичити на ніч.",
+            "hint_uk": "Можна позичити на ніч.",
+            "groups": [
+                "These blankets",
+                "can be borrowed",
+                "for the night."
+            ],
+            "answer": "be borrowed",
+            "options": [
+                "be borrowed",
+                "been borrowed",
+                "be borrow"
+            ]
+        },
+        {
+            "id": "A2-g05",
+            "level": "A2",
+            "kind": "gap",
+            "question": "My address needs to {a1} on this card.",
+            "target": "My address needs to be written on this card.",
+            "uk": "Мою адресу треба написати на цій картці.",
+            "hint_uk": "Треба написати на цій картці.",
+            "groups": [
+                "My address",
+                "needs to",
+                "be written",
+                "on this card."
+            ],
+            "answer": "be written",
+            "options": [
+                "be written",
+                "been written",
+                "be write"
+            ]
+        },
+        {
+            "id": "A2-g06",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The spare bed should {a1} for our guest.",
+            "target": "The spare bed should be kept for our guest.",
+            "uk": "Запасне ліжко слід залишити для нашого гостя.",
+            "hint_uk": "Слід залишити для нашого гостя.",
+            "groups": [
+                "The spare bed",
+                "should",
+                "be kept",
+                "for our guest."
+            ],
+            "answer": "be kept",
+            "options": [
+                "be kept",
+                "been kept",
+                "be keep"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Кошик заберуть після сніданку.",
+            "target": "The basket will be collected after breakfast.",
+            "uk": "Кошик заберуть після сніданку.",
+            "hint_uk": "Кошик заберуть після сніданку.",
+            "groups": [
+                "The basket",
+                "will be",
+                "collected",
+                "after breakfast."
+            ],
+            "compose_slots": [
+                "The basket",
+                "will be",
+                "collected",
+                "after breakfast."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "adjunct"
+            ],
+            "display_synonyms": {
+                "collected": [
+                    "picked up"
+                ]
+            },
+            "accepted_targets": [
+                "The basket will be picked up after breakfast."
+            ]
+        },
+        {
+            "id": "A2-c02",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Рукавички треба повернути до від’їзду.",
+            "target": "The gloves must be returned before departure.",
+            "uk": "Рукавички треба повернути до від’їзду.",
+            "hint_uk": "Рукавички треба повернути до від’їзду.",
+            "groups": [
+                "The gloves",
+                "must be",
+                "returned",
+                "before departure."
+            ],
+            "compose_slots": [
+                "The gloves",
+                "must be",
+                "returned",
+                "before departure."
+            ],
+            "slot_roles": [
+                "pl",
+                "be_pl",
+                "participle",
+                "adjunct"
+            ]
+        },
+        {
+            "id": "A2-c03",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Багаж можна зберігати біля стійки реєстрації.",
+            "target": "The luggage can be stored at reception.",
+            "uk": "Багаж можна зберігати біля стійки реєстрації.",
+            "hint_uk": "Багаж можна зберігати біля стійки реєстрації.",
+            "groups": [
+                "The luggage",
+                "can be",
+                "stored",
+                "at reception."
+            ],
+            "compose_slots": [
+                "The luggage",
+                "can be",
+                "stored",
+                "at reception."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "adjunct"
+            ],
+            "accepted_targets": [
+                "The baggage can be stored at reception."
+            ],
+            "display_synonyms": {
+                "The luggage": [
+                    "The baggage"
+                ]
+            }
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The patient is {a1} to another ward.",
+            "target": "The patient is being transferred to another ward.",
+            "uk": "Пацієнта зараз переводять до іншої палати.",
+            "hint_uk": "Зараз переводять до іншої палати.",
+            "groups": [
+                "The patient",
+                "is being transferred",
+                "to another ward."
+            ],
+            "answer": "being transferred",
+            "options": [
+                "being transferred",
+                "been transferred",
+                "being transfer"
+            ]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The road markings have {a1} this week.",
+            "target": "The road markings have been repainted this week.",
+            "uk": "Дорожню розмітку вже перефарбували цього тижня.",
+            "hint_uk": "Вже перефарбували цього тижня.",
+            "groups": [
+                "The road markings",
+                "have",
+                "been repainted",
+                "this week."
+            ],
+            "answer": "been repainted",
+            "options": [
+                "been repainted",
+                "being repainted",
+                "be repainted"
+            ]
+        },
+        {
+            "id": "B1-g03",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The delivery was {a1} when it started raining.",
+            "target": "The delivery was being unloaded when it started raining.",
+            "uk": "Вантаж саме розвантажували, коли почався дощ.",
+            "hint_uk": "Саме розвантажували, коли почався дощ.",
+            "groups": [
+                "The delivery",
+                "was being unloaded",
+                "when it",
+                "started raining."
+            ],
+            "answer": "being unloaded",
+            "options": [
+                "being unloaded",
+                "been unloaded",
+                "being unload"
+            ]
+        },
+        {
+            "id": "B1-g04",
+            "level": "B1",
+            "kind": "gap",
+            "question": "Your subscription can {a1} online.",
+            "target": "Your subscription can be renewed online.",
+            "uk": "Вашу підписку можна поновити онлайн.",
+            "hint_uk": "Можна поновити онлайн.",
+            "groups": [
+                "Your subscription",
+                "can be renewed",
+                "online."
+            ],
+            "answer": "be renewed",
+            "options": [
+                "be renewed",
+                "been renewed",
+                "be renew"
+            ]
+        },
+        {
+            "id": "B1-g05",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The suspect has {a1} on bail.",
+            "target": "The suspect has been released on bail.",
+            "uk": "Підозрюваного вже відпустили під заставу.",
+            "hint_uk": "Вже відпустили під заставу.",
+            "groups": [
+                "The suspect",
+                "has been released",
+                "on bail."
+            ],
+            "answer": "been released",
+            "options": [
+                "been released",
+                "being released",
+                "be released"
+            ]
+        },
+        {
+            "id": "B1-g06",
+            "level": "B1",
+            "kind": "gap",
+            "question": "How many places have {a1} so far?",
+            "target": "How many places have been reserved so far?",
+            "uk": "Скільки місць уже забронювали?",
+            "hint_uk": "Питаємо про кількість уже заброньованих місць; питальна група вже наведена.",
+            "groups": [
+                "How many",
+                "places have",
+                "been reserved",
+                "so far?"
+            ],
+            "answer": "been reserved",
+            "options": [
+                "been reserved",
+                "being reserved",
+                "be reserved"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Склад зараз перевіряють без попередження.",
+            "target": "The warehouse is being inspected without warning.",
+            "uk": "Склад зараз перевіряють без попередження.",
+            "hint_uk": "Склад зараз перевіряють без попередження.",
+            "groups": [
+                "The warehouse",
+                "is being",
+                "inspected",
+                "without warning."
+            ],
+            "compose_slots": [
+                "The warehouse",
+                "is being",
+                "inspected",
+                "without warning."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "adjunct"
+            ],
+            "display_synonyms": {
+                "inspected": [
+                    "checked"
+                ]
+            },
+            "accepted_targets": [
+                "The warehouse is being checked without warning."
+            ]
+        },
+        {
+            "id": "B1-c02",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Пасажирів уже евакуювали до світанку.",
+            "target": "The passengers have been evacuated before dawn.",
+            "uk": "Пасажирів уже евакуювали до світанку.",
+            "hint_uk": "Пасажирів уже евакуювали до світанку.",
+            "groups": [
+                "The passengers",
+                "have been",
+                "evacuated",
+                "before dawn."
+            ],
+            "compose_slots": [
+                "The passengers",
+                "have been",
+                "evacuated",
+                "before dawn."
+            ],
+            "slot_roles": [
+                "pl",
+                "be_pl",
+                "participle",
+                "adjunct"
+            ]
+        },
+        {
+            "id": "B1-c03",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Рецепт треба ретельно перевірити.",
+            "target": "The prescription must be checked carefully.",
+            "uk": "Рецепт треба ретельно перевірити.",
+            "hint_uk": "Рецепт треба ретельно перевірити.",
+            "groups": [
+                "The prescription",
+                "must be",
+                "checked",
+                "carefully."
+            ],
+            "compose_slots": [
+                "The prescription",
+                "must be",
+                "checked",
+                "carefully."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "adverb"
+            ],
+            "display_synonyms": {
+                "checked": [
+                    "verified"
+                ]
+            },
+            "accepted_targets": [
+                "The prescription must be verified carefully."
+            ]
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The reservation should have {a1} before midnight.",
+            "target": "The reservation should have been cancelled before midnight.",
+            "uk": "Бронювання слід було скасувати до опівночі.",
+            "hint_uk": "Слід було скасувати до опівночі.",
+            "groups": [
+                "The reservation",
+                "should have",
+                "been cancelled",
+                "before midnight."
+            ],
+            "answer": "been cancelled",
+            "options": [
+                "been cancelled",
+                "be cancelled",
+                "been cancel"
+            ],
+            "answer_synonyms": [
+                "been canceled"
+            ],
+            "accepted_targets": [
+                "The reservation should have been canceled before midnight."
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The artefact may have {a1} across the border.",
+            "target": "The artefact may have been smuggled across the border.",
+            "uk": "Артефакт могли таємно перевезти через кордон.",
+            "hint_uk": "Могли таємно перевезти через кордон.",
+            "groups": [
+                "The artefact",
+                "may have",
+                "been smuggled",
+                "across the",
+                "border."
+            ],
+            "answer": "been smuggled",
+            "options": [
+                "been smuggled",
+                "be smuggled",
+                "been smuggle"
+            ],
+            "accepted_targets": [
+                "The artifact may have been smuggled across the border."
+            ]
+        },
+        {
+            "id": "B2-g03",
+            "level": "B2",
+            "kind": "gap",
+            "question": "By closing time, every visitor had {a1}.",
+            "target": "By closing time, every visitor had been counted.",
+            "uk": "До часу закриття кожного відвідувача вже порахували.",
+            "hint_uk": "Вже порахували.",
+            "groups": [
+                "By closing time,",
+                "every visitor",
+                "had been counted."
+            ],
+            "answer": "been counted",
+            "options": [
+                "been counted",
+                "being counted",
+                "be counted"
+            ]
+        },
+        {
+            "id": "B2-g04",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The trainees were {a1} throughout the exercise.",
+            "target": "The trainees were being assessed throughout the exercise.",
+            "uk": "Стажерів оцінювали протягом усієї вправи.",
+            "hint_uk": "Оцінювали протягом усієї вправи.",
+            "groups": [
+                "The trainees",
+                "were being assessed",
+                "throughout the",
+                "exercise."
+            ],
+            "answer": "being assessed",
+            "options": [
+                "being assessed",
+                "been assessed",
+                "being assess"
+            ]
+        },
+        {
+            "id": "B2-g05",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The shipment ought to have {a1} against loss.",
+            "target": "The shipment ought to have been insured against loss.",
+            "uk": "Вантаж слід було застрахувати від втрати.",
+            "hint_uk": "Слід було застрахувати від втрати.",
+            "groups": [
+                "The shipment",
+                "ought to",
+                "have been insured",
+                "against loss."
+            ],
+            "answer": "been insured",
+            "options": [
+                "been insured",
+                "being insured",
+                "be insured"
+            ]
+        },
+        {
+            "id": "B2-g06",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The award is expected {a1} in person.",
+            "target": "The award is expected to be presented in person.",
+            "uk": "Очікують, що нагороду вручать особисто.",
+            "hint_uk": "Вручать особисто.",
+            "groups": [
+                "The award",
+                "is expected",
+                "to be presented",
+                "in person."
+            ],
+            "answer": "to be presented",
+            "options": [
+                "to be presented",
+                "to being presented",
+                "be presented"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Відеоматеріал уже відредагували до трансляції.",
+            "target": "The footage had been edited before broadcast.",
+            "uk": "Відеоматеріал уже відредагували до трансляції.",
+            "hint_uk": "Відеоматеріал уже відредагували до трансляції.",
+            "groups": [
+                "The footage",
+                "had been",
+                "edited",
+                "before broadcast."
+            ],
+            "compose_slots": [
+                "The footage",
+                "had been",
+                "edited",
+                "before broadcast."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "adjunct"
+            ],
+            "display_synonyms": {
+                "The footage": [
+                    "The video footage"
+                ]
+            },
+            "accepted_targets": [
+                "The video footage had been edited before broadcast."
+            ]
+        },
+        {
+            "id": "B2-c02",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Сертифікати зараз перевіряють незалежно.",
+            "target": "The certificates are being verified independently.",
+            "uk": "Сертифікати зараз перевіряють незалежно.",
+            "hint_uk": "Сертифікати зараз перевіряють незалежно.",
+            "groups": [
+                "The certificates",
+                "are being",
+                "verified",
+                "independently."
+            ],
+            "compose_slots": [
+                "The certificates",
+                "are being",
+                "verified",
+                "independently."
+            ],
+            "slot_roles": [
+                "pl",
+                "be_pl",
+                "participle",
+                "adverb"
+            ],
+            "display_synonyms": {
+                "verified": [
+                    "checked"
+                ]
+            },
+            "accepted_targets": [
+                "The certificates are being checked independently."
+            ]
+        },
+        {
+            "id": "B2-c03",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Розбіжність можна було б пояснити людською помилкою.",
+            "target": "The discrepancy could be explained by human error.",
+            "uk": "Розбіжність можна було б пояснити людською помилкою.",
+            "hint_uk": "Розбіжність можна було б пояснити людською помилкою.",
+            "groups": [
+                "The discrepancy",
+                "could be",
+                "explained",
+                "by human error."
+            ],
+            "compose_slots": [
+                "The discrepancy",
+                "could be",
+                "explained",
+                "by human error."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "adjunct"
+            ]
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The compromise need not have {a1} so hastily.",
+            "target": "The compromise need not have been abandoned so hastily.",
+            "uk": "Компроміс не було потреби так поспішно відкидати, хоча його відкинули.",
+            "hint_uk": "Не було потреби так поспішно відкидати, хоча його відкинули.",
+            "groups": [
+                "The compromise",
+                "need not",
+                "have been abandoned",
+                "so hastily."
+            ],
+            "answer": "been abandoned",
+            "options": [
+                "been abandoned",
+                "being abandoned",
+                "be abandoned"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The witness must have {a1} into silence.",
+            "target": "The witness must have been intimidated into silence.",
+            "uk": "Свідка напевно залякали й змусили мовчати.",
+            "hint_uk": "Напевно залякали й змусили мовчати.",
+            "groups": [
+                "The witness",
+                "must have",
+                "been intimidated",
+                "into silence."
+            ],
+            "answer": "been intimidated",
+            "options": [
+                "been intimidated",
+                "be intimidated",
+                "been intimidate"
+            ]
+        },
+        {
+            "id": "C1-g03",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The consent is understood {a1} obtained freely.",
+            "target": "The consent is understood to have been obtained freely.",
+            "uk": "Вважається, що згоду раніше отримали добровільно.",
+            "hint_uk": "Раніше отримали добровільно.",
+            "groups": [
+                "The consent",
+                "is understood",
+                "to have been",
+                "obtained freely."
+            ],
+            "answer": "to have been",
+            "options": [
+                "to have been",
+                "to has been",
+                "having been"
+            ]
+        },
+        {
+            "id": "C1-g04",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The findings are liable {a1} by selective reporting.",
+            "target": "The findings are liable to be distorted by selective reporting.",
+            "uk": "Результати можуть викривити через вибіркове висвітлення.",
+            "hint_uk": "Можуть викривити через вибіркове висвітлення.",
+            "groups": [
+                "The findings",
+                "are liable",
+                "to be distorted",
+                "by selective reporting."
+            ],
+            "answer": "to be distorted",
+            "options": [
+                "to be distorted",
+                "to being distorted",
+                "be distorted"
+            ]
+        },
+        {
+            "id": "C1-g05",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The detainee could have {a1} had evidence emerged sooner.",
+            "target": "The detainee could have been acquitted had evidence emerged sooner.",
+            "uk": "Затриманого могли б виправдати, якби докази з’явилися раніше.",
+            "hint_uk": "Могли б виправдати, якби докази з’явилися раніше.",
+            "groups": [
+                "The detainee",
+                "could have",
+                "been acquitted",
+                "had evidence",
+                "emerged sooner."
+            ],
+            "answer": "been acquitted",
+            "options": [
+                "been acquitted",
+                "be acquitted",
+                "been acquit"
+            ]
+        },
+        {
+            "id": "C1-g06",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The appeal will have {a1} by the end of November.",
+            "target": "The appeal will have been heard by the end of November.",
+            "uk": "Апеляцію вже розглянуть до кінця листопада.",
+            "hint_uk": "Вже розглянуть до кінця листопада.",
+            "groups": [
+                "The appeal",
+                "will have",
+                "been heard",
+                "by",
+                "the end of",
+                "November."
+            ],
+            "answer": "been heard",
+            "options": [
+                "been heard",
+                "being heard",
+                "be heard"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Право вже роз’яснив суд.",
+            "target": "The entitlement has been clarified by the court.",
+            "uk": "Право вже роз’яснив суд.",
+            "hint_uk": "Право вже роз’яснив суд.",
+            "groups": [
+                "The entitlement",
+                "has been",
+                "clarified",
+                "by the court."
+            ],
+            "compose_slots": [
+                "The entitlement",
+                "has been",
+                "clarified",
+                "by the court."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "adjunct"
+            ]
+        },
+        {
+            "id": "C1-c02",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Архіви треба зберегти для майбутніх поколінь.",
+            "target": "The archives must be preserved for future generations.",
+            "uk": "Архіви треба зберегти для майбутніх поколінь.",
+            "hint_uk": "Архіви треба зберегти для майбутніх поколінь.",
+            "groups": [
+                "The archives",
+                "must be",
+                "preserved",
+                "for future generations."
+            ],
+            "compose_slots": [
+                "The archives",
+                "must be",
+                "preserved",
+                "for future generations."
+            ],
+            "slot_roles": [
+                "pl",
+                "be_pl",
+                "participle",
+                "adjunct"
+            ],
+            "display_synonyms": {
+                "preserved": [
+                    "kept"
+                ]
+            },
+            "accepted_targets": [
+                "The archives must be kept for future generations."
+            ]
+        },
+        {
+            "id": "C1-c03",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Підтримку можуть відкликати без попереднього повідомлення.",
+            "target": "The endorsement may be withdrawn without prior notice.",
+            "uk": "Підтримку можуть відкликати без попереднього повідомлення.",
+            "hint_uk": "Підтримку можуть відкликати без попереднього повідомлення.",
+            "groups": [
+                "The endorsement",
+                "may be",
+                "withdrawn",
+                "without prior notice."
+            ],
+            "compose_slots": [
+                "The endorsement",
+                "may be",
+                "withdrawn",
+                "without prior notice."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "adjunct"
+            ],
+            "display_synonyms": {
+                "The endorsement": [
+                    "The support"
+                ]
+            },
+            "accepted_targets": [
+                "The support may be withdrawn without prior notice."
+            ]
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The derogation might have {a1} under exceptional circumstances.",
+            "target": "The derogation might have been countenanced under exceptional circumstances.",
+            "uk": "Відступ від норми могли б допустити за виняткових обставин.",
+            "hint_uk": "Могли б допустити за виняткових обставин.",
+            "groups": [
+                "The derogation",
+                "might have",
+                "been countenanced",
+                "under exceptional circumstances."
+            ],
+            "answer": "been countenanced",
+            "options": [
+                "been countenanced",
+                "be countenanced",
+                "been countenance"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The presumption is deemed {a1} rebutted conclusively.",
+            "target": "The presumption is deemed to have been rebutted conclusively.",
+            "uk": "Вважається, що презумпцію раніше остаточно спростували.",
+            "hint_uk": "Раніше остаточно спростували.",
+            "groups": [
+                "The presumption",
+                "is deemed",
+                "to have been",
+                "rebutted conclusively."
+            ],
+            "answer": "to have been",
+            "options": [
+                "to have been",
+                "to has been",
+                "having been"
+            ]
+        },
+        {
+            "id": "C2-g03",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The undertaking should never have {a1} as unconditional.",
+            "target": "The undertaking should never have been construed as unconditional.",
+            "uk": "Зобов’язання ні в якому разі не слід було тлумачити як безумовне.",
+            "hint_uk": "Ні в якому разі не слід було тлумачити як безумовне.",
+            "groups": [
+                "The undertaking",
+                "should never",
+                "have been construed",
+                "as unconditional."
+            ],
+            "answer": "been construed",
+            "options": [
+                "been construed",
+                "being construed",
+                "be construed"
+            ]
+        },
+        {
+            "id": "C2-g04",
+            "level": "C2",
+            "kind": "gap",
+            "question": "Were disclosure {a1}, privilege would be compromised.",
+            "target": "Were disclosure to be compelled, privilege would be compromised.",
+            "uk": "Якби розкриття примусово вимагали, привілей був би порушений.",
+            "hint_uk": "Примусово вимагали, привілей був би порушений.",
+            "groups": [
+                "Were disclosure",
+                "to be compelled,",
+                "privilege would",
+                "be compromised."
+            ],
+            "answer": "to be compelled",
+            "options": [
+                "to be compelled",
+                "to being compelled",
+                "be compelled"
+            ]
+        },
+        {
+            "id": "C2-g05",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The allegation cannot have {a1} by that testimony alone.",
+            "target": "The allegation cannot have been substantiated by that testimony alone.",
+            "uk": "Твердження не могли обґрунтувати лише тими показаннями.",
+            "hint_uk": "Не могли обґрунтувати лише тими показаннями; це висновок про минуле.",
+            "groups": [
+                "The allegation",
+                "cannot have",
+                "been substantiated",
+                "by",
+                "that testimony alone."
+            ],
+            "answer": "been substantiated",
+            "options": [
+                "been substantiated",
+                "be substantiated",
+                "been substantiate"
+            ]
+        },
+        {
+            "id": "C2-g06",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The instrument is purported {a1} executed under duress.",
+            "target": "The instrument is purported to have been executed under duress.",
+            "uk": "Стверджується, що документ раніше підписали під примусом.",
+            "hint_uk": "Раніше підписали під примусом.",
+            "groups": [
+                "The instrument",
+                "is purported",
+                "to have been",
+                "executed under",
+                "duress."
+            ],
+            "answer": "to have been",
+            "options": [
+                "to have been",
+                "to has been",
+                "having been"
+            ]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Судову заборону вже скасували з негайним набранням чинності.",
+            "target": "The injunction has been rescinded with immediate effect.",
+            "uk": "Судову заборону вже скасували з негайним набранням чинності.",
+            "hint_uk": "Судову заборону вже скасували з негайним набранням чинності.",
+            "groups": [
+                "The injunction",
+                "has been",
+                "rescinded",
+                "with immediate effect."
+            ],
+            "compose_slots": [
+                "The injunction",
+                "has been",
+                "rescinded",
+                "with immediate effect."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "adjunct"
+            ]
+        },
+        {
+            "id": "C2-c02",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Заяви треба оцінювати неупереджено.",
+            "target": "The representations must be assessed dispassionately.",
+            "uk": "Заяви треба оцінювати неупереджено.",
+            "hint_uk": "Заяви треба оцінювати неупереджено.",
+            "groups": [
+                "The representations",
+                "must be",
+                "assessed",
+                "dispassionately."
+            ],
+            "compose_slots": [
+                "The representations",
+                "must be",
+                "assessed",
+                "dispassionately."
+            ],
+            "slot_roles": [
+                "pl",
+                "be_pl",
+                "participle",
+                "adverb"
+            ]
+        },
+        {
+            "id": "C2-c03",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Запобіжник до того часу обійшли шляхом адміністративного розсуду.",
+            "target": "The safeguard had been circumvented through administrative discretion.",
+            "uk": "Запобіжник до того часу обійшли шляхом адміністративного розсуду.",
+            "hint_uk": "Запобіжник до того часу обійшли шляхом адміністративного розсуду.",
+            "groups": [
+                "The safeguard",
+                "had been",
+                "circumvented",
+                "through administrative discretion."
+            ],
+            "compose_slots": [
+                "The safeguard",
+                "had been",
+                "circumvented",
+                "through administrative discretion."
+            ],
+            "slot_roles": [
+                "sg",
+                "be_sg",
+                "participle",
+                "adjunct"
+            ]
+        }
+    ]
+}

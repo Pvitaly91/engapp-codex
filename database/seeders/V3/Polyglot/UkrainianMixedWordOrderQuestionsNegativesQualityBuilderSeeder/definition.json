@@ -1,0 +1,3972 @@
+{
+    "schema_version": 1,
+    "quality_revision": "word-order-v1",
+    "compiled_from": {
+        "path": "docs/content/word-order-quality/questions-negatives.v1.json",
+        "sha256": "022c780f5c65fa6f91693544f88809598c03df78af6eb2a2e2be49663c64ceb6"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedWordOrderQuestionsNegativesQualityBuilderSeeder",
+        "uuid_namespace": "word-order-quality-questions-negatives-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "word_order_quality_questions_negatives": {
+            "name": "Word Order Quality: Порядок слів у питаннях і запереченнях"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_word_order_questions_negatives": {
+            "name": "Word Order in Questions and Negatives",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_word_order_questions_negatives"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "woq-questions-negatives-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Чи вміє Лука плавати?",
+            "level": "A1",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Чи вміє Лука плавати?",
+            "target_text": "Can Luca swim?",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "verb_hint": "Постав модальне дієслово перед іменем, а дію — після нього.",
+                    "options": [
+                        "Can",
+                        "Will",
+                        "Would",
+                        "Shall"
+                    ]
+                },
+                "a2": {
+                    "answer": "Luca",
+                    "verb_hint": "Постав модальне дієслово перед іменем, а дію — після нього.",
+                    "options": [
+                        "Luca",
+                        "John",
+                        "Mary",
+                        "Jane"
+                    ]
+                },
+                "a3": {
+                    "answer": "swim?",
+                    "verb_hint": "Постав модальне дієслово перед іменем, а дію — після нього.",
+                    "options": [
+                        "swim",
+                        "address",
+                        "ticket",
+                        "cup"
+                    ]
+                }
+            },
+            "verb_hint": "Постав модальне дієслово перед іменем, а дію — після нього.",
+            "accepted_target_texts": [
+                "Can Luca swim?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Can Luca",
+                "swim?"
+            ],
+            "token_groups": [
+                "Can Luca",
+                "swim?"
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Can",
+                "Luca",
+                "swim?"
+            ],
+            "options": [
+                "Can",
+                "Will",
+                "Would",
+                "Shall",
+                "Luca",
+                "John",
+                "Mary",
+                "Jane",
+                "swim",
+                "address",
+                "ticket",
+                "cup"
+            ],
+            "source_text_uk": "Чи вміє Лука плавати?",
+            "options_by_marker": {
+                "a1": [
+                    "Can",
+                    "Will",
+                    "Would",
+                    "Shall"
+                ],
+                "a2": [
+                    "Luca",
+                    "John",
+                    "Mary",
+                    "Jane"
+                ],
+                "a3": [
+                    "swim",
+                    "address",
+                    "ticket",
+                    "cup"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "woq-questions-negatives-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Чому цей квиток дорогий?",
+            "level": "A1",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Чому цей квиток дорогий?",
+            "target_text": "Why is this ticket expensive?",
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "verb_hint": "Після питального слова постав зв’язку перед підметом, а ознаку — наприкінці.",
+                    "options": [
+                        "Why",
+                        "How",
+                        "Whoever",
+                        "Whatever"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Після питального слова постав зв’язку перед підметом, а ознаку — наприкінці.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a3": {
+                    "answer": "this",
+                    "verb_hint": "Після питального слова постав зв’язку перед підметом, а ознаку — наприкінці.",
+                    "options": [
+                        "this",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a4": {
+                    "answer": "ticket",
+                    "verb_hint": "Після питального слова постав зв’язку перед підметом, а ознаку — наприкінці.",
+                    "options": [
+                        "ticket",
+                        "address",
+                        "swim",
+                        "brother"
+                    ]
+                },
+                "a5": {
+                    "answer": "expensive?",
+                    "verb_hint": "Після питального слова постав зв’язку перед підметом, а ознаку — наприкінці.",
+                    "options": [
+                        "expensive",
+                        "warm",
+                        "quiet",
+                        "hungry"
+                    ]
+                }
+            },
+            "verb_hint": "Після питального слова постав зв’язку перед підметом, а ознаку — наприкінці.",
+            "accepted_target_texts": [
+                "Why is this ticket expensive?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "is this ticket",
+                "expensive?"
+            ],
+            "token_groups": [
+                "Why",
+                "is this ticket",
+                "expensive?"
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Why",
+                "is",
+                "this",
+                "ticket",
+                "expensive?"
+            ],
+            "options": [
+                "Why",
+                "How",
+                "Whoever",
+                "Whatever",
+                "is",
+                "was",
+                "were",
+                "be",
+                "this",
+                "no",
+                "another",
+                "either",
+                "ticket",
+                "address",
+                "swim",
+                "brother",
+                "expensive",
+                "warm",
+                "quiet",
+                "hungry"
+            ],
+            "source_text_uk": "Чому цей квиток дорогий?",
+            "options_by_marker": {
+                "a1": [
+                    "Why",
+                    "How",
+                    "Whoever",
+                    "Whatever"
+                ],
+                "a2": [
+                    "is",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a3": [
+                    "this",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a4": [
+                    "ticket",
+                    "address",
+                    "swim",
+                    "brother"
+                ],
+                "a5": [
+                    "expensive",
+                    "warm",
+                    "quiet",
+                    "hungry"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "woq-questions-negatives-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Ми не знаємо адресу.",
+            "level": "A1",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Ми не знаємо адресу.",
+            "target_text": "We do not know the address.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з виконавців; допоміжне дієслово й заперечна частка передують основній дії.",
+                    "options": [
+                        "We",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "do",
+                    "verb_hint": "Почни з виконавців; допоміжне дієслово й заперечна частка передують основній дії.",
+                    "options": [
+                        "do",
+                        "hadn't",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Почни з виконавців; допоміжне дієслово й заперечна частка передують основній дії.",
+                    "options": [
+                        "not",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a4": {
+                    "answer": "know",
+                    "verb_hint": "Почни з виконавців; допоміжне дієслово й заперечна частка передують основній дії.",
+                    "options": [
+                        "know",
+                        "write",
+                        "work",
+                        "play"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з виконавців; допоміжне дієслово й заперечна частка передують основній дії.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a6": {
+                    "answer": "address.",
+                    "verb_hint": "Почни з виконавців; допоміжне дієслово й заперечна частка передують основній дії.",
+                    "options": [
+                        "address",
+                        "swim",
+                        "ticket",
+                        "bag"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з виконавців; допоміжне дієслово й заперечна частка передують основній дії.",
+            "accepted_target_texts": [
+                "We do not know the address.",
+                "We don't know the address."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "do not know",
+                "the address."
+            ],
+            "token_groups": [
+                "We",
+                "do not know",
+                "the address."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "We",
+                "do",
+                "not",
+                "know",
+                "the",
+                "address."
+            ],
+            "options": [
+                "We",
+                "They",
+                "Me",
+                "Him",
+                "do",
+                "hadn't",
+                "does",
+                "did",
+                "not",
+                "always",
+                "often",
+                "sometimes",
+                "know",
+                "write",
+                "work",
+                "play",
+                "the",
+                "every",
+                "no",
+                "another",
+                "address",
+                "swim",
+                "ticket",
+                "bag"
+            ],
+            "source_text_uk": "Ми не знаємо адресу.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "do",
+                    "hadn't",
+                    "does",
+                    "did"
+                ],
+                "a3": [
+                    "not",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a4": [
+                    "know",
+                    "write",
+                    "work",
+                    "play"
+                ],
+                "a5": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a6": [
+                    "address",
+                    "swim",
+                    "ticket",
+                    "bag"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "woq-questions-negatives-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Ти бачив мої окуляри?",
+            "level": "A2",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Ти бачив мої окуляри?",
+            "target_text": "Have you seen my glasses?",
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "verb_hint": "Постав допоміжне дієслово перед підметом; запитай про теперішній результат попередньої події.",
+                    "options": [
+                        "Have",
+                        "Did",
+                        "Don't",
+                        "Doesn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Постав допоміжне дієслово перед підметом; запитай про теперішній результат попередньої події.",
+                    "options": [
+                        "you",
+                        "he",
+                        "she",
+                        "it"
+                    ]
+                },
+                "a3": {
+                    "answer": "seen",
+                    "verb_hint": "Постав допоміжне дієслово перед підметом; запитай про теперішній результат попередньої події.",
+                    "options": [
+                        "seen",
+                        "given",
+                        "made",
+                        "left"
+                    ]
+                },
+                "a4": {
+                    "answer": "my",
+                    "verb_hint": "Постав допоміжне дієслово перед підметом; запитай про теперішній результат попередньої події.",
+                    "options": [
+                        "my",
+                        "hers",
+                        "ours",
+                        "theirs"
+                    ]
+                },
+                "a5": {
+                    "answer": "glasses?",
+                    "verb_hint": "Постав допоміжне дієслово перед підметом; запитай про теперішній результат попередньої події.",
+                    "options": [
+                        "glasses",
+                        "keys",
+                        "rooms",
+                        "maps"
+                    ]
+                }
+            },
+            "verb_hint": "Постав допоміжне дієслово перед підметом; запитай про теперішній результат попередньої події.",
+            "accepted_target_texts": [
+                "Have you seen my glasses?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Have you seen",
+                "my glasses?"
+            ],
+            "token_groups": [
+                "Have you seen",
+                "my glasses?"
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Have",
+                "you",
+                "seen",
+                "my",
+                "glasses?"
+            ],
+            "options": [
+                "Have",
+                "Did",
+                "Don't",
+                "Doesn't",
+                "you",
+                "he",
+                "she",
+                "it",
+                "seen",
+                "given",
+                "made",
+                "left",
+                "my",
+                "hers",
+                "ours",
+                "theirs",
+                "glasses",
+                "keys",
+                "rooms",
+                "maps"
+            ],
+            "source_text_uk": "Ти бачив мої окуляри?",
+            "options_by_marker": {
+                "a1": [
+                    "Have",
+                    "Did",
+                    "Don't",
+                    "Doesn't"
+                ],
+                "a2": [
+                    "you",
+                    "he",
+                    "she",
+                    "it"
+                ],
+                "a3": [
+                    "seen",
+                    "given",
+                    "made",
+                    "left"
+                ],
+                "a4": [
+                    "my",
+                    "hers",
+                    "ours",
+                    "theirs"
+                ],
+                "a5": [
+                    "glasses",
+                    "keys",
+                    "rooms",
+                    "maps"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "woq-questions-negatives-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Вони не будуть вдома сьогодні ввечері.",
+            "level": "A2",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Вони не будуть вдома сьогодні ввечері.",
+            "target_text": "They will not be at home this evening.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "У майбутньому запереченні постав заперечну частку після допоміжного дієслова.",
+                    "options": [
+                        "They",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "will",
+                    "verb_hint": "У майбутньому запереченні постав заперечну частку після допоміжного дієслова.",
+                    "options": [
+                        "will",
+                        "can't",
+                        "couldn't",
+                        "wouldn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "У майбутньому запереченні постав заперечну частку після допоміжного дієслова.",
+                    "options": [
+                        "not",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "У майбутньому запереченні постав заперечну частку після допоміжного дієслова.",
+                    "options": [
+                        "be",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a5": {
+                    "answer": "at",
+                    "verb_hint": "У майбутньому запереченні постав заперечну частку після допоміжного дієслова.",
+                    "options": [
+                        "at",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a6": {
+                    "answer": "home",
+                    "verb_hint": "У майбутньому запереченні постав заперечну частку після допоміжного дієслова.",
+                    "options": [
+                        "home",
+                        "after",
+                        "bread",
+                        "milk"
+                    ]
+                },
+                "a7": {
+                    "answer": "this",
+                    "verb_hint": "У майбутньому запереченні постав заперечну частку після допоміжного дієслова.",
+                    "options": [
+                        "this",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a8": {
+                    "answer": "evening.",
+                    "verb_hint": "У майбутньому запереченні постав заперечну частку після допоміжного дієслова.",
+                    "options": [
+                        "evening",
+                        "month",
+                        "year",
+                        "hour"
+                    ]
+                }
+            },
+            "verb_hint": "У майбутньому запереченні постав заперечну частку після допоміжного дієслова.",
+            "accepted_target_texts": [
+                "They will not be at home this evening.",
+                "They won't be at home this evening."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They",
+                "will not be",
+                "at home",
+                "this evening."
+            ],
+            "token_groups": [
+                "They",
+                "will not be",
+                "at home",
+                "this evening."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "They",
+                "will",
+                "not",
+                "be",
+                "at",
+                "home",
+                "this",
+                "evening."
+            ],
+            "options": [
+                "They",
+                "He",
+                "She",
+                "It",
+                "will",
+                "can't",
+                "couldn't",
+                "wouldn't",
+                "not",
+                "always",
+                "often",
+                "sometimes",
+                "be",
+                "wasn't",
+                "weren't",
+                "am",
+                "at",
+                "under",
+                "through",
+                "across",
+                "home",
+                "after",
+                "bread",
+                "milk",
+                "this",
+                "each",
+                "every",
+                "no",
+                "evening",
+                "month",
+                "year",
+                "hour"
+            ],
+            "source_text_uk": "Вони не будуть вдома сьогодні ввечері.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "will",
+                    "can't",
+                    "couldn't",
+                    "wouldn't"
+                ],
+                "a3": [
+                    "not",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a4": [
+                    "be",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a5": [
+                    "at",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a6": [
+                    "home",
+                    "after",
+                    "bread",
+                    "milk"
+                ],
+                "a7": [
+                    "this",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a8": [
+                    "evening",
+                    "month",
+                    "year",
+                    "hour"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "woq-questions-negatives-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Кому ти зателефонував після роботи?",
+            "level": "A2",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Кому ти зателефонував після роботи?",
+            "target_text": "Who did you call after work?",
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "verb_hint": "Почни з питального слова про одержувача дзвінка; підмет стоїть після допоміжного дієслова.",
+                    "options": [
+                        "Who",
+                        "What",
+                        "Which",
+                        "Where"
+                    ]
+                },
+                "a2": {
+                    "answer": "did",
+                    "verb_hint": "Почни з питального слова про одержувача дзвінка; підмет стоїть після допоміжного дієслова.",
+                    "options": [
+                        "did",
+                        "does",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "you",
+                    "verb_hint": "Почни з питального слова про одержувача дзвінка; підмет стоїть після допоміжного дієслова.",
+                    "options": [
+                        "you",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a4": {
+                    "answer": "call",
+                    "verb_hint": "Почни з питального слова про одержувача дзвінка; підмет стоїть після допоміжного дієслова.",
+                    "options": [
+                        "call",
+                        "read",
+                        "write",
+                        "play"
+                    ]
+                },
+                "a5": {
+                    "answer": "after",
+                    "verb_hint": "Почни з питального слова про одержувача дзвінка; підмет стоїть після допоміжного дієслова.",
+                    "options": [
+                        "after",
+                        "home",
+                        "teacher",
+                        "school"
+                    ]
+                },
+                "a6": {
+                    "answer": "work?",
+                    "verb_hint": "Почни з питального слова про одержувача дзвінка; підмет стоїть після допоміжного дієслова.",
+                    "options": [
+                        "work",
+                        "wait",
+                        "watch",
+                        "visit"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з питального слова про одержувача дзвінка; підмет стоїть після допоміжного дієслова.",
+            "accepted_target_texts": [
+                "Who did you call after work?",
+                "Whom did you call after work?",
+                "Who did you phone after work?",
+                "Whom did you phone after work?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Whom"
+                ],
+                "a4": [
+                    "phone"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Whom"
+                ],
+                "a4": [
+                    "phone"
+                ]
+            },
+            "reorder_groups": [
+                "Who",
+                "did you call",
+                "after work?"
+            ],
+            "token_groups": [
+                "Who",
+                "did you call",
+                "after work?"
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Who",
+                "did",
+                "you",
+                "call",
+                "after",
+                "work?"
+            ],
+            "options": [
+                "Who",
+                "What",
+                "Which",
+                "Where",
+                "did",
+                "does",
+                "don't",
+                "doesn't",
+                "you",
+                "myself",
+                "yourself",
+                "herself",
+                "call",
+                "read",
+                "write",
+                "play",
+                "after",
+                "home",
+                "teacher",
+                "school",
+                "work",
+                "wait",
+                "watch",
+                "visit"
+            ],
+            "source_text_uk": "Кому ти зателефонував після роботи?",
+            "options_by_marker": {
+                "a1": [
+                    "Who",
+                    "What",
+                    "Which",
+                    "Where"
+                ],
+                "a2": [
+                    "did",
+                    "does",
+                    "don't",
+                    "doesn't"
+                ],
+                "a3": [
+                    "you",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a4": [
+                    "call",
+                    "read",
+                    "write",
+                    "play"
+                ],
+                "a5": [
+                    "after",
+                    "home",
+                    "teacher",
+                    "school"
+                ],
+                "a6": [
+                    "work",
+                    "wait",
+                    "watch",
+                    "visit"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "woq-questions-negatives-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Ти знаєш, чому вони скасували виставу?",
+            "level": "B1",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Ти знаєш, чому вони скасували виставу?",
+            "target_text": "Do you know why they cancelled the performance?",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "verb_hint": "У головній частині збережи питальний порядок, а в частині після питального слова — стверджувальний.",
+                    "options": [
+                        "Do",
+                        "Haven't",
+                        "Hasn't",
+                        "Hadn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "У головній частині збережи питальний порядок, а в частині після питального слова — стверджувальний.",
+                    "options": [
+                        "you",
+                        "me",
+                        "him",
+                        "us"
+                    ]
+                },
+                "a3": {
+                    "answer": "know",
+                    "verb_hint": "У головній частині збережи питальний порядок, а в частині після питального слова — стверджувальний.",
+                    "options": [
+                        "know",
+                        "drive",
+                        "study",
+                        "live"
+                    ]
+                },
+                "a4": {
+                    "answer": "why",
+                    "verb_hint": "У головній частині збережи питальний порядок, а в частині після питального слова — стверджувальний.",
+                    "options": [
+                        "why",
+                        "how",
+                        "whoever",
+                        "whatever"
+                    ]
+                },
+                "a5": {
+                    "answer": "they",
+                    "verb_hint": "У головній частині збережи питальний порядок, а в частині після питального слова — стверджувальний.",
+                    "options": [
+                        "they",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                },
+                "a6": {
+                    "answer": "cancelled",
+                    "verb_hint": "У головній частині збережи питальний порядок, а в частині після питального слова — стверджувальний.",
+                    "options": [
+                        "cancelled",
+                        "left",
+                        "needed",
+                        "liked"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "У головній частині збережи питальний порядок, а в частині після питального слова — стверджувальний.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a8": {
+                    "answer": "performance?",
+                    "verb_hint": "У головній частині збережи питальний порядок, а в частині після питального слова — стверджувальний.",
+                    "options": [
+                        "performance",
+                        "board",
+                        "understand",
+                        "system"
+                    ]
+                }
+            },
+            "verb_hint": "У головній частині збережи питальний порядок, а в частині після питального слова — стверджувальний.",
+            "accepted_target_texts": [
+                "Do you know why they cancelled the performance?",
+                "Do you know why they canceled the performance?"
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "canceled"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "canceled"
+                ]
+            },
+            "reorder_groups": [
+                "Do you know",
+                "why they cancelled",
+                "the performance?"
+            ],
+            "token_groups": [
+                "Do you know",
+                "why they cancelled",
+                "the performance?"
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Do",
+                "you",
+                "know",
+                "why",
+                "they",
+                "cancelled",
+                "the",
+                "performance?"
+            ],
+            "options": [
+                "Do",
+                "Haven't",
+                "Hasn't",
+                "Hadn't",
+                "you",
+                "me",
+                "him",
+                "us",
+                "know",
+                "drive",
+                "study",
+                "live",
+                "why",
+                "how",
+                "whoever",
+                "whatever",
+                "they",
+                "them",
+                "myself",
+                "yourself",
+                "cancelled",
+                "left",
+                "needed",
+                "liked",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "performance",
+                "board",
+                "understand",
+                "system"
+            ],
+            "source_text_uk": "Ти знаєш, чому вони скасували виставу?",
+            "options_by_marker": {
+                "a1": [
+                    "Do",
+                    "Haven't",
+                    "Hasn't",
+                    "Hadn't"
+                ],
+                "a2": [
+                    "you",
+                    "me",
+                    "him",
+                    "us"
+                ],
+                "a3": [
+                    "know",
+                    "drive",
+                    "study",
+                    "live"
+                ],
+                "a4": [
+                    "why",
+                    "how",
+                    "whoever",
+                    "whatever"
+                ],
+                "a5": [
+                    "they",
+                    "them",
+                    "myself",
+                    "yourself"
+                ],
+                "a6": [
+                    "cancelled",
+                    "left",
+                    "needed",
+                    "liked"
+                ],
+                "a7": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a8": [
+                    "performance",
+                    "board",
+                    "understand",
+                    "system"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "woq-questions-negatives-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Хто залишив це повідомлення на дошці?",
+            "level": "B1",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Хто залишив це повідомлення на дошці?",
+            "target_text": "Who left this message on the board?",
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "verb_hint": "Запитується виконавець, тому після питального слова одразу постав дієслово минулого часу.",
+                    "options": [
+                        "Who",
+                        "Why",
+                        "How",
+                        "Whoever"
+                    ]
+                },
+                "a2": {
+                    "answer": "left",
+                    "verb_hint": "Запитується виконавець, тому після питального слова одразу постав дієслово минулого часу.",
+                    "options": [
+                        "left",
+                        "cancelled",
+                        "brought",
+                        "took"
+                    ]
+                },
+                "a3": {
+                    "answer": "this",
+                    "verb_hint": "Запитується виконавець, тому після питального слова одразу постав дієслово минулого часу.",
+                    "options": [
+                        "this",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a4": {
+                    "answer": "message",
+                    "verb_hint": "Запитується виконавець, тому після питального слова одразу постав дієслово минулого часу.",
+                    "options": [
+                        "message",
+                        "map",
+                        "notebook",
+                        "folder"
+                    ]
+                },
+                "a5": {
+                    "answer": "on",
+                    "verb_hint": "Запитується виконавець, тому після питального слова одразу постав дієслово минулого часу.",
+                    "options": [
+                        "on",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Запитується виконавець, тому після питального слова одразу постав дієслово минулого часу.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a7": {
+                    "answer": "board?",
+                    "verb_hint": "Запитується виконавець, тому після питального слова одразу постав дієслово минулого часу.",
+                    "options": [
+                        "board",
+                        "understand",
+                        "system",
+                        "performance"
+                    ]
+                }
+            },
+            "verb_hint": "Запитується виконавець, тому після питального слова одразу постав дієслово минулого часу.",
+            "accepted_target_texts": [
+                "Who left this message on the board?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who left",
+                "this message",
+                "on the board?"
+            ],
+            "token_groups": [
+                "Who left",
+                "this message",
+                "on the board?"
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Who",
+                "left",
+                "this",
+                "message",
+                "on",
+                "the",
+                "board?"
+            ],
+            "options": [
+                "Who",
+                "Why",
+                "How",
+                "Whoever",
+                "left",
+                "cancelled",
+                "brought",
+                "took",
+                "this",
+                "every",
+                "no",
+                "another",
+                "message",
+                "map",
+                "notebook",
+                "folder",
+                "on",
+                "under",
+                "through",
+                "across",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "board",
+                "understand",
+                "system",
+                "performance"
+            ],
+            "source_text_uk": "Хто залишив це повідомлення на дошці?",
+            "options_by_marker": {
+                "a1": [
+                    "Who",
+                    "Why",
+                    "How",
+                    "Whoever"
+                ],
+                "a2": [
+                    "left",
+                    "cancelled",
+                    "brought",
+                    "took"
+                ],
+                "a3": [
+                    "this",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a4": [
+                    "message",
+                    "map",
+                    "notebook",
+                    "folder"
+                ],
+                "a5": [
+                    "on",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a6": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a7": [
+                    "board",
+                    "understand",
+                    "system",
+                    "performance"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "woq-questions-negatives-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Я не розумію, як працює ця система.",
+            "level": "B1",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Я не розумію, як працює ця система.",
+            "target_text": "I do not understand how this system works.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Побудуй заперечну головну частину; всередині непрямого питання не роби інверсії.",
+                    "options": [
+                        "I",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "do",
+                    "verb_hint": "Побудуй заперечну головну частину; всередині непрямого питання не роби інверсії.",
+                    "options": [
+                        "do",
+                        "hasn't",
+                        "hadn't",
+                        "does"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Побудуй заперечну головну частину; всередині непрямого питання не роби інверсії.",
+                    "options": [
+                        "not",
+                        "also",
+                        "usually",
+                        "rarely"
+                    ]
+                },
+                "a4": {
+                    "answer": "understand",
+                    "verb_hint": "Побудуй заперечну головну частину; всередині непрямого питання не роби інверсії.",
+                    "options": [
+                        "understand",
+                        "performance",
+                        "board",
+                        "sister"
+                    ]
+                },
+                "a5": {
+                    "answer": "how",
+                    "verb_hint": "Побудуй заперечну головну частину; всередині непрямого питання не роби інверсії.",
+                    "options": [
+                        "how",
+                        "why",
+                        "whoever",
+                        "whatever"
+                    ]
+                },
+                "a6": {
+                    "answer": "this",
+                    "verb_hint": "Побудуй заперечну головну частину; всередині непрямого питання не роби інверсії.",
+                    "options": [
+                        "this",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a7": {
+                    "answer": "system",
+                    "verb_hint": "Побудуй заперечну головну частину; всередині непрямого питання не роби інверсії.",
+                    "options": [
+                        "system",
+                        "friend",
+                        "dog",
+                        "cat"
+                    ]
+                },
+                "a8": {
+                    "answer": "works.",
+                    "verb_hint": "Побудуй заперечну головну частину; всередині непрямого питання не роби інверсії.",
+                    "options": [
+                        "works",
+                        "opens",
+                        "closes",
+                        "helps"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй заперечну головну частину; всередині непрямого питання не роби інверсії.",
+            "accepted_target_texts": [
+                "I do not understand how this system works.",
+                "I don't understand how this system works."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "do not understand",
+                "how this system",
+                "works."
+            ],
+            "token_groups": [
+                "I",
+                "do not understand",
+                "how this system",
+                "works."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "I",
+                "do",
+                "not",
+                "understand",
+                "how",
+                "this",
+                "system",
+                "works."
+            ],
+            "options": [
+                "I",
+                "It",
+                "We",
+                "They",
+                "do",
+                "hasn't",
+                "hadn't",
+                "does",
+                "not",
+                "also",
+                "usually",
+                "rarely",
+                "understand",
+                "performance",
+                "board",
+                "sister",
+                "how",
+                "why",
+                "whoever",
+                "whatever",
+                "this",
+                "that",
+                "these",
+                "those",
+                "system",
+                "friend",
+                "dog",
+                "cat",
+                "works",
+                "opens",
+                "closes",
+                "helps"
+            ],
+            "source_text_uk": "Я не розумію, як працює ця система.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "do",
+                    "hasn't",
+                    "hadn't",
+                    "does"
+                ],
+                "a3": [
+                    "not",
+                    "also",
+                    "usually",
+                    "rarely"
+                ],
+                "a4": [
+                    "understand",
+                    "performance",
+                    "board",
+                    "sister"
+                ],
+                "a5": [
+                    "how",
+                    "why",
+                    "whoever",
+                    "whatever"
+                ],
+                "a6": [
+                    "this",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a7": [
+                    "system",
+                    "friend",
+                    "dog",
+                    "cat"
+                ],
+                "a8": [
+                    "works",
+                    "opens",
+                    "closes",
+                    "helps"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "woq-questions-negatives-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Мене цікавить, чи можна змінити строк подання.",
+            "level": "B2",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Мене цікавить, чи можна змінити строк подання.",
+            "target_text": "I would like to know whether the submission deadline can be changed.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Побудуй ввічливе непряме питання зі стверджувальним порядком у пасивній підрядній частині.",
+                    "options": [
+                        "I",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Побудуй ввічливе непряме питання зі стверджувальним порядком у пасивній підрядній частині.",
+                    "options": [
+                        "would",
+                        "might",
+                        "must",
+                        "can't"
+                    ]
+                },
+                "a3": {
+                    "answer": "like",
+                    "verb_hint": "Побудуй ввічливе непряме питання зі стверджувальним порядком у пасивній підрядній частині.",
+                    "options": [
+                        "like",
+                        "work",
+                        "play",
+                        "call"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Побудуй ввічливе непряме питання зі стверджувальним порядком у пасивній підрядній частині.",
+                    "options": [
+                        "to",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a5": {
+                    "answer": "know",
+                    "verb_hint": "Побудуй ввічливе непряме питання зі стверджувальним порядком у пасивній підрядній частині.",
+                    "options": [
+                        "know",
+                        "find",
+                        "bring",
+                        "take"
+                    ]
+                },
+                "a6": {
+                    "answer": "whether",
+                    "verb_hint": "Побудуй ввічливе непряме питання зі стверджувальним порядком у пасивній підрядній частині.",
+                    "options": [
+                        "whether",
+                        "or",
+                        "nor",
+                        "so"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй ввічливе непряме питання зі стверджувальним порядком у пасивній підрядній частині.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a8": {
+                    "answer": "submission",
+                    "verb_hint": "Побудуй ввічливе непряме питання зі стверджувальним порядком у пасивній підрядній частині.",
+                    "options": [
+                        "submission",
+                        "appoint",
+                        "project",
+                        "leader"
+                    ]
+                },
+                "a9": {
+                    "answer": "deadline",
+                    "verb_hint": "Побудуй ввічливе непряме питання зі стверджувальним порядком у пасивній підрядній частині.",
+                    "options": [
+                        "deadline",
+                        "explain",
+                        "door",
+                        "window"
+                    ]
+                },
+                "a10": {
+                    "answer": "can",
+                    "verb_hint": "Побудуй ввічливе непряме питання зі стверджувальним порядком у пасивній підрядній частині.",
+                    "options": [
+                        "can",
+                        "cannot",
+                        "could",
+                        "will"
+                    ]
+                },
+                "a11": {
+                    "answer": "be",
+                    "verb_hint": "Побудуй ввічливе непряме питання зі стверджувальним порядком у пасивній підрядній частині.",
+                    "options": [
+                        "be",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a12": {
+                    "answer": "changed.",
+                    "verb_hint": "Побудуй ввічливе непряме питання зі стверджувальним порядком у пасивній підрядній частині.",
+                    "options": [
+                        "changed",
+                        "left",
+                        "liked",
+                        "wanted"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй ввічливе непряме питання зі стверджувальним порядком у пасивній підрядній частині.",
+            "accepted_target_texts": [
+                "I would like to know whether the submission deadline can be changed.",
+                "I would like to know if the submission deadline can be changed."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "if"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "if"
+                ]
+            },
+            "reorder_groups": [
+                "I would like",
+                "to know whether",
+                "the submission deadline",
+                "can be changed."
+            ],
+            "token_groups": [
+                "I would like",
+                "to know whether",
+                "the submission deadline",
+                "can be changed."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "I",
+                "would",
+                "like",
+                "to",
+                "know",
+                "whether",
+                "the",
+                "submission",
+                "deadline",
+                "can",
+                "be",
+                "changed."
+            ],
+            "options": [
+                "I",
+                "He",
+                "She",
+                "It",
+                "would",
+                "might",
+                "must",
+                "can't",
+                "like",
+                "work",
+                "play",
+                "call",
+                "to",
+                "among",
+                "about",
+                "during",
+                "know",
+                "find",
+                "bring",
+                "take",
+                "whether",
+                "or",
+                "nor",
+                "so",
+                "the",
+                "an",
+                "some",
+                "any",
+                "submission",
+                "appoint",
+                "project",
+                "leader",
+                "deadline",
+                "explain",
+                "door",
+                "window",
+                "can",
+                "cannot",
+                "could",
+                "will",
+                "be",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "changed",
+                "left",
+                "liked",
+                "wanted"
+            ],
+            "source_text_uk": "Мене цікавить, чи можна змінити строк подання.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "would",
+                    "might",
+                    "must",
+                    "can't"
+                ],
+                "a3": [
+                    "like",
+                    "work",
+                    "play",
+                    "call"
+                ],
+                "a4": [
+                    "to",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a5": [
+                    "know",
+                    "find",
+                    "bring",
+                    "take"
+                ],
+                "a6": [
+                    "whether",
+                    "or",
+                    "nor",
+                    "so"
+                ],
+                "a7": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a8": [
+                    "submission",
+                    "appoint",
+                    "project",
+                    "leader"
+                ],
+                "a9": [
+                    "deadline",
+                    "explain",
+                    "door",
+                    "window"
+                ],
+                "a10": [
+                    "can",
+                    "cannot",
+                    "could",
+                    "will"
+                ],
+                "a11": [
+                    "be",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a12": [
+                    "changed",
+                    "left",
+                    "liked",
+                    "wanted"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "woq-questions-negatives-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Кого саме вони призначили керівником проєкту?",
+            "level": "B2",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Кого саме вони призначили керівником проєкту?",
+            "target_text": "Who exactly did they appoint as project leader?",
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "verb_hint": "Питальна група є додатком; допоміжне дієслово має передувати підмету.",
+                    "options": [
+                        "Who",
+                        "Wherever",
+                        "Whenever",
+                        "What"
+                    ]
+                },
+                "a2": {
+                    "answer": "exactly",
+                    "verb_hint": "Питальна група є додатком; допоміжне дієслово має передувати підмету.",
+                    "options": [
+                        "exactly",
+                        "happily",
+                        "easily",
+                        "politely"
+                    ]
+                },
+                "a3": {
+                    "answer": "did",
+                    "verb_hint": "Питальна група є додатком; допоміжне дієслово має передувати підмету.",
+                    "options": [
+                        "did",
+                        "doesn't",
+                        "didn't",
+                        "have"
+                    ]
+                },
+                "a4": {
+                    "answer": "they",
+                    "verb_hint": "Питальна група є додатком; допоміжне дієслово має передувати підмету.",
+                    "options": [
+                        "they",
+                        "I",
+                        "you",
+                        "he"
+                    ]
+                },
+                "a5": {
+                    "answer": "appoint",
+                    "verb_hint": "Питальна група є додатком; допоміжне дієслово має передувати підмету.",
+                    "options": [
+                        "appoint",
+                        "explain",
+                        "door",
+                        "submission"
+                    ]
+                },
+                "a6": {
+                    "answer": "as",
+                    "verb_hint": "Питальна група є додатком; допоміжне дієслово має передувати підмету.",
+                    "options": [
+                        "as",
+                        "windows",
+                        "phones",
+                        "children"
+                    ]
+                },
+                "a7": {
+                    "answer": "project",
+                    "verb_hint": "Питальна група є додатком; допоміжне дієслово має передувати підмету.",
+                    "options": [
+                        "project",
+                        "deadline",
+                        "box",
+                        "chair"
+                    ]
+                },
+                "a8": {
+                    "answer": "leader?",
+                    "verb_hint": "Питальна група є додатком; допоміжне дієслово має передувати підмету.",
+                    "options": [
+                        "leader",
+                        "food",
+                        "bike",
+                        "car"
+                    ]
+                }
+            },
+            "verb_hint": "Питальна група є додатком; допоміжне дієслово має передувати підмету.",
+            "accepted_target_texts": [
+                "Who exactly did they appoint as project leader?",
+                "Whom exactly did they appoint as project leader?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Whom"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Whom"
+                ]
+            },
+            "reorder_groups": [
+                "Who exactly",
+                "did they appoint",
+                "as project leader?"
+            ],
+            "token_groups": [
+                "Who exactly",
+                "did they appoint",
+                "as project leader?"
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Who",
+                "exactly",
+                "did",
+                "they",
+                "appoint",
+                "as",
+                "project",
+                "leader?"
+            ],
+            "options": [
+                "Who",
+                "Wherever",
+                "Whenever",
+                "What",
+                "exactly",
+                "happily",
+                "easily",
+                "politely",
+                "did",
+                "doesn't",
+                "didn't",
+                "have",
+                "they",
+                "I",
+                "you",
+                "he",
+                "appoint",
+                "explain",
+                "door",
+                "submission",
+                "as",
+                "windows",
+                "phones",
+                "children",
+                "project",
+                "deadline",
+                "box",
+                "chair",
+                "leader",
+                "food",
+                "bike",
+                "car"
+            ],
+            "source_text_uk": "Кого саме вони призначили керівником проєкту?",
+            "options_by_marker": {
+                "a1": [
+                    "Who",
+                    "Wherever",
+                    "Whenever",
+                    "What"
+                ],
+                "a2": [
+                    "exactly",
+                    "happily",
+                    "easily",
+                    "politely"
+                ],
+                "a3": [
+                    "did",
+                    "doesn't",
+                    "didn't",
+                    "have"
+                ],
+                "a4": [
+                    "they",
+                    "I",
+                    "you",
+                    "he"
+                ],
+                "a5": [
+                    "appoint",
+                    "explain",
+                    "door",
+                    "submission"
+                ],
+                "a6": [
+                    "as",
+                    "windows",
+                    "phones",
+                    "children"
+                ],
+                "a7": [
+                    "project",
+                    "deadline",
+                    "box",
+                    "chair"
+                ],
+                "a8": [
+                    "leader",
+                    "food",
+                    "bike",
+                    "car"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "woq-questions-negatives-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Вона не могла пояснити, чому двері залишили незамкненими.",
+            "level": "B2",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Вона не могла пояснити, чому двері залишили незамкненими.",
+            "target_text": "She could not explain why the door had been left unlocked.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Після заперечного модального присудка введи непряме питання; не переставляй його підмет за допоміжне дієслово.",
+                    "options": [
+                        "She",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "could",
+                    "verb_hint": "Після заперечного модального присудка введи непряме питання; не переставляй його підмет за допоміжне дієслово.",
+                    "options": [
+                        "could",
+                        "cannot",
+                        "can",
+                        "will"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Після заперечного модального присудка введи непряме питання; не переставляй його підмет за допоміжне дієслово.",
+                    "options": [
+                        "not",
+                        "also",
+                        "usually",
+                        "rarely"
+                    ]
+                },
+                "a4": {
+                    "answer": "explain",
+                    "verb_hint": "Після заперечного модального присудка введи непряме питання; не переставляй його підмет за допоміжне дієслово.",
+                    "options": [
+                        "explain",
+                        "submission",
+                        "deadline",
+                        "appoint"
+                    ]
+                },
+                "a5": {
+                    "answer": "why",
+                    "verb_hint": "Після заперечного модального присудка введи непряме питання; не переставляй його підмет за допоміжне дієслово.",
+                    "options": [
+                        "why",
+                        "whatever",
+                        "wherever",
+                        "whenever"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Після заперечного модального присудка введи непряме питання; не переставляй його підмет за допоміжне дієслово.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a7": {
+                    "answer": "door",
+                    "verb_hint": "Після заперечного модального присудка введи непряме питання; не переставляй його підмет за допоміжне дієслово.",
+                    "options": [
+                        "door",
+                        "project",
+                        "leader",
+                        "brother"
+                    ]
+                },
+                "a8": {
+                    "answer": "had",
+                    "verb_hint": "Після заперечного модального присудка введи непряме питання; не переставляй його підмет за допоміжне дієслово.",
+                    "options": [
+                        "had",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a9": {
+                    "answer": "been",
+                    "verb_hint": "Після заперечного модального присудка введи непряме питання; не переставляй його підмет за допоміжне дієслово.",
+                    "options": [
+                        "been",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a10": {
+                    "answer": "left",
+                    "verb_hint": "Після заперечного модального присудка введи непряме питання; не переставляй його підмет за допоміжне дієслово.",
+                    "options": [
+                        "left",
+                        "changed",
+                        "given",
+                        "made"
+                    ]
+                },
+                "a11": {
+                    "answer": "unlocked.",
+                    "verb_hint": "Після заперечного модального присудка введи непряме питання; не переставляй його підмет за допоміжне дієслово.",
+                    "options": [
+                        "unlocked",
+                        "said",
+                        "met",
+                        "went"
+                    ]
+                }
+            },
+            "verb_hint": "Після заперечного модального присудка введи непряме питання; не переставляй його підмет за допоміжне дієслово.",
+            "accepted_target_texts": [
+                "She could not explain why the door had been left unlocked.",
+                "She couldn't explain why the door had been left unlocked."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She",
+                "could not explain",
+                "why the door",
+                "had been left",
+                "unlocked."
+            ],
+            "token_groups": [
+                "She",
+                "could not explain",
+                "why the door",
+                "had been left",
+                "unlocked."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "She",
+                "could",
+                "not",
+                "explain",
+                "why",
+                "the",
+                "door",
+                "had",
+                "been",
+                "left",
+                "unlocked."
+            ],
+            "options": [
+                "She",
+                "Us",
+                "Them",
+                "Myself",
+                "could",
+                "cannot",
+                "can",
+                "will",
+                "not",
+                "also",
+                "usually",
+                "rarely",
+                "explain",
+                "submission",
+                "deadline",
+                "appoint",
+                "why",
+                "whatever",
+                "wherever",
+                "whenever",
+                "the",
+                "every",
+                "no",
+                "another",
+                "door",
+                "project",
+                "leader",
+                "brother",
+                "had",
+                "hasn't",
+                "hadn't",
+                "do",
+                "been",
+                "weren't",
+                "am",
+                "is",
+                "left",
+                "changed",
+                "given",
+                "made",
+                "unlocked",
+                "said",
+                "met",
+                "went"
+            ],
+            "source_text_uk": "Вона не могла пояснити, чому двері залишили незамкненими.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "could",
+                    "cannot",
+                    "can",
+                    "will"
+                ],
+                "a3": [
+                    "not",
+                    "also",
+                    "usually",
+                    "rarely"
+                ],
+                "a4": [
+                    "explain",
+                    "submission",
+                    "deadline",
+                    "appoint"
+                ],
+                "a5": [
+                    "why",
+                    "whatever",
+                    "wherever",
+                    "whenever"
+                ],
+                "a6": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a7": [
+                    "door",
+                    "project",
+                    "leader",
+                    "brother"
+                ],
+                "a8": [
+                    "had",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a9": [
+                    "been",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a10": [
+                    "left",
+                    "changed",
+                    "given",
+                    "made"
+                ],
+                "a11": [
+                    "unlocked",
+                    "said",
+                    "met",
+                    "went"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "woq-questions-negatives-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Залишається незрозумілим, на яких доказах ґрунтується це твердження.",
+            "level": "C1",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Залишається незрозумілим, на яких доказах ґрунтується це твердження.",
+            "target_text": "It remains unclear on what evidence this claim is based.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Після безособової оцінки введи формальне непряме питання; збережи підмет перед пасивним присудком.",
+                    "options": [
+                        "It",
+                        "Him",
+                        "Us",
+                        "Them"
+                    ]
+                },
+                "a2": {
+                    "answer": "remains",
+                    "verb_hint": "Після безособової оцінки введи формальне непряме питання; збережи підмет перед пасивним присудком.",
+                    "options": [
+                        "remains",
+                        "experts",
+                        "letters",
+                        "windows"
+                    ]
+                },
+                "a3": {
+                    "answer": "unclear",
+                    "verb_hint": "Після безособової оцінки введи формальне непряме питання; збережи підмет перед пасивним присудком.",
+                    "options": [
+                        "unclear",
+                        "none",
+                        "testify",
+                        "transfer"
+                    ]
+                },
+                "a4": {
+                    "answer": "on",
+                    "verb_hint": "Після безособової оцінки введи формальне непряме питання; збережи підмет перед пасивним присудком.",
+                    "options": [
+                        "on",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a5": {
+                    "answer": "what",
+                    "verb_hint": "Після безособової оцінки введи формальне непряме питання; збережи підмет перед пасивним присудком.",
+                    "options": [
+                        "what",
+                        "wherever",
+                        "whenever",
+                        "who"
+                    ]
+                },
+                "a6": {
+                    "answer": "evidence",
+                    "verb_hint": "Після безособової оцінки введи формальне непряме питання; збережи підмет перед пасивним присудком.",
+                    "options": [
+                        "evidence",
+                        "data",
+                        "desk",
+                        "picture"
+                    ]
+                },
+                "a7": {
+                    "answer": "this",
+                    "verb_hint": "Після безособової оцінки введи формальне непряме питання; збережи підмет перед пасивним присудком.",
+                    "options": [
+                        "this",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a8": {
+                    "answer": "claim",
+                    "verb_hint": "Після безособової оцінки введи формальне непряме питання; збережи підмет перед пасивним присудком.",
+                    "options": [
+                        "claim",
+                        "car",
+                        "bag",
+                        "book"
+                    ]
+                },
+                "a9": {
+                    "answer": "is",
+                    "verb_hint": "Після безособової оцінки введи формальне непряме питання; збережи підмет перед пасивним присудком.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a10": {
+                    "answer": "based.",
+                    "verb_hint": "Після безособової оцінки введи формальне непряме питання; збережи підмет перед пасивним присудком.",
+                    "options": [
+                        "based",
+                        "watched",
+                        "visited",
+                        "cooked"
+                    ]
+                }
+            },
+            "verb_hint": "Після безособової оцінки введи формальне непряме питання; збережи підмет перед пасивним присудком.",
+            "accepted_target_texts": [
+                "It remains unclear on what evidence this claim is based."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It remains unclear",
+                "on what evidence",
+                "this claim",
+                "is based."
+            ],
+            "token_groups": [
+                "It remains unclear",
+                "on what evidence",
+                "this claim",
+                "is based."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "It",
+                "remains",
+                "unclear",
+                "on",
+                "what",
+                "evidence",
+                "this",
+                "claim",
+                "is",
+                "based."
+            ],
+            "options": [
+                "It",
+                "Him",
+                "Us",
+                "Them",
+                "remains",
+                "experts",
+                "letters",
+                "windows",
+                "unclear",
+                "none",
+                "testify",
+                "transfer",
+                "on",
+                "without",
+                "into",
+                "onto",
+                "what",
+                "wherever",
+                "whenever",
+                "who",
+                "evidence",
+                "data",
+                "desk",
+                "picture",
+                "this",
+                "another",
+                "either",
+                "neither",
+                "claim",
+                "car",
+                "bag",
+                "book",
+                "is",
+                "are",
+                "was",
+                "were",
+                "based",
+                "watched",
+                "visited",
+                "cooked"
+            ],
+            "source_text_uk": "Залишається незрозумілим, на яких доказах ґрунтується це твердження.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "Him",
+                    "Us",
+                    "Them"
+                ],
+                "a2": [
+                    "remains",
+                    "experts",
+                    "letters",
+                    "windows"
+                ],
+                "a3": [
+                    "unclear",
+                    "none",
+                    "testify",
+                    "transfer"
+                ],
+                "a4": [
+                    "on",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a5": [
+                    "what",
+                    "wherever",
+                    "whenever",
+                    "who"
+                ],
+                "a6": [
+                    "evidence",
+                    "data",
+                    "desk",
+                    "picture"
+                ],
+                "a7": [
+                    "this",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a8": [
+                    "claim",
+                    "car",
+                    "bag",
+                    "book"
+                ],
+                "a9": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a10": [
+                    "based",
+                    "watched",
+                    "visited",
+                    "cooked"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "woq-questions-negatives-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Чому жодного з експертів не запросили свідчити?",
+            "level": "C1",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Чому жодного з експертів не запросили свідчити?",
+            "target_text": "Why was none of the experts invited to testify?",
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "verb_hint": "У прямому питанні допоміжне дієслово передує довгому заперечному підмету.",
+                    "options": [
+                        "Why",
+                        "Who",
+                        "Whom",
+                        "What"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "У прямому питанні допоміжне дієслово передує довгому заперечному підмету.",
+                    "options": [
+                        "was",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a3": {
+                    "answer": "none",
+                    "verb_hint": "У прямому питанні допоміжне дієслово передує довгому заперечному підмету.",
+                    "options": [
+                        "none",
+                        "claim",
+                        "transfer",
+                        "data"
+                    ]
+                },
+                "a4": {
+                    "answer": "of",
+                    "verb_hint": "У прямому питанні допоміжне дієслово передує довгому заперечному підмету.",
+                    "options": [
+                        "of",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "У прямому питанні допоміжне дієслово передує довгому заперечному підмету.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a6": {
+                    "answer": "experts",
+                    "verb_hint": "У прямому питанні допоміжне дієслово передує довгому заперечному підмету.",
+                    "options": [
+                        "experts",
+                        "remains",
+                        "rooms",
+                        "maps"
+                    ]
+                },
+                "a7": {
+                    "answer": "invited",
+                    "verb_hint": "У прямому питанні допоміжне дієслово передує довгому заперечному підмету.",
+                    "options": [
+                        "invited",
+                        "authorised",
+                        "established",
+                        "made"
+                    ]
+                },
+                "a8": {
+                    "answer": "to",
+                    "verb_hint": "У прямому питанні допоміжне дієслово передує довгому заперечному підмету.",
+                    "options": [
+                        "to",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a9": {
+                    "answer": "testify?",
+                    "verb_hint": "У прямому питанні допоміжне дієслово передує довгому заперечному підмету.",
+                    "options": [
+                        "testify",
+                        "unclear",
+                        "evidence",
+                        "cat"
+                    ]
+                }
+            },
+            "verb_hint": "У прямому питанні допоміжне дієслово передує довгому заперечному підмету.",
+            "accepted_target_texts": [
+                "Why was none of the experts invited to testify?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why was",
+                "none of",
+                "the experts",
+                "invited to testify?"
+            ],
+            "token_groups": [
+                "Why was",
+                "none of",
+                "the experts",
+                "invited to testify?"
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Why",
+                "was",
+                "none",
+                "of",
+                "the",
+                "experts",
+                "invited",
+                "to",
+                "testify?"
+            ],
+            "options": [
+                "Why",
+                "Who",
+                "Whom",
+                "What",
+                "was",
+                "wasn't",
+                "weren't",
+                "am",
+                "none",
+                "claim",
+                "transfer",
+                "data",
+                "of",
+                "without",
+                "into",
+                "onto",
+                "the",
+                "that",
+                "these",
+                "those",
+                "experts",
+                "remains",
+                "rooms",
+                "maps",
+                "invited",
+                "authorised",
+                "established",
+                "made",
+                "to",
+                "under",
+                "through",
+                "across",
+                "testify",
+                "unclear",
+                "evidence",
+                "cat"
+            ],
+            "source_text_uk": "Чому жодного з експертів не запросили свідчити?",
+            "options_by_marker": {
+                "a1": [
+                    "Why",
+                    "Who",
+                    "Whom",
+                    "What"
+                ],
+                "a2": [
+                    "was",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a3": [
+                    "none",
+                    "claim",
+                    "transfer",
+                    "data"
+                ],
+                "a4": [
+                    "of",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a5": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a6": [
+                    "experts",
+                    "remains",
+                    "rooms",
+                    "maps"
+                ],
+                "a7": [
+                    "invited",
+                    "authorised",
+                    "established",
+                    "made"
+                ],
+                "a8": [
+                    "to",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a9": [
+                    "testify",
+                    "unclear",
+                    "evidence",
+                    "cat"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "woq-questions-negatives-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Вони так і не з’ясували, хто санкціонував передачу даних.",
+            "level": "C1",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Вони так і не з’ясували, хто санкціонував передачу даних.",
+            "target_text": "They never established who authorised the transfer of data.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Після заперечної головної частини питальне слово саме є підметом; не додавай допоміжного дієслова.",
+                    "options": [
+                        "They",
+                        "Him",
+                        "Us",
+                        "Them"
+                    ]
+                },
+                "a2": {
+                    "answer": "never",
+                    "verb_hint": "Після заперечної головної частини питальне слово саме є підметом; не додавай допоміжного дієслова.",
+                    "options": [
+                        "never",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a3": {
+                    "answer": "established",
+                    "verb_hint": "Після заперечної головної частини питальне слово саме є підметом; не додавай допоміжного дієслова.",
+                    "options": [
+                        "established",
+                        "invited",
+                        "went",
+                        "saw"
+                    ]
+                },
+                "a4": {
+                    "answer": "who",
+                    "verb_hint": "Після заперечної головної частини питальне слово саме є підметом; не додавай допоміжного дієслова.",
+                    "options": [
+                        "who",
+                        "whom",
+                        "what",
+                        "which"
+                    ]
+                },
+                "a5": {
+                    "answer": "authorised",
+                    "verb_hint": "Після заперечної головної частини питальне слово саме є підметом; не додавай допоміжного дієслова.",
+                    "options": [
+                        "authorised",
+                        "gave",
+                        "made",
+                        "left"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Після заперечної головної частини питальне слово саме є підметом; не додавай допоміжного дієслова.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a7": {
+                    "answer": "transfer",
+                    "verb_hint": "Після заперечної головної частини питальне слово саме є підметом; не додавай допоміжного дієслова.",
+                    "options": [
+                        "transfer",
+                        "none",
+                        "testify",
+                        "unclear"
+                    ]
+                },
+                "a8": {
+                    "answer": "of",
+                    "verb_hint": "Після заперечної головної частини питальне слово саме є підметом; не додавай допоміжного дієслова.",
+                    "options": [
+                        "of",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a9": {
+                    "answer": "data.",
+                    "verb_hint": "Після заперечної головної частини питальне слово саме є підметом; не додавай допоміжного дієслова.",
+                    "options": [
+                        "data",
+                        "evidence",
+                        "claim",
+                        "ticket"
+                    ]
+                }
+            },
+            "verb_hint": "Після заперечної головної частини питальне слово саме є підметом; не додавай допоміжного дієслова.",
+            "accepted_target_texts": [
+                "They never established who authorised the transfer of data.",
+                "They never established who authorized the transfer of data."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "authorized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "authorized"
+                ]
+            },
+            "reorder_groups": [
+                "They never established",
+                "who authorised",
+                "the transfer",
+                "of data."
+            ],
+            "token_groups": [
+                "They never established",
+                "who authorised",
+                "the transfer",
+                "of data."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "They",
+                "never",
+                "established",
+                "who",
+                "authorised",
+                "the",
+                "transfer",
+                "of",
+                "data."
+            ],
+            "options": [
+                "They",
+                "Him",
+                "Us",
+                "Them",
+                "never",
+                "always",
+                "often",
+                "sometimes",
+                "established",
+                "invited",
+                "went",
+                "saw",
+                "who",
+                "whom",
+                "what",
+                "which",
+                "authorised",
+                "gave",
+                "made",
+                "left",
+                "the",
+                "an",
+                "some",
+                "any",
+                "transfer",
+                "none",
+                "testify",
+                "unclear",
+                "of",
+                "among",
+                "about",
+                "during",
+                "data",
+                "evidence",
+                "claim",
+                "ticket"
+            ],
+            "source_text_uk": "Вони так і не з’ясували, хто санкціонував передачу даних.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "Him",
+                    "Us",
+                    "Them"
+                ],
+                "a2": [
+                    "never",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a3": [
+                    "established",
+                    "invited",
+                    "went",
+                    "saw"
+                ],
+                "a4": [
+                    "who",
+                    "whom",
+                    "what",
+                    "which"
+                ],
+                "a5": [
+                    "authorised",
+                    "gave",
+                    "made",
+                    "left"
+                ],
+                "a6": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a7": [
+                    "transfer",
+                    "none",
+                    "testify",
+                    "unclear"
+                ],
+                "a8": [
+                    "of",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a9": [
+                    "data",
+                    "evidence",
+                    "claim",
+                    "ticket"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "woq-questions-negatives-c2-c01",
+            "author_id": "C2-c01",
+            "question": "На якій підставі можна було відхилити всі три свідчення?",
+            "level": "C2",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "На якій підставі можна було відхилити всі три свідчення?",
+            "target_text": "On what grounds could all three accounts have been dismissed?",
+            "markers": {
+                "a1": {
+                    "answer": "On",
+                    "verb_hint": "У прямому питанні після початкової прийменникової групи постав модальне дієслово перед підметом.",
+                    "options": [
+                        "On",
+                        "At",
+                        "By",
+                        "With"
+                    ]
+                },
+                "a2": {
+                    "answer": "what",
+                    "verb_hint": "У прямому питанні після початкової прийменникової групи постав модальне дієслово перед підметом.",
+                    "options": [
+                        "what",
+                        "whom",
+                        "which",
+                        "where"
+                    ]
+                },
+                "a3": {
+                    "answer": "grounds",
+                    "verb_hint": "У прямому питанні після початкової прийменникової групи постав модальне дієслово перед підметом.",
+                    "options": [
+                        "grounds",
+                        "phones",
+                        "children",
+                        "teachers"
+                    ]
+                },
+                "a4": {
+                    "answer": "could",
+                    "verb_hint": "У прямому питанні після початкової прийменникової групи постав модальне дієслово перед підметом.",
+                    "options": [
+                        "could",
+                        "can't",
+                        "couldn't",
+                        "won't"
+                    ]
+                },
+                "a5": {
+                    "answer": "all",
+                    "verb_hint": "У прямому питанні після початкової прийменникової групи постав модальне дієслово перед підметом.",
+                    "options": [
+                        "all",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a6": {
+                    "answer": "three",
+                    "verb_hint": "У прямому питанні після початкової прийменникової групи постав модальне дієслово перед підметом.",
+                    "options": [
+                        "three",
+                        "question",
+                        "nobody",
+                        "error"
+                    ]
+                },
+                "a7": {
+                    "answer": "accounts",
+                    "verb_hint": "У прямому питанні після початкової прийменникової групи постав модальне дієслово перед підметом.",
+                    "options": [
+                        "accounts",
+                        "rooms",
+                        "maps",
+                        "letters"
+                    ]
+                },
+                "a8": {
+                    "answer": "have",
+                    "verb_hint": "У прямому питанні після початкової прийменникової групи постав модальне дієслово перед підметом.",
+                    "options": [
+                        "have",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a9": {
+                    "answer": "been",
+                    "verb_hint": "У прямому питанні після початкової прийменникової групи постав модальне дієслово перед підметом.",
+                    "options": [
+                        "been",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a10": {
+                    "answer": "dismissed?",
+                    "verb_hint": "У прямому питанні після початкової прийменникової групи постав модальне дієслово перед підметом.",
+                    "options": [
+                        "dismissed",
+                        "mistaken",
+                        "called",
+                        "opened"
+                    ]
+                }
+            },
+            "verb_hint": "У прямому питанні після початкової прийменникової групи постав модальне дієслово перед підметом.",
+            "accepted_target_texts": [
+                "On what grounds could all three accounts have been dismissed?",
+                "On what grounds could all three accounts have been rejected?"
+            ],
+            "answer_synonyms": {
+                "a10": [
+                    "rejected?"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a10": [
+                    "rejected?"
+                ]
+            },
+            "reorder_groups": [
+                "On what grounds",
+                "could all three",
+                "accounts have",
+                "been dismissed?"
+            ],
+            "token_groups": [
+                "On what grounds",
+                "could all three",
+                "accounts have",
+                "been dismissed?"
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "On",
+                "what",
+                "grounds",
+                "could",
+                "all",
+                "three",
+                "accounts",
+                "have",
+                "been",
+                "dismissed?"
+            ],
+            "options": [
+                "On",
+                "At",
+                "By",
+                "With",
+                "what",
+                "whom",
+                "which",
+                "where",
+                "grounds",
+                "phones",
+                "children",
+                "teachers",
+                "could",
+                "can't",
+                "couldn't",
+                "won't",
+                "all",
+                "each",
+                "every",
+                "no",
+                "three",
+                "question",
+                "nobody",
+                "error",
+                "accounts",
+                "rooms",
+                "maps",
+                "letters",
+                "have",
+                "did",
+                "don't",
+                "doesn't",
+                "been",
+                "are",
+                "was",
+                "were",
+                "dismissed",
+                "mistaken",
+                "called",
+                "opened"
+            ],
+            "source_text_uk": "На якій підставі можна було відхилити всі три свідчення?",
+            "options_by_marker": {
+                "a1": [
+                    "On",
+                    "At",
+                    "By",
+                    "With"
+                ],
+                "a2": [
+                    "what",
+                    "whom",
+                    "which",
+                    "where"
+                ],
+                "a3": [
+                    "grounds",
+                    "phones",
+                    "children",
+                    "teachers"
+                ],
+                "a4": [
+                    "could",
+                    "can't",
+                    "couldn't",
+                    "won't"
+                ],
+                "a5": [
+                    "all",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a6": [
+                    "three",
+                    "question",
+                    "nobody",
+                    "error"
+                ],
+                "a7": [
+                    "accounts",
+                    "rooms",
+                    "maps",
+                    "letters"
+                ],
+                "a8": [
+                    "have",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a9": [
+                    "been",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a10": [
+                    "dismissed",
+                    "mistaken",
+                    "called",
+                    "opened"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "woq-questions-negatives-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Питання полягає не в тому, хто помилився, а в тому, чому ніхто не виправив помилку.",
+            "level": "C2",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Питання полягає не в тому, хто помилився, а в тому, чому ніхто не виправив помилку.",
+            "target_text": "The question is not who was mistaken but why nobody corrected the error.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи паралельні непрямі питання після протиставлення; не вводь інверсії в жодній із них.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "question",
+                    "verb_hint": "Збережи паралельні непрямі питання після протиставлення; не вводь інверсії в жодній із них.",
+                    "options": [
+                        "question",
+                        "assumption",
+                        "three",
+                        "consider"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Збережи паралельні непрямі питання після протиставлення; не вводь інверсії в жодній із них.",
+                    "options": [
+                        "is",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Збережи паралельні непрямі питання після протиставлення; не вводь інверсії в жодній із них.",
+                    "options": [
+                        "not",
+                        "just",
+                        "also",
+                        "usually"
+                    ]
+                },
+                "a5": {
+                    "answer": "who",
+                    "verb_hint": "Збережи паралельні непрямі питання після протиставлення; не вводь інверсії в жодній із них.",
+                    "options": [
+                        "who",
+                        "wherever",
+                        "whenever",
+                        "whom"
+                    ]
+                },
+                "a6": {
+                    "answer": "was",
+                    "verb_hint": "Збережи паралельні непрямі питання після протиставлення; не вводь інверсії в жодній із них.",
+                    "options": [
+                        "was",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a7": {
+                    "answer": "mistaken",
+                    "verb_hint": "Збережи паралельні непрямі питання після протиставлення; не вводь інверсії в жодній із них.",
+                    "options": [
+                        "mistaken",
+                        "dismissed",
+                        "met",
+                        "seen"
+                    ]
+                },
+                "a8": {
+                    "answer": "but",
+                    "verb_hint": "Збережи паралельні непрямі питання після протиставлення; не вводь інверсії в жодній із них.",
+                    "options": [
+                        "but",
+                        "so",
+                        "yet",
+                        "because"
+                    ]
+                },
+                "a9": {
+                    "answer": "why",
+                    "verb_hint": "Збережи паралельні непрямі питання після протиставлення; не вводь інверсії в жодній із них.",
+                    "options": [
+                        "why",
+                        "whoever",
+                        "whatever",
+                        "what"
+                    ]
+                },
+                "a10": {
+                    "answer": "nobody",
+                    "verb_hint": "Збережи паралельні непрямі питання після протиставлення; не вводь інверсії в жодній із них.",
+                    "options": [
+                        "nobody",
+                        "appropriate",
+                        "initial",
+                        "bag"
+                    ]
+                },
+                "a11": {
+                    "answer": "corrected",
+                    "verb_hint": "Збережи паралельні непрямі питання після протиставлення; не вводь інверсії в жодній із них.",
+                    "options": [
+                        "corrected",
+                        "visited",
+                        "cooked",
+                        "found"
+                    ]
+                },
+                "a12": {
+                    "answer": "the",
+                    "verb_hint": "Збережи паралельні непрямі питання після протиставлення; не вводь інверсії в жодній із них.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a13": {
+                    "answer": "error.",
+                    "verb_hint": "Збережи паралельні непрямі питання після протиставлення; не вводь інверсії в жодній із них.",
+                    "options": [
+                        "error",
+                        "window",
+                        "phone",
+                        "train"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи паралельні непрямі питання після протиставлення; не вводь інверсії в жодній із них.",
+            "accepted_target_texts": [
+                "The question is not who was mistaken but why nobody corrected the error."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The question",
+                "is not",
+                "who was mistaken",
+                "but why nobody",
+                "corrected the error."
+            ],
+            "token_groups": [
+                "The question",
+                "is not",
+                "who was mistaken",
+                "but why nobody",
+                "corrected the error."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "The",
+                "question",
+                "is",
+                "not",
+                "who",
+                "was",
+                "mistaken",
+                "but",
+                "why",
+                "nobody",
+                "corrected",
+                "the",
+                "error."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "question",
+                "assumption",
+                "three",
+                "consider",
+                "is",
+                "been",
+                "being",
+                "isn't",
+                "not",
+                "just",
+                "also",
+                "usually",
+                "who",
+                "wherever",
+                "whenever",
+                "whom",
+                "was",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "mistaken",
+                "dismissed",
+                "met",
+                "seen",
+                "but",
+                "so",
+                "yet",
+                "because",
+                "why",
+                "whoever",
+                "whatever",
+                "what",
+                "nobody",
+                "appropriate",
+                "initial",
+                "bag",
+                "corrected",
+                "visited",
+                "cooked",
+                "found",
+                "the",
+                "all",
+                "both",
+                "a",
+                "error",
+                "window",
+                "phone",
+                "train"
+            ],
+            "source_text_uk": "Питання полягає не в тому, хто помилився, а в тому, чому ніхто не виправив помилку.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "question",
+                    "assumption",
+                    "three",
+                    "consider"
+                ],
+                "a3": [
+                    "is",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a4": [
+                    "not",
+                    "just",
+                    "also",
+                    "usually"
+                ],
+                "a5": [
+                    "who",
+                    "wherever",
+                    "whenever",
+                    "whom"
+                ],
+                "a6": [
+                    "was",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a7": [
+                    "mistaken",
+                    "dismissed",
+                    "met",
+                    "seen"
+                ],
+                "a8": [
+                    "but",
+                    "so",
+                    "yet",
+                    "because"
+                ],
+                "a9": [
+                    "why",
+                    "whoever",
+                    "whatever",
+                    "what"
+                ],
+                "a10": [
+                    "nobody",
+                    "appropriate",
+                    "initial",
+                    "bag"
+                ],
+                "a11": [
+                    "corrected",
+                    "visited",
+                    "cooked",
+                    "found"
+                ],
+                "a12": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a13": [
+                    "error",
+                    "window",
+                    "phone",
+                    "train"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "woq-questions-negatives-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Чому нікому не здалося доречним поставити під сумнів початкове припущення?",
+            "level": "C2",
+            "type": 4,
+            "source": "word_order_quality_questions_negatives",
+            "translation_uk": "Чому нікому не здалося доречним поставити під сумнів початкове припущення?",
+            "target_text": "Why did nobody consider it appropriate to question the initial assumption?",
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "verb_hint": "Після питального слова потрібне допоміжне дієслово перед заперечним підметом; далі йде складений додаток.",
+                    "options": [
+                        "Why",
+                        "How",
+                        "Whoever",
+                        "Whatever"
+                    ]
+                },
+                "a2": {
+                    "answer": "did",
+                    "verb_hint": "Після питального слова потрібне допоміжне дієслово перед заперечним підметом; далі йде складений додаток.",
+                    "options": [
+                        "did",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "nobody",
+                    "verb_hint": "Після питального слова потрібне допоміжне дієслово перед заперечним підметом; далі йде складений додаток.",
+                    "options": [
+                        "nobody",
+                        "error",
+                        "three",
+                        "cat"
+                    ]
+                },
+                "a4": {
+                    "answer": "consider",
+                    "verb_hint": "Після питального слова потрібне допоміжне дієслово перед заперечним підметом; далі йде складений додаток.",
+                    "options": [
+                        "consider",
+                        "food",
+                        "bike",
+                        "car"
+                    ]
+                },
+                "a5": {
+                    "answer": "it",
+                    "verb_hint": "Після питального слова потрібне допоміжне дієслово перед заперечним підметом; далі йде складений додаток.",
+                    "options": [
+                        "it",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a6": {
+                    "answer": "appropriate",
+                    "verb_hint": "Після питального слова потрібне допоміжне дієслово перед заперечним підметом; далі йде складений додаток.",
+                    "options": [
+                        "appropriate",
+                        "bag",
+                        "book",
+                        "box"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Після питального слова потрібне допоміжне дієслово перед заперечним підметом; далі йде складений додаток.",
+                    "options": [
+                        "to",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a8": {
+                    "answer": "question",
+                    "verb_hint": "Після питального слова потрібне допоміжне дієслово перед заперечним підметом; далі йде складений додаток.",
+                    "options": [
+                        "question",
+                        "bus",
+                        "desk",
+                        "picture"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Після питального слова потрібне допоміжне дієслово перед заперечним підметом; далі йде складений додаток.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a10": {
+                    "answer": "initial",
+                    "verb_hint": "Після питального слова потрібне допоміжне дієслово перед заперечним підметом; далі йде складений додаток.",
+                    "options": [
+                        "initial",
+                        "person",
+                        "water",
+                        "bread"
+                    ]
+                },
+                "a11": {
+                    "answer": "assumption?",
+                    "verb_hint": "Після питального слова потрібне допоміжне дієслово перед заперечним підметом; далі йде складений додаток.",
+                    "options": [
+                        "assumption",
+                        "chair",
+                        "table",
+                        "ticket"
+                    ]
+                }
+            },
+            "verb_hint": "Після питального слова потрібне допоміжне дієслово перед заперечним підметом; далі йде складений додаток.",
+            "accepted_target_texts": [
+                "Why did nobody consider it appropriate to question the initial assumption?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why did nobody",
+                "consider it appropriate",
+                "to question",
+                "the initial assumption?"
+            ],
+            "token_groups": [
+                "Why did nobody",
+                "consider it appropriate",
+                "to question",
+                "the initial assumption?"
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Why",
+                "did",
+                "nobody",
+                "consider",
+                "it",
+                "appropriate",
+                "to",
+                "question",
+                "the",
+                "initial",
+                "assumption?"
+            ],
+            "options": [
+                "Why",
+                "How",
+                "Whoever",
+                "Whatever",
+                "did",
+                "don't",
+                "doesn't",
+                "didn't",
+                "nobody",
+                "error",
+                "three",
+                "cat",
+                "consider",
+                "food",
+                "bike",
+                "car",
+                "it",
+                "they",
+                "me",
+                "him",
+                "appropriate",
+                "bag",
+                "book",
+                "box",
+                "to",
+                "into",
+                "onto",
+                "over",
+                "question",
+                "bus",
+                "desk",
+                "picture",
+                "the",
+                "this",
+                "that",
+                "these",
+                "initial",
+                "person",
+                "water",
+                "bread",
+                "assumption",
+                "chair",
+                "table",
+                "ticket"
+            ],
+            "source_text_uk": "Чому нікому не здалося доречним поставити під сумнів початкове припущення?",
+            "options_by_marker": {
+                "a1": [
+                    "Why",
+                    "How",
+                    "Whoever",
+                    "Whatever"
+                ],
+                "a2": [
+                    "did",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a3": [
+                    "nobody",
+                    "error",
+                    "three",
+                    "cat"
+                ],
+                "a4": [
+                    "consider",
+                    "food",
+                    "bike",
+                    "car"
+                ],
+                "a5": [
+                    "it",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a6": [
+                    "appropriate",
+                    "bag",
+                    "book",
+                    "box"
+                ],
+                "a7": [
+                    "to",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a8": [
+                    "question",
+                    "bus",
+                    "desk",
+                    "picture"
+                ],
+                "a9": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a10": [
+                    "initial",
+                    "person",
+                    "water",
+                    "bread"
+                ],
+                "a11": [
+                    "assumption",
+                    "chair",
+                    "table",
+                    "ticket"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

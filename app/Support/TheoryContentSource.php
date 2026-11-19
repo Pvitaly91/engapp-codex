@@ -1,0 +1,163 @@
+<?php
+
+namespace App\Support;
+
+/**
+ * Resolves accepted lesson data before rendering.
+ *
+ * Package identity/locale/body guards live in their existing presenters.
+ * Neither stored content nor a page URL may choose a Blade view or stylesheet.
+ */
+final class TheoryContentSource
+{
+    private const PRESENTERS = [
+        [M51ModalMeaningsPackage::class, 'm42StyleContext'],
+        [M52PassiveBasicsPackage::class, 'm42StyleContext'],
+        [M53PassiveConstructionsPackage::class, 'm42StyleContext'],
+        [M54PassivePatternsPackage::class, 'm42StyleContext'],
+        [M55PassiveReviewInfinitivePackage::class, 'm42StyleContext'],
+        [M56GerundSimplePassivesPackage::class, 'm42StyleContext'],
+        [M57ContinuousPerfectPassivesPackage::class, 'm42StyleContext'],
+        [M58PastFuturePassivesPackage::class, 'm42StyleContext'],
+        [M59PassiveFutureAgentReviewPackage::class, 'm42StyleContext'],
+        [M60ReportedSpeechBasicsPackage::class, 'm42StyleContext'],
+        [M61ReportedSpeechChangesPackage::class, 'm42StyleContext'],
+        [M62ReportedReviewRelativeBasicsPackage::class, 'm42StyleContext'],
+        [M63RelativeCompletionLinkingPackage::class, 'm42StyleContext'],
+        [M64ReasonResultContrastPackage::class, 'm42StyleContext'],
+        [M65PurposeGerundInfinitivePackage::class, 'm42StyleContext'],
+        [M66VerbPatternsCorePackage::class, 'm42StyleContext'],
+        [M67VerbPatternsCompletion::class, 'm42StyleContext'],
+        [M68ComparisonBasics::class, 'm42StyleContext'],
+        [M69AdjectivesAdverbs::class, 'm42StyleContext'],
+        [M70IntensifiersNounBasics::class, 'm42StyleContext'],
+        [M71ArticlesQuantifiers::class, 'm42StyleContext'],
+        [M72PartitivesNegativesGeography::class, 'm42StyleContext'],
+        [M73GenericIrregularCollective::class, 'm42StyleContext'],
+        [M74OtherPronounsBasics::class, 'm42StyleContext'],
+        [M75PronounForms::class, 'm42StyleContext'],
+        [M76PronounRelations::class, 'm42StyleContext'],
+        [M77OnePrepositionsPhrasal::class, 'm42StyleContext'],
+        [M78PhrasalQuestionBasics::class, 'm42StyleContext'],
+        [M79QuestionTypesCompletion::class, 'm42StyleContext'],
+        [M80NegativesTransformations::class, 'm42StyleContext'],
+        [M81TransformationsCommonMistakes::class, 'm42StyleContext'],
+        [M82CommonMistakesLevelRevision::class, 'm42StyleContext'],
+        [M83B2RevisionBasicGrammar::class, 'm42StyleContext'],
+        [M84WordOrderHaveGot::class, 'm42StyleContext'],
+        [M85VerbToBe::class, 'm42StyleContext'],
+        [M86PresentSimpleContinuousBasics::class, 'm42StyleContext'],
+        [M87ContinuousCompletionPastSimple::class, 'm42StyleContext'],
+        [M88PastContinuousPresentPerfectBasics::class, 'm42StyleContext'],
+        [M89PresentPerfectCompletionContinuous::class, 'm42StyleContext'],
+        [M90PastPerfectFutureSimpleBasics::class, 'm42StyleContext'],
+        [M91FutureSimpleCompletionContinuous::class, 'm42StyleContext'],
+        [M92FuturePerfectContinuousBasics::class, 'm42StyleContext'],
+        [M93FutureCompletionDemonstrativesSomeAny::class, 'm42StyleContext'],
+        [M94RelativeClausesWhoseWhich::class, 'm42StyleContext'],
+        [M50ObligationAdvicePackage::class, 'm42StyleContext'],
+        [PracticeCompletionPackage::class, 'm42StyleContext'],
+        [M49AdviceModalsPackage::class, 'm42StyleContext'],
+        [M48ConditionalsPackage::class, 'm42StyleContext'],
+        [M47ConditionalsPackage::class, 'm42StyleContext'],
+        [M46ConditionalsPackage::class, 'm42StyleContext'],
+        [M45FutureComparisonsPackage::class, 'm45StyleContext'],
+        [M44AuthoredFutureFormsPackage::class, 'm44StyleContext'],
+        [M43AuthoredTenseUsagePackage::class, 'm43StyleContext'],
+        [M41AuthoredTenseComparisonsPackage::class, null],
+        [M40TensesB1Package::class, null],
+        [M39PracticeUiPackage::class, null],
+        [M39AuthoredRevisionPackage::class, null],
+        [M38ArticlesCollocationsPackage::class, null],
+        [M37GrammarStructuresPackage::class, null],
+        [M36ModalsSubjunctivePackage::class, null],
+        [M35PassiveReportingPackage::class, null],
+        [M34ArgumentationCohesionPackage::class, null],
+        [M33AcademicEnglishPackage::class, null],
+        [M32FormalEnglishPackage::class, null],
+        [M31ConditionalsPackage::class, null],
+        [M30ParticipleClausesPackage::class, null],
+        [M29SentenceStructurePackage::class, null],
+        [M28EmphasisPackage::class, null],
+        [M27LinkingWordsPackage::class, null],
+    ];
+
+    public static function resolve(object $block, array $context = []): array
+    {
+        $data = json_decode($block->body ?? '', true);
+        $view = TheoryPresentation::nativeView($block->type);
+        $m45 = is_array($data) && M45FutureComparisonsPackage::hasStoredAuthor($data);
+        $m44 = is_array($data) && M44AuthoredFutureFormsPackage::hasStoredAuthor($data);
+        $m43 = is_array($data) && M43AuthoredTenseUsagePackage::hasStoredAuthor($data);
+        if (!$view && $m45) { $view = 'engram.theory.blocks-v3.m45-static-fallback'; }
+        if (!$view && $m44) { $view = 'engram.theory.blocks-v3.m44-static-fallback'; }
+        if (!$view && $m43) { $view = 'engram.theory.blocks-v3.m43-static-fallback'; }
+
+        $presentation = null;
+        if ($view !== null && is_array($data)) {
+            foreach (self::PRESENTERS as [$presenter, $requiredContext]) {
+                if ($requiredContext !== null && !($context[$requiredContext] ?? false)) { continue; }
+                $presentation = $presenter::presentation($block, $data);
+                if ($presentation !== null) { break; }
+            }
+            $presentation = M42NativeDesignPackage::decorate(
+                $block, $data, $presentation, $context['m42StyleContext'] ?? false
+            ) ?? $presentation;
+        }
+
+        // These names are constants returned by guarded code, never data fields.
+        if (($presentation['native_view'] ?? null) !== null) { $view = $presentation['native_view']; }
+        if ($presentation === null && $m45) { $view = 'engram.theory.blocks-v3.m45-static-fallback'; }
+        if ($presentation === null && $m44) { $view = 'engram.theory.blocks-v3.m44-static-fallback'; }
+        if ($presentation === null && $m43) { $view = 'engram.theory.blocks-v3.m43-static-fallback'; }
+
+        $renderData = $presentation['data'] ?? $data;
+        if (is_array($renderData) && ($context['theoryCanonical'] ?? false) === true
+            && app()->getLocale() === 'uk'
+            && ($presentation['native_view'] ?? null) === 'engram.theory.blocks-v3.m45-practice-ui') {
+            // A finite exact-owner supplement; the frozen M45 source still owns its guards.
+            $renderData = FutureContinuousVsFuturePerfectContinuousPracticeSupplement::project($block, $renderData, true);
+        }
+        if (is_array($renderData) && ($context['theoryCanonical'] ?? false) === true
+            && app()->getLocale() === 'uk'
+            && ($presentation['m42_native_design']['component'] ?? null) === 'practice-set') {
+            // Source/presentation guards have already proved the old accepted
+            // block. The finite supplement changes only canonical render data.
+            $renderData = WordOrderPracticeSupplement::project($block, $renderData, true);
+            $renderData = VerbToBePracticeSupplement::project($block, $renderData, true);
+            $renderData = BasicGrammarPracticeSupplement::project($block, $renderData, true);
+            $renderData = NounsArticlesQuantityPracticeSupplement::project($block, $renderData, true);
+            $renderData = PronounsDemonstrativesPracticeSupplement::project($block, $renderData, true);
+            $renderData = QuestionsNegationsPracticeSupplement::project($block, $renderData, true);
+            $renderData = AdjectivesAdverbsPracticeSupplement::project($block, $renderData, true);
+            $renderData = SomeAnyPracticeSupplement::project($block, $renderData, true);
+            $renderData = PassiveVoicePracticeSupplement::project($block, $renderData, true);
+            $renderData = ModalVerbsPracticeSupplement::project($block, $renderData, true);
+            $renderData = ConditionalsPracticeSupplement::project($block, $renderData, true);
+            $renderData = ReportedSpeechPracticeSupplement::project($block, $renderData, true);
+            $renderData = ClausesLinkingPracticeSupplement::project($block, $renderData, true);
+            $renderData = PrepositionsPhrasalPracticeSupplement::project($block, $renderData, true);
+            $renderData = CommonMistakesPracticeSupplement::project($block, $renderData, true);
+            $renderData = SentenceTransformationsPracticeSupplement::project($block, $renderData, true);
+            $renderData = VerbPatternsPracticeSupplement::project($block, $renderData, true);
+            $renderData = MixedRevisionPracticeSupplement::project($block, $renderData, true);
+            $renderData = AcademicEnglishPracticeSupplement::project($block, $renderData, true);
+            $renderData = ArticlesQuantifiersPracticeSupplement::project($block, $renderData, true);
+            $renderData = FormalEnglishPracticeSupplement::project($block, $renderData, true);
+            $renderData = RelativeClausesPracticeSupplement::project($block, $renderData, true);
+            $renderData = SentenceStructurePracticeSupplement::project($block, $renderData, true);
+            $renderData = VocabCollocationsPracticeSupplement::project($block, $renderData, true);
+        }
+
+        return [
+            'view' => $view,
+            'stored' => $data,
+            'data' => $renderData,
+            'presentation' => $presentation,
+            'design' => $presentation['m42_native_design'] ?? null,
+            // Preserve the existing full-content fallback if detail validation fails.
+            'detail_fallback_view' => $m44 ? 'engram.theory.blocks-v3.m44-static-fallback'
+                : ($m43 ? 'engram.theory.blocks-v3.m43-static-fallback' : $view),
+        ];
+    }
+}

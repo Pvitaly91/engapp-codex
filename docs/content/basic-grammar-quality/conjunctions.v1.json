@@ -1,0 +1,1261 @@
+{
+    "schema_version": 1,
+    "topic_key": "conjunctions",
+    "title": "Основні сполучники",
+    "level_notes": {
+        "A1": "Основні моделі в коротких повсякденних реченнях.",
+        "A2": "Поширені іменні групи, уточнення й природні побутові ситуації.",
+        "B1": "Зв’язні повідомлення з точними смисловими ролями та залежними частинами.",
+        "B2": "Розгорнуті структури, формальний контекст і збереження смислових відмінностей.",
+        "C1": "Абстрактні контексти, складні зв’язки всередині речення та точна інтерпретація.",
+        "C2": "Щільне формальне міркування, інформаційний фокус і тонкі відмінності змісту."
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "kind": "gap",
+            "level": "A1",
+            "target": "I like apples and pears.",
+            "groups": [
+                "I like",
+                "apples and pears."
+            ],
+            "question": "I like apples {a1} pears.",
+            "answer": "and",
+            "options": [
+                "and",
+                "or",
+                "but"
+            ],
+            "uk": "Мені подобаються яблука і груші.",
+            "hint_uk": "Потрібний зміст: «І, додавання». Поєднай два однаково правдиві вподобання додаванням, не вибором одного варіанта."
+        },
+        {
+            "id": "A1-g02",
+            "kind": "gap",
+            "level": "A1",
+            "target": "The box is small, but it is heavy.",
+            "groups": [
+                "The box",
+                "is small,",
+                "but it is",
+                "heavy."
+            ],
+            "question": "The box is small, {a1} it is heavy.",
+            "answer": "but",
+            "options": [
+                "but",
+                "or",
+                "because"
+            ],
+            "uk": "Коробка маленька, але важка.",
+            "hint_uk": "Потрібний зміст: «Але, протиставлення». Збережи обидва факти та передай задане протиставлення розміру й ваги.",
+            "answer_synonyms": [
+                "yet"
+            ],
+            "accepted_targets": [
+                "The box is small, yet it is heavy."
+            ]
+        },
+        {
+            "id": "A1-g03",
+            "kind": "gap",
+            "level": "A1",
+            "target": "Choose juice or water.",
+            "groups": [
+                "Choose juice",
+                "or water."
+            ],
+            "question": "Choose juice {a1} water.",
+            "answer": "or",
+            "options": [
+                "or",
+                "and",
+                "because"
+            ],
+            "uk": "Обери сік або воду.",
+            "hint_uk": "Потрібний зміст: «Або, зв’язок альтернатив». Потрібен вибір одного з двох напоїв, а не одночасне замовлення обох."
+        },
+        {
+            "id": "A1-g04",
+            "kind": "gap",
+            "level": "A1",
+            "target": "The dog is wet because it is raining.",
+            "groups": [
+                "The dog",
+                "is wet",
+                "because it is",
+                "raining."
+            ],
+            "question": "The dog is wet {a1} it is raining.",
+            "answer": "because",
+            "options": [
+                "because",
+                "because of",
+                "so"
+            ],
+            "uk": "Собака мокрий, бо йде дощ.",
+            "hint_uk": "Потрібний зміст: «Тому що, причина». Після повідомлення про стан уведи цілу частину, яка називає його причину.",
+            "answer_synonyms": [
+                "since",
+                "as"
+            ],
+            "accepted_targets": [
+                "The dog is wet since it is raining.",
+                "The dog is wet as it is raining."
+            ]
+        },
+        {
+            "id": "A1-g05",
+            "kind": "gap",
+            "level": "A1",
+            "target": "I am cold, so I need a coat.",
+            "groups": [
+                "I am cold,",
+                "so I need",
+                "a coat."
+            ],
+            "question": "I am cold, {a1} I need a coat.",
+            "answer": "so",
+            "options": [
+                "so",
+                "because",
+                "or"
+            ],
+            "uk": "Мені холодно, тому мені потрібне пальто.",
+            "hint_uk": "Потрібний зміст: «Тому, наслідок». Перша частина є причиною, а друга — її наслідком; збережи цей напрям зв'язку.",
+            "answer_synonyms": [
+                "and therefore",
+                "and so"
+            ],
+            "accepted_targets": [
+                "I am cold, and therefore I need a coat.",
+                "I am cold, and so I need a coat."
+            ]
+        },
+        {
+            "id": "A1-g06",
+            "kind": "gap",
+            "level": "A1",
+            "target": "We sing and dance.",
+            "groups": [
+                "We sing",
+                "and dance."
+            ],
+            "question": "We sing {a1} dance.",
+            "answer": "and",
+            "options": [
+                "and",
+                "or",
+                "because"
+            ],
+            "uk": "Ми співаємо і танцюємо.",
+            "hint_uk": "Потрібний зміст: «І, додавання». Поєднай дві виконувані дії додаванням, не вибором чи поясненням причини."
+        },
+        {
+            "id": "A1-c01",
+            "kind": "compose",
+            "level": "A1",
+            "target": "The room is warm, but the floor is cold.",
+            "groups": [
+                "The room",
+                "is warm,",
+                "but the floor",
+                "is cold."
+            ],
+            "question": "У кімнаті тепло, але підлога холодна.",
+            "uk": "У кімнаті тепло, але підлога холодна.",
+            "hint_uk": "Збережи обидва протиставлені факти теперішнього стану в одному повідомленні.",
+            "compose_slots": [
+                "The",
+                "room is",
+                "warm,",
+                "but",
+                "the",
+                "floor is",
+                "cold."
+            ],
+            "display_synonyms": {
+                "room is": [
+                    "room's"
+                ],
+                "floor is": [
+                    "floor's"
+                ]
+            },
+            "accepted_targets": [
+                "The room's warm, but the floor is cold.",
+                "The room is warm, but the floor's cold.",
+                "The room's warm, but the floor's cold."
+            ]
+        },
+        {
+            "id": "A1-c02",
+            "kind": "compose",
+            "level": "A1",
+            "target": "We can walk or take a bus.",
+            "groups": [
+                "We can walk",
+                "or take",
+                "a bus."
+            ],
+            "question": "Ми можемо піти пішки або поїхати автобусом.",
+            "uk": "Ми можемо піти пішки або поїхати автобусом.",
+            "hint_uk": "Побудуй повідомлення про вибір між двома способами пересування, не про обидві дії поспіль."
+        },
+        {
+            "id": "A1-c03",
+            "kind": "compose",
+            "level": "A1",
+            "target": "The baby is hungry, so she cries.",
+            "groups": [
+                "The baby",
+                "is hungry,",
+                "so she cries."
+            ],
+            "question": "Немовля голодне, тому воно плаче.",
+            "uk": "Немовля голодне, тому воно плаче.",
+            "hint_uk": "Дитина — дівчинка; збережи голод як причину, а плач як його наслідок.",
+            "compose_slots": [
+                "The",
+                "baby is",
+                "hungry,",
+                "so",
+                "she",
+                "cries."
+            ],
+            "display_synonyms": {
+                "baby is": [
+                    "baby's"
+                ]
+            },
+            "accepted_targets": [
+                "The baby's hungry, so she cries."
+            ]
+        },
+        {
+            "id": "A2-g01",
+            "kind": "gap",
+            "level": "A2",
+            "target": "The suitcase is old, but the wheels still work.",
+            "groups": [
+                "The suitcase",
+                "is old,",
+                "but the wheels",
+                "still work."
+            ],
+            "question": "The suitcase is old, {a1} the wheels still work.",
+            "answer": "but",
+            "options": [
+                "but",
+                "or",
+                "because"
+            ],
+            "uk": "Валіза стара, але коліщатка досі працюють.",
+            "hint_uk": "Потрібний зміст: «Але, протиставлення». Передай задане протиставлення старості речі та справності її частин.",
+            "answer_synonyms": [
+                "yet"
+            ],
+            "accepted_targets": [
+                "The suitcase is old, yet the wheels still work."
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "kind": "gap",
+            "level": "A2",
+            "target": "We missed the train because our taxi broke down.",
+            "groups": [
+                "We missed",
+                "the train",
+                "because our taxi",
+                "broke down."
+            ],
+            "question": "We missed the train {a1} our taxi broke down.",
+            "answer": "because",
+            "options": [
+                "because",
+                "because of",
+                "so"
+            ],
+            "uk": "Ми пропустили потяг, тому що наше таксі зламалося.",
+            "hint_uk": "Потрібний зміст: «Тому що, причина». Уведи поломку як причину пропущеного потяга; далі стоїть ціла частина з підметом.",
+            "answer_synonyms": [
+                "since",
+                "as"
+            ],
+            "accepted_targets": [
+                "We missed the train since our taxi broke down.",
+                "We missed the train as our taxi broke down."
+            ]
+        },
+        {
+            "id": "A2-g03",
+            "kind": "gap",
+            "level": "A2",
+            "target": "The path was flooded, so we used the bridge.",
+            "groups": [
+                "The path",
+                "was flooded,",
+                "so we used",
+                "the bridge."
+            ],
+            "question": "The path was flooded, {a1} we used the bridge.",
+            "answer": "so",
+            "options": [
+                "so",
+                "because",
+                "or"
+            ],
+            "uk": "Стежку затопило, тому ми скористалися мостом.",
+            "hint_uk": "Потрібний зміст: «Тому, наслідок». Збережи затоплення причиною, а використання мосту — наслідком.",
+            "answer_synonyms": [
+                "and therefore",
+                "and so"
+            ],
+            "accepted_targets": [
+                "The path was flooded, and therefore we used the bridge.",
+                "The path was flooded, and so we used the bridge."
+            ]
+        },
+        {
+            "id": "A2-g04",
+            "kind": "gap",
+            "level": "A2",
+            "target": "You can borrow my bike or wait for the bus.",
+            "groups": [
+                "You can",
+                "borrow my bike",
+                "or wait",
+                "for the bus."
+            ],
+            "question": "You can borrow my bike {a1} wait for the bus.",
+            "answer": "or",
+            "options": [
+                "or",
+                "and",
+                "because"
+            ],
+            "uk": "Ти можеш позичити мій велосипед або зачекати на автобус.",
+            "hint_uk": "Потрібний зміст: «Або, зв’язок альтернатив». Запропонуй дві альтернативи, з яких обирають одну."
+        },
+        {
+            "id": "A2-g05",
+            "kind": "gap",
+            "level": "A2",
+            "target": "Marta bought bread and cheese for the picnic.",
+            "groups": [
+                "Marta bought",
+                "bread and cheese",
+                "for the picnic."
+            ],
+            "question": "Marta bought bread {a1} cheese for the picnic.",
+            "answer": "and",
+            "options": [
+                "and",
+                "or",
+                "but"
+            ],
+            "uk": "Марта купила хліб і сир для пікніка.",
+            "hint_uk": "Потрібний зміст: «І, додавання». Потрібне додавання двох справді куплених продуктів, не сумнів щодо вибору."
+        },
+        {
+            "id": "A2-g06",
+            "kind": "gap",
+            "level": "A2",
+            "target": "I do not drink coffee or energy drinks.",
+            "groups": [
+                "I do not",
+                "drink coffee",
+                "or energy drinks."
+            ],
+            "question": "I do not drink coffee {a1} energy drinks.",
+            "answer": "or",
+            "options": [
+                "or",
+                "but",
+                "so"
+            ],
+            "uk": "Я не п'ю ні кави, ні енергетиків.",
+            "hint_uk": "Потрібний зміст: «Або, зв’язок альтернатив». Заперечено кожен із двох напоїв; поєднай їх як альтернативи в області одного заперечення."
+        },
+        {
+            "id": "A2-c01",
+            "kind": "compose",
+            "level": "A2",
+            "target": "The meal was simple, but everyone enjoyed it.",
+            "groups": [
+                "The meal",
+                "was simple,",
+                "but everyone",
+                "enjoyed it."
+            ],
+            "question": "Їжа була проста, але всім сподобалася.",
+            "uk": "Їжа була проста, але всім сподобалася.",
+            "hint_uk": "Поєднай два минулі факти через явний контраст, не пояснюй один причиною іншого."
+        },
+        {
+            "id": "A2-c02",
+            "kind": "compose",
+            "level": "A2",
+            "target": "Because the road was blocked, we turned back.",
+            "groups": [
+                "Because the road",
+                "was blocked,",
+                "we turned back."
+            ],
+            "question": "Оскільки дорогу перекрили, ми повернулися назад.",
+            "uk": "Оскільки дорогу перекрили, ми повернулися назад.",
+            "hint_uk": "Почни з цілої частини причини й збережи її перед наслідком."
+        },
+        {
+            "id": "A2-c03",
+            "kind": "compose",
+            "level": "A2",
+            "target": "You can email the form or hand it in at reception.",
+            "groups": [
+                "You can",
+                "email the form",
+                "or hand it",
+                "in at reception."
+            ],
+            "question": "Ти можеш надіслати бланк електронною поштою або здати його на рецепції.",
+            "uk": "Ти можеш надіслати бланк електронною поштою або здати його на рецепції.",
+            "hint_uk": "Збережи вибір між двома способами подання того самого бланка."
+        },
+        {
+            "id": "B1-g01",
+            "kind": "gap",
+            "level": "B1",
+            "target": "The hotel was fully booked, so we stayed with friends.",
+            "groups": [
+                "The hotel",
+                "was fully booked,",
+                "so we stayed",
+                "with friends."
+            ],
+            "question": "The hotel was fully booked, {a1} we stayed with friends.",
+            "answer": "so",
+            "options": [
+                "so",
+                "because",
+                "or"
+            ],
+            "uk": "У готелі не було вільних місць, тому ми зупинилися у друзів.",
+            "hint_uk": "Потрібний зміст: «Тому, наслідок». Перше повідомлення пояснює причину, після сполучника назви її наслідок.",
+            "answer_synonyms": [
+                "and therefore",
+                "and so"
+            ],
+            "accepted_targets": [
+                "The hotel was fully booked, and therefore we stayed with friends.",
+                "The hotel was fully booked, and so we stayed with friends."
+            ]
+        },
+        {
+            "id": "B1-g02",
+            "kind": "gap",
+            "level": "B1",
+            "target": "She accepted the invitation because she wanted to meet the author.",
+            "groups": [
+                "She accepted",
+                "the invitation",
+                "because she wanted",
+                "to meet",
+                "the author."
+            ],
+            "question": "She accepted the invitation {a1} she wanted to meet the author.",
+            "answer": "because",
+            "options": [
+                "because",
+                "because of",
+                "so"
+            ],
+            "uk": "Вона прийняла запрошення, бо хотіла зустрітися з автором.",
+            "hint_uk": "Потрібний зміст: «Тому що, причина». Уведи мотив прийняття запрошення цілою причинною частиною.",
+            "answer_synonyms": [
+                "since",
+                "as"
+            ],
+            "accepted_targets": [
+                "She accepted the invitation since she wanted to meet the author.",
+                "She accepted the invitation as she wanted to meet the author."
+            ]
+        },
+        {
+            "id": "B1-g03",
+            "kind": "gap",
+            "level": "B1",
+            "target": "The route is shorter, but it crosses a dangerous junction.",
+            "groups": [
+                "The route",
+                "is shorter,",
+                "but it crosses",
+                "a dangerous junction."
+            ],
+            "question": "The route is shorter, {a1} it crosses a dangerous junction.",
+            "answer": "but",
+            "options": [
+                "but",
+                "or",
+                "because"
+            ],
+            "uk": "Маршрут коротший, але перетинає небезпечне перехрестя.",
+            "hint_uk": "Потрібний зміст: «Але, протиставлення». Збережи позитивний і негативний факти як контраст, не як альтернативи.",
+            "answer_synonyms": [
+                "yet"
+            ],
+            "accepted_targets": [
+                "The route is shorter, yet it crosses a dangerous junction."
+            ]
+        },
+        {
+            "id": "B1-g04",
+            "kind": "gap",
+            "level": "B1",
+            "target": "They inspected the roof and checked the drains.",
+            "groups": [
+                "They inspected",
+                "the roof",
+                "and checked",
+                "the drains."
+            ],
+            "question": "They inspected the roof {a1} checked the drains.",
+            "answer": "and",
+            "options": [
+                "and",
+                "or",
+                "because"
+            ],
+            "uk": "Вони оглянули дах і перевірили водостоки.",
+            "hint_uk": "Потрібний зміст: «І, додавання». Обидві завершені дії справді відбулися; поєднай їх додаванням."
+        },
+        {
+            "id": "B1-g05",
+            "kind": "gap",
+            "level": "B1",
+            "target": "You must leave now or you will miss the connection.",
+            "groups": [
+                "You must",
+                "leave now",
+                "or you will",
+                "miss the connection."
+            ],
+            "question": "You must leave now {a1} you will miss the connection.",
+            "answer": "or",
+            "options": [
+                "or",
+                "because",
+                "and"
+            ],
+            "uk": "Ти мусиш вирушити зараз, інакше пропустиш пересадку.",
+            "hint_uk": "Потрібний зміст: «Або, зв’язок альтернатив». Уведи небажану альтернативу, яка настане без виконання першої дії.",
+            "answer_synonyms": [
+                "or else"
+            ],
+            "accepted_targets": [
+                "You must leave now or else you will miss the connection."
+            ]
+        },
+        {
+            "id": "B1-g06",
+            "kind": "gap",
+            "level": "B1",
+            "target": "We did not invite Leo or his sister.",
+            "groups": [
+                "We did not",
+                "invite Leo",
+                "or his sister."
+            ],
+            "question": "We did not invite Leo {a1} his sister.",
+            "answer": "or",
+            "options": [
+                "or",
+                "but",
+                "so"
+            ],
+            "uk": "Ми не запросили ні Лео, ні його сестру.",
+            "hint_uk": "Потрібний зміст: «Або, зв’язок альтернатив». Заперечення має охопити обох людей окремо; не стверджуй запрошення другої людини."
+        },
+        {
+            "id": "B1-c01",
+            "kind": "compose",
+            "level": "B1",
+            "target": "The shop was closed, so I ordered the part online.",
+            "groups": [
+                "The shop",
+                "was closed,",
+                "so I ordered",
+                "the part online."
+            ],
+            "question": "Магазин був зачинений, тому я замовив деталь онлайн.",
+            "uk": "Магазин був зачинений, тому я замовив деталь онлайн.",
+            "hint_uk": "Збережи зачинений магазин причиною, а замовлення наслідком."
+        },
+        {
+            "id": "B1-c02",
+            "kind": "compose",
+            "level": "B1",
+            "target": "He knows the rule, but he does not follow it.",
+            "groups": [
+                "He knows",
+                "the rule,",
+                "but he does",
+                "not follow it."
+            ],
+            "question": "Він знає правило, але не дотримується його.",
+            "uk": "Він знає правило, але не дотримується його.",
+            "hint_uk": "Збережи знання правила та протиставлене йому заперечення виконання.",
+            "compose_slots": [
+                "He",
+                "knows",
+                "the",
+                "rule,",
+                "but",
+                "he",
+                "does not",
+                "follow",
+                "it."
+            ],
+            "display_synonyms": {
+                "does not": [
+                    "doesn't"
+                ]
+            },
+            "accepted_targets": [
+                "He knows the rule, but he doesn't follow it."
+            ]
+        },
+        {
+            "id": "B1-c03",
+            "kind": "compose",
+            "level": "B1",
+            "target": "Because the evidence was incomplete, the hearing was postponed.",
+            "groups": [
+                "Because the evidence",
+                "was incomplete,",
+                "the hearing",
+                "was postponed."
+            ],
+            "question": "Оскільки докази були неповними, слухання відклали.",
+            "uk": "Оскільки докази були неповними, слухання відклали.",
+            "hint_uk": "Почни з причинної частини й збережи відкладення як її наслідок."
+        },
+        {
+            "id": "B2-g01",
+            "kind": "gap",
+            "level": "B2",
+            "target": "The proposal is ambitious, but its funding remains uncertain.",
+            "groups": [
+                "The proposal",
+                "is ambitious,",
+                "but its funding",
+                "remains uncertain."
+            ],
+            "question": "The proposal is ambitious, {a1} its funding remains uncertain.",
+            "answer": "but",
+            "options": [
+                "but",
+                "or",
+                "because"
+            ],
+            "uk": "Пропозиція амбітна, але її фінансування залишається непевним.",
+            "hint_uk": "Потрібний зміст: «Але, протиставлення». Збережи контраст позитивної характеристики й фінансового обмеження.",
+            "answer_synonyms": [
+                "yet"
+            ],
+            "accepted_targets": [
+                "The proposal is ambitious, yet its funding remains uncertain."
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "kind": "gap",
+            "level": "B2",
+            "target": "The sample was too small, so the researchers avoided broad claims.",
+            "groups": [
+                "The sample",
+                "was too small,",
+                "so the researchers",
+                "avoided broad claims."
+            ],
+            "question": "The sample was too small, {a1} the researchers avoided broad claims.",
+            "answer": "so",
+            "options": [
+                "so",
+                "because",
+                "or"
+            ],
+            "uk": "Вибірка була замала, тому дослідники уникали широких висновків.",
+            "hint_uk": "Потрібний зміст: «Тому, наслідок». Недостатній розмір вибірки є причиною, а обережність висновків — наслідком.",
+            "answer_synonyms": [
+                "and therefore",
+                "and so"
+            ],
+            "accepted_targets": [
+                "The sample was too small, and therefore the researchers avoided broad claims.",
+                "The sample was too small, and so the researchers avoided broad claims."
+            ]
+        },
+        {
+            "id": "B2-g03",
+            "kind": "gap",
+            "level": "B2",
+            "target": "The board reopened the discussion because new evidence had emerged.",
+            "groups": [
+                "The board",
+                "reopened the discussion",
+                "because new evidence",
+                "had emerged."
+            ],
+            "question": "The board reopened the discussion {a1} new evidence had emerged.",
+            "answer": "because",
+            "options": [
+                "because",
+                "because of",
+                "so"
+            ],
+            "uk": "Правління відновило обговорення, тому що з'явилися нові докази.",
+            "hint_uk": "Потрібний зміст: «Тому що, причина». Уведи появу нових доказів як причину відновлення обговорення.",
+            "answer_synonyms": [
+                "since",
+                "as"
+            ],
+            "accepted_targets": [
+                "The board reopened the discussion since new evidence had emerged.",
+                "The board reopened the discussion as new evidence had emerged."
+            ]
+        },
+        {
+            "id": "B2-g04",
+            "kind": "gap",
+            "level": "B2",
+            "target": "Either the figures are inaccurate or the assumption is wrong.",
+            "groups": [
+                "Either the figures",
+                "are inaccurate",
+                "or the assumption",
+                "is wrong."
+            ],
+            "question": "Either the figures are inaccurate {a1} the assumption is wrong.",
+            "answer": "or",
+            "options": [
+                "or",
+                "and",
+                "because"
+            ],
+            "uk": "Або показники неточні, або припущення хибне.",
+            "hint_uk": "Потрібний зміст: «Або, зв’язок альтернатив». Заверши вже почату парну конструкцію двох альтернатив без додавання третього твердження."
+        },
+        {
+            "id": "B2-g05",
+            "kind": "gap",
+            "level": "B2",
+            "target": "They revised the methodology and published the full dataset.",
+            "groups": [
+                "They revised",
+                "the methodology",
+                "and published",
+                "the full dataset."
+            ],
+            "question": "They revised the methodology {a1} published the full dataset.",
+            "answer": "and",
+            "options": [
+                "and",
+                "or",
+                "but"
+            ],
+            "uk": "Вони переглянули методологію й оприлюднили повний набір даних.",
+            "hint_uk": "Потрібний зміст: «І, додавання». Обидві дії відбулися; передай додавання, а не вибір лише однієї."
+        },
+        {
+            "id": "B2-g06",
+            "kind": "gap",
+            "level": "B2",
+            "target": "The restriction does not apply to research or teaching.",
+            "groups": [
+                "The restriction",
+                "does not apply",
+                "to research",
+                "or teaching."
+            ],
+            "question": "The restriction does not apply to research {a1} teaching.",
+            "answer": "or",
+            "options": [
+                "or",
+                "but",
+                "so"
+            ],
+            "uk": "Обмеження не поширюється ні на дослідження, ні на викладання.",
+            "hint_uk": "Потрібний зміст: «Або, зв’язок альтернатив». Збережи обидві сфери поза дією обмеження в області одного заперечення."
+        },
+        {
+            "id": "B2-c01",
+            "kind": "compose",
+            "level": "B2",
+            "target": "The mechanism is elegant, but its practical value is limited.",
+            "groups": [
+                "The mechanism",
+                "is elegant,",
+                "but its practical",
+                "value is limited."
+            ],
+            "question": "Механізм витончений, але його практична цінність обмежена.",
+            "uk": "Механізм витончений, але його практична цінність обмежена.",
+            "hint_uk": "Збережи протиставлення теоретичної привабливості та практичного обмеження."
+        },
+        {
+            "id": "B2-c02",
+            "kind": "compose",
+            "level": "B2",
+            "target": "The costs increased sharply, so the timetable had to change.",
+            "groups": [
+                "The costs",
+                "increased sharply,",
+                "so the timetable",
+                "had to change."
+            ],
+            "question": "Витрати різко зросли, тому графік довелося змінити.",
+            "uk": "Витрати різко зросли, тому графік довелося змінити.",
+            "hint_uk": "Збережи зростання витрат причиною вимушеної зміни графіка."
+        },
+        {
+            "id": "B2-c03",
+            "kind": "compose",
+            "level": "B2",
+            "target": "We can reduce the scope or extend the deadline, but not both.",
+            "groups": [
+                "We can reduce",
+                "the scope",
+                "or extend",
+                "the deadline,",
+                "but not both."
+            ],
+            "question": "Ми можемо зменшити обсяг або подовжити термін, але не обидва одночасно.",
+            "uk": "Ми можемо зменшити обсяг або подовжити термін, але не обидва одночасно.",
+            "hint_uk": "Збережи дві альтернативи й окремо запереч їхнє одночасне виконання."
+        },
+        {
+            "id": "C1-g01",
+            "kind": "gap",
+            "level": "C1",
+            "target": "The distinction is analytically useful, but it is difficult to sustain in practice.",
+            "groups": [
+                "The distinction",
+                "is analytically useful,",
+                "but it is",
+                "difficult to sustain",
+                "in practice."
+            ],
+            "question": "The distinction is analytically useful, {a1} it is difficult to sustain in practice.",
+            "answer": "but",
+            "options": [
+                "but",
+                "or",
+                "because"
+            ],
+            "uk": "Розрізнення корисне для аналізу, але його важко підтримувати на практиці.",
+            "hint_uk": "Потрібний зміст: «Але, протиставлення». Передай контраст аналітичної користі й практичної складності, зберігши обидва факти.",
+            "answer_synonyms": [
+                "yet"
+            ],
+            "accepted_targets": [
+                "The distinction is analytically useful, yet it is difficult to sustain in practice."
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "kind": "gap",
+            "level": "C1",
+            "target": "The mandate was ambiguous, so the agencies interpreted it differently.",
+            "groups": [
+                "The mandate",
+                "was ambiguous,",
+                "so the agencies",
+                "interpreted it differently."
+            ],
+            "question": "The mandate was ambiguous, {a1} the agencies interpreted it differently.",
+            "answer": "so",
+            "options": [
+                "so",
+                "because",
+                "or"
+            ],
+            "uk": "Повноваження були неоднозначні, тому установи тлумачили їх по-різному.",
+            "hint_uk": "Потрібний зміст: «Тому, наслідок». Неоднозначність є причиною різного тлумачення, не його наслідком.",
+            "answer_synonyms": [
+                "and therefore",
+                "and so"
+            ],
+            "accepted_targets": [
+                "The mandate was ambiguous, and therefore the agencies interpreted it differently.",
+                "The mandate was ambiguous, and so the agencies interpreted it differently."
+            ]
+        },
+        {
+            "id": "C1-g03",
+            "kind": "gap",
+            "level": "C1",
+            "target": "The claim is unconvincing because its premises remain untested.",
+            "groups": [
+                "The claim",
+                "is unconvincing",
+                "because its premises",
+                "remain untested."
+            ],
+            "question": "The claim is unconvincing {a1} its premises remain untested.",
+            "answer": "because",
+            "options": [
+                "because",
+                "because of",
+                "so"
+            ],
+            "uk": "Твердження непереконливе, бо його передумови ще не перевірені.",
+            "hint_uk": "Потрібний зміст: «Тому що, причина». Уведи неперевіреність передумов як причину оцінки твердження.",
+            "answer_synonyms": [
+                "since",
+                "as"
+            ],
+            "accepted_targets": [
+                "The claim is unconvincing since its premises remain untested.",
+                "The claim is unconvincing as its premises remain untested."
+            ]
+        },
+        {
+            "id": "C1-g04",
+            "kind": "gap",
+            "level": "C1",
+            "target": "The account acknowledges the exception and explains why it matters.",
+            "groups": [
+                "The account",
+                "acknowledges the exception",
+                "and explains",
+                "why it matters."
+            ],
+            "question": "The account acknowledges the exception {a1} explains why it matters.",
+            "answer": "and",
+            "options": [
+                "and",
+                "or",
+                "but"
+            ],
+            "uk": "Виклад визнає виняток і пояснює його значення.",
+            "hint_uk": "Потрібний зміст: «І, додавання». Обидва внески викладу справді наявні; поєднай їх додаванням."
+        },
+        {
+            "id": "C1-g05",
+            "kind": "gap",
+            "level": "C1",
+            "target": "Either the concession is substantive or it is merely symbolic.",
+            "groups": [
+                "Either the concession",
+                "is substantive",
+                "or it is",
+                "merely symbolic."
+            ],
+            "question": "Either the concession is substantive {a1} it is merely symbolic.",
+            "answer": "or",
+            "options": [
+                "or",
+                "and",
+                "because"
+            ],
+            "uk": "Або ця поступка змістовна, або лише символічна.",
+            "hint_uk": "Потрібний зміст: «Або, зв’язок альтернатив». Заверши вже почату парну конструкцію взаємно протиставлених альтернатив."
+        },
+        {
+            "id": "C1-g06",
+            "kind": "gap",
+            "level": "C1",
+            "target": "The report endorses neither compulsion nor exclusion.",
+            "groups": [
+                "The report",
+                "endorses neither",
+                "compulsion nor exclusion."
+            ],
+            "question": "The report endorses neither compulsion {a1} exclusion.",
+            "answer": "nor",
+            "options": [
+                "nor",
+                "or",
+                "and"
+            ],
+            "uk": "Звіт не підтримує ні примусу, ні виключення.",
+            "hint_uk": "Потрібний зміст: «Ні, друга частина парного заперечення». Заверши парну конструкцію з уже наведеним першим від'ємним словом, без подвійного заперечення."
+        },
+        {
+            "id": "C1-c01",
+            "kind": "compose",
+            "level": "C1",
+            "target": "Because the exception is narrowly defined, it does not undermine the general principle.",
+            "groups": [
+                "Because the exception",
+                "is narrowly defined,",
+                "it does",
+                "not undermine",
+                "the general principle."
+            ],
+            "question": "Оскільки виняток вузько визначений, він не підриває загальний принцип.",
+            "uk": "Оскільки виняток вузько визначений, він не підриває загальний принцип.",
+            "hint_uk": "Почни з причини й збережи заперечний наслідок, не виводячи протилежного факту.",
+            "compose_slots": [
+                "Because",
+                "the",
+                "exception",
+                "is",
+                "narrowly",
+                "defined,",
+                "it",
+                "does not",
+                "undermine",
+                "the",
+                "general",
+                "principle."
+            ],
+            "display_synonyms": {
+                "does not": [
+                    "doesn't"
+                ]
+            },
+            "accepted_targets": [
+                "Because the exception is narrowly defined, it doesn't undermine the general principle."
+            ]
+        },
+        {
+            "id": "C1-c02",
+            "kind": "compose",
+            "level": "C1",
+            "target": "The process is formally open, but meaningful participation remains unequal.",
+            "groups": [
+                "The process",
+                "is formally open,",
+                "but meaningful participation",
+                "remains unequal."
+            ],
+            "question": "Процес формально відкритий, але можливості змістовної участі залишаються нерівними.",
+            "uk": "Процес формально відкритий, але можливості змістовної участі залишаються нерівними.",
+            "hint_uk": "Збережи контраст формальної відкритості й фактичної нерівності участі."
+        },
+        {
+            "id": "C1-c03",
+            "kind": "compose",
+            "level": "C1",
+            "target": "The safeguards are necessary and proportionate, so the court upheld them.",
+            "groups": [
+                "The safeguards",
+                "are necessary",
+                "and proportionate,",
+                "so the court",
+                "upheld them."
+            ],
+            "question": "Гарантії необхідні й пропорційні, тому суд визнав їх правомірними.",
+            "uk": "Гарантії необхідні й пропорційні, тому суд визнав їх правомірними.",
+            "hint_uk": "Поєднай дві характеристики додаванням і збережи судове рішення їхнім наслідком."
+        },
+        {
+            "id": "C2-g01",
+            "kind": "gap",
+            "level": "C2",
+            "target": "The narrative is coherent, but coherence alone cannot establish its truth.",
+            "groups": [
+                "The narrative",
+                "is coherent,",
+                "but coherence alone",
+                "cannot establish",
+                "its truth."
+            ],
+            "question": "The narrative is coherent, {a1} coherence alone cannot establish its truth.",
+            "answer": "but",
+            "options": [
+                "but",
+                "or",
+                "because"
+            ],
+            "uk": "Оповідь зв'язна, але самої зв'язності недостатньо, щоб довести її істинність.",
+            "hint_uk": "Потрібний зміст: «Але, протиставлення». Збережи визнання зв'язності та контрастне обмеження її доказової сили.",
+            "answer_synonyms": [
+                "yet"
+            ],
+            "accepted_targets": [
+                "The narrative is coherent, yet coherence alone cannot establish its truth."
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "kind": "gap",
+            "level": "C2",
+            "target": "The categories overlap, so the inference of mutual exclusivity is unwarranted.",
+            "groups": [
+                "The categories",
+                "overlap,",
+                "so the inference",
+                "of mutual exclusivity",
+                "is unwarranted."
+            ],
+            "question": "The categories overlap, {a1} the inference of mutual exclusivity is unwarranted.",
+            "answer": "so",
+            "options": [
+                "so",
+                "because",
+                "or"
+            ],
+            "uk": "Категорії перетинаються, тому висновок про їхню взаємовиключність необґрунтований.",
+            "hint_uk": "Потрібний зміст: «Тому, наслідок». Перетин є причиною оцінки висновку, а не наслідком такої оцінки.",
+            "answer_synonyms": [
+                "and therefore",
+                "and so"
+            ],
+            "accepted_targets": [
+                "The categories overlap, and therefore the inference of mutual exclusivity is unwarranted.",
+                "The categories overlap, and so the inference of mutual exclusivity is unwarranted."
+            ]
+        },
+        {
+            "id": "C2-g03",
+            "kind": "gap",
+            "level": "C2",
+            "target": "The analogy fails because the relevant asymmetry is structural.",
+            "groups": [
+                "The analogy",
+                "fails because",
+                "the relevant asymmetry",
+                "is structural."
+            ],
+            "question": "The analogy fails {a1} the relevant asymmetry is structural.",
+            "answer": "because",
+            "options": [
+                "because",
+                "because of",
+                "so"
+            ],
+            "uk": "Аналогія не працює, бо відповідна асиметрія структурна.",
+            "hint_uk": "Потрібний зміст: «Тому що, причина». Уведи структурний характер асиметрії як причину невдалої аналогії цілою частиною.",
+            "answer_synonyms": [
+                "since",
+                "as"
+            ],
+            "accepted_targets": [
+                "The analogy fails since the relevant asymmetry is structural.",
+                "The analogy fails as the relevant asymmetry is structural."
+            ]
+        },
+        {
+            "id": "C2-g04",
+            "kind": "gap",
+            "level": "C2",
+            "target": "Either legitimacy derives from consent or the appeal to consent is redundant.",
+            "groups": [
+                "Either legitimacy",
+                "derives from consent",
+                "or the appeal",
+                "to consent",
+                "is redundant."
+            ],
+            "question": "Either legitimacy derives from consent {a1} the appeal to consent is redundant.",
+            "answer": "or",
+            "options": [
+                "or",
+                "and",
+                "because"
+            ],
+            "uk": "Або легітимність випливає зі згоди, або посилання на згоду зайве.",
+            "hint_uk": "Потрібний зміст: «Або, зв’язок альтернатив». Заверши почату парну конструкцію двох альтернативних засновків міркування."
+        },
+        {
+            "id": "C2-g05",
+            "kind": "gap",
+            "level": "C2",
+            "target": "The judgement distinguishes legality from legitimacy and insists on their difference.",
+            "groups": [
+                "The judgement",
+                "distinguishes legality",
+                "from legitimacy",
+                "and insists",
+                "on their difference."
+            ],
+            "question": "The judgement distinguishes legality from legitimacy {a1} insists on their difference.",
+            "answer": "and",
+            "options": [
+                "and",
+                "or",
+                "because"
+            ],
+            "uk": "Рішення суду розрізняє законність і легітимність та наполягає на цій відмінності.",
+            "hint_uk": "Потрібний зміст: «І, додавання». Поєднай дві реально здійснені інтелектуальні дії додаванням.",
+            "accepted_targets": [
+                "The judgment distinguishes legality from legitimacy and insists on their difference."
+            ]
+        },
+        {
+            "id": "C2-g06",
+            "kind": "gap",
+            "level": "C2",
+            "target": "The silence establishes neither endorsement nor indifference.",
+            "groups": [
+                "The silence",
+                "establishes neither",
+                "endorsement nor indifference."
+            ],
+            "question": "The silence establishes neither endorsement {a1} indifference.",
+            "answer": "nor",
+            "options": [
+                "nor",
+                "or",
+                "and"
+            ],
+            "uk": "Мовчання не доводить ні підтримки, ні байдужості.",
+            "hint_uk": "Потрібний зміст: «Ні, друга частина парного заперечення». Заверши від'ємну парну конструкцію, зберігши відсутність доказу обох станів."
+        },
+        {
+            "id": "C2-c01",
+            "kind": "compose",
+            "level": "C2",
+            "target": "The absence of coercion is necessary but not sufficient for freely given consent.",
+            "groups": [
+                "The absence",
+                "of coercion",
+                "is necessary",
+                "but not sufficient",
+                "for freely given",
+                "consent."
+            ],
+            "question": "Відсутність примусу необхідна, але недостатня для добровільно наданої згоди.",
+            "uk": "Відсутність примусу необхідна, але недостатня для добровільно наданої згоди.",
+            "hint_uk": "Збережи точний контраст необхідної та достатньої умови без зміни області заперечення."
+        },
+        {
+            "id": "C2-c02",
+            "kind": "compose",
+            "level": "C2",
+            "target": "Because the framework presupposes what it claims to demonstrate, the argument is circular.",
+            "groups": [
+                "Because the framework",
+                "presupposes what",
+                "it claims",
+                "to demonstrate,",
+                "the argument",
+                "is circular."
+            ],
+            "question": "Оскільки система наперед припускає те, що нібито доводить, аргументація є коловою.",
+            "uk": "Оскільки система наперед припускає те, що нібито доводить, аргументація є коловою.",
+            "hint_uk": "Почни з повної причини та збережи оцінку аргументації як її наслідок."
+        },
+        {
+            "id": "C2-c03",
+            "kind": "compose",
+            "level": "C2",
+            "target": "The settlement requires both institutional restraint and public accountability, but guarantees neither.",
+            "groups": [
+                "The settlement",
+                "requires both",
+                "institutional restraint",
+                "and public accountability,",
+                "but guarantees",
+                "neither."
+            ],
+            "question": "Угода потребує і самообмеження установ, і публічної підзвітності, але не гарантує жодного з них.",
+            "uk": "Угода потребує і самообмеження установ, і публічної підзвітності, але не гарантує жодного з них.",
+            "hint_uk": "Збережи додавання двох вимог і контрастне заперечення гарантії кожної з них."
+        }
+    ]
+}

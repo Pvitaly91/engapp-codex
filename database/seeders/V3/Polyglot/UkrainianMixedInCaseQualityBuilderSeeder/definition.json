@@ -1,0 +1,5075 @@
+{
+    "schema_version": 1,
+    "quality_revision": "cqq-v1",
+    "compiled_from": {
+        "path": "docs/content/conditionals-quality/in-case.v1.json",
+        "sha256": "9e751cf3b0aa92566cbfad0f9bb13591d6bec80df807eb24477717a0022ea73a"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedInCaseQualityBuilderSeeder",
+        "uuid_namespace": "conditionals-quality-in-case-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "conditionals_quality_in_case": {
+            "name": "Conditionals Quality: In Case: Precautions and Possible Events"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_in_case": {
+            "name": "In case",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "precaution": {
+            "name": "Precaution",
+            "category": "topic"
+        },
+        "in_case_present_simple": {
+            "name": "In Case Present Simple",
+            "category": "topic"
+        },
+        "take_precaution": {
+            "name": "Take Precaution",
+            "category": "topic"
+        },
+        "in_case_vs_if": {
+            "name": "In Case Vs If",
+            "category": "topic"
+        },
+        "just_in_case": {
+            "name": "Just In Case",
+            "category": "topic"
+        },
+        "in_case_of_noun": {
+            "name": "In Case Of Noun",
+            "category": "topic"
+        },
+        "negative_forms": {
+            "name": "Negative Forms",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cqq-case-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Візьми трохи хліба на випадок, якщо зголоднієш.",
+            "level": "A1",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Візьми трохи хліба на випадок, якщо зголоднієш.",
+            "target_text": "Take some bread in case you get hungry.",
+            "markers": {
+                "a1": {
+                    "answer": "Take",
+                    "verb_hint": "Почни з поради взяти їжу; далі назви можливий голод.",
+                    "options": [
+                        "Take",
+                        "Leave",
+                        "Go",
+                        "Use"
+                    ]
+                },
+                "a2": {
+                    "answer": "some",
+                    "verb_hint": "Почни з поради взяти їжу; далі назви можливий голод.",
+                    "options": [
+                        "some",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a3": {
+                    "answer": "bread",
+                    "verb_hint": "Почни з поради взяти їжу; далі назви можливий голод.",
+                    "options": [
+                        "bread",
+                        "salt",
+                        "butter",
+                        "honey"
+                    ]
+                },
+                "a4": {
+                    "answer": "in",
+                    "verb_hint": "Почни з поради взяти їжу; далі назви можливий голод.",
+                    "options": [
+                        "in",
+                        "of",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a5": {
+                    "answer": "case",
+                    "verb_hint": "Почни з поради взяти їжу; далі назви можливий голод.",
+                    "options": [
+                        "case",
+                        "estimate",
+                        "formulation",
+                        "agreement"
+                    ]
+                },
+                "a6": {
+                    "answer": "you",
+                    "verb_hint": "Почни з поради взяти їжу; далі назви можливий голод.",
+                    "options": [
+                        "you",
+                        "me",
+                        "him",
+                        "us"
+                    ]
+                },
+                "a7": {
+                    "answer": "get",
+                    "verb_hint": "Почни з поради взяти їжу; далі назви можливий голод.",
+                    "options": [
+                        "get",
+                        "close",
+                        "ride",
+                        "help"
+                    ]
+                },
+                "a8": {
+                    "answer": "hungry.",
+                    "verb_hint": "Почни з поради взяти їжу; далі назви можливий голод.",
+                    "options": [
+                        "hungry",
+                        "cold",
+                        "unclear",
+                        "fresh"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з поради взяти їжу; далі назви можливий голод.",
+            "accepted_target_texts": [
+                "Take some bread in case you get hungry."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Take",
+                "some bread",
+                "in case",
+                "you get hungry."
+            ],
+            "token_groups": [
+                "Take",
+                "some bread",
+                "in case",
+                "you get hungry."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "Take",
+                "some",
+                "bread",
+                "in",
+                "case",
+                "you",
+                "get",
+                "hungry."
+            ],
+            "options": [
+                "Take",
+                "Leave",
+                "Go",
+                "Use",
+                "some",
+                "both",
+                "a",
+                "an",
+                "bread",
+                "salt",
+                "butter",
+                "honey",
+                "in",
+                "of",
+                "on",
+                "at",
+                "case",
+                "estimate",
+                "formulation",
+                "agreement",
+                "you",
+                "me",
+                "him",
+                "us",
+                "get",
+                "close",
+                "ride",
+                "help",
+                "hungry",
+                "cold",
+                "unclear",
+                "fresh"
+            ],
+            "source_text_uk": "Візьми трохи хліба на випадок, якщо зголоднієш.",
+            "options_by_marker": {
+                "a1": [
+                    "Take",
+                    "Leave",
+                    "Go",
+                    "Use"
+                ],
+                "a2": [
+                    "some",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a3": [
+                    "bread",
+                    "salt",
+                    "butter",
+                    "honey"
+                ],
+                "a4": [
+                    "in",
+                    "of",
+                    "on",
+                    "at"
+                ],
+                "a5": [
+                    "case",
+                    "estimate",
+                    "formulation",
+                    "agreement"
+                ],
+                "a6": [
+                    "you",
+                    "me",
+                    "him",
+                    "us"
+                ],
+                "a7": [
+                    "get",
+                    "close",
+                    "ride",
+                    "help"
+                ],
+                "a8": [
+                    "hungry",
+                    "cold",
+                    "unclear",
+                    "fresh"
+                ]
+            },
+            "slot_roles": {
+                "a1": "verb",
+                "a2": "determiner",
+                "a3": "noun",
+                "a4": "preposition",
+                "a5": "noun",
+                "a6": "pronoun",
+                "a7": "verb",
+                "a8": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "cqq-case-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Ми тримаємо ковдру на випадок, якщо немовляті буде холодно.",
+            "level": "A1",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Ми тримаємо ковдру на випадок, якщо немовляті буде холодно.",
+            "target_text": "We keep a blanket in case the baby is cold.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Спершу назви те, що ми тримаємо напоготові.",
+                    "options": [
+                        "We",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "keep",
+                    "verb_hint": "Спершу назви те, що ми тримаємо напоготові.",
+                    "options": [
+                        "keep",
+                        "touch",
+                        "reflect",
+                        "resolve"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Спершу назви те, що ми тримаємо напоготові.",
+                    "options": [
+                        "a",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a4": {
+                    "answer": "blanket",
+                    "verb_hint": "Спершу назви те, що ми тримаємо напоготові.",
+                    "options": [
+                        "blanket",
+                        "quality",
+                        "identity",
+                        "agreement"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Спершу назви те, що ми тримаємо напоготові.",
+                    "options": [
+                        "in",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a6": {
+                    "answer": "case",
+                    "verb_hint": "Спершу назви те, що ми тримаємо напоготові.",
+                    "options": [
+                        "case",
+                        "experience",
+                        "delay",
+                        "error"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Спершу назви те, що ми тримаємо напоготові.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a8": {
+                    "answer": "baby",
+                    "verb_hint": "Спершу назви те, що ми тримаємо напоготові.",
+                    "options": [
+                        "baby",
+                        "formulation",
+                        "contradiction",
+                        "name"
+                    ]
+                },
+                "a9": {
+                    "answer": "is",
+                    "verb_hint": "Спершу назви те, що ми тримаємо напоготові.",
+                    "options": [
+                        "is",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a10": {
+                    "answer": "cold.",
+                    "verb_hint": "Спершу назви те, що ми тримаємо напоготові.",
+                    "options": [
+                        "cold",
+                        "valid",
+                        "final",
+                        "incomplete"
+                    ]
+                }
+            },
+            "verb_hint": "Спершу назви те, що ми тримаємо напоготові.",
+            "accepted_target_texts": [
+                "We keep a blanket in case the baby is cold."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We keep",
+                "a blanket",
+                "in case",
+                "the baby",
+                "is cold."
+            ],
+            "token_groups": [
+                "We keep",
+                "a blanket",
+                "in case",
+                "the baby",
+                "is cold."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "keep",
+                "a",
+                "blanket",
+                "in",
+                "case",
+                "the",
+                "baby",
+                "is",
+                "cold."
+            ],
+            "options": [
+                "We",
+                "He",
+                "She",
+                "It",
+                "keep",
+                "touch",
+                "reflect",
+                "resolve",
+                "a",
+                "neither",
+                "all",
+                "both",
+                "blanket",
+                "quality",
+                "identity",
+                "agreement",
+                "in",
+                "among",
+                "about",
+                "during",
+                "case",
+                "experience",
+                "delay",
+                "error",
+                "the",
+                "those",
+                "each",
+                "every",
+                "baby",
+                "formulation",
+                "contradiction",
+                "name",
+                "is",
+                "wasn't",
+                "weren't",
+                "am",
+                "cold",
+                "valid",
+                "final",
+                "incomplete"
+            ],
+            "source_text_uk": "Ми тримаємо ковдру на випадок, якщо немовляті буде холодно.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "keep",
+                    "touch",
+                    "reflect",
+                    "resolve"
+                ],
+                "a3": [
+                    "a",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a4": [
+                    "blanket",
+                    "quality",
+                    "identity",
+                    "agreement"
+                ],
+                "a5": [
+                    "in",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a6": [
+                    "case",
+                    "experience",
+                    "delay",
+                    "error"
+                ],
+                "a7": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a8": [
+                    "baby",
+                    "formulation",
+                    "contradiction",
+                    "name"
+                ],
+                "a9": [
+                    "is",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a10": [
+                    "cold",
+                    "valid",
+                    "final",
+                    "incomplete"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb",
+                "a3": "determiner",
+                "a4": "noun",
+                "a5": "preposition",
+                "a6": "noun",
+                "a7": "determiner",
+                "a8": "noun",
+                "a9": "be",
+                "a10": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "cqq-case-a1-c03",
+            "author_id": "A1-c03",
+            "question": "У разі снігу залишайся всередині.",
+            "level": "A1",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "У разі снігу залишайся всередині.",
+            "target_text": "In case of snow, stay inside.",
+            "markers": {
+                "a1": {
+                    "answer": "In",
+                    "verb_hint": "Почни з виразу перед іменником, а потім дай пораду.",
+                    "options": [
+                        "In",
+                        "On",
+                        "At",
+                        "By"
+                    ]
+                },
+                "a2": {
+                    "answer": "case",
+                    "verb_hint": "Почни з виразу перед іменником, а потім дай пораду.",
+                    "options": [
+                        "case",
+                        "quality",
+                        "identity",
+                        "agreement"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Почни з виразу перед іменником, а потім дай пораду.",
+                    "options": [
+                        "of",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a4": {
+                    "answer": "snow,",
+                    "verb_hint": "Почни з виразу перед іменником, а потім дай пораду.",
+                    "options": [
+                        "snow",
+                        "contradiction",
+                        "experience",
+                        "record"
+                    ]
+                },
+                "a5": {
+                    "answer": "stay",
+                    "verb_hint": "Почни з виразу перед іменником, а потім дай пораду.",
+                    "options": [
+                        "stay",
+                        "establish",
+                        "distort",
+                        "rule"
+                    ]
+                },
+                "a6": {
+                    "answer": "inside.",
+                    "verb_hint": "Почни з виразу перед іменником, а потім дай пораду.",
+                    "options": [
+                        "inside",
+                        "clearly",
+                        "still",
+                        "even"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з виразу перед іменником, а потім дай пораду.",
+            "accepted_target_texts": [
+                "In case of snow, stay inside."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "In case of",
+                "snow,",
+                "stay inside."
+            ],
+            "token_groups": [
+                "In case of",
+                "snow,",
+                "stay inside."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "In",
+                "case",
+                "of",
+                "snow,",
+                "stay",
+                "inside."
+            ],
+            "options": [
+                "In",
+                "On",
+                "At",
+                "By",
+                "case",
+                "quality",
+                "identity",
+                "agreement",
+                "of",
+                "with",
+                "without",
+                "into",
+                "snow",
+                "contradiction",
+                "experience",
+                "record",
+                "stay",
+                "establish",
+                "distort",
+                "rule",
+                "inside",
+                "clearly",
+                "still",
+                "even"
+            ],
+            "source_text_uk": "У разі снігу залишайся всередині.",
+            "options_by_marker": {
+                "a1": [
+                    "In",
+                    "On",
+                    "At",
+                    "By"
+                ],
+                "a2": [
+                    "case",
+                    "quality",
+                    "identity",
+                    "agreement"
+                ],
+                "a3": [
+                    "of",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a4": [
+                    "snow",
+                    "contradiction",
+                    "experience",
+                    "record"
+                ],
+                "a5": [
+                    "stay",
+                    "establish",
+                    "distort",
+                    "rule"
+                ],
+                "a6": [
+                    "inside",
+                    "clearly",
+                    "still",
+                    "even"
+                ]
+            },
+            "slot_roles": {
+                "a1": "preposition",
+                "a2": "noun",
+                "a3": "preposition",
+                "a4": "noun",
+                "a5": "verb",
+                "a6": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "cqq-case-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Запиши адресу на випадок, якщо телефон зламається.",
+            "level": "A2",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Запиши адресу на випадок, якщо телефон зламається.",
+            "target_text": "Write down the address in case your phone breaks.",
+            "markers": {
+                "a1": {
+                    "answer": "Write",
+                    "verb_hint": "Порада стосується записування адреси заздалегідь.",
+                    "options": [
+                        "Write",
+                        "Go",
+                        "Read",
+                        "Close"
+                    ]
+                },
+                "a2": {
+                    "answer": "down",
+                    "verb_hint": "Порада стосується записування адреси заздалегідь.",
+                    "options": [
+                        "down",
+                        "still",
+                        "even",
+                        "together"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Порада стосується записування адреси заздалегідь.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a4": {
+                    "answer": "address",
+                    "verb_hint": "Порада стосується записування адреси заздалегідь.",
+                    "options": [
+                        "address",
+                        "claim",
+                        "permission",
+                        "consent"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Порада стосується записування адреси заздалегідь.",
+                    "options": [
+                        "in",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a6": {
+                    "answer": "case",
+                    "verb_hint": "Порада стосується записування адреси заздалегідь.",
+                    "options": [
+                        "case",
+                        "rice",
+                        "bread",
+                        "record"
+                    ]
+                },
+                "a7": {
+                    "answer": "your",
+                    "verb_hint": "Порада стосується записування адреси заздалегідь.",
+                    "options": [
+                        "your",
+                        "his",
+                        "her",
+                        "its"
+                    ]
+                },
+                "a8": {
+                    "answer": "phone",
+                    "verb_hint": "Порада стосується записування адреси заздалегідь.",
+                    "options": [
+                        "phone",
+                        "agreement",
+                        "experience",
+                        "name"
+                    ]
+                },
+                "a9": {
+                    "answer": "breaks.",
+                    "verb_hint": "Порада стосується записування адреси заздалегідь.",
+                    "options": [
+                        "breaks",
+                        "tickets",
+                        "cups",
+                        "doors"
+                    ]
+                }
+            },
+            "verb_hint": "Порада стосується записування адреси заздалегідь.",
+            "accepted_target_texts": [
+                "Write down the address in case your phone breaks."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Write down",
+                "the address",
+                "in case",
+                "your phone",
+                "breaks."
+            ],
+            "token_groups": [
+                "Write down",
+                "the address",
+                "in case",
+                "your phone",
+                "breaks."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "Write",
+                "down",
+                "the",
+                "address",
+                "in",
+                "case",
+                "your",
+                "phone",
+                "breaks."
+            ],
+            "options": [
+                "Write",
+                "Go",
+                "Read",
+                "Close",
+                "down",
+                "still",
+                "even",
+                "together",
+                "the",
+                "these",
+                "those",
+                "each",
+                "address",
+                "claim",
+                "permission",
+                "consent",
+                "in",
+                "without",
+                "into",
+                "onto",
+                "case",
+                "rice",
+                "bread",
+                "record",
+                "your",
+                "his",
+                "her",
+                "its",
+                "phone",
+                "agreement",
+                "experience",
+                "name",
+                "breaks",
+                "tickets",
+                "cups",
+                "doors"
+            ],
+            "source_text_uk": "Запиши адресу на випадок, якщо телефон зламається.",
+            "options_by_marker": {
+                "a1": [
+                    "Write",
+                    "Go",
+                    "Read",
+                    "Close"
+                ],
+                "a2": [
+                    "down",
+                    "still",
+                    "even",
+                    "together"
+                ],
+                "a3": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a4": [
+                    "address",
+                    "claim",
+                    "permission",
+                    "consent"
+                ],
+                "a5": [
+                    "in",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a6": [
+                    "case",
+                    "rice",
+                    "bread",
+                    "record"
+                ],
+                "a7": [
+                    "your",
+                    "his",
+                    "her",
+                    "its"
+                ],
+                "a8": [
+                    "phone",
+                    "agreement",
+                    "experience",
+                    "name"
+                ],
+                "a9": [
+                    "breaks",
+                    "tickets",
+                    "cups",
+                    "doors"
+                ]
+            },
+            "slot_roles": {
+                "a1": "verb",
+                "a2": "adverb",
+                "a3": "determiner",
+                "a4": "noun",
+                "a5": "preposition",
+                "a6": "noun",
+                "a7": "pronoun",
+                "a8": "noun",
+                "a9": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "cqq-case-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Я покладу рушник на випадок, якщо ми підемо плавати.",
+            "level": "A2",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Я покладу рушник на випадок, якщо ми підемо плавати.",
+            "target_text": "I will pack a towel in case we go swimming.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Спершу передай мій план узяти рушник; можливу подію не став у майбутній час.",
+                    "options": [
+                        "I",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "will",
+                    "verb_hint": "Спершу передай мій план узяти рушник; можливу подію не став у майбутній час.",
+                    "options": [
+                        "will",
+                        "may",
+                        "might",
+                        "must"
+                    ]
+                },
+                "a3": {
+                    "answer": "pack",
+                    "verb_hint": "Спершу передай мій план узяти рушник; можливу подію не став у майбутній час.",
+                    "options": [
+                        "pack",
+                        "speak",
+                        "hear",
+                        "trace"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Спершу передай мій план узяти рушник; можливу подію не став у майбутній час.",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "some"
+                    ]
+                },
+                "a5": {
+                    "answer": "towel",
+                    "verb_hint": "Спершу передай мій план узяти рушник; можливу подію не став у майбутній час.",
+                    "options": [
+                        "towel",
+                        "agreement",
+                        "experience",
+                        "phone"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Спершу передай мій план узяти рушник; можливу подію не став у майбутній час.",
+                    "options": [
+                        "in",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a7": {
+                    "answer": "case",
+                    "verb_hint": "Спершу передай мій план узяти рушник; можливу подію не став у майбутній час.",
+                    "options": [
+                        "case",
+                        "identity",
+                        "address",
+                        "name"
+                    ]
+                },
+                "a8": {
+                    "answer": "we",
+                    "verb_hint": "Спершу передай мій план узяти рушник; можливу подію не став у майбутній час.",
+                    "options": [
+                        "we",
+                        "ourselves",
+                        "themselves",
+                        "it"
+                    ]
+                },
+                "a9": {
+                    "answer": "go",
+                    "verb_hint": "Спершу передай мій план узяти рушник; можливу подію не став у майбутній час.",
+                    "options": [
+                        "go",
+                        "use",
+                        "write",
+                        "read"
+                    ]
+                },
+                "a10": {
+                    "answer": "swimming.",
+                    "verb_hint": "Спершу передай мій план узяти рушник; можливу подію не став у майбутній час.",
+                    "options": [
+                        "swimming",
+                        "sing",
+                        "driving",
+                        "studying"
+                    ]
+                }
+            },
+            "verb_hint": "Спершу передай мій план узяти рушник; можливу подію не став у майбутній час.",
+            "accepted_target_texts": [
+                "I will pack a towel in case we go swimming."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I will pack",
+                "a towel",
+                "in case",
+                "we go swimming."
+            ],
+            "token_groups": [
+                "I will pack",
+                "a towel",
+                "in case",
+                "we go swimming."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "will",
+                "pack",
+                "a",
+                "towel",
+                "in",
+                "case",
+                "we",
+                "go",
+                "swimming."
+            ],
+            "options": [
+                "I",
+                "You",
+                "He",
+                "She",
+                "will",
+                "may",
+                "might",
+                "must",
+                "pack",
+                "speak",
+                "hear",
+                "trace",
+                "a",
+                "an",
+                "the",
+                "some",
+                "towel",
+                "agreement",
+                "experience",
+                "phone",
+                "in",
+                "among",
+                "about",
+                "during",
+                "case",
+                "identity",
+                "address",
+                "name",
+                "we",
+                "ourselves",
+                "themselves",
+                "it",
+                "go",
+                "use",
+                "write",
+                "read",
+                "swimming",
+                "sing",
+                "driving",
+                "studying"
+            ],
+            "source_text_uk": "Я покладу рушник на випадок, якщо ми підемо плавати.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a2": [
+                    "will",
+                    "may",
+                    "might",
+                    "must"
+                ],
+                "a3": [
+                    "pack",
+                    "speak",
+                    "hear",
+                    "trace"
+                ],
+                "a4": [
+                    "a",
+                    "an",
+                    "the",
+                    "some"
+                ],
+                "a5": [
+                    "towel",
+                    "agreement",
+                    "experience",
+                    "phone"
+                ],
+                "a6": [
+                    "in",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a7": [
+                    "case",
+                    "identity",
+                    "address",
+                    "name"
+                ],
+                "a8": [
+                    "we",
+                    "ourselves",
+                    "themselves",
+                    "it"
+                ],
+                "a9": [
+                    "go",
+                    "use",
+                    "write",
+                    "read"
+                ],
+                "a10": [
+                    "swimming",
+                    "sing",
+                    "driving",
+                    "studying"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "verb",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "preposition",
+                "a7": "noun",
+                "a8": "pronoun",
+                "a9": "verb",
+                "a10": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "cqq-case-a2-c03",
+            "author_id": "A2-c03",
+            "question": "У разі проблеми звернися до водія.",
+            "level": "A2",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "У разі проблеми звернися до водія.",
+            "target_text": "In case of a problem, ask the driver.",
+            "markers": {
+                "a1": {
+                    "answer": "In",
+                    "verb_hint": "Почни з виразу перед назвою проблеми.",
+                    "options": [
+                        "In",
+                        "For",
+                        "On",
+                        "At"
+                    ]
+                },
+                "a2": {
+                    "answer": "case",
+                    "verb_hint": "Почни з виразу перед назвою проблеми.",
+                    "options": [
+                        "case",
+                        "error",
+                        "record",
+                        "evidence"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Почни з виразу перед назвою проблеми.",
+                    "options": [
+                        "of",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Почни з виразу перед назвою проблеми.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "problem,",
+                    "verb_hint": "Почни з виразу перед назвою проблеми.",
+                    "options": [
+                        "problem",
+                        "identity",
+                        "agreement",
+                        "experience"
+                    ]
+                },
+                "a6": {
+                    "answer": "ask",
+                    "verb_hint": "Почни з виразу перед назвою проблеми.",
+                    "options": [
+                        "ask",
+                        "establish",
+                        "distort",
+                        "rule"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з виразу перед назвою проблеми.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "driver.",
+                    "verb_hint": "Почни з виразу перед назвою проблеми.",
+                    "options": [
+                        "driver",
+                        "worker",
+                        "visitor",
+                        "teacher"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з виразу перед назвою проблеми.",
+            "accepted_target_texts": [
+                "In case of a problem, ask the driver."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "In case of",
+                "a problem,",
+                "ask",
+                "the driver."
+            ],
+            "token_groups": [
+                "In case of",
+                "a problem,",
+                "ask",
+                "the driver."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "In",
+                "case",
+                "of",
+                "a",
+                "problem,",
+                "ask",
+                "the",
+                "driver."
+            ],
+            "options": [
+                "In",
+                "For",
+                "On",
+                "At",
+                "case",
+                "error",
+                "record",
+                "evidence",
+                "of",
+                "with",
+                "without",
+                "into",
+                "a",
+                "all",
+                "both",
+                "an",
+                "problem",
+                "identity",
+                "agreement",
+                "experience",
+                "ask",
+                "establish",
+                "distort",
+                "rule",
+                "the",
+                "no",
+                "another",
+                "either",
+                "driver",
+                "worker",
+                "visitor",
+                "teacher"
+            ],
+            "source_text_uk": "У разі проблеми звернися до водія.",
+            "options_by_marker": {
+                "a1": [
+                    "In",
+                    "For",
+                    "On",
+                    "At"
+                ],
+                "a2": [
+                    "case",
+                    "error",
+                    "record",
+                    "evidence"
+                ],
+                "a3": [
+                    "of",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a4": [
+                    "a",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a5": [
+                    "problem",
+                    "identity",
+                    "agreement",
+                    "experience"
+                ],
+                "a6": [
+                    "ask",
+                    "establish",
+                    "distort",
+                    "rule"
+                ],
+                "a7": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a8": [
+                    "driver",
+                    "worker",
+                    "visitor",
+                    "teacher"
+                ]
+            },
+            "slot_roles": {
+                "a1": "preposition",
+                "a2": "noun",
+                "a3": "preposition",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "verb",
+                "a7": "determiner",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "cqq-case-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Ми принесли додаткові чашки на випадок, якщо прийде більше гостей.",
+            "level": "B1",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Ми принесли додаткові чашки на випадок, якщо прийде більше гостей.",
+            "target_text": "We brought extra cups in case more guests arrived.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Описуй минулу підготовку; подію після неї також подай в узгодженому минулому.",
+                    "options": [
+                        "We",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "brought",
+                    "verb_hint": "Описуй минулу підготовку; подію після неї також подай в узгодженому минулому.",
+                    "options": [
+                        "brought",
+                        "open",
+                        "helped",
+                        "waited"
+                    ]
+                },
+                "a3": {
+                    "answer": "extra",
+                    "verb_hint": "Описуй минулу підготовку; подію після неї також подай в узгодженому минулому.",
+                    "options": [
+                        "extra",
+                        "small",
+                        "large",
+                        "new"
+                    ]
+                },
+                "a4": {
+                    "answer": "cups",
+                    "verb_hint": "Описуй минулу підготовку; подію після неї також подай в узгодженому минулому.",
+                    "options": [
+                        "cups",
+                        "hours",
+                        "details",
+                        "cars"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Описуй минулу підготовку; подію після неї також подай в узгодженому минулому.",
+                    "options": [
+                        "in",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a6": {
+                    "answer": "case",
+                    "verb_hint": "Описуй минулу підготовку; подію після неї також подай в узгодженому минулому.",
+                    "options": [
+                        "case",
+                        "formulation",
+                        "contradiction",
+                        "quality"
+                    ]
+                },
+                "a7": {
+                    "answer": "more",
+                    "verb_hint": "Описуй минулу підготовку; подію після неї також подай в узгодженому минулому.",
+                    "options": [
+                        "more",
+                        "an",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a8": {
+                    "answer": "guests",
+                    "verb_hint": "Описуй минулу підготовку; подію після неї також подай в узгодженому минулому.",
+                    "options": [
+                        "guests",
+                        "bags",
+                        "books",
+                        "boxes"
+                    ]
+                },
+                "a9": {
+                    "answer": "arrived.",
+                    "verb_hint": "Описуй минулу підготовку; подію після неї також подай в узгодженому минулому.",
+                    "options": [
+                        "arrived",
+                        "visited",
+                        "cooked",
+                        "found"
+                    ]
+                }
+            },
+            "verb_hint": "Описуй минулу підготовку; подію після неї також подай в узгодженому минулому.",
+            "accepted_target_texts": [
+                "We brought extra cups in case more guests arrived."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We brought",
+                "extra cups",
+                "in case",
+                "more guests",
+                "arrived."
+            ],
+            "token_groups": [
+                "We brought",
+                "extra cups",
+                "in case",
+                "more guests",
+                "arrived."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "brought",
+                "extra",
+                "cups",
+                "in",
+                "case",
+                "more",
+                "guests",
+                "arrived."
+            ],
+            "options": [
+                "We",
+                "You",
+                "He",
+                "She",
+                "brought",
+                "open",
+                "helped",
+                "waited",
+                "extra",
+                "small",
+                "large",
+                "new",
+                "cups",
+                "hours",
+                "details",
+                "cars",
+                "in",
+                "with",
+                "without",
+                "into",
+                "case",
+                "formulation",
+                "contradiction",
+                "quality",
+                "more",
+                "an",
+                "that",
+                "these",
+                "guests",
+                "bags",
+                "books",
+                "boxes",
+                "arrived",
+                "visited",
+                "cooked",
+                "found"
+            ],
+            "source_text_uk": "Ми принесли додаткові чашки на випадок, якщо прийде більше гостей.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a2": [
+                    "brought",
+                    "open",
+                    "helped",
+                    "waited"
+                ],
+                "a3": [
+                    "extra",
+                    "small",
+                    "large",
+                    "new"
+                ],
+                "a4": [
+                    "cups",
+                    "hours",
+                    "details",
+                    "cars"
+                ],
+                "a5": [
+                    "in",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a6": [
+                    "case",
+                    "formulation",
+                    "contradiction",
+                    "quality"
+                ],
+                "a7": [
+                    "more",
+                    "an",
+                    "that",
+                    "these"
+                ],
+                "a8": [
+                    "guests",
+                    "bags",
+                    "books",
+                    "boxes"
+                ],
+                "a9": [
+                    "arrived",
+                    "visited",
+                    "cooked",
+                    "found"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb",
+                "a3": "adjective",
+                "a4": "noun",
+                "a5": "preposition",
+                "a6": "noun",
+                "a7": "determiner",
+                "a8": "noun",
+                "a9": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "cqq-case-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Перевір години роботи на випадок, якщо музей зачиняється рано.",
+            "level": "B1",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Перевір години роботи на випадок, якщо музей зачиняється рано.",
+            "target_text": "Check the opening hours in case the museum closes early.",
+            "markers": {
+                "a1": {
+                    "answer": "Check",
+                    "verb_hint": "Почни з поради перевірити розклад; не обіцяй, що музей неодмінно зачиниться рано.",
+                    "options": [
+                        "Check",
+                        "Rule",
+                        "Sit",
+                        "Touch"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з поради перевірити розклад; не обіцяй, що музей неодмінно зачиниться рано.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a3": {
+                    "answer": "opening",
+                    "verb_hint": "Почни з поради перевірити розклад; не обіцяй, що музей неодмінно зачиниться рано.",
+                    "options": [
+                        "opening",
+                        "same",
+                        "main",
+                        "late"
+                    ]
+                },
+                "a4": {
+                    "answer": "hours",
+                    "verb_hint": "Почни з поради перевірити розклад; не обіцяй, що музей неодмінно зачиниться рано.",
+                    "options": [
+                        "hours",
+                        "details",
+                        "cups",
+                        "guests"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Почни з поради перевірити розклад; не обіцяй, що музей неодмінно зачиниться рано.",
+                    "options": [
+                        "in",
+                        "for",
+                        "of",
+                        "on"
+                    ]
+                },
+                "a6": {
+                    "answer": "case",
+                    "verb_hint": "Почни з поради перевірити розклад; не обіцяй, що музей неодмінно зачиниться рано.",
+                    "options": [
+                        "case",
+                        "agreement",
+                        "experience",
+                        "window"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з поради перевірити розклад; не обіцяй, що музей неодмінно зачиниться рано.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "museum",
+                    "verb_hint": "Почни з поради перевірити розклад; не обіцяй, що музей неодмінно зачиниться рано.",
+                    "options": [
+                        "museum",
+                        "record",
+                        "evidence",
+                        "argument"
+                    ]
+                },
+                "a9": {
+                    "answer": "closes",
+                    "verb_hint": "Почни з поради перевірити розклад; не обіцяй, що музей неодмінно зачиниться рано.",
+                    "options": [
+                        "closes",
+                        "needs",
+                        "sees",
+                        "finds"
+                    ]
+                },
+                "a10": {
+                    "answer": "early.",
+                    "verb_hint": "Почни з поради перевірити розклад; не обіцяй, що музей неодмінно зачиниться рано.",
+                    "options": [
+                        "early",
+                        "still",
+                        "even",
+                        "together"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з поради перевірити розклад; не обіцяй, що музей неодмінно зачиниться рано.",
+            "accepted_target_texts": [
+                "Check the opening hours in case the museum closes early."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Check",
+                "the opening hours",
+                "in case",
+                "the museum",
+                "closes early."
+            ],
+            "token_groups": [
+                "Check",
+                "the opening hours",
+                "in case",
+                "the museum",
+                "closes early."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "Check",
+                "the",
+                "opening",
+                "hours",
+                "in",
+                "case",
+                "the",
+                "museum",
+                "closes",
+                "early."
+            ],
+            "options": [
+                "Check",
+                "Rule",
+                "Sit",
+                "Touch",
+                "the",
+                "those",
+                "each",
+                "every",
+                "opening",
+                "same",
+                "main",
+                "late",
+                "hours",
+                "details",
+                "cups",
+                "guests",
+                "in",
+                "for",
+                "of",
+                "on",
+                "case",
+                "agreement",
+                "experience",
+                "window",
+                "no",
+                "another",
+                "either",
+                "museum",
+                "record",
+                "evidence",
+                "argument",
+                "closes",
+                "needs",
+                "sees",
+                "finds",
+                "early",
+                "still",
+                "even",
+                "together"
+            ],
+            "source_text_uk": "Перевір години роботи на випадок, якщо музей зачиняється рано.",
+            "options_by_marker": {
+                "a1": [
+                    "Check",
+                    "Rule",
+                    "Sit",
+                    "Touch"
+                ],
+                "a2": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a3": [
+                    "opening",
+                    "same",
+                    "main",
+                    "late"
+                ],
+                "a4": [
+                    "hours",
+                    "details",
+                    "cups",
+                    "guests"
+                ],
+                "a5": [
+                    "in",
+                    "for",
+                    "of",
+                    "on"
+                ],
+                "a6": [
+                    "case",
+                    "agreement",
+                    "experience",
+                    "window"
+                ],
+                "a7": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a8": [
+                    "museum",
+                    "record",
+                    "evidence",
+                    "argument"
+                ],
+                "a9": [
+                    "closes",
+                    "needs",
+                    "sees",
+                    "finds"
+                ],
+                "a10": [
+                    "early",
+                    "still",
+                    "even",
+                    "together"
+                ]
+            },
+            "slot_roles": {
+                "a1": "verb",
+                "a2": "determiner",
+                "a3": "adjective",
+                "a4": "noun",
+                "a5": "preposition",
+                "a6": "noun",
+                "a7": "determiner",
+                "a8": "noun",
+                "a9": "verb",
+                "a10": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "cqq-case-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Я залишу свої контактні дані на випадок, якщо комусь знадобиться допомога.",
+            "level": "B1",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Я залишу свої контактні дані на випадок, якщо комусь знадобиться допомога.",
+            "target_text": "I will leave my contact details in case anyone needs help.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Спершу назви мій намір, потім можливу потребу когось іншого.",
+                    "options": [
+                        "I",
+                        "Themselves",
+                        "You",
+                        "He"
+                    ]
+                },
+                "a2": {
+                    "answer": "will",
+                    "verb_hint": "Спершу назви мій намір, потім можливу потребу когось іншого.",
+                    "options": [
+                        "will",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a3": {
+                    "answer": "leave",
+                    "verb_hint": "Спершу назви мій намір, потім можливу потребу когось іншого.",
+                    "options": [
+                        "leave",
+                        "cook",
+                        "buy",
+                        "see"
+                    ]
+                },
+                "a4": {
+                    "answer": "my",
+                    "verb_hint": "Спершу назви мій намір, потім можливу потребу когось іншого.",
+                    "options": [
+                        "my",
+                        "yours",
+                        "hers",
+                        "ours"
+                    ]
+                },
+                "a5": {
+                    "answer": "contact",
+                    "verb_hint": "Спершу назви мій намір, потім можливу потребу когось іншого.",
+                    "options": [
+                        "contact",
+                        "delay",
+                        "error",
+                        "record"
+                    ]
+                },
+                "a6": {
+                    "answer": "details",
+                    "verb_hint": "Спершу назви мій намір, потім можливу потребу когось іншого.",
+                    "options": [
+                        "details",
+                        "guests",
+                        "hours",
+                        "cups"
+                    ]
+                },
+                "a7": {
+                    "answer": "in",
+                    "verb_hint": "Спершу назви мій намір, потім можливу потребу когось іншого.",
+                    "options": [
+                        "in",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a8": {
+                    "answer": "case",
+                    "verb_hint": "Спершу назви мій намір, потім можливу потребу когось іншого.",
+                    "options": [
+                        "case",
+                        "estimate",
+                        "formulation",
+                        "contradiction"
+                    ]
+                },
+                "a9": {
+                    "answer": "anyone",
+                    "verb_hint": "Спершу назви мій намір, потім можливу потребу когось іншого.",
+                    "options": [
+                        "anyone",
+                        "they",
+                        "me",
+                        "them"
+                    ]
+                },
+                "a10": {
+                    "answer": "needs",
+                    "verb_hint": "Спершу назви мій намір, потім можливу потребу когось іншого.",
+                    "options": [
+                        "needs",
+                        "closes",
+                        "knows",
+                        "wants"
+                    ]
+                },
+                "a11": {
+                    "answer": "help.",
+                    "verb_hint": "Спершу назви мій намір, потім можливу потребу когось іншого.",
+                    "options": [
+                        "help",
+                        "make",
+                        "get",
+                        "go"
+                    ]
+                }
+            },
+            "verb_hint": "Спершу назви мій намір, потім можливу потребу когось іншого.",
+            "accepted_target_texts": [
+                "I will leave my contact details in case anyone needs help."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I will leave",
+                "my contact details",
+                "in case",
+                "anyone",
+                "needs help."
+            ],
+            "token_groups": [
+                "I will leave",
+                "my contact details",
+                "in case",
+                "anyone",
+                "needs help."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "will",
+                "leave",
+                "my",
+                "contact",
+                "details",
+                "in",
+                "case",
+                "anyone",
+                "needs",
+                "help."
+            ],
+            "options": [
+                "I",
+                "Themselves",
+                "You",
+                "He",
+                "will",
+                "cannot",
+                "can",
+                "could",
+                "leave",
+                "cook",
+                "buy",
+                "see",
+                "my",
+                "yours",
+                "hers",
+                "ours",
+                "contact",
+                "delay",
+                "error",
+                "record",
+                "details",
+                "guests",
+                "hours",
+                "cups",
+                "in",
+                "with",
+                "without",
+                "into",
+                "case",
+                "estimate",
+                "formulation",
+                "contradiction",
+                "anyone",
+                "they",
+                "me",
+                "them",
+                "needs",
+                "closes",
+                "knows",
+                "wants",
+                "help",
+                "make",
+                "get",
+                "go"
+            ],
+            "source_text_uk": "Я залишу свої контактні дані на випадок, якщо комусь знадобиться допомога.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Themselves",
+                    "You",
+                    "He"
+                ],
+                "a2": [
+                    "will",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a3": [
+                    "leave",
+                    "cook",
+                    "buy",
+                    "see"
+                ],
+                "a4": [
+                    "my",
+                    "yours",
+                    "hers",
+                    "ours"
+                ],
+                "a5": [
+                    "contact",
+                    "delay",
+                    "error",
+                    "record"
+                ],
+                "a6": [
+                    "details",
+                    "guests",
+                    "hours",
+                    "cups"
+                ],
+                "a7": [
+                    "in",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a8": [
+                    "case",
+                    "estimate",
+                    "formulation",
+                    "contradiction"
+                ],
+                "a9": [
+                    "anyone",
+                    "they",
+                    "me",
+                    "them"
+                ],
+                "a10": [
+                    "needs",
+                    "closes",
+                    "knows",
+                    "wants"
+                ],
+                "a11": [
+                    "help",
+                    "make",
+                    "get",
+                    "go"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "verb",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "noun",
+                "a7": "preposition",
+                "a8": "noun",
+                "a9": "pronoun",
+                "a10": "verb",
+                "a11": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "cqq-case-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Збережи електронний лист на випадок, якщо постачальник оскаржуватиме домовленість.",
+            "level": "B2",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Збережи електронний лист на випадок, якщо постачальник оскаржуватиме домовленість.",
+            "target_text": "Retain the email in case the supplier disputes the agreement.",
+            "markers": {
+                "a1": {
+                    "answer": "Retain",
+                    "verb_hint": "Почни з поради зберегти лист як запобіжний захід.",
+                    "options": [
+                        "Retain",
+                        "Justify",
+                        "Establish",
+                        "Distort"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з поради зберегти лист як запобіжний захід.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a3": {
+                    "answer": "email",
+                    "verb_hint": "Почни з поради зберегти лист як запобіжний захід.",
+                    "options": [
+                        "email",
+                        "rice",
+                        "bread",
+                        "delay"
+                    ]
+                },
+                "a4": {
+                    "answer": "in",
+                    "verb_hint": "Почни з поради зберегти лист як запобіжний захід.",
+                    "options": [
+                        "in",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a5": {
+                    "answer": "case",
+                    "verb_hint": "Почни з поради зберегти лист як запобіжний захід.",
+                    "options": [
+                        "case",
+                        "window",
+                        "error",
+                        "record"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з поради зберегти лист як запобіжний захід.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "supplier",
+                    "verb_hint": "Почни з поради зберегти лист як запобіжний захід.",
+                    "options": [
+                        "supplier",
+                        "contradiction",
+                        "quality",
+                        "identity"
+                    ]
+                },
+                "a8": {
+                    "answer": "disputes",
+                    "verb_hint": "Почни з поради зберегти лист як запобіжний захід.",
+                    "options": [
+                        "disputes",
+                        "instructions",
+                        "becomes",
+                        "keys"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Почни з поради зберегти лист як запобіжний захід.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a10": {
+                    "answer": "agreement.",
+                    "verb_hint": "Почни з поради зберегти лист як запобіжний захід.",
+                    "options": [
+                        "agreement",
+                        "consent",
+                        "estimate",
+                        "formulation"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з поради зберегти лист як запобіжний захід.",
+            "accepted_target_texts": [
+                "Retain the email in case the supplier disputes the agreement."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Retain",
+                "the email",
+                "in case",
+                "the supplier",
+                "disputes",
+                "the agreement."
+            ],
+            "token_groups": [
+                "Retain",
+                "the email",
+                "in case",
+                "the supplier",
+                "disputes",
+                "the agreement."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "Retain",
+                "the",
+                "email",
+                "in",
+                "case",
+                "the",
+                "supplier",
+                "disputes",
+                "the",
+                "agreement."
+            ],
+            "options": [
+                "Retain",
+                "Justify",
+                "Establish",
+                "Distort",
+                "the",
+                "every",
+                "no",
+                "another",
+                "email",
+                "rice",
+                "bread",
+                "delay",
+                "in",
+                "through",
+                "across",
+                "between",
+                "case",
+                "window",
+                "error",
+                "record",
+                "some",
+                "any",
+                "this",
+                "supplier",
+                "contradiction",
+                "quality",
+                "identity",
+                "disputes",
+                "instructions",
+                "becomes",
+                "keys",
+                "neither",
+                "all",
+                "both",
+                "agreement",
+                "consent",
+                "estimate",
+                "formulation"
+            ],
+            "source_text_uk": "Збережи електронний лист на випадок, якщо постачальник оскаржуватиме домовленість.",
+            "options_by_marker": {
+                "a1": [
+                    "Retain",
+                    "Justify",
+                    "Establish",
+                    "Distort"
+                ],
+                "a2": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a3": [
+                    "email",
+                    "rice",
+                    "bread",
+                    "delay"
+                ],
+                "a4": [
+                    "in",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a5": [
+                    "case",
+                    "window",
+                    "error",
+                    "record"
+                ],
+                "a6": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "supplier",
+                    "contradiction",
+                    "quality",
+                    "identity"
+                ],
+                "a8": [
+                    "disputes",
+                    "instructions",
+                    "becomes",
+                    "keys"
+                ],
+                "a9": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a10": [
+                    "agreement",
+                    "consent",
+                    "estimate",
+                    "formulation"
+                ]
+            },
+            "slot_roles": {
+                "a1": "verb",
+                "a2": "determiner",
+                "a3": "noun",
+                "a4": "preposition",
+                "a5": "noun",
+                "a6": "determiner",
+                "a7": "noun",
+                "a8": "verb",
+                "a9": "determiner",
+                "a10": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "cqq-case-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Вона залишила чіткі вказівки на випадок, якщо команді знадобиться заміна.",
+            "level": "B2",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Вона залишила чіткі вказівки на випадок, якщо команді знадобиться заміна.",
+            "target_text": "She had left clear instructions in case the team needed a replacement.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Передай попередню минулу підготовку та можливу потребу команди.",
+                    "options": [
+                        "She",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Передай попередню минулу підготовку та можливу потребу команди.",
+                    "options": [
+                        "had",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a3": {
+                    "answer": "left",
+                    "verb_hint": "Передай попередню минулу підготовку та можливу потребу команди.",
+                    "options": [
+                        "left",
+                        "open",
+                        "watched",
+                        "visited"
+                    ]
+                },
+                "a4": {
+                    "answer": "clear",
+                    "verb_hint": "Передай попередню минулу підготовку та можливу потребу команди.",
+                    "options": [
+                        "clear",
+                        "local",
+                        "theoretical",
+                        "reliable"
+                    ]
+                },
+                "a5": {
+                    "answer": "instructions",
+                    "verb_hint": "Передай попередню минулу підготовку та можливу потребу команди.",
+                    "options": [
+                        "instructions",
+                        "becomes",
+                        "disputes",
+                        "tickets"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Передай попередню минулу підготовку та можливу потребу команди.",
+                    "options": [
+                        "in",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a7": {
+                    "answer": "case",
+                    "verb_hint": "Передай попередню минулу підготовку та можливу потребу команди.",
+                    "options": [
+                        "case",
+                        "estimate",
+                        "formulation",
+                        "contradiction"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Передай попередню минулу підготовку та можливу потребу команди.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a9": {
+                    "answer": "team",
+                    "verb_hint": "Передай попередню минулу підготовку та можливу потребу команди.",
+                    "options": [
+                        "team",
+                        "identity",
+                        "agreement",
+                        "experience"
+                    ]
+                },
+                "a10": {
+                    "answer": "needed",
+                    "verb_hint": "Передай попередню минулу підготовку та можливу потребу команди.",
+                    "options": [
+                        "needed",
+                        "helped",
+                        "waited",
+                        "cooked"
+                    ]
+                },
+                "a11": {
+                    "answer": "a",
+                    "verb_hint": "Передай попередню минулу підготовку та можливу потребу команди.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a12": {
+                    "answer": "replacement.",
+                    "verb_hint": "Передай попередню минулу підготовку та можливу потребу команди.",
+                    "options": [
+                        "replacement",
+                        "rice",
+                        "bread",
+                        "name"
+                    ]
+                }
+            },
+            "verb_hint": "Передай попередню минулу підготовку та можливу потребу команди.",
+            "accepted_target_texts": [
+                "She had left clear instructions in case the team needed a replacement."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She had left",
+                "clear instructions",
+                "in case",
+                "the team",
+                "needed",
+                "a replacement."
+            ],
+            "token_groups": [
+                "She had left",
+                "clear instructions",
+                "in case",
+                "the team",
+                "needed",
+                "a replacement."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "She",
+                "had",
+                "left",
+                "clear",
+                "instructions",
+                "in",
+                "case",
+                "the",
+                "team",
+                "needed",
+                "a",
+                "replacement."
+            ],
+            "options": [
+                "She",
+                "They",
+                "Me",
+                "Him",
+                "had",
+                "hadn't",
+                "do",
+                "does",
+                "left",
+                "open",
+                "watched",
+                "visited",
+                "clear",
+                "local",
+                "theoretical",
+                "reliable",
+                "instructions",
+                "becomes",
+                "disputes",
+                "tickets",
+                "in",
+                "across",
+                "between",
+                "among",
+                "case",
+                "estimate",
+                "formulation",
+                "contradiction",
+                "the",
+                "this",
+                "that",
+                "these",
+                "team",
+                "identity",
+                "agreement",
+                "experience",
+                "needed",
+                "helped",
+                "waited",
+                "cooked",
+                "a",
+                "all",
+                "both",
+                "an",
+                "replacement",
+                "rice",
+                "bread",
+                "name"
+            ],
+            "source_text_uk": "Вона залишила чіткі вказівки на випадок, якщо команді знадобиться заміна.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "had",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a3": [
+                    "left",
+                    "open",
+                    "watched",
+                    "visited"
+                ],
+                "a4": [
+                    "clear",
+                    "local",
+                    "theoretical",
+                    "reliable"
+                ],
+                "a5": [
+                    "instructions",
+                    "becomes",
+                    "disputes",
+                    "tickets"
+                ],
+                "a6": [
+                    "in",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a7": [
+                    "case",
+                    "estimate",
+                    "formulation",
+                    "contradiction"
+                ],
+                "a8": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a9": [
+                    "team",
+                    "identity",
+                    "agreement",
+                    "experience"
+                ],
+                "a10": [
+                    "needed",
+                    "helped",
+                    "waited",
+                    "cooked"
+                ],
+                "a11": [
+                    "a",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a12": [
+                    "replacement",
+                    "rice",
+                    "bread",
+                    "name"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "verb",
+                "a4": "adjective",
+                "a5": "noun",
+                "a6": "preposition",
+                "a7": "noun",
+                "a8": "determiner",
+                "a9": "noun",
+                "a10": "verb",
+                "a11": "determiner",
+                "a12": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "cqq-case-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Ми збережемо бронювання на випадок, якщо майданчик просто неба стане недоступним.",
+            "level": "B2",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Ми збережемо бронювання на випадок, якщо майданчик просто неба стане недоступним.",
+            "target_text": "We will retain the booking in case the outdoor venue becomes unavailable.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Не перетворюй запобіжний план на умову, за якої його лише почнуть виконувати.",
+                    "options": [
+                        "We",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "will",
+                    "verb_hint": "Не перетворюй запобіжний план на умову, за якої його лише почнуть виконувати.",
+                    "options": [
+                        "will",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a3": {
+                    "answer": "retain",
+                    "verb_hint": "Не перетворюй запобіжний план на умову, за якої його лише почнуть виконувати.",
+                    "options": [
+                        "retain",
+                        "reveal",
+                        "justify",
+                        "establish"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Не перетворюй запобіжний план на умову, за якої його лише почнуть виконувати.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "booking",
+                    "verb_hint": "Не перетворюй запобіжний план на умову, за якої його лише почнуть виконувати.",
+                    "options": [
+                        "booking",
+                        "riding",
+                        "driving",
+                        "studying"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Не перетворюй запобіжний план на умову, за якої його лише почнуть виконувати.",
+                    "options": [
+                        "in",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a7": {
+                    "answer": "case",
+                    "verb_hint": "Не перетворюй запобіжний план на умову, за якої його лише почнуть виконувати.",
+                    "options": [
+                        "case",
+                        "evidence",
+                        "argument",
+                        "claim"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Не перетворюй запобіжний план на умову, за якої його лише почнуть виконувати.",
+                    "options": [
+                        "the",
+                        "each",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a9": {
+                    "answer": "outdoor",
+                    "verb_hint": "Не перетворюй запобіжний план на умову, за якої його лише почнуть виконувати.",
+                    "options": [
+                        "outdoor",
+                        "clear",
+                        "slight",
+                        "complete"
+                    ]
+                },
+                "a10": {
+                    "answer": "venue",
+                    "verb_hint": "Не перетворюй запобіжний план на умову, за якої його лише почнуть виконувати.",
+                    "options": [
+                        "venue",
+                        "permission",
+                        "consent",
+                        "estimate"
+                    ]
+                },
+                "a11": {
+                    "answer": "becomes",
+                    "verb_hint": "Не перетворюй запобіжний план на умову, за якої його лише почнуть виконувати.",
+                    "options": [
+                        "becomes",
+                        "disputes",
+                        "instructions",
+                        "rooms"
+                    ]
+                },
+                "a12": {
+                    "answer": "unavailable.",
+                    "verb_hint": "Не перетворюй запобіжний план на умову, за якої його лише почнуть виконувати.",
+                    "options": [
+                        "unavailable",
+                        "incomplete",
+                        "different",
+                        "same"
+                    ]
+                }
+            },
+            "verb_hint": "Не перетворюй запобіжний план на умову, за якої його лише почнуть виконувати.",
+            "accepted_target_texts": [
+                "We will retain the booking in case the outdoor venue becomes unavailable."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We will retain",
+                "the booking",
+                "in case",
+                "the outdoor venue",
+                "becomes unavailable."
+            ],
+            "token_groups": [
+                "We will retain",
+                "the booking",
+                "in case",
+                "the outdoor venue",
+                "becomes unavailable."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "will",
+                "retain",
+                "the",
+                "booking",
+                "in",
+                "case",
+                "the",
+                "outdoor",
+                "venue",
+                "becomes",
+                "unavailable."
+            ],
+            "options": [
+                "We",
+                "He",
+                "She",
+                "It",
+                "will",
+                "shouldn't",
+                "cannot",
+                "can",
+                "retain",
+                "reveal",
+                "justify",
+                "establish",
+                "the",
+                "every",
+                "no",
+                "another",
+                "booking",
+                "riding",
+                "driving",
+                "studying",
+                "in",
+                "across",
+                "between",
+                "among",
+                "case",
+                "evidence",
+                "argument",
+                "claim",
+                "each",
+                "either",
+                "neither",
+                "outdoor",
+                "clear",
+                "slight",
+                "complete",
+                "venue",
+                "permission",
+                "consent",
+                "estimate",
+                "becomes",
+                "disputes",
+                "instructions",
+                "rooms",
+                "unavailable",
+                "incomplete",
+                "different",
+                "same"
+            ],
+            "source_text_uk": "Ми збережемо бронювання на випадок, якщо майданчик просто неба стане недоступним.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "will",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a3": [
+                    "retain",
+                    "reveal",
+                    "justify",
+                    "establish"
+                ],
+                "a4": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "booking",
+                    "riding",
+                    "driving",
+                    "studying"
+                ],
+                "a6": [
+                    "in",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a7": [
+                    "case",
+                    "evidence",
+                    "argument",
+                    "claim"
+                ],
+                "a8": [
+                    "the",
+                    "each",
+                    "either",
+                    "neither"
+                ],
+                "a9": [
+                    "outdoor",
+                    "clear",
+                    "slight",
+                    "complete"
+                ],
+                "a10": [
+                    "venue",
+                    "permission",
+                    "consent",
+                    "estimate"
+                ],
+                "a11": [
+                    "becomes",
+                    "disputes",
+                    "instructions",
+                    "rooms"
+                ],
+                "a12": [
+                    "unavailable",
+                    "incomplete",
+                    "different",
+                    "same"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "verb",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "preposition",
+                "a7": "noun",
+                "a8": "determiner",
+                "a9": "adjective",
+                "a10": "noun",
+                "a11": "verb",
+                "a12": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "cqq-case-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Рада зберегла правову консультацію на випадок, якщо мирову угоду оскаржать.",
+            "level": "C1",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Рада зберегла правову консультацію на випадок, якщо мирову угоду оскаржать.",
+            "target_text": "The board retained legal advice in case the settlement was contested.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з ради; можливе оскарження узгодь із минулим контекстом.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "board",
+                    "verb_hint": "Почни з ради; можливе оскарження узгодь із минулим контекстом.",
+                    "options": [
+                        "board",
+                        "argument",
+                        "claim",
+                        "permission"
+                    ]
+                },
+                "a3": {
+                    "answer": "retained",
+                    "verb_hint": "Почни з ради; можливе оскарження узгодь із минулим контекстом.",
+                    "options": [
+                        "retained",
+                        "became",
+                        "open",
+                        "walked"
+                    ]
+                },
+                "a4": {
+                    "answer": "legal",
+                    "verb_hint": "Почни з ради; можливе оскарження узгодь із минулим контекстом.",
+                    "options": [
+                        "legal",
+                        "small",
+                        "large",
+                        "new"
+                    ]
+                },
+                "a5": {
+                    "answer": "advice",
+                    "verb_hint": "Почни з ради; можливе оскарження узгодь із минулим контекстом.",
+                    "options": [
+                        "advice",
+                        "quality",
+                        "identity",
+                        "agreement"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Почни з ради; можливе оскарження узгодь із минулим контекстом.",
+                    "options": [
+                        "in",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a7": {
+                    "answer": "case",
+                    "verb_hint": "Почни з ради; можливе оскарження узгодь із минулим контекстом.",
+                    "options": [
+                        "case",
+                        "consent",
+                        "estimate",
+                        "formulation"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з ради; можливе оскарження узгодь із минулим контекстом.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a9": {
+                    "answer": "settlement",
+                    "verb_hint": "Почни з ради; можливе оскарження узгодь із минулим контекстом.",
+                    "options": [
+                        "settlement",
+                        "delay",
+                        "error",
+                        "record"
+                    ]
+                },
+                "a10": {
+                    "answer": "was",
+                    "verb_hint": "Почни з ради; можливе оскарження узгодь із минулим контекстом.",
+                    "options": [
+                        "was",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a11": {
+                    "answer": "contested.",
+                    "verb_hint": "Почни з ради; можливе оскарження узгодь із минулим контекстом.",
+                    "options": [
+                        "contested",
+                        "nominated",
+                        "opened",
+                        "closed"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з ради; можливе оскарження узгодь із минулим контекстом.",
+            "accepted_target_texts": [
+                "The board retained legal advice in case the settlement was contested."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The board",
+                "retained",
+                "legal advice",
+                "in case",
+                "the settlement",
+                "was contested."
+            ],
+            "token_groups": [
+                "The board",
+                "retained",
+                "legal advice",
+                "in case",
+                "the settlement",
+                "was contested."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "The",
+                "board",
+                "retained",
+                "legal",
+                "advice",
+                "in",
+                "case",
+                "the",
+                "settlement",
+                "was",
+                "contested."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "board",
+                "argument",
+                "claim",
+                "permission",
+                "retained",
+                "became",
+                "open",
+                "walked",
+                "legal",
+                "small",
+                "large",
+                "new",
+                "advice",
+                "quality",
+                "identity",
+                "agreement",
+                "in",
+                "with",
+                "without",
+                "into",
+                "case",
+                "consent",
+                "estimate",
+                "formulation",
+                "the",
+                "no",
+                "another",
+                "either",
+                "settlement",
+                "delay",
+                "error",
+                "record",
+                "was",
+                "be",
+                "been",
+                "being",
+                "contested",
+                "nominated",
+                "opened",
+                "closed"
+            ],
+            "source_text_uk": "Рада зберегла правову консультацію на випадок, якщо мирову угоду оскаржать.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "board",
+                    "argument",
+                    "claim",
+                    "permission"
+                ],
+                "a3": [
+                    "retained",
+                    "became",
+                    "open",
+                    "walked"
+                ],
+                "a4": [
+                    "legal",
+                    "small",
+                    "large",
+                    "new"
+                ],
+                "a5": [
+                    "advice",
+                    "quality",
+                    "identity",
+                    "agreement"
+                ],
+                "a6": [
+                    "in",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a7": [
+                    "case",
+                    "consent",
+                    "estimate",
+                    "formulation"
+                ],
+                "a8": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a9": [
+                    "settlement",
+                    "delay",
+                    "error",
+                    "record"
+                ],
+                "a10": [
+                    "was",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a11": [
+                    "contested",
+                    "nominated",
+                    "opened",
+                    "closed"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "verb",
+                "a4": "adjective",
+                "a5": "noun",
+                "a6": "preposition",
+                "a7": "noun",
+                "a8": "determiner",
+                "a9": "noun",
+                "a10": "be",
+                "a11": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "cqq-case-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Збережи первинні дані на випадок, якщо незалежний аудит виявить розбіжності.",
+            "level": "C1",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Збережи первинні дані на випадок, якщо незалежний аудит виявить розбіжності.",
+            "target_text": "Preserve the raw data in case an independent audit reveals discrepancies.",
+            "markers": {
+                "a1": {
+                    "answer": "Preserve",
+                    "verb_hint": "Почни з поради зберегти дані до можливого аудиту.",
+                    "options": [
+                        "Preserve",
+                        "Touch",
+                        "Reflect",
+                        "Resolve"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з поради зберегти дані до можливого аудиту.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a3": {
+                    "answer": "raw",
+                    "verb_hint": "Почни з поради зберегти дані до можливого аудиту.",
+                    "options": [
+                        "raw",
+                        "reliable",
+                        "selective",
+                        "legal"
+                    ]
+                },
+                "a4": {
+                    "answer": "data",
+                    "verb_hint": "Почни з поради зберегти дані до можливого аудиту.",
+                    "options": [
+                        "data",
+                        "quality",
+                        "identity",
+                        "agreement"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Почни з поради зберегти дані до можливого аудиту.",
+                    "options": [
+                        "in",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a6": {
+                    "answer": "case",
+                    "verb_hint": "Почни з поради зберегти дані до можливого аудиту.",
+                    "options": [
+                        "case",
+                        "contradiction",
+                        "experience",
+                        "deputy"
+                    ]
+                },
+                "a7": {
+                    "answer": "an",
+                    "verb_hint": "Почни з поради зберегти дані до можливого аудиту.",
+                    "options": [
+                        "an",
+                        "some",
+                        "any",
+                        "those"
+                    ]
+                },
+                "a8": {
+                    "answer": "independent",
+                    "verb_hint": "Почни з поради зберегти дані до можливого аудиту.",
+                    "options": [
+                        "independent",
+                        "clear",
+                        "unclear",
+                        "fresh"
+                    ]
+                },
+                "a9": {
+                    "answer": "audit",
+                    "verb_hint": "Почни з поради зберегти дані до можливого аудиту.",
+                    "options": [
+                        "audit",
+                        "rice",
+                        "bread",
+                        "delay"
+                    ]
+                },
+                "a10": {
+                    "answer": "reveals",
+                    "verb_hint": "Почни з поради зберегти дані до можливого аудиту.",
+                    "options": [
+                        "reveals",
+                        "books",
+                        "boxes",
+                        "chairs"
+                    ]
+                },
+                "a11": {
+                    "answer": "discrepancies.",
+                    "verb_hint": "Почни з поради зберегти дані до можливого аудиту.",
+                    "options": [
+                        "discrepancies",
+                        "rooms",
+                        "maps",
+                        "letters"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з поради зберегти дані до можливого аудиту.",
+            "accepted_target_texts": [
+                "Preserve the raw data in case an independent audit reveals discrepancies."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Preserve",
+                "the raw data",
+                "in case",
+                "an independent audit",
+                "reveals discrepancies."
+            ],
+            "token_groups": [
+                "Preserve",
+                "the raw data",
+                "in case",
+                "an independent audit",
+                "reveals discrepancies."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "Preserve",
+                "the",
+                "raw",
+                "data",
+                "in",
+                "case",
+                "an",
+                "independent",
+                "audit",
+                "reveals",
+                "discrepancies."
+            ],
+            "options": [
+                "Preserve",
+                "Touch",
+                "Reflect",
+                "Resolve",
+                "the",
+                "this",
+                "that",
+                "these",
+                "raw",
+                "reliable",
+                "selective",
+                "legal",
+                "data",
+                "quality",
+                "identity",
+                "agreement",
+                "in",
+                "over",
+                "under",
+                "through",
+                "case",
+                "contradiction",
+                "experience",
+                "deputy",
+                "an",
+                "some",
+                "any",
+                "those",
+                "independent",
+                "clear",
+                "unclear",
+                "fresh",
+                "audit",
+                "rice",
+                "bread",
+                "delay",
+                "reveals",
+                "books",
+                "boxes",
+                "chairs",
+                "discrepancies",
+                "rooms",
+                "maps",
+                "letters"
+            ],
+            "source_text_uk": "Збережи первинні дані на випадок, якщо незалежний аудит виявить розбіжності.",
+            "options_by_marker": {
+                "a1": [
+                    "Preserve",
+                    "Touch",
+                    "Reflect",
+                    "Resolve"
+                ],
+                "a2": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a3": [
+                    "raw",
+                    "reliable",
+                    "selective",
+                    "legal"
+                ],
+                "a4": [
+                    "data",
+                    "quality",
+                    "identity",
+                    "agreement"
+                ],
+                "a5": [
+                    "in",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a6": [
+                    "case",
+                    "contradiction",
+                    "experience",
+                    "deputy"
+                ],
+                "a7": [
+                    "an",
+                    "some",
+                    "any",
+                    "those"
+                ],
+                "a8": [
+                    "independent",
+                    "clear",
+                    "unclear",
+                    "fresh"
+                ],
+                "a9": [
+                    "audit",
+                    "rice",
+                    "bread",
+                    "delay"
+                ],
+                "a10": [
+                    "reveals",
+                    "books",
+                    "boxes",
+                    "chairs"
+                ],
+                "a11": [
+                    "discrepancies",
+                    "rooms",
+                    "maps",
+                    "letters"
+                ]
+            },
+            "slot_roles": {
+                "a1": "verb",
+                "a2": "determiner",
+                "a3": "adjective",
+                "a4": "noun",
+                "a5": "preposition",
+                "a6": "noun",
+                "a7": "determiner",
+                "a8": "adjective",
+                "a9": "noun",
+                "a10": "verb",
+                "a11": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "cqq-case-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Ми призначили заступника на випадок, якщо голова не зможе бути присутнім.",
+            "level": "C1",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Ми призначили заступника на випадок, якщо голова не зможе бути присутнім.",
+            "target_text": "We had nominated a deputy in case the chair became unavailable.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Передай завершену попередню минулу підготовку, не стверджуючи відсутності голови.",
+                    "options": [
+                        "We",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Передай завершену попередню минулу підготовку, не стверджуючи відсутності голови.",
+                    "options": [
+                        "had",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a3": {
+                    "answer": "nominated",
+                    "verb_hint": "Передай завершену попередню минулу підготовку, не стверджуючи відсутності голови.",
+                    "options": [
+                        "nominated",
+                        "contested",
+                        "open",
+                        "visited"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Передай завершену попередню минулу підготовку, не стверджуючи відсутності голови.",
+                    "options": [
+                        "a",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a5": {
+                    "answer": "deputy",
+                    "verb_hint": "Передай завершену попередню минулу підготовку, не стверджуючи відсутності голови.",
+                    "options": [
+                        "deputy",
+                        "name",
+                        "window",
+                        "rice"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Передай завершену попередню минулу підготовку, не стверджуючи відсутності голови.",
+                    "options": [
+                        "in",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a7": {
+                    "answer": "case",
+                    "verb_hint": "Передай завершену попередню минулу підготовку, не стверджуючи відсутності голови.",
+                    "options": [
+                        "case",
+                        "bread",
+                        "delay",
+                        "error"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Передай завершену попередню минулу підготовку, не стверджуючи відсутності голови.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "neither"
+                    ]
+                },
+                "a9": {
+                    "answer": "chair",
+                    "verb_hint": "Передай завершену попередню минулу підготовку, не стверджуючи відсутності голови.",
+                    "options": [
+                        "chair",
+                        "quality",
+                        "identity",
+                        "agreement"
+                    ]
+                },
+                "a10": {
+                    "answer": "became",
+                    "verb_hint": "Передай завершену попередню минулу підготовку, не стверджуючи відсутності голови.",
+                    "options": [
+                        "became",
+                        "retained",
+                        "saw",
+                        "needed"
+                    ]
+                },
+                "a11": {
+                    "answer": "unavailable.",
+                    "verb_hint": "Передай завершену попередню минулу підготовку, не стверджуючи відсутності голови.",
+                    "options": [
+                        "unavailable",
+                        "raw",
+                        "independent",
+                        "small"
+                    ]
+                }
+            },
+            "verb_hint": "Передай завершену попередню минулу підготовку, не стверджуючи відсутності голови.",
+            "accepted_target_texts": [
+                "We had nominated a deputy in case the chair became unavailable."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We had nominated",
+                "a deputy",
+                "in case",
+                "the chair",
+                "became unavailable."
+            ],
+            "token_groups": [
+                "We had nominated",
+                "a deputy",
+                "in case",
+                "the chair",
+                "became unavailable."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "had",
+                "nominated",
+                "a",
+                "deputy",
+                "in",
+                "case",
+                "the",
+                "chair",
+                "became",
+                "unavailable."
+            ],
+            "options": [
+                "We",
+                "They",
+                "Me",
+                "Him",
+                "had",
+                "hadn't",
+                "do",
+                "does",
+                "nominated",
+                "contested",
+                "open",
+                "visited",
+                "a",
+                "no",
+                "another",
+                "either",
+                "deputy",
+                "name",
+                "window",
+                "rice",
+                "in",
+                "without",
+                "into",
+                "onto",
+                "case",
+                "bread",
+                "delay",
+                "error",
+                "the",
+                "each",
+                "every",
+                "neither",
+                "chair",
+                "quality",
+                "identity",
+                "agreement",
+                "became",
+                "retained",
+                "saw",
+                "needed",
+                "unavailable",
+                "raw",
+                "independent",
+                "small"
+            ],
+            "source_text_uk": "Ми призначили заступника на випадок, якщо голова не зможе бути присутнім.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "had",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a3": [
+                    "nominated",
+                    "contested",
+                    "open",
+                    "visited"
+                ],
+                "a4": [
+                    "a",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a5": [
+                    "deputy",
+                    "name",
+                    "window",
+                    "rice"
+                ],
+                "a6": [
+                    "in",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a7": [
+                    "case",
+                    "bread",
+                    "delay",
+                    "error"
+                ],
+                "a8": [
+                    "the",
+                    "each",
+                    "every",
+                    "neither"
+                ],
+                "a9": [
+                    "chair",
+                    "quality",
+                    "identity",
+                    "agreement"
+                ],
+                "a10": [
+                    "became",
+                    "retained",
+                    "saw",
+                    "needed"
+                ],
+                "a11": [
+                    "unavailable",
+                    "raw",
+                    "independent",
+                    "small"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "verb",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "preposition",
+                "a7": "noun",
+                "a8": "determiner",
+                "a9": "noun",
+                "a10": "verb",
+                "a11": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "cqq-case-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Делегація зберегла дослівний запис на випадок, якщо формулювання раптом стане спірним.",
+            "level": "C2",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Делегація зберегла дослівний запис на випадок, якщо формулювання раптом стане спірним.",
+            "target_text": "The delegation retained a verbatim record in case the wording should prove contentious.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Не стверджуй, що спір уже виник; передай формальний запобіжний мотив.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "delegation",
+                    "verb_hint": "Не стверджуй, що спір уже виник; передай формальний запобіжний мотив.",
+                    "options": [
+                        "delegation",
+                        "bread",
+                        "delay",
+                        "error"
+                    ]
+                },
+                "a3": {
+                    "answer": "retained",
+                    "verb_hint": "Не стверджуй, що спір уже виник; передай формальний запобіжний мотив.",
+                    "options": [
+                        "retained",
+                        "established",
+                        "failed",
+                        "open"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Не стверджуй, що спір уже виник; передай формальний запобіжний мотив.",
+                    "options": [
+                        "a",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a5": {
+                    "answer": "verbatim",
+                    "verb_hint": "Не стверджуй, що спір уже виник; передай формальний запобіжний мотив.",
+                    "options": [
+                        "verbatim",
+                        "early",
+                        "late",
+                        "formal"
+                    ]
+                },
+                "a6": {
+                    "answer": "record",
+                    "verb_hint": "Не стверджуй, що спір уже виник; передай формальний запобіжний мотив.",
+                    "options": [
+                        "record",
+                        "contradiction",
+                        "quality",
+                        "identity"
+                    ]
+                },
+                "a7": {
+                    "answer": "in",
+                    "verb_hint": "Не стверджуй, що спір уже виник; передай формальний запобіжний мотив.",
+                    "options": [
+                        "in",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a8": {
+                    "answer": "case",
+                    "verb_hint": "Не стверджуй, що спір уже виник; передай формальний запобіжний мотив.",
+                    "options": [
+                        "case",
+                        "name",
+                        "rice",
+                        "evidence"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Не стверджуй, що спір уже виник; передай формальний запобіжний мотив.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a10": {
+                    "answer": "wording",
+                    "verb_hint": "Не стверджуй, що спір уже виник; передай формальний запобіжний мотив.",
+                    "options": [
+                        "wording",
+                        "helping",
+                        "waiting",
+                        "watching"
+                    ]
+                },
+                "a11": {
+                    "answer": "should",
+                    "verb_hint": "Не стверджуй, що спір уже виник; передай формальний запобіжний мотив.",
+                    "options": [
+                        "should",
+                        "may",
+                        "might",
+                        "must"
+                    ]
+                },
+                "a12": {
+                    "answer": "prove",
+                    "verb_hint": "Не стверджуй, що спір уже виник; передай формальний запобіжний мотив.",
+                    "options": [
+                        "prove",
+                        "preserve",
+                        "conceal",
+                        "swim"
+                    ]
+                },
+                "a13": {
+                    "answer": "contentious.",
+                    "verb_hint": "Не стверджуй, що спір уже виник; передай формальний запобіжний мотив.",
+                    "options": [
+                        "contentious",
+                        "final",
+                        "slight",
+                        "complete"
+                    ]
+                }
+            },
+            "verb_hint": "Не стверджуй, що спір уже виник; передай формальний запобіжний мотив.",
+            "accepted_target_texts": [
+                "The delegation retained a verbatim record in case the wording should prove contentious."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The delegation",
+                "retained",
+                "a verbatim record",
+                "in case",
+                "the wording",
+                "should prove contentious."
+            ],
+            "token_groups": [
+                "The delegation",
+                "retained",
+                "a verbatim record",
+                "in case",
+                "the wording",
+                "should prove contentious."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "The",
+                "delegation",
+                "retained",
+                "a",
+                "verbatim",
+                "record",
+                "in",
+                "case",
+                "the",
+                "wording",
+                "should",
+                "prove",
+                "contentious."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "delegation",
+                "bread",
+                "delay",
+                "error",
+                "retained",
+                "established",
+                "failed",
+                "open",
+                "a",
+                "another",
+                "either",
+                "neither",
+                "verbatim",
+                "early",
+                "late",
+                "formal",
+                "record",
+                "contradiction",
+                "quality",
+                "identity",
+                "in",
+                "without",
+                "into",
+                "onto",
+                "case",
+                "name",
+                "rice",
+                "evidence",
+                "the",
+                "those",
+                "each",
+                "every",
+                "wording",
+                "helping",
+                "waiting",
+                "watching",
+                "should",
+                "may",
+                "might",
+                "must",
+                "prove",
+                "preserve",
+                "conceal",
+                "swim",
+                "contentious",
+                "final",
+                "slight",
+                "complete"
+            ],
+            "source_text_uk": "Делегація зберегла дослівний запис на випадок, якщо формулювання раптом стане спірним.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "delegation",
+                    "bread",
+                    "delay",
+                    "error"
+                ],
+                "a3": [
+                    "retained",
+                    "established",
+                    "failed",
+                    "open"
+                ],
+                "a4": [
+                    "a",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a5": [
+                    "verbatim",
+                    "early",
+                    "late",
+                    "formal"
+                ],
+                "a6": [
+                    "record",
+                    "contradiction",
+                    "quality",
+                    "identity"
+                ],
+                "a7": [
+                    "in",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a8": [
+                    "case",
+                    "name",
+                    "rice",
+                    "evidence"
+                ],
+                "a9": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a10": [
+                    "wording",
+                    "helping",
+                    "waiting",
+                    "watching"
+                ],
+                "a11": [
+                    "should",
+                    "may",
+                    "might",
+                    "must"
+                ],
+                "a12": [
+                    "prove",
+                    "preserve",
+                    "conceal",
+                    "swim"
+                ],
+                "a13": [
+                    "contentious",
+                    "final",
+                    "slight",
+                    "complete"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "verb",
+                "a4": "determiner",
+                "a5": "adjective",
+                "a6": "noun",
+                "a7": "preposition",
+                "a8": "noun",
+                "a9": "determiner",
+                "a10": "noun",
+                "a11": "modal",
+                "a12": "verb",
+                "a13": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "cqq-case-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Ми збережемо журнал перевірки на випадок, якщо подальше провадження поставить рішення під сумнів.",
+            "level": "C2",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Ми збережемо журнал перевірки на випадок, якщо подальше провадження поставить рішення під сумнів.",
+            "target_text": "We will preserve the audit trail in case subsequent proceedings call the decision into question.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+                    "options": [
+                        "We",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "will",
+                    "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+                    "options": [
+                        "will",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "preserve",
+                    "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+                    "options": [
+                        "preserve",
+                        "conceal",
+                        "propose",
+                        "materialise"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a5": {
+                    "answer": "audit",
+                    "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+                    "options": [
+                        "audit",
+                        "evidence",
+                        "argument",
+                        "claim"
+                    ]
+                },
+                "a6": {
+                    "answer": "trail",
+                    "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+                    "options": [
+                        "trail",
+                        "experience",
+                        "delegation",
+                        "record"
+                    ]
+                },
+                "a7": {
+                    "answer": "in",
+                    "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+                    "options": [
+                        "in",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a8": {
+                    "answer": "case",
+                    "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+                    "options": [
+                        "case",
+                        "consent",
+                        "estimate",
+                        "formulation"
+                    ]
+                },
+                "a9": {
+                    "answer": "subsequent",
+                    "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+                    "options": [
+                        "subsequent",
+                        "main",
+                        "early",
+                        "late"
+                    ]
+                },
+                "a10": {
+                    "answer": "proceedings",
+                    "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+                    "options": [
+                        "proceedings",
+                        "savings",
+                        "tables",
+                        "tickets"
+                    ]
+                },
+                "a11": {
+                    "answer": "call",
+                    "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+                    "options": [
+                        "call",
+                        "help",
+                        "cook",
+                        "buy"
+                    ]
+                },
+                "a12": {
+                    "answer": "the",
+                    "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a13": {
+                    "answer": "decision",
+                    "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+                    "options": [
+                        "decision",
+                        "contradiction",
+                        "quality",
+                        "identity"
+                    ]
+                },
+                "a14": {
+                    "answer": "into",
+                    "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+                    "options": [
+                        "into",
+                        "of",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a15": {
+                    "answer": "question.",
+                    "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+                    "options": [
+                        "question",
+                        "agreement",
+                        "name",
+                        "window"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з наміру зберегти слід перевірки; можливий ризик вирази теперішньою формою.",
+            "accepted_target_texts": [
+                "We will preserve the audit trail in case subsequent proceedings call the decision into question."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We will preserve",
+                "the audit trail",
+                "in case",
+                "subsequent proceedings",
+                "call",
+                "the decision",
+                "into question."
+            ],
+            "token_groups": [
+                "We will preserve",
+                "the audit trail",
+                "in case",
+                "subsequent proceedings",
+                "call",
+                "the decision",
+                "into question."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "will",
+                "preserve",
+                "the",
+                "audit",
+                "trail",
+                "in",
+                "case",
+                "subsequent",
+                "proceedings",
+                "call",
+                "the",
+                "decision",
+                "into",
+                "question."
+            ],
+            "options": [
+                "We",
+                "He",
+                "She",
+                "It",
+                "will",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "preserve",
+                "conceal",
+                "propose",
+                "materialise",
+                "the",
+                "some",
+                "any",
+                "this",
+                "audit",
+                "evidence",
+                "argument",
+                "claim",
+                "trail",
+                "experience",
+                "delegation",
+                "record",
+                "in",
+                "across",
+                "between",
+                "among",
+                "case",
+                "consent",
+                "estimate",
+                "formulation",
+                "subsequent",
+                "main",
+                "early",
+                "late",
+                "proceedings",
+                "savings",
+                "tables",
+                "tickets",
+                "call",
+                "help",
+                "cook",
+                "buy",
+                "that",
+                "these",
+                "those",
+                "decision",
+                "contradiction",
+                "quality",
+                "identity",
+                "into",
+                "of",
+                "on",
+                "at",
+                "question",
+                "agreement",
+                "name",
+                "window"
+            ],
+            "source_text_uk": "Ми збережемо журнал перевірки на випадок, якщо подальше провадження поставить рішення під сумнів.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "will",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a3": [
+                    "preserve",
+                    "conceal",
+                    "propose",
+                    "materialise"
+                ],
+                "a4": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a5": [
+                    "audit",
+                    "evidence",
+                    "argument",
+                    "claim"
+                ],
+                "a6": [
+                    "trail",
+                    "experience",
+                    "delegation",
+                    "record"
+                ],
+                "a7": [
+                    "in",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a8": [
+                    "case",
+                    "consent",
+                    "estimate",
+                    "formulation"
+                ],
+                "a9": [
+                    "subsequent",
+                    "main",
+                    "early",
+                    "late"
+                ],
+                "a10": [
+                    "proceedings",
+                    "savings",
+                    "tables",
+                    "tickets"
+                ],
+                "a11": [
+                    "call",
+                    "help",
+                    "cook",
+                    "buy"
+                ],
+                "a12": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a13": [
+                    "decision",
+                    "contradiction",
+                    "quality",
+                    "identity"
+                ],
+                "a14": [
+                    "into",
+                    "of",
+                    "on",
+                    "at"
+                ],
+                "a15": [
+                    "question",
+                    "agreement",
+                    "name",
+                    "window"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "verb",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "noun",
+                "a7": "preposition",
+                "a8": "noun",
+                "a9": "adjective",
+                "a10": "noun",
+                "a11": "verb",
+                "a12": "determiner",
+                "a13": "noun",
+                "a14": "preposition",
+                "a15": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "cqq-case-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Було створено резерв на випадок, якщо прогнозована економія не здійсниться.",
+            "level": "C2",
+            "type": 4,
+            "source": "conditionals_quality_in_case",
+            "translation_uk": "Було створено резерв на випадок, якщо прогнозована економія не здійсниться.",
+            "target_text": "A contingency reserve had been established in case the projected savings failed to materialise.",
+            "markers": {
+                "a1": {
+                    "answer": "A",
+                    "verb_hint": "Передай попередню завершену пасивну дію; збережи умовність ризику.",
+                    "options": [
+                        "A",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "contingency",
+                    "verb_hint": "Передай попередню завершену пасивну дію; збережи умовність ризику.",
+                    "options": [
+                        "contingency",
+                        "consent",
+                        "estimate",
+                        "formulation"
+                    ]
+                },
+                "a3": {
+                    "answer": "reserve",
+                    "verb_hint": "Передай попередню завершену пасивну дію; збережи умовність ризику.",
+                    "options": [
+                        "reserve",
+                        "record",
+                        "evidence",
+                        "argument"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Передай попередню завершену пасивну дію; збережи умовність ризику.",
+                    "options": [
+                        "had",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Передай попередню завершену пасивну дію; збережи умовність ризику.",
+                    "options": [
+                        "been",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a6": {
+                    "answer": "established",
+                    "verb_hint": "Передай попередню завершену пасивну дію; збережи умовність ризику.",
+                    "options": [
+                        "established",
+                        "retained",
+                        "open",
+                        "driven"
+                    ]
+                },
+                "a7": {
+                    "answer": "in",
+                    "verb_hint": "Передай попередню завершену пасивну дію; збережи умовність ризику.",
+                    "options": [
+                        "in",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a8": {
+                    "answer": "case",
+                    "verb_hint": "Передай попередню завершену пасивну дію; збережи умовність ризику.",
+                    "options": [
+                        "case",
+                        "contradiction",
+                        "quality",
+                        "agreement"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Передай попередню завершену пасивну дію; збережи умовність ризику.",
+                    "options": [
+                        "the",
+                        "an",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a10": {
+                    "answer": "projected",
+                    "verb_hint": "Передай попередню завершену пасивну дію; збережи умовність ризику.",
+                    "options": [
+                        "projected",
+                        "same",
+                        "main",
+                        "early"
+                    ]
+                },
+                "a11": {
+                    "answer": "savings",
+                    "verb_hint": "Передай попередню завершену пасивну дію; збережи умовність ризику.",
+                    "options": [
+                        "savings",
+                        "proceedings",
+                        "doors",
+                        "keys"
+                    ]
+                },
+                "a12": {
+                    "answer": "failed",
+                    "verb_hint": "Передай попередню завершену пасивну дію; збережи умовність ризику.",
+                    "options": [
+                        "failed",
+                        "took",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a13": {
+                    "answer": "to",
+                    "verb_hint": "Передай попередню завершену пасивну дію; збережи умовність ризику.",
+                    "options": [
+                        "to",
+                        "during",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a14": {
+                    "answer": "materialise.",
+                    "verb_hint": "Передай попередню завершену пасивну дію; збережи умовність ризику.",
+                    "options": [
+                        "materialise",
+                        "reduce",
+                        "reveal",
+                        "justify"
+                    ]
+                }
+            },
+            "verb_hint": "Передай попередню завершену пасивну дію; збережи умовність ризику.",
+            "accepted_target_texts": [
+                "A contingency reserve had been established in case the projected savings failed to materialise."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A contingency reserve",
+                "had been established",
+                "in case",
+                "the projected savings",
+                "failed",
+                "to materialise."
+            ],
+            "token_groups": [
+                "A contingency reserve",
+                "had been established",
+                "in case",
+                "the projected savings",
+                "failed",
+                "to materialise."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "A",
+                "contingency",
+                "reserve",
+                "had",
+                "been",
+                "established",
+                "in",
+                "case",
+                "the",
+                "projected",
+                "savings",
+                "failed",
+                "to",
+                "materialise."
+            ],
+            "options": [
+                "A",
+                "Some",
+                "Any",
+                "This",
+                "contingency",
+                "consent",
+                "estimate",
+                "formulation",
+                "reserve",
+                "record",
+                "evidence",
+                "argument",
+                "had",
+                "hadn't",
+                "do",
+                "does",
+                "been",
+                "wasn't",
+                "weren't",
+                "am",
+                "established",
+                "retained",
+                "open",
+                "driven",
+                "in",
+                "from",
+                "for",
+                "of",
+                "case",
+                "contradiction",
+                "quality",
+                "agreement",
+                "the",
+                "an",
+                "that",
+                "these",
+                "projected",
+                "same",
+                "main",
+                "early",
+                "savings",
+                "proceedings",
+                "doors",
+                "keys",
+                "failed",
+                "took",
+                "wrote",
+                "rode",
+                "to",
+                "during",
+                "on",
+                "at",
+                "materialise",
+                "reduce",
+                "reveal",
+                "justify"
+            ],
+            "source_text_uk": "Було створено резерв на випадок, якщо прогнозована економія не здійсниться.",
+            "options_by_marker": {
+                "a1": [
+                    "A",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "contingency",
+                    "consent",
+                    "estimate",
+                    "formulation"
+                ],
+                "a3": [
+                    "reserve",
+                    "record",
+                    "evidence",
+                    "argument"
+                ],
+                "a4": [
+                    "had",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a5": [
+                    "been",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a6": [
+                    "established",
+                    "retained",
+                    "open",
+                    "driven"
+                ],
+                "a7": [
+                    "in",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a8": [
+                    "case",
+                    "contradiction",
+                    "quality",
+                    "agreement"
+                ],
+                "a9": [
+                    "the",
+                    "an",
+                    "that",
+                    "these"
+                ],
+                "a10": [
+                    "projected",
+                    "same",
+                    "main",
+                    "early"
+                ],
+                "a11": [
+                    "savings",
+                    "proceedings",
+                    "doors",
+                    "keys"
+                ],
+                "a12": [
+                    "failed",
+                    "took",
+                    "wrote",
+                    "rode"
+                ],
+                "a13": [
+                    "to",
+                    "during",
+                    "on",
+                    "at"
+                ],
+                "a14": [
+                    "materialise",
+                    "reduce",
+                    "reveal",
+                    "justify"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "noun",
+                "a4": "auxiliary",
+                "a5": "be",
+                "a6": "verb",
+                "a7": "preposition",
+                "a8": "noun",
+                "a9": "determiner",
+                "a10": "adjective",
+                "a11": "noun",
+                "a12": "verb",
+                "a13": "preposition",
+                "a14": "verb"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

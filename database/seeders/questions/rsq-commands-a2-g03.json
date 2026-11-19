@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66196,
+        "uuid": "rsq-commands-a2-g03",
+        "question": "Olena told her son {a1} his wet coat inside.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 62,
+        "source_id": 530,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechCommandsRequestsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "not to bring",
+                "not bringing",
+                "not to brought"
+            ]
+        },
+        "theory_text_block_uuid": "a859497f-77ca-5869-8c7b-65809ee580fe",
+        "created_at": "2026-11-01T20:04:47.000000Z",
+        "updated_at": "2026-11-01T20:04:47.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 530,
+        "name": "Reported Speech Quality: Reported Commands and Requests",
+        "created_at": "2026-11-01T20:04:47.000000Z",
+        "updated_at": "2026-11-01T20:04:47.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 68329,
+                "option": "not to bring",
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 66196,
+                "option_id": 68329,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68331,
+                "option": "not bringing",
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 66196,
+                "option_id": 68331,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68332,
+                "option": "not to brought",
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 66196,
+                "option_id": 68332,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 340973,
+                "question_id": 66196,
+                "marker": "a1",
+                "option_id": 68329,
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            },
+            "option": {
+                "id": 68329,
+                "option": "not to bring",
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58307,
+                "question_id": 66196,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68330,
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            },
+            "option": {
+                "id": 68330,
+                "option": "Не заносити; збережи заперечення саме в переданій вказівці.",
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58211,
+            "question_id": 66196,
+            "text": "Olena told her son {a1} his wet coat inside.",
+            "created_at": "2026-11-01T20:04:47.000000Z",
+            "updated_at": "2026-11-01T20:04:47.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

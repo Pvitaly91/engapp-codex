@@ -1,0 +1,737 @@
+{
+    "schema_version": 1,
+    "quality_revision": "aeq-v1",
+    "compiled_from": {
+        "path": "docs/content/academic-english-quality/stance-register-and-evaluation.v1.json",
+        "sha256": "a2412dbdd3666cbe7f54a22cc80d029f442f1ce81b7d1c322fae5a2d8953f312"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AcademicEnglish\\UkrainianMixedAeqStanceRegisterAndEvaluationQualityStandardSeeder",
+        "uuid_namespace": "academic-english-quality-stance-register-and-evaluation-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Academic English"
+    },
+    "sources": {
+        "academic_english_quality_stance_register_and_evaluation": {
+            "name": "Academic English Quality: Stance, Register and Evaluation"
+        }
+    },
+    "tags": {
+        "sre_topic": {
+            "name": "stance register and evaluation",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "academic_stance": {
+            "name": "academic stance",
+            "category": "academic-english"
+        },
+        "evaluative_language": {
+            "name": "evaluative language",
+            "category": "academic-english"
+        },
+        "cautious_evaluation": {
+            "name": "cautious evaluation",
+            "category": "academic-english"
+        },
+        "formal_register": {
+            "name": "formal register",
+            "category": "academic-english"
+        },
+        "writer_stance": {
+            "name": "writer stance",
+            "category": "academic-english"
+        },
+        "stance_adverbs": {
+            "name": "stance adverbs",
+            "category": "academic-english"
+        },
+        "evaluative_adjectives": {
+            "name": "evaluative adjectives",
+            "category": "academic-english"
+        },
+        "objective_evaluation": {
+            "name": "objective evaluation",
+            "category": "academic-english"
+        },
+        "avoid_emotional_judgement": {
+            "name": "avoiding emotional judgement",
+            "category": "academic-english"
+        },
+        "claim_evidence_balance": {
+            "name": "claim and evidence balance",
+            "category": "academic-english"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "academic-english"
+        }
+    },
+    "default_tag_keys": [
+        "sre_topic"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "aeq-sta-a1-g01",
+            "author_id": "A1-g01",
+            "question": "This sign {a1} easy to read.",
+            "level": "A1",
+            "type": 0,
+            "source": "academic_english_quality_stance_register_and_evaluation",
+            "translation_uk": "Цей знак легко прочитати.",
+            "target_text": "This sign is easy to read.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "Потрібна теперішня форма зв’язки для вже названого одного предмета."
+                }
+            },
+            "verb_hint": "Потрібна теперішня форма зв’язки для вже названого одного предмета.",
+            "accepted_target_texts": [
+                "This sign is easy to read."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This sign",
+                "is easy",
+                "to read."
+            ],
+            "token_groups": [
+                "This sign",
+                "is easy",
+                "to read."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "aeq-sta-a1-g02",
+            "author_id": "A1-g02",
+            "question": "I {a1} the red chart is better.",
+            "level": "A1",
+            "type": 0,
+            "source": "academic_english_quality_stance_register_and_evaluation",
+            "translation_uk": "Я вважаю, що червона діаграма краща.",
+            "target_text": "I think the red chart is better.",
+            "markers": {
+                "a1": {
+                    "answer": "think",
+                    "options": [
+                        "think",
+                        "thinks",
+                        "thinking"
+                    ],
+                    "verb_hint": "Вважати: передай особисту думку; після вже наведеного займенника введи лише дієслово."
+                }
+            },
+            "verb_hint": "Вважати: передай особисту думку; після вже наведеного займенника введи лише дієслово.",
+            "accepted_target_texts": [
+                "I think the red chart is better.",
+                "I believe the red chart is better."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "believe"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "believe"
+                ]
+            },
+            "reorder_groups": [
+                "I think",
+                "the red chart",
+                "is better."
+            ],
+            "token_groups": [
+                "I think",
+                "the red chart",
+                "is better."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "aeq-sta-a2-g01",
+            "author_id": "A2-g01",
+            "question": "In my {a1}, the first title is too long.",
+            "level": "A2",
+            "type": 0,
+            "source": "academic_english_quality_stance_register_and_evaluation",
+            "translation_uk": "На мою думку, перший заголовок надто довгий.",
+            "target_text": "In my opinion, the first title is too long.",
+            "markers": {
+                "a1": {
+                    "answer": "opinion",
+                    "options": [
+                        "opinion",
+                        "opinions",
+                        "opinionated"
+                    ],
+                    "verb_hint": "У сталому звороті введи лише іменник зі значенням особистої думки."
+                }
+            },
+            "verb_hint": "У сталому звороті введи лише іменник зі значенням особистої думки.",
+            "accepted_target_texts": [
+                "In my opinion, the first title is too long.",
+                "In my view, the first title is too long."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "view"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "view"
+                ]
+            },
+            "reorder_groups": [
+                "In my opinion,",
+                "the first title",
+                "is too long."
+            ],
+            "token_groups": [
+                "In my opinion,",
+                "the first title",
+                "is too long."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "aeq-sta-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The writer calls the ending {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "academic_english_quality_stance_register_and_evaluation",
+            "translation_uk": "Автор називає кінцівку незрозумілою.",
+            "target_text": "The writer calls the ending unclear.",
+            "markers": {
+                "a1": {
+                    "answer": "unclear",
+                    "options": [
+                        "unclear",
+                        "unclearly",
+                        "clarity"
+                    ],
+                    "verb_hint": "Незрозумілий: після названої кінцівки передай цю оцінку прикметником або короткою рівнозначною сполукою."
+                }
+            },
+            "verb_hint": "Незрозумілий: після названої кінцівки передай цю оцінку прикметником або короткою рівнозначною сполукою.",
+            "accepted_target_texts": [
+                "The writer calls the ending unclear.",
+                "The writer calls the ending confusing.",
+                "The writer calls the ending hard to understand.",
+                "The writer calls the ending difficult to follow."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "confusing",
+                    "hard to understand",
+                    "difficult to follow"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "confusing",
+                    "hard to understand",
+                    "difficult to follow"
+                ]
+            },
+            "reorder_groups": [
+                "The writer calls",
+                "the ending",
+                "unclear."
+            ],
+            "token_groups": [
+                "The writer calls",
+                "the ending",
+                "unclear."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "aeq-sta-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The report {a1} the bridge as unsafe.",
+            "level": "B1",
+            "type": 0,
+            "source": "academic_english_quality_stance_register_and_evaluation",
+            "translation_uk": "У звіті міст характеризують як небезпечний.",
+            "target_text": "The report describes the bridge as unsafe.",
+            "markers": {
+                "a1": {
+                    "answer": "describes",
+                    "options": [
+                        "describes",
+                        "describe",
+                        "describing"
+                    ],
+                    "verb_hint": "Після вже наведеного підмета введи дієслово опису в теперішньому часі; далі йде оцінка з прийменником."
+                }
+            },
+            "verb_hint": "Після вже наведеного підмета введи дієслово опису в теперішньому часі; далі йде оцінка з прийменником.",
+            "accepted_target_texts": [
+                "The report describes the bridge as unsafe.",
+                "The report characterises the bridge as unsafe.",
+                "The report characterizes the bridge as unsafe.",
+                "The report portrays the bridge as unsafe."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "characterises",
+                    "characterizes",
+                    "portrays"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "characterises",
+                    "characterizes",
+                    "portrays"
+                ]
+            },
+            "reorder_groups": [
+                "The report describes",
+                "the bridge",
+                "as unsafe."
+            ],
+            "token_groups": [
+                "The report describes",
+                "the bridge",
+                "as unsafe."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "aeq-sta-b1-g02",
+            "author_id": "B1-g02",
+            "question": "To be fair, this option is cheaper {a1} less flexible.",
+            "level": "B1",
+            "type": 0,
+            "source": "academic_english_quality_stance_register_and_evaluation",
+            "translation_uk": "Заради справедливості, цей варіант дешевший, але менш гнучкий.",
+            "target_text": "To be fair, this option is cheaper but less flexible.",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "because",
+                        "therefore"
+                    ],
+                    "verb_hint": "Поєднай перевагу й недолік протиставним сполучником; це не причина й не наслідок."
+                }
+            },
+            "verb_hint": "Поєднай перевагу й недолік протиставним сполучником; це не причина й не наслідок.",
+            "accepted_target_texts": [
+                "To be fair, this option is cheaper but less flexible.",
+                "To be fair, this option is cheaper yet less flexible."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "reorder_groups": [
+                "To be fair,",
+                "this option",
+                "is cheaper",
+                "but less flexible."
+            ],
+            "token_groups": [
+                "To be fair,",
+                "this option",
+                "is cheaper",
+                "but less flexible."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "aeq-sta-b2-g01",
+            "author_id": "B2-g01",
+            "question": "From a legal {a1}, the wording is ambiguous.",
+            "level": "B2",
+            "type": 0,
+            "source": "academic_english_quality_stance_register_and_evaluation",
+            "translation_uk": "З правової точки зору формулювання неоднозначне.",
+            "target_text": "From a legal perspective, the wording is ambiguous.",
+            "markers": {
+                "a1": {
+                    "answer": "perspective",
+                    "options": [
+                        "perspective",
+                        "prospect",
+                        "perspectively"
+                    ],
+                    "verb_hint": "Назви ракурс оцінювання іменником або сталою сполукою; уже наведений правовий критерій не повторюй."
+                }
+            },
+            "verb_hint": "Назви ракурс оцінювання іменником або сталою сполукою; уже наведений правовий критерій не повторюй.",
+            "accepted_target_texts": [
+                "From a legal perspective, the wording is ambiguous.",
+                "From a legal standpoint, the wording is ambiguous.",
+                "From a legal point of view, the wording is ambiguous."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "standpoint",
+                    "point of view"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "standpoint",
+                    "point of view"
+                ]
+            },
+            "reorder_groups": [
+                "From a legal",
+                "perspective,",
+                "the wording",
+                "is ambiguous."
+            ],
+            "token_groups": [
+                "From a legal",
+                "perspective,",
+                "the wording",
+                "is ambiguous."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "aeq-sta-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The editor {a1} the introduction to be overly assertive.",
+            "level": "B2",
+            "type": 0,
+            "source": "academic_english_quality_stance_register_and_evaluation",
+            "translation_uk": "Редактор вважає вступ надмірно категоричним.",
+            "target_text": "The editor considers the introduction to be overly assertive.",
+            "markers": {
+                "a1": {
+                    "answer": "considers",
+                    "options": [
+                        "considers",
+                        "consider",
+                        "considering"
+                    ],
+                    "verb_hint": "Вважає: потрібне теперішнє дієслово оцінювання для одного редактора; увесь подальший об’єкт уже наведено."
+                }
+            },
+            "verb_hint": "Вважає: потрібне теперішнє дієслово оцінювання для одного редактора; увесь подальший об’єкт уже наведено.",
+            "accepted_target_texts": [
+                "The editor considers the introduction to be overly assertive.",
+                "The editor judges the introduction to be overly assertive.",
+                "The editor deems the introduction to be overly assertive.",
+                "The editor finds the introduction to be overly assertive."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "judges",
+                    "deems",
+                    "finds"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "judges",
+                    "deems",
+                    "finds"
+                ]
+            },
+            "reorder_groups": [
+                "The editor considers",
+                "the introduction",
+                "to be",
+                "overly assertive."
+            ],
+            "token_groups": [
+                "The editor considers",
+                "the introduction",
+                "to be",
+                "overly assertive."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "aeq-sta-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The recommendation is persuasive {a1} its explicitly stated criteria.",
+            "level": "C1",
+            "type": 0,
+            "source": "academic_english_quality_stance_register_and_evaluation",
+            "translation_uk": "Рекомендація переконлива завдяки чітко сформульованим критеріям.",
+            "target_text": "The recommendation is persuasive by virtue of its explicitly stated criteria.",
+            "markers": {
+                "a1": {
+                    "answer": "by virtue of",
+                    "options": [
+                        "by virtue of",
+                        "in spite of",
+                        "at odds with"
+                    ],
+                    "verb_hint": "Передай підставу переконливості прийменниковою сполукою; не змінюй її на поступку чи суперечність."
+                }
+            },
+            "verb_hint": "Передай підставу переконливості прийменниковою сполукою; не змінюй її на поступку чи суперечність.",
+            "accepted_target_texts": [
+                "The recommendation is persuasive by virtue of its explicitly stated criteria.",
+                "The recommendation is persuasive because of its explicitly stated criteria.",
+                "The recommendation is persuasive owing to its explicitly stated criteria.",
+                "The recommendation is persuasive due to its explicitly stated criteria."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "because of",
+                    "owing to",
+                    "due to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "because of",
+                    "owing to",
+                    "due to"
+                ]
+            },
+            "reorder_groups": [
+                "The recommendation",
+                "is persuasive",
+                "by virtue of",
+                "its explicitly",
+                "stated criteria."
+            ],
+            "token_groups": [
+                "The recommendation",
+                "is persuasive",
+                "by virtue of",
+                "its explicitly",
+                "stated criteria."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "aeq-sta-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The critic's reservation {a1} the lack of a stated comparison group.",
+            "level": "C1",
+            "type": 0,
+            "source": "academic_english_quality_stance_register_and_evaluation",
+            "translation_uk": "Зауваження критика стосується відсутності явно вказаної групи порівняння.",
+            "target_text": "The critic's reservation concerns the lack of a stated comparison group.",
+            "markers": {
+                "a1": {
+                    "answer": "concerns",
+                    "options": [
+                        "concerns",
+                        "concerning",
+                        "concern"
+                    ],
+                    "verb_hint": "Стосується: назви предмет зауваження теперішнім дієсловом або відповідною прийменниковою сполукою; підмет уже наведено."
+                }
+            },
+            "verb_hint": "Стосується: назви предмет зауваження теперішнім дієсловом або відповідною прийменниковою сполукою; підмет уже наведено.",
+            "accepted_target_texts": [
+                "The critic's reservation concerns the lack of a stated comparison group.",
+                "The critic's reservation relates to the lack of a stated comparison group.",
+                "The critic's reservation pertains to the lack of a stated comparison group."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "relates to",
+                    "pertains to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "relates to",
+                    "pertains to"
+                ]
+            },
+            "reorder_groups": [
+                "The critic's reservation",
+                "concerns",
+                "the lack",
+                "of a stated",
+                "comparison group."
+            ],
+            "token_groups": [
+                "The critic's reservation",
+                "concerns",
+                "the lack",
+                "of a stated",
+                "comparison group."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "aeq-sta-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The apparent objectivity of the term should not be {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "academic_english_quality_stance_register_and_evaluation",
+            "translation_uk": "Не слід сприймати уявну об’єктивність терміна як щось самоочевидне.",
+            "target_text": "The apparent objectivity of the term should not be taken for granted.",
+            "markers": {
+                "a1": {
+                    "answer": "taken for granted",
+                    "options": [
+                        "taken for granted",
+                        "taking for granted",
+                        "take for granted"
+                    ],
+                    "verb_hint": "Після вже наведеного пасивного допоміжного дієслова передай некритичне прийняття за даність; уведи весь потрібний зворот."
+                }
+            },
+            "verb_hint": "Після вже наведеного пасивного допоміжного дієслова передай некритичне прийняття за даність; уведи весь потрібний зворот.",
+            "accepted_target_texts": [
+                "The apparent objectivity of the term should not be taken for granted.",
+                "The apparent objectivity of the term should not be assumed.",
+                "The apparent objectivity of the term should not be presupposed.",
+                "The apparent objectivity of the term should not be accepted uncritically."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "assumed",
+                    "presupposed",
+                    "accepted uncritically"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "assumed",
+                    "presupposed",
+                    "accepted uncritically"
+                ]
+            },
+            "reorder_groups": [
+                "The apparent objectivity",
+                "of the term",
+                "should not be",
+                "taken for granted."
+            ],
+            "token_groups": [
+                "The apparent objectivity",
+                "of the term",
+                "should not be",
+                "taken for granted."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "aeq-sta-c2-g02",
+            "author_id": "C2-g02",
+            "question": "That verdict is defensible only {a1} the criterion remains unchanged.",
+            "level": "C2",
+            "type": 0,
+            "source": "academic_english_quality_stance_register_and_evaluation",
+            "translation_uk": "Такий висновок можна обстоювати лише тією мірою, якою критерій залишається незмінним.",
+            "target_text": "That verdict is defensible only insofar as the criterion remains unchanged.",
+            "markers": {
+                "a1": {
+                    "answer": "insofar as",
+                    "options": [
+                        "insofar as",
+                        "even though",
+                        "rather than"
+                    ],
+                    "verb_hint": "Назви обмежувальний зв’язок: оцінку можна захищати лише в межах незмінності критерію, а не попри її зміну."
+                }
+            },
+            "verb_hint": "Назви обмежувальний зв’язок: оцінку можна захищати лише в межах незмінності критерію, а не попри її зміну.",
+            "accepted_target_texts": [
+                "That verdict is defensible only insofar as the criterion remains unchanged.",
+                "That verdict is defensible only to the extent that the criterion remains unchanged."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to the extent that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to the extent that"
+                ]
+            },
+            "reorder_groups": [
+                "That verdict",
+                "is defensible",
+                "only insofar as",
+                "the criterion",
+                "remains unchanged."
+            ],
+            "token_groups": [
+                "That verdict",
+                "is defensible",
+                "only insofar as",
+                "the criterion",
+                "remains unchanged."
+            ],
+            "quality_revision": "aeq-v1"
+        }
+    ]
+}

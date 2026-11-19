@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66190,
+        "uuid": "rsq-commands-a1-g03",
+        "question": "Dad tells Leo {a1} the cat.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 62,
+        "source_id": 530,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechCommandsRequestsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "to feed",
+                "feeding",
+                "to fed"
+            ]
+        },
+        "theory_text_block_uuid": "a859497f-77ca-5869-8c7b-65809ee580fe",
+        "created_at": "2026-11-01T20:04:47.000000Z",
+        "updated_at": "2026-11-01T20:04:47.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 530,
+        "name": "Reported Speech Quality: Reported Commands and Requests",
+        "created_at": "2026-11-01T20:04:47.000000Z",
+        "updated_at": "2026-11-01T20:04:47.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 16319,
+                "option": "feeding",
+                "created_at": "2026-04-25T13:39:45.000000Z",
+                "updated_at": "2026-04-25T13:39:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 66190,
+                "option_id": 16319,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68312,
+                "option": "to feed",
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 66190,
+                "option_id": 68312,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68314,
+                "option": "to fed",
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 66190,
+                "option_id": 68314,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 340967,
+                "question_id": 66190,
+                "marker": "a1",
+                "option_id": 68312,
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            },
+            "option": {
+                "id": 68312,
+                "option": "to feed",
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58301,
+                "question_id": 66190,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68313,
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            },
+            "option": {
+                "id": 68313,
+                "option": "Нагодувати; названий адресат має виконати дію.",
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58205,
+            "question_id": 66190,
+            "text": "Dad tells Leo {a1} the cat.",
+            "created_at": "2026-11-01T20:04:47.000000Z",
+            "updated_at": "2026-11-01T20:04:47.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

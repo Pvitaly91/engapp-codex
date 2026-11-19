@@ -1,0 +1,654 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/defining-relative-clauses.v1.json",
+        "sha256": "2905d3cfce405e4ea0e158a484b5bee9eb8d458df7c78bffba5bb09e4ba743e1"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\UkrainianMixedDefiningRelativeClausesQualityStandardSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-defining-relative-clauses-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "clauses_linking_words_quality_defining_relative_clauses": {
+            "name": "Clauses and Linking Words Quality: Defining Relative Clauses"
+        }
+    },
+    "tags": {
+        "defining_relative_clauses": {
+            "name": "Defining Relative Clauses",
+            "category": "clauses_and_linking_words"
+        },
+        "identify_noun": {
+            "name": "Identify noun",
+            "category": "topic"
+        },
+        "who_people": {
+            "name": "Who for people",
+            "category": "topic"
+        },
+        "which_things": {
+            "name": "Which for things",
+            "category": "topic"
+        },
+        "that_defining": {
+            "name": "That in defining clauses",
+            "category": "topic"
+        },
+        "where_places": {
+            "name": "Where for places",
+            "category": "topic"
+        },
+        "whose_possession": {
+            "name": "Whose possession",
+            "category": "topic"
+        },
+        "subject_relative": {
+            "name": "Subject relative pronoun",
+            "category": "topic"
+        },
+        "object_relative": {
+            "name": "Object relative pronoun",
+            "category": "topic"
+        },
+        "no_commas": {
+            "name": "No commas",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "defining_relative_clauses"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-defining-a1-g01",
+            "author_id": "A1-g01",
+            "question": "A baker is a person {a1} bread.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_defining_relative_clauses",
+            "translation_uk": "Пекар — людина, яка пече хліб.",
+            "target_text": "A baker is a person who makes bread.",
+            "markers": {
+                "a1": {
+                    "answer": "who makes",
+                    "options": [
+                        "who makes",
+                        "which makes",
+                        "who make"
+                    ],
+                    "verb_hint": "Яка виготовляє; назви людину відносним словом і узгодь одну особу."
+                }
+            },
+            "verb_hint": "Яка виготовляє; назви людину відносним словом і узгодь одну особу.",
+            "accepted_target_texts": [
+                "A baker is a person who makes bread.",
+                "A baker is a person that makes bread."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "that makes"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "that makes"
+                ]
+            },
+            "reorder_groups": [
+                "A baker",
+                "is a person",
+                "who makes",
+                "bread."
+            ],
+            "token_groups": [
+                "A baker",
+                "is a person",
+                "who makes",
+                "bread."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "clq-defining-a1-g02",
+            "author_id": "A1-g02",
+            "question": "I want the cup {a1} a blue handle.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_defining_relative_clauses",
+            "translation_uk": "Я хочу чашку, яка має синю ручку.",
+            "target_text": "I want the cup that has a blue handle.",
+            "markers": {
+                "a1": {
+                    "answer": "that has",
+                    "options": [
+                        "that has",
+                        "who has",
+                        "that have"
+                    ],
+                    "verb_hint": "Яка має; уточнення вибирає одну чашку за її ознакою."
+                }
+            },
+            "verb_hint": "Яка має; уточнення вибирає одну чашку за її ознакою.",
+            "accepted_target_texts": [
+                "I want the cup that has a blue handle.",
+                "I want the cup which has a blue handle."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "which has"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "which has"
+                ]
+            },
+            "reorder_groups": [
+                "I want",
+                "the cup",
+                "that has",
+                "a blue handle."
+            ],
+            "token_groups": [
+                "I want",
+                "the cup",
+                "that has",
+                "a blue handle."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "clq-defining-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The boots {a1} last winter still fit.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_defining_relative_clauses",
+            "translation_uk": "Черевики, які я купив минулої зими, досі впору.",
+            "target_text": "The boots that I bought last winter still fit.",
+            "markers": {
+                "a1": {
+                    "answer": "that I bought",
+                    "options": [
+                        "that I bought",
+                        "who I bought",
+                        "that bought I"
+                    ],
+                    "verb_hint": "Які я купив; виконавець покупки стоїть перед минулим дієсловом."
+                }
+            },
+            "verb_hint": "Які я купив; виконавець покупки стоїть перед минулим дієсловом.",
+            "accepted_target_texts": [
+                "The boots that I bought last winter still fit.",
+                "The boots which I bought last winter still fit.",
+                "The boots I bought last winter still fit."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "which I bought",
+                    "I bought"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "which I bought",
+                    "I bought"
+                ]
+            },
+            "reorder_groups": [
+                "The boots",
+                "that I bought",
+                "last winter",
+                "still fit."
+            ],
+            "token_groups": [
+                "The boots",
+                "that I bought",
+                "last winter",
+                "still fit."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "clq-defining-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The student {a1} is in my class.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_defining_relative_clauses",
+            "translation_uk": "Учень, який грає в шахи, навчається в моєму класі.",
+            "target_text": "The student who plays chess is in my class.",
+            "markers": {
+                "a1": {
+                    "answer": "who plays chess",
+                    "options": [
+                        "who plays chess",
+                        "which plays chess",
+                        "who play chess"
+                    ],
+                    "verb_hint": "Який грає в шахи; уточни учня його заняттям, зберігши узгодження."
+                }
+            },
+            "verb_hint": "Який грає в шахи; уточни учня його заняттям, зберігши узгодження.",
+            "accepted_target_texts": [
+                "The student who plays chess is in my class.",
+                "The student that plays chess is in my class."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "that plays chess"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "that plays chess"
+                ]
+            },
+            "reorder_groups": [
+                "The student",
+                "who plays chess",
+                "is",
+                "in my class."
+            ],
+            "token_groups": [
+                "The student",
+                "who plays chess",
+                "is",
+                "in my class."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "clq-defining-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The village {a1} my grandparents live has no station.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_defining_relative_clauses",
+            "translation_uk": "У селі, де живуть мої дідусь і бабуся, немає станції.",
+            "target_text": "The village where my grandparents live has no station.",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "whose",
+                        "which"
+                    ],
+                    "verb_hint": "Де живуть; потрібне слово місця, бо після нього вже є підмет і дієслово."
+                }
+            },
+            "verb_hint": "Де живуть; потрібне слово місця, бо після нього вже є підмет і дієслово.",
+            "accepted_target_texts": [
+                "The village where my grandparents live has no station."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The village",
+                "where",
+                "my grandparents",
+                "live",
+                "has no station."
+            ],
+            "token_groups": [
+                "The village",
+                "where",
+                "my grandparents",
+                "live",
+                "has no station."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "clq-defining-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The artist {a1} paintings fill this room is local.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_defining_relative_clauses",
+            "translation_uk": "Художник, чиї картини заповнюють цю кімнату, місцевий.",
+            "target_text": "The artist whose paintings fill this room is local.",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "Чиї картини; відносна форма стоїть перед назвою творів власника."
+                }
+            },
+            "verb_hint": "Чиї картини; відносна форма стоїть перед назвою творів власника.",
+            "accepted_target_texts": [
+                "The artist whose paintings fill this room is local."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The artist",
+                "whose paintings",
+                "fill this room",
+                "is local."
+            ],
+            "token_groups": [
+                "The artist",
+                "whose paintings",
+                "fill this room",
+                "is local."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "clq-defining-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Candidates {a1} applications arrive late cannot be considered.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_defining_relative_clauses",
+            "translation_uk": "Кандидатів, чиї заяви надійдуть запізно, не зможуть розглянути.",
+            "target_text": "Candidates whose applications arrive late cannot be considered.",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "whom",
+                        "which"
+                    ],
+                    "verb_hint": "Чиї заяви; уточнення обмежує групу кандидатів за належними їм документами."
+                }
+            },
+            "verb_hint": "Чиї заяви; уточнення обмежує групу кандидатів за належними їм документами.",
+            "accepted_target_texts": [
+                "Candidates whose applications arrive late cannot be considered."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Candidates",
+                "whose applications",
+                "arrive late",
+                "cannot be considered."
+            ],
+            "token_groups": [
+                "Candidates",
+                "whose applications",
+                "arrive late",
+                "cannot be considered."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "clq-defining-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The clause {a1} you object has already been revised.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_defining_relative_clauses",
+            "translation_uk": "Пункт, проти якого ви заперечуєте, уже переглянули.",
+            "target_text": "The clause to which you object has already been revised.",
+            "markers": {
+                "a1": {
+                    "answer": "to which",
+                    "options": [
+                        "to which",
+                        "to whom",
+                        "to whose"
+                    ],
+                    "verb_hint": "Проти якого; збережи винесений прийменник дієслова заперечення перед відносним словом."
+                }
+            },
+            "verb_hint": "Проти якого; збережи винесений прийменник дієслова заперечення перед відносним словом.",
+            "accepted_target_texts": [
+                "The clause to which you object has already been revised."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The clause",
+                "to which",
+                "you object",
+                "has already",
+                "been revised."
+            ],
+            "token_groups": [
+                "The clause",
+                "to which",
+                "you object",
+                "has already",
+                "been revised."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "clq-defining-c1-g01",
+            "author_id": "C1-g01",
+            "question": "Any assumption {a1} the estimate depends must be stated explicitly.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_defining_relative_clauses",
+            "translation_uk": "Кожне припущення, від якого залежить оцінка, треба викласти прямо.",
+            "target_text": "Any assumption on which the estimate depends must be stated explicitly.",
+            "markers": {
+                "a1": {
+                    "answer": "on which",
+                    "options": [
+                        "on which",
+                        "on whom",
+                        "whose"
+                    ],
+                    "verb_hint": "Від якого залежить; уточни саме опорне припущення за допомогою прийменника й відносного слова."
+                }
+            },
+            "verb_hint": "Від якого залежить; уточни саме опорне припущення за допомогою прийменника й відносного слова.",
+            "accepted_target_texts": [
+                "Any assumption on which the estimate depends must be stated explicitly."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Any assumption",
+                "on which",
+                "the estimate",
+                "depends",
+                "must be stated",
+                "explicitly."
+            ],
+            "token_groups": [
+                "Any assumption",
+                "on which",
+                "the estimate",
+                "depends",
+                "must be stated",
+                "explicitly."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "clq-defining-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The only account {a1} survives contradicts the official version.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_defining_relative_clauses",
+            "translation_uk": "Єдине свідчення, яке збереглося, суперечить офіційній версії.",
+            "target_text": "The only account that survives contradicts the official version.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "what",
+                        "whose"
+                    ],
+                    "verb_hint": "Яке збереглося; відносне слово є підметом і не може залишити підрядну частину без виконавця."
+                }
+            },
+            "verb_hint": "Яке збереглося; відносне слово є підметом і не може залишити підрядну частину без виконавця.",
+            "accepted_target_texts": [
+                "The only account that survives contradicts the official version.",
+                "The only account which survives contradicts the official version."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "which"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "which"
+                ]
+            },
+            "reorder_groups": [
+                "The only account",
+                "that",
+                "survives",
+                "contradicts",
+                "the official version."
+            ],
+            "token_groups": [
+                "The only account",
+                "that",
+                "survives",
+                "contradicts",
+                "the official version."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "clq-defining-c2-g01",
+            "author_id": "C2-g01",
+            "question": "A restriction {a1} the statute makes no provision cannot be inferred.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_defining_relative_clauses",
+            "translation_uk": "Обмеження, якого закон не передбачає, не можна виводити шляхом припущення.",
+            "target_text": "A restriction for which the statute makes no provision cannot be inferred.",
+            "markers": {
+                "a1": {
+                    "answer": "for which",
+                    "options": [
+                        "for which",
+                        "for whom",
+                        "for whose"
+                    ],
+                    "verb_hint": "Для якого немає положення; збережи винесений прийменник і відсилання до обмеження."
+                }
+            },
+            "verb_hint": "Для якого немає положення; збережи винесений прийменник і відсилання до обмеження.",
+            "accepted_target_texts": [
+                "A restriction for which the statute makes no provision cannot be inferred."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A restriction",
+                "for which",
+                "the statute",
+                "makes no provision",
+                "cannot be inferred."
+            ],
+            "token_groups": [
+                "A restriction",
+                "for which",
+                "the statute",
+                "makes no provision",
+                "cannot be inferred."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "clq-defining-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The precedent {a1} reasoning the panel adopted concerned a different duty.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_defining_relative_clauses",
+            "translation_uk": "Прецедент, міркування з якого колегія прийняла, стосувався іншого обов’язку.",
+            "target_text": "The precedent whose reasoning the panel adopted concerned a different duty.",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "which",
+                        "whom"
+                    ],
+                    "verb_hint": "Міркування якого; потрібна присвійна відносна форма перед назвою аргументації."
+                }
+            },
+            "verb_hint": "Міркування якого; потрібна присвійна відносна форма перед назвою аргументації.",
+            "accepted_target_texts": [
+                "The precedent whose reasoning the panel adopted concerned a different duty."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The precedent",
+                "whose reasoning",
+                "the panel",
+                "adopted",
+                "concerned",
+                "a different duty."
+            ],
+            "token_groups": [
+                "The precedent",
+                "whose reasoning",
+                "the panel",
+                "adopted",
+                "concerned",
+                "a different duty."
+            ],
+            "quality_revision": "clq-v1"
+        }
+    ]
+}

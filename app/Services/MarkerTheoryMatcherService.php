@@ -28,6 +28,9 @@ class MarkerTheoryMatcherService
         'hero',
     ];
 
+    // Below common PDO bind limits (including SQLite's legacy limit of 999).
+    private const MARKER_TAG_QUESTION_CHUNK = 500;
+
     /**
      * Find the best matching theory block for a specific marker in a question.
      *
@@ -381,6 +384,40 @@ class MarkerTheoryMatcherService
                 'name' => $row->name,
                 'category' => $row->category,
             ];
+        }
+
+        return $result;
+    }
+
+    /**
+     * Bulk equivalent of getAllMarkerTags() for the selected question IDs.
+     * Questions without joined tags have no entry in the returned map.
+     *
+     * @param  list<int>  $questionIds
+     * @return array<int, array<string, list<array{id: int|string, name: string, category: string|null}>>>
+     */
+    public function getAllMarkerTagsForQuestions(array $questionIds): array
+    {
+        if ($questionIds === [] || ! Schema::hasTable('question_marker_tag')) {
+            return [];
+        }
+
+        $result = [];
+        foreach (array_chunk(array_unique($questionIds), self::MARKER_TAG_QUESTION_CHUNK) as $ids) {
+            $rows = DB::table('question_marker_tag')
+                ->join('tags', 'question_marker_tag.tag_id', '=', 'tags.id')
+                ->whereIn('question_marker_tag.question_id', $ids)
+                ->select('question_marker_tag.question_id', 'question_marker_tag.marker', 'tags.id', 'tags.name', 'tags.category')
+                ->get();
+
+            // Follow the scalar query's row order; do not sort or dedupe tags.
+            foreach ($rows as $row) {
+                $result[$row->question_id][$row->marker][] = [
+                    'id' => $row->id,
+                    'name' => $row->name,
+                    'category' => $row->category,
+                ];
+            }
         }
 
         return $result;

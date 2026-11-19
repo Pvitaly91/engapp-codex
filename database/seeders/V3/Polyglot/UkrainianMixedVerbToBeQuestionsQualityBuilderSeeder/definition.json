@@ -1,0 +1,4220 @@
+{
+    "schema_version": 1,
+    "quality_revision": "verb-to-be-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-to-be-quality/questions.v1.json",
+        "sha256": "abd25b155a144f488d6cdce0c26c132b9f3daf2565ff2dd3e70e58fa6cf56bfa"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedVerbToBeQuestionsQualityBuilderSeeder",
+        "uuid_namespace": "verb-to-be-quality-questions-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "verb_to_be_quality_questions": {
+            "name": "Verb to Be Quality: Питання та короткі відповіді з дієсловом бути"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_verb_to_be_questions": {
+            "name": "Verb to Be: Questions and Short Answers",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_verb_to_be_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "beq-questions-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Ти хочеш пити?",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Ти хочеш пити?",
+            "target_text": "Are you thirsty?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "verb_hint": "Побудуй пряме питання з формою «бути» до співрозмовника про спрагу.",
+                    "options": [
+                        "Are",
+                        "Isn't",
+                        "Aren't",
+                        "Wasn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Побудуй пряме питання з формою «бути» до співрозмовника про спрагу.",
+                    "options": [
+                        "you",
+                        "us",
+                        "them",
+                        "myself"
+                    ]
+                },
+                "a3": {
+                    "answer": "thirsty?",
+                    "verb_hint": "Побудуй пряме питання з формою «бути» до співрозмовника про спрагу.",
+                    "options": [
+                        "thirsty",
+                        "sad",
+                        "hungry",
+                        "clear"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй пряме питання з формою «бути» до співрозмовника про спрагу.",
+            "accepted_target_texts": [
+                "Are you thirsty?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are you",
+                "thirsty?"
+            ],
+            "token_groups": [
+                "Are you",
+                "thirsty?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Are",
+                "you",
+                "thirsty?"
+            ],
+            "options": [
+                "Are",
+                "Isn't",
+                "Aren't",
+                "Wasn't",
+                "you",
+                "us",
+                "them",
+                "myself",
+                "thirsty",
+                "sad",
+                "hungry",
+                "clear"
+            ],
+            "source_text_uk": "Ти хочеш пити?",
+            "options_by_marker": {
+                "a1": [
+                    "Are",
+                    "Isn't",
+                    "Aren't",
+                    "Wasn't"
+                ],
+                "a2": [
+                    "you",
+                    "us",
+                    "them",
+                    "myself"
+                ],
+                "a3": [
+                    "thirsty",
+                    "sad",
+                    "hungry",
+                    "clear"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "beq-questions-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Магазин зачинений?",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Магазин зачинений?",
+            "target_text": "Is the shop closed?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "verb_hint": "Постав форму «бути» перед назвою вже відомого магазину й запитай про його стан.",
+                    "options": [
+                        "Is",
+                        "Was",
+                        "Were",
+                        "Be"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Постав форму «бути» перед назвою вже відомого магазину й запитай про його стан.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a3": {
+                    "answer": "shop",
+                    "verb_hint": "Постав форму «бути» перед назвою вже відомого магазину й запитай про його стан.",
+                    "options": [
+                        "shop",
+                        "person",
+                        "water",
+                        "bread"
+                    ]
+                },
+                "a4": {
+                    "answer": "closed?",
+                    "verb_hint": "Постав форму «бути» перед назвою вже відомого магазину й запитай про його стан.",
+                    "options": [
+                        "closed",
+                        "liked",
+                        "wanted",
+                        "worked"
+                    ]
+                }
+            },
+            "verb_hint": "Постав форму «бути» перед назвою вже відомого магазину й запитай про його стан.",
+            "accepted_target_texts": [
+                "Is the shop closed?",
+                "Is the store closed?",
+                "Is the shop shut?",
+                "Is the store shut?"
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "store"
+                ],
+                "a4": [
+                    "shut?"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "store"
+                ],
+                "a4": [
+                    "shut?"
+                ]
+            },
+            "reorder_groups": [
+                "Is the shop",
+                "closed?"
+            ],
+            "token_groups": [
+                "Is the shop",
+                "closed?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Is",
+                "the",
+                "shop",
+                "closed?"
+            ],
+            "options": [
+                "Is",
+                "Was",
+                "Were",
+                "Be",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "shop",
+                "person",
+                "water",
+                "bread",
+                "closed",
+                "liked",
+                "wanted",
+                "worked"
+            ],
+            "source_text_uk": "Магазин зачинений?",
+            "options_by_marker": {
+                "a1": [
+                    "Is",
+                    "Was",
+                    "Were",
+                    "Be"
+                ],
+                "a2": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a3": [
+                    "shop",
+                    "person",
+                    "water",
+                    "bread"
+                ],
+                "a4": [
+                    "closed",
+                    "liked",
+                    "wanted",
+                    "worked"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "beq-questions-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Чому Лео сумний?",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Чому Лео сумний?",
+            "target_text": "Why is Leo sad?",
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "verb_hint": "Почни зі слова причини, далі постав форму «бути» перед іменем.",
+                    "options": [
+                        "Why",
+                        "Whoever",
+                        "Whatever",
+                        "Wherever"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Почни зі слова причини, далі постав форму «бути» перед іменем.",
+                    "options": [
+                        "is",
+                        "am",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a3": {
+                    "answer": "Leo",
+                    "verb_hint": "Почни зі слова причини, далі постав форму «бути» перед іменем.",
+                    "options": [
+                        "Leo",
+                        "Ben",
+                        "Anna",
+                        "Luca"
+                    ]
+                },
+                "a4": {
+                    "answer": "sad?",
+                    "verb_hint": "Почни зі слова причини, далі постав форму «бути» перед іменем.",
+                    "options": [
+                        "sad",
+                        "thirsty",
+                        "clear",
+                        "safe"
+                    ]
+                }
+            },
+            "verb_hint": "Почни зі слова причини, далі постав форму «бути» перед іменем.",
+            "accepted_target_texts": [
+                "Why is Leo sad?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why is",
+                "Leo sad?"
+            ],
+            "token_groups": [
+                "Why is",
+                "Leo sad?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Why",
+                "is",
+                "Leo",
+                "sad?"
+            ],
+            "options": [
+                "Why",
+                "Whoever",
+                "Whatever",
+                "Wherever",
+                "is",
+                "am",
+                "are",
+                "was",
+                "Leo",
+                "Ben",
+                "Anna",
+                "Luca",
+                "sad",
+                "thirsty",
+                "clear",
+                "safe"
+            ],
+            "source_text_uk": "Чому Лео сумний?",
+            "options_by_marker": {
+                "a1": [
+                    "Why",
+                    "Whoever",
+                    "Whatever",
+                    "Wherever"
+                ],
+                "a2": [
+                    "is",
+                    "am",
+                    "are",
+                    "was"
+                ],
+                "a3": [
+                    "Leo",
+                    "Ben",
+                    "Anna",
+                    "Luca"
+                ],
+                "a4": [
+                    "sad",
+                    "thirsty",
+                    "clear",
+                    "safe"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "beq-questions-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Твоя сестра боїться висоти?",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Твоя сестра боїться висоти?",
+            "target_text": "Is your sister afraid of heights?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "verb_hint": "Склади пряме питання про страх сестри перед висотою.",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Was",
+                        "Were"
+                    ]
+                },
+                "a2": {
+                    "answer": "your",
+                    "verb_hint": "Склади пряме питання про страх сестри перед висотою.",
+                    "options": [
+                        "your",
+                        "his",
+                        "her",
+                        "its"
+                    ]
+                },
+                "a3": {
+                    "answer": "sister",
+                    "verb_hint": "Склади пряме питання про страх сестри перед висотою.",
+                    "options": [
+                        "sister",
+                        "far",
+                        "beach",
+                        "hotel"
+                    ]
+                },
+                "a4": {
+                    "answer": "afraid",
+                    "verb_hint": "Склади пряме питання про страх сестри перед висотою.",
+                    "options": [
+                        "afraid",
+                        "ready",
+                        "eat",
+                        "child"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Склади пряме питання про страх сестри перед висотою.",
+                    "options": [
+                        "of",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a6": {
+                    "answer": "heights?",
+                    "verb_hint": "Склади пряме питання про страх сестри перед висотою.",
+                    "options": [
+                        "heights",
+                        "apples",
+                        "windows",
+                        "phones"
+                    ]
+                }
+            },
+            "verb_hint": "Склади пряме питання про страх сестри перед висотою.",
+            "accepted_target_texts": [
+                "Is your sister afraid of heights?",
+                "Is your sister scared of heights?"
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "scared"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "scared"
+                ]
+            },
+            "reorder_groups": [
+                "Is your sister",
+                "afraid of",
+                "heights?"
+            ],
+            "token_groups": [
+                "Is your sister",
+                "afraid of",
+                "heights?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Is",
+                "your",
+                "sister",
+                "afraid",
+                "of",
+                "heights?"
+            ],
+            "options": [
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "your",
+                "his",
+                "her",
+                "its",
+                "sister",
+                "far",
+                "beach",
+                "hotel",
+                "afraid",
+                "ready",
+                "eat",
+                "child",
+                "of",
+                "in",
+                "on",
+                "at",
+                "heights",
+                "apples",
+                "windows",
+                "phones"
+            ],
+            "source_text_uk": "Твоя сестра боїться висоти?",
+            "options_by_marker": {
+                "a1": [
+                    "Is",
+                    "Are",
+                    "Was",
+                    "Were"
+                ],
+                "a2": [
+                    "your",
+                    "his",
+                    "her",
+                    "its"
+                ],
+                "a3": [
+                    "sister",
+                    "far",
+                    "beach",
+                    "hotel"
+                ],
+                "a4": [
+                    "afraid",
+                    "ready",
+                    "eat",
+                    "child"
+                ],
+                "a5": [
+                    "of",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a6": [
+                    "heights",
+                    "apples",
+                    "windows",
+                    "phones"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "beq-questions-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Як далеко пляж від нашого готелю?",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Як далеко пляж від нашого готелю?",
+            "target_text": "How far is the beach from our hotel?",
+            "markers": {
+                "a1": {
+                    "answer": "How",
+                    "verb_hint": "Почни з питального звороту про відстань і збережи початкову точку відліку.",
+                    "options": [
+                        "How",
+                        "Why",
+                        "Whoever",
+                        "Whatever"
+                    ]
+                },
+                "a2": {
+                    "answer": "far",
+                    "verb_hint": "Почни з питального звороту про відстань і збережи початкову точку відліку.",
+                    "options": [
+                        "far",
+                        "ready",
+                        "eat",
+                        "sister"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Почни з питального звороту про відстань і збережи початкову точку відліку.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з питального звороту про відстань і збережи початкову точку відліку.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a5": {
+                    "answer": "beach",
+                    "verb_hint": "Почни з питального звороту про відстань і збережи початкову точку відліку.",
+                    "options": [
+                        "beach",
+                        "afraid",
+                        "school",
+                        "brother"
+                    ]
+                },
+                "a6": {
+                    "answer": "from",
+                    "verb_hint": "Почни з питального звороту про відстань і збережи початкову точку відліку.",
+                    "options": [
+                        "from",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a7": {
+                    "answer": "our",
+                    "verb_hint": "Почни з питального звороту про відстань і збережи початкову точку відліку.",
+                    "options": [
+                        "our",
+                        "her",
+                        "its",
+                        "their"
+                    ]
+                },
+                "a8": {
+                    "answer": "hotel?",
+                    "verb_hint": "Почни з питального звороту про відстань і збережи початкову точку відліку.",
+                    "options": [
+                        "hotel",
+                        "map",
+                        "letter",
+                        "window"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з питального звороту про відстань і збережи початкову точку відліку.",
+            "accepted_target_texts": [
+                "How far is the beach from our hotel?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How far",
+                "is the beach",
+                "from our hotel?"
+            ],
+            "token_groups": [
+                "How far",
+                "is the beach",
+                "from our hotel?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "How",
+                "far",
+                "is",
+                "the",
+                "beach",
+                "from",
+                "our",
+                "hotel?"
+            ],
+            "options": [
+                "How",
+                "Why",
+                "Whoever",
+                "Whatever",
+                "far",
+                "ready",
+                "eat",
+                "sister",
+                "is",
+                "are",
+                "was",
+                "were",
+                "the",
+                "those",
+                "each",
+                "every",
+                "beach",
+                "afraid",
+                "school",
+                "brother",
+                "from",
+                "among",
+                "about",
+                "during",
+                "our",
+                "her",
+                "its",
+                "their",
+                "hotel",
+                "map",
+                "letter",
+                "window"
+            ],
+            "source_text_uk": "Як далеко пляж від нашого готелю?",
+            "options_by_marker": {
+                "a1": [
+                    "How",
+                    "Why",
+                    "Whoever",
+                    "Whatever"
+                ],
+                "a2": [
+                    "far",
+                    "ready",
+                    "eat",
+                    "sister"
+                ],
+                "a3": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a4": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a5": [
+                    "beach",
+                    "afraid",
+                    "school",
+                    "brother"
+                ],
+                "a6": [
+                    "from",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a7": [
+                    "our",
+                    "her",
+                    "its",
+                    "their"
+                ],
+                "a8": [
+                    "hotel",
+                    "map",
+                    "letter",
+                    "window"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "beq-questions-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Ці яблука вже можна їсти?",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Ці яблука вже можна їсти?",
+            "target_text": "Are these apples ready to eat?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "verb_hint": "Запитай, чи названі яблука готові до споживання.",
+                    "options": [
+                        "Are",
+                        "Was",
+                        "Were",
+                        "Be"
+                    ]
+                },
+                "a2": {
+                    "answer": "these",
+                    "verb_hint": "Запитай, чи названі яблука готові до споживання.",
+                    "options": [
+                        "these",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a3": {
+                    "answer": "apples",
+                    "verb_hint": "Запитай, чи названі яблука готові до споживання.",
+                    "options": [
+                        "apples",
+                        "heights",
+                        "boxes",
+                        "chairs"
+                    ]
+                },
+                "a4": {
+                    "answer": "ready",
+                    "verb_hint": "Запитай, чи названі яблука готові до споживання.",
+                    "options": [
+                        "ready",
+                        "hotel",
+                        "sister",
+                        "afraid"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Запитай, чи названі яблука готові до споживання.",
+                    "options": [
+                        "to",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a6": {
+                    "answer": "eat?",
+                    "verb_hint": "Запитай, чи названі яблука готові до споживання.",
+                    "options": [
+                        "eat",
+                        "far",
+                        "beach",
+                        "chair"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай, чи названі яблука готові до споживання.",
+            "accepted_target_texts": [
+                "Are these apples ready to eat?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are these apples",
+                "ready to eat?"
+            ],
+            "token_groups": [
+                "Are these apples",
+                "ready to eat?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Are",
+                "these",
+                "apples",
+                "ready",
+                "to",
+                "eat?"
+            ],
+            "options": [
+                "Are",
+                "Was",
+                "Were",
+                "Be",
+                "these",
+                "those",
+                "each",
+                "every",
+                "apples",
+                "heights",
+                "boxes",
+                "chairs",
+                "ready",
+                "hotel",
+                "sister",
+                "afraid",
+                "to",
+                "over",
+                "under",
+                "through",
+                "eat",
+                "far",
+                "beach",
+                "chair"
+            ],
+            "source_text_uk": "Ці яблука вже можна їсти?",
+            "options_by_marker": {
+                "a1": [
+                    "Are",
+                    "Was",
+                    "Were",
+                    "Be"
+                ],
+                "a2": [
+                    "these",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a3": [
+                    "apples",
+                    "heights",
+                    "boxes",
+                    "chairs"
+                ],
+                "a4": [
+                    "ready",
+                    "hotel",
+                    "sister",
+                    "afraid"
+                ],
+                "a5": [
+                    "to",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a6": [
+                    "eat",
+                    "far",
+                    "beach",
+                    "chair"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "beq-questions-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Ти певен, що цей маршрут безпечний?",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Ти певен, що цей маршрут безпечний?",
+            "target_text": "Are you certain that this route is safe?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "verb_hint": "Запитай про впевненість співрозмовника, зберігши підрядну частину про безпеку маршруту.",
+                    "options": [
+                        "Are",
+                        "Was",
+                        "Were",
+                        "Be"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Запитай про впевненість співрозмовника, зберігши підрядну частину про безпеку маршруту.",
+                    "options": [
+                        "you",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a3": {
+                    "answer": "certain",
+                    "verb_hint": "Запитай про впевненість співрозмовника, зберігши підрядну частину про безпеку маршруту.",
+                    "options": [
+                        "certain",
+                        "than",
+                        "supplier",
+                        "price"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Запитай про впевненість співрозмовника, зберігши підрядну частину про безпеку маршруту.",
+                    "options": [
+                        "that",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a5": {
+                    "answer": "this",
+                    "verb_hint": "Запитай про впевненість співрозмовника, зберігши підрядну частину про безпеку маршруту.",
+                    "options": [
+                        "this",
+                        "these",
+                        "those",
+                        "another"
+                    ]
+                },
+                "a6": {
+                    "answer": "route",
+                    "verb_hint": "Запитай про впевненість співрозмовника, зберігши підрядну частину про безпеку маршруту.",
+                    "options": [
+                        "route",
+                        "higher",
+                        "friend",
+                        "dog"
+                    ]
+                },
+                "a7": {
+                    "answer": "is",
+                    "verb_hint": "Запитай про впевненість співрозмовника, зберігши підрядну частину про безпеку маршруту.",
+                    "options": [
+                        "is",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "safe?",
+                    "verb_hint": "Запитай про впевненість співрозмовника, зберігши підрядну частину про безпеку маршруту.",
+                    "options": [
+                        "safe",
+                        "friendly",
+                        "lovely",
+                        "final"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про впевненість співрозмовника, зберігши підрядну частину про безпеку маршруту.",
+            "accepted_target_texts": [
+                "Are you certain that this route is safe?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are you certain",
+                "that this route",
+                "is safe?"
+            ],
+            "token_groups": [
+                "Are you certain",
+                "that this route",
+                "is safe?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Are",
+                "you",
+                "certain",
+                "that",
+                "this",
+                "route",
+                "is",
+                "safe?"
+            ],
+            "options": [
+                "Are",
+                "Was",
+                "Were",
+                "Be",
+                "you",
+                "herself",
+                "ourselves",
+                "themselves",
+                "certain",
+                "than",
+                "supplier",
+                "price",
+                "that",
+                "each",
+                "every",
+                "no",
+                "this",
+                "these",
+                "those",
+                "another",
+                "route",
+                "higher",
+                "friend",
+                "dog",
+                "is",
+                "been",
+                "being",
+                "isn't",
+                "safe",
+                "friendly",
+                "lovely",
+                "final"
+            ],
+            "source_text_uk": "Ти певен, що цей маршрут безпечний?",
+            "options_by_marker": {
+                "a1": [
+                    "Are",
+                    "Was",
+                    "Were",
+                    "Be"
+                ],
+                "a2": [
+                    "you",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a3": [
+                    "certain",
+                    "than",
+                    "supplier",
+                    "price"
+                ],
+                "a4": [
+                    "that",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a5": [
+                    "this",
+                    "these",
+                    "those",
+                    "another"
+                ],
+                "a6": [
+                    "route",
+                    "higher",
+                    "friend",
+                    "dog"
+                ],
+                "a7": [
+                    "is",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a8": [
+                    "safe",
+                    "friendly",
+                    "lovely",
+                    "final"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "beq-questions-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Чому ціна вища, ніж ми очікували?",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Чому ціна вища, ніж ми очікували?",
+            "target_text": "Why is the price higher than we expected?",
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "verb_hint": "Збережи питальне слово причини й порівняння з очікуваною ціною.",
+                    "options": [
+                        "Why",
+                        "How",
+                        "Whoever",
+                        "Whatever"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Збережи питальне слово причини й порівняння з очікуваною ціною.",
+                    "options": [
+                        "is",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Збережи питальне слово причини й порівняння з очікуваною ціною.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a4": {
+                    "answer": "price",
+                    "verb_hint": "Збережи питальне слово причини й порівняння з очікуваною ціною.",
+                    "options": [
+                        "price",
+                        "route",
+                        "supplier",
+                        "certain"
+                    ]
+                },
+                "a5": {
+                    "answer": "higher",
+                    "verb_hint": "Збережи питальне слово причини й порівняння з очікуваною ціною.",
+                    "options": [
+                        "higher",
+                        "box",
+                        "chair",
+                        "table"
+                    ]
+                },
+                "a6": {
+                    "answer": "than",
+                    "verb_hint": "Збережи питальне слово причини й порівняння з очікуваною ціною.",
+                    "options": [
+                        "than",
+                        "music",
+                        "food",
+                        "bike"
+                    ]
+                },
+                "a7": {
+                    "answer": "we",
+                    "verb_hint": "Збережи питальне слово причини й порівняння з очікуваною ціною.",
+                    "options": [
+                        "we",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a8": {
+                    "answer": "expected?",
+                    "verb_hint": "Збережи питальне слово причини й порівняння з очікуваною ціною.",
+                    "options": [
+                        "expected",
+                        "received",
+                        "walked",
+                        "opened"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи питальне слово причини й порівняння з очікуваною ціною.",
+            "accepted_target_texts": [
+                "Why is the price higher than we expected?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why is",
+                "the price",
+                "higher than",
+                "we expected?"
+            ],
+            "token_groups": [
+                "Why is",
+                "the price",
+                "higher than",
+                "we expected?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Why",
+                "is",
+                "the",
+                "price",
+                "higher",
+                "than",
+                "we",
+                "expected?"
+            ],
+            "options": [
+                "Why",
+                "How",
+                "Whoever",
+                "Whatever",
+                "is",
+                "wasn't",
+                "weren't",
+                "am",
+                "the",
+                "those",
+                "each",
+                "every",
+                "price",
+                "route",
+                "supplier",
+                "certain",
+                "higher",
+                "box",
+                "chair",
+                "table",
+                "than",
+                "music",
+                "food",
+                "bike",
+                "we",
+                "myself",
+                "yourself",
+                "herself",
+                "expected",
+                "received",
+                "walked",
+                "opened"
+            ],
+            "source_text_uk": "Чому ціна вища, ніж ми очікували?",
+            "options_by_marker": {
+                "a1": [
+                    "Why",
+                    "How",
+                    "Whoever",
+                    "Whatever"
+                ],
+                "a2": [
+                    "is",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a3": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a4": [
+                    "price",
+                    "route",
+                    "supplier",
+                    "certain"
+                ],
+                "a5": [
+                    "higher",
+                    "box",
+                    "chair",
+                    "table"
+                ],
+                "a6": [
+                    "than",
+                    "music",
+                    "food",
+                    "bike"
+                ],
+                "a7": [
+                    "we",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a8": [
+                    "expected",
+                    "received",
+                    "walked",
+                    "opened"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "beq-questions-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Повідомлення, яке ти отримав, від нашого постачальника?",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Повідомлення, яке ти отримав, від нашого постачальника?",
+            "target_text": "Is the message you received from our supplier?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "verb_hint": "Побудуй пряме питання про джерело повідомлення та збережи означальну частину.",
+                    "options": [
+                        "Is",
+                        "Been",
+                        "Being",
+                        "Isn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй пряме питання про джерело повідомлення та збережи означальну частину.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a3": {
+                    "answer": "message",
+                    "verb_hint": "Побудуй пряме питання про джерело повідомлення та збережи означальну частину.",
+                    "options": [
+                        "message",
+                        "magazine",
+                        "card",
+                        "poster"
+                    ]
+                },
+                "a4": {
+                    "answer": "you",
+                    "verb_hint": "Побудуй пряме питання про джерело повідомлення та збережи означальну частину.",
+                    "options": [
+                        "you",
+                        "me",
+                        "him",
+                        "us"
+                    ]
+                },
+                "a5": {
+                    "answer": "received",
+                    "verb_hint": "Побудуй пряме питання про джерело повідомлення та збережи означальну частину.",
+                    "options": [
+                        "received",
+                        "expected",
+                        "helped",
+                        "waited"
+                    ]
+                },
+                "a6": {
+                    "answer": "from",
+                    "verb_hint": "Побудуй пряме питання про джерело повідомлення та збережи означальну частину.",
+                    "options": [
+                        "from",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a7": {
+                    "answer": "our",
+                    "verb_hint": "Побудуй пряме питання про джерело повідомлення та збережи означальну частину.",
+                    "options": [
+                        "our",
+                        "hers",
+                        "ours",
+                        "theirs"
+                    ]
+                },
+                "a8": {
+                    "answer": "supplier?",
+                    "verb_hint": "Побудуй пряме питання про джерело повідомлення та збережи означальну частину.",
+                    "options": [
+                        "supplier",
+                        "route",
+                        "price",
+                        "higher"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй пряме питання про джерело повідомлення та збережи означальну частину.",
+            "accepted_target_texts": [
+                "Is the message you received from our supplier?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is the message",
+                "you received",
+                "from our supplier?"
+            ],
+            "token_groups": [
+                "Is the message",
+                "you received",
+                "from our supplier?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Is",
+                "the",
+                "message",
+                "you",
+                "received",
+                "from",
+                "our",
+                "supplier?"
+            ],
+            "options": [
+                "Is",
+                "Been",
+                "Being",
+                "Isn't",
+                "the",
+                "any",
+                "this",
+                "that",
+                "message",
+                "magazine",
+                "card",
+                "poster",
+                "you",
+                "me",
+                "him",
+                "us",
+                "received",
+                "expected",
+                "helped",
+                "waited",
+                "from",
+                "by",
+                "with",
+                "without",
+                "our",
+                "hers",
+                "ours",
+                "theirs",
+                "supplier",
+                "route",
+                "price",
+                "higher"
+            ],
+            "source_text_uk": "Повідомлення, яке ти отримав, від нашого постачальника?",
+            "options_by_marker": {
+                "a1": [
+                    "Is",
+                    "Been",
+                    "Being",
+                    "Isn't"
+                ],
+                "a2": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a3": [
+                    "message",
+                    "magazine",
+                    "card",
+                    "poster"
+                ],
+                "a4": [
+                    "you",
+                    "me",
+                    "him",
+                    "us"
+                ],
+                "a5": [
+                    "received",
+                    "expected",
+                    "helped",
+                    "waited"
+                ],
+                "a6": [
+                    "from",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a7": [
+                    "our",
+                    "hers",
+                    "ours",
+                    "theirs"
+                ],
+                "a8": [
+                    "supplier",
+                    "route",
+                    "price",
+                    "higher"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "beq-questions-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Брак консультацій — справжня причина суперечки?",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Брак консультацій — справжня причина суперечки?",
+            "target_text": "Is the lack of consultation the real cause of the dispute?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "verb_hint": "Запитай про причинний зв'язок, почавши з форми для одного браку консультацій.",
+                    "options": [
+                        "Is",
+                        "Isn't",
+                        "Aren't",
+                        "Wasn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про причинний зв'язок, почавши з форми для одного браку консультацій.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a3": {
+                    "answer": "lack",
+                    "verb_hint": "Запитай про причинний зв'язок, почавши з форми для одного браку консультацій.",
+                    "options": [
+                        "lack",
+                        "scheme",
+                        "change",
+                        "apparent"
+                    ]
+                },
+                "a4": {
+                    "answer": "of",
+                    "verb_hint": "Запитай про причинний зв'язок, почавши з форми для одного браку консультацій.",
+                    "options": [
+                        "of",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a5": {
+                    "answer": "consultation",
+                    "verb_hint": "Запитай про причинний зв'язок, почавши з форми для одного браку консультацій.",
+                    "options": [
+                        "consultation",
+                        "everyone",
+                        "table",
+                        "ticket"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про причинний зв'язок, почавши з форми для одного браку консультацій.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a7": {
+                    "answer": "real",
+                    "verb_hint": "Запитай про причинний зв'язок, почавши з форми для одного браку консультацій.",
+                    "options": [
+                        "real",
+                        "train",
+                        "bus",
+                        "desk"
+                    ]
+                },
+                "a8": {
+                    "answer": "cause",
+                    "verb_hint": "Запитай про причинний зв'язок, почавши з форми для одного браку консультацій.",
+                    "options": [
+                        "cause",
+                        "food",
+                        "bike",
+                        "car"
+                    ]
+                },
+                "a9": {
+                    "answer": "of",
+                    "verb_hint": "Запитай про причинний зв'язок, почавши з форми для одного браку консультацій.",
+                    "options": [
+                        "of",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про причинний зв'язок, почавши з форми для одного браку консультацій.",
+                    "options": [
+                        "the",
+                        "this",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a11": {
+                    "answer": "dispute?",
+                    "verb_hint": "Запитай про причинний зв'язок, почавши з форми для одного браку консультацій.",
+                    "options": [
+                        "dispute",
+                        "letter",
+                        "window",
+                        "phone"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про причинний зв'язок, почавши з форми для одного браку консультацій.",
+            "accepted_target_texts": [
+                "Is the lack of consultation the real cause of the dispute?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is the lack",
+                "of consultation",
+                "the real cause",
+                "of the dispute?"
+            ],
+            "token_groups": [
+                "Is the lack",
+                "of consultation",
+                "the real cause",
+                "of the dispute?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Is",
+                "the",
+                "lack",
+                "of",
+                "consultation",
+                "the",
+                "real",
+                "cause",
+                "of",
+                "the",
+                "dispute?"
+            ],
+            "options": [
+                "Is",
+                "Isn't",
+                "Aren't",
+                "Wasn't",
+                "the",
+                "that",
+                "these",
+                "those",
+                "lack",
+                "scheme",
+                "change",
+                "apparent",
+                "of",
+                "through",
+                "across",
+                "between",
+                "consultation",
+                "everyone",
+                "table",
+                "ticket",
+                "no",
+                "another",
+                "either",
+                "real",
+                "train",
+                "bus",
+                "desk",
+                "cause",
+                "food",
+                "bike",
+                "car",
+                "in",
+                "on",
+                "at",
+                "this",
+                "each",
+                "every",
+                "dispute",
+                "letter",
+                "window",
+                "phone"
+            ],
+            "source_text_uk": "Брак консультацій — справжня причина суперечки?",
+            "options_by_marker": {
+                "a1": [
+                    "Is",
+                    "Isn't",
+                    "Aren't",
+                    "Wasn't"
+                ],
+                "a2": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a3": [
+                    "lack",
+                    "scheme",
+                    "change",
+                    "apparent"
+                ],
+                "a4": [
+                    "of",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a5": [
+                    "consultation",
+                    "everyone",
+                    "table",
+                    "ticket"
+                ],
+                "a6": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a7": [
+                    "real",
+                    "train",
+                    "bus",
+                    "desk"
+                ],
+                "a8": [
+                    "cause",
+                    "food",
+                    "bike",
+                    "car"
+                ],
+                "a9": [
+                    "of",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a10": [
+                    "the",
+                    "this",
+                    "each",
+                    "every"
+                ],
+                "a11": [
+                    "dispute",
+                    "letter",
+                    "window",
+                    "phone"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "beq-questions-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Наскільки ймовірно, що програма матиме успіх?",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Наскільки ймовірно, що програма матиме успіх?",
+            "target_text": "How likely is it that the scheme will succeed?",
+            "markers": {
+                "a1": {
+                    "answer": "How",
+                    "verb_hint": "Збережи формальний підмет у головному питанні та окремий прогноз у залежній частині.",
+                    "options": [
+                        "How",
+                        "Whenever",
+                        "Who",
+                        "Whom"
+                    ]
+                },
+                "a2": {
+                    "answer": "likely",
+                    "verb_hint": "Збережи формальний підмет у головному питанні та окремий прогноз у залежній частині.",
+                    "options": [
+                        "likely",
+                        "politely",
+                        "loudly",
+                        "quietly"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Збережи формальний підмет у головному питанні та окремий прогноз у залежній частині.",
+                    "options": [
+                        "is",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a4": {
+                    "answer": "it",
+                    "verb_hint": "Збережи формальний підмет у головному питанні та окремий прогноз у залежній частині.",
+                    "options": [
+                        "it",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a5": {
+                    "answer": "that",
+                    "verb_hint": "Збережи формальний підмет у головному питанні та окремий прогноз у залежній частині.",
+                    "options": [
+                        "that",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Збережи формальний підмет у головному питанні та окремий прогноз у залежній частині.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "scheme",
+                    "verb_hint": "Збережи формальний підмет у головному питанні та окремий прогноз у залежній частині.",
+                    "options": [
+                        "scheme",
+                        "change",
+                        "apparent",
+                        "everyone"
+                    ]
+                },
+                "a8": {
+                    "answer": "will",
+                    "verb_hint": "Збережи формальний підмет у головному питанні та окремий прогноз у залежній частині.",
+                    "options": [
+                        "will",
+                        "can",
+                        "could",
+                        "would"
+                    ]
+                },
+                "a9": {
+                    "answer": "succeed?",
+                    "verb_hint": "Збережи формальний підмет у головному питанні та окремий прогноз у залежній частині.",
+                    "options": [
+                        "succeed",
+                        "involved",
+                        "played",
+                        "called"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи формальний підмет у головному питанні та окремий прогноз у залежній частині.",
+            "accepted_target_texts": [
+                "How likely is it that the scheme will succeed?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How likely",
+                "is it",
+                "that the scheme",
+                "will succeed?"
+            ],
+            "token_groups": [
+                "How likely",
+                "is it",
+                "that the scheme",
+                "will succeed?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "How",
+                "likely",
+                "is",
+                "it",
+                "that",
+                "the",
+                "scheme",
+                "will",
+                "succeed?"
+            ],
+            "options": [
+                "How",
+                "Whenever",
+                "Who",
+                "Whom",
+                "likely",
+                "politely",
+                "loudly",
+                "quietly",
+                "is",
+                "wasn't",
+                "weren't",
+                "am",
+                "it",
+                "they",
+                "me",
+                "him",
+                "that",
+                "these",
+                "those",
+                "each",
+                "the",
+                "any",
+                "this",
+                "every",
+                "scheme",
+                "change",
+                "apparent",
+                "everyone",
+                "will",
+                "can",
+                "could",
+                "would",
+                "succeed",
+                "involved",
+                "played",
+                "called"
+            ],
+            "source_text_uk": "Наскільки ймовірно, що програма матиме успіх?",
+            "options_by_marker": {
+                "a1": [
+                    "How",
+                    "Whenever",
+                    "Who",
+                    "Whom"
+                ],
+                "a2": [
+                    "likely",
+                    "politely",
+                    "loudly",
+                    "quietly"
+                ],
+                "a3": [
+                    "is",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a4": [
+                    "it",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a5": [
+                    "that",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a6": [
+                    "the",
+                    "any",
+                    "this",
+                    "every"
+                ],
+                "a7": [
+                    "scheme",
+                    "change",
+                    "apparent",
+                    "everyone"
+                ],
+                "a8": [
+                    "will",
+                    "can",
+                    "could",
+                    "would"
+                ],
+                "a9": [
+                    "succeed",
+                    "involved",
+                    "played",
+                    "called"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "beq-questions-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Переваги зміни очевидні всім учасникам?",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Переваги зміни очевидні всім учасникам?",
+            "target_text": "Are the benefits of the change apparent to everyone involved?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "verb_hint": "Узгодь пряме питання з перевагами у множині й збережи всіх адресатів оцінки.",
+                    "options": [
+                        "Are",
+                        "Am",
+                        "Is",
+                        "Was"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Узгодь пряме питання з перевагами у множині й збережи всіх адресатів оцінки.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a3": {
+                    "answer": "benefits",
+                    "verb_hint": "Узгодь пряме питання з перевагами у множині й збережи всіх адресатів оцінки.",
+                    "options": [
+                        "benefits",
+                        "cars",
+                        "bags",
+                        "books"
+                    ]
+                },
+                "a4": {
+                    "answer": "of",
+                    "verb_hint": "Узгодь пряме питання з перевагами у множині й збережи всіх адресатів оцінки.",
+                    "options": [
+                        "of",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Узгодь пряме питання з перевагами у множині й збережи всіх адресатів оцінки.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a6": {
+                    "answer": "change",
+                    "verb_hint": "Узгодь пряме питання з перевагами у множині й збережи всіх адресатів оцінки.",
+                    "options": [
+                        "change",
+                        "cause",
+                        "dispute",
+                        "scheme"
+                    ]
+                },
+                "a7": {
+                    "answer": "apparent",
+                    "verb_hint": "Узгодь пряме питання з перевагами у множині й збережи всіх адресатів оцінки.",
+                    "options": [
+                        "apparent",
+                        "lack",
+                        "consultation",
+                        "real"
+                    ]
+                },
+                "a8": {
+                    "answer": "to",
+                    "verb_hint": "Узгодь пряме питання з перевагами у множині й збережи всіх адресатів оцінки.",
+                    "options": [
+                        "to",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a9": {
+                    "answer": "everyone",
+                    "verb_hint": "Узгодь пряме питання з перевагами у множині й збережи всіх адресатів оцінки.",
+                    "options": [
+                        "everyone",
+                        "bus",
+                        "desk",
+                        "picture"
+                    ]
+                },
+                "a10": {
+                    "answer": "involved?",
+                    "verb_hint": "Узгодь пряме питання з перевагами у множині й збережи всіх адресатів оцінки.",
+                    "options": [
+                        "involved",
+                        "succeed",
+                        "took",
+                        "wrote"
+                    ]
+                }
+            },
+            "verb_hint": "Узгодь пряме питання з перевагами у множині й збережи всіх адресатів оцінки.",
+            "accepted_target_texts": [
+                "Are the benefits of the change apparent to everyone involved?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are the benefits",
+                "of the change",
+                "apparent to",
+                "everyone involved?"
+            ],
+            "token_groups": [
+                "Are the benefits",
+                "of the change",
+                "apparent to",
+                "everyone involved?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Are",
+                "the",
+                "benefits",
+                "of",
+                "the",
+                "change",
+                "apparent",
+                "to",
+                "everyone",
+                "involved?"
+            ],
+            "options": [
+                "Are",
+                "Am",
+                "Is",
+                "Was",
+                "the",
+                "this",
+                "that",
+                "these",
+                "benefits",
+                "cars",
+                "bags",
+                "books",
+                "of",
+                "onto",
+                "over",
+                "under",
+                "every",
+                "no",
+                "another",
+                "change",
+                "cause",
+                "dispute",
+                "scheme",
+                "apparent",
+                "lack",
+                "consultation",
+                "real",
+                "to",
+                "in",
+                "on",
+                "at",
+                "everyone",
+                "bus",
+                "desk",
+                "picture",
+                "involved",
+                "succeed",
+                "took",
+                "wrote"
+            ],
+            "source_text_uk": "Переваги зміни очевидні всім учасникам?",
+            "options_by_marker": {
+                "a1": [
+                    "Are",
+                    "Am",
+                    "Is",
+                    "Was"
+                ],
+                "a2": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a3": [
+                    "benefits",
+                    "cars",
+                    "bags",
+                    "books"
+                ],
+                "a4": [
+                    "of",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a5": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a6": [
+                    "change",
+                    "cause",
+                    "dispute",
+                    "scheme"
+                ],
+                "a7": [
+                    "apparent",
+                    "lack",
+                    "consultation",
+                    "real"
+                ],
+                "a8": [
+                    "to",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a9": [
+                    "everyone",
+                    "bus",
+                    "desk",
+                    "picture"
+                ],
+                "a10": [
+                    "involved",
+                    "succeed",
+                    "took",
+                    "wrote"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "beq-questions-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Те, що пам'ятає свідок, сумісне зі збереженими записами?",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Те, що пам'ятає свідок, сумісне зі збереженими записами?",
+            "target_text": "Is what the witness recalls compatible with the surviving records?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "verb_hint": "Склади пряме питання з цілою підметовою частиною та збережи об'єкт порівняння.",
+                    "options": [
+                        "Is",
+                        "Wasn't",
+                        "Weren't",
+                        "Am"
+                    ]
+                },
+                "a2": {
+                    "answer": "what",
+                    "verb_hint": "Склади пряме питання з цілою підметовою частиною та збережи об'єкт порівняння.",
+                    "options": [
+                        "what",
+                        "wherever",
+                        "whenever",
+                        "who"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Склади пряме питання з цілою підметовою частиною та збережи об'єкт порівняння.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a4": {
+                    "answer": "witness",
+                    "verb_hint": "Склади пряме питання з цілою підметовою частиною та збережи об'єкт порівняння.",
+                    "options": [
+                        "witness",
+                        "far",
+                        "relevant",
+                        "question"
+                    ]
+                },
+                "a5": {
+                    "answer": "recalls",
+                    "verb_hint": "Склади пряме питання з цілою підметовою частиною та збережи об'єкт порівняння.",
+                    "options": [
+                        "recalls",
+                        "reservations",
+                        "bikes",
+                        "cars"
+                    ]
+                },
+                "a6": {
+                    "answer": "compatible",
+                    "verb_hint": "Склади пряме питання з цілою підметовою частиною та збережи об'єкт порівняння.",
+                    "options": [
+                        "compatible",
+                        "warm",
+                        "quiet",
+                        "hungry"
+                    ]
+                },
+                "a7": {
+                    "answer": "with",
+                    "verb_hint": "Склади пряме питання з цілою підметовою частиною та збережи об'єкт порівняння.",
+                    "options": [
+                        "with",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Склади пряме питання з цілою підметовою частиною та збережи об'єкт порівняння.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a9": {
+                    "answer": "surviving",
+                    "verb_hint": "Склади пряме питання з цілою підметовою частиною та збережи об'єкт порівняння.",
+                    "options": [
+                        "surviving",
+                        "taking",
+                        "working",
+                        "playing"
+                    ]
+                },
+                "a10": {
+                    "answer": "records?",
+                    "verb_hint": "Склади пряме питання з цілою підметовою частиною та збережи об'єкт порівняння.",
+                    "options": [
+                        "records",
+                        "women",
+                        "bags",
+                        "books"
+                    ]
+                }
+            },
+            "verb_hint": "Склади пряме питання з цілою підметовою частиною та збережи об'єкт порівняння.",
+            "accepted_target_texts": [
+                "Is what the witness recalls compatible with the surviving records?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is what",
+                "the witness recalls",
+                "compatible with",
+                "the surviving records?"
+            ],
+            "token_groups": [
+                "Is what",
+                "the witness recalls",
+                "compatible with",
+                "the surviving records?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Is",
+                "what",
+                "the",
+                "witness",
+                "recalls",
+                "compatible",
+                "with",
+                "the",
+                "surviving",
+                "records?"
+            ],
+            "options": [
+                "Is",
+                "Wasn't",
+                "Weren't",
+                "Am",
+                "what",
+                "wherever",
+                "whenever",
+                "who",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "witness",
+                "far",
+                "relevant",
+                "question",
+                "recalls",
+                "reservations",
+                "bikes",
+                "cars",
+                "compatible",
+                "warm",
+                "quiet",
+                "hungry",
+                "with",
+                "through",
+                "across",
+                "between",
+                "an",
+                "some",
+                "any",
+                "surviving",
+                "taking",
+                "working",
+                "playing",
+                "records",
+                "women",
+                "bags",
+                "books"
+            ],
+            "source_text_uk": "Те, що пам'ятає свідок, сумісне зі збереженими записами?",
+            "options_by_marker": {
+                "a1": [
+                    "Is",
+                    "Wasn't",
+                    "Weren't",
+                    "Am"
+                ],
+                "a2": [
+                    "what",
+                    "wherever",
+                    "whenever",
+                    "who"
+                ],
+                "a3": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a4": [
+                    "witness",
+                    "far",
+                    "relevant",
+                    "question"
+                ],
+                "a5": [
+                    "recalls",
+                    "reservations",
+                    "bikes",
+                    "cars"
+                ],
+                "a6": [
+                    "compatible",
+                    "warm",
+                    "quiet",
+                    "hungry"
+                ],
+                "a7": [
+                    "with",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a8": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a9": [
+                    "surviving",
+                    "taking",
+                    "working",
+                    "playing"
+                ],
+                "a10": [
+                    "records",
+                    "women",
+                    "bags",
+                    "books"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "beq-questions-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Наскільки ці застереження стосуються питання, яке розглядає суд?",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Наскільки ці застереження стосуються питання, яке розглядає суд?",
+            "target_text": "How far are these reservations relevant to the question before the court?",
+            "markers": {
+                "a1": {
+                    "answer": "How",
+                    "verb_hint": "Передай ступінь доречності застережень щодо конкретного судового питання.",
+                    "options": [
+                        "How",
+                        "Whoever",
+                        "Whatever",
+                        "Wherever"
+                    ]
+                },
+                "a2": {
+                    "answer": "far",
+                    "verb_hint": "Передай ступінь доречності застережень щодо конкретного судового питання.",
+                    "options": [
+                        "far",
+                        "infer",
+                        "agreement",
+                        "absence"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Передай ступінь доречності застережень щодо конкретного судового питання.",
+                    "options": [
+                        "are",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a4": {
+                    "answer": "these",
+                    "verb_hint": "Передай ступінь доречності застережень щодо конкретного судового питання.",
+                    "options": [
+                        "these",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "reservations",
+                    "verb_hint": "Передай ступінь доречності застережень щодо конкретного судового питання.",
+                    "options": [
+                        "reservations",
+                        "recalls",
+                        "records",
+                        "letters"
+                    ]
+                },
+                "a6": {
+                    "answer": "relevant",
+                    "verb_hint": "Передай ступінь доречності застережень щодо конкретного судового питання.",
+                    "options": [
+                        "relevant",
+                        "witness",
+                        "phone",
+                        "train"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Передай ступінь доречності застережень щодо конкретного судового питання.",
+                    "options": [
+                        "to",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Передай ступінь доречності застережень щодо конкретного судового питання.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a9": {
+                    "answer": "question",
+                    "verb_hint": "Передай ступінь доречності застережень щодо конкретного судового питання.",
+                    "options": [
+                        "question",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a10": {
+                    "answer": "before",
+                    "verb_hint": "Передай ступінь доречності застережень щодо конкретного судового питання.",
+                    "options": [
+                        "before",
+                        "bus",
+                        "desk",
+                        "picture"
+                    ]
+                },
+                "a11": {
+                    "answer": "the",
+                    "verb_hint": "Передай ступінь доречності застережень щодо конкретного судового питання.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a12": {
+                    "answer": "court?",
+                    "verb_hint": "Передай ступінь доречності застережень щодо конкретного судового питання.",
+                    "options": [
+                        "court",
+                        "box",
+                        "chair",
+                        "table"
+                    ]
+                }
+            },
+            "verb_hint": "Передай ступінь доречності застережень щодо конкретного судового питання.",
+            "accepted_target_texts": [
+                "How far are these reservations relevant to the question before the court?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How far",
+                "are these reservations",
+                "relevant to",
+                "the question",
+                "before the court?"
+            ],
+            "token_groups": [
+                "How far",
+                "are these reservations",
+                "relevant to",
+                "the question",
+                "before the court?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "How",
+                "far",
+                "are",
+                "these",
+                "reservations",
+                "relevant",
+                "to",
+                "the",
+                "question",
+                "before",
+                "the",
+                "court?"
+            ],
+            "options": [
+                "How",
+                "Whoever",
+                "Whatever",
+                "Wherever",
+                "far",
+                "infer",
+                "agreement",
+                "absence",
+                "are",
+                "weren't",
+                "am",
+                "is",
+                "these",
+                "both",
+                "a",
+                "an",
+                "reservations",
+                "recalls",
+                "records",
+                "letters",
+                "relevant",
+                "witness",
+                "phone",
+                "train",
+                "to",
+                "across",
+                "between",
+                "among",
+                "the",
+                "those",
+                "each",
+                "every",
+                "question",
+                "school",
+                "sister",
+                "brother",
+                "before",
+                "bus",
+                "desk",
+                "picture",
+                "some",
+                "any",
+                "this",
+                "court",
+                "box",
+                "chair",
+                "table"
+            ],
+            "source_text_uk": "Наскільки ці застереження стосуються питання, яке розглядає суд?",
+            "options_by_marker": {
+                "a1": [
+                    "How",
+                    "Whoever",
+                    "Whatever",
+                    "Wherever"
+                ],
+                "a2": [
+                    "far",
+                    "infer",
+                    "agreement",
+                    "absence"
+                ],
+                "a3": [
+                    "are",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a4": [
+                    "these",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a5": [
+                    "reservations",
+                    "recalls",
+                    "records",
+                    "letters"
+                ],
+                "a6": [
+                    "relevant",
+                    "witness",
+                    "phone",
+                    "train"
+                ],
+                "a7": [
+                    "to",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a8": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a9": [
+                    "question",
+                    "school",
+                    "sister",
+                    "brother"
+                ],
+                "a10": [
+                    "before",
+                    "bus",
+                    "desk",
+                    "picture"
+                ],
+                "a11": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a12": [
+                    "court",
+                    "box",
+                    "chair",
+                    "table"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "beq-questions-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Чи маємо ми право робити висновок про згоду з відсутності відповіді?",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Чи маємо ми право робити висновок про згоду з відсутності відповіді?",
+            "target_text": "Are we entitled to infer agreement from the absence of a reply?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "verb_hint": "Збережи питання про обґрунтованість висновку, а не про факт згоди.",
+                    "options": [
+                        "Are",
+                        "Aren't",
+                        "Wasn't",
+                        "Weren't"
+                    ]
+                },
+                "a2": {
+                    "answer": "we",
+                    "verb_hint": "Збережи питання про обґрунтованість висновку, а не про факт згоди.",
+                    "options": [
+                        "we",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a3": {
+                    "answer": "entitled",
+                    "verb_hint": "Збережи питання про обґрунтованість висновку, а не про факт згоди.",
+                    "options": [
+                        "entitled",
+                        "played",
+                        "called",
+                        "walked"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Збережи питання про обґрунтованість висновку, а не про факт згоди.",
+                    "options": [
+                        "to",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a5": {
+                    "answer": "infer",
+                    "verb_hint": "Збережи питання про обґрунтованість висновку, а не про факт згоди.",
+                    "options": [
+                        "infer",
+                        "question",
+                        "before",
+                        "court"
+                    ]
+                },
+                "a6": {
+                    "answer": "agreement",
+                    "verb_hint": "Збережи питання про обґрунтованість висновку, а не про факт згоди.",
+                    "options": [
+                        "agreement",
+                        "witness",
+                        "far",
+                        "relevant"
+                    ]
+                },
+                "a7": {
+                    "answer": "from",
+                    "verb_hint": "Збережи питання про обґрунтованість висновку, а не про факт згоди.",
+                    "options": [
+                        "from",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Збережи питання про обґрунтованість висновку, а не про факт згоди.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a9": {
+                    "answer": "absence",
+                    "verb_hint": "Збережи питання про обґрунтованість висновку, а не про факт згоди.",
+                    "options": [
+                        "absence",
+                        "picture",
+                        "child",
+                        "teacher"
+                    ]
+                },
+                "a10": {
+                    "answer": "of",
+                    "verb_hint": "Збережи питання про обґрунтованість висновку, а не про факт згоди.",
+                    "options": [
+                        "of",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a11": {
+                    "answer": "a",
+                    "verb_hint": "Збережи питання про обґрунтованість висновку, а не про факт згоди.",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a12": {
+                    "answer": "reply?",
+                    "verb_hint": "Збережи питання про обґрунтованість висновку, а не про факт згоди.",
+                    "options": [
+                        "reply",
+                        "safely",
+                        "happily",
+                        "easily"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи питання про обґрунтованість висновку, а не про факт згоди.",
+            "accepted_target_texts": [
+                "Are we entitled to infer agreement from the absence of a reply?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are we",
+                "entitled to infer",
+                "agreement from",
+                "the absence",
+                "of a reply?"
+            ],
+            "token_groups": [
+                "Are we",
+                "entitled to infer",
+                "agreement from",
+                "the absence",
+                "of a reply?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Are",
+                "we",
+                "entitled",
+                "to",
+                "infer",
+                "agreement",
+                "from",
+                "the",
+                "absence",
+                "of",
+                "a",
+                "reply?"
+            ],
+            "options": [
+                "Are",
+                "Aren't",
+                "Wasn't",
+                "Weren't",
+                "we",
+                "myself",
+                "yourself",
+                "herself",
+                "entitled",
+                "played",
+                "called",
+                "walked",
+                "to",
+                "in",
+                "on",
+                "at",
+                "infer",
+                "question",
+                "before",
+                "court",
+                "agreement",
+                "witness",
+                "far",
+                "relevant",
+                "from",
+                "over",
+                "under",
+                "through",
+                "the",
+                "those",
+                "each",
+                "every",
+                "absence",
+                "picture",
+                "child",
+                "teacher",
+                "of",
+                "across",
+                "between",
+                "among",
+                "a",
+                "an",
+                "some",
+                "any",
+                "reply",
+                "safely",
+                "happily",
+                "easily"
+            ],
+            "source_text_uk": "Чи маємо ми право робити висновок про згоду з відсутності відповіді?",
+            "options_by_marker": {
+                "a1": [
+                    "Are",
+                    "Aren't",
+                    "Wasn't",
+                    "Weren't"
+                ],
+                "a2": [
+                    "we",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a3": [
+                    "entitled",
+                    "played",
+                    "called",
+                    "walked"
+                ],
+                "a4": [
+                    "to",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a5": [
+                    "infer",
+                    "question",
+                    "before",
+                    "court"
+                ],
+                "a6": [
+                    "agreement",
+                    "witness",
+                    "far",
+                    "relevant"
+                ],
+                "a7": [
+                    "from",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a8": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a9": [
+                    "absence",
+                    "picture",
+                    "child",
+                    "teacher"
+                ],
+                "a10": [
+                    "of",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a11": [
+                    "a",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a12": [
+                    "reply",
+                    "safely",
+                    "happily",
+                    "easily"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "beq-questions-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Передумова, від якої залежить цей висновок, хоч трохи менш спірна за сам висновок?",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Передумова, від якої залежить цей висновок, хоч трохи менш спірна за сам висновок?",
+            "target_text": "Is the premise on which that conclusion depends any less contestable than the conclusion itself?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+                    "options": [
+                        "Is",
+                        "Am",
+                        "Are",
+                        "Was"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a3": {
+                    "answer": "premise",
+                    "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+                    "options": [
+                        "premise",
+                        "outcome",
+                        "sovereignty",
+                        "legal"
+                    ]
+                },
+                "a4": {
+                    "answer": "on",
+                    "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+                    "options": [
+                        "on",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a5": {
+                    "answer": "which",
+                    "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+                    "options": [
+                        "which",
+                        "who",
+                        "whom",
+                        "what"
+                    ]
+                },
+                "a6": {
+                    "answer": "that",
+                    "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+                    "options": [
+                        "that",
+                        "this",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a7": {
+                    "answer": "conclusion",
+                    "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+                    "options": [
+                        "conclusion",
+                        "order",
+                        "consistency",
+                        "procedure"
+                    ]
+                },
+                "a8": {
+                    "answer": "depends",
+                    "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+                    "options": [
+                        "depends",
+                        "claims",
+                        "cats",
+                        "people"
+                    ]
+                },
+                "a9": {
+                    "answer": "any",
+                    "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+                    "options": [
+                        "any",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a10": {
+                    "answer": "less",
+                    "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+                    "options": [
+                        "less",
+                        "compatible",
+                        "decisive",
+                        "friendly"
+                    ]
+                },
+                "a11": {
+                    "answer": "contestable",
+                    "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+                    "options": [
+                        "contestable",
+                        "dark",
+                        "heavy",
+                        "light"
+                    ]
+                },
+                "a12": {
+                    "answer": "than",
+                    "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+                    "options": [
+                        "than",
+                        "fairness",
+                        "child",
+                        "teacher"
+                    ]
+                },
+                "a13": {
+                    "answer": "the",
+                    "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a14": {
+                    "answer": "conclusion",
+                    "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+                    "options": [
+                        "conclusion",
+                        "bag",
+                        "book",
+                        "box"
+                    ]
+                },
+                "a15": {
+                    "answer": "itself?",
+                    "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+                    "options": [
+                        "itself",
+                        "chair",
+                        "table",
+                        "ticket"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи повне питання з означенням передумови та порівнянням її спірності.",
+            "accepted_target_texts": [
+                "Is the premise on which that conclusion depends any less contestable than the conclusion itself?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is the premise",
+                "on which",
+                "that conclusion depends",
+                "any less contestable",
+                "than the conclusion",
+                "itself?"
+            ],
+            "token_groups": [
+                "Is the premise",
+                "on which",
+                "that conclusion depends",
+                "any less contestable",
+                "than the conclusion",
+                "itself?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Is",
+                "the",
+                "premise",
+                "on",
+                "which",
+                "that",
+                "conclusion",
+                "depends",
+                "any",
+                "less",
+                "contestable",
+                "than",
+                "the",
+                "conclusion",
+                "itself?"
+            ],
+            "options": [
+                "Is",
+                "Am",
+                "Are",
+                "Was",
+                "the",
+                "these",
+                "those",
+                "each",
+                "premise",
+                "outcome",
+                "sovereignty",
+                "legal",
+                "on",
+                "by",
+                "with",
+                "without",
+                "which",
+                "who",
+                "whom",
+                "what",
+                "that",
+                "this",
+                "every",
+                "no",
+                "conclusion",
+                "order",
+                "consistency",
+                "procedure",
+                "depends",
+                "claims",
+                "cats",
+                "people",
+                "any",
+                "another",
+                "either",
+                "neither",
+                "less",
+                "compatible",
+                "decisive",
+                "friendly",
+                "contestable",
+                "dark",
+                "heavy",
+                "light",
+                "than",
+                "fairness",
+                "child",
+                "teacher",
+                "all",
+                "both",
+                "a",
+                "bag",
+                "book",
+                "box",
+                "itself",
+                "chair",
+                "table",
+                "ticket"
+            ],
+            "source_text_uk": "Передумова, від якої залежить цей висновок, хоч трохи менш спірна за сам висновок?",
+            "options_by_marker": {
+                "a1": [
+                    "Is",
+                    "Am",
+                    "Are",
+                    "Was"
+                ],
+                "a2": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a3": [
+                    "premise",
+                    "outcome",
+                    "sovereignty",
+                    "legal"
+                ],
+                "a4": [
+                    "on",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a5": [
+                    "which",
+                    "who",
+                    "whom",
+                    "what"
+                ],
+                "a6": [
+                    "that",
+                    "this",
+                    "every",
+                    "no"
+                ],
+                "a7": [
+                    "conclusion",
+                    "order",
+                    "consistency",
+                    "procedure"
+                ],
+                "a8": [
+                    "depends",
+                    "claims",
+                    "cats",
+                    "people"
+                ],
+                "a9": [
+                    "any",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a10": [
+                    "less",
+                    "compatible",
+                    "decisive",
+                    "friendly"
+                ],
+                "a11": [
+                    "contestable",
+                    "dark",
+                    "heavy",
+                    "light"
+                ],
+                "a12": [
+                    "than",
+                    "fairness",
+                    "child",
+                    "teacher"
+                ],
+                "a13": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a14": [
+                    "conclusion",
+                    "bag",
+                    "book",
+                    "box"
+                ],
+                "a15": [
+                    "itself",
+                    "chair",
+                    "table",
+                    "ticket"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "beq-questions-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Наскільки конкурентні претензії на суверенітет сумісні зі справді спільним правопорядком?",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Наскільки конкурентні претензії на суверенітет сумісні зі справді спільним правопорядком?",
+            "target_text": "How compatible are competing claims to sovereignty with a genuinely shared legal order?",
+            "markers": {
+                "a1": {
+                    "answer": "How",
+                    "verb_hint": "Почни з питальної характеристики сумісності й узгодь зв'язку з претензіями в множині.",
+                    "options": [
+                        "How",
+                        "Why",
+                        "Whoever",
+                        "Whatever"
+                    ]
+                },
+                "a2": {
+                    "answer": "compatible",
+                    "verb_hint": "Почни з питальної характеристики сумісності й узгодь зв'язку з претензіями в множині.",
+                    "options": [
+                        "compatible",
+                        "decisive",
+                        "less",
+                        "contestable"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Почни з питальної характеристики сумісності й узгодь зв'язку з претензіями в множині.",
+                    "options": [
+                        "are",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a4": {
+                    "answer": "competing",
+                    "verb_hint": "Почни з питальної характеристики сумісності й узгодь зв'язку з претензіями в множині.",
+                    "options": [
+                        "competing",
+                        "riding",
+                        "driving",
+                        "studying"
+                    ]
+                },
+                "a5": {
+                    "answer": "claims",
+                    "verb_hint": "Почни з питальної характеристики сумісності й узгодь зв'язку з претензіями в множині.",
+                    "options": [
+                        "claims",
+                        "depends",
+                        "letters",
+                        "windows"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Почни з питальної характеристики сумісності й узгодь зв'язку з претензіями в множині.",
+                    "options": [
+                        "to",
+                        "by",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a7": {
+                    "answer": "sovereignty",
+                    "verb_hint": "Почни з питальної характеристики сумісності й узгодь зв'язку з претензіями в множині.",
+                    "options": [
+                        "sovereignty",
+                        "outcome",
+                        "premise",
+                        "conclusion"
+                    ]
+                },
+                "a8": {
+                    "answer": "with",
+                    "verb_hint": "Почни з питальної характеристики сумісності й узгодь зв'язку з претензіями в множині.",
+                    "options": [
+                        "with",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a9": {
+                    "answer": "a",
+                    "verb_hint": "Почни з питальної характеристики сумісності й узгодь зв'язку з претензіями в множині.",
+                    "options": [
+                        "a",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a10": {
+                    "answer": "genuinely",
+                    "verb_hint": "Почни з питальної характеристики сумісності й узгодь зв'язку з претензіями в множині.",
+                    "options": [
+                        "genuinely",
+                        "carefully",
+                        "well",
+                        "badly"
+                    ]
+                },
+                "a11": {
+                    "answer": "shared",
+                    "verb_hint": "Почни з питальної характеристики сумісності й узгодь зв'язку з претензіями в множині.",
+                    "options": [
+                        "shared",
+                        "took",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a12": {
+                    "answer": "legal",
+                    "verb_hint": "Почни з питальної характеристики сумісності й узгодь зв'язку з претензіями в множині.",
+                    "options": [
+                        "legal",
+                        "itself",
+                        "consistency",
+                        "procedure"
+                    ]
+                },
+                "a13": {
+                    "answer": "order?",
+                    "verb_hint": "Почни з питальної характеристики сумісності й узгодь зв'язку з претензіями в множині.",
+                    "options": [
+                        "order",
+                        "than",
+                        "fairness",
+                        "child"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з питальної характеристики сумісності й узгодь зв'язку з претензіями в множині.",
+            "accepted_target_texts": [
+                "How compatible are competing claims to sovereignty with a genuinely shared legal order?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How compatible",
+                "are competing claims",
+                "to sovereignty",
+                "with a genuinely",
+                "shared legal order?"
+            ],
+            "token_groups": [
+                "How compatible",
+                "are competing claims",
+                "to sovereignty",
+                "with a genuinely",
+                "shared legal order?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "How",
+                "compatible",
+                "are",
+                "competing",
+                "claims",
+                "to",
+                "sovereignty",
+                "with",
+                "a",
+                "genuinely",
+                "shared",
+                "legal",
+                "order?"
+            ],
+            "options": [
+                "How",
+                "Why",
+                "Whoever",
+                "Whatever",
+                "compatible",
+                "decisive",
+                "less",
+                "contestable",
+                "are",
+                "weren't",
+                "am",
+                "is",
+                "competing",
+                "riding",
+                "driving",
+                "studying",
+                "claims",
+                "depends",
+                "letters",
+                "windows",
+                "to",
+                "by",
+                "without",
+                "into",
+                "sovereignty",
+                "outcome",
+                "premise",
+                "conclusion",
+                "with",
+                "between",
+                "among",
+                "about",
+                "a",
+                "these",
+                "those",
+                "each",
+                "genuinely",
+                "carefully",
+                "well",
+                "badly",
+                "shared",
+                "took",
+                "wrote",
+                "rode",
+                "legal",
+                "itself",
+                "consistency",
+                "procedure",
+                "order",
+                "than",
+                "fairness",
+                "child"
+            ],
+            "source_text_uk": "Наскільки конкурентні претензії на суверенітет сумісні зі справді спільним правопорядком?",
+            "options_by_marker": {
+                "a1": [
+                    "How",
+                    "Why",
+                    "Whoever",
+                    "Whatever"
+                ],
+                "a2": [
+                    "compatible",
+                    "decisive",
+                    "less",
+                    "contestable"
+                ],
+                "a3": [
+                    "are",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a4": [
+                    "competing",
+                    "riding",
+                    "driving",
+                    "studying"
+                ],
+                "a5": [
+                    "claims",
+                    "depends",
+                    "letters",
+                    "windows"
+                ],
+                "a6": [
+                    "to",
+                    "by",
+                    "without",
+                    "into"
+                ],
+                "a7": [
+                    "sovereignty",
+                    "outcome",
+                    "premise",
+                    "conclusion"
+                ],
+                "a8": [
+                    "with",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a9": [
+                    "a",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a10": [
+                    "genuinely",
+                    "carefully",
+                    "well",
+                    "badly"
+                ],
+                "a11": [
+                    "shared",
+                    "took",
+                    "wrote",
+                    "rode"
+                ],
+                "a12": [
+                    "legal",
+                    "itself",
+                    "consistency",
+                    "procedure"
+                ],
+                "a13": [
+                    "order",
+                    "than",
+                    "fairness",
+                    "child"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "beq-questions-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Що є вирішальним: послідовність процедури чи справедливість результату?",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_to_be_quality_questions",
+            "translation_uk": "Що є вирішальним: послідовність процедури чи справедливість результату?",
+            "target_text": "Is it the consistency of the procedure or the fairness of the outcome that is decisive?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "Is",
+                        "Being",
+                        "Isn't",
+                        "Aren't"
+                    ]
+                },
+                "a2": {
+                    "answer": "it",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "it",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a4": {
+                    "answer": "consistency",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "consistency",
+                        "premise",
+                        "conclusion",
+                        "than"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "of",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "procedure",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "procedure",
+                        "itself",
+                        "sovereignty",
+                        "legal"
+                    ]
+                },
+                "a8": {
+                    "answer": "or",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "or",
+                        "though",
+                        "unless",
+                        "whereas"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "the",
+                        "another",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a10": {
+                    "answer": "fairness",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "fairness",
+                        "order",
+                        "key",
+                        "room"
+                    ]
+                },
+                "a11": {
+                    "answer": "of",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "of",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a12": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "the",
+                        "an",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a13": {
+                    "answer": "outcome",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "outcome",
+                        "music",
+                        "food",
+                        "bike"
+                    ]
+                },
+                "a14": {
+                    "answer": "that",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "that",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a15": {
+                    "answer": "is",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "is",
+                        "be",
+                        "been",
+                        "wasn't"
+                    ]
+                },
+                "a16": {
+                    "answer": "decisive?",
+                    "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+                    "options": [
+                        "decisive",
+                        "less",
+                        "contestable",
+                        "compatible"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй альтернативне пряме питання з формальним підметом і збережи обидві можливості.",
+            "accepted_target_texts": [
+                "Is it the consistency of the procedure or the fairness of the outcome that is decisive?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is it",
+                "the consistency",
+                "of the procedure",
+                "or the fairness",
+                "of the outcome",
+                "that is decisive?"
+            ],
+            "token_groups": [
+                "Is it",
+                "the consistency",
+                "of the procedure",
+                "or the fairness",
+                "of the outcome",
+                "that is decisive?"
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Is",
+                "it",
+                "the",
+                "consistency",
+                "of",
+                "the",
+                "procedure",
+                "or",
+                "the",
+                "fairness",
+                "of",
+                "the",
+                "outcome",
+                "that",
+                "is",
+                "decisive?"
+            ],
+            "options": [
+                "Is",
+                "Being",
+                "Isn't",
+                "Aren't",
+                "it",
+                "herself",
+                "ourselves",
+                "themselves",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "consistency",
+                "premise",
+                "conclusion",
+                "than",
+                "of",
+                "among",
+                "about",
+                "during",
+                "some",
+                "any",
+                "this",
+                "procedure",
+                "itself",
+                "sovereignty",
+                "legal",
+                "or",
+                "though",
+                "unless",
+                "whereas",
+                "another",
+                "both",
+                "a",
+                "fairness",
+                "order",
+                "key",
+                "room",
+                "onto",
+                "over",
+                "under",
+                "an",
+                "these",
+                "those",
+                "outcome",
+                "music",
+                "food",
+                "bike",
+                "that",
+                "each",
+                "every",
+                "no",
+                "is",
+                "be",
+                "been",
+                "wasn't",
+                "decisive",
+                "less",
+                "contestable",
+                "compatible"
+            ],
+            "source_text_uk": "Що є вирішальним: послідовність процедури чи справедливість результату?",
+            "options_by_marker": {
+                "a1": [
+                    "Is",
+                    "Being",
+                    "Isn't",
+                    "Aren't"
+                ],
+                "a2": [
+                    "it",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a3": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a4": [
+                    "consistency",
+                    "premise",
+                    "conclusion",
+                    "than"
+                ],
+                "a5": [
+                    "of",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a6": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "procedure",
+                    "itself",
+                    "sovereignty",
+                    "legal"
+                ],
+                "a8": [
+                    "or",
+                    "though",
+                    "unless",
+                    "whereas"
+                ],
+                "a9": [
+                    "the",
+                    "another",
+                    "both",
+                    "a"
+                ],
+                "a10": [
+                    "fairness",
+                    "order",
+                    "key",
+                    "room"
+                ],
+                "a11": [
+                    "of",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a12": [
+                    "the",
+                    "an",
+                    "these",
+                    "those"
+                ],
+                "a13": [
+                    "outcome",
+                    "music",
+                    "food",
+                    "bike"
+                ],
+                "a14": [
+                    "that",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a15": [
+                    "is",
+                    "be",
+                    "been",
+                    "wasn't"
+                ],
+                "a16": [
+                    "decisive",
+                    "less",
+                    "contestable",
+                    "compatible"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

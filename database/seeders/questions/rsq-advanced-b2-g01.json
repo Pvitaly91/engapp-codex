@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66422,
+        "uuid": "rsq-advanced-b2-g01",
+        "question": "The analyst {a1} that the forecast had underestimated demand.",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 62,
+        "source_id": 534,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedAdvancedReportedSpeechQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "acknowledged",
+                "told",
+                "asked"
+            ]
+        },
+        "theory_text_block_uuid": "985d27d1-a106-557f-9153-24dfe63266ea",
+        "created_at": "2026-11-01T20:05:15.000000Z",
+        "updated_at": "2026-11-01T20:05:15.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 534,
+        "name": "Reported Speech Quality: Advanced Reported Speech and Reporting Verb Patterns",
+        "created_at": "2026-11-01T20:05:13.000000Z",
+        "updated_at": "2026-11-01T20:05:13.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 527,
+                "option": "told",
+                "created_at": "2026-04-23T13:36:16.000000Z",
+                "updated_at": "2026-04-23T13:36:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 66422,
+                "option_id": 527,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 535,
+                "option": "asked",
+                "created_at": "2026-04-23T13:36:17.000000Z",
+                "updated_at": "2026-04-23T13:36:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 66422,
+                "option_id": 535,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 16826,
+                "option": "acknowledged",
+                "created_at": "2026-04-29T15:33:55.000000Z",
+                "updated_at": "2026-04-29T15:33:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 66422,
+                "option_id": 16826,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 341528,
+                "question_id": 66422,
+                "marker": "a1",
+                "option_id": 16826,
+                "created_at": "2026-11-01T20:05:15.000000Z",
+                "updated_at": "2026-11-01T20:05:15.000000Z"
+            },
+            "option": {
+                "id": 16826,
+                "option": "acknowledged",
+                "created_at": "2026-04-29T15:33:55.000000Z",
+                "updated_at": "2026-04-29T15:33:55.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58862,
+                "question_id": 66422,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68997,
+                "created_at": "2026-11-01T20:05:15.000000Z",
+                "updated_at": "2026-11-01T20:05:15.000000Z"
+            },
+            "option": {
+                "id": 68997,
+                "option": "Визнав у повному повідомленні; сполучник і зміст уже наведені.",
+                "created_at": "2026-11-01T20:05:15.000000Z",
+                "updated_at": "2026-11-01T20:05:15.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58437,
+            "question_id": 66422,
+            "text": "The analyst {a1} that the forecast had underestimated demand.",
+            "created_at": "2026-11-01T20:05:15.000000Z",
+            "updated_at": "2026-11-01T20:05:15.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

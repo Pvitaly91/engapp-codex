@@ -1,0 +1,2865 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/double-negatives.v1.json",
+        "sha256": "3ed92df920c631369459f4cfeef06afed0748047c28b06cfb5663c332be71360"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedDoubleNegativesQualityBuilderSeeder",
+        "uuid_namespace": "questions-negations-quality-double-negatives-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "questions_negations_quality_double_negatives": {
+            "name": "Questions and Negations Quality: Double Negatives"
+        }
+    },
+    "tags": {
+        "polyglot_double_negatives": {
+            "name": "Double Negatives",
+            "category": "questions_negations"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "avoid_double_negatives": {
+            "name": "Avoid Double Negatives",
+            "category": "topic"
+        },
+        "not_any": {
+            "name": "Not Any",
+            "category": "topic"
+        },
+        "no_affirmative": {
+            "name": "No Affirmative",
+            "category": "topic"
+        },
+        "no_pronoun_affirmative": {
+            "name": "No Pronoun Affirmative",
+            "category": "topic"
+        },
+        "never_affirmative": {
+            "name": "Never Affirmative",
+            "category": "topic"
+        },
+        "neither_no_second_negative": {
+            "name": "Neither No Second Negative",
+            "category": "topic"
+        },
+        "dont_know_anything": {
+            "name": "Dont Know Anything",
+            "category": "topic"
+        },
+        "know_nothing": {
+            "name": "Know Nothing",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_double_negatives",
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-double-negatives-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Ніхто не готовий.",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Ніхто не готовий.",
+            "target_text": "Nobody is ready.",
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "verb_hint": "Заперечення передай підметом; не додавай заперечну частку до присудка.",
+                    "options": [
+                        "Nobody",
+                        "No",
+                        "Either",
+                        "Anyone"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Заперечення передай підметом; не додавай заперечну частку до присудка.",
+                    "options": [
+                        "is",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a3": {
+                    "answer": "ready.",
+                    "verb_hint": "Заперечення передай підметом; не додавай заперечну частку до присудка.",
+                    "options": [
+                        "ready",
+                        "unusual",
+                        "irrelevant",
+                        "insignificant"
+                    ]
+                }
+            },
+            "verb_hint": "Заперечення передай підметом; не додавай заперечну частку до присудка.",
+            "accepted_target_texts": [
+                "Nobody is ready."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nobody",
+                "is",
+                "ready."
+            ],
+            "token_groups": [
+                "Nobody",
+                "is",
+                "ready."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Nobody",
+                "is",
+                "ready."
+            ],
+            "options": [
+                "Nobody",
+                "No",
+                "Either",
+                "Anyone",
+                "is",
+                "were",
+                "be",
+                "been",
+                "ready",
+                "unusual",
+                "irrelevant",
+                "insignificant"
+            ],
+            "source_text_uk": "Ніхто не готовий.",
+            "options_by_marker": {
+                "a1": [
+                    "Nobody",
+                    "No",
+                    "Either",
+                    "Anyone"
+                ],
+                "a2": [
+                    "is",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a3": [
+                    "ready",
+                    "unusual",
+                    "irrelevant",
+                    "insignificant"
+                ]
+            },
+            "slot_roles": {
+                "a1": "object",
+                "a2": "auxiliary",
+                "a3": "complement"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-double-negatives-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Я нічого не бачу.",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Я нічого не бачу.",
+            "target_text": "I do not see anything.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особового займенника; заперечення постав лише в присудку.",
+                    "options": [
+                        "I",
+                        "Themselves",
+                        "You",
+                        "He"
+                    ]
+                },
+                "a2": {
+                    "answer": "do",
+                    "verb_hint": "Почни з особового займенника; заперечення постав лише в присудку.",
+                    "options": [
+                        "do",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Почни з особового займенника; заперечення постав лише в присудку.",
+                    "options": [
+                        "not",
+                        "also",
+                        "usually",
+                        "rarely"
+                    ]
+                },
+                "a4": {
+                    "answer": "see",
+                    "verb_hint": "Почни з особового займенника; заперечення постав лише в присудку.",
+                    "options": [
+                        "see",
+                        "work",
+                        "leave",
+                        "wait"
+                    ]
+                },
+                "a5": {
+                    "answer": "anything.",
+                    "verb_hint": "Почни з особового займенника; заперечення постав лише в присудку.",
+                    "options": [
+                        "anything",
+                        "nothing",
+                        "making",
+                        "going"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особового займенника; заперечення постав лише в присудку.",
+            "accepted_target_texts": [
+                "I do not see anything."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "do not",
+                "see",
+                "anything."
+            ],
+            "token_groups": [
+                "I",
+                "do not",
+                "see",
+                "anything."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "I",
+                "do",
+                "not",
+                "see",
+                "anything."
+            ],
+            "options": [
+                "I",
+                "Themselves",
+                "You",
+                "He",
+                "do",
+                "had",
+                "haven't",
+                "hasn't",
+                "not",
+                "also",
+                "usually",
+                "rarely",
+                "see",
+                "work",
+                "leave",
+                "wait",
+                "anything",
+                "nothing",
+                "making",
+                "going"
+            ],
+            "source_text_uk": "Я нічого не бачу.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Themselves",
+                    "You",
+                    "He"
+                ],
+                "a2": [
+                    "do",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a3": [
+                    "not",
+                    "also",
+                    "usually",
+                    "rarely"
+                ],
+                "a4": [
+                    "see",
+                    "work",
+                    "leave",
+                    "wait"
+                ],
+                "a5": [
+                    "anything",
+                    "nothing",
+                    "making",
+                    "going"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "negative_phrase",
+                "a3": "negative_phrase",
+                "a4": "verb",
+                "a5": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-double-negatives-a1-c03",
+            "author_id": "A1-c03",
+            "question": "У нас немає ключів.",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "У нас немає ключів.",
+            "target_text": "We have no keys.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Передай заперечення перед іменником; не додавай допоміжного заперечення.",
+                    "options": [
+                        "We",
+                        "I",
+                        "You",
+                        "He"
+                    ]
+                },
+                "a2": {
+                    "answer": "have",
+                    "verb_hint": "Передай заперечення перед іменником; не додавай допоміжного заперечення.",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "haven't"
+                    ]
+                },
+                "a3": {
+                    "answer": "no",
+                    "verb_hint": "Передай заперечення перед іменником; не додавай допоміжного заперечення.",
+                    "options": [
+                        "no",
+                        "an",
+                        "the",
+                        "some"
+                    ]
+                },
+                "a4": {
+                    "answer": "keys.",
+                    "verb_hint": "Передай заперечення перед іменником; не додавай допоміжного заперечення.",
+                    "options": [
+                        "keys",
+                        "children",
+                        "teachers",
+                        "schools"
+                    ]
+                }
+            },
+            "verb_hint": "Передай заперечення перед іменником; не додавай допоміжного заперечення.",
+            "accepted_target_texts": [
+                "We have no keys."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "have",
+                "no",
+                "keys."
+            ],
+            "token_groups": [
+                "We",
+                "have",
+                "no",
+                "keys."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "We",
+                "have",
+                "no",
+                "keys."
+            ],
+            "options": [
+                "We",
+                "I",
+                "You",
+                "He",
+                "have",
+                "has",
+                "had",
+                "haven't",
+                "no",
+                "an",
+                "the",
+                "some",
+                "keys",
+                "children",
+                "teachers",
+                "schools"
+            ],
+            "source_text_uk": "У нас немає ключів.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "I",
+                    "You",
+                    "He"
+                ],
+                "a2": [
+                    "have",
+                    "has",
+                    "had",
+                    "haven't"
+                ],
+                "a3": [
+                    "no",
+                    "an",
+                    "the",
+                    "some"
+                ],
+                "a4": [
+                    "keys",
+                    "children",
+                    "teachers",
+                    "schools"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb",
+                "a3": "object",
+                "a4": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-double-negatives-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Вона нікуди не пішла.",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Вона нікуди не пішла.",
+            "target_text": "She did not go anywhere.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Почни з особового займенника; залиш лише одне заперечення в минулому присудку.",
+                    "options": [
+                        "She",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "did",
+                    "verb_hint": "Почни з особового займенника; залиш лише одне заперечення в минулому присудку.",
+                    "options": [
+                        "did",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Почни з особового займенника; залиш лише одне заперечення в минулому присудку.",
+                    "options": [
+                        "not",
+                        "usually",
+                        "rarely",
+                        "only"
+                    ]
+                },
+                "a4": {
+                    "answer": "go",
+                    "verb_hint": "Почни з особового займенника; залиш лише одне заперечення в минулому присудку.",
+                    "options": [
+                        "go",
+                        "leave",
+                        "wait",
+                        "work"
+                    ]
+                },
+                "a5": {
+                    "answer": "anywhere.",
+                    "verb_hint": "Почни з особового займенника; залиш лише одне заперечення в минулому присудку.",
+                    "options": [
+                        "anywhere",
+                        "none",
+                        "no",
+                        "either"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особового займенника; залиш лише одне заперечення в минулому присудку.",
+            "accepted_target_texts": [
+                "She did not go anywhere."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She",
+                "did not",
+                "go",
+                "anywhere."
+            ],
+            "token_groups": [
+                "She",
+                "did not",
+                "go",
+                "anywhere."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "She",
+                "did",
+                "not",
+                "go",
+                "anywhere."
+            ],
+            "options": [
+                "She",
+                "It",
+                "We",
+                "They",
+                "did",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "not",
+                "usually",
+                "rarely",
+                "only",
+                "go",
+                "leave",
+                "wait",
+                "work",
+                "anywhere",
+                "none",
+                "no",
+                "either"
+            ],
+            "source_text_uk": "Вона нікуди не пішла.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "did",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a3": [
+                    "not",
+                    "usually",
+                    "rarely",
+                    "only"
+                ],
+                "a4": [
+                    "go",
+                    "leave",
+                    "wait",
+                    "work"
+                ],
+                "a5": [
+                    "anywhere",
+                    "none",
+                    "no",
+                    "either"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "negative_phrase",
+                "a3": "negative_phrase",
+                "a4": "verb",
+                "a5": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-double-negatives-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Ніхто не зачинив вікно.",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Ніхто не зачинив вікно.",
+            "target_text": "Nobody closed the window.",
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "verb_hint": "Заперечний підмет поєднай зі стверджувальною минулою формою.",
+                    "options": [
+                        "Nobody",
+                        "Anyone",
+                        "Anywhere",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "closed",
+                    "verb_hint": "Заперечний підмет поєднай зі стверджувальною минулою формою.",
+                    "options": [
+                        "closed",
+                        "open",
+                        "met",
+                        "went"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Заперечний підмет поєднай зі стверджувальною минулою формою.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a4": {
+                    "answer": "window.",
+                    "verb_hint": "Заперечний підмет поєднай зі стверджувальною минулою формою.",
+                    "options": [
+                        "window",
+                        "motion",
+                        "parcel",
+                        "notice"
+                    ]
+                }
+            },
+            "verb_hint": "Заперечний підмет поєднай зі стверджувальною минулою формою.",
+            "accepted_target_texts": [
+                "Nobody closed the window."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nobody",
+                "closed the window."
+            ],
+            "token_groups": [
+                "Nobody",
+                "closed the window."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Nobody",
+                "closed",
+                "the",
+                "window."
+            ],
+            "options": [
+                "Nobody",
+                "Anyone",
+                "Anywhere",
+                "Any",
+                "closed",
+                "open",
+                "met",
+                "went",
+                "the",
+                "these",
+                "those",
+                "each",
+                "window",
+                "motion",
+                "parcel",
+                "notice"
+            ],
+            "source_text_uk": "Ніхто не зачинив вікно.",
+            "options_by_marker": {
+                "a1": [
+                    "Nobody",
+                    "Anyone",
+                    "Anywhere",
+                    "Any"
+                ],
+                "a2": [
+                    "closed",
+                    "open",
+                    "met",
+                    "went"
+                ],
+                "a3": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a4": [
+                    "window",
+                    "motion",
+                    "parcel",
+                    "notice"
+                ]
+            },
+            "slot_roles": {
+                "a1": "object",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-double-negatives-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Ми ніколи не купуємо нічого зайвого.",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Ми ніколи не купуємо нічого зайвого.",
+            "target_text": "We never buy anything unnecessary.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Прислівник уже передає заперечення; додаток має лишатися незаперечним.",
+                    "options": [
+                        "We",
+                        "Herself",
+                        "Ourselves",
+                        "Themselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "never",
+                    "verb_hint": "Прислівник уже передає заперечення; додаток має лишатися незаперечним.",
+                    "options": [
+                        "never",
+                        "also",
+                        "usually",
+                        "rarely"
+                    ]
+                },
+                "a3": {
+                    "answer": "buy",
+                    "verb_hint": "Прислівник уже передає заперечення; додаток має лишатися незаперечним.",
+                    "options": [
+                        "buy",
+                        "go",
+                        "leave",
+                        "wait"
+                    ]
+                },
+                "a4": {
+                    "answer": "anything",
+                    "verb_hint": "Прислівник уже передає заперечення; додаток має лишатися незаперечним.",
+                    "options": [
+                        "anything",
+                        "nothing",
+                        "visiting",
+                        "cooking"
+                    ]
+                },
+                "a5": {
+                    "answer": "unnecessary.",
+                    "verb_hint": "Прислівник уже передає заперечення; додаток має лишатися незаперечним.",
+                    "options": [
+                        "unnecessary",
+                        "available",
+                        "necessary",
+                        "possible"
+                    ]
+                }
+            },
+            "verb_hint": "Прислівник уже передає заперечення; додаток має лишатися незаперечним.",
+            "accepted_target_texts": [
+                "We never buy anything unnecessary."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "never",
+                "buy",
+                "anything",
+                "unnecessary."
+            ],
+            "token_groups": [
+                "We",
+                "never",
+                "buy",
+                "anything",
+                "unnecessary."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "We",
+                "never",
+                "buy",
+                "anything",
+                "unnecessary."
+            ],
+            "options": [
+                "We",
+                "Herself",
+                "Ourselves",
+                "Themselves",
+                "never",
+                "also",
+                "usually",
+                "rarely",
+                "buy",
+                "go",
+                "leave",
+                "wait",
+                "anything",
+                "nothing",
+                "visiting",
+                "cooking",
+                "unnecessary",
+                "available",
+                "necessary",
+                "possible"
+            ],
+            "source_text_uk": "Ми ніколи не купуємо нічого зайвого.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Herself",
+                    "Ourselves",
+                    "Themselves"
+                ],
+                "a2": [
+                    "never",
+                    "also",
+                    "usually",
+                    "rarely"
+                ],
+                "a3": [
+                    "buy",
+                    "go",
+                    "leave",
+                    "wait"
+                ],
+                "a4": [
+                    "anything",
+                    "nothing",
+                    "visiting",
+                    "cooking"
+                ],
+                "a5": [
+                    "unnecessary",
+                    "available",
+                    "necessary",
+                    "possible"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "adverb_phrase",
+                "a3": "verb",
+                "a4": "object",
+                "a5": "complement"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-double-negatives-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Жоден із них не запропонував допомоги.",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Жоден із них не запропонував допомоги.",
+            "target_text": "Neither of them offered any help.",
+            "markers": {
+                "a1": {
+                    "answer": "Neither",
+                    "verb_hint": "Заперечення міститься в підметі; не додавай заперечної форми до минулого дієслова.",
+                    "options": [
+                        "Neither",
+                        "An",
+                        "The",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "of",
+                    "verb_hint": "Заперечення міститься в підметі; не додавай заперечної форми до минулого дієслова.",
+                    "options": [
+                        "of",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a3": {
+                    "answer": "them",
+                    "verb_hint": "Заперечення міститься в підметі; не додавай заперечної форми до минулого дієслова.",
+                    "options": [
+                        "them",
+                        "him",
+                        "us",
+                        "myself"
+                    ]
+                },
+                "a4": {
+                    "answer": "offered",
+                    "verb_hint": "Заперечення міститься в підметі; не додавай заперечної форми до минулого дієслова.",
+                    "options": [
+                        "offered",
+                        "questioned",
+                        "played",
+                        "called"
+                    ]
+                },
+                "a5": {
+                    "answer": "any",
+                    "verb_hint": "Заперечення міститься в підметі; не додавай заперечної форми до минулого дієслова.",
+                    "options": [
+                        "any",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a6": {
+                    "answer": "help.",
+                    "verb_hint": "Заперечення міститься в підметі; не додавай заперечної форми до минулого дієслова.",
+                    "options": [
+                        "help",
+                        "wait",
+                        "watch",
+                        "visit"
+                    ]
+                }
+            },
+            "verb_hint": "Заперечення міститься в підметі; не додавай заперечної форми до минулого дієслова.",
+            "accepted_target_texts": [
+                "Neither of them offered any help."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Neither",
+                "of them",
+                "offered",
+                "any help."
+            ],
+            "token_groups": [
+                "Neither",
+                "of them",
+                "offered",
+                "any help."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Neither",
+                "of",
+                "them",
+                "offered",
+                "any",
+                "help."
+            ],
+            "options": [
+                "Neither",
+                "An",
+                "The",
+                "Some",
+                "of",
+                "at",
+                "by",
+                "with",
+                "them",
+                "him",
+                "us",
+                "myself",
+                "offered",
+                "questioned",
+                "played",
+                "called",
+                "any",
+                "these",
+                "those",
+                "each",
+                "help",
+                "wait",
+                "watch",
+                "visit"
+            ],
+            "source_text_uk": "Жоден із них не запропонував допомоги.",
+            "options_by_marker": {
+                "a1": [
+                    "Neither",
+                    "An",
+                    "The",
+                    "Some"
+                ],
+                "a2": [
+                    "of",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a3": [
+                    "them",
+                    "him",
+                    "us",
+                    "myself"
+                ],
+                "a4": [
+                    "offered",
+                    "questioned",
+                    "played",
+                    "called"
+                ],
+                "a5": [
+                    "any",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a6": [
+                    "help",
+                    "wait",
+                    "watch",
+                    "visit"
+                ]
+            },
+            "slot_roles": {
+                "a1": "object",
+                "a2": "noun_phrase",
+                "a3": "noun_phrase",
+                "a4": "verb",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-double-negatives-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Я майже нічого не пам’ятаю.",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Я майже нічого не пам’ятаю.",
+            "target_text": "I hardly remember anything.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Прислівник передає майже повну відсутність спогадів; додаток має бути незаперечним.",
+                    "options": [
+                        "I",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "hardly",
+                    "verb_hint": "Прислівник передає майже повну відсутність спогадів; додаток має бути незаперечним.",
+                    "options": [
+                        "hardly",
+                        "quickly",
+                        "carefully",
+                        "well"
+                    ]
+                },
+                "a3": {
+                    "answer": "remember",
+                    "verb_hint": "Прислівник передає майже повну відсутність спогадів; додаток має бути незаперечним.",
+                    "options": [
+                        "remember",
+                        "explain",
+                        "agree",
+                        "believe"
+                    ]
+                },
+                "a4": {
+                    "answer": "anything.",
+                    "verb_hint": "Прислівник передає майже повну відсутність спогадів; додаток має бути незаперечним.",
+                    "options": [
+                        "anything",
+                        "nothing",
+                        "calling",
+                        "walking"
+                    ]
+                }
+            },
+            "verb_hint": "Прислівник передає майже повну відсутність спогадів; додаток має бути незаперечним.",
+            "accepted_target_texts": [
+                "I hardly remember anything."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "hardly",
+                "remember",
+                "anything."
+            ],
+            "token_groups": [
+                "I",
+                "hardly",
+                "remember",
+                "anything."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "I",
+                "hardly",
+                "remember",
+                "anything."
+            ],
+            "options": [
+                "I",
+                "He",
+                "She",
+                "It",
+                "hardly",
+                "quickly",
+                "carefully",
+                "well",
+                "remember",
+                "explain",
+                "agree",
+                "believe",
+                "anything",
+                "nothing",
+                "calling",
+                "walking"
+            ],
+            "source_text_uk": "Я майже нічого не пам’ятаю.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "hardly",
+                    "quickly",
+                    "carefully",
+                    "well"
+                ],
+                "a3": [
+                    "remember",
+                    "explain",
+                    "agree",
+                    "believe"
+                ],
+                "a4": [
+                    "anything",
+                    "nothing",
+                    "calling",
+                    "walking"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "adverb_phrase",
+                "a3": "verb",
+                "a4": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-double-negatives-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Ніхто ніколи не ставив під сумнів цей результат.",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Ніхто ніколи не ставив під сумнів цей результат.",
+            "target_text": "Nobody ever questioned this result.",
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "verb_hint": "Почни із заперечного підмета; часовий прислівник не повинен дублювати заперечення.",
+                    "options": [
+                        "Nobody",
+                        "Nowhere",
+                        "None",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "ever",
+                    "verb_hint": "Почни із заперечного підмета; часовий прислівник не повинен дублювати заперечення.",
+                    "options": [
+                        "ever",
+                        "today",
+                        "tomorrow",
+                        "yesterday"
+                    ]
+                },
+                "a3": {
+                    "answer": "questioned",
+                    "verb_hint": "Почни із заперечного підмета; часовий прислівник не повинен дублювати заперечення.",
+                    "options": [
+                        "questioned",
+                        "offered",
+                        "found",
+                        "brought"
+                    ]
+                },
+                "a4": {
+                    "answer": "this",
+                    "verb_hint": "Почни із заперечного підмета; часовий прислівник не повинен дублювати заперечення.",
+                    "options": [
+                        "this",
+                        "a",
+                        "an",
+                        "the"
+                    ]
+                },
+                "a5": {
+                    "answer": "result.",
+                    "verb_hint": "Почни із заперечного підмета; часовий прислівник не повинен дублювати заперечення.",
+                    "options": [
+                        "result",
+                        "them",
+                        "remember",
+                        "bread"
+                    ]
+                }
+            },
+            "verb_hint": "Почни із заперечного підмета; часовий прислівник не повинен дублювати заперечення.",
+            "accepted_target_texts": [
+                "Nobody ever questioned this result."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nobody",
+                "ever",
+                "questioned",
+                "this result."
+            ],
+            "token_groups": [
+                "Nobody",
+                "ever",
+                "questioned",
+                "this result."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Nobody",
+                "ever",
+                "questioned",
+                "this",
+                "result."
+            ],
+            "options": [
+                "Nobody",
+                "Nowhere",
+                "None",
+                "No",
+                "ever",
+                "today",
+                "tomorrow",
+                "yesterday",
+                "questioned",
+                "offered",
+                "found",
+                "brought",
+                "this",
+                "a",
+                "an",
+                "the",
+                "result",
+                "them",
+                "remember",
+                "bread"
+            ],
+            "source_text_uk": "Ніхто ніколи не ставив під сумнів цей результат.",
+            "options_by_marker": {
+                "a1": [
+                    "Nobody",
+                    "Nowhere",
+                    "None",
+                    "No"
+                ],
+                "a2": [
+                    "ever",
+                    "today",
+                    "tomorrow",
+                    "yesterday"
+                ],
+                "a3": [
+                    "questioned",
+                    "offered",
+                    "found",
+                    "brought"
+                ],
+                "a4": [
+                    "this",
+                    "a",
+                    "an",
+                    "the"
+                ],
+                "a5": [
+                    "result",
+                    "them",
+                    "remember",
+                    "bread"
+                ]
+            },
+            "slot_roles": {
+                "a1": "object",
+                "a2": "adverb_phrase",
+                "a3": "verb",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-double-negatives-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Це не є неможливим.",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Це не є неможливим.",
+            "target_text": "It is not impossible.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Збережи навмисне подвійне лексичне заперечення зі значенням обережного визнання можливості.",
+                    "options": [
+                        "It",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Збережи навмисне подвійне лексичне заперечення зі значенням обережного визнання можливості.",
+                    "options": [
+                        "is",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Збережи навмисне подвійне лексичне заперечення зі значенням обережного визнання можливості.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a4": {
+                    "answer": "impossible.",
+                    "verb_hint": "Збережи навмисне подвійне лексичне заперечення зі значенням обережного визнання можливості.",
+                    "options": [
+                        "impossible",
+                        "unreasonable",
+                        "possible",
+                        "available"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи навмисне подвійне лексичне заперечення зі значенням обережного визнання можливості.",
+            "accepted_target_texts": [
+                "It is not impossible."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It",
+                "is",
+                "not",
+                "impossible."
+            ],
+            "token_groups": [
+                "It",
+                "is",
+                "not",
+                "impossible."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "It",
+                "is",
+                "not",
+                "impossible."
+            ],
+            "options": [
+                "It",
+                "Me",
+                "Him",
+                "Us",
+                "is",
+                "be",
+                "been",
+                "being",
+                "not",
+                "never",
+                "always",
+                "often",
+                "impossible",
+                "unreasonable",
+                "possible",
+                "available"
+            ],
+            "source_text_uk": "Це не є неможливим.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "is",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a3": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a4": [
+                    "impossible",
+                    "unreasonable",
+                    "possible",
+                    "available"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "negative_phrase",
+                "a4": "complement"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-double-negatives-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Не всі заперечення були безпідставними.",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Не всі заперечення були безпідставними.",
+            "target_text": "Not all the objections were unfounded.",
+            "markers": {
+                "a1": {
+                    "answer": "Not",
+                    "verb_hint": "Запереч оцінку лише для частини заперечень, а не для всієї групи.",
+                    "options": [
+                        "Not",
+                        "Just",
+                        "Also",
+                        "Usually"
+                    ]
+                },
+                "a2": {
+                    "answer": "all",
+                    "verb_hint": "Запереч оцінку лише для частини заперечень, а не для всієї групи.",
+                    "options": [
+                        "all",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Запереч оцінку лише для частини заперечень, а не для всієї групи.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a4": {
+                    "answer": "objections",
+                    "verb_hint": "Запереч оцінку лише для частини заперечень, а не для всієї групи.",
+                    "options": [
+                        "objections",
+                        "books",
+                        "boxes",
+                        "chairs"
+                    ]
+                },
+                "a5": {
+                    "answer": "were",
+                    "verb_hint": "Запереч оцінку лише для частини заперечень, а не для всієї групи.",
+                    "options": [
+                        "were",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a6": {
+                    "answer": "unfounded.",
+                    "verb_hint": "Запереч оцінку лише для частини заперечень, а не для всієї групи.",
+                    "options": [
+                        "unfounded",
+                        "finished",
+                        "checked",
+                        "sent"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч оцінку лише для частини заперечень, а не для всієї групи.",
+            "accepted_target_texts": [
+                "Not all the objections were unfounded."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Not all",
+                "the objections",
+                "were",
+                "unfounded."
+            ],
+            "token_groups": [
+                "Not all",
+                "the objections",
+                "were",
+                "unfounded."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Not",
+                "all",
+                "the",
+                "objections",
+                "were",
+                "unfounded."
+            ],
+            "options": [
+                "Not",
+                "Just",
+                "Also",
+                "Usually",
+                "all",
+                "each",
+                "every",
+                "no",
+                "the",
+                "some",
+                "any",
+                "this",
+                "objections",
+                "books",
+                "boxes",
+                "chairs",
+                "were",
+                "weren't",
+                "am",
+                "is",
+                "unfounded",
+                "finished",
+                "checked",
+                "sent"
+            ],
+            "source_text_uk": "Не всі заперечення були безпідставними.",
+            "options_by_marker": {
+                "a1": [
+                    "Not",
+                    "Just",
+                    "Also",
+                    "Usually"
+                ],
+                "a2": [
+                    "all",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a3": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a4": [
+                    "objections",
+                    "books",
+                    "boxes",
+                    "chairs"
+                ],
+                "a5": [
+                    "were",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a6": [
+                    "unfounded",
+                    "finished",
+                    "checked",
+                    "sent"
+                ]
+            },
+            "slot_roles": {
+                "a1": "negative_phrase",
+                "a2": "negative_phrase",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "auxiliary",
+                "a6": "complement"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-double-negatives-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Він не позбавлений уяви.",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Він не позбавлений уяви.",
+            "target_text": "He is not without imagination.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Передай стриману позитивну оцінку через навмисне заперечення відсутності.",
+                    "options": [
+                        "He",
+                        "Him",
+                        "Us",
+                        "Them"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Передай стриману позитивну оцінку через навмисне заперечення відсутності.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Передай стриману позитивну оцінку через навмисне заперечення відсутності.",
+                    "options": [
+                        "not",
+                        "just",
+                        "also",
+                        "usually"
+                    ]
+                },
+                "a4": {
+                    "answer": "without",
+                    "verb_hint": "Передай стриману позитивну оцінку через навмисне заперечення відсутності.",
+                    "options": [
+                        "without",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a5": {
+                    "answer": "imagination.",
+                    "verb_hint": "Передай стриману позитивну оцінку через навмисне заперечення відсутності.",
+                    "options": [
+                        "imagination",
+                        "phone",
+                        "train",
+                        "bus"
+                    ]
+                }
+            },
+            "verb_hint": "Передай стриману позитивну оцінку через навмисне заперечення відсутності.",
+            "accepted_target_texts": [
+                "He is not without imagination."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He",
+                "is",
+                "not",
+                "without imagination."
+            ],
+            "token_groups": [
+                "He",
+                "is",
+                "not",
+                "without imagination."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "He",
+                "is",
+                "not",
+                "without",
+                "imagination."
+            ],
+            "options": [
+                "He",
+                "Him",
+                "Us",
+                "Them",
+                "is",
+                "are",
+                "was",
+                "were",
+                "not",
+                "just",
+                "also",
+                "usually",
+                "without",
+                "from",
+                "for",
+                "of",
+                "imagination",
+                "phone",
+                "train",
+                "bus"
+            ],
+            "source_text_uk": "Він не позбавлений уяви.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "Him",
+                    "Us",
+                    "Them"
+                ],
+                "a2": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a3": [
+                    "not",
+                    "just",
+                    "also",
+                    "usually"
+                ],
+                "a4": [
+                    "without",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a5": [
+                    "imagination",
+                    "phone",
+                    "train",
+                    "bus"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "negative_phrase",
+                "a4": "complement",
+                "a5": "complement"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-double-negatives-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Її застереження не було необґрунтованим.",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Її застереження не було необґрунтованим.",
+            "target_text": "Her reservation was not unreasonable.",
+            "markers": {
+                "a1": {
+                    "answer": "Her",
+                    "verb_hint": "Передай стримане визнання обґрунтованості через літоту.",
+                    "options": [
+                        "Her",
+                        "Its",
+                        "Our",
+                        "Their"
+                    ]
+                },
+                "a2": {
+                    "answer": "reservation",
+                    "verb_hint": "Передай стримане визнання обґрунтованості через літоту.",
+                    "options": [
+                        "reservation",
+                        "such",
+                        "reversal",
+                        "delegate"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Передай стримане визнання обґрунтованості через літоту.",
+                    "options": [
+                        "was",
+                        "is",
+                        "are",
+                        "were"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Передай стримане визнання обґрунтованості через літоту.",
+                    "options": [
+                        "not",
+                        "even",
+                        "almost",
+                        "never"
+                    ]
+                },
+                "a5": {
+                    "answer": "unreasonable.",
+                    "verb_hint": "Передай стримане визнання обґрунтованості через літоту.",
+                    "options": [
+                        "unreasonable",
+                        "available",
+                        "necessary",
+                        "possible"
+                    ]
+                }
+            },
+            "verb_hint": "Передай стримане визнання обґрунтованості через літоту.",
+            "accepted_target_texts": [
+                "Her reservation was not unreasonable."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Her reservation",
+                "was",
+                "not",
+                "unreasonable."
+            ],
+            "token_groups": [
+                "Her reservation",
+                "was",
+                "not",
+                "unreasonable."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Her",
+                "reservation",
+                "was",
+                "not",
+                "unreasonable."
+            ],
+            "options": [
+                "Her",
+                "Its",
+                "Our",
+                "Their",
+                "reservation",
+                "such",
+                "reversal",
+                "delegate",
+                "was",
+                "is",
+                "are",
+                "were",
+                "not",
+                "even",
+                "almost",
+                "never",
+                "unreasonable",
+                "available",
+                "necessary",
+                "possible"
+            ],
+            "source_text_uk": "Її застереження не було необґрунтованим.",
+            "options_by_marker": {
+                "a1": [
+                    "Her",
+                    "Its",
+                    "Our",
+                    "Their"
+                ],
+                "a2": [
+                    "reservation",
+                    "such",
+                    "reversal",
+                    "delegate"
+                ],
+                "a3": [
+                    "was",
+                    "is",
+                    "are",
+                    "were"
+                ],
+                "a4": [
+                    "not",
+                    "even",
+                    "almost",
+                    "never"
+                ],
+                "a5": [
+                    "unreasonable",
+                    "available",
+                    "necessary",
+                    "possible"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun_phrase",
+                "a2": "noun_phrase",
+                "a3": "auxiliary",
+                "a4": "negative_phrase",
+                "a5": "complement"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-double-negatives-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Жоден делегат не висловив жодних сумнівів.",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Жоден делегат не висловив жодних сумнівів.",
+            "target_text": "No delegate expressed any doubts.",
+            "markers": {
+                "a1": {
+                    "answer": "No",
+                    "verb_hint": "Заперечення постав лише перед підметом; додаток лиши незаперечним.",
+                    "options": [
+                        "No",
+                        "An",
+                        "The",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "delegate",
+                    "verb_hint": "Заперечення постав лише перед підметом; додаток лиши незаперечним.",
+                    "options": [
+                        "delegate",
+                        "reversal",
+                        "reservation",
+                        "anyone"
+                    ]
+                },
+                "a3": {
+                    "answer": "expressed",
+                    "verb_hint": "Заперечення постав лише перед підметом; додаток лиши незаперечним.",
+                    "options": [
+                        "expressed",
+                        "anticipated",
+                        "brought",
+                        "took"
+                    ]
+                },
+                "a4": {
+                    "answer": "any",
+                    "verb_hint": "Заперечення постав лише перед підметом; додаток лиши незаперечним.",
+                    "options": [
+                        "any",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a5": {
+                    "answer": "doubts.",
+                    "verb_hint": "Заперечення постав лише перед підметом; додаток лиши незаперечним.",
+                    "options": [
+                        "doubts",
+                        "bikes",
+                        "cars",
+                        "bags"
+                    ]
+                }
+            },
+            "verb_hint": "Заперечення постав лише перед підметом; додаток лиши незаперечним.",
+            "accepted_target_texts": [
+                "No delegate expressed any doubts."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "No",
+                "delegate",
+                "expressed",
+                "any doubts."
+            ],
+            "token_groups": [
+                "No",
+                "delegate",
+                "expressed",
+                "any doubts."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "No",
+                "delegate",
+                "expressed",
+                "any",
+                "doubts."
+            ],
+            "options": [
+                "No",
+                "An",
+                "The",
+                "Some",
+                "delegate",
+                "reversal",
+                "reservation",
+                "anyone",
+                "expressed",
+                "anticipated",
+                "brought",
+                "took",
+                "any",
+                "this",
+                "that",
+                "these",
+                "doubts",
+                "bikes",
+                "cars",
+                "bags"
+            ],
+            "source_text_uk": "Жоден делегат не висловив жодних сумнівів.",
+            "options_by_marker": {
+                "a1": [
+                    "No",
+                    "An",
+                    "The",
+                    "Some"
+                ],
+                "a2": [
+                    "delegate",
+                    "reversal",
+                    "reservation",
+                    "anyone"
+                ],
+                "a3": [
+                    "expressed",
+                    "anticipated",
+                    "brought",
+                    "took"
+                ],
+                "a4": [
+                    "any",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a5": [
+                    "doubts",
+                    "bikes",
+                    "cars",
+                    "bags"
+                ]
+            },
+            "slot_roles": {
+                "a1": "object",
+                "a2": "noun_phrase",
+                "a3": "verb",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-double-negatives-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Навряд чи хтось очікував такого розвороту.",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Навряд чи хтось очікував такого розвороту.",
+            "target_text": "Hardly anyone anticipated such a reversal.",
+            "markers": {
+                "a1": {
+                    "answer": "Hardly",
+                    "verb_hint": "Негативний прислівник уже виражає майже повну відсутність очікувань.",
+                    "options": [
+                        "Hardly",
+                        "Happily",
+                        "Easily",
+                        "Politely"
+                    ]
+                },
+                "a2": {
+                    "answer": "anyone",
+                    "verb_hint": "Негативний прислівник уже виражає майже повну відсутність очікувань.",
+                    "options": [
+                        "anyone",
+                        "nobody",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a3": {
+                    "answer": "anticipated",
+                    "verb_hint": "Негативний прислівник уже виражає майже повну відсутність очікувань.",
+                    "options": [
+                        "anticipated",
+                        "expressed",
+                        "took",
+                        "wrote"
+                    ]
+                },
+                "a4": {
+                    "answer": "such",
+                    "verb_hint": "Негативний прислівник уже виражає майже повну відсутність очікувань.",
+                    "options": [
+                        "such",
+                        "these",
+                        "your",
+                        "those"
+                    ]
+                },
+                "a5": {
+                    "answer": "a",
+                    "verb_hint": "Негативний прислівник уже виражає майже повну відсутність очікувань.",
+                    "options": [
+                        "a",
+                        "that",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a6": {
+                    "answer": "reversal.",
+                    "verb_hint": "Негативний прислівник уже виражає майже повну відсутність очікувань.",
+                    "options": [
+                        "reversal",
+                        "gate",
+                        "folder",
+                        "teacher"
+                    ]
+                }
+            },
+            "verb_hint": "Негативний прислівник уже виражає майже повну відсутність очікувань.",
+            "accepted_target_texts": [
+                "Hardly anyone anticipated such a reversal."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Hardly",
+                "anyone",
+                "anticipated",
+                "such a reversal."
+            ],
+            "token_groups": [
+                "Hardly",
+                "anyone",
+                "anticipated",
+                "such a reversal."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Hardly",
+                "anyone",
+                "anticipated",
+                "such",
+                "a",
+                "reversal."
+            ],
+            "options": [
+                "Hardly",
+                "Happily",
+                "Easily",
+                "Politely",
+                "anyone",
+                "nobody",
+                "either",
+                "neither",
+                "anticipated",
+                "expressed",
+                "took",
+                "wrote",
+                "such",
+                "these",
+                "your",
+                "those",
+                "a",
+                "that",
+                "each",
+                "every",
+                "reversal",
+                "gate",
+                "folder",
+                "teacher"
+            ],
+            "source_text_uk": "Навряд чи хтось очікував такого розвороту.",
+            "options_by_marker": {
+                "a1": [
+                    "Hardly",
+                    "Happily",
+                    "Easily",
+                    "Politely"
+                ],
+                "a2": [
+                    "anyone",
+                    "nobody",
+                    "either",
+                    "neither"
+                ],
+                "a3": [
+                    "anticipated",
+                    "expressed",
+                    "took",
+                    "wrote"
+                ],
+                "a4": [
+                    "such",
+                    "these",
+                    "your",
+                    "those"
+                ],
+                "a5": [
+                    "a",
+                    "that",
+                    "each",
+                    "every"
+                ],
+                "a6": [
+                    "reversal",
+                    "gate",
+                    "folder",
+                    "teacher"
+                ]
+            },
+            "slot_roles": {
+                "a1": "adverb_phrase",
+                "a2": "object",
+                "a3": "verb",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-double-negatives-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Цей наслідок не був цілком непередбачуваним.",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Цей наслідок не був цілком непередбачуваним.",
+            "target_text": "This consequence was not wholly unforeseeable.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "verb_hint": "Передай обмежене заперечення непередбачуваності, не твердження про повну передбачуваність.",
+                    "options": [
+                        "This",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "consequence",
+                    "verb_hint": "Передай обмежене заперечення непередбачуваності, не твердження про повну передбачуваність.",
+                    "options": [
+                        "consequence",
+                        "decision",
+                        "formal",
+                        "defect"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Передай обмежене заперечення непередбачуваності, не твердження про повну передбачуваність.",
+                    "options": [
+                        "was",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Передай обмежене заперечення непередбачуваності, не твердження про повну передбачуваність.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a5": {
+                    "answer": "wholly",
+                    "verb_hint": "Передай обмежене заперечення непередбачуваності, не твердження про повну передбачуваність.",
+                    "options": [
+                        "wholly",
+                        "badly",
+                        "clearly",
+                        "safely"
+                    ]
+                },
+                "a6": {
+                    "answer": "unforeseeable.",
+                    "verb_hint": "Передай обмежене заперечення непередбачуваності, не твердження про повну передбачуваність.",
+                    "options": [
+                        "unforeseeable",
+                        "available",
+                        "necessary",
+                        "unreasonable"
+                    ]
+                }
+            },
+            "verb_hint": "Передай обмежене заперечення непередбачуваності, не твердження про повну передбачуваність.",
+            "accepted_target_texts": [
+                "This consequence was not wholly unforeseeable."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This consequence",
+                "was",
+                "not",
+                "wholly",
+                "unforeseeable."
+            ],
+            "token_groups": [
+                "This consequence",
+                "was",
+                "not",
+                "wholly",
+                "unforeseeable."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "This",
+                "consequence",
+                "was",
+                "not",
+                "wholly",
+                "unforeseeable."
+            ],
+            "options": [
+                "This",
+                "Every",
+                "No",
+                "Another",
+                "consequence",
+                "decision",
+                "formal",
+                "defect",
+                "was",
+                "wasn't",
+                "weren't",
+                "am",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "wholly",
+                "badly",
+                "clearly",
+                "safely",
+                "unforeseeable",
+                "available",
+                "necessary",
+                "unreasonable"
+            ],
+            "source_text_uk": "Цей наслідок не був цілком непередбачуваним.",
+            "options_by_marker": {
+                "a1": [
+                    "This",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "consequence",
+                    "decision",
+                    "formal",
+                    "defect"
+                ],
+                "a3": [
+                    "was",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a4": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a5": [
+                    "wholly",
+                    "badly",
+                    "clearly",
+                    "safely"
+                ],
+                "a6": [
+                    "unforeseeable",
+                    "available",
+                    "necessary",
+                    "unreasonable"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun_phrase",
+                "a2": "noun_phrase",
+                "a3": "auxiliary",
+                "a4": "negative_phrase",
+                "a5": "adverb_phrase",
+                "a6": "complement"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-double-negatives-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Не кожна формальна вада робить рішення недійсним.",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Не кожна формальна вада робить рішення недійсним.",
+            "target_text": "Not every formal defect invalidates the decision.",
+            "markers": {
+                "a1": {
+                    "answer": "Not",
+                    "verb_hint": "Запереч універсальність правила; не заперечуй сам присудок.",
+                    "options": [
+                        "Not",
+                        "Always",
+                        "Often",
+                        "Sometimes"
+                    ]
+                },
+                "a2": {
+                    "answer": "every",
+                    "verb_hint": "Запереч універсальність правила; не заперечуй сам присудок.",
+                    "options": [
+                        "every",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a3": {
+                    "answer": "formal",
+                    "verb_hint": "Запереч універсальність правила; не заперечуй сам присудок.",
+                    "options": [
+                        "formal",
+                        "review",
+                        "consequence",
+                        "provision"
+                    ]
+                },
+                "a4": {
+                    "answer": "defect",
+                    "verb_hint": "Запереч універсальність правила; не заперечуй сам присудок.",
+                    "options": [
+                        "defect",
+                        "further",
+                        "teacher",
+                        "school"
+                    ]
+                },
+                "a5": {
+                    "answer": "invalidates",
+                    "verb_hint": "Запереч універсальність правила; не заперечуй сам присудок.",
+                    "options": [
+                        "invalidates",
+                        "precludes",
+                        "boxes",
+                        "chairs"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Запереч універсальність правила; не заперечуй сам присудок.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a7": {
+                    "answer": "decision.",
+                    "verb_hint": "Запереч універсальність правила; не заперечуй сам присудок.",
+                    "options": [
+                        "decision",
+                        "child",
+                        "sister",
+                        "brother"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч універсальність правила; не заперечуй сам присудок.",
+            "accepted_target_texts": [
+                "Not every formal defect invalidates the decision."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Not every",
+                "formal defect",
+                "invalidates",
+                "the decision."
+            ],
+            "token_groups": [
+                "Not every",
+                "formal defect",
+                "invalidates",
+                "the decision."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Not",
+                "every",
+                "formal",
+                "defect",
+                "invalidates",
+                "the",
+                "decision."
+            ],
+            "options": [
+                "Not",
+                "Always",
+                "Often",
+                "Sometimes",
+                "every",
+                "that",
+                "these",
+                "those",
+                "formal",
+                "review",
+                "consequence",
+                "provision",
+                "defect",
+                "further",
+                "teacher",
+                "school",
+                "invalidates",
+                "precludes",
+                "boxes",
+                "chairs",
+                "the",
+                "no",
+                "another",
+                "either",
+                "decision",
+                "child",
+                "sister",
+                "brother"
+            ],
+            "source_text_uk": "Не кожна формальна вада робить рішення недійсним.",
+            "options_by_marker": {
+                "a1": [
+                    "Not",
+                    "Always",
+                    "Often",
+                    "Sometimes"
+                ],
+                "a2": [
+                    "every",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a3": [
+                    "formal",
+                    "review",
+                    "consequence",
+                    "provision"
+                ],
+                "a4": [
+                    "defect",
+                    "further",
+                    "teacher",
+                    "school"
+                ],
+                "a5": [
+                    "invalidates",
+                    "precludes",
+                    "boxes",
+                    "chairs"
+                ],
+                "a6": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a7": [
+                    "decision",
+                    "child",
+                    "sister",
+                    "brother"
+                ]
+            },
+            "slot_roles": {
+                "a1": "negative_phrase",
+                "a2": "negative_phrase",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "verb",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-double-negatives-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Жодне положення не виключає будь-якого подальшого перегляду.",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Жодне положення не виключає будь-якого подальшого перегляду.",
+            "target_text": "No provision precludes any further review.",
+            "markers": {
+                "a1": {
+                    "answer": "No",
+                    "verb_hint": "Передай одне заперечення через підмет і збережи незаперечне означення додатка.",
+                    "options": [
+                        "No",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "provision",
+                    "verb_hint": "Передай одне заперечення через підмет і збережи незаперечне означення додатка.",
+                    "options": [
+                        "provision",
+                        "consequence",
+                        "formal",
+                        "defect"
+                    ]
+                },
+                "a3": {
+                    "answer": "precludes",
+                    "verb_hint": "Передай одне заперечення через підмет і збережи незаперечне означення додатка.",
+                    "options": [
+                        "precludes",
+                        "invalidates",
+                        "dogs",
+                        "cats"
+                    ]
+                },
+                "a4": {
+                    "answer": "any",
+                    "verb_hint": "Передай одне заперечення через підмет і збережи незаперечне означення додатка.",
+                    "options": [
+                        "any",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a5": {
+                    "answer": "further",
+                    "verb_hint": "Передай одне заперечення через підмет і збережи незаперечне означення додатка.",
+                    "options": [
+                        "further",
+                        "empty",
+                        "last",
+                        "whole"
+                    ]
+                },
+                "a6": {
+                    "answer": "review.",
+                    "verb_hint": "Передай одне заперечення через підмет і збережи незаперечне означення додатка.",
+                    "options": [
+                        "review",
+                        "suitcase",
+                        "committee",
+                        "draft"
+                    ]
+                }
+            },
+            "verb_hint": "Передай одне заперечення через підмет і збережи незаперечне означення додатка.",
+            "accepted_target_texts": [
+                "No provision precludes any further review."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "No",
+                "provision",
+                "precludes",
+                "any further review."
+            ],
+            "token_groups": [
+                "No",
+                "provision",
+                "precludes",
+                "any further review."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "No",
+                "provision",
+                "precludes",
+                "any",
+                "further",
+                "review."
+            ],
+            "options": [
+                "No",
+                "This",
+                "That",
+                "These",
+                "provision",
+                "consequence",
+                "formal",
+                "defect",
+                "precludes",
+                "invalidates",
+                "dogs",
+                "cats",
+                "any",
+                "all",
+                "both",
+                "a",
+                "further",
+                "empty",
+                "last",
+                "whole",
+                "review",
+                "suitcase",
+                "committee",
+                "draft"
+            ],
+            "source_text_uk": "Жодне положення не виключає будь-якого подальшого перегляду.",
+            "options_by_marker": {
+                "a1": [
+                    "No",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "provision",
+                    "consequence",
+                    "formal",
+                    "defect"
+                ],
+                "a3": [
+                    "precludes",
+                    "invalidates",
+                    "dogs",
+                    "cats"
+                ],
+                "a4": [
+                    "any",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a5": [
+                    "further",
+                    "empty",
+                    "last",
+                    "whole"
+                ],
+                "a6": [
+                    "review",
+                    "suitcase",
+                    "committee",
+                    "draft"
+                ]
+            },
+            "slot_roles": {
+                "a1": "object",
+                "a2": "noun_phrase",
+                "a3": "verb",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

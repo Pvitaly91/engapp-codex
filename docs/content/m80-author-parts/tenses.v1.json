@@ -1,0 +1,1035 @@
+{
+  "lesson": {
+    "identity": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsTensesTheorySeeder",
+    "slug": "tenses",
+    "locale": "uk",
+    "display_level": "B1–B2",
+    "intended_own_practice_level": "B1",
+    "technical_block_level": "B1",
+    "local_url": "http://gramlyze.loc/theory/sentence-transformations/tenses",
+    "raw_title": "Sentence Transformations — Tenses",
+    "preserved_h1": "Sentence Transformations — Tenses",
+    "subtitle_html": "<p><strong>Sentence Transformations — Tenses</strong> навчає перефразовувати часові форми без зміни подій: перевіряти продовження дії, точку відліку, тривалість і порядок у минулому.</p>",
+    "subtitle_text": "Перефразування часових форм: значення й контекст, часовий орієнтир, Simple/Perfect/Continuous, for/since/ago та незмінний порядок подій.",
+    "details": [
+      {
+        "key": "tenses-past-reference-context",
+        "owner_block_key": "tenses-1",
+        "owner_pointer": "/sections/2",
+        "title": "Минулий орієнтир може бути в сусідньому реченні",
+        "fragment": {
+          "type": "usage-panels",
+          "data": {
+            "sections": [
+              {
+                "label": "Зв’язок усередині розповіді",
+                "color": "slate",
+                "description": "Не кожне речення з Past Perfect повинне повторювати when або before. Попередня репліка може вже встановити час, до якого ми озираємося. Коли оцінюєш перебудову, прочитай цей контекст разом із відповіддю: had prepared підкреслить попередню підготовку, а prepared може пересунути її в послідовність нових подій.",
+                "examples": [
+                  {
+                    "en": "The editor arrived at nine. I had prepared the notes.",
+                    "ua": "Редакторка прийшла о дев’ятій. До цього я вже підготував нотатки."
+                  },
+                  {
+                    "en": "The editor arrived at nine. I prepared the notes and gave them to her.",
+                    "ua": "Редакторка прийшла о дев’ятій. Я підготував нотатки й віддав їх їй."
+                  }
+                ],
+                "note": "У другому прикладі оповідач подає підготовку після прибуття. Не прирівнюй ці версії без зміни контексту; isolated had prepared не можна відхиляти лише за формальним підрахунком дієслів."
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "point_detail_decisions": [
+      {
+        "block_key": "tenses-1",
+        "point_index": 0,
+        "label": "Дія триває зараз чи вже закінчилася?",
+        "decision": "visible_basic",
+        "reason": "Правило, переклад, необхідний контекст і коротке застереження лишаються у самодостатньому visible basic; окрема кнопка не потрібна."
+      },
+      {
+        "block_key": "tenses-1",
+        "point_index": 1,
+        "label": "Завершений минулий час",
+        "decision": "visible_basic",
+        "reason": "Правило, переклад, необхідний контекст і коротке застереження лишаються у самодостатньому visible basic; окрема кнопка не потрібна."
+      },
+      {
+        "block_key": "tenses-1",
+        "point_index": 2,
+        "label": "Що сталося раніше в минулому?",
+        "decision": "visible_basic_plus_meaningful_detail",
+        "reason": "Основний Past Perfect і зовнішній орієнтир видимі; detail окремо розбирає дві сусідні репліки та зміну порядку подій."
+      },
+      {
+        "block_key": "tenses-1",
+        "point_index": 3,
+        "label": "Перевір точку, тривалість і поточну подію",
+        "decision": "visible_basic",
+        "reason": "Правило, переклад, необхідний контекст і коротке застереження лишаються у самодостатньому visible basic; окрема кнопка не потрібна."
+      }
+    ],
+    "blocks": [
+      {
+        "key": "tenses-0",
+        "existing_source_index": 0,
+        "type": "hero",
+        "column": "header",
+        "level": "B1",
+        "data": {
+          "level": "B1–B2",
+          "intro": "Під час <strong>перефразування часових форм</strong> зберігай не лише граматику, а й повідомлення: що завершилося, що ще триває та яка подія відбулася раніше. Порядок перевірки: зміст і контекст → часовий орієнтир → форма.",
+          "rules": [
+            {
+              "label": "ЗМІСТ І КОНТЕКСТ",
+              "color": "emerald",
+              "text": "Початок у минулому ще не доводить продовження зараз. Для перебудови потрібен явний факт або достатній контекст.",
+              "example": "I have known her for years. — Я знаю її багато років."
+            },
+            {
+              "label": "ЧАСОВИЙ ОРІЄНТИР",
+              "color": "blue",
+              "text": "Розрізни завершений минулий період, зв’язок із теперішнім і подію до іншого минулого моменту.",
+              "example": "yesterday — учора; for three years — протягом трьох років; by the time — до того моменту, коли"
+            },
+            {
+              "label": "МАЛІ СЛОВА І ЗНАЧЕННЯ",
+              "color": "amber",
+              "text": "Since, for, before та the last time допомагають виразити зв’язок, але не обирають час замість аналізу ситуації.",
+              "example": "I haven’t seen him since Monday. — Я не бачив його від понеділка."
+            }
+          ]
+        }
+      },
+      {
+        "key": "tenses-1",
+        "existing_source_index": 1,
+        "type": "usage-panels",
+        "column": "left",
+        "level": null,
+        "data": {
+          "title": "1. Як розпізнати потрібну перебудову",
+          "sections": [
+            {
+              "label": "Дія триває зараз чи вже закінчилася?",
+              "color": "emerald",
+              "description": "Для дії, яка почалася раніше й досі триває, можливий Present Perfect Simple або Continuous залежно від значення. Continuous підкреслює активність і тривалість; зі станом know зазвичай потрібен Simple.",
+              "examples": [
+                {
+                  "en": "I have known her for years.",
+                  "ua": "Я знаю її багато років."
+                },
+                {
+                  "en": "I have been learning French for three years.",
+                  "ua": "Я вивчаю французьку вже три роки."
+                }
+              ],
+              "note": "Started … ago називає початок, але не гарантує, що дія триває досі. Якщо завдання вимагає певної форми, умова має прямо задавати і продовження, і потрібний фокус."
+            },
+            {
+              "label": "Завершений минулий час",
+              "color": "blue",
+              "description": "Коли дія належить до завершеного періоду «учора», «минулого року» чи конкретного минулого року, не переносимо її до Present Perfect лише через результат, який можемо уявити.",
+              "examples": [
+                {
+                  "en": "I saw him yesterday.",
+                  "ua": "Я бачив його вчора."
+                }
+              ],
+              "note": "Спершу встанови, до якого періоду належить сама дія. For може описувати й завершену тривалість у минулому; це не автоматичний сигнал Perfect."
+            },
+            {
+              "label": "Що сталося раніше в минулому?",
+              "color": "amber",
+              "description": "Past Perfect показує подію до встановленого минулого орієнтира. Перебудова повинна залишити той самий порядок подій, а не створити його наново.",
+              "examples": [
+                {
+                  "en": "The film started before we arrived.",
+                  "ua": "Фільм почався до того, як ми прийшли."
+                },
+                {
+                  "en": "By the time we arrived, the film had started.",
+                  "ua": "На той момент, коли ми прийшли, фільм уже почався."
+                }
+              ],
+              "note": "Минулу опору може задавати попереднє речення чи вся ситуація. Відсутність другого дієслова в одному рядку сама по собі не робить had done помилкою."
+            },
+            {
+              "label": "Перевір точку, тривалість і поточну подію",
+              "color": "sky",
+              "description": "For називає період, since — початкову точку, ago — відстань назад від моменту мовлення. Last time і first time теж потребують тієї самої точки відліку до та після перебудови.",
+              "examples": [
+                {
+                  "en": "She has lived here for five years.",
+                  "ua": "Вона живе тут уже п’ять років."
+                },
+                {
+                  "en": "She has lived here since March 2020.",
+                  "ua": "Вона живе тут із березня 2020 року."
+                }
+              ],
+              "note": "У числових завданнях нижче задано навчальну дату. Для first time / never before уточнюй, чи йдеться про досвід до нинішньої першої події, а не заперечуй саму цю подію."
+            }
+          ]
+        }
+      },
+      {
+        "key": "tenses-2",
+        "existing_source_index": 2,
+        "type": "comparison-table",
+        "column": "left",
+        "level": null,
+        "data": {
+          "title": "2. Основні шаблони трансформації",
+          "intro": "Кожна пара рівнозначна лише за вказаного контексту. Англійський зразок і переклад є в обох версіях.",
+          "headers": [
+            "Вихідна версія",
+            "Нова версія",
+            "Який зміст збережено"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "<p lang=\"en\">I started learning French three years ago and I am still learning it.</p><p>Я почав вивчати французьку три роки тому й досі її вивчаю.</p>",
+                "<p lang=\"en\">I have been learning French for three years.</p><p>Я вивчаю французьку вже три роки.</p>",
+                "Навчальна дата — 1 вересня 2024 року; початок — 1 вересня 2021 року. Продовження прямо назване; у новій версії підкреслюємо активність і тривалість. Ago не замінюється на for без цієї умови."
+              ]
+            },
+            {
+              "cells": [
+                "<p lang=\"en\">The last time I saw Marta was in May.</p><p>Востаннє я бачив Марту в травні.</p>",
+                "<p lang=\"en\">I haven’t seen Marta since May.</p><p>Я не бачив Марту від травня.</p>",
+                "У ситуації зараз червень 2024 року; остання зустріч була в травні 2024 року, пізніших не було. Since відлічує час від цієї останньої зустрічі; саму травневу зустріч не заперечено."
+              ]
+            },
+            {
+              "cells": [
+                "<p lang=\"en\">The film started before we arrived.</p><p>Фільм почався до того, як ми прийшли.</p>",
+                "<p lang=\"en\">By the time we arrived, the film had started.</p><p>На той момент, коли ми прийшли, фільм уже почався.</p>",
+                "Спочатку почався фільм, потім прийшли ми. Початкове When we arrived, the film started. — Коли ми прийшли, фільм почався. — передавало б іншу послідовність; це не рівнозначна вихідна версія."
+              ]
+            },
+            {
+              "cells": [
+                "<p lang=\"en\">It is the first time he has driven on the left.</p><p>Він уперше керує автомобілем лівою стороною дороги.</p>",
+                "<p lang=\"en\">He has never driven on the left before.</p><p>Раніше він ніколи не керував автомобілем лівою стороною дороги.</p>",
+                "Йдеться про нинішню першу таку поїздку. Before означає «до цієї першої події»; нова версія не заперечує теперішнього першого досвіду. Якщо змінити момент відліку на минулий, потрібна інша узгоджена редакція."
+              ]
+            }
+          ],
+          "warning": "Після перебудови звір учасників, час, заперечення, продовження дії та порядок подій. Маркери since / for / ago / before / already / yet не замінюють цієї перевірки."
+        }
+      },
+      {
+        "key": "tenses-3",
+        "existing_source_index": 3,
+        "type": "mistakes-grid",
+        "column": "right",
+        "level": "B1",
+        "data": {
+          "title": "3. Типові помилки й межі виправлення",
+          "items": [
+            {
+              "label": "ЗАВЕРШЕНЕ ВЧОРА",
+              "color": "rose",
+              "title": "Повідомляємо про зустріч саме в завершений учорашній день.",
+              "wrong_en": "I have seen him yesterday.",
+              "wrong_ua": "Задум: я бачив його вчора.",
+              "right_en": "I saw him yesterday.",
+              "right_ua": "Я бачив його вчора.",
+              "note": "Для цієї завершеної минулої зустрічі потрібен Past Simple. Yesterday відноситься до самої зустрічі, не до іншої події в складнішому контексті."
+            },
+            {
+              "label": "ПЕРІОД, НЕ ТОЧКА",
+              "color": "amber",
+              "title": "Вона досі живе тут; названо тривалість п’ять років.",
+              "wrong_en": "She has lived here since five years.",
+              "wrong_ua": "Задум: вона живе тут уже п’ять років.",
+              "right_en": "She has lived here for five years.",
+              "right_ua": "Вона живе тут уже п’ять років.",
+              "note": "For вводить період; since потребує точки початку. Не змінюй ні тривалості, ні факту продовження проживання."
+            },
+            {
+              "label": "ПЕРЕВІР КОНТЕКСТ",
+              "color": "sky",
+              "title": "Окреме повідомлення: учора я сходив до крамниці; пізнішого минулого орієнтира не задано.",
+              "wrong_en": "Yesterday I had gone to the shop.",
+              "wrong_ua": "Можливий зміст за іншого контексту: учора до певного минулого моменту я вже пішов до крамниці.",
+              "right_en": "Yesterday I went to the shop.",
+              "right_ua": "Учора я сходив до крамниці.",
+              "note": "Для заданого одного факту обираємо Past Simple. Початкове had gone не є неможливим реченням: минулий орієнтир міг би бути в іншій репліці. Виправлення стосується саме наведеної ситуації."
+            },
+            {
+              "label": "ТРИВАЛА ДІЯ ДОТЕПЕР",
+              "color": "rose",
+              "title": "Навчання почалося три роки тому й триває зараз; умова просить підкреслити процес.",
+              "wrong_en": "I learn English for three years.",
+              "wrong_ua": "Задум: я вивчаю англійську вже три роки.",
+              "right_en": "I have been learning English for three years.",
+              "right_ua": "Я вивчаю англійську вже три роки.",
+              "note": "У цій моделі потрібен Present Perfect Continuous для прямо заданого процесу. Present Perfect Simple не заборонений для будь-якої тривалої ситуації; тут інструкція навмисно звужує фокус."
+            }
+          ]
+        }
+      },
+      {
+        "key": "tenses-4",
+        "existing_source_index": 4,
+        "type": "summary-list",
+        "column": "right",
+        "level": "B1",
+        "data": {
+          "title": "4. Чек перед завершенням",
+          "items": [
+            "Спершу встанови значення й контекст, тоді часовий орієнтир і потрібну форму.",
+            "Перевір, чи дія триває зараз, чи завершилася в конкретному минулому періоді; не виводь продовження лише з started … ago.",
+            "Для двох минулих подій збережи їхній порядок; Past Perfect може спиратися і на сусідню репліку.",
+            "Звір for/since/ago, last/first time і before з тією самою точкою відліку. Прочитай обидві версії цілком."
+          ]
+        }
+      },
+      {
+        "key": "tenses-5",
+        "existing_source_index": 5,
+        "type": "navigation-chips",
+        "column": "footer",
+        "level": null,
+        "data": {
+          "title": "Сторінки цього розділу",
+          "items": [
+            {
+              "label": "Sentence Transformations — Tenses",
+              "url": "/theory/sentence-transformations/tenses",
+              "current": true
+            },
+            {
+              "label": "Sentence Transformations — Modals",
+              "url": "/theory/sentence-transformations/modals",
+              "current": false
+            },
+            {
+              "label": "Sentence Transformations — Passive",
+              "url": "/theory/sentence-transformations/passive",
+              "current": false
+            },
+            {
+              "label": "Sentence Transformations — Reported Speech",
+              "url": "/theory/sentence-transformations/reported-speech",
+              "current": false
+            },
+            {
+              "label": "Sentence Transformations — Conditionals",
+              "url": "/theory/sentence-transformations/conditionals",
+              "current": false
+            },
+            {
+              "label": "Sentence Transformations — Relative Clauses / Linking Words",
+              "url": "/theory/sentence-transformations/relative-clauses-linking-words",
+              "current": false
+            },
+            {
+              "label": "Sentence Transformations — Articles / Quantifiers",
+              "url": "/theory/sentence-transformations/articles-quantifiers",
+              "current": false
+            },
+            {
+              "label": "Sentence Transformations — Word Order / Emphasis",
+              "url": "/theory/sentence-transformations/word-order-emphasis",
+              "current": false
+            }
+          ]
+        }
+      },
+      {
+        "key": "tenses-practice",
+        "existing_source_index": null,
+        "type": "practice-set",
+        "column": "left",
+        "level": "B1",
+        "uuid_key": "tenses-practice",
+        "data": {
+          "title": "5. Практика",
+          "intro": "Збережи зміст і часову перспективу кожної вихідної ситуації. Форми й маркери не підставляються механічно; контекст заданий до відповіді.",
+          "select_title": "Вправа 1. Обери форму",
+          "select_intro": "Кожна умова прямо задає потрібний зв’язок або фокус.",
+          "selects": [
+            {
+              "id": "m80-tenses-form-earlier-film",
+              "source_index": 1,
+              "label": "<p>Фільм почався раніше за наше прибуття. Передай його початок до цього минулого моменту формою Past Perfect.</p><p lang=\"en\">By the time we arrived, the film ___.</p><p>На той момент, коли ми прийшли, фільм уже почався.</p>",
+              "prompt": "Обери варіант за видимою умовою.",
+              "options": [
+                "has started",
+                "had start",
+                "had started"
+              ],
+              "answer": "had started",
+              "accepted": [
+                "had started"
+              ],
+              "feedback": {
+                "has started": "By the time we arrived, the film had started. — На той момент, коли ми прийшли, фільм уже почався. Has started пов’язує подію з теперішнім, а тут орієнтир — минуле прибуття.",
+                "had start": "By the time we arrived, the film had started. — На той момент, коли ми прийшли, фільм уже почався. Після had для Past Perfect потрібен дієприкметник started.",
+                "had started": "By the time we arrived, the film had started. — На той момент, коли ми прийшли, фільм уже почався. Раніша подія й минулий орієнтир збережені."
+              }
+            },
+            {
+              "id": "m80-tenses-form-start-point",
+              "source_index": 2,
+              "label": "<p>Вона почала жити тут у березні 2020 року й досі тут живе. У пропуску потрібне слово перед точкою початку, а не перед тривалістю.</p><p lang=\"en\">She has lived here ___ March 2020.</p><p>Вона живе тут із березня 2020 року.</p>",
+              "prompt": "Обери варіант за видимою умовою.",
+              "options": [
+                "for",
+                "since",
+                "ago"
+              ],
+              "answer": "since",
+              "accepted": [
+                "since"
+              ],
+              "feedback": {
+                "for": "She has lived here since March 2020. — Вона живе тут із березня 2020 року. March 2020 — початкова точка, не кількість часу для for.",
+                "since": "She has lived here since March 2020. — Вона живе тут із березня 2020 року. Since вводить задану початкову точку.",
+                "ago": "She has lived here since March 2020. — Вона живе тут із березня 2020 року. Ago відлічує проміжок назад від моменту мовлення й не ставиться тут перед назвою точки."
+              }
+            }
+          ],
+          "options": [],
+          "choice_title": "Вправа 2. Перевір рівнозначність",
+          "choice_intro": "Граматичний target має передавати ті самі факти, а не додавати невідоме продовження або міняти хронологію.",
+          "choices": [
+            {
+              "id": "m80-tenses-meaning-film-order",
+              "source_index": 3,
+              "label": "<p lang=\"en\">When we arrived, the film started.</p><p>Коли ми прийшли, фільм почався. У цій ситуації початок відбувся з нашим прибуттям, а не раніше. Чи можна без зміни факту замінити це на наступне?</p><p lang=\"en\">By the time we arrived, the film had started.</p><p>На той момент, коли ми прийшли, фільм уже почався.</p>",
+              "prompt": "Обери варіант за видимою умовою.",
+              "options": [
+                "Ні: друга версія ставить початок фільму раніше за прибуття.",
+                "Так: обидві версії задають той самий порядок."
+              ],
+              "answer": "Ні: друга версія ставить початок фільму раніше за прибуття.",
+              "accepted": [
+                "Ні: друга версія ставить початок фільму раніше за прибуття."
+              ],
+              "feedback": {
+                "ні: друга версія ставить початок фільму раніше за прибуття.": "Ні: друга версія ставить початок фільму раніше за прибуття. When we arrived, the film started. — Коли ми прийшли, фільм почався. За заданим контекстом початок збігся з прибуттям; By the time we arrived, the film had started. — На той момент, коли ми прийшли, фільм уже почався. — задає попередній початок, тому не є рівнозначною заміною.",
+                "так: обидві версії задають той самий порядок.": "Ні: друга версія ставить початок фільму раніше за прибуття. When we arrived, the film started. — Коли ми прийшли, фільм почався. За заданим контекстом початок збігся з прибуттям; By the time we arrived, the film had started. — На той момент, коли ми прийшли, фільм уже почався. — задає попередній початок, тому не є рівнозначною заміною."
+              }
+            },
+            {
+              "id": "m80-tenses-meaning-ongoing",
+              "source_index": 4,
+              "label": "<p>Навчальна дата — 1 вересня 2024 року. Відоме лише наведене речення; продовження навчання не встановлене.</p><p lang=\"en\">I started learning French three years ago.</p><p>Я почав вивчати французьку три роки тому. Чи достатньо цього факту для рівнозначної версії «Я вивчаю французьку вже три роки»?</p>",
+              "prompt": "Обери варіант за видимою умовою.",
+              "options": [
+                "Так: сам початок три роки тому доводить, що дія досі триває.",
+                "Ні: треба додатково знати, що навчання триває досі."
+              ],
+              "answer": "Ні: треба додатково знати, що навчання триває досі.",
+              "accepted": [
+                "Ні: треба додатково знати, що навчання триває досі."
+              ],
+              "feedback": {
+                "так: сам початок три роки тому доводить, що дія досі триває.": "Ні: треба додатково знати, що навчання триває досі. I started learning French three years ago. — Я почав вивчати французьку три роки тому. Це встановлює початок, але людина могла припинити навчання; форма процесу до теперішнього додала б невідоме продовження.",
+                "ні: треба додатково знати, що навчання триває досі.": "Ні: треба додатково знати, що навчання триває досі. I started learning French three years ago. — Я почав вивчати французьку три роки тому. Це встановлює початок, але людина могла припинити навчання; форма процесу до теперішнього додала б невідоме продовження."
+              }
+            }
+          ],
+          "input_title": "Вправа 3. Перефразуй цілим реченням",
+          "input_intro": "Введи повну нову версію або склади її з перемішаних груп. Вихідне речення і весь потрібний контекст наведені в умові.",
+          "inputs": [
+            {
+              "id": "m80-tenses-sentence-ongoing-french",
+              "source_index": 5,
+              "before": "for three years. / Oleh / learning French / has been",
+              "after": "<p>Навчальна дата — 1 вересня 2024 року. Олег почав вивчати французьку 1 вересня 2021 року й досі її вивчає. Перефразуй як процес, що триває вже три роки, саме в Present Perfect Continuous; назви тривалість, не дату початку. Почни з імені Олег. Для «вивчати» приймається також відповідник зі значенням навчатися мови.</p><p lang=\"en\">Oleh started learning French three years ago and is still learning it.</p><p>Олег почав вивчати французьку три роки тому й досі її вивчає.</p>",
+              "answer": "Oleh has been learning French for three years.",
+              "accepted": [
+                "Oleh has been learning French for three years.",
+                "Oleh has been studying French for three years."
+              ],
+              "feedback": {
+                "oleh has been learning french for three years.": "Oleh has been learning French for three years. — Олег вивчає французьку вже три роки. Дату початку й продовження прямо задано; Continuous передає потрібний процес, for — тривалість.",
+                "oleh has been studying french for three years.": "Oleh has been studying French for three years. — Олег вивчає французьку вже три роки. Studying є прийнятним відповідником у цьому контексті навчання мови; той самий процес і період збережено."
+              }
+            },
+            {
+              "id": "m80-tenses-sentence-film",
+              "source_index": 6,
+              "before": "the film / By the time / had started. / we arrived,",
+              "after": "<p>Фільм почався до того, як ми прийшли. Перефразуй, починаючи зі сполучника зі значенням «до того моменту, коли», потім назви наше прибуття в Past Simple, а раніший початок фільму — в Past Perfect. Збережи порядок подій; «уже» можна додати або не додавати.</p><p lang=\"en\">The film started before we arrived.</p><p>Фільм почався до того, як ми прийшли.</p>",
+              "answer": "By the time we arrived, the film had started.",
+              "accepted": [
+                "By the time we arrived, the film had started.",
+                "By the time we arrived, the film had already started."
+              ],
+              "feedback": {
+                "by the time we arrived, the film had started.": "By the time we arrived, the film had started. — На той момент, коли ми прийшли, фільм уже почався. Фільм почався раніше, прибуття пізніше; вихідний факт збережено.",
+                "by the time we arrived, the film had already started.": "By the time we arrived, the film had already started. — На той момент, коли ми прийшли, фільм уже почався. Already явно підкреслює ту саму ранішу подію, не змінюючи її місця в послідовності."
+              }
+            }
+          ],
+          "rephrase": [],
+          "linked_practice": {
+            "source": "theory_links",
+            "question_types": [
+              "4"
+            ],
+            "seeder_classes": [
+              "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTransformationsTensesAllLevelsLessonSeeder"
+            ],
+            "title": "Вправа 4. Побудуй речення",
+            "intro": "Склади англійське речення за українською умовою, клікаючи на слова.",
+            "footer": "Завдання підібрані лише для цієї теми."
+          }
+        }
+      }
+    ]
+  },
+  "editorial_review": {
+    "schema_version": 1,
+    "review_kind": "Agent author/reviewer, not human review",
+    "corrections": [
+      {
+        "source": "Часовий маркер першим визначає Simple/Perfect/PPC; started … ago майже автоматично PPC.",
+        "after": "Зміст і контекст → часовий орієнтир → форма; продовження прямо задане. For не автоматичний Perfect.",
+        "reason": "Граматично можливий target не повинен додавати невідомий факт."
+      },
+      {
+        "source": "When we arrived, the film started. → By the time we arrived, the film had started.",
+        "after": "The film started before we arrived. → By the time we arrived, the film had started. Обидві версії: фільм раніше, наше прибуття пізніше.",
+        "reason": "Колишня вихідна версія задає початок у момент/після прибуття; source-ситуацію виправлено явно, не видано зміну хронології за рівнозначність."
+      },
+      {
+        "source": "Past Perfect неправильний без другої опорної події в самому реченні.",
+        "after": "У прикладі прямо задано standalone факт без минулої опори; basic пояснює зовнішній контекст, detail показує зв’язок між сусідніми репліками.",
+        "reason": "Past Perfect може спиратися на попередній або ширший контекст."
+      },
+      {
+        "source": "Числові періоди та first/last time без чіткого моменту відліку.",
+        "after": "Сталі навчальні дати 2024/2021 та червень/травень 2024; first time віднесено до нинішнього першого досвіду, before — до нього.",
+        "reason": "Не залежить від дати комп’ютера й не заперечує поточну першу подію."
+      }
+    ],
+    "source_practice_inventory": {
+      "selects": 0,
+      "choices": 0,
+      "inputs": 0,
+      "graded_rephrase": 0,
+      "ungraded_demos": 0
+    },
+    "after_practice_inventory": {
+      "selects": 2,
+      "choices": 2,
+      "inputs": 2,
+      "graded_rephrase": 0,
+      "ungraded_demos": 0,
+      "full_sentence_input_indices": [
+        0,
+        1
+      ]
+    },
+    "source_loader_boundary": "JsonPageSeeder використовує top-level seeder.class Page_V3. UUID, embedded metadata, tags, inherit flags, column і фактичні SQL levels задаються незалежним exact-bound compiler; автор не змінює їх за рівнем пояснення.",
+    "acceptance_boundary": "Авторська чернетка; не є HTTP/browser PASS, frozen source чи дозволом змінювати БД. Main виконує незалежний BEFORE, compiler, preview, backup, guarded apply і live acceptance.",
+    "sources": [
+      {
+        "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/past-perfect",
+        "access": "direct-editorial-body-read; named-team-reply-separately-reviewed",
+        "verified": "Основне пояснення: had + дієприкметник для події до минулого орієнтира; порядок частин не змінює послідовність. Окремо прочитано відповідь Peter M., LearnEnglish Team, 14.07.2026: орієнтир може бути в контексті. Вправи й повідомлення учнів не копіювалися.",
+        "copied_exercises": false
+      },
+      {
+        "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/present-perfect-simple-continuous",
+        "access": "direct-editorial-body-read",
+        "verified": "Основне пояснення: зв’язок із теперішнім, результат/активність, тривалі стани й дії. Не зроблено абсолютної заборони Simple для тривалості. Власні ситуації та приклади.",
+        "copied_exercises": false
+      },
+      {
+        "url": "https://dictionary.cambridge.org/grammar/british-grammar/ago",
+        "access": "direct-http-403; indexed-editorial-body-read",
+        "verified": "Ago відлічує від моменту мовлення; минулий початок сам по собі не доводить продовження зараз. Тривалість із for відрізнено від точки з since.",
+        "copied_exercises": false
+      },
+      {
+        "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/for-or-since",
+        "access": "indexed-editorial-body-read; non-us-direct-variant-http-403",
+        "verified": "For називає період, since — початкову точку. Доступність URL-варіантів не підмінено твердженням про пряме читання всіх варіантів.",
+        "copied_exercises": false
+      }
+    ],
+    "retained_source": "Збережено часову перспективу, три source-функції й приклади know/since; порядок аналізу став значення/контекст→орієнтир→форма, маркери не алгоритм. Чотири source bullets перенесено без HTML box: ongoing→/sections/0; earlier-past→/sections/2; completed-marker→/sections/1; last/first/started pairs→/sections/3 і таблиця. Коректні застереження збережено й уточнено контекстом. Усі чотири табличні функції збережено в тих самих row indices. Row0 отримав explicit ongoing/date; row1 explicit latest meeting/date; row2 виправлено source chronology; row3 explicit current first event/before reference. Обидві версії кожного рядка мають UA. Усі чотири source correction-функції та EN-пари збережені на тих самих позиціях; зміни стосуються видимого контексту, точних перекладів і меж застосування. Had gone не отримав blanket-заборони. Збережено чотири перевірки source summary, але meaning/context перед маркером; вилучено необґрунтовану обіцянку іспитового алгоритму. Усі вісім navigation items, explicit destination URL, current flags і порядок лишилися дослівно з source. Жоден destination не замінено темою з іншої категорії.",
+    "new_author_content": "Шість нових власних завдань (2 форма, 2 зміст, 2 повні речення), тематичний linked builder, точні UA-переклади й необхідні видимі умови. Банк/ключі старих питань не змінюються авторським файлом.",
+    "details_decision": "1 disclosure: зовнішній минулий орієнтир через дві репліки. Основний порядок подій, продовження й часові межі видимі.",
+    "inferred_identity_fields_not_written": [
+      "Page IDs",
+      "category IDs",
+      "continuing UUIDs",
+      "actual SQL levels",
+      "runtime widget question IDs"
+    ],
+    "metadata_transitions": [
+      {
+        "source_index": 1,
+        "before": {
+          "type": "box",
+          "column": "left",
+          "level_present": false,
+          "heading": "1. Як розпізнати потрібну перебудову"
+        },
+        "after": {
+          "type": "usage-panels",
+          "column": "left",
+          "level": null,
+          "title": "1. Як розпізнати потрібну перебудову"
+        },
+        "reason": "HTML пояснення перенесено в наявний canonical native component; continuing UUID/position/column/actual NULL level без змін; old heading переходить у data.title."
+      },
+      {
+        "source_index": 2,
+        "before": {
+          "type": "box",
+          "column": "left",
+          "level_present": false,
+          "heading": "2. Основні шаблони трансформації"
+        },
+        "after": {
+          "type": "comparison-table",
+          "column": "left",
+          "level": null,
+          "title": "2. Основні шаблони трансформації"
+        },
+        "reason": "HTML таблиця перенесена в підтриманий native table; усі4рядки простежуються, UUID/position/column/actual NULL level без змін."
+      }
+    ],
+    "table_row_map": [
+      {
+        "source_index": 2,
+        "row_index": 0,
+        "source_pair": [
+          "I started learning French three years ago.",
+          "I have been learning French for three years."
+        ],
+        "after_cells": [
+          "<p lang=\"en\">I started learning French three years ago and I am still learning it.</p><p>Я почав вивчати французьку три роки тому й досі її вивчаю.</p>",
+          "<p lang=\"en\">I have been learning French for three years.</p><p>Я вивчаю французьку вже три роки.</p>",
+          "Навчальна дата — 1 вересня 2024 року; початок — 1 вересня 2021 року. Продовження прямо назване; у новій версії підкреслюємо активність і тривалість. Ago не замінюється на for без цієї умови."
+        ],
+        "reason": "Старий source не доводив продовження; додано still learning і сталу навчальну дату 01.09.2024, початок01.09.2021. Форму Continuous звужено до процесу."
+      },
+      {
+        "source_index": 2,
+        "row_index": 1,
+        "source_pair": [
+          "The last time I saw Marta was in May.",
+          "I haven't seen Marta since May."
+        ],
+        "after_cells": [
+          "<p lang=\"en\">The last time I saw Marta was in May.</p><p>Востаннє я бачив Марту в травні.</p>",
+          "<p lang=\"en\">I haven’t seen Marta since May.</p><p>Я не бачив Марту від травня.</p>",
+          "У ситуації зараз червень 2024 року; остання зустріч була в травні 2024 року, пізніших не було. Since відлічує час від цієї останньої зустрічі; саму травневу зустріч не заперечено."
+        ],
+        "reason": "Остання зустріч та since належать до того самого травня2024, nowчервень2024; пізнішихзустрічейнемає."
+      },
+      {
+        "source_index": 2,
+        "row_index": 2,
+        "source_pair": [
+          "When we arrived, the film started.",
+          "By the time we arrived, the film had started."
+        ],
+        "after_cells": [
+          "<p lang=\"en\">The film started before we arrived.</p><p>Фільм почався до того, як ми прийшли.</p>",
+          "<p lang=\"en\">By the time we arrived, the film had started.</p><p>На той момент, коли ми прийшли, фільм уже почався.</p>",
+          "Спочатку почався фільм, потім прийшли ми. Початкове When we arrived, the film started. — Коли ми прийшли, фільм почався. — передавало б іншу послідовність; це не рівнозначна вихідна версія."
+        ],
+        "reason": "Source When…started змінено на before…arrived явно: лише так збережено фільмраніше/прибуттяпізніше. Стару нерівнозначність не названо парафразою."
+      },
+      {
+        "source_index": 2,
+        "row_index": 3,
+        "source_pair": [
+          "It is the first time he has driven on the left.",
+          "He has never driven on the left before."
+        ],
+        "after_cells": [
+          "<p lang=\"en\">It is the first time he has driven on the left.</p><p>Він уперше керує автомобілем лівою стороною дороги.</p>",
+          "<p lang=\"en\">He has never driven on the left before.</p><p>Раніше він ніколи не керував автомобілем лівою стороною дороги.</p>",
+          "Йдеться про нинішню першу таку поїздку. Before означає «до цієї першої події»; нова версія не заперечує теперішнього першого досвіду. Якщо змінити момент відліку на минулий, потрібна інша узгоджена редакція."
+        ],
+        "reason": "Поточнаперша поїздка й попередній досвід відділені; before означає дотеперішньоїпершоїподії."
+      }
+    ]
+  },
+  "task_map": [
+    {
+      "classification": "new",
+      "old_block_source_index": null,
+      "after_block_source_index": 6,
+      "old_group": null,
+      "old_group_index": null,
+      "after_group": "selects",
+      "after_group_index": 0,
+      "graded": true,
+      "old_task": null,
+      "after_task": {
+        "id": "m80-tenses-form-earlier-film",
+        "source_index": 1,
+        "label": "<p>Фільм почався раніше за наше прибуття. Передай його початок до цього минулого моменту формою Past Perfect.</p><p lang=\"en\">By the time we arrived, the film ___.</p><p>На той момент, коли ми прийшли, фільм уже почався.</p>",
+        "prompt": "Обери варіант за видимою умовою.",
+        "options": [
+          "has started",
+          "had start",
+          "had started"
+        ],
+        "answer": "had started",
+        "accepted": [
+          "had started"
+        ],
+        "feedback": {
+          "has started": "By the time we arrived, the film had started. — На той момент, коли ми прийшли, фільм уже почався. Has started пов’язує подію з теперішнім, а тут орієнтир — минуле прибуття.",
+          "had start": "By the time we arrived, the film had started. — На той момент, коли ми прийшли, фільм уже почався. Після had для Past Perfect потрібен дієприкметник started.",
+          "had started": "By the time we arrived, the film had started. — На той момент, коли ми прийшли, фільм уже почався. Раніша подія й минулий орієнтир збережені."
+        }
+      },
+      "learning_function": "Вибір форми для явно заданого контексту.",
+      "change_reason": "До M80 source practice-set відсутній; незалежний фактичний SQL inventory перевіряє main. Застосування дозволене лише без дублювання актуальної практики.",
+      "aliases_review": [
+        {
+          "answer": "had started",
+          "reason": "Канонічна відповідь"
+        }
+      ]
+    },
+    {
+      "classification": "new",
+      "old_block_source_index": null,
+      "after_block_source_index": 6,
+      "old_group": null,
+      "old_group_index": null,
+      "after_group": "selects",
+      "after_group_index": 1,
+      "graded": true,
+      "old_task": null,
+      "after_task": {
+        "id": "m80-tenses-form-start-point",
+        "source_index": 2,
+        "label": "<p>Вона почала жити тут у березні 2020 року й досі тут живе. У пропуску потрібне слово перед точкою початку, а не перед тривалістю.</p><p lang=\"en\">She has lived here ___ March 2020.</p><p>Вона живе тут із березня 2020 року.</p>",
+        "prompt": "Обери варіант за видимою умовою.",
+        "options": [
+          "for",
+          "since",
+          "ago"
+        ],
+        "answer": "since",
+        "accepted": [
+          "since"
+        ],
+        "feedback": {
+          "for": "She has lived here since March 2020. — Вона живе тут із березня 2020 року. March 2020 — початкова точка, не кількість часу для for.",
+          "since": "She has lived here since March 2020. — Вона живе тут із березня 2020 року. Since вводить задану початкову точку.",
+          "ago": "She has lived here since March 2020. — Вона живе тут із березня 2020 року. Ago відлічує проміжок назад від моменту мовлення й не ставиться тут перед назвою точки."
+        }
+      },
+      "learning_function": "Вибір форми для явно заданого контексту.",
+      "change_reason": "До M80 source practice-set відсутній; незалежний фактичний SQL inventory перевіряє main. Застосування дозволене лише без дублювання актуальної практики.",
+      "aliases_review": [
+        {
+          "answer": "since",
+          "reason": "Канонічна відповідь"
+        }
+      ]
+    },
+    {
+      "classification": "new",
+      "old_block_source_index": null,
+      "after_block_source_index": 6,
+      "old_group": null,
+      "old_group_index": null,
+      "after_group": "choices",
+      "after_group_index": 0,
+      "graded": true,
+      "old_task": null,
+      "after_task": {
+        "id": "m80-tenses-meaning-film-order",
+        "source_index": 3,
+        "label": "<p lang=\"en\">When we arrived, the film started.</p><p>Коли ми прийшли, фільм почався. У цій ситуації початок відбувся з нашим прибуттям, а не раніше. Чи можна без зміни факту замінити це на наступне?</p><p lang=\"en\">By the time we arrived, the film had started.</p><p>На той момент, коли ми прийшли, фільм уже почався.</p>",
+        "prompt": "Обери варіант за видимою умовою.",
+        "options": [
+          "Ні: друга версія ставить початок фільму раніше за прибуття.",
+          "Так: обидві версії задають той самий порядок."
+        ],
+        "answer": "Ні: друга версія ставить початок фільму раніше за прибуття.",
+        "accepted": [
+          "Ні: друга версія ставить початок фільму раніше за прибуття."
+        ],
+        "feedback": {
+          "ні: друга версія ставить початок фільму раніше за прибуття.": "Ні: друга версія ставить початок фільму раніше за прибуття. When we arrived, the film started. — Коли ми прийшли, фільм почався. За заданим контекстом початок збігся з прибуттям; By the time we arrived, the film had started. — На той момент, коли ми прийшли, фільм уже почався. — задає попередній початок, тому не є рівнозначною заміною.",
+          "так: обидві версії задають той самий порядок.": "Ні: друга версія ставить початок фільму раніше за прибуття. When we arrived, the film started. — Коли ми прийшли, фільм почався. За заданим контекстом початок збігся з прибуттям; By the time we arrived, the film had started. — На той момент, коли ми прийшли, фільм уже почався. — задає попередній початок, тому не є рівнозначною заміною."
+        }
+      },
+      "learning_function": "Розрізнення змісту та збереження повідомлення.",
+      "change_reason": "До M80 source practice-set відсутній; незалежний фактичний SQL inventory перевіряє main. Застосування дозволене лише без дублювання актуальної практики.",
+      "aliases_review": [
+        {
+          "answer": "Ні: друга версія ставить початок фільму раніше за прибуття.",
+          "reason": "Канонічна відповідь"
+        }
+      ]
+    },
+    {
+      "classification": "new",
+      "old_block_source_index": null,
+      "after_block_source_index": 6,
+      "old_group": null,
+      "old_group_index": null,
+      "after_group": "choices",
+      "after_group_index": 1,
+      "graded": true,
+      "old_task": null,
+      "after_task": {
+        "id": "m80-tenses-meaning-ongoing",
+        "source_index": 4,
+        "label": "<p>Навчальна дата — 1 вересня 2024 року. Відоме лише наведене речення; продовження навчання не встановлене.</p><p lang=\"en\">I started learning French three years ago.</p><p>Я почав вивчати французьку три роки тому. Чи достатньо цього факту для рівнозначної версії «Я вивчаю французьку вже три роки»?</p>",
+        "prompt": "Обери варіант за видимою умовою.",
+        "options": [
+          "Так: сам початок три роки тому доводить, що дія досі триває.",
+          "Ні: треба додатково знати, що навчання триває досі."
+        ],
+        "answer": "Ні: треба додатково знати, що навчання триває досі.",
+        "accepted": [
+          "Ні: треба додатково знати, що навчання триває досі."
+        ],
+        "feedback": {
+          "так: сам початок три роки тому доводить, що дія досі триває.": "Ні: треба додатково знати, що навчання триває досі. I started learning French three years ago. — Я почав вивчати французьку три роки тому. Це встановлює початок, але людина могла припинити навчання; форма процесу до теперішнього додала б невідоме продовження.",
+          "ні: треба додатково знати, що навчання триває досі.": "Ні: треба додатково знати, що навчання триває досі. I started learning French three years ago. — Я почав вивчати французьку три роки тому. Це встановлює початок, але людина могла припинити навчання; форма процесу до теперішнього додала б невідоме продовження."
+        }
+      },
+      "learning_function": "Розрізнення змісту та збереження повідомлення.",
+      "change_reason": "До M80 source practice-set відсутній; незалежний фактичний SQL inventory перевіряє main. Застосування дозволене лише без дублювання актуальної практики.",
+      "aliases_review": [
+        {
+          "answer": "Ні: треба додатково знати, що навчання триває досі.",
+          "reason": "Канонічна відповідь"
+        }
+      ]
+    },
+    {
+      "classification": "new",
+      "old_block_source_index": null,
+      "after_block_source_index": 6,
+      "old_group": null,
+      "old_group_index": null,
+      "after_group": "inputs",
+      "after_group_index": 0,
+      "graded": true,
+      "old_task": null,
+      "after_task": {
+        "id": "m80-tenses-sentence-ongoing-french",
+        "source_index": 5,
+        "before": "for three years. / Oleh / learning French / has been",
+        "after": "<p>Навчальна дата — 1 вересня 2024 року. Олег почав вивчати французьку 1 вересня 2021 року й досі її вивчає. Перефразуй як процес, що триває вже три роки, саме в Present Perfect Continuous; назви тривалість, не дату початку. Почни з імені Олег. Для «вивчати» приймається також відповідник зі значенням навчатися мови.</p><p lang=\"en\">Oleh started learning French three years ago and is still learning it.</p><p>Олег почав вивчати французьку три роки тому й досі її вивчає.</p>",
+        "answer": "Oleh has been learning French for three years.",
+        "accepted": [
+          "Oleh has been learning French for three years.",
+          "Oleh has been studying French for three years."
+        ],
+        "feedback": {
+          "oleh has been learning french for three years.": "Oleh has been learning French for three years. — Олег вивчає французьку вже три роки. Дату початку й продовження прямо задано; Continuous передає потрібний процес, for — тривалість.",
+          "oleh has been studying french for three years.": "Oleh has been studying French for three years. — Олег вивчає французьку вже три роки. Studying є прийнятним відповідником у цьому контексті навчання мови; той самий процес і період збережено."
+        }
+      },
+      "learning_function": "Побудова цілого речення вручну або перемішаними групами 1–3 слова.",
+      "change_reason": "До M80 source practice-set відсутній; незалежний фактичний SQL inventory перевіряє main. Застосування дозволене лише без дублювання актуальної практики.",
+      "aliases_review": [
+        {
+          "answer": "Oleh has been learning French for three years.",
+          "reason": "Канонічна відповідь"
+        },
+        {
+          "answer": "Oleh has been studying French for three years.",
+          "reason": "Природний відповідник навчання мови; той самий процес"
+        }
+      ]
+    },
+    {
+      "classification": "new",
+      "old_block_source_index": null,
+      "after_block_source_index": 6,
+      "old_group": null,
+      "old_group_index": null,
+      "after_group": "inputs",
+      "after_group_index": 1,
+      "graded": true,
+      "old_task": null,
+      "after_task": {
+        "id": "m80-tenses-sentence-film",
+        "source_index": 6,
+        "before": "the film / By the time / had started. / we arrived,",
+        "after": "<p>Фільм почався до того, як ми прийшли. Перефразуй, починаючи зі сполучника зі значенням «до того моменту, коли», потім назви наше прибуття в Past Simple, а раніший початок фільму — в Past Perfect. Збережи порядок подій; «уже» можна додати або не додавати.</p><p lang=\"en\">The film started before we arrived.</p><p>Фільм почався до того, як ми прийшли.</p>",
+        "answer": "By the time we arrived, the film had started.",
+        "accepted": [
+          "By the time we arrived, the film had started.",
+          "By the time we arrived, the film had already started."
+        ],
+        "feedback": {
+          "by the time we arrived, the film had started.": "By the time we arrived, the film had started. — На той момент, коли ми прийшли, фільм уже почався. Фільм почався раніше, прибуття пізніше; вихідний факт збережено.",
+          "by the time we arrived, the film had already started.": "By the time we arrived, the film had already started. — На той момент, коли ми прийшли, фільм уже почався. Already явно підкреслює ту саму ранішу подію, не змінюючи її місця в послідовності."
+        }
+      },
+      "learning_function": "Побудова цілого речення вручну або перемішаними групами 1–3 слова.",
+      "change_reason": "До M80 source practice-set відсутній; незалежний фактичний SQL inventory перевіряє main. Застосування дозволене лише без дублювання актуальної практики.",
+      "aliases_review": [
+        {
+          "answer": "By the time we arrived, the film had started.",
+          "reason": "Канонічна відповідь"
+        },
+        {
+          "answer": "By the time we arrived, the film had already started.",
+          "reason": "Явно виражає вже встановлену попередність"
+        }
+      ]
+    }
+  ],
+  "component_map": [
+    {
+      "key": "tenses-0",
+      "existing_source_index": 0,
+      "after_source_index": 0,
+      "old_type": "hero",
+      "after_type": "hero",
+      "old_column": "header",
+      "after_column": "header",
+      "level_preserved": "B1",
+      "title_before": null,
+      "title_after": null,
+      "source_body": "{\"level\":\"B1-B2\",\"intro\":\"У завданнях на перефразування часових форм головне - <strong>зберегти часову перспективу</strong>: що сталося раніше, що триває досі, а що прив'язане до завершеного моменту в минулому.\",\"rules\":[{\"label\":\"ЧАСОВА ОПОРА\",\"color\":\"emerald\",\"text\":\"Спершу знайди <strong>завершений часовий маркер</strong>, <strong>тривалість</strong> або <strong>ранішу минулу подію</strong>. Саме це підказує, чи потрібен Simple, Perfect або Perfect Continuous.\",\"example\":\"yesterday / for three years / by the time\"},{\"label\":\"ЗНАЧЕННЯ ПЕРЕД ФОРМОЮ\",\"color\":\"blue\",\"text\":\"Не замінюй форму механічно. Перевір, чи речення говорить про <strong>результат зараз</strong>, <strong>тривалість</strong> або <strong>послідовність у минулому</strong>.\",\"example\":\"I have known her for years.\"},{\"label\":\"УВАЖНО ДО МАЛИХ СЛІВ\",\"color\":\"amber\",\"text\":\"У часових перетвореннях часто все вирішують <strong>since, for, already, yet, just, before, after, by the time, the last time</strong>.\",\"example\":\"I haven't seen him since Monday.\"}]}",
+      "source_derived_material": "Збережено часову перспективу, три source-функції й приклади know/since; порядок аналізу став значення/контекст→орієнтир→форма, маркери не алгоритм.",
+      "after_reference": "lesson.blocks[0].data",
+      "changed_fields": [
+        "level",
+        "intro",
+        "rules"
+      ],
+      "metadata_policy": "UUID/index/sort/column/level/tags/embedded fields з незалежного BEFORE зберігає compiler; лише C slots1/2 мають окрему reviewed type/heading metadata allowlist."
+    },
+    {
+      "key": "tenses-1",
+      "existing_source_index": 1,
+      "after_source_index": 1,
+      "old_type": "box",
+      "after_type": "usage-panels",
+      "old_column": "left",
+      "after_column": "left",
+      "level_preserved": null,
+      "title_before": "1. Як розпізнати потрібну перебудову",
+      "title_after": "1. Як розпізнати потрібну перебудову",
+      "source_body": "<p>Починай із часового сигналу, а не з дієслова.</p><ul><li>Якщо дія почалася в минулому і триває зараз, часто потрібен <strong>Present Perfect</strong> або <strong>Present Perfect Continuous</strong>.</li><li>Якщо одна дія сталася <strong>раніше за іншу в минулому</strong>, у завданнях на перефразування часто з'являється <strong>Past Perfect</strong>.</li><li>Якщо в реченні є <strong>завершений часовий маркер</strong> на кшталт <em>yesterday</em>, <em>last year</em>, <em>in 2022</em>, Present Perfect зазвичай не підходить.</li><li>Пари типу <em>the last time</em>, <em>it's the first time</em>, <em>started ... ago</em> майже завжди мають стандартні перефразування.</li></ul>",
+      "source_derived_material": "Чотири source bullets перенесено без HTML box: ongoing→/sections/0; earlier-past→/sections/2; completed-marker→/sections/1; last/first/started pairs→/sections/3 і таблиця. Коректні застереження збережено й уточнено контекстом.",
+      "after_reference": "lesson.blocks[1].data",
+      "changed_fields": [
+        "title",
+        "sections"
+      ],
+      "metadata_policy": "UUID/index/sort/column/level/tags/embedded fields з незалежного BEFORE зберігає compiler; лише C slots1/2 мають окрему reviewed type/heading metadata allowlist."
+    },
+    {
+      "key": "tenses-2",
+      "existing_source_index": 2,
+      "after_source_index": 2,
+      "old_type": "box",
+      "after_type": "comparison-table",
+      "old_column": "left",
+      "after_column": "left",
+      "level_preserved": null,
+      "title_before": "2. Основні шаблони трансформації",
+      "title_after": "2. Основні шаблони трансформації",
+      "source_body": "<table><thead><tr><th>Базове речення</th><th>Нове речення</th><th>На що звернути увагу</th></tr></thead><tbody><tr><td>I started learning French three years ago.</td><td>I have been learning French for three years.</td><td><strong>ago -> for</strong>; дія триває до теперішнього моменту.</td></tr><tr><td>The last time I saw Marta was in May.</td><td>I haven't seen Marta since May.</td><td><strong>the last time ... was -> haven't ... since</strong>.</td></tr><tr><td>When we arrived, the film started.</td><td>By the time we arrived, the film had started.</td><td><strong>Past Perfect</strong> для ранішої дії в минулому.</td></tr><tr><td>It is the first time he has driven on the left.</td><td>He has never driven on the left before.</td><td><strong>the first time -> never ... before</strong>.</td></tr></tbody></table><p>На іспиті дивись, чи змінився лише час, чи ще й маркер: <em>ago</em>, <em>for</em>, <em>since</em>, <em>before</em>, <em>already</em>, <em>yet</em>.</p>",
+      "source_derived_material": "Усі чотири табличні функції збережено в тих самих row indices. Row0 отримав explicit ongoing/date; row1 explicit latest meeting/date; row2 виправлено source chronology; row3 explicit current first event/before reference. Обидві версії кожного рядка мають UA.",
+      "after_reference": "lesson.blocks[2].data",
+      "changed_fields": [
+        "title",
+        "intro",
+        "headers",
+        "rows",
+        "warning"
+      ],
+      "metadata_policy": "UUID/index/sort/column/level/tags/embedded fields з незалежного BEFORE зберігає compiler; лише C slots1/2 мають окрему reviewed type/heading metadata allowlist."
+    },
+    {
+      "key": "tenses-3",
+      "existing_source_index": 3,
+      "after_source_index": 3,
+      "old_type": "mistakes-grid",
+      "after_type": "mistakes-grid",
+      "old_column": "right",
+      "after_column": "right",
+      "level_preserved": "B1",
+      "title_before": "3. Типові помилки",
+      "title_after": "3. Типові помилки й межі виправлення",
+      "source_body": "{\"title\":\"3. Типові помилки\",\"items\":[{\"label\":\"Помилка 1\",\"color\":\"rose\",\"title\":\"Вживати Present Perfect разом із завершеним минулим маркером.\",\"wrong\":\"I have seen him yesterday.\",\"right\":\"I saw him yesterday.\",\"hint\":\"Після <strong>yesterday, last week, in 2021</strong> зазвичай потрібен Past Simple.\"},{\"label\":\"Помилка 2\",\"color\":\"amber\",\"title\":\"Плутати <strong>for</strong> і <strong>since</strong>.\",\"wrong\":\"She has lived here since five years.\",\"right\":\"She has lived here for five years.\",\"hint\":\"<strong>For</strong> = тривалість, <strong>since</strong> = початкова точка.\"},{\"label\":\"Помилка 3\",\"color\":\"sky\",\"title\":\"Ставити Past Perfect без другої опорної події в минулому.\",\"wrong\":\"Yesterday I had gone to the shop.\",\"right\":\"Yesterday I went to the shop.\",\"hint\":\"<strong>Past Perfect</strong> потрібен, коли є пізніша дія або чіткий минулий орієнтир.\"},{\"label\":\"Помилка 4\",\"color\":\"rose\",\"title\":\"Втрачати ідею тривалості, коли дія все ще триває.\",\"wrong\":\"I learn English for three years.\",\"right\":\"I have been learning English for three years.\",\"hint\":\"Якщо дія почалася раніше й триває зараз, потрібна perfect форма.\"}]}",
+      "source_derived_material": "Усі чотири source correction-функції та EN-пари збережені на тих самих позиціях; зміни стосуються видимого контексту, точних перекладів і меж застосування. Had gone не отримав blanket-заборони.",
+      "after_reference": "lesson.blocks[3].data",
+      "changed_fields": [
+        "title",
+        "items"
+      ],
+      "metadata_policy": "UUID/index/sort/column/level/tags/embedded fields з незалежного BEFORE зберігає compiler; лише C slots1/2 мають окрему reviewed type/heading metadata allowlist."
+    },
+    {
+      "key": "tenses-4",
+      "existing_source_index": 4,
+      "after_source_index": 4,
+      "old_type": "summary-list",
+      "after_type": "summary-list",
+      "old_column": "right",
+      "after_column": "right",
+      "level_preserved": "B1",
+      "title_before": "4. Швидкий іспитовий чек",
+      "title_after": "4. Чек перед завершенням",
+      "source_body": "{\"title\":\"4. Швидкий іспитовий чек\",\"items\":[\"Познач <strong>часовий сигнал</strong> перед тим, як міняти форму дієслова.\",\"Перевір, чи дія <strong>триває зараз</strong>, чи вже завершена в конкретному минулому моменті.\",\"Якщо в минулому є <strong>дві події</strong>, з'ясуй, яка сталася раніше.\",\"Після трансформації перечитай речення цілком: чи збігся зміст, чи природно працюють <strong>since / for / before / by the time</strong>.\"]}",
+      "source_derived_material": "Збережено чотири перевірки source summary, але meaning/context перед маркером; вилучено необґрунтовану обіцянку іспитового алгоритму.",
+      "after_reference": "lesson.blocks[4].data",
+      "changed_fields": [
+        "title",
+        "items"
+      ],
+      "metadata_policy": "UUID/index/sort/column/level/tags/embedded fields з незалежного BEFORE зберігає compiler; лише C slots1/2 мають окрему reviewed type/heading metadata allowlist."
+    },
+    {
+      "key": "tenses-5",
+      "existing_source_index": 5,
+      "after_source_index": 5,
+      "old_type": "navigation-chips",
+      "after_type": "navigation-chips",
+      "old_column": "footer",
+      "after_column": "footer",
+      "level_preserved": null,
+      "title_before": "Сторінки цього розділу",
+      "title_after": "Сторінки цього розділу",
+      "source_body": "{\"title\":\"Сторінки цього розділу\",\"items\":[{\"label\":\"Sentence Transformations — Tenses\",\"url\":\"/theory/sentence-transformations/tenses\",\"current\":true},{\"label\":\"Sentence Transformations — Modals\",\"url\":\"/theory/sentence-transformations/modals\",\"current\":false},{\"label\":\"Sentence Transformations — Passive\",\"url\":\"/theory/sentence-transformations/passive\",\"current\":false},{\"label\":\"Sentence Transformations — Reported Speech\",\"url\":\"/theory/sentence-transformations/reported-speech\",\"current\":false},{\"label\":\"Sentence Transformations — Conditionals\",\"url\":\"/theory/sentence-transformations/conditionals\",\"current\":false},{\"label\":\"Sentence Transformations — Relative Clauses / Linking Words\",\"url\":\"/theory/sentence-transformations/relative-clauses-linking-words\",\"current\":false},{\"label\":\"Sentence Transformations — Articles / Quantifiers\",\"url\":\"/theory/sentence-transformations/articles-quantifiers\",\"current\":false},{\"label\":\"Sentence Transformations — Word Order / Emphasis\",\"url\":\"/theory/sentence-transformations/word-order-emphasis\",\"current\":false}]}",
+      "source_derived_material": "Усі вісім navigation items, explicit destination URL, current flags і порядок лишилися дослівно з source. Жоден destination не замінено темою з іншої категорії.",
+      "after_reference": "lesson.blocks[5].data",
+      "changed_fields": [
+        "title",
+        "items"
+      ],
+      "metadata_policy": "UUID/index/sort/column/level/tags/embedded fields з незалежного BEFORE зберігає compiler; лише C slots1/2 мають окрему reviewed type/heading metadata allowlist."
+    },
+    {
+      "key": "tenses-practice",
+      "existing_source_index": null,
+      "after_source_index": 6,
+      "old_type": null,
+      "after_type": "practice-set",
+      "old_column": null,
+      "after_column": "left",
+      "level_preserved": null,
+      "new_pedagogical_level": "B1",
+      "source_derived_material": "Новий native practice після всіх continuing slots; немає прихованого перенесення старих вправ. Widget прив’язаний лише до існуючого тематичного bank.",
+      "after_reference": "lesson.blocks[6].data"
+    }
+  ]
+}

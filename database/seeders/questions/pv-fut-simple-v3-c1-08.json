@@ -1,70 +1,81 @@
 {
     "question": {
-        "id": 272,
+        "id": 51022,
         "uuid": "pv-fut-simple-v3-c1-08",
-        "question": "The prizes {a1} after the concert when the agent is not central.",
+        "question": "The duplicate application {a1} as a separate claim.",
         "difficulty": 5,
         "level": "C1",
-        "category_id": 1,
-        "source_id": 4,
+        "category_id": 10,
+        "source_id": 345,
         "flag": 2,
-        "created_at": "2026-05-26T15:07:45.000000Z",
-        "updated_at": "2026-05-26T15:08:15.000000Z"
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceFutureSimpleAllLevelsV3Seeder",
+        "options_by_marker": {
+            "a1": [
+                "will not be treated",
+                "was not treated",
+                "is not treated",
+                "will not treated"
+            ]
+        },
+        "theory_text_block_uuid": null,
+        "created_at": "2026-05-26T11:06:51.000000Z",
+        "updated_at": "2026-10-21T21:57:18.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 10,
         "name": "Passive Voice",
-        "created_at": "2026-05-26T15:07:37.000000Z",
-        "updated_at": "2026-05-26T15:07:37.000000Z"
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
     },
     "source": {
-        "id": 4,
+        "id": 345,
         "name": "Passive Voice Future Simple",
-        "created_at": "2026-05-26T15:07:44.000000Z",
-        "updated_at": "2026-05-26T15:07:44.000000Z"
+        "created_at": "2026-05-21T18:54:33.000000Z",
+        "updated_at": "2026-05-21T18:54:33.000000Z"
     },
     "tags": [
         {
             "tag": {
-                "id": 7,
+                "id": 83,
                 "name": "C1",
                 "category": null,
-                "created_at": "2026-05-26T15:07:32.000000Z",
-                "updated_at": "2026-05-26T15:07:32.000000Z"
+                "created_at": "2026-04-23T12:59:15.000000Z",
+                "updated_at": "2026-04-23T12:59:15.000000Z"
             },
             "pivot": {
-                "question_id": 272,
-                "tag_id": 7,
+                "question_id": 51022,
+                "tag_id": 83,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 38,
+                "id": 2717,
                 "name": "Passive Voice Future Simple",
                 "category": "passive_voice",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "created_at": "2026-05-21T18:54:33.000000Z",
+                "updated_at": "2026-05-21T18:54:33.000000Z"
             },
             "pivot": {
-                "question_id": 272,
-                "tag_id": 38,
+                "question_id": 51022,
+                "tag_id": 2717,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 40,
+                "id": 2719,
                 "name": "Future Passive",
                 "category": "topic",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "created_at": "2026-05-21T18:54:33.000000Z",
+                "updated_at": "2026-05-21T18:54:33.000000Z"
             },
             "pivot": {
-                "question_id": 272,
-                "tag_id": 40,
+                "question_id": 51022,
+                "tag_id": 2719,
                 "created_at": null,
                 "updated_at": null
             }
@@ -73,53 +84,53 @@
     "options": [
         {
             "option": {
-                "id": 127,
-                "option": "will be given",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
-            },
-            "pivot": {
-                "question_id": 272,
-                "option_id": 127,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 128,
+                "id": 21257,
                 "option": "will give",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "created_at": "2026-05-18T22:12:26.000000Z",
+                "updated_at": "2026-05-18T22:12:26.000000Z"
             },
             "pivot": {
-                "question_id": 272,
-                "option_id": 128,
+                "question_id": 51022,
+                "option_id": 21257,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 129,
+                "id": 23471,
+                "option": "will be given",
+                "created_at": "2026-05-21T18:54:34.000000Z",
+                "updated_at": "2026-05-21T18:54:34.000000Z"
+            },
+            "pivot": {
+                "question_id": 51022,
+                "option_id": 23471,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 23472,
                 "option": "are given",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "created_at": "2026-05-21T18:54:35.000000Z",
+                "updated_at": "2026-05-21T18:54:35.000000Z"
             },
             "pivot": {
-                "question_id": 272,
-                "option_id": 129,
+                "question_id": 51022,
+                "option_id": 23472,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 130,
+                "id": 23473,
                 "option": "were given",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "created_at": "2026-05-21T18:54:35.000000Z",
+                "updated_at": "2026-05-21T18:54:35.000000Z"
             },
             "pivot": {
-                "question_id": 272,
-                "option_id": 130,
+                "question_id": 51022,
+                "option_id": 23473,
                 "flag": null
             }
         }
@@ -127,29 +138,29 @@
     "answers": [
         {
             "answer": {
-                "id": 272,
-                "question_id": 272,
+                "id": 258610,
+                "question_id": 51022,
                 "marker": "a1",
-                "option_id": 127,
-                "created_at": "2026-05-26T15:07:45.000000Z",
-                "updated_at": "2026-05-26T15:07:45.000000Z"
+                "option_id": 23471,
+                "created_at": "2026-05-26T11:06:51.000000Z",
+                "updated_at": "2026-05-26T11:06:51.000000Z"
             },
             "option": {
-                "id": 127,
+                "id": 23471,
                 "option": "will be given",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "created_at": "2026-05-21T18:54:34.000000Z",
+                "updated_at": "2026-05-21T18:54:34.000000Z"
             }
         }
     ],
     "verb_hints": [],
     "variants": [
         {
-            "id": 272,
-            "question_id": 272,
+            "id": 37565,
+            "question_id": 51022,
             "text": "The prizes {a1} after the concert when the agent is not central.",
-            "created_at": "2026-05-26T15:07:45.000000Z",
-            "updated_at": "2026-05-26T15:07:45.000000Z"
+            "created_at": "2026-05-26T11:06:51.000000Z",
+            "updated_at": "2026-05-26T11:06:51.000000Z"
         }
     ],
     "hints": [],

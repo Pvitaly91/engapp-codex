@@ -1,0 +1,1490 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mrq-v1",
+    "compiled_from": {
+        "path": "docs/content/mixed-revision-quality/b2-mixed-revision.v1.json",
+        "sha256": "4ab915e7ec3e014a39f201f7d2277982735ae34c47de364cfbc7baabbc66d1f2"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedMrqB2MixedRevisionQualityBuilderSeeder",
+        "uuid_namespace": "mixed-revision-quality-b2-mixed-revision-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Mixed Revision"
+    },
+    "sources": {
+        "mixed_revision_quality_b2_mixed_revision": {
+            "name": "Mixed Revision Quality: B2 Mixed Revision"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mrq-b2-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Двері крамниці відчинені.",
+            "level": "A1",
+            "type": 4,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Двері крамниці відчинені.",
+            "target_text": "The shop door is open.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з дверей крамниці та назви їхній стан; двері тут становлять один вхід.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "shop",
+                    "verb_hint": "Почни з дверей крамниці та назви їхній стан; двері тут становлять один вхід.",
+                    "options": [
+                        "shop",
+                        "office",
+                        "studio",
+                        "bedroom"
+                    ]
+                },
+                "a3": {
+                    "answer": "door",
+                    "verb_hint": "Почни з дверей крамниці та назви їхній стан; двері тут становлять один вхід.",
+                    "options": [
+                        "door",
+                        "gate",
+                        "window",
+                        "map"
+                    ]
+                },
+                "a4": {
+                    "answer": "is",
+                    "verb_hint": "Почни з дверей крамниці та назви їхній стан; двері тут становлять один вхід.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a5": {
+                    "answer": "open.",
+                    "verb_hint": "Почни з дверей крамниці та назви їхній стан; двері тут становлять один вхід.",
+                    "options": [
+                        "open",
+                        "closed",
+                        "broken",
+                        "made"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з дверей крамниці та назви їхній стан; двері тут становлять один вхід.",
+            "accepted_target_texts": [
+                "The shop door is open.",
+                "The store door is open."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "store"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "store"
+                ]
+            },
+            "reorder_groups": [
+                "The shop door",
+                "is open."
+            ],
+            "token_groups": [
+                "The shop door",
+                "is open."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "The",
+                "shop",
+                "door",
+                "is",
+                "open."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "shop",
+                "office",
+                "studio",
+                "bedroom",
+                "door",
+                "gate",
+                "window",
+                "map",
+                "is",
+                "are",
+                "was",
+                "were",
+                "open",
+                "closed",
+                "broken",
+                "made"
+            ],
+            "source_text_uk": "Двері крамниці відчинені.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "shop",
+                    "office",
+                    "studio",
+                    "bedroom"
+                ],
+                "a3": [
+                    "door",
+                    "gate",
+                    "window",
+                    "map"
+                ],
+                "a4": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a5": [
+                    "open",
+                    "closed",
+                    "broken",
+                    "made"
+                ]
+            },
+            "slot_roles": {
+                "a1": "aone_role_a",
+                "a2": "aone_role_a",
+                "a3": "aone_role_a",
+                "a4": "aone_role_b",
+                "a5": "aone_role_b"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "mrq-b2-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Ми купили трохи рису в крамниці на розі.",
+            "level": "A2",
+            "type": 4,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Ми купили трохи рису в крамниці на розі.",
+            "target_text": "We bought some rice at the corner shop.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Передай завершену покупку в минулому; рис назви як незлічувану кількість, а місце додай наприкінці.",
+                    "options": [
+                        "We",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "bought",
+                    "verb_hint": "Передай завершену покупку в минулому; рис назви як незлічувану кількість, а місце додай наприкінці.",
+                    "options": [
+                        "bought",
+                        "carried",
+                        "cooked",
+                        "found"
+                    ]
+                },
+                "a3": {
+                    "answer": "some",
+                    "verb_hint": "Передай завершену покупку в минулому; рис назви як незлічувану кількість, а місце додай наприкінці.",
+                    "options": [
+                        "some",
+                        "a",
+                        "an",
+                        "any"
+                    ]
+                },
+                "a4": {
+                    "answer": "rice",
+                    "verb_hint": "Передай завершену покупку в минулому; рис назви як незлічувану кількість, а місце додай наприкінці.",
+                    "options": [
+                        "rice",
+                        "milk",
+                        "bread",
+                        "water"
+                    ]
+                },
+                "a5": {
+                    "answer": "at",
+                    "verb_hint": "Передай завершену покупку в минулому; рис назви як незлічувану кількість, а місце додай наприкінці.",
+                    "options": [
+                        "at",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Передай завершену покупку в минулому; рис назви як незлічувану кількість, а місце додай наприкінці.",
+                    "options": [
+                        "the",
+                        "both",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a7": {
+                    "answer": "corner",
+                    "verb_hint": "Передай завершену покупку в минулому; рис назви як незлічувану кількість, а місце додай наприкінці.",
+                    "options": [
+                        "corner",
+                        "local",
+                        "village",
+                        "nearest"
+                    ]
+                },
+                "a8": {
+                    "answer": "shop.",
+                    "verb_hint": "Передай завершену покупку в минулому; рис назви як незлічувану кількість, а місце додай наприкінці.",
+                    "options": [
+                        "shop",
+                        "store",
+                        "supermarket",
+                        "bakery"
+                    ]
+                }
+            },
+            "verb_hint": "Передай завершену покупку в минулому; рис назви як незлічувану кількість, а місце додай наприкінці.",
+            "accepted_target_texts": [
+                "We bought some rice at the corner shop.",
+                "We purchased some rice at the corner shop.",
+                "We bought some rice in the corner shop.",
+                "We purchased some rice in the corner shop."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "purchased"
+                ],
+                "a5": [
+                    "in"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "purchased"
+                ],
+                "a5": [
+                    "in"
+                ]
+            },
+            "reorder_groups": [
+                "We bought",
+                "some rice",
+                "at",
+                "the corner shop."
+            ],
+            "token_groups": [
+                "We bought",
+                "some rice",
+                "at",
+                "the corner shop."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "We",
+                "bought",
+                "some",
+                "rice",
+                "at",
+                "the",
+                "corner",
+                "shop."
+            ],
+            "options": [
+                "We",
+                "You",
+                "He",
+                "She",
+                "bought",
+                "carried",
+                "cooked",
+                "found",
+                "some",
+                "a",
+                "an",
+                "any",
+                "rice",
+                "milk",
+                "bread",
+                "water",
+                "at",
+                "onto",
+                "over",
+                "under",
+                "the",
+                "both",
+                "this",
+                "that",
+                "corner",
+                "local",
+                "village",
+                "nearest",
+                "shop",
+                "store",
+                "supermarket",
+                "bakery"
+            ],
+            "source_text_uk": "Ми купили трохи рису в крамниці на розі.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a2": [
+                    "bought",
+                    "carried",
+                    "cooked",
+                    "found"
+                ],
+                "a3": [
+                    "some",
+                    "a",
+                    "an",
+                    "any"
+                ],
+                "a4": [
+                    "rice",
+                    "milk",
+                    "bread",
+                    "water"
+                ],
+                "a5": [
+                    "at",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a6": [
+                    "the",
+                    "both",
+                    "this",
+                    "that"
+                ],
+                "a7": [
+                    "corner",
+                    "local",
+                    "village",
+                    "nearest"
+                ],
+                "a8": [
+                    "shop",
+                    "store",
+                    "supermarket",
+                    "bakery"
+                ]
+            },
+            "slot_roles": {
+                "a1": "atwo_role_a",
+                "a2": "atwo_role_a",
+                "a3": "atwo_role_b",
+                "a4": "atwo_role_b",
+                "a5": "atwo_role_c",
+                "a6": "atwo_role_d",
+                "a7": "atwo_role_d",
+                "a8": "atwo_role_d"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "mrq-b2-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Вона запропонувала перевірити мотузки перед виходом.",
+            "level": "B1",
+            "type": 4,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Вона запропонувала перевірити мотузки перед виходом.",
+            "target_text": "She suggested checking the ropes before departure.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Передай минулу пропозицію, після неї назви перевірку формою із закінченням -інг; збережи часову обставину.",
+                    "options": [
+                        "She",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "suggested",
+                    "verb_hint": "Передай минулу пропозицію, після неї назви перевірку формою із закінченням -інг; збережи часову обставину.",
+                    "options": [
+                        "suggested",
+                        "avoided",
+                        "recommended",
+                        "considered"
+                    ]
+                },
+                "a3": {
+                    "answer": "checking",
+                    "verb_hint": "Передай минулу пропозицію, після неї назви перевірку формою із закінченням -інг; збережи часову обставину.",
+                    "options": [
+                        "checking",
+                        "drying",
+                        "washing",
+                        "cleaning"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Передай минулу пропозицію, після неї назви перевірку формою із закінченням -інг; збережи часову обставину.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a5": {
+                    "answer": "ropes",
+                    "verb_hint": "Передай минулу пропозицію, після неї назви перевірку формою із закінченням -інг; збережи часову обставину.",
+                    "options": [
+                        "ropes",
+                        "sails",
+                        "nets",
+                        "bolts"
+                    ]
+                },
+                "a6": {
+                    "answer": "before",
+                    "verb_hint": "Передай минулу пропозицію, після неї назви перевірку формою із закінченням -інг; збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "after",
+                        "school",
+                        "sister"
+                    ]
+                },
+                "a7": {
+                    "answer": "departure.",
+                    "verb_hint": "Передай минулу пропозицію, після неї назви перевірку формою із закінченням -інг; збережи часову обставину.",
+                    "options": [
+                        "departure",
+                        "midnight",
+                        "lunch",
+                        "brother"
+                    ]
+                }
+            },
+            "verb_hint": "Передай минулу пропозицію, після неї назви перевірку формою із закінченням -інг; збережи часову обставину.",
+            "accepted_target_texts": [
+                "She suggested checking the ropes before departure.",
+                "She suggested inspecting the ropes before departure.",
+                "She suggested checking the ropes before leaving.",
+                "She suggested inspecting the ropes before leaving."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "inspecting"
+                ],
+                "a7": [
+                    "leaving."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "inspecting"
+                ],
+                "a7": [
+                    "leaving."
+                ]
+            },
+            "reorder_groups": [
+                "She suggested",
+                "checking the ropes",
+                "before departure."
+            ],
+            "token_groups": [
+                "She suggested",
+                "checking the ropes",
+                "before departure."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "She",
+                "suggested",
+                "checking",
+                "the",
+                "ropes",
+                "before",
+                "departure."
+            ],
+            "options": [
+                "She",
+                "Us",
+                "Them",
+                "Myself",
+                "suggested",
+                "avoided",
+                "recommended",
+                "considered",
+                "checking",
+                "drying",
+                "washing",
+                "cleaning",
+                "the",
+                "all",
+                "both",
+                "a",
+                "ropes",
+                "sails",
+                "nets",
+                "bolts",
+                "before",
+                "after",
+                "school",
+                "sister",
+                "departure",
+                "midnight",
+                "lunch",
+                "brother"
+            ],
+            "source_text_uk": "Вона запропонувала перевірити мотузки перед виходом.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "suggested",
+                    "avoided",
+                    "recommended",
+                    "considered"
+                ],
+                "a3": [
+                    "checking",
+                    "drying",
+                    "washing",
+                    "cleaning"
+                ],
+                "a4": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a5": [
+                    "ropes",
+                    "sails",
+                    "nets",
+                    "bolts"
+                ],
+                "a6": [
+                    "before",
+                    "after",
+                    "school",
+                    "sister"
+                ],
+                "a7": [
+                    "departure",
+                    "midnight",
+                    "lunch",
+                    "brother"
+                ]
+            },
+            "slot_roles": {
+                "a1": "bone_role_a",
+                "a2": "bone_role_a",
+                "a3": "bone_role_b",
+                "a4": "bone_role_b",
+                "a5": "bone_role_b",
+                "a6": "bone_role_c",
+                "a7": "bone_role_c"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "mrq-b2-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Попри сильний мороз, кооператив відкрив ринок.",
+            "level": "B2",
+            "type": 4,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Попри сильний мороз, кооператив відкрив ринок.",
+            "target_text": "Despite heavy frost, the co-op opened the market.",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "verb_hint": "Почни з прийменника зі значенням «попри», після нього назви сильний мороз; далі передай відкриття ринку в минулому.",
+                    "options": [
+                        "Despite",
+                        "Cup",
+                        "Door",
+                        "Key"
+                    ]
+                },
+                "a2": {
+                    "answer": "heavy",
+                    "verb_hint": "Почни з прийменника зі значенням «попри», після нього назви сильний мороз; далі передай відкриття ринку в минулому.",
+                    "options": [
+                        "heavy",
+                        "serious",
+                        "old",
+                        "young"
+                    ]
+                },
+                "a3": {
+                    "answer": "frost,",
+                    "verb_hint": "Почни з прийменника зі значенням «попри», після нього назви сильний мороз; далі передай відкриття ринку в минулому.",
+                    "options": [
+                        "frost",
+                        "rain",
+                        "visibility",
+                        "bus"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з прийменника зі значенням «попри», після нього назви сильний мороз; далі передай відкриття ринку в минулому.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a5": {
+                    "answer": "co-op",
+                    "verb_hint": "Почни з прийменника зі значенням «попри», після нього назви сильний мороз; далі передай відкриття ринку в минулому.",
+                    "options": [
+                        "co-op",
+                        "partnership",
+                        "company",
+                        "federation"
+                    ]
+                },
+                "a6": {
+                    "answer": "opened",
+                    "verb_hint": "Почни з прийменника зі значенням «попри», після нього назви сильний мороз; далі передай відкриття ринку в минулому.",
+                    "options": [
+                        "opened",
+                        "changed",
+                        "postponed",
+                        "completed"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з прийменника зі значенням «попри», після нього назви сильний мороз; далі передай відкриття ринку в минулому.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a8": {
+                    "answer": "market.",
+                    "verb_hint": "Почни з прийменника зі значенням «попри», після нього назви сильний мороз; далі передай відкриття ринку в минулому.",
+                    "options": [
+                        "market",
+                        "plan",
+                        "policy",
+                        "launch"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з прийменника зі значенням «попри», після нього назви сильний мороз; далі передай відкриття ринку в минулому.",
+            "accepted_target_texts": [
+                "Despite heavy frost, the co-op opened the market.",
+                "Despite heavy frost, the co-op opened the marketplace.",
+                "Despite heavy frost, the cooperative opened the market.",
+                "Despite heavy frost, the cooperative opened the marketplace."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "marketplace."
+                ],
+                "a5": [
+                    "cooperative"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "marketplace."
+                ],
+                "a5": [
+                    "cooperative"
+                ]
+            },
+            "reorder_groups": [
+                "Despite heavy frost,",
+                "the co-op",
+                "opened the market."
+            ],
+            "token_groups": [
+                "Despite heavy frost,",
+                "the co-op",
+                "opened the market."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Despite",
+                "heavy",
+                "frost,",
+                "the",
+                "co-op",
+                "opened",
+                "the",
+                "market."
+            ],
+            "options": [
+                "Despite",
+                "Cup",
+                "Door",
+                "Key",
+                "heavy",
+                "serious",
+                "old",
+                "young",
+                "frost",
+                "rain",
+                "visibility",
+                "bus",
+                "the",
+                "any",
+                "this",
+                "that",
+                "co-op",
+                "partnership",
+                "company",
+                "federation",
+                "opened",
+                "changed",
+                "postponed",
+                "completed",
+                "these",
+                "those",
+                "each",
+                "market",
+                "plan",
+                "policy",
+                "launch"
+            ],
+            "source_text_uk": "Попри сильний мороз, кооператив відкрив ринок.",
+            "options_by_marker": {
+                "a1": [
+                    "Despite",
+                    "Cup",
+                    "Door",
+                    "Key"
+                ],
+                "a2": [
+                    "heavy",
+                    "serious",
+                    "old",
+                    "young"
+                ],
+                "a3": [
+                    "frost",
+                    "rain",
+                    "visibility",
+                    "bus"
+                ],
+                "a4": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a5": [
+                    "co-op",
+                    "partnership",
+                    "company",
+                    "federation"
+                ],
+                "a6": [
+                    "opened",
+                    "changed",
+                    "postponed",
+                    "completed"
+                ],
+                "a7": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a8": [
+                    "market",
+                    "plan",
+                    "policy",
+                    "launch"
+                ]
+            },
+            "slot_roles": {
+                "a1": "btwo_role_a",
+                "a2": "btwo_role_a",
+                "a3": "btwo_role_a",
+                "a4": "btwo_role_b",
+                "a5": "btwo_role_b",
+                "a6": "btwo_role_c",
+                "a7": "btwo_role_c",
+                "a8": "btwo_role_c"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "mrq-b2-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Саме переглянутий розклад переконав раду переглянути рішення.",
+            "level": "C1",
+            "type": 4,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Саме переглянутий розклад переконав раду переглянути рішення.",
+            "target_text": "It was the revised timetable that persuaded the council to reconsider.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Почни з формальної конструкції виділення в минулому, назви переглянутий розклад і через означальну частину передай його вплив на раду.",
+                    "options": [
+                        "It",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Почни з формальної конструкції виділення в минулому, назви переглянутий розклад і через означальну частину передай його вплив на раду.",
+                    "options": [
+                        "was",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з формальної конструкції виділення в минулому, назви переглянутий розклад і через означальну частину передай його вплив на раду.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a4": {
+                    "answer": "revised",
+                    "verb_hint": "Почни з формальної конструкції виділення в минулому, назви переглянутий розклад і через означальну частину передай його вплив на раду.",
+                    "options": [
+                        "revised",
+                        "written",
+                        "detailed",
+                        "said"
+                    ]
+                },
+                "a5": {
+                    "answer": "timetable",
+                    "verb_hint": "Почни з формальної конструкції виділення в минулому, назви переглянутий розклад і через означальну частину передай його вплив на раду.",
+                    "options": [
+                        "timetable",
+                        "dark",
+                        "heavy",
+                        "light"
+                    ]
+                },
+                "a6": {
+                    "answer": "that",
+                    "verb_hint": "Почни з формальної конструкції виділення в минулому, назви переглянутий розклад і через означальну частину передай його вплив на раду.",
+                    "options": [
+                        "that",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "persuaded",
+                    "verb_hint": "Почни з формальної конструкції виділення в минулому, назви переглянутий розклад і через означальну частину передай його вплив на раду.",
+                    "options": [
+                        "persuaded",
+                        "prompted",
+                        "reassured",
+                        "surprised"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з формальної конструкції виділення в минулому, назви переглянутий розклад і через означальну частину передай його вплив на раду.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "an",
+                        "these"
+                    ]
+                },
+                "a9": {
+                    "answer": "council",
+                    "verb_hint": "Почни з формальної конструкції виділення в минулому, назви переглянутий розклад і через означальну частину передай його вплив на раду.",
+                    "options": [
+                        "council",
+                        "association",
+                        "bag",
+                        "book"
+                    ]
+                },
+                "a10": {
+                    "answer": "to",
+                    "verb_hint": "Почни з формальної конструкції виділення в минулому, назви переглянутий розклад і через означальну частину передай його вплив на раду.",
+                    "options": [
+                        "to",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a11": {
+                    "answer": "reconsider.",
+                    "verb_hint": "Почни з формальної конструкції виділення в минулому, назви переглянутий розклад і через означальну частину передай його вплив на раду.",
+                    "options": [
+                        "reconsider",
+                        "intervene",
+                        "withdraw",
+                        "compromise"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з формальної конструкції виділення в минулому, назви переглянутий розклад і через означальну частину передай його вплив на раду.",
+            "accepted_target_texts": [
+                "It was the revised timetable that persuaded the council to reconsider.",
+                "It was the revised timetable that convinced the council to reconsider."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "convinced"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "convinced"
+                ]
+            },
+            "reorder_groups": [
+                "It was",
+                "the revised timetable",
+                "that persuaded",
+                "the council",
+                "to reconsider."
+            ],
+            "token_groups": [
+                "It was",
+                "the revised timetable",
+                "that persuaded",
+                "the council",
+                "to reconsider."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "It",
+                "was",
+                "the",
+                "revised",
+                "timetable",
+                "that",
+                "persuaded",
+                "the",
+                "council",
+                "to",
+                "reconsider."
+            ],
+            "options": [
+                "It",
+                "Me",
+                "Him",
+                "Us",
+                "was",
+                "am",
+                "is",
+                "are",
+                "the",
+                "all",
+                "both",
+                "a",
+                "revised",
+                "written",
+                "detailed",
+                "said",
+                "timetable",
+                "dark",
+                "heavy",
+                "light",
+                "that",
+                "some",
+                "any",
+                "this",
+                "persuaded",
+                "prompted",
+                "reassured",
+                "surprised",
+                "neither",
+                "an",
+                "these",
+                "council",
+                "association",
+                "bag",
+                "book",
+                "to",
+                "across",
+                "between",
+                "among",
+                "reconsider",
+                "intervene",
+                "withdraw",
+                "compromise"
+            ],
+            "source_text_uk": "Саме переглянутий розклад переконав раду переглянути рішення.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "was",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a3": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a4": [
+                    "revised",
+                    "written",
+                    "detailed",
+                    "said"
+                ],
+                "a5": [
+                    "timetable",
+                    "dark",
+                    "heavy",
+                    "light"
+                ],
+                "a6": [
+                    "that",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "persuaded",
+                    "prompted",
+                    "reassured",
+                    "surprised"
+                ],
+                "a8": [
+                    "the",
+                    "neither",
+                    "an",
+                    "these"
+                ],
+                "a9": [
+                    "council",
+                    "association",
+                    "bag",
+                    "book"
+                ],
+                "a10": [
+                    "to",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a11": [
+                    "reconsider",
+                    "intervene",
+                    "withdraw",
+                    "compromise"
+                ]
+            },
+            "slot_roles": {
+                "a1": "cone_role_a",
+                "a2": "cone_role_a",
+                "a3": "cone_role_b",
+                "a4": "cone_role_b",
+                "a5": "cone_role_b",
+                "a6": "cone_role_c",
+                "a7": "cone_role_c",
+                "a8": "cone_role_d",
+                "a9": "cone_role_d",
+                "a10": "cone_role_e",
+                "a11": "cone_role_e"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "mrq-b2-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Якби не незалежний аудит, розбіжність залишалася б непоміченою.",
+            "level": "C2",
+            "type": 4,
+            "source": "mixed_revision_quality_b2_mixed_revision",
+            "translation_uk": "Якби не незалежний аудит, розбіжність залишалася б непоміченою.",
+            "target_text": "Were it not for the independent audit, the discrepancy would remain undetected.",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "verb_hint": "Почни з інверсійної моделі теперішньої нереальної умови зі значенням «якби не»; після причини назви розбіжність і модальний наслідок.",
+                    "options": [
+                        "Were",
+                        "Was",
+                        "Be",
+                        "Been"
+                    ]
+                },
+                "a2": {
+                    "answer": "it",
+                    "verb_hint": "Почни з інверсійної моделі теперішньої нереальної умови зі значенням «якби не»; після причини назви розбіжність і модальний наслідок.",
+                    "options": [
+                        "it",
+                        "she",
+                        "we",
+                        "they"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Почни з інверсійної моделі теперішньої нереальної умови зі значенням «якби не»; після причини назви розбіжність і модальний наслідок.",
+                    "options": [
+                        "not",
+                        "even",
+                        "almost",
+                        "never"
+                    ]
+                },
+                "a4": {
+                    "answer": "for",
+                    "verb_hint": "Почни з інверсійної моделі теперішньої нереальної умови зі значенням «якби не»; після причини назви розбіжність і модальний наслідок.",
+                    "options": [
+                        "for",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з інверсійної моделі теперішньої нереальної умови зі значенням «якби не»; після причини назви розбіжність і модальний наслідок.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a6": {
+                    "answer": "independent",
+                    "verb_hint": "Почни з інверсійної моделі теперішньої нереальної умови зі значенням «якби не»; після причини назви розбіжність і модальний наслідок.",
+                    "options": [
+                        "independent",
+                        "internal",
+                        "financial",
+                        "external"
+                    ]
+                },
+                "a7": {
+                    "answer": "audit,",
+                    "verb_hint": "Почни з інверсійної моделі теперішньої нереальної умови зі значенням «якби не»; після причини назви розбіжність і модальний наслідок.",
+                    "options": [
+                        "audit",
+                        "review",
+                        "investigation",
+                        "inquiry"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з інверсійної моделі теперішньої нереальної умови зі значенням «якби не»; після причини назви розбіжність і модальний наслідок.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a9": {
+                    "answer": "discrepancy",
+                    "verb_hint": "Почни з інверсійної моделі теперішньої нереальної умови зі значенням «якби не»; після причини назви розбіжність і модальний наслідок.",
+                    "options": [
+                        "discrepancy",
+                        "miscalculation",
+                        "shortfall",
+                        "omission"
+                    ]
+                },
+                "a10": {
+                    "answer": "would",
+                    "verb_hint": "Почни з інверсійної моделі теперішньої нереальної умови зі значенням «якби не»; після причини назви розбіжність і модальний наслідок.",
+                    "options": [
+                        "would",
+                        "might",
+                        "must",
+                        "can't"
+                    ]
+                },
+                "a11": {
+                    "answer": "remain",
+                    "verb_hint": "Почни з інверсійної моделі теперішньої нереальної умови зі значенням «якби не»; після причини назви розбіжність і модальний наслідок.",
+                    "options": [
+                        "remain",
+                        "attract",
+                        "prove",
+                        "appear"
+                    ]
+                },
+                "a12": {
+                    "answer": "undetected.",
+                    "verb_hint": "Почни з інверсійної моделі теперішньої нереальної умови зі значенням «якби не»; після причини назви розбіжність і модальний наслідок.",
+                    "options": [
+                        "undetected",
+                        "unresolved",
+                        "opened",
+                        "closed"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з інверсійної моделі теперішньої нереальної умови зі значенням «якби не»; після причини назви розбіжність і модальний наслідок.",
+            "accepted_target_texts": [
+                "Were it not for the independent audit, the discrepancy would remain undetected.",
+                "Were it not for the independent audit, the discrepancy would remain unnoticed.",
+                "Were it not for the independent audit, the inconsistency would remain undetected.",
+                "Were it not for the independent audit, the inconsistency would remain unnoticed."
+            ],
+            "answer_synonyms": {
+                "a12": [
+                    "unnoticed."
+                ],
+                "a9": [
+                    "inconsistency"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a12": [
+                    "unnoticed."
+                ],
+                "a9": [
+                    "inconsistency"
+                ]
+            },
+            "reorder_groups": [
+                "Were it not",
+                "for",
+                "the independent audit,",
+                "the discrepancy",
+                "would remain undetected."
+            ],
+            "token_groups": [
+                "Were it not",
+                "for",
+                "the independent audit,",
+                "the discrepancy",
+                "would remain undetected."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Were",
+                "it",
+                "not",
+                "for",
+                "the",
+                "independent",
+                "audit,",
+                "the",
+                "discrepancy",
+                "would",
+                "remain",
+                "undetected."
+            ],
+            "options": [
+                "Were",
+                "Was",
+                "Be",
+                "Been",
+                "it",
+                "she",
+                "we",
+                "they",
+                "not",
+                "even",
+                "almost",
+                "never",
+                "for",
+                "without",
+                "into",
+                "onto",
+                "the",
+                "that",
+                "these",
+                "those",
+                "independent",
+                "internal",
+                "financial",
+                "external",
+                "audit",
+                "review",
+                "investigation",
+                "inquiry",
+                "another",
+                "either",
+                "neither",
+                "discrepancy",
+                "miscalculation",
+                "shortfall",
+                "omission",
+                "would",
+                "might",
+                "must",
+                "can't",
+                "remain",
+                "attract",
+                "prove",
+                "appear",
+                "undetected",
+                "unresolved",
+                "opened",
+                "closed"
+            ],
+            "source_text_uk": "Якби не незалежний аудит, розбіжність залишалася б непоміченою.",
+            "options_by_marker": {
+                "a1": [
+                    "Were",
+                    "Was",
+                    "Be",
+                    "Been"
+                ],
+                "a2": [
+                    "it",
+                    "she",
+                    "we",
+                    "they"
+                ],
+                "a3": [
+                    "not",
+                    "even",
+                    "almost",
+                    "never"
+                ],
+                "a4": [
+                    "for",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a5": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a6": [
+                    "independent",
+                    "internal",
+                    "financial",
+                    "external"
+                ],
+                "a7": [
+                    "audit",
+                    "review",
+                    "investigation",
+                    "inquiry"
+                ],
+                "a8": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a9": [
+                    "discrepancy",
+                    "miscalculation",
+                    "shortfall",
+                    "omission"
+                ],
+                "a10": [
+                    "would",
+                    "might",
+                    "must",
+                    "can't"
+                ],
+                "a11": [
+                    "remain",
+                    "attract",
+                    "prove",
+                    "appear"
+                ],
+                "a12": [
+                    "undetected",
+                    "unresolved",
+                    "opened",
+                    "closed"
+                ]
+            },
+            "slot_roles": {
+                "a1": "ctwo_role_a",
+                "a2": "ctwo_role_a",
+                "a3": "ctwo_role_a",
+                "a4": "ctwo_role_b",
+                "a5": "ctwo_role_c",
+                "a6": "ctwo_role_c",
+                "a7": "ctwo_role_c",
+                "a8": "ctwo_role_d",
+                "a9": "ctwo_role_d",
+                "a10": "ctwo_role_e",
+                "a11": "ctwo_role_e",
+                "a12": "ctwo_role_e"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

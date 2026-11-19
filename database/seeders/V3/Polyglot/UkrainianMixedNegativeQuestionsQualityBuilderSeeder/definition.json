@@ -1,0 +1,3888 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/negative-questions.v1.json",
+        "sha256": "bfb90ef0a64e4a3ddbbb12ab53f6dd8c1c58830f06c26b69f1b61507ac8a360d"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedNegativeQuestionsQualityBuilderSeeder",
+        "uuid_namespace": "questions-negations-quality-negative-questions-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "questions_negations_quality_negative_questions": {
+            "name": "Questions and Negations Quality: Negative Questions: заперечні питання"
+        }
+    },
+    "tags": {
+        "polyglot_negative_questions": {
+            "name": "Negative Questions",
+            "category": "questions_negations"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "negative_question_structure": {
+            "name": "Negative Question Structure",
+            "category": "topic"
+        },
+        "dont_doesnt_didnt": {
+            "name": "Dont Doesnt Didnt",
+            "category": "topic"
+        },
+        "be_negative_questions": {
+            "name": "Be Negative Questions",
+            "category": "topic"
+        },
+        "modal_negative_questions": {
+            "name": "Modal Negative Questions",
+            "category": "topic"
+        },
+        "perfect_negative_questions": {
+            "name": "Perfect Negative Questions",
+            "category": "topic"
+        },
+        "surprise_expectation": {
+            "name": "Surprise Expectation",
+            "category": "topic"
+        },
+        "invitations_suggestions": {
+            "name": "Invitations Suggestions",
+            "category": "topic"
+        },
+        "negative_wh_questions": {
+            "name": "Negative Wh Questions",
+            "category": "topic"
+        },
+        "word_order": {
+            "name": "Word Order",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_negative_questions",
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-negative-questions-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Хіба кролик не під лавкою?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Хіба кролик не під лавкою?",
+            "target_text": "Isn't the rabbit under the bench?",
+            "markers": {
+                "a1": {
+                    "answer": "Isn't",
+                    "verb_hint": "Запитай про місце перебування однієї тварини із запереченням.",
+                    "options": [
+                        "Isn't",
+                        "Were",
+                        "Be",
+                        "Been"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про місце перебування однієї тварини із запереченням.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a3": {
+                    "answer": "rabbit",
+                    "verb_hint": "Запитай про місце перебування однієї тварини із запереченням.",
+                    "options": [
+                        "rabbit",
+                        "bear",
+                        "monkey",
+                        "duck"
+                    ]
+                },
+                "a4": {
+                    "answer": "under",
+                    "verb_hint": "Запитай про місце перебування однієї тварини із запереченням.",
+                    "options": [
+                        "under",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про місце перебування однієї тварини із запереченням.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a6": {
+                    "answer": "bench?",
+                    "verb_hint": "Запитай про місце перебування однієї тварини із запереченням.",
+                    "options": [
+                        "bench",
+                        "Friday",
+                        "interval",
+                        "notice"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про місце перебування однієї тварини із запереченням.",
+            "accepted_target_texts": [
+                "Isn't the rabbit under the bench?",
+                "Is the rabbit not under the bench?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Isn't",
+                "the rabbit",
+                "under the bench?"
+            ],
+            "token_groups": [
+                "Isn't",
+                "the rabbit",
+                "under the bench?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Isn't",
+                "the",
+                "rabbit",
+                "under",
+                "the",
+                "bench?"
+            ],
+            "options": [
+                "Isn't",
+                "Were",
+                "Be",
+                "Been",
+                "the",
+                "these",
+                "those",
+                "each",
+                "rabbit",
+                "bear",
+                "monkey",
+                "duck",
+                "under",
+                "through",
+                "across",
+                "between",
+                "either",
+                "neither",
+                "all",
+                "bench",
+                "Friday",
+                "interval",
+                "notice"
+            ],
+            "source_text_uk": "Хіба кролик не під лавкою?",
+            "options_by_marker": {
+                "a1": [
+                    "Isn't",
+                    "Were",
+                    "Be",
+                    "Been"
+                ],
+                "a2": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a3": [
+                    "rabbit",
+                    "bear",
+                    "monkey",
+                    "duck"
+                ],
+                "a4": [
+                    "under",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a5": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a6": [
+                    "bench",
+                    "Friday",
+                    "interval",
+                    "notice"
+                ]
+            },
+            "slot_roles": {
+                "a1": "negative_auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "adverb_phrase",
+                "a5": "adverb_phrase",
+                "a6": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-negative-questions-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Хіба твої батьки не продають мед?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Хіба твої батьки не продають мед?",
+            "target_text": "Don't your parents sell honey?",
+            "markers": {
+                "a1": {
+                    "answer": "Don't",
+                    "verb_hint": "Постав заперечне загальне питання про їхню звичну діяльність.",
+                    "options": [
+                        "Don't",
+                        "Hasn't",
+                        "Hadn't",
+                        "Does"
+                    ]
+                },
+                "a2": {
+                    "answer": "your",
+                    "verb_hint": "Постав заперечне загальне питання про їхню звичну діяльність.",
+                    "options": [
+                        "your",
+                        "his",
+                        "her",
+                        "its"
+                    ]
+                },
+                "a3": {
+                    "answer": "parents",
+                    "verb_hint": "Постав заперечне загальне питання про їхню звичну діяльність.",
+                    "options": [
+                        "parents",
+                        "visitors",
+                        "letters",
+                        "windows"
+                    ]
+                },
+                "a4": {
+                    "answer": "sell",
+                    "verb_hint": "Постав заперечне загальне питання про їхню звичну діяльність.",
+                    "options": [
+                        "sell",
+                        "sit",
+                        "here",
+                        "bench"
+                    ]
+                },
+                "a5": {
+                    "answer": "honey?",
+                    "verb_hint": "Постав заперечне загальне питання про їхню звичну діяльність.",
+                    "options": [
+                        "honey",
+                        "water",
+                        "rice",
+                        "cheese"
+                    ]
+                }
+            },
+            "verb_hint": "Постав заперечне загальне питання про їхню звичну діяльність.",
+            "accepted_target_texts": [
+                "Don't your parents sell honey?",
+                "Do your parents not sell honey?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Don't",
+                "your parents",
+                "sell honey?"
+            ],
+            "token_groups": [
+                "Don't",
+                "your parents",
+                "sell honey?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Don't",
+                "your",
+                "parents",
+                "sell",
+                "honey?"
+            ],
+            "options": [
+                "Don't",
+                "Hasn't",
+                "Hadn't",
+                "Does",
+                "your",
+                "his",
+                "her",
+                "its",
+                "parents",
+                "visitors",
+                "letters",
+                "windows",
+                "sell",
+                "sit",
+                "here",
+                "bench",
+                "honey",
+                "water",
+                "rice",
+                "cheese"
+            ],
+            "source_text_uk": "Хіба твої батьки не продають мед?",
+            "options_by_marker": {
+                "a1": [
+                    "Don't",
+                    "Hasn't",
+                    "Hadn't",
+                    "Does"
+                ],
+                "a2": [
+                    "your",
+                    "his",
+                    "her",
+                    "its"
+                ],
+                "a3": [
+                    "parents",
+                    "visitors",
+                    "letters",
+                    "windows"
+                ],
+                "a4": [
+                    "sell",
+                    "sit",
+                    "here",
+                    "bench"
+                ],
+                "a5": [
+                    "honey",
+                    "water",
+                    "rice",
+                    "cheese"
+                ]
+            },
+            "slot_roles": {
+                "a1": "negative_auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-negative-questions-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Чому я не можу сидіти тут?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Чому я не можу сидіти тут?",
+            "target_text": "Why can't I sit here?",
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "verb_hint": "Почни з причини та запитай про заборонену можливість.",
+                    "options": [
+                        "Why",
+                        "Where",
+                        "When",
+                        "How"
+                    ]
+                },
+                "a2": {
+                    "answer": "can't",
+                    "verb_hint": "Почни з причини та запитай про заборонену можливість.",
+                    "options": [
+                        "can't",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a3": {
+                    "answer": "I",
+                    "verb_hint": "Почни з причини та запитай про заборонену можливість.",
+                    "options": [
+                        "I",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a4": {
+                    "answer": "sit",
+                    "verb_hint": "Почни з причини та запитай про заборонену можливість.",
+                    "options": [
+                        "sit",
+                        "sell",
+                        "bench",
+                        "bag"
+                    ]
+                },
+                "a5": {
+                    "answer": "here?",
+                    "verb_hint": "Почни з причини та запитай про заборонену можливість.",
+                    "options": [
+                        "here",
+                        "honey",
+                        "cup",
+                        "door"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з причини та запитай про заборонену можливість.",
+            "accepted_target_texts": [
+                "Why can't I sit here?",
+                "Why can I not sit here?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "can't",
+                "I",
+                "sit here?"
+            ],
+            "token_groups": [
+                "Why",
+                "can't",
+                "I",
+                "sit here?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Why",
+                "can't",
+                "I",
+                "sit",
+                "here?"
+            ],
+            "options": [
+                "Why",
+                "Where",
+                "When",
+                "How",
+                "can't",
+                "shall",
+                "should",
+                "may",
+                "I",
+                "Them",
+                "Myself",
+                "Yourself",
+                "sit",
+                "sell",
+                "bench",
+                "bag",
+                "here",
+                "honey",
+                "cup",
+                "door"
+            ],
+            "source_text_uk": "Чому я не можу сидіти тут?",
+            "options_by_marker": {
+                "a1": [
+                    "Why",
+                    "Where",
+                    "When",
+                    "How"
+                ],
+                "a2": [
+                    "can't",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a3": [
+                    "I",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a4": [
+                    "sit",
+                    "sell",
+                    "bench",
+                    "bag"
+                ],
+                "a5": [
+                    "here",
+                    "honey",
+                    "cup",
+                    "door"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "negative_auxiliary",
+                "a3": "pronoun",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-negative-questions-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Хіба сантехнік не полагодив кран учора?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Хіба сантехнік не полагодив кран учора?",
+            "target_text": "Didn't the plumber fix the tap yesterday?",
+            "markers": {
+                "a1": {
+                    "answer": "Didn't",
+                    "verb_hint": "Збережи простий минулий час та часову обставину.",
+                    "options": [
+                        "Didn't",
+                        "Don't",
+                        "Doesn't",
+                        "Have"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Збережи простий минулий час та часову обставину.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a3": {
+                    "answer": "plumber",
+                    "verb_hint": "Збережи простий минулий час та часову обставину.",
+                    "options": [
+                        "plumber",
+                        "curator",
+                        "gardener",
+                        "neighbour"
+                    ]
+                },
+                "a4": {
+                    "answer": "fix",
+                    "verb_hint": "Збережи простий минулий час та часову обставину.",
+                    "options": [
+                        "fix",
+                        "check",
+                        "save",
+                        "cancel"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи простий минулий час та часову обставину.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a6": {
+                    "answer": "tap",
+                    "verb_hint": "Збережи простий минулий час та часову обставину.",
+                    "options": [
+                        "tap",
+                        "gallery",
+                        "meter",
+                        "notice"
+                    ]
+                },
+                "a7": {
+                    "answer": "yesterday?",
+                    "verb_hint": "Збережи простий минулий час та часову обставину.",
+                    "options": [
+                        "yesterday",
+                        "tonight",
+                        "later",
+                        "outside"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи простий минулий час та часову обставину.",
+            "accepted_target_texts": [
+                "Didn't the plumber fix the tap yesterday?",
+                "Didn't the plumber repair the tap yesterday?",
+                "Did the plumber not fix the tap yesterday?",
+                "Did the plumber not repair the tap yesterday?"
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "repair"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "repair"
+                ]
+            },
+            "reorder_groups": [
+                "Didn't",
+                "the plumber",
+                "fix the tap",
+                "yesterday?"
+            ],
+            "token_groups": [
+                "Didn't",
+                "the plumber",
+                "fix the tap",
+                "yesterday?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Didn't",
+                "the",
+                "plumber",
+                "fix",
+                "the",
+                "tap",
+                "yesterday?"
+            ],
+            "options": [
+                "Didn't",
+                "Don't",
+                "Doesn't",
+                "Have",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "plumber",
+                "curator",
+                "gardener",
+                "neighbour",
+                "fix",
+                "check",
+                "save",
+                "cancel",
+                "both",
+                "a",
+                "an",
+                "tap",
+                "gallery",
+                "meter",
+                "notice",
+                "yesterday",
+                "tonight",
+                "later",
+                "outside"
+            ],
+            "source_text_uk": "Хіба сантехнік не полагодив кран учора?",
+            "options_by_marker": {
+                "a1": [
+                    "Didn't",
+                    "Don't",
+                    "Doesn't",
+                    "Have"
+                ],
+                "a2": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a3": [
+                    "plumber",
+                    "curator",
+                    "gardener",
+                    "neighbour"
+                ],
+                "a4": [
+                    "fix",
+                    "check",
+                    "save",
+                    "cancel"
+                ],
+                "a5": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a6": [
+                    "tap",
+                    "gallery",
+                    "meter",
+                    "notice"
+                ],
+                "a7": [
+                    "yesterday",
+                    "tonight",
+                    "later",
+                    "outside"
+                ]
+            },
+            "slot_roles": {
+                "a1": "negative_auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-negative-questions-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Хіба ми раніше не зустрічалися?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Хіба ми раніше не зустрічалися?",
+            "target_text": "Haven't we met before?",
+            "markers": {
+                "a1": {
+                    "answer": "Haven't",
+                    "verb_hint": "Запитай зі здивуванням про спільний досвід до теперішнього моменту.",
+                    "options": [
+                        "Haven't",
+                        "Didn't",
+                        "Has",
+                        "Had"
+                    ]
+                },
+                "a2": {
+                    "answer": "we",
+                    "verb_hint": "Запитай зі здивуванням про спільний досвід до теперішнього моменту.",
+                    "options": [
+                        "we",
+                        "it",
+                        "they",
+                        "me"
+                    ]
+                },
+                "a3": {
+                    "answer": "met",
+                    "verb_hint": "Запитай зі здивуванням про спільний досвід до теперішнього моменту.",
+                    "options": [
+                        "met",
+                        "went",
+                        "saw",
+                        "needed"
+                    ]
+                },
+                "a4": {
+                    "answer": "before?",
+                    "verb_hint": "Запитай зі здивуванням про спільний досвід до теперішнього моменту.",
+                    "options": [
+                        "before",
+                        "today",
+                        "tap",
+                        "yesterday"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай зі здивуванням про спільний досвід до теперішнього моменту.",
+            "accepted_target_texts": [
+                "Haven't we met before?",
+                "Have we not met before?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Haven't",
+                "we",
+                "met before?"
+            ],
+            "token_groups": [
+                "Haven't",
+                "we",
+                "met before?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Haven't",
+                "we",
+                "met",
+                "before?"
+            ],
+            "options": [
+                "Haven't",
+                "Didn't",
+                "Has",
+                "Had",
+                "we",
+                "it",
+                "they",
+                "me",
+                "met",
+                "went",
+                "saw",
+                "needed",
+                "before",
+                "today",
+                "tap",
+                "yesterday"
+            ],
+            "source_text_uk": "Хіба ми раніше не зустрічалися?",
+            "options_by_marker": {
+                "a1": [
+                    "Haven't",
+                    "Didn't",
+                    "Has",
+                    "Had"
+                ],
+                "a2": [
+                    "we",
+                    "it",
+                    "they",
+                    "me"
+                ],
+                "a3": [
+                    "met",
+                    "went",
+                    "saw",
+                    "needed"
+                ],
+                "a4": [
+                    "before",
+                    "today",
+                    "tap",
+                    "yesterday"
+                ]
+            },
+            "slot_roles": {
+                "a1": "negative_auxiliary",
+                "a2": "pronoun",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-negative-questions-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Чому танцівники сьогодні не репетирують?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Чому танцівники сьогодні не репетирують?",
+            "target_text": "Why aren't the dancers rehearsing today?",
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "verb_hint": "Збережи питальне слово та заперечний тривалий час.",
+                    "options": [
+                        "Why",
+                        "Wherever",
+                        "Whenever",
+                        "Who"
+                    ]
+                },
+                "a2": {
+                    "answer": "aren't",
+                    "verb_hint": "Збережи питальне слово та заперечний тривалий час.",
+                    "options": [
+                        "aren't",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Збережи питальне слово та заперечний тривалий час.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a4": {
+                    "answer": "dancers",
+                    "verb_hint": "Збережи питальне слово та заперечний тривалий час.",
+                    "options": [
+                        "dancers",
+                        "visitors",
+                        "phones",
+                        "children"
+                    ]
+                },
+                "a5": {
+                    "answer": "rehearsing",
+                    "verb_hint": "Збережи питальне слово та заперечний тривалий час.",
+                    "options": [
+                        "rehearsing",
+                        "living",
+                        "buying",
+                        "giving"
+                    ]
+                },
+                "a6": {
+                    "answer": "today?",
+                    "verb_hint": "Збережи питальне слово та заперечний тривалий час.",
+                    "options": [
+                        "today",
+                        "before",
+                        "plumber",
+                        "fix"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи питальне слово та заперечний тривалий час.",
+            "accepted_target_texts": [
+                "Why aren't the dancers rehearsing today?",
+                "Why are the dancers not rehearsing today?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "aren't",
+                "the dancers",
+                "rehearsing today?"
+            ],
+            "token_groups": [
+                "Why",
+                "aren't",
+                "the dancers",
+                "rehearsing today?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Why",
+                "aren't",
+                "the",
+                "dancers",
+                "rehearsing",
+                "today?"
+            ],
+            "options": [
+                "Why",
+                "Wherever",
+                "Whenever",
+                "Who",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "am",
+                "the",
+                "some",
+                "any",
+                "this",
+                "dancers",
+                "visitors",
+                "phones",
+                "children",
+                "rehearsing",
+                "living",
+                "buying",
+                "giving",
+                "today",
+                "before",
+                "plumber",
+                "fix"
+            ],
+            "source_text_uk": "Чому танцівники сьогодні не репетирують?",
+            "options_by_marker": {
+                "a1": [
+                    "Why",
+                    "Wherever",
+                    "Whenever",
+                    "Who"
+                ],
+                "a2": [
+                    "aren't",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a3": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a4": [
+                    "dancers",
+                    "visitors",
+                    "phones",
+                    "children"
+                ],
+                "a5": [
+                    "rehearsing",
+                    "living",
+                    "buying",
+                    "giving"
+                ],
+                "a6": [
+                    "today",
+                    "before",
+                    "plumber",
+                    "fix"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "negative_auxiliary",
+                "a3": "subject",
+                "a4": "subject",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-negative-questions-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Хіба ці ліки не слід тримати в шафці?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Хіба ці ліки не слід тримати в шафці?",
+            "target_text": "Shouldn't this medicine be kept in a cupboard?",
+            "markers": {
+                "a1": {
+                    "answer": "Shouldn't",
+                    "verb_hint": "Постав модальне заперечне питання про належний спосіб зберігання.",
+                    "options": [
+                        "Shouldn't",
+                        "May",
+                        "Might",
+                        "Must"
+                    ]
+                },
+                "a2": {
+                    "answer": "this",
+                    "verb_hint": "Постав модальне заперечне питання про належний спосіб зберігання.",
+                    "options": [
+                        "this",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a3": {
+                    "answer": "medicine",
+                    "verb_hint": "Постав модальне заперечне питання про належний спосіб зберігання.",
+                    "options": [
+                        "medicine",
+                        "librarian",
+                        "cousin",
+                        "gardener"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Постав модальне заперечне питання про належний спосіб зберігання.",
+                    "options": [
+                        "be",
+                        "were",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a5": {
+                    "answer": "kept",
+                    "verb_hint": "Постав модальне заперечне питання про належний спосіб зберігання.",
+                    "options": [
+                        "kept",
+                        "departed",
+                        "said",
+                        "met"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Постав модальне заперечне питання про належний спосіб зберігання.",
+                    "options": [
+                        "in",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Постав модальне заперечне питання про належний спосіб зберігання.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a8": {
+                    "answer": "cupboard?",
+                    "verb_hint": "Постав модальне заперечне питання про належний спосіб зберігання.",
+                    "options": [
+                        "cupboard",
+                        "interval",
+                        "notice",
+                        "Friday"
+                    ]
+                }
+            },
+            "verb_hint": "Постав модальне заперечне питання про належний спосіб зберігання.",
+            "accepted_target_texts": [
+                "Shouldn't this medicine be kept in a cupboard?",
+                "Should this medicine not be kept in a cupboard?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Shouldn't",
+                "this medicine",
+                "be kept",
+                "in a cupboard?"
+            ],
+            "token_groups": [
+                "Shouldn't",
+                "this medicine",
+                "be kept",
+                "in a cupboard?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Shouldn't",
+                "this",
+                "medicine",
+                "be",
+                "kept",
+                "in",
+                "a",
+                "cupboard?"
+            ],
+            "options": [
+                "Shouldn't",
+                "May",
+                "Might",
+                "Must",
+                "this",
+                "no",
+                "another",
+                "either",
+                "medicine",
+                "librarian",
+                "cousin",
+                "gardener",
+                "be",
+                "were",
+                "been",
+                "being",
+                "kept",
+                "departed",
+                "said",
+                "met",
+                "in",
+                "with",
+                "without",
+                "into",
+                "a",
+                "all",
+                "both",
+                "an",
+                "cupboard",
+                "interval",
+                "notice",
+                "Friday"
+            ],
+            "source_text_uk": "Хіба ці ліки не слід тримати в шафці?",
+            "options_by_marker": {
+                "a1": [
+                    "Shouldn't",
+                    "May",
+                    "Might",
+                    "Must"
+                ],
+                "a2": [
+                    "this",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a3": [
+                    "medicine",
+                    "librarian",
+                    "cousin",
+                    "gardener"
+                ],
+                "a4": [
+                    "be",
+                    "were",
+                    "been",
+                    "being"
+                ],
+                "a5": [
+                    "kept",
+                    "departed",
+                    "said",
+                    "met"
+                ],
+                "a6": [
+                    "in",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a7": [
+                    "a",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a8": [
+                    "cupboard",
+                    "interval",
+                    "notice",
+                    "Friday"
+                ]
+            },
+            "slot_roles": {
+                "a1": "negative_auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "adverb_phrase",
+                "a7": "adverb_phrase",
+                "a8": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-negative-questions-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Хіба пором уже не відплив, коли ти прибув?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Хіба пором уже не відплив, коли ти прибув?",
+            "target_text": "Hadn't the ferry already departed when you arrived?",
+            "markers": {
+                "a1": {
+                    "answer": "Hadn't",
+                    "verb_hint": "Дія відплиття передує названому минулому прибуттю.",
+                    "options": [
+                        "Hadn't",
+                        "Have",
+                        "Has",
+                        "Haven't"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Дія відплиття передує названому минулому прибуттю.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a3": {
+                    "answer": "ferry",
+                    "verb_hint": "Дія відплиття передує названому минулому прибуттю.",
+                    "options": [
+                        "ferry",
+                        "solicitor",
+                        "panel",
+                        "witness"
+                    ]
+                },
+                "a4": {
+                    "answer": "already",
+                    "verb_hint": "Дія відплиття передує названому минулому прибуттю.",
+                    "options": [
+                        "already",
+                        "usually",
+                        "rarely",
+                        "only"
+                    ]
+                },
+                "a5": {
+                    "answer": "departed",
+                    "verb_hint": "Дія відплиття передує названому минулому прибуттю.",
+                    "options": [
+                        "departed",
+                        "kept",
+                        "went",
+                        "saw"
+                    ]
+                },
+                "a6": {
+                    "answer": "when",
+                    "verb_hint": "Дія відплиття передує названому минулому прибуттю.",
+                    "options": [
+                        "when",
+                        "why",
+                        "how",
+                        "whoever"
+                    ]
+                },
+                "a7": {
+                    "answer": "you",
+                    "verb_hint": "Дія відплиття передує названому минулому прибуттю.",
+                    "options": [
+                        "you",
+                        "I",
+                        "he",
+                        "she"
+                    ]
+                },
+                "a8": {
+                    "answer": "arrived?",
+                    "verb_hint": "Дія відплиття передує названому минулому прибуттю.",
+                    "options": [
+                        "arrived",
+                        "wrote",
+                        "rode",
+                        "drove"
+                    ]
+                }
+            },
+            "verb_hint": "Дія відплиття передує названому минулому прибуттю.",
+            "accepted_target_texts": [
+                "Hadn't the ferry already departed when you arrived?",
+                "Had the ferry not already departed when you arrived?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Hadn't",
+                "the ferry",
+                "already departed",
+                "when you arrived?"
+            ],
+            "token_groups": [
+                "Hadn't",
+                "the ferry",
+                "already departed",
+                "when you arrived?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Hadn't",
+                "the",
+                "ferry",
+                "already",
+                "departed",
+                "when",
+                "you",
+                "arrived?"
+            ],
+            "options": [
+                "Hadn't",
+                "Have",
+                "Has",
+                "Haven't",
+                "the",
+                "a",
+                "an",
+                "some",
+                "ferry",
+                "solicitor",
+                "panel",
+                "witness",
+                "already",
+                "usually",
+                "rarely",
+                "only",
+                "departed",
+                "kept",
+                "went",
+                "saw",
+                "when",
+                "why",
+                "how",
+                "whoever",
+                "you",
+                "I",
+                "he",
+                "she",
+                "arrived",
+                "wrote",
+                "rode",
+                "drove"
+            ],
+            "source_text_uk": "Хіба пором уже не відплив, коли ти прибув?",
+            "options_by_marker": {
+                "a1": [
+                    "Hadn't",
+                    "Have",
+                    "Has",
+                    "Haven't"
+                ],
+                "a2": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a3": [
+                    "ferry",
+                    "solicitor",
+                    "panel",
+                    "witness"
+                ],
+                "a4": [
+                    "already",
+                    "usually",
+                    "rarely",
+                    "only"
+                ],
+                "a5": [
+                    "departed",
+                    "kept",
+                    "went",
+                    "saw"
+                ],
+                "a6": [
+                    "when",
+                    "why",
+                    "how",
+                    "whoever"
+                ],
+                "a7": [
+                    "you",
+                    "I",
+                    "he",
+                    "she"
+                ],
+                "a8": [
+                    "arrived",
+                    "wrote",
+                    "rode",
+                    "drove"
+                ]
+            },
+            "slot_roles": {
+                "a1": "negative_auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "adverb_phrase",
+                "a7": "adverb_phrase",
+                "a8": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-negative-questions-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Чому вона не слухала під час інструктажу?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Чому вона не слухала під час інструктажу?",
+            "target_text": "Why wasn't she listening during the briefing?",
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "verb_hint": "Збережи минулий процес, а не окрему завершену дію.",
+                    "options": [
+                        "Why",
+                        "How",
+                        "Whoever",
+                        "Whatever"
+                    ]
+                },
+                "a2": {
+                    "answer": "wasn't",
+                    "verb_hint": "Збережи минулий процес, а не окрему завершену дію.",
+                    "options": [
+                        "wasn't",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a3": {
+                    "answer": "she",
+                    "verb_hint": "Збережи минулий процес, а не окрему завершену дію.",
+                    "options": [
+                        "she",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a4": {
+                    "answer": "listening",
+                    "verb_hint": "Збережи минулий процес, а не окрему завершену дію.",
+                    "options": [
+                        "listening",
+                        "making",
+                        "going",
+                        "taking"
+                    ]
+                },
+                "a5": {
+                    "answer": "during",
+                    "verb_hint": "Збережи минулий процес, а не окрему завершену дію.",
+                    "options": [
+                        "during",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Збережи минулий процес, а не окрему завершену дію.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a7": {
+                    "answer": "briefing?",
+                    "verb_hint": "Збережи минулий процес, а не окрему завершену дію.",
+                    "options": [
+                        "briefing",
+                        "hearing",
+                        "writing",
+                        "calling"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи минулий процес, а не окрему завершену дію.",
+            "accepted_target_texts": [
+                "Why wasn't she listening during the briefing?",
+                "Why was she not listening during the briefing?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "wasn't",
+                "she",
+                "listening",
+                "during the briefing?"
+            ],
+            "token_groups": [
+                "Why",
+                "wasn't",
+                "she",
+                "listening",
+                "during the briefing?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Why",
+                "wasn't",
+                "she",
+                "listening",
+                "during",
+                "the",
+                "briefing?"
+            ],
+            "options": [
+                "Why",
+                "How",
+                "Whoever",
+                "Whatever",
+                "wasn't",
+                "weren't",
+                "am",
+                "is",
+                "she",
+                "myself",
+                "yourself",
+                "herself",
+                "listening",
+                "making",
+                "going",
+                "taking",
+                "during",
+                "through",
+                "across",
+                "between",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "briefing",
+                "hearing",
+                "writing",
+                "calling"
+            ],
+            "source_text_uk": "Чому вона не слухала під час інструктажу?",
+            "options_by_marker": {
+                "a1": [
+                    "Why",
+                    "How",
+                    "Whoever",
+                    "Whatever"
+                ],
+                "a2": [
+                    "wasn't",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a3": [
+                    "she",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a4": [
+                    "listening",
+                    "making",
+                    "going",
+                    "taking"
+                ],
+                "a5": [
+                    "during",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a6": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a7": [
+                    "briefing",
+                    "hearing",
+                    "writing",
+                    "calling"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "negative_auxiliary",
+                "a3": "pronoun",
+                "a4": "verb_phrase",
+                "a5": "adverb_phrase",
+                "a6": "adverb_phrase",
+                "a7": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-negative-questions-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Хіба меншу комісію не було б легше координувати?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Хіба меншу комісію не було б легше координувати?",
+            "target_text": "Wouldn't a smaller panel be easier to coordinate?",
+            "markers": {
+                "a1": {
+                    "answer": "Wouldn't",
+                    "verb_hint": "Питання має умовне оцінне значення.",
+                    "options": [
+                        "Wouldn't",
+                        "Should",
+                        "May",
+                        "Might"
+                    ]
+                },
+                "a2": {
+                    "answer": "a",
+                    "verb_hint": "Питання має умовне оцінне значення.",
+                    "options": [
+                        "a",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a3": {
+                    "answer": "smaller",
+                    "verb_hint": "Питання має умовне оцінне значення.",
+                    "options": [
+                        "smaller",
+                        "renewal",
+                        "sooner",
+                        "notice"
+                    ]
+                },
+                "a4": {
+                    "answer": "panel",
+                    "verb_hint": "Питання має умовне оцінне значення.",
+                    "options": [
+                        "panel",
+                        "tenant",
+                        "picture",
+                        "child"
+                    ]
+                },
+                "a5": {
+                    "answer": "be",
+                    "verb_hint": "Питання має умовне оцінне значення.",
+                    "options": [
+                        "be",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "easier",
+                    "verb_hint": "Питання має умовне оцінне значення.",
+                    "options": [
+                        "easier",
+                        "water",
+                        "bread",
+                        "milk"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Питання має умовне оцінне значення.",
+                    "options": [
+                        "to",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a8": {
+                    "answer": "coordinate?",
+                    "verb_hint": "Питання має умовне оцінне значення.",
+                    "options": [
+                        "coordinate",
+                        "teacher",
+                        "school",
+                        "sister"
+                    ]
+                }
+            },
+            "verb_hint": "Питання має умовне оцінне значення.",
+            "accepted_target_texts": [
+                "Wouldn't a smaller panel be easier to coordinate?",
+                "Would a smaller panel not be easier to coordinate?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Wouldn't",
+                "a smaller panel",
+                "be easier",
+                "to coordinate?"
+            ],
+            "token_groups": [
+                "Wouldn't",
+                "a smaller panel",
+                "be easier",
+                "to coordinate?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Wouldn't",
+                "a",
+                "smaller",
+                "panel",
+                "be",
+                "easier",
+                "to",
+                "coordinate?"
+            ],
+            "options": [
+                "Wouldn't",
+                "Should",
+                "May",
+                "Might",
+                "a",
+                "these",
+                "those",
+                "each",
+                "smaller",
+                "renewal",
+                "sooner",
+                "notice",
+                "panel",
+                "tenant",
+                "picture",
+                "child",
+                "be",
+                "being",
+                "isn't",
+                "aren't",
+                "easier",
+                "water",
+                "bread",
+                "milk",
+                "to",
+                "over",
+                "under",
+                "through",
+                "coordinate",
+                "teacher",
+                "school",
+                "sister"
+            ],
+            "source_text_uk": "Хіба меншу комісію не було б легше координувати?",
+            "options_by_marker": {
+                "a1": [
+                    "Wouldn't",
+                    "Should",
+                    "May",
+                    "Might"
+                ],
+                "a2": [
+                    "a",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a3": [
+                    "smaller",
+                    "renewal",
+                    "sooner",
+                    "notice"
+                ],
+                "a4": [
+                    "panel",
+                    "tenant",
+                    "picture",
+                    "child"
+                ],
+                "a5": [
+                    "be",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a6": [
+                    "easier",
+                    "water",
+                    "bread",
+                    "milk"
+                ],
+                "a7": [
+                    "to",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a8": [
+                    "coordinate",
+                    "teacher",
+                    "school",
+                    "sister"
+                ]
+            },
+            "slot_roles": {
+                "a1": "negative_auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "subject",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-negative-questions-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Хіба консультанти не могли попередити нас раніше?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Хіба консультанти не могли попередити нас раніше?",
+            "target_text": "Couldn't the consultants have warned us sooner?",
+            "markers": {
+                "a1": {
+                    "answer": "Couldn't",
+                    "verb_hint": "Використай доконану модальну форму для минулої можливості.",
+                    "options": [
+                        "Couldn't",
+                        "Should",
+                        "May",
+                        "Might"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Використай доконану модальну форму для минулої можливості.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a3": {
+                    "answer": "consultants",
+                    "verb_hint": "Використай доконану модальну форму для минулої можливості.",
+                    "options": [
+                        "consultants",
+                        "visitors",
+                        "tickets",
+                        "cups"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Використай доконану модальну форму для минулої можливості.",
+                    "options": [
+                        "have",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "warned",
+                    "verb_hint": "Використай доконану модальну форму для минулої можливості.",
+                    "options": [
+                        "warned",
+                        "sent",
+                        "taken",
+                        "written"
+                    ]
+                },
+                "a6": {
+                    "answer": "us",
+                    "verb_hint": "Використай доконану модальну форму для минулої можливості.",
+                    "options": [
+                        "us",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a7": {
+                    "answer": "sooner?",
+                    "verb_hint": "Використай доконану модальну форму для минулої можливості.",
+                    "options": [
+                        "sooner",
+                        "tonight",
+                        "later",
+                        "outside"
+                    ]
+                }
+            },
+            "verb_hint": "Використай доконану модальну форму для минулої можливості.",
+            "accepted_target_texts": [
+                "Couldn't the consultants have warned us sooner?",
+                "Couldn't the consultants have alerted us sooner?",
+                "Could the consultants not have warned us sooner?",
+                "Could the consultants not have alerted us sooner?"
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "alerted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "alerted"
+                ]
+            },
+            "reorder_groups": [
+                "Couldn't",
+                "the consultants",
+                "have warned us",
+                "sooner?"
+            ],
+            "token_groups": [
+                "Couldn't",
+                "the consultants",
+                "have warned us",
+                "sooner?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Couldn't",
+                "the",
+                "consultants",
+                "have",
+                "warned",
+                "us",
+                "sooner?"
+            ],
+            "options": [
+                "Couldn't",
+                "Should",
+                "May",
+                "Might",
+                "the",
+                "both",
+                "a",
+                "an",
+                "consultants",
+                "visitors",
+                "tickets",
+                "cups",
+                "have",
+                "had",
+                "haven't",
+                "hasn't",
+                "warned",
+                "sent",
+                "taken",
+                "written",
+                "us",
+                "herself",
+                "ourselves",
+                "themselves",
+                "sooner",
+                "tonight",
+                "later",
+                "outside"
+            ],
+            "source_text_uk": "Хіба консультанти не могли попередити нас раніше?",
+            "options_by_marker": {
+                "a1": [
+                    "Couldn't",
+                    "Should",
+                    "May",
+                    "Might"
+                ],
+                "a2": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a3": [
+                    "consultants",
+                    "visitors",
+                    "tickets",
+                    "cups"
+                ],
+                "a4": [
+                    "have",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a5": [
+                    "warned",
+                    "sent",
+                    "taken",
+                    "written"
+                ],
+                "a6": [
+                    "us",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a7": [
+                    "sooner",
+                    "tonight",
+                    "later",
+                    "outside"
+                ]
+            },
+            "slot_roles": {
+                "a1": "negative_auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-negative-questions-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Чому повідомлення про продовження ще не надіслали кожному орендарю?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Чому повідомлення про продовження ще не надіслали кожному орендарю?",
+            "target_text": "Why hasn't the renewal notice been sent to every tenant?",
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "verb_hint": "Збережи актуальний результат доконаного пасиву.",
+                    "options": [
+                        "Why",
+                        "Wherever",
+                        "Whenever",
+                        "Who"
+                    ]
+                },
+                "a2": {
+                    "answer": "hasn't",
+                    "verb_hint": "Збережи актуальний результат доконаного пасиву.",
+                    "options": [
+                        "hasn't",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Збережи актуальний результат доконаного пасиву.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a4": {
+                    "answer": "renewal",
+                    "verb_hint": "Збережи актуальний результат доконаного пасиву.",
+                    "options": [
+                        "renewal",
+                        "smaller",
+                        "coordinate",
+                        "sooner"
+                    ]
+                },
+                "a5": {
+                    "answer": "notice",
+                    "verb_hint": "Збережи актуальний результат доконаного пасиву.",
+                    "options": [
+                        "notice",
+                        "panel",
+                        "easier",
+                        "box"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Збережи актуальний результат доконаного пасиву.",
+                    "options": [
+                        "been",
+                        "were",
+                        "be",
+                        "being"
+                    ]
+                },
+                "a7": {
+                    "answer": "sent",
+                    "verb_hint": "Збережи актуальний результат доконаного пасиву.",
+                    "options": [
+                        "sent",
+                        "warned",
+                        "seen",
+                        "known"
+                    ]
+                },
+                "a8": {
+                    "answer": "to",
+                    "verb_hint": "Збережи актуальний результат доконаного пасиву.",
+                    "options": [
+                        "to",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a9": {
+                    "answer": "every",
+                    "verb_hint": "Збережи актуальний результат доконаного пасиву.",
+                    "options": [
+                        "every",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a10": {
+                    "answer": "tenant?",
+                    "verb_hint": "Збережи актуальний результат доконаного пасиву.",
+                    "options": [
+                        "tenant",
+                        "interval",
+                        "Friday",
+                        "picture"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи актуальний результат доконаного пасиву.",
+            "accepted_target_texts": [
+                "Why hasn't the renewal notice been sent to every tenant?",
+                "Why has the renewal notice not been sent to every tenant?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "hasn't",
+                "the renewal notice",
+                "been sent",
+                "to every tenant?"
+            ],
+            "token_groups": [
+                "Why",
+                "hasn't",
+                "the renewal notice",
+                "been sent",
+                "to every tenant?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Why",
+                "hasn't",
+                "the",
+                "renewal",
+                "notice",
+                "been",
+                "sent",
+                "to",
+                "every",
+                "tenant?"
+            ],
+            "options": [
+                "Why",
+                "Wherever",
+                "Whenever",
+                "Who",
+                "hasn't",
+                "do",
+                "does",
+                "did",
+                "the",
+                "an",
+                "some",
+                "any",
+                "renewal",
+                "smaller",
+                "coordinate",
+                "sooner",
+                "notice",
+                "panel",
+                "easier",
+                "box",
+                "been",
+                "were",
+                "be",
+                "being",
+                "sent",
+                "warned",
+                "seen",
+                "known",
+                "to",
+                "from",
+                "for",
+                "of",
+                "every",
+                "this",
+                "that",
+                "these",
+                "tenant",
+                "interval",
+                "Friday",
+                "picture"
+            ],
+            "source_text_uk": "Чому повідомлення про продовження ще не надіслали кожному орендарю?",
+            "options_by_marker": {
+                "a1": [
+                    "Why",
+                    "Wherever",
+                    "Whenever",
+                    "Who"
+                ],
+                "a2": [
+                    "hasn't",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a3": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a4": [
+                    "renewal",
+                    "smaller",
+                    "coordinate",
+                    "sooner"
+                ],
+                "a5": [
+                    "notice",
+                    "panel",
+                    "easier",
+                    "box"
+                ],
+                "a6": [
+                    "been",
+                    "were",
+                    "be",
+                    "being"
+                ],
+                "a7": [
+                    "sent",
+                    "warned",
+                    "seen",
+                    "known"
+                ],
+                "a8": [
+                    "to",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a9": [
+                    "every",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a10": [
+                    "tenant",
+                    "interval",
+                    "Friday",
+                    "picture"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "negative_auxiliary",
+                "a3": "subject",
+                "a4": "subject",
+                "a5": "subject",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "adverb_phrase",
+                "a9": "adverb_phrase",
+                "a10": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-negative-questions-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Хіба публічне вибачення не могло б послабити суперечку?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Хіба публічне вибачення не могло б послабити суперечку?",
+            "target_text": "Mightn't a public apology have defused the controversy?",
+            "markers": {
+                "a1": {
+                    "answer": "Mightn't",
+                    "verb_hint": "Вислови обережне припущення про альтернативний минулий результат.",
+                    "options": [
+                        "Mightn't",
+                        "Didn't",
+                        "Isn't",
+                        "Aren't"
+                    ]
+                },
+                "a2": {
+                    "answer": "a",
+                    "verb_hint": "Вислови обережне припущення про альтернативний минулий результат.",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a3": {
+                    "answer": "public",
+                    "verb_hint": "Вислови обережне припущення про альтернативний минулий результат.",
+                    "options": [
+                        "public",
+                        "easy",
+                        "difficult",
+                        "bright"
+                    ]
+                },
+                "a4": {
+                    "answer": "apology",
+                    "verb_hint": "Вислови обережне припущення про альтернативний минулий результат.",
+                    "options": [
+                        "apology",
+                        "process",
+                        "review",
+                        "intervention"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Вислови обережне припущення про альтернативний минулий результат.",
+                    "options": [
+                        "have",
+                        "doesn't",
+                        "has",
+                        "had"
+                    ]
+                },
+                "a6": {
+                    "answer": "defused",
+                    "verb_hint": "Вислови обережне припущення про альтернативний минулий результат.",
+                    "options": [
+                        "defused",
+                        "compromised",
+                        "assessed",
+                        "seen"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Вислови обережне припущення про альтернативний минулий результат.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a8": {
+                    "answer": "controversy?",
+                    "verb_hint": "Вислови обережне припущення про альтернативний минулий результат.",
+                    "options": [
+                        "controversy",
+                        "equal",
+                        "window",
+                        "phone"
+                    ]
+                }
+            },
+            "verb_hint": "Вислови обережне припущення про альтернативний минулий результат.",
+            "accepted_target_texts": [
+                "Mightn't a public apology have defused the controversy?",
+                "Mightn't a public apology have eased the controversy?",
+                "Might a public apology not have defused the controversy?",
+                "Might a public apology not have eased the controversy?"
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "eased"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "eased"
+                ]
+            },
+            "reorder_groups": [
+                "Mightn't",
+                "a public apology",
+                "have defused",
+                "the controversy?"
+            ],
+            "token_groups": [
+                "Mightn't",
+                "a public apology",
+                "have defused",
+                "the controversy?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Mightn't",
+                "a",
+                "public",
+                "apology",
+                "have",
+                "defused",
+                "the",
+                "controversy?"
+            ],
+            "options": [
+                "Mightn't",
+                "Didn't",
+                "Isn't",
+                "Aren't",
+                "a",
+                "an",
+                "some",
+                "any",
+                "public",
+                "easy",
+                "difficult",
+                "bright",
+                "apology",
+                "process",
+                "review",
+                "intervention",
+                "have",
+                "doesn't",
+                "has",
+                "had",
+                "defused",
+                "compromised",
+                "assessed",
+                "seen",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "controversy",
+                "equal",
+                "window",
+                "phone"
+            ],
+            "source_text_uk": "Хіба публічне вибачення не могло б послабити суперечку?",
+            "options_by_marker": {
+                "a1": [
+                    "Mightn't",
+                    "Didn't",
+                    "Isn't",
+                    "Aren't"
+                ],
+                "a2": [
+                    "a",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a3": [
+                    "public",
+                    "easy",
+                    "difficult",
+                    "bright"
+                ],
+                "a4": [
+                    "apology",
+                    "process",
+                    "review",
+                    "intervention"
+                ],
+                "a5": [
+                    "have",
+                    "doesn't",
+                    "has",
+                    "had"
+                ],
+                "a6": [
+                    "defused",
+                    "compromised",
+                    "assessed",
+                    "seen"
+                ],
+                "a7": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a8": [
+                    "controversy",
+                    "equal",
+                    "window",
+                    "phone"
+                ]
+            },
+            "slot_roles": {
+                "a1": "negative_auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "subject",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-negative-questions-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Чому б не оцінювати конкуруючі пояснення на рівних умовах?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Чому б не оцінювати конкуруючі пояснення на рівних умовах?",
+            "target_text": "Why shouldn't competing explanations be assessed on equal terms?",
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "verb_hint": "Почни з питання про причину та збережи модальне пасивне значення.",
+                    "options": [
+                        "Why",
+                        "How",
+                        "Whoever",
+                        "Whatever"
+                    ]
+                },
+                "a2": {
+                    "answer": "shouldn't",
+                    "verb_hint": "Почни з питання про причину та збережи модальне пасивне значення.",
+                    "options": [
+                        "shouldn't",
+                        "could",
+                        "will",
+                        "would"
+                    ]
+                },
+                "a3": {
+                    "answer": "competing",
+                    "verb_hint": "Почни з питання про причину та збережи модальне пасивне значення.",
+                    "options": [
+                        "competing",
+                        "studying",
+                        "living",
+                        "buying"
+                    ]
+                },
+                "a4": {
+                    "answer": "explanations",
+                    "verb_hint": "Почни з питання про причину та збережи модальне пасивне значення.",
+                    "options": [
+                        "explanations",
+                        "visitors",
+                        "friends",
+                        "dogs"
+                    ]
+                },
+                "a5": {
+                    "answer": "be",
+                    "verb_hint": "Почни з питання про причину та збережи модальне пасивне значення.",
+                    "options": [
+                        "be",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "assessed",
+                    "verb_hint": "Почни з питання про причину та збережи модальне пасивне значення.",
+                    "options": [
+                        "assessed",
+                        "compromised",
+                        "defused",
+                        "sent"
+                    ]
+                },
+                "a7": {
+                    "answer": "on",
+                    "verb_hint": "Почни з питання про причину та збережи модальне пасивне значення.",
+                    "options": [
+                        "on",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a8": {
+                    "answer": "equal",
+                    "verb_hint": "Почни з питання про причину та збережи модальне пасивне значення.",
+                    "options": [
+                        "equal",
+                        "further",
+                        "next",
+                        "these"
+                    ]
+                },
+                "a9": {
+                    "answer": "terms?",
+                    "verb_hint": "Почни з питання про причину та збережи модальне пасивне значення.",
+                    "options": [
+                        "terms",
+                        "conditions",
+                        "chairs",
+                        "tables"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з питання про причину та збережи модальне пасивне значення.",
+            "accepted_target_texts": [
+                "Why shouldn't competing explanations be assessed on equal terms?",
+                "Why should competing explanations not be assessed on equal terms?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "shouldn't",
+                "competing explanations",
+                "be assessed",
+                "on equal terms?"
+            ],
+            "token_groups": [
+                "Why",
+                "shouldn't",
+                "competing explanations",
+                "be assessed",
+                "on equal terms?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Why",
+                "shouldn't",
+                "competing",
+                "explanations",
+                "be",
+                "assessed",
+                "on",
+                "equal",
+                "terms?"
+            ],
+            "options": [
+                "Why",
+                "How",
+                "Whoever",
+                "Whatever",
+                "shouldn't",
+                "could",
+                "will",
+                "would",
+                "competing",
+                "studying",
+                "living",
+                "buying",
+                "explanations",
+                "visitors",
+                "friends",
+                "dogs",
+                "be",
+                "being",
+                "isn't",
+                "aren't",
+                "assessed",
+                "compromised",
+                "defused",
+                "sent",
+                "on",
+                "for",
+                "of",
+                "in",
+                "equal",
+                "further",
+                "next",
+                "these",
+                "terms",
+                "conditions",
+                "chairs",
+                "tables"
+            ],
+            "source_text_uk": "Чому б не оцінювати конкуруючі пояснення на рівних умовах?",
+            "options_by_marker": {
+                "a1": [
+                    "Why",
+                    "How",
+                    "Whoever",
+                    "Whatever"
+                ],
+                "a2": [
+                    "shouldn't",
+                    "could",
+                    "will",
+                    "would"
+                ],
+                "a3": [
+                    "competing",
+                    "studying",
+                    "living",
+                    "buying"
+                ],
+                "a4": [
+                    "explanations",
+                    "visitors",
+                    "friends",
+                    "dogs"
+                ],
+                "a5": [
+                    "be",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a6": [
+                    "assessed",
+                    "compromised",
+                    "defused",
+                    "sent"
+                ],
+                "a7": [
+                    "on",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a8": [
+                    "equal",
+                    "further",
+                    "next",
+                    "these"
+                ],
+                "a9": [
+                    "terms",
+                    "conditions",
+                    "chairs",
+                    "tables"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "negative_auxiliary",
+                "a3": "subject",
+                "a4": "subject",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "adverb_phrase",
+                "a8": "adverb_phrase",
+                "a9": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-negative-questions-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Хіба те втручання не підірвало процес перевірки?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Хіба те втручання не підірвало процес перевірки?",
+            "target_text": "Hasn't the review process been compromised by that intervention?",
+            "markers": {
+                "a1": {
+                    "answer": "Hasn't",
+                    "verb_hint": "Постав заперечне питання про наявний результат втручання.",
+                    "options": [
+                        "Hasn't",
+                        "Doesn't",
+                        "Didn't",
+                        "Have"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Постав заперечне питання про наявний результат втручання.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a3": {
+                    "answer": "review",
+                    "verb_hint": "Постав заперечне питання про наявний результат втручання.",
+                    "options": [
+                        "review",
+                        "apology",
+                        "controversy",
+                        "equal"
+                    ]
+                },
+                "a4": {
+                    "answer": "process",
+                    "verb_hint": "Постав заперечне питання про наявний результат втручання.",
+                    "options": [
+                        "process",
+                        "Mightn't",
+                        "window",
+                        "phone"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Постав заперечне питання про наявний результат втручання.",
+                    "options": [
+                        "been",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a6": {
+                    "answer": "compromised",
+                    "verb_hint": "Постав заперечне питання про наявний результат втручання.",
+                    "options": [
+                        "compromised",
+                        "assessed",
+                        "defused",
+                        "seen"
+                    ]
+                },
+                "a7": {
+                    "answer": "by",
+                    "verb_hint": "Постав заперечне питання про наявний результат втручання.",
+                    "options": [
+                        "by",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a8": {
+                    "answer": "that",
+                    "verb_hint": "Постав заперечне питання про наявний результат втручання.",
+                    "options": [
+                        "that",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a9": {
+                    "answer": "intervention?",
+                    "verb_hint": "Постав заперечне питання про наявний результат втручання.",
+                    "options": [
+                        "intervention",
+                        "notice",
+                        "Friday",
+                        "interval"
+                    ]
+                }
+            },
+            "verb_hint": "Постав заперечне питання про наявний результат втручання.",
+            "accepted_target_texts": [
+                "Hasn't the review process been compromised by that intervention?",
+                "Has the review process not been compromised by that intervention?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Hasn't",
+                "the review process",
+                "been compromised",
+                "by that intervention?"
+            ],
+            "token_groups": [
+                "Hasn't",
+                "the review process",
+                "been compromised",
+                "by that intervention?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Hasn't",
+                "the",
+                "review",
+                "process",
+                "been",
+                "compromised",
+                "by",
+                "that",
+                "intervention?"
+            ],
+            "options": [
+                "Hasn't",
+                "Doesn't",
+                "Didn't",
+                "Have",
+                "the",
+                "no",
+                "another",
+                "either",
+                "review",
+                "apology",
+                "controversy",
+                "equal",
+                "process",
+                "Mightn't",
+                "window",
+                "phone",
+                "been",
+                "am",
+                "is",
+                "are",
+                "compromised",
+                "assessed",
+                "defused",
+                "seen",
+                "by",
+                "to",
+                "from",
+                "for",
+                "that",
+                "neither",
+                "all",
+                "both",
+                "intervention",
+                "notice",
+                "Friday",
+                "interval"
+            ],
+            "source_text_uk": "Хіба те втручання не підірвало процес перевірки?",
+            "options_by_marker": {
+                "a1": [
+                    "Hasn't",
+                    "Doesn't",
+                    "Didn't",
+                    "Have"
+                ],
+                "a2": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a3": [
+                    "review",
+                    "apology",
+                    "controversy",
+                    "equal"
+                ],
+                "a4": [
+                    "process",
+                    "Mightn't",
+                    "window",
+                    "phone"
+                ],
+                "a5": [
+                    "been",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a6": [
+                    "compromised",
+                    "assessed",
+                    "defused",
+                    "seen"
+                ],
+                "a7": [
+                    "by",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a8": [
+                    "that",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a9": [
+                    "intervention",
+                    "notice",
+                    "Friday",
+                    "interval"
+                ]
+            },
+            "slot_roles": {
+                "a1": "negative_auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "subject",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "adverb_phrase",
+                "a8": "adverb_phrase",
+                "a9": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-negative-questions-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Хіба таке припущення не визначало б наперед саме спірне питання?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Хіба таке припущення не визначало б наперед саме спірне питання?",
+            "target_text": "Wouldn't such a presumption prejudge the very issue under dispute?",
+            "markers": {
+                "a1": {
+                    "answer": "Wouldn't",
+                    "verb_hint": "Збережи умовний характер критичного запитання.",
+                    "options": [
+                        "Wouldn't",
+                        "Shall",
+                        "Should",
+                        "May"
+                    ]
+                },
+                "a2": {
+                    "answer": "such",
+                    "verb_hint": "Збережи умовний характер критичного запитання.",
+                    "options": [
+                        "such",
+                        "judgment",
+                        "Needn't",
+                        "residual"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Збережи умовний характер критичного запитання.",
+                    "options": [
+                        "a",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a4": {
+                    "answer": "presumption",
+                    "verb_hint": "Збережи умовний характер критичного запитання.",
+                    "options": [
+                        "presumption",
+                        "opinion",
+                        "uncertainty",
+                        "friend"
+                    ]
+                },
+                "a5": {
+                    "answer": "prejudge",
+                    "verb_hint": "Збережи умовний характер критичного запитання.",
+                    "options": [
+                        "prejudge",
+                        "map",
+                        "letter",
+                        "window"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Збережи умовний характер критичного запитання.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a7": {
+                    "answer": "very",
+                    "verb_hint": "Збережи умовний характер критичного запитання.",
+                    "options": [
+                        "very",
+                        "whole",
+                        "quieter",
+                        "coastal"
+                    ]
+                },
+                "a8": {
+                    "answer": "issue",
+                    "verb_hint": "Збережи умовний характер критичного запитання.",
+                    "options": [
+                        "issue",
+                        "lamp",
+                        "clock",
+                        "seat"
+                    ]
+                },
+                "a9": {
+                    "answer": "under",
+                    "verb_hint": "Збережи умовний характер критичного запитання.",
+                    "options": [
+                        "under",
+                        "onto",
+                        "over",
+                        "through"
+                    ]
+                },
+                "a10": {
+                    "answer": "dispute?",
+                    "verb_hint": "Збережи умовний характер критичного запитання.",
+                    "options": [
+                        "dispute",
+                        "lunch",
+                        "dawn",
+                        "sister"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи умовний характер критичного запитання.",
+            "accepted_target_texts": [
+                "Wouldn't such a presumption prejudge the very issue under dispute?",
+                "Would such a presumption not prejudge the very issue under dispute?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Wouldn't",
+                "such a presumption",
+                "prejudge",
+                "the very issue",
+                "under dispute?"
+            ],
+            "token_groups": [
+                "Wouldn't",
+                "such a presumption",
+                "prejudge",
+                "the very issue",
+                "under dispute?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Wouldn't",
+                "such",
+                "a",
+                "presumption",
+                "prejudge",
+                "the",
+                "very",
+                "issue",
+                "under",
+                "dispute?"
+            ],
+            "options": [
+                "Wouldn't",
+                "Shall",
+                "Should",
+                "May",
+                "such",
+                "judgment",
+                "Needn't",
+                "residual",
+                "a",
+                "another",
+                "either",
+                "neither",
+                "presumption",
+                "opinion",
+                "uncertainty",
+                "friend",
+                "prejudge",
+                "map",
+                "letter",
+                "window",
+                "the",
+                "any",
+                "this",
+                "that",
+                "very",
+                "whole",
+                "quieter",
+                "coastal",
+                "issue",
+                "lamp",
+                "clock",
+                "seat",
+                "under",
+                "onto",
+                "over",
+                "through",
+                "dispute",
+                "lunch",
+                "dawn",
+                "sister"
+            ],
+            "source_text_uk": "Хіба таке припущення не визначало б наперед саме спірне питання?",
+            "options_by_marker": {
+                "a1": [
+                    "Wouldn't",
+                    "Shall",
+                    "Should",
+                    "May"
+                ],
+                "a2": [
+                    "such",
+                    "judgment",
+                    "Needn't",
+                    "residual"
+                ],
+                "a3": [
+                    "a",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a4": [
+                    "presumption",
+                    "opinion",
+                    "uncertainty",
+                    "friend"
+                ],
+                "a5": [
+                    "prejudge",
+                    "map",
+                    "letter",
+                    "window"
+                ],
+                "a6": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a7": [
+                    "very",
+                    "whole",
+                    "quieter",
+                    "coastal"
+                ],
+                "a8": [
+                    "issue",
+                    "lamp",
+                    "clock",
+                    "seat"
+                ],
+                "a9": [
+                    "under",
+                    "onto",
+                    "over",
+                    "through"
+                ],
+                "a10": [
+                    "dispute",
+                    "lunch",
+                    "dawn",
+                    "sister"
+                ]
+            },
+            "slot_roles": {
+                "a1": "negative_auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "subject",
+                "a5": "verb_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "adverb_phrase",
+                "a10": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-negative-questions-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Хіба залишкову невизначеність не слід прямо визнати?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Хіба залишкову невизначеність не слід прямо визнати?",
+            "target_text": "Needn't the residual uncertainty be acknowledged explicitly?",
+            "markers": {
+                "a1": {
+                    "answer": "Needn't",
+                    "verb_hint": "Використай формальне модальне питання про необхідність визнання.",
+                    "options": [
+                        "Needn't",
+                        "Wasn't",
+                        "Weren't",
+                        "Haven't"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Використай формальне модальне питання про необхідність визнання.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a3": {
+                    "answer": "residual",
+                    "verb_hint": "Використай формальне модальне питання про необхідність визнання.",
+                    "options": [
+                        "residual",
+                        "a",
+                        "opinion",
+                        "judgment"
+                    ]
+                },
+                "a4": {
+                    "answer": "uncertainty",
+                    "verb_hint": "Використай формальне модальне питання про необхідність визнання.",
+                    "options": [
+                        "uncertainty",
+                        "presumption",
+                        "prejudge",
+                        "very"
+                    ]
+                },
+                "a5": {
+                    "answer": "be",
+                    "verb_hint": "Використай формальне модальне питання про необхідність визнання.",
+                    "options": [
+                        "be",
+                        "isn't",
+                        "aren't",
+                        "am"
+                    ]
+                },
+                "a6": {
+                    "answer": "acknowledged",
+                    "verb_hint": "Використай формальне модальне питання про необхідність визнання.",
+                    "options": [
+                        "acknowledged",
+                        "appended",
+                        "given",
+                        "made"
+                    ]
+                },
+                "a7": {
+                    "answer": "explicitly?",
+                    "verb_hint": "Використай формальне модальне питання про необхідність визнання.",
+                    "options": [
+                        "explicitly",
+                        "well",
+                        "badly",
+                        "clearly"
+                    ]
+                }
+            },
+            "verb_hint": "Використай формальне модальне питання про необхідність визнання.",
+            "accepted_target_texts": [
+                "Needn't the residual uncertainty be acknowledged explicitly?",
+                "Need the residual uncertainty not be acknowledged explicitly?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Needn't",
+                "the residual uncertainty",
+                "be acknowledged",
+                "explicitly?"
+            ],
+            "token_groups": [
+                "Needn't",
+                "the residual uncertainty",
+                "be acknowledged",
+                "explicitly?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Needn't",
+                "the",
+                "residual",
+                "uncertainty",
+                "be",
+                "acknowledged",
+                "explicitly?"
+            ],
+            "options": [
+                "Needn't",
+                "Wasn't",
+                "Weren't",
+                "Haven't",
+                "the",
+                "no",
+                "another",
+                "either",
+                "residual",
+                "a",
+                "opinion",
+                "judgment",
+                "uncertainty",
+                "presumption",
+                "prejudge",
+                "very",
+                "be",
+                "isn't",
+                "aren't",
+                "am",
+                "acknowledged",
+                "appended",
+                "given",
+                "made",
+                "explicitly",
+                "well",
+                "badly",
+                "clearly"
+            ],
+            "source_text_uk": "Хіба залишкову невизначеність не слід прямо визнати?",
+            "options_by_marker": {
+                "a1": [
+                    "Needn't",
+                    "Wasn't",
+                    "Weren't",
+                    "Haven't"
+                ],
+                "a2": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a3": [
+                    "residual",
+                    "a",
+                    "opinion",
+                    "judgment"
+                ],
+                "a4": [
+                    "uncertainty",
+                    "presumption",
+                    "prejudge",
+                    "very"
+                ],
+                "a5": [
+                    "be",
+                    "isn't",
+                    "aren't",
+                    "am"
+                ],
+                "a6": [
+                    "acknowledged",
+                    "appended",
+                    "given",
+                    "made"
+                ],
+                "a7": [
+                    "explicitly",
+                    "well",
+                    "badly",
+                    "clearly"
+                ]
+            },
+            "slot_roles": {
+                "a1": "negative_auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "subject",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-negative-questions-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Чому окрему думку не можна було додати до рішення?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_questions",
+            "translation_uk": "Чому окрему думку не можна було додати до рішення?",
+            "target_text": "Why couldn't the dissenting opinion have been appended to the judgment?",
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "verb_hint": "Питання стосується нереалізованої минулої можливості в пасиві.",
+                    "options": [
+                        "Why",
+                        "Whoever",
+                        "Whatever",
+                        "Wherever"
+                    ]
+                },
+                "a2": {
+                    "answer": "couldn't",
+                    "verb_hint": "Питання стосується нереалізованої минулої можливості в пасиві.",
+                    "options": [
+                        "couldn't",
+                        "wouldn't",
+                        "shouldn't",
+                        "cannot"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Питання стосується нереалізованої минулої можливості в пасиві.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a4": {
+                    "answer": "dissenting",
+                    "verb_hint": "Питання стосується нереалізованої минулої можливості в пасиві.",
+                    "options": [
+                        "dissenting",
+                        "calling",
+                        "walking",
+                        "opening"
+                    ]
+                },
+                "a5": {
+                    "answer": "opinion",
+                    "verb_hint": "Питання стосується нереалізованої минулої можливості в пасиві.",
+                    "options": [
+                        "opinion",
+                        "uncertainty",
+                        "presumption",
+                        "Needn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "have",
+                    "verb_hint": "Питання стосується нереалізованої минулої можливості в пасиві.",
+                    "options": [
+                        "have",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Питання стосується нереалізованої минулої можливості в пасиві.",
+                    "options": [
+                        "been",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a8": {
+                    "answer": "appended",
+                    "verb_hint": "Питання стосується нереалізованої минулої можливості в пасиві.",
+                    "options": [
+                        "appended",
+                        "acknowledged",
+                        "bought",
+                        "checked"
+                    ]
+                },
+                "a9": {
+                    "answer": "to",
+                    "verb_hint": "Питання стосується нереалізованої минулої можливості в пасиві.",
+                    "options": [
+                        "to",
+                        "during",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Питання стосується нереалізованої минулої можливості в пасиві.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a11": {
+                    "answer": "judgment?",
+                    "verb_hint": "Питання стосується нереалізованої минулої можливості в пасиві.",
+                    "options": [
+                        "judgment",
+                        "Friday",
+                        "interval",
+                        "notice"
+                    ]
+                }
+            },
+            "verb_hint": "Питання стосується нереалізованої минулої можливості в пасиві.",
+            "accepted_target_texts": [
+                "Why couldn't the dissenting opinion have been appended to the judgment?",
+                "Why could the dissenting opinion not have been appended to the judgment?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why",
+                "couldn't",
+                "the dissenting opinion",
+                "have been appended",
+                "to the judgment?"
+            ],
+            "token_groups": [
+                "Why",
+                "couldn't",
+                "the dissenting opinion",
+                "have been appended",
+                "to the judgment?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Why",
+                "couldn't",
+                "the",
+                "dissenting",
+                "opinion",
+                "have",
+                "been",
+                "appended",
+                "to",
+                "the",
+                "judgment?"
+            ],
+            "options": [
+                "Why",
+                "Whoever",
+                "Whatever",
+                "Wherever",
+                "couldn't",
+                "wouldn't",
+                "shouldn't",
+                "cannot",
+                "the",
+                "no",
+                "another",
+                "either",
+                "dissenting",
+                "calling",
+                "walking",
+                "opening",
+                "opinion",
+                "uncertainty",
+                "presumption",
+                "Needn't",
+                "have",
+                "do",
+                "does",
+                "did",
+                "been",
+                "are",
+                "was",
+                "were",
+                "appended",
+                "acknowledged",
+                "bought",
+                "checked",
+                "to",
+                "during",
+                "from",
+                "for",
+                "these",
+                "those",
+                "each",
+                "judgment",
+                "Friday",
+                "interval",
+                "notice"
+            ],
+            "source_text_uk": "Чому окрему думку не можна було додати до рішення?",
+            "options_by_marker": {
+                "a1": [
+                    "Why",
+                    "Whoever",
+                    "Whatever",
+                    "Wherever"
+                ],
+                "a2": [
+                    "couldn't",
+                    "wouldn't",
+                    "shouldn't",
+                    "cannot"
+                ],
+                "a3": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a4": [
+                    "dissenting",
+                    "calling",
+                    "walking",
+                    "opening"
+                ],
+                "a5": [
+                    "opinion",
+                    "uncertainty",
+                    "presumption",
+                    "Needn't"
+                ],
+                "a6": [
+                    "have",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a7": [
+                    "been",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a8": [
+                    "appended",
+                    "acknowledged",
+                    "bought",
+                    "checked"
+                ],
+                "a9": [
+                    "to",
+                    "during",
+                    "from",
+                    "for"
+                ],
+                "a10": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a11": [
+                    "judgment",
+                    "Friday",
+                    "interval",
+                    "notice"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "negative_auxiliary",
+                "a3": "subject",
+                "a4": "subject",
+                "a5": "subject",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "adverb_phrase",
+                "a10": "adverb_phrase",
+                "a11": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

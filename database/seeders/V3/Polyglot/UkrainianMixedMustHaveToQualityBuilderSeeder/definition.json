@@ -1,0 +1,4412 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mvq-v1",
+    "compiled_from": {
+        "path": "docs/content/modal-verbs-quality/must-have-to.v1.json",
+        "sha256": "610c03792bc601dde66804522a56166b2f9fcb9e0d015183613905be896ad95d"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedMustHaveToQualityBuilderSeeder",
+        "uuid_namespace": "modal-verbs-quality-must-have-to-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "modal_verbs_quality_must_have_to": {
+            "name": "Modal Verbs Quality: Must and Have to"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_must_have_to": {
+            "name": "Must / Have to",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_must_have_to"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mvq-mht-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Ми повинні прибрати кухню.",
+            "level": "A1",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Ми повинні прибрати кухню.",
+            "target_text": "We must clean the kitchen.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Повинні прибрати; збережи об’єкт дії.",
+                    "options": [
+                        "We",
+                        "Herself",
+                        "Ourselves",
+                        "Themselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "must",
+                    "verb_hint": "Повинні прибрати; збережи об’єкт дії.",
+                    "options": [
+                        "must",
+                        "might",
+                        "can't",
+                        "couldn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "clean",
+                    "verb_hint": "Повинні прибрати; збережи об’єкт дії.",
+                    "options": [
+                        "clean",
+                        "survive",
+                        "happy",
+                        "sad"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Повинні прибрати; збережи об’єкт дії.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a5": {
+                    "answer": "kitchen.",
+                    "verb_hint": "Повинні прибрати; збережи об’єкт дії.",
+                    "options": [
+                        "kitchen",
+                        "garden",
+                        "bed",
+                        "made"
+                    ]
+                }
+            },
+            "verb_hint": "Повинні прибрати; збережи об’єкт дії.",
+            "accepted_target_texts": [
+                "We must clean the kitchen.",
+                "We have to clean the kitchen."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We must clean",
+                "the kitchen."
+            ],
+            "token_groups": [
+                "We must clean",
+                "the kitchen."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "We",
+                "must",
+                "clean",
+                "the",
+                "kitchen."
+            ],
+            "options": [
+                "We",
+                "Herself",
+                "Ourselves",
+                "Themselves",
+                "must",
+                "might",
+                "can't",
+                "couldn't",
+                "clean",
+                "survive",
+                "happy",
+                "sad",
+                "the",
+                "that",
+                "these",
+                "those",
+                "kitchen",
+                "garden",
+                "bed",
+                "made"
+            ],
+            "source_text_uk": "Ми повинні прибрати кухню.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Herself",
+                    "Ourselves",
+                    "Themselves"
+                ],
+                "a2": [
+                    "must",
+                    "might",
+                    "can't",
+                    "couldn't"
+                ],
+                "a3": [
+                    "clean",
+                    "survive",
+                    "happy",
+                    "sad"
+                ],
+                "a4": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a5": [
+                    "kitchen",
+                    "garden",
+                    "bed",
+                    "made"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "verb",
+                "a4": "determiner",
+                "a5": "place"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "mvq-mht-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Він повинен лягати спати рано.",
+            "level": "A1",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Він повинен лягати спати рано.",
+            "target_text": "He has to go to bed early.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Обов’язковий режим; узгодь форму необхідності з однією особою.",
+                    "options": [
+                        "He",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a2": {
+                    "answer": "has",
+                    "verb_hint": "Обов’язковий режим; узгодь форму необхідності з однією особою.",
+                    "options": [
+                        "has",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "to",
+                    "verb_hint": "Обов’язковий режим; узгодь форму необхідності з однією особою.",
+                    "options": [
+                        "to",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a4": {
+                    "answer": "go",
+                    "verb_hint": "Обов’язковий режим; узгодь форму необхідності з однією особою.",
+                    "options": [
+                        "go",
+                        "see",
+                        "come",
+                        "leave"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Обов’язковий режим; узгодь форму необхідності з однією особою.",
+                    "options": [
+                        "to",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a6": {
+                    "answer": "bed",
+                    "verb_hint": "Обов’язковий режим; узгодь форму необхідності з однією особою.",
+                    "options": [
+                        "bed",
+                        "cost",
+                        "kitchen",
+                        "visited"
+                    ]
+                },
+                "a7": {
+                    "answer": "early.",
+                    "verb_hint": "Обов’язковий режим; узгодь форму необхідності з однією особою.",
+                    "options": [
+                        "early",
+                        "inside",
+                        "carefully",
+                        "quietly"
+                    ]
+                }
+            },
+            "verb_hint": "Обов’язковий режим; узгодь форму необхідності з однією особою.",
+            "accepted_target_texts": [
+                "He has to go to bed early.",
+                "He must go to bed early."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He has to",
+                "go to bed",
+                "early."
+            ],
+            "token_groups": [
+                "He has to",
+                "go to bed",
+                "early."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "He",
+                "has",
+                "to",
+                "go",
+                "to",
+                "bed",
+                "early."
+            ],
+            "options": [
+                "He",
+                "Them",
+                "Myself",
+                "Yourself",
+                "has",
+                "don't",
+                "doesn't",
+                "didn't",
+                "to",
+                "without",
+                "into",
+                "onto",
+                "go",
+                "see",
+                "come",
+                "leave",
+                "in",
+                "on",
+                "at",
+                "bed",
+                "cost",
+                "kitchen",
+                "visited",
+                "early",
+                "inside",
+                "carefully",
+                "quietly"
+            ],
+            "source_text_uk": "Він повинен лягати спати рано.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a2": [
+                    "has",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a3": [
+                    "to",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a4": [
+                    "go",
+                    "see",
+                    "come",
+                    "leave"
+                ],
+                "a5": [
+                    "to",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a6": [
+                    "bed",
+                    "cost",
+                    "kitchen",
+                    "visited"
+                ],
+                "a7": [
+                    "early",
+                    "inside",
+                    "carefully",
+                    "quietly"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "auxiliary",
+                "a4": "verb",
+                "a5": "preposition",
+                "a6": "noun",
+                "a7": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "mvq-mht-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Не можна грати біля дороги.",
+            "level": "A1",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Не можна грати біля дороги.",
+            "target_text": "You must not play near the road.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Заборони дію, звернувшись до співрозмовника.",
+                    "options": [
+                        "You",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "must",
+                    "verb_hint": "Заборони дію, звернувшись до співрозмовника.",
+                    "options": [
+                        "must",
+                        "would",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Заборони дію, звернувшись до співрозмовника.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a4": {
+                    "answer": "play",
+                    "verb_hint": "Заборони дію, звернувшись до співрозмовника.",
+                    "options": [
+                        "play",
+                        "come",
+                        "leave",
+                        "use"
+                    ]
+                },
+                "a5": {
+                    "answer": "near",
+                    "verb_hint": "Заборони дію, звернувшись до співрозмовника.",
+                    "options": [
+                        "near",
+                        "in",
+                        "on",
+                        "by"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Заборони дію, звернувшись до співрозмовника.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "road.",
+                    "verb_hint": "Заборони дію, звернувшись до співрозмовника.",
+                    "options": [
+                        "road",
+                        "formulation",
+                        "name",
+                        "window"
+                    ]
+                }
+            },
+            "verb_hint": "Заборони дію, звернувшись до співрозмовника.",
+            "accepted_target_texts": [
+                "You must not play near the road.",
+                "You mustn't play near the road."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You must not",
+                "play near",
+                "the road."
+            ],
+            "token_groups": [
+                "You must not",
+                "play near",
+                "the road."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "You",
+                "must",
+                "not",
+                "play",
+                "near",
+                "the",
+                "road."
+            ],
+            "options": [
+                "You",
+                "Me",
+                "Him",
+                "Us",
+                "must",
+                "would",
+                "shall",
+                "should",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "play",
+                "come",
+                "leave",
+                "use",
+                "near",
+                "in",
+                "on",
+                "by",
+                "the",
+                "those",
+                "each",
+                "every",
+                "road",
+                "formulation",
+                "name",
+                "window"
+            ],
+            "source_text_uk": "Не можна грати біля дороги.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "must",
+                    "would",
+                    "shall",
+                    "should"
+                ],
+                "a3": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a4": [
+                    "play",
+                    "come",
+                    "leave",
+                    "use"
+                ],
+                "a5": [
+                    "near",
+                    "in",
+                    "on",
+                    "by"
+                ],
+                "a6": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "road",
+                    "formulation",
+                    "name",
+                    "window"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "modal",
+                "a4": "verb",
+                "a5": "preposition",
+                "a6": "determiner",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "mvq-mht-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Минулого тижня нам довелося змінити плани.",
+            "level": "A2",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Минулого тижня нам довелося змінити плани.",
+            "target_text": "Last week, we had to change our plans.",
+            "markers": {
+                "a1": {
+                    "answer": "Last",
+                    "verb_hint": "Минула необхідність, не припущення; почни з часової обставини.",
+                    "options": [
+                        "Last",
+                        "Reliable",
+                        "Small",
+                        "Large"
+                    ]
+                },
+                "a2": {
+                    "answer": "week,",
+                    "verb_hint": "Минула необхідність, не припущення; почни з часової обставини.",
+                    "options": [
+                        "week",
+                        "morning",
+                        "afternoon",
+                        "evening"
+                    ]
+                },
+                "a3": {
+                    "answer": "we",
+                    "verb_hint": "Минула необхідність, не припущення; почни з часової обставини.",
+                    "options": [
+                        "we",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Минула необхідність, не припущення; почни з часової обставини.",
+                    "options": [
+                        "had",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Минула необхідність, не припущення; почни з часової обставини.",
+                    "options": [
+                        "to",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a6": {
+                    "answer": "change",
+                    "verb_hint": "Минула необхідність, не припущення; почни з часової обставини.",
+                    "options": [
+                        "change",
+                        "resolve",
+                        "conceal",
+                        "propose"
+                    ]
+                },
+                "a7": {
+                    "answer": "our",
+                    "verb_hint": "Минула необхідність, не припущення; почни з часової обставини.",
+                    "options": [
+                        "our",
+                        "my",
+                        "your",
+                        "his"
+                    ]
+                },
+                "a8": {
+                    "answer": "plans.",
+                    "verb_hint": "Минула необхідність, не припущення; почни з часової обставини.",
+                    "options": [
+                        "plans",
+                        "costs",
+                        "records",
+                        "criteria"
+                    ]
+                }
+            },
+            "verb_hint": "Минула необхідність, не припущення; почни з часової обставини.",
+            "accepted_target_texts": [
+                "Last week, we had to change our plans."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Last week,",
+                "we had to",
+                "change our plans."
+            ],
+            "token_groups": [
+                "Last week,",
+                "we had to",
+                "change our plans."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "Last",
+                "week,",
+                "we",
+                "had",
+                "to",
+                "change",
+                "our",
+                "plans."
+            ],
+            "options": [
+                "Last",
+                "Reliable",
+                "Small",
+                "Large",
+                "week",
+                "morning",
+                "afternoon",
+                "evening",
+                "we",
+                "they",
+                "me",
+                "him",
+                "had",
+                "does",
+                "did",
+                "don't",
+                "to",
+                "of",
+                "in",
+                "on",
+                "change",
+                "resolve",
+                "conceal",
+                "propose",
+                "our",
+                "my",
+                "your",
+                "his",
+                "plans",
+                "costs",
+                "records",
+                "criteria"
+            ],
+            "source_text_uk": "Минулого тижня нам довелося змінити плани.",
+            "options_by_marker": {
+                "a1": [
+                    "Last",
+                    "Reliable",
+                    "Small",
+                    "Large"
+                ],
+                "a2": [
+                    "week",
+                    "morning",
+                    "afternoon",
+                    "evening"
+                ],
+                "a3": [
+                    "we",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a4": [
+                    "had",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a5": [
+                    "to",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a6": [
+                    "change",
+                    "resolve",
+                    "conceal",
+                    "propose"
+                ],
+                "a7": [
+                    "our",
+                    "my",
+                    "your",
+                    "his"
+                ],
+                "a8": [
+                    "plans",
+                    "costs",
+                    "records",
+                    "criteria"
+                ]
+            },
+            "slot_roles": {
+                "a1": "adjective",
+                "a2": "noun",
+                "a3": "pronoun",
+                "a4": "auxiliary",
+                "a5": "preposition",
+                "a6": "verb",
+                "a7": "determiner",
+                "a8": "noun_plural"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "mvq-mht-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Тобі не потрібно брати рушник.",
+            "level": "A2",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Тобі не потрібно брати рушник.",
+            "target_text": "You do not have to bring a towel.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Рушник брати необов’язково; це не заборона.",
+                    "options": [
+                        "You",
+                        "We",
+                        "They",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "do",
+                    "verb_hint": "Рушник брати необов’язково; це не заборона.",
+                    "options": [
+                        "do",
+                        "doesn't",
+                        "didn't",
+                        "has"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Рушник брати необов’язково; це не заборона.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Рушник брати необов’язково; це не заборона.",
+                    "options": [
+                        "have",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Рушник брати необов’язково; це не заборона.",
+                    "options": [
+                        "to",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a6": {
+                    "answer": "bring",
+                    "verb_hint": "Рушник брати необов’язково; це не заборона.",
+                    "options": [
+                        "bring",
+                        "sing",
+                        "calling",
+                        "walking"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Рушник брати необов’язково; це не заборона.",
+                    "options": [
+                        "a",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a8": {
+                    "answer": "towel.",
+                    "verb_hint": "Рушник брати необов’язково; це не заборона.",
+                    "options": [
+                        "towel",
+                        "claim",
+                        "permission",
+                        "formulation"
+                    ]
+                }
+            },
+            "verb_hint": "Рушник брати необов’язково; це не заборона.",
+            "accepted_target_texts": [
+                "You do not have to bring a towel.",
+                "You don't have to bring a towel."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You do not",
+                "have to bring",
+                "a towel."
+            ],
+            "token_groups": [
+                "You do not",
+                "have to bring",
+                "a towel."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "You",
+                "do",
+                "not",
+                "have",
+                "to",
+                "bring",
+                "a",
+                "towel."
+            ],
+            "options": [
+                "You",
+                "We",
+                "They",
+                "Me",
+                "do",
+                "doesn't",
+                "didn't",
+                "has",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "have",
+                "had",
+                "haven't",
+                "hasn't",
+                "to",
+                "under",
+                "through",
+                "across",
+                "bring",
+                "sing",
+                "calling",
+                "walking",
+                "a",
+                "neither",
+                "all",
+                "both",
+                "towel",
+                "claim",
+                "permission",
+                "formulation"
+            ],
+            "source_text_uk": "Тобі не потрібно брати рушник.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "We",
+                    "They",
+                    "Me"
+                ],
+                "a2": [
+                    "do",
+                    "doesn't",
+                    "didn't",
+                    "has"
+                ],
+                "a3": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a4": [
+                    "have",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a5": [
+                    "to",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a6": [
+                    "bring",
+                    "sing",
+                    "calling",
+                    "walking"
+                ],
+                "a7": [
+                    "a",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a8": [
+                    "towel",
+                    "claim",
+                    "permission",
+                    "formulation"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "auxiliary",
+                "a4": "auxiliary",
+                "a5": "auxiliary",
+                "a6": "verb",
+                "a7": "determiner",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "mvq-mht-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Чи потрібно йому платити зараз?",
+            "level": "A2",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Чи потрібно йому платити зараз?",
+            "target_text": "Does he have to pay now?",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "verb_hint": "Запитай про необхідність оплати саме тепер.",
+                    "options": [
+                        "Does",
+                        "Hasn't",
+                        "Hadn't",
+                        "Do"
+                    ]
+                },
+                "a2": {
+                    "answer": "he",
+                    "verb_hint": "Запитай про необхідність оплати саме тепер.",
+                    "options": [
+                        "he",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a3": {
+                    "answer": "have",
+                    "verb_hint": "Запитай про необхідність оплати саме тепер.",
+                    "options": [
+                        "have",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Запитай про необхідність оплати саме тепер.",
+                    "options": [
+                        "to",
+                        "about",
+                        "during",
+                        "from"
+                    ]
+                },
+                "a5": {
+                    "answer": "pay",
+                    "verb_hint": "Запитай про необхідність оплати саме тепер.",
+                    "options": [
+                        "pay",
+                        "reflect",
+                        "resolve",
+                        "conceal"
+                    ]
+                },
+                "a6": {
+                    "answer": "now?",
+                    "verb_hint": "Запитай про необхідність оплати саме тепер.",
+                    "options": [
+                        "now",
+                        "soon",
+                        "later",
+                        "early"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про необхідність оплати саме тепер.",
+            "accepted_target_texts": [
+                "Does he have to pay now?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Does he",
+                "have to pay",
+                "now?"
+            ],
+            "token_groups": [
+                "Does he",
+                "have to pay",
+                "now?"
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "Does",
+                "he",
+                "have",
+                "to",
+                "pay",
+                "now?"
+            ],
+            "options": [
+                "Does",
+                "Hasn't",
+                "Hadn't",
+                "Do",
+                "he",
+                "myself",
+                "yourself",
+                "herself",
+                "have",
+                "did",
+                "don't",
+                "doesn't",
+                "to",
+                "about",
+                "during",
+                "from",
+                "pay",
+                "reflect",
+                "resolve",
+                "conceal",
+                "now",
+                "soon",
+                "later",
+                "early"
+            ],
+            "source_text_uk": "Чи потрібно йому платити зараз?",
+            "options_by_marker": {
+                "a1": [
+                    "Does",
+                    "Hasn't",
+                    "Hadn't",
+                    "Do"
+                ],
+                "a2": [
+                    "he",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a3": [
+                    "have",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a4": [
+                    "to",
+                    "about",
+                    "during",
+                    "from"
+                ],
+                "a5": [
+                    "pay",
+                    "reflect",
+                    "resolve",
+                    "conceal"
+                ],
+                "a6": [
+                    "now",
+                    "soon",
+                    "later",
+                    "early"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "pronoun",
+                "a3": "auxiliary",
+                "a4": "auxiliary",
+                "a5": "verb",
+                "a6": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "mvq-mht-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Якщо курс скасують, нам доведеться знайти інший.",
+            "level": "B1",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Якщо курс скасують, нам доведеться знайти інший.",
+            "target_text": "If the course is cancelled, we will have to find another one.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "У головній частині передай майбутню необхідність; почни з умови.",
+                    "options": [
+                        "If",
+                        "Whether",
+                        "And",
+                        "But"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "У головній частині передай майбутню необхідність; почни з умови.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a3": {
+                    "answer": "course",
+                    "verb_hint": "У головній частині передай майбутню необхідність; почни з умови.",
+                    "options": [
+                        "course",
+                        "window",
+                        "rice",
+                        "bread"
+                    ]
+                },
+                "a4": {
+                    "answer": "is",
+                    "verb_hint": "У головній частині передай майбутню необхідність; почни з умови.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a5": {
+                    "answer": "cancelled,",
+                    "verb_hint": "У головній частині передай майбутню необхідність; почни з умови.",
+                    "options": [
+                        "cancelled",
+                        "limited",
+                        "read",
+                        "given"
+                    ]
+                },
+                "a6": {
+                    "answer": "we",
+                    "verb_hint": "У головній частині передай майбутню необхідність; почни з умови.",
+                    "options": [
+                        "we",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a7": {
+                    "answer": "will",
+                    "verb_hint": "У головній частині передай майбутню необхідність; почни з умови.",
+                    "options": [
+                        "will",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a8": {
+                    "answer": "have",
+                    "verb_hint": "У головній частині передай майбутню необхідність; почни з умови.",
+                    "options": [
+                        "have",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a9": {
+                    "answer": "to",
+                    "verb_hint": "У головній частині передай майбутню необхідність; почни з умови.",
+                    "options": [
+                        "to",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a10": {
+                    "answer": "find",
+                    "verb_hint": "У головній частині передай майбутню необхідність; почни з умови.",
+                    "options": [
+                        "find",
+                        "write",
+                        "close",
+                        "ride"
+                    ]
+                },
+                "a11": {
+                    "answer": "another",
+                    "verb_hint": "У головній частині передай майбутню необхідність; почни з умови.",
+                    "options": [
+                        "another",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a12": {
+                    "answer": "one.",
+                    "verb_hint": "У головній частині передай майбутню необхідність; почни з умови.",
+                    "options": [
+                        "one",
+                        "them",
+                        "him",
+                        "her"
+                    ]
+                }
+            },
+            "verb_hint": "У головній частині передай майбутню необхідність; почни з умови.",
+            "accepted_target_texts": [
+                "If the course is cancelled, we will have to find another one.",
+                "If the course is canceled, we will have to find another one."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "canceled,"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "canceled,"
+                ]
+            },
+            "reorder_groups": [
+                "If the course",
+                "is cancelled,",
+                "we will",
+                "have to find",
+                "another one."
+            ],
+            "token_groups": [
+                "If the course",
+                "is cancelled,",
+                "we will",
+                "have to find",
+                "another one."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "If",
+                "the",
+                "course",
+                "is",
+                "cancelled,",
+                "we",
+                "will",
+                "have",
+                "to",
+                "find",
+                "another",
+                "one."
+            ],
+            "options": [
+                "If",
+                "Whether",
+                "And",
+                "But",
+                "the",
+                "some",
+                "any",
+                "this",
+                "course",
+                "window",
+                "rice",
+                "bread",
+                "is",
+                "are",
+                "was",
+                "were",
+                "cancelled",
+                "limited",
+                "read",
+                "given",
+                "we",
+                "herself",
+                "ourselves",
+                "themselves",
+                "will",
+                "cannot",
+                "can",
+                "could",
+                "have",
+                "don't",
+                "doesn't",
+                "didn't",
+                "to",
+                "under",
+                "through",
+                "across",
+                "find",
+                "write",
+                "close",
+                "ride",
+                "another",
+                "each",
+                "every",
+                "no",
+                "one",
+                "them",
+                "him",
+                "her"
+            ],
+            "source_text_uk": "Якщо курс скасують, нам доведеться знайти інший.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "Whether",
+                    "And",
+                    "But"
+                ],
+                "a2": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a3": [
+                    "course",
+                    "window",
+                    "rice",
+                    "bread"
+                ],
+                "a4": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a5": [
+                    "cancelled",
+                    "limited",
+                    "read",
+                    "given"
+                ],
+                "a6": [
+                    "we",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a7": [
+                    "will",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a8": [
+                    "have",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a9": [
+                    "to",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a10": [
+                    "find",
+                    "write",
+                    "close",
+                    "ride"
+                ],
+                "a11": [
+                    "another",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a12": [
+                    "one",
+                    "them",
+                    "him",
+                    "her"
+                ]
+            },
+            "slot_roles": {
+                "a1": "conjunction",
+                "a2": "determiner",
+                "a3": "noun",
+                "a4": "be",
+                "a5": "participle",
+                "a6": "pronoun",
+                "a7": "modal",
+                "a8": "auxiliary",
+                "a9": "auxiliary",
+                "a10": "verb",
+                "a11": "determiner",
+                "a12": "pronoun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "mvq-mht-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Не можна передавати цей код стороннім.",
+            "level": "B1",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Не можна передавати цей код стороннім.",
+            "target_text": "You must not share this code with outsiders.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Пряма заборона ділитися кодом з людьми поза групою.",
+                    "options": [
+                        "You",
+                        "We",
+                        "They",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "must",
+                    "verb_hint": "Пряма заборона ділитися кодом з людьми поза групою.",
+                    "options": [
+                        "must",
+                        "can",
+                        "could",
+                        "will"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Пряма заборона ділитися кодом з людьми поза групою.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a4": {
+                    "answer": "share",
+                    "verb_hint": "Пряма заборона ділитися кодом з людьми поза групою.",
+                    "options": [
+                        "share",
+                        "swim",
+                        "enter",
+                        "speak"
+                    ]
+                },
+                "a5": {
+                    "answer": "this",
+                    "verb_hint": "Пряма заборона ділитися кодом з людьми поза групою.",
+                    "options": [
+                        "this",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a6": {
+                    "answer": "code",
+                    "verb_hint": "Пряма заборона ділитися кодом з людьми поза групою.",
+                    "options": [
+                        "code",
+                        "evidence",
+                        "argument",
+                        "claim"
+                    ]
+                },
+                "a7": {
+                    "answer": "with",
+                    "verb_hint": "Пряма заборона ділитися кодом з людьми поза групою.",
+                    "options": [
+                        "with",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a8": {
+                    "answer": "outsiders.",
+                    "verb_hint": "Пряма заборона ділитися кодом з людьми поза групою.",
+                    "options": [
+                        "outsiders",
+                        "costs",
+                        "records",
+                        "criteria"
+                    ]
+                }
+            },
+            "verb_hint": "Пряма заборона ділитися кодом з людьми поза групою.",
+            "accepted_target_texts": [
+                "You must not share this code with outsiders.",
+                "You mustn't share this code with outsiders."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You must not",
+                "share this code",
+                "with outsiders."
+            ],
+            "token_groups": [
+                "You must not",
+                "share this code",
+                "with outsiders."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "You",
+                "must",
+                "not",
+                "share",
+                "this",
+                "code",
+                "with",
+                "outsiders."
+            ],
+            "options": [
+                "You",
+                "We",
+                "They",
+                "Me",
+                "must",
+                "can",
+                "could",
+                "will",
+                "not",
+                "never",
+                "always",
+                "often",
+                "share",
+                "swim",
+                "enter",
+                "speak",
+                "this",
+                "neither",
+                "all",
+                "both",
+                "code",
+                "evidence",
+                "argument",
+                "claim",
+                "with",
+                "for",
+                "of",
+                "in",
+                "outsiders",
+                "costs",
+                "records",
+                "criteria"
+            ],
+            "source_text_uk": "Не можна передавати цей код стороннім.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "We",
+                    "They",
+                    "Me"
+                ],
+                "a2": [
+                    "must",
+                    "can",
+                    "could",
+                    "will"
+                ],
+                "a3": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a4": [
+                    "share",
+                    "swim",
+                    "enter",
+                    "speak"
+                ],
+                "a5": [
+                    "this",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a6": [
+                    "code",
+                    "evidence",
+                    "argument",
+                    "claim"
+                ],
+                "a7": [
+                    "with",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a8": [
+                    "outsiders",
+                    "costs",
+                    "records",
+                    "criteria"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "modal",
+                "a4": "verb",
+                "a5": "determiner",
+                "a6": "noun",
+                "a7": "preposition",
+                "a8": "noun_plural"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "mvq-mht-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Їй не потрібно працювати на вихідних.",
+            "level": "B1",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Їй не потрібно працювати на вихідних.",
+            "target_text": "She does not have to work at weekends.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Робота у вихідні необов’язкова; узгодь заперечення з однією особою.",
+                    "options": [
+                        "She",
+                        "Myself",
+                        "Yourself",
+                        "Herself"
+                    ]
+                },
+                "a2": {
+                    "answer": "does",
+                    "verb_hint": "Робота у вихідні необов’язкова; узгодь заперечення з однією особою.",
+                    "options": [
+                        "does",
+                        "don't",
+                        "didn't",
+                        "has"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Робота у вихідні необов’язкова; узгодь заперечення з однією особою.",
+                    "options": [
+                        "not",
+                        "almost",
+                        "never",
+                        "always"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Робота у вихідні необов’язкова; узгодь заперечення з однією особою.",
+                    "options": [
+                        "have",
+                        "did",
+                        "had",
+                        "haven't"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Робота у вихідні необов’язкова; узгодь заперечення з однією особою.",
+                    "options": [
+                        "to",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a6": {
+                    "answer": "work",
+                    "verb_hint": "Робота у вихідні необов’язкова; узгодь заперечення з однією особою.",
+                    "options": [
+                        "work",
+                        "read",
+                        "close",
+                        "ride"
+                    ]
+                },
+                "a7": {
+                    "answer": "at",
+                    "verb_hint": "Робота у вихідні необов’язкова; узгодь заперечення з однією особою.",
+                    "options": [
+                        "at",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a8": {
+                    "answer": "weekends.",
+                    "verb_hint": "Робота у вихідні необов’язкова; узгодь заперечення з однією особою.",
+                    "options": [
+                        "weekends",
+                        "terms",
+                        "outsiders",
+                        "paintings"
+                    ]
+                }
+            },
+            "verb_hint": "Робота у вихідні необов’язкова; узгодь заперечення з однією особою.",
+            "accepted_target_texts": [
+                "She does not have to work at weekends.",
+                "She doesn't have to work at weekends.",
+                "She does not have to work on weekends.",
+                "She doesn't have to work on weekends."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "on"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "on"
+                ]
+            },
+            "reorder_groups": [
+                "She does not",
+                "have to work",
+                "at weekends."
+            ],
+            "token_groups": [
+                "She does not",
+                "have to work",
+                "at weekends."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "She",
+                "does",
+                "not",
+                "have",
+                "to",
+                "work",
+                "at",
+                "weekends."
+            ],
+            "options": [
+                "She",
+                "Myself",
+                "Yourself",
+                "Herself",
+                "does",
+                "don't",
+                "didn't",
+                "has",
+                "not",
+                "almost",
+                "never",
+                "always",
+                "have",
+                "did",
+                "had",
+                "haven't",
+                "to",
+                "by",
+                "with",
+                "without",
+                "work",
+                "read",
+                "close",
+                "ride",
+                "at",
+                "across",
+                "between",
+                "among",
+                "weekends",
+                "terms",
+                "outsiders",
+                "paintings"
+            ],
+            "source_text_uk": "Їй не потрібно працювати на вихідних.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "Myself",
+                    "Yourself",
+                    "Herself"
+                ],
+                "a2": [
+                    "does",
+                    "don't",
+                    "didn't",
+                    "has"
+                ],
+                "a3": [
+                    "not",
+                    "almost",
+                    "never",
+                    "always"
+                ],
+                "a4": [
+                    "have",
+                    "did",
+                    "had",
+                    "haven't"
+                ],
+                "a5": [
+                    "to",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a6": [
+                    "work",
+                    "read",
+                    "close",
+                    "ride"
+                ],
+                "a7": [
+                    "at",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a8": [
+                    "weekends",
+                    "terms",
+                    "outsiders",
+                    "paintings"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "auxiliary",
+                "a4": "auxiliary",
+                "a5": "auxiliary",
+                "a6": "verb",
+                "a7": "preposition",
+                "a8": "noun_plural"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "mvq-mht-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Ми мусимо розрізняти юридичну вимогу й особисту перевагу.",
+            "level": "B2",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Ми мусимо розрізняти юридичну вимогу й особисту перевагу.",
+            "target_text": "We must distinguish between a legal requirement and a personal preference.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Наголоси на необхідності чіткого розрізнення двох понять.",
+                    "options": [
+                        "We",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "must",
+                    "verb_hint": "Наголоси на необхідності чіткого розрізнення двох понять.",
+                    "options": [
+                        "must",
+                        "should",
+                        "may",
+                        "might"
+                    ]
+                },
+                "a3": {
+                    "answer": "distinguish",
+                    "verb_hint": "Наголоси на необхідності чіткого розрізнення двох понять.",
+                    "options": [
+                        "distinguish",
+                        "justify",
+                        "establish",
+                        "distort"
+                    ]
+                },
+                "a4": {
+                    "answer": "between",
+                    "verb_hint": "Наголоси на необхідності чіткого розрізнення двох понять.",
+                    "options": [
+                        "between",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a5": {
+                    "answer": "a",
+                    "verb_hint": "Наголоси на необхідності чіткого розрізнення двох понять.",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "some"
+                    ]
+                },
+                "a6": {
+                    "answer": "legal",
+                    "verb_hint": "Наголоси на необхідності чіткого розрізнення двох понять.",
+                    "options": [
+                        "legal",
+                        "different",
+                        "same",
+                        "main"
+                    ]
+                },
+                "a7": {
+                    "answer": "requirement",
+                    "verb_hint": "Наголоси на необхідності чіткого розрізнення двох понять.",
+                    "options": [
+                        "requirement",
+                        "error",
+                        "name",
+                        "window"
+                    ]
+                },
+                "a8": {
+                    "answer": "and",
+                    "verb_hint": "Наголоси на необхідності чіткого розрізнення двох понять.",
+                    "options": [
+                        "and",
+                        "whether",
+                        "but",
+                        "or"
+                    ]
+                },
+                "a9": {
+                    "answer": "a",
+                    "verb_hint": "Наголоси на необхідності чіткого розрізнення двох понять.",
+                    "options": [
+                        "a",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a10": {
+                    "answer": "personal",
+                    "verb_hint": "Наголоси на необхідності чіткого розрізнення двох понять.",
+                    "options": [
+                        "personal",
+                        "formal",
+                        "theoretical",
+                        "reliable"
+                    ]
+                },
+                "a11": {
+                    "answer": "preference.",
+                    "verb_hint": "Наголоси на необхідності чіткого розрізнення двох понять.",
+                    "options": [
+                        "preference",
+                        "formulation",
+                        "contradiction",
+                        "quality"
+                    ]
+                }
+            },
+            "verb_hint": "Наголоси на необхідності чіткого розрізнення двох понять.",
+            "accepted_target_texts": [
+                "We must distinguish between a legal requirement and a personal preference.",
+                "We have to distinguish between a legal requirement and a personal preference."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We must distinguish",
+                "between a",
+                "legal requirement",
+                "and a",
+                "personal preference."
+            ],
+            "token_groups": [
+                "We must distinguish",
+                "between a",
+                "legal requirement",
+                "and a",
+                "personal preference."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "We",
+                "must",
+                "distinguish",
+                "between",
+                "a",
+                "legal",
+                "requirement",
+                "and",
+                "a",
+                "personal",
+                "preference."
+            ],
+            "options": [
+                "We",
+                "He",
+                "She",
+                "It",
+                "must",
+                "should",
+                "may",
+                "might",
+                "distinguish",
+                "justify",
+                "establish",
+                "distort",
+                "between",
+                "in",
+                "on",
+                "at",
+                "a",
+                "an",
+                "the",
+                "some",
+                "legal",
+                "different",
+                "same",
+                "main",
+                "requirement",
+                "error",
+                "name",
+                "window",
+                "and",
+                "whether",
+                "but",
+                "or",
+                "another",
+                "either",
+                "neither",
+                "personal",
+                "formal",
+                "theoretical",
+                "reliable",
+                "preference",
+                "formulation",
+                "contradiction",
+                "quality"
+            ],
+            "source_text_uk": "Ми мусимо розрізняти юридичну вимогу й особисту перевагу.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "must",
+                    "should",
+                    "may",
+                    "might"
+                ],
+                "a3": [
+                    "distinguish",
+                    "justify",
+                    "establish",
+                    "distort"
+                ],
+                "a4": [
+                    "between",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a5": [
+                    "a",
+                    "an",
+                    "the",
+                    "some"
+                ],
+                "a6": [
+                    "legal",
+                    "different",
+                    "same",
+                    "main"
+                ],
+                "a7": [
+                    "requirement",
+                    "error",
+                    "name",
+                    "window"
+                ],
+                "a8": [
+                    "and",
+                    "whether",
+                    "but",
+                    "or"
+                ],
+                "a9": [
+                    "a",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a10": [
+                    "personal",
+                    "formal",
+                    "theoretical",
+                    "reliable"
+                ],
+                "a11": [
+                    "preference",
+                    "formulation",
+                    "contradiction",
+                    "quality"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "verb",
+                "a4": "preposition",
+                "a5": "determiner",
+                "a6": "adjective",
+                "a7": "noun",
+                "a8": "conjunction",
+                "a9": "determiner",
+                "a10": "adjective",
+                "a11": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "mvq-mht-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Після зміни правил їм довелося подати заяву повторно.",
+            "level": "B2",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Після зміни правил їм довелося подати заяву повторно.",
+            "target_text": "After the rules changed, they had to submit the application again.",
+            "markers": {
+                "a1": {
+                    "answer": "After",
+                    "verb_hint": "Минула вимушена повторна подача; почни зі зміни правил.",
+                    "options": [
+                        "After",
+                        "In",
+                        "On",
+                        "By"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Минула вимушена повторна подача; почни зі зміни правил.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a3": {
+                    "answer": "rules",
+                    "verb_hint": "Минула вимушена повторна подача; почни зі зміни правил.",
+                    "options": [
+                        "rules",
+                        "figures",
+                        "guests",
+                        "assumptions"
+                    ]
+                },
+                "a4": {
+                    "answer": "changed,",
+                    "verb_hint": "Минула вимушена повторна подача; почни зі зміни правил.",
+                    "options": [
+                        "changed",
+                        "open",
+                        "walked",
+                        "opened"
+                    ]
+                },
+                "a5": {
+                    "answer": "they",
+                    "verb_hint": "Минула вимушена повторна подача; почни зі зміни правил.",
+                    "options": [
+                        "they",
+                        "you",
+                        "he",
+                        "she"
+                    ]
+                },
+                "a6": {
+                    "answer": "had",
+                    "verb_hint": "Минула вимушена повторна подача; почни зі зміни правил.",
+                    "options": [
+                        "had",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Минула вимушена повторна подача; почни зі зміни правил.",
+                    "options": [
+                        "to",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a8": {
+                    "answer": "submit",
+                    "verb_hint": "Минула вимушена повторна подача; почни зі зміни правил.",
+                    "options": [
+                        "submit",
+                        "swim",
+                        "enter",
+                        "speak"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Минула вимушена повторна подача; почни зі зміни правил.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a10": {
+                    "answer": "application",
+                    "verb_hint": "Минула вимушена повторна подача; почни зі зміни правил.",
+                    "options": [
+                        "application",
+                        "estimate",
+                        "formulation",
+                        "contradiction"
+                    ]
+                },
+                "a11": {
+                    "answer": "again.",
+                    "verb_hint": "Минула вимушена повторна подача; почни зі зміни правил.",
+                    "options": [
+                        "again",
+                        "together",
+                        "before",
+                        "tomorrow"
+                    ]
+                }
+            },
+            "verb_hint": "Минула вимушена повторна подача; почни зі зміни правил.",
+            "accepted_target_texts": [
+                "After the rules changed, they had to submit the application again."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "After the rules",
+                "changed,",
+                "they had to",
+                "submit the application",
+                "again."
+            ],
+            "token_groups": [
+                "After the rules",
+                "changed,",
+                "they had to",
+                "submit the application",
+                "again."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "After",
+                "the",
+                "rules",
+                "changed,",
+                "they",
+                "had",
+                "to",
+                "submit",
+                "the",
+                "application",
+                "again."
+            ],
+            "options": [
+                "After",
+                "In",
+                "On",
+                "By",
+                "the",
+                "a",
+                "an",
+                "some",
+                "rules",
+                "figures",
+                "guests",
+                "assumptions",
+                "changed",
+                "open",
+                "walked",
+                "opened",
+                "they",
+                "you",
+                "he",
+                "she",
+                "had",
+                "does",
+                "did",
+                "don't",
+                "to",
+                "onto",
+                "over",
+                "under",
+                "submit",
+                "swim",
+                "enter",
+                "speak",
+                "another",
+                "either",
+                "neither",
+                "application",
+                "estimate",
+                "formulation",
+                "contradiction",
+                "again",
+                "together",
+                "before",
+                "tomorrow"
+            ],
+            "source_text_uk": "Після зміни правил їм довелося подати заяву повторно.",
+            "options_by_marker": {
+                "a1": [
+                    "After",
+                    "In",
+                    "On",
+                    "By"
+                ],
+                "a2": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a3": [
+                    "rules",
+                    "figures",
+                    "guests",
+                    "assumptions"
+                ],
+                "a4": [
+                    "changed",
+                    "open",
+                    "walked",
+                    "opened"
+                ],
+                "a5": [
+                    "they",
+                    "you",
+                    "he",
+                    "she"
+                ],
+                "a6": [
+                    "had",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a7": [
+                    "to",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a8": [
+                    "submit",
+                    "swim",
+                    "enter",
+                    "speak"
+                ],
+                "a9": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a10": [
+                    "application",
+                    "estimate",
+                    "formulation",
+                    "contradiction"
+                ],
+                "a11": [
+                    "again",
+                    "together",
+                    "before",
+                    "tomorrow"
+                ]
+            },
+            "slot_roles": {
+                "a1": "preposition",
+                "a2": "determiner",
+                "a3": "noun_plural",
+                "a4": "verb",
+                "a5": "pronoun",
+                "a6": "auxiliary",
+                "a7": "preposition",
+                "a8": "verb",
+                "a9": "determiner",
+                "a10": "noun",
+                "a11": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "mvq-mht-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Користувачам не потрібно розкривати своє справжнє ім’я.",
+            "level": "B2",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Користувачам не потрібно розкривати своє справжнє ім’я.",
+            "target_text": "Users do not have to disclose their real names.",
+            "markers": {
+                "a1": {
+                    "answer": "Users",
+                    "verb_hint": "Відсутність обов’язку розкривати ім’я; не забороняй цього.",
+                    "options": [
+                        "Users",
+                        "Terms",
+                        "Paintings",
+                        "Rules"
+                    ]
+                },
+                "a2": {
+                    "answer": "do",
+                    "verb_hint": "Відсутність обов’язку розкривати ім’я; не забороняй цього.",
+                    "options": [
+                        "do",
+                        "doesn't",
+                        "didn't",
+                        "has"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Відсутність обов’язку розкривати ім’я; не забороняй цього.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Відсутність обов’язку розкривати ім’я; не забороняй цього.",
+                    "options": [
+                        "have",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Відсутність обов’язку розкривати ім’я; не забороняй цього.",
+                    "options": [
+                        "to",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a6": {
+                    "answer": "disclose",
+                    "verb_hint": "Відсутність обов’язку розкривати ім’я; не забороняй цього.",
+                    "options": [
+                        "disclose",
+                        "touch",
+                        "reflect",
+                        "resolve"
+                    ]
+                },
+                "a7": {
+                    "answer": "their",
+                    "verb_hint": "Відсутність обов’язку розкривати ім’я; не забороняй цього.",
+                    "options": [
+                        "their",
+                        "ours",
+                        "theirs",
+                        "whose"
+                    ]
+                },
+                "a8": {
+                    "answer": "real",
+                    "verb_hint": "Відсутність обов’язку розкривати ім’я; не забороняй цього.",
+                    "options": [
+                        "real",
+                        "unclear",
+                        "fresh",
+                        "valid"
+                    ]
+                },
+                "a9": {
+                    "answer": "names.",
+                    "verb_hint": "Відсутність обов’язку розкривати ім’я; не забороняй цього.",
+                    "options": [
+                        "names",
+                        "figures",
+                        "guests",
+                        "assumptions"
+                    ]
+                }
+            },
+            "verb_hint": "Відсутність обов’язку розкривати ім’я; не забороняй цього.",
+            "accepted_target_texts": [
+                "Users do not have to disclose their real names.",
+                "Users don't have to disclose their real names."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Users do not",
+                "have to disclose",
+                "their real names."
+            ],
+            "token_groups": [
+                "Users do not",
+                "have to disclose",
+                "their real names."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "Users",
+                "do",
+                "not",
+                "have",
+                "to",
+                "disclose",
+                "their",
+                "real",
+                "names."
+            ],
+            "options": [
+                "Users",
+                "Terms",
+                "Paintings",
+                "Rules",
+                "do",
+                "doesn't",
+                "didn't",
+                "has",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "have",
+                "had",
+                "haven't",
+                "hasn't",
+                "to",
+                "through",
+                "across",
+                "between",
+                "disclose",
+                "touch",
+                "reflect",
+                "resolve",
+                "their",
+                "ours",
+                "theirs",
+                "whose",
+                "real",
+                "unclear",
+                "fresh",
+                "valid",
+                "names",
+                "figures",
+                "guests",
+                "assumptions"
+            ],
+            "source_text_uk": "Користувачам не потрібно розкривати своє справжнє ім’я.",
+            "options_by_marker": {
+                "a1": [
+                    "Users",
+                    "Terms",
+                    "Paintings",
+                    "Rules"
+                ],
+                "a2": [
+                    "do",
+                    "doesn't",
+                    "didn't",
+                    "has"
+                ],
+                "a3": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a4": [
+                    "have",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a5": [
+                    "to",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a6": [
+                    "disclose",
+                    "touch",
+                    "reflect",
+                    "resolve"
+                ],
+                "a7": [
+                    "their",
+                    "ours",
+                    "theirs",
+                    "whose"
+                ],
+                "a8": [
+                    "real",
+                    "unclear",
+                    "fresh",
+                    "valid"
+                ],
+                "a9": [
+                    "names",
+                    "figures",
+                    "guests",
+                    "assumptions"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun_plural",
+                "a2": "auxiliary",
+                "a3": "auxiliary",
+                "a4": "auxiliary",
+                "a5": "auxiliary",
+                "a6": "verb",
+                "a7": "determiner",
+                "a8": "adjective",
+                "a9": "noun_plural"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "mvq-mht-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Слідчі повинні відокремлювати припущення від установлених фактів.",
+            "level": "C1",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Слідчі повинні відокремлювати припущення від установлених фактів.",
+            "target_text": "Investigators must separate conjecture from established facts.",
+            "markers": {
+                "a1": {
+                    "answer": "Investigators",
+                    "verb_hint": "Категорична вимога відокремлювати різні доказові категорії.",
+                    "options": [
+                        "Investigators",
+                        "Objections",
+                        "Workers",
+                        "Parties"
+                    ]
+                },
+                "a2": {
+                    "answer": "must",
+                    "verb_hint": "Категорична вимога відокремлювати різні доказові категорії.",
+                    "options": [
+                        "must",
+                        "can't",
+                        "couldn't",
+                        "won't"
+                    ]
+                },
+                "a3": {
+                    "answer": "separate",
+                    "verb_hint": "Категорична вимога відокремлювати різні доказові категорії.",
+                    "options": [
+                        "separate",
+                        "postpone",
+                        "justify",
+                        "establish"
+                    ]
+                },
+                "a4": {
+                    "answer": "conjecture",
+                    "verb_hint": "Категорична вимога відокремлювати різні доказові категорії.",
+                    "options": [
+                        "conjecture",
+                        "testimony",
+                        "panel",
+                        "conclusion"
+                    ]
+                },
+                "a5": {
+                    "answer": "from",
+                    "verb_hint": "Категорична вимога відокремлювати різні доказові категорії.",
+                    "options": [
+                        "from",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a6": {
+                    "answer": "established",
+                    "verb_hint": "Категорична вимога відокремлювати різні доказові категорії.",
+                    "options": [
+                        "established",
+                        "clear",
+                        "unclear",
+                        "fresh"
+                    ]
+                },
+                "a7": {
+                    "answer": "facts.",
+                    "verb_hint": "Категорична вимога відокремлювати різні доказові категорії.",
+                    "options": [
+                        "facts",
+                        "paintings",
+                        "guests",
+                        "assumptions"
+                    ]
+                }
+            },
+            "verb_hint": "Категорична вимога відокремлювати різні доказові категорії.",
+            "accepted_target_texts": [
+                "Investigators must separate conjecture from established facts.",
+                "Investigators have to separate conjecture from established facts."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Investigators must separate",
+                "conjecture from",
+                "established facts."
+            ],
+            "token_groups": [
+                "Investigators must separate",
+                "conjecture from",
+                "established facts."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "Investigators",
+                "must",
+                "separate",
+                "conjecture",
+                "from",
+                "established",
+                "facts."
+            ],
+            "options": [
+                "Investigators",
+                "Objections",
+                "Workers",
+                "Parties",
+                "must",
+                "can't",
+                "couldn't",
+                "won't",
+                "separate",
+                "postpone",
+                "justify",
+                "establish",
+                "conjecture",
+                "testimony",
+                "panel",
+                "conclusion",
+                "from",
+                "at",
+                "by",
+                "with",
+                "established",
+                "clear",
+                "unclear",
+                "fresh",
+                "facts",
+                "paintings",
+                "guests",
+                "assumptions"
+            ],
+            "source_text_uk": "Слідчі повинні відокремлювати припущення від установлених фактів.",
+            "options_by_marker": {
+                "a1": [
+                    "Investigators",
+                    "Objections",
+                    "Workers",
+                    "Parties"
+                ],
+                "a2": [
+                    "must",
+                    "can't",
+                    "couldn't",
+                    "won't"
+                ],
+                "a3": [
+                    "separate",
+                    "postpone",
+                    "justify",
+                    "establish"
+                ],
+                "a4": [
+                    "conjecture",
+                    "testimony",
+                    "panel",
+                    "conclusion"
+                ],
+                "a5": [
+                    "from",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a6": [
+                    "established",
+                    "clear",
+                    "unclear",
+                    "fresh"
+                ],
+                "a7": [
+                    "facts",
+                    "paintings",
+                    "guests",
+                    "assumptions"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun_plural",
+                "a2": "modal",
+                "a3": "verb",
+                "a4": "noun",
+                "a5": "preposition",
+                "a6": "adjective",
+                "a7": "noun_plural"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "mvq-mht-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Через суперечливі свідчення комісії довелося відкласти висновок.",
+            "level": "C1",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Через суперечливі свідчення комісії довелося відкласти висновок.",
+            "target_text": "Because of conflicting testimony, the panel had to postpone its conclusion.",
+            "markers": {
+                "a1": {
+                    "answer": "Because",
+                    "verb_hint": "Вимушене відкладення в минулому; почни з причини.",
+                    "options": [
+                        "Because",
+                        "Whereas",
+                        "While",
+                        "If"
+                    ]
+                },
+                "a2": {
+                    "answer": "of",
+                    "verb_hint": "Вимушене відкладення в минулому; почни з причини.",
+                    "options": [
+                        "of",
+                        "for",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a3": {
+                    "answer": "conflicting",
+                    "verb_hint": "Вимушене відкладення в минулому; почни з причини.",
+                    "options": [
+                        "conflicting",
+                        "new",
+                        "old",
+                        "clear"
+                    ]
+                },
+                "a4": {
+                    "answer": "testimony,",
+                    "verb_hint": "Вимушене відкладення в минулому; почни з причини.",
+                    "options": [
+                        "testimony",
+                        "name",
+                        "window",
+                        "rice"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Вимушене відкладення в минулому; почни з причини.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a6": {
+                    "answer": "panel",
+                    "verb_hint": "Вимушене відкладення в минулому; почни з причини.",
+                    "options": [
+                        "panel",
+                        "consent",
+                        "estimate",
+                        "formulation"
+                    ]
+                },
+                "a7": {
+                    "answer": "had",
+                    "verb_hint": "Вимушене відкладення в минулому; почни з причини.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "to",
+                    "verb_hint": "Вимушене відкладення в минулому; почни з причини.",
+                    "options": [
+                        "to",
+                        "from",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a9": {
+                    "answer": "postpone",
+                    "verb_hint": "Вимушене відкладення в минулому; почни з причини.",
+                    "options": [
+                        "postpone",
+                        "justify",
+                        "establish",
+                        "distort"
+                    ]
+                },
+                "a10": {
+                    "answer": "its",
+                    "verb_hint": "Вимушене відкладення в минулому; почни з причини.",
+                    "options": [
+                        "its",
+                        "your",
+                        "his",
+                        "her"
+                    ]
+                },
+                "a11": {
+                    "answer": "conclusion.",
+                    "verb_hint": "Вимушене відкладення в минулому; почни з причини.",
+                    "options": [
+                        "conclusion",
+                        "contradiction",
+                        "bread",
+                        "delay"
+                    ]
+                }
+            },
+            "verb_hint": "Вимушене відкладення в минулому; почни з причини.",
+            "accepted_target_texts": [
+                "Because of conflicting testimony, the panel had to postpone its conclusion."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Because of",
+                "conflicting testimony,",
+                "the panel",
+                "had to postpone",
+                "its conclusion."
+            ],
+            "token_groups": [
+                "Because of",
+                "conflicting testimony,",
+                "the panel",
+                "had to postpone",
+                "its conclusion."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "Because",
+                "of",
+                "conflicting",
+                "testimony,",
+                "the",
+                "panel",
+                "had",
+                "to",
+                "postpone",
+                "its",
+                "conclusion."
+            ],
+            "options": [
+                "Because",
+                "Whereas",
+                "While",
+                "If",
+                "of",
+                "for",
+                "in",
+                "on",
+                "conflicting",
+                "new",
+                "old",
+                "clear",
+                "testimony",
+                "name",
+                "window",
+                "rice",
+                "the",
+                "all",
+                "both",
+                "a",
+                "panel",
+                "consent",
+                "estimate",
+                "formulation",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "to",
+                "from",
+                "at",
+                "by",
+                "postpone",
+                "justify",
+                "establish",
+                "distort",
+                "its",
+                "your",
+                "his",
+                "her",
+                "conclusion",
+                "contradiction",
+                "bread",
+                "delay"
+            ],
+            "source_text_uk": "Через суперечливі свідчення комісії довелося відкласти висновок.",
+            "options_by_marker": {
+                "a1": [
+                    "Because",
+                    "Whereas",
+                    "While",
+                    "If"
+                ],
+                "a2": [
+                    "of",
+                    "for",
+                    "in",
+                    "on"
+                ],
+                "a3": [
+                    "conflicting",
+                    "new",
+                    "old",
+                    "clear"
+                ],
+                "a4": [
+                    "testimony",
+                    "name",
+                    "window",
+                    "rice"
+                ],
+                "a5": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a6": [
+                    "panel",
+                    "consent",
+                    "estimate",
+                    "formulation"
+                ],
+                "a7": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a8": [
+                    "to",
+                    "from",
+                    "at",
+                    "by"
+                ],
+                "a9": [
+                    "postpone",
+                    "justify",
+                    "establish",
+                    "distort"
+                ],
+                "a10": [
+                    "its",
+                    "your",
+                    "his",
+                    "her"
+                ],
+                "a11": [
+                    "conclusion",
+                    "contradiction",
+                    "bread",
+                    "delay"
+                ]
+            },
+            "slot_roles": {
+                "a1": "conjunction",
+                "a2": "preposition",
+                "a3": "adjective",
+                "a4": "noun",
+                "a5": "determiner",
+                "a6": "noun",
+                "a7": "auxiliary",
+                "a8": "preposition",
+                "a9": "verb",
+                "a10": "determiner",
+                "a11": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "mvq-mht-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Самого мовчання не можна вважати поінформованою згодою.",
+            "level": "C1",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Самого мовчання не можна вважати поінформованою згодою.",
+            "target_text": "Silence alone must not be treated as informed consent.",
+            "markers": {
+                "a1": {
+                    "answer": "Silence",
+                    "verb_hint": "Заборони прирівнювати мовчання до поінформованої згоди; потрібен пасив.",
+                    "options": [
+                        "Silence",
+                        "Conjecture",
+                        "Testimony",
+                        "Panel"
+                    ]
+                },
+                "a2": {
+                    "answer": "alone",
+                    "verb_hint": "Заборони прирівнювати мовчання до поінформованої згоди; потрібен пасив.",
+                    "options": [
+                        "alone",
+                        "disproportionately",
+                        "later",
+                        "early"
+                    ]
+                },
+                "a3": {
+                    "answer": "must",
+                    "verb_hint": "Заборони прирівнювати мовчання до поінформованої згоди; потрібен пасив.",
+                    "options": [
+                        "must",
+                        "can",
+                        "could",
+                        "will"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Заборони прирівнювати мовчання до поінформованої згоди; потрібен пасив.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a5": {
+                    "answer": "be",
+                    "verb_hint": "Заборони прирівнювати мовчання до поінформованої згоди; потрібен пасив.",
+                    "options": [
+                        "be",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a6": {
+                    "answer": "treated",
+                    "verb_hint": "Заборони прирівнювати мовчання до поінформованої згоди; потрібен пасив.",
+                    "options": [
+                        "treated",
+                        "written",
+                        "read",
+                        "given"
+                    ]
+                },
+                "a7": {
+                    "answer": "as",
+                    "verb_hint": "Заборони прирівнювати мовчання до поінформованої згоди; потрібен пасив.",
+                    "options": [
+                        "as",
+                        "facts",
+                        "Investigators",
+                        "children"
+                    ]
+                },
+                "a8": {
+                    "answer": "informed",
+                    "verb_hint": "Заборони прирівнювати мовчання до поінформованої згоди; потрібен пасив.",
+                    "options": [
+                        "informed",
+                        "conflicting",
+                        "practical",
+                        "small"
+                    ]
+                },
+                "a9": {
+                    "answer": "consent.",
+                    "verb_hint": "Заборони прирівнювати мовчання до поінформованої згоди; потрібен пасив.",
+                    "options": [
+                        "consent",
+                        "name",
+                        "window",
+                        "rice"
+                    ]
+                }
+            },
+            "verb_hint": "Заборони прирівнювати мовчання до поінформованої згоди; потрібен пасив.",
+            "accepted_target_texts": [
+                "Silence alone must not be treated as informed consent.",
+                "Silence alone mustn't be treated as informed consent."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Silence alone",
+                "must not be",
+                "treated as",
+                "informed consent."
+            ],
+            "token_groups": [
+                "Silence alone",
+                "must not be",
+                "treated as",
+                "informed consent."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "Silence",
+                "alone",
+                "must",
+                "not",
+                "be",
+                "treated",
+                "as",
+                "informed",
+                "consent."
+            ],
+            "options": [
+                "Silence",
+                "Conjecture",
+                "Testimony",
+                "Panel",
+                "alone",
+                "disproportionately",
+                "later",
+                "early",
+                "must",
+                "can",
+                "could",
+                "will",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "be",
+                "weren't",
+                "am",
+                "is",
+                "treated",
+                "written",
+                "read",
+                "given",
+                "as",
+                "facts",
+                "Investigators",
+                "children",
+                "informed",
+                "conflicting",
+                "practical",
+                "small",
+                "consent",
+                "name",
+                "window",
+                "rice"
+            ],
+            "source_text_uk": "Самого мовчання не можна вважати поінформованою згодою.",
+            "options_by_marker": {
+                "a1": [
+                    "Silence",
+                    "Conjecture",
+                    "Testimony",
+                    "Panel"
+                ],
+                "a2": [
+                    "alone",
+                    "disproportionately",
+                    "later",
+                    "early"
+                ],
+                "a3": [
+                    "must",
+                    "can",
+                    "could",
+                    "will"
+                ],
+                "a4": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a5": [
+                    "be",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a6": [
+                    "treated",
+                    "written",
+                    "read",
+                    "given"
+                ],
+                "a7": [
+                    "as",
+                    "facts",
+                    "Investigators",
+                    "children"
+                ],
+                "a8": [
+                    "informed",
+                    "conflicting",
+                    "practical",
+                    "small"
+                ],
+                "a9": [
+                    "consent",
+                    "name",
+                    "window",
+                    "rice"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun",
+                "a2": "adverb",
+                "a3": "modal",
+                "a4": "modal",
+                "a5": "be",
+                "a6": "participle",
+                "a7": "preposition",
+                "a8": "adjective",
+                "a9": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "mvq-mht-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Презумпцію не можна перетворювати на неспростовний висновок.",
+            "level": "C2",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Презумпцію не можна перетворювати на неспростовний висновок.",
+            "target_text": "A presumption must not be converted into an irrebuttable conclusion.",
+            "markers": {
+                "a1": {
+                    "answer": "A",
+                    "verb_hint": "Заборони таке перетворення юридичного припущення; передай пасивом.",
+                    "options": [
+                        "A",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "presumption",
+                    "verb_hint": "Заборони таке перетворення юридичного припущення; передай пасивом.",
+                    "options": [
+                        "presumption",
+                        "gap",
+                        "assumption",
+                        "name"
+                    ]
+                },
+                "a3": {
+                    "answer": "must",
+                    "verb_hint": "Заборони таке перетворення юридичного припущення; передай пасивом.",
+                    "options": [
+                        "must",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Заборони таке перетворення юридичного припущення; передай пасивом.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a5": {
+                    "answer": "be",
+                    "verb_hint": "Заборони таке перетворення юридичного припущення; передай пасивом.",
+                    "options": [
+                        "be",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "converted",
+                    "verb_hint": "Заборони таке перетворення юридичного припущення; передай пасивом.",
+                    "options": [
+                        "converted",
+                        "confined",
+                        "limited",
+                        "combined"
+                    ]
+                },
+                "a7": {
+                    "answer": "into",
+                    "verb_hint": "Заборони таке перетворення юридичного припущення; передай пасивом.",
+                    "options": [
+                        "into",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a8": {
+                    "answer": "an",
+                    "verb_hint": "Заборони таке перетворення юридичного припущення; передай пасивом.",
+                    "options": [
+                        "an",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a9": {
+                    "answer": "irrebuttable",
+                    "verb_hint": "Заборони таке перетворення юридичного припущення; передай пасивом.",
+                    "options": [
+                        "irrebuttable",
+                        "small",
+                        "large",
+                        "new"
+                    ]
+                },
+                "a10": {
+                    "answer": "conclusion.",
+                    "verb_hint": "Заборони таке перетворення юридичного припущення; передай пасивом.",
+                    "options": [
+                        "conclusion",
+                        "consent",
+                        "estimate",
+                        "formulation"
+                    ]
+                }
+            },
+            "verb_hint": "Заборони таке перетворення юридичного припущення; передай пасивом.",
+            "accepted_target_texts": [
+                "A presumption must not be converted into an irrebuttable conclusion.",
+                "A presumption mustn't be converted into an irrebuttable conclusion."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A presumption",
+                "must not be",
+                "converted into",
+                "an irrebuttable conclusion."
+            ],
+            "token_groups": [
+                "A presumption",
+                "must not be",
+                "converted into",
+                "an irrebuttable conclusion."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "A",
+                "presumption",
+                "must",
+                "not",
+                "be",
+                "converted",
+                "into",
+                "an",
+                "irrebuttable",
+                "conclusion."
+            ],
+            "options": [
+                "A",
+                "Another",
+                "Either",
+                "Neither",
+                "presumption",
+                "gap",
+                "assumption",
+                "name",
+                "must",
+                "shouldn't",
+                "cannot",
+                "can",
+                "not",
+                "never",
+                "always",
+                "often",
+                "be",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "converted",
+                "confined",
+                "limited",
+                "combined",
+                "into",
+                "between",
+                "among",
+                "about",
+                "an",
+                "this",
+                "that",
+                "these",
+                "irrebuttable",
+                "small",
+                "large",
+                "new",
+                "conclusion",
+                "consent",
+                "estimate",
+                "formulation"
+            ],
+            "source_text_uk": "Презумпцію не можна перетворювати на неспростовний висновок.",
+            "options_by_marker": {
+                "a1": [
+                    "A",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "presumption",
+                    "gap",
+                    "assumption",
+                    "name"
+                ],
+                "a3": [
+                    "must",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a4": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a5": [
+                    "be",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a6": [
+                    "converted",
+                    "confined",
+                    "limited",
+                    "combined"
+                ],
+                "a7": [
+                    "into",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a8": [
+                    "an",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a9": [
+                    "irrebuttable",
+                    "small",
+                    "large",
+                    "new"
+                ],
+                "a10": [
+                    "conclusion",
+                    "consent",
+                    "estimate",
+                    "formulation"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "modal",
+                "a4": "modal",
+                "a5": "be",
+                "a6": "participle",
+                "a7": "preposition",
+                "a8": "determiner",
+                "a9": "adjective",
+                "a10": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "mvq-mht-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Через прогалину в доказах арбітрам довелося звузити висновок.",
+            "level": "C2",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Через прогалину в доказах арбітрам довелося звузити висновок.",
+            "target_text": "Because of an evidential gap, the arbitrators had to narrow their finding.",
+            "markers": {
+                "a1": {
+                    "answer": "Because",
+                    "verb_hint": "Минула вимушена необхідність звузити висновок; почни з причини.",
+                    "options": [
+                        "Because",
+                        "While",
+                        "If",
+                        "Whether"
+                    ]
+                },
+                "a2": {
+                    "answer": "of",
+                    "verb_hint": "Минула вимушена необхідність звузити висновок; почни з причини.",
+                    "options": [
+                        "of",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a3": {
+                    "answer": "an",
+                    "verb_hint": "Минула вимушена необхідність звузити висновок; почни з причини.",
+                    "options": [
+                        "an",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a4": {
+                    "answer": "evidential",
+                    "verb_hint": "Минула вимушена необхідність звузити висновок; почни з причини.",
+                    "options": [
+                        "evidential",
+                        "reliable",
+                        "irrebuttable",
+                        "selective"
+                    ]
+                },
+                "a5": {
+                    "answer": "gap,",
+                    "verb_hint": "Минула вимушена необхідність звузити висновок; почни з причини.",
+                    "options": [
+                        "gap",
+                        "estimate",
+                        "formulation",
+                        "contradiction"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Минула вимушена необхідність звузити висновок; почни з причини.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a7": {
+                    "answer": "arbitrators",
+                    "verb_hint": "Минула вимушена необхідність звузити висновок; почни з причини.",
+                    "options": [
+                        "arbitrators",
+                        "parties",
+                        "workers",
+                        "figures"
+                    ]
+                },
+                "a8": {
+                    "answer": "had",
+                    "verb_hint": "Минула вимушена необхідність звузити висновок; почни з причини.",
+                    "options": [
+                        "had",
+                        "didn't",
+                        "have",
+                        "has"
+                    ]
+                },
+                "a9": {
+                    "answer": "to",
+                    "verb_hint": "Минула вимушена необхідність звузити висновок; почни з причини.",
+                    "options": [
+                        "to",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a10": {
+                    "answer": "narrow",
+                    "verb_hint": "Минула вимушена необхідність звузити висновок; почни з причини.",
+                    "options": [
+                        "narrow",
+                        "sit",
+                        "touch",
+                        "reflect"
+                    ]
+                },
+                "a11": {
+                    "answer": "their",
+                    "verb_hint": "Минула вимушена необхідність звузити висновок; почни з причини.",
+                    "options": [
+                        "their",
+                        "ours",
+                        "theirs",
+                        "whose"
+                    ]
+                },
+                "a12": {
+                    "answer": "finding.",
+                    "verb_hint": "Минула вимушена необхідність звузити висновок; почни з причини.",
+                    "options": [
+                        "finding",
+                        "playing",
+                        "reading",
+                        "writing"
+                    ]
+                }
+            },
+            "verb_hint": "Минула вимушена необхідність звузити висновок; почни з причини.",
+            "accepted_target_texts": [
+                "Because of an evidential gap, the arbitrators had to narrow their finding."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Because of",
+                "an evidential gap,",
+                "the arbitrators",
+                "had to narrow",
+                "their finding."
+            ],
+            "token_groups": [
+                "Because of",
+                "an evidential gap,",
+                "the arbitrators",
+                "had to narrow",
+                "their finding."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "Because",
+                "of",
+                "an",
+                "evidential",
+                "gap,",
+                "the",
+                "arbitrators",
+                "had",
+                "to",
+                "narrow",
+                "their",
+                "finding."
+            ],
+            "options": [
+                "Because",
+                "While",
+                "If",
+                "Whether",
+                "of",
+                "among",
+                "about",
+                "during",
+                "an",
+                "that",
+                "these",
+                "those",
+                "evidential",
+                "reliable",
+                "irrebuttable",
+                "selective",
+                "gap",
+                "estimate",
+                "formulation",
+                "contradiction",
+                "the",
+                "each",
+                "every",
+                "no",
+                "arbitrators",
+                "parties",
+                "workers",
+                "figures",
+                "had",
+                "didn't",
+                "have",
+                "has",
+                "to",
+                "without",
+                "into",
+                "onto",
+                "narrow",
+                "sit",
+                "touch",
+                "reflect",
+                "their",
+                "ours",
+                "theirs",
+                "whose",
+                "finding",
+                "playing",
+                "reading",
+                "writing"
+            ],
+            "source_text_uk": "Через прогалину в доказах арбітрам довелося звузити висновок.",
+            "options_by_marker": {
+                "a1": [
+                    "Because",
+                    "While",
+                    "If",
+                    "Whether"
+                ],
+                "a2": [
+                    "of",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a3": [
+                    "an",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a4": [
+                    "evidential",
+                    "reliable",
+                    "irrebuttable",
+                    "selective"
+                ],
+                "a5": [
+                    "gap",
+                    "estimate",
+                    "formulation",
+                    "contradiction"
+                ],
+                "a6": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a7": [
+                    "arbitrators",
+                    "parties",
+                    "workers",
+                    "figures"
+                ],
+                "a8": [
+                    "had",
+                    "didn't",
+                    "have",
+                    "has"
+                ],
+                "a9": [
+                    "to",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a10": [
+                    "narrow",
+                    "sit",
+                    "touch",
+                    "reflect"
+                ],
+                "a11": [
+                    "their",
+                    "ours",
+                    "theirs",
+                    "whose"
+                ],
+                "a12": [
+                    "finding",
+                    "playing",
+                    "reading",
+                    "writing"
+                ]
+            },
+            "slot_roles": {
+                "a1": "conjunction",
+                "a2": "preposition",
+                "a3": "determiner",
+                "a4": "adjective",
+                "a5": "noun",
+                "a6": "determiner",
+                "a7": "noun_plural",
+                "a8": "auxiliary",
+                "a9": "preposition",
+                "a10": "verb",
+                "a11": "determiner",
+                "a12": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "mvq-mht-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Сторони не зобов’язані погоджувати кожне припущення, щоб досягти врегулювання.",
+            "level": "C2",
+            "type": 4,
+            "source": "modal_verbs_quality_must_have_to",
+            "translation_uk": "Сторони не зобов’язані погоджувати кожне припущення, щоб досягти врегулювання.",
+            "target_text": "The parties do not have to endorse every assumption to reach a settlement.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи відсутність обов’язку та мету; не перетворюй на заборону.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "parties",
+                    "verb_hint": "Збережи відсутність обов’язку та мету; не перетворюй на заборону.",
+                    "options": [
+                        "parties",
+                        "arbitrators",
+                        "figures",
+                        "guests"
+                    ]
+                },
+                "a3": {
+                    "answer": "do",
+                    "verb_hint": "Збережи відсутність обов’язку та мету; не перетворюй на заборону.",
+                    "options": [
+                        "do",
+                        "hasn't",
+                        "hadn't",
+                        "does"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Збережи відсутність обов’язку та мету; не перетворюй на заборону.",
+                    "options": [
+                        "not",
+                        "also",
+                        "usually",
+                        "rarely"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Збережи відсутність обов’язку та мету; не перетворюй на заборону.",
+                    "options": [
+                        "have",
+                        "did",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Збережи відсутність обов’язку та мету; не перетворюй на заборону.",
+                    "options": [
+                        "to",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a7": {
+                    "answer": "endorse",
+                    "verb_hint": "Збережи відсутність обов’язку та мету; не перетворюй на заборону.",
+                    "options": [
+                        "endorse",
+                        "resolve",
+                        "conceal",
+                        "propose"
+                    ]
+                },
+                "a8": {
+                    "answer": "every",
+                    "verb_hint": "Збережи відсутність обов’язку та мету; не перетворюй на заборону.",
+                    "options": [
+                        "every",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a9": {
+                    "answer": "assumption",
+                    "verb_hint": "Збережи відсутність обов’язку та мету; не перетворюй на заборону.",
+                    "options": [
+                        "assumption",
+                        "quality",
+                        "identity",
+                        "agreement"
+                    ]
+                },
+                "a10": {
+                    "answer": "to",
+                    "verb_hint": "Збережи відсутність обов’язку та мету; не перетворюй на заборону.",
+                    "options": [
+                        "to",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a11": {
+                    "answer": "reach",
+                    "verb_hint": "Збережи відсутність обов’язку та мету; не перетворюй на заборону.",
+                    "options": [
+                        "reach",
+                        "distort",
+                        "rule",
+                        "sit"
+                    ]
+                },
+                "a12": {
+                    "answer": "a",
+                    "verb_hint": "Збережи відсутність обов’язку та мету; не перетворюй на заборону.",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "these"
+                    ]
+                },
+                "a13": {
+                    "answer": "settlement.",
+                    "verb_hint": "Збережи відсутність обов’язку та мету; не перетворюй на заборону.",
+                    "options": [
+                        "settlement",
+                        "error",
+                        "record",
+                        "evidence"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи відсутність обов’язку та мету; не перетворюй на заборону.",
+            "accepted_target_texts": [
+                "The parties do not have to endorse every assumption to reach a settlement.",
+                "The parties don't have to endorse every assumption to reach a settlement."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The parties",
+                "do not have",
+                "to endorse",
+                "every assumption",
+                "to reach",
+                "a settlement."
+            ],
+            "token_groups": [
+                "The parties",
+                "do not have",
+                "to endorse",
+                "every assumption",
+                "to reach",
+                "a settlement."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "The",
+                "parties",
+                "do",
+                "not",
+                "have",
+                "to",
+                "endorse",
+                "every",
+                "assumption",
+                "to",
+                "reach",
+                "a",
+                "settlement."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "parties",
+                "arbitrators",
+                "figures",
+                "guests",
+                "do",
+                "hasn't",
+                "hadn't",
+                "does",
+                "not",
+                "also",
+                "usually",
+                "rarely",
+                "have",
+                "did",
+                "doesn't",
+                "didn't",
+                "to",
+                "over",
+                "under",
+                "through",
+                "endorse",
+                "resolve",
+                "conceal",
+                "propose",
+                "every",
+                "no",
+                "another",
+                "either",
+                "assumption",
+                "quality",
+                "identity",
+                "agreement",
+                "among",
+                "about",
+                "during",
+                "reach",
+                "distort",
+                "rule",
+                "sit",
+                "a",
+                "an",
+                "some",
+                "these",
+                "settlement",
+                "error",
+                "record",
+                "evidence"
+            ],
+            "source_text_uk": "Сторони не зобов’язані погоджувати кожне припущення, щоб досягти врегулювання.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "parties",
+                    "arbitrators",
+                    "figures",
+                    "guests"
+                ],
+                "a3": [
+                    "do",
+                    "hasn't",
+                    "hadn't",
+                    "does"
+                ],
+                "a4": [
+                    "not",
+                    "also",
+                    "usually",
+                    "rarely"
+                ],
+                "a5": [
+                    "have",
+                    "did",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a6": [
+                    "to",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a7": [
+                    "endorse",
+                    "resolve",
+                    "conceal",
+                    "propose"
+                ],
+                "a8": [
+                    "every",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a9": [
+                    "assumption",
+                    "quality",
+                    "identity",
+                    "agreement"
+                ],
+                "a10": [
+                    "to",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a11": [
+                    "reach",
+                    "distort",
+                    "rule",
+                    "sit"
+                ],
+                "a12": [
+                    "a",
+                    "an",
+                    "some",
+                    "these"
+                ],
+                "a13": [
+                    "settlement",
+                    "error",
+                    "record",
+                    "evidence"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun_plural",
+                "a3": "auxiliary",
+                "a4": "auxiliary",
+                "a5": "auxiliary",
+                "a6": "auxiliary",
+                "a7": "verb",
+                "a8": "determiner",
+                "a9": "noun",
+                "a10": "preposition",
+                "a11": "verb",
+                "a12": "determiner",
+                "a13": "noun"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

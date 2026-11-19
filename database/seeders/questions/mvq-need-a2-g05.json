@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 65064,
+        "uuid": "mvq-need-a2-g05",
+        "question": "When {a1} the car?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 56,
+        "source_id": 509,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ModalVerbs\\UkrainianMixedNeedNeedntDontHaveToQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "does she need",
+                "do she need",
+                "does she needs"
+            ]
+        },
+        "theory_text_block_uuid": "65c2633a-28b1-5a77-af07-3af13e4157b6",
+        "created_at": "2026-10-31T18:13:18.000000Z",
+        "updated_at": "2026-10-31T18:13:18.000000Z"
+    },
+    "category": {
+        "id": 56,
+        "name": "Modal Verbs",
+        "created_at": "2026-05-17T22:31:01.000000Z",
+        "updated_at": "2026-05-17T22:31:01.000000Z"
+    },
+    "source": {
+        "id": 509,
+        "name": "Modal Verbs Quality: Потреба, відсутність потреби та виконання дії",
+        "created_at": "2026-10-31T18:13:18.000000Z",
+        "updated_at": "2026-10-31T18:13:18.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 2254,
+                "name": "Need / Needn't / Don't have to",
+                "category": "modal-verbs",
+                "created_at": "2026-05-17T22:31:41.000000Z",
+                "updated_at": "2026-05-17T22:31:41.000000Z"
+            },
+            "pivot": {
+                "question_id": 65064,
+                "tag_id": 2254,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 64752,
+                "option": "does she need",
+                "created_at": "2026-10-31T18:13:18.000000Z",
+                "updated_at": "2026-10-31T18:13:18.000000Z"
+            },
+            "pivot": {
+                "question_id": 65064,
+                "option_id": 64752,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 64754,
+                "option": "do she need",
+                "created_at": "2026-10-31T18:13:18.000000Z",
+                "updated_at": "2026-10-31T18:13:18.000000Z"
+            },
+            "pivot": {
+                "question_id": 65064,
+                "option_id": 64754,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 64755,
+                "option": "does she needs",
+                "created_at": "2026-10-31T18:13:18.000000Z",
+                "updated_at": "2026-10-31T18:13:18.000000Z"
+            },
+            "pivot": {
+                "question_id": 65064,
+                "option_id": 64755,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 337759,
+                "question_id": 65064,
+                "marker": "a1",
+                "option_id": 64752,
+                "created_at": "2026-10-31T18:13:18.000000Z",
+                "updated_at": "2026-10-31T18:13:18.000000Z"
+            },
+            "option": {
+                "id": 64752,
+                "option": "does she need",
+                "created_at": "2026-10-31T18:13:18.000000Z",
+                "updated_at": "2026-10-31T18:13:18.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 55093,
+                "question_id": 65064,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 64753,
+                "created_at": "2026-10-31T18:13:18.000000Z",
+                "updated_at": "2026-10-31T18:13:18.000000Z"
+            },
+            "option": {
+                "id": 64753,
+                "option": "Постав запитання про час потреби; підмет входить у пропуск.",
+                "created_at": "2026-10-31T18:13:18.000000Z",
+                "updated_at": "2026-10-31T18:13:18.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 57079,
+            "question_id": 65064,
+            "text": "When {a1} the car?",
+            "created_at": "2026-10-31T18:13:18.000000Z",
+            "updated_at": "2026-10-31T18:13:18.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

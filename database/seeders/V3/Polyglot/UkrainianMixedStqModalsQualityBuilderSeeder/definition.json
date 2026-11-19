@@ -1,0 +1,1647 @@
+{
+    "schema_version": 1,
+    "quality_revision": "stq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-transformations-quality/modals.v1.json",
+        "sha256": "1b71c3f8e4794ae08b2d16bbb0f4d6e50f2cefff42e1e3d63c27add8d24b9308"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedStqModalsQualityBuilderSeeder",
+        "uuid_namespace": "sentence-transformations-quality-modals-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "sentence_transformations_quality_modals": {
+            "name": "Sentence Transformations Quality: Sentence Transformations: Modals"
+        }
+    },
+    "tags": {
+        "sentence_transformations_modals_all_levels": {
+            "name": "sentence transformations modals all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "can_be_able_to": {
+            "name": "Can Be Able To",
+            "category": "topic"
+        },
+        "must_have_to": {
+            "name": "Must Have To",
+            "category": "topic"
+        },
+        "mustnt_not_allowed": {
+            "name": "Mustnt Not Allowed",
+            "category": "topic"
+        },
+        "dont_have_to_neednt": {
+            "name": "Dont Have To Neednt",
+            "category": "topic"
+        },
+        "should_ought_to": {
+            "name": "Should Ought To",
+            "category": "topic"
+        },
+        "may_might_paraphrase": {
+            "name": "May Might Paraphrase",
+            "category": "topic"
+        },
+        "had_better_would_rather": {
+            "name": "Had Better Would Rather",
+            "category": "topic"
+        },
+        "modal_perfect": {
+            "name": "Modal Perfect",
+            "category": "topic"
+        },
+        "preserve_modal_meaning": {
+            "name": "Preserve Modal Meaning",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_sentence_transformations_modals_all_levels": {
+            "name": "Sentence Transformations — Modals",
+            "category": "sentence_transformations"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stq-modals-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Тобі не можна бігати в класі.",
+            "level": "A1",
+            "type": 4,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Тобі не можна бігати в класі.",
+            "target_text": "You must not run in the classroom.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Почни зі звертання до співрозмовника; передай заборону модальним дієсловом.",
+                    "options": [
+                        "You",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a2": {
+                    "answer": "must",
+                    "verb_hint": "Почни зі звертання до співрозмовника; передай заборону модальним дієсловом.",
+                    "options": [
+                        "must",
+                        "could",
+                        "will",
+                        "would"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Почни зі звертання до співрозмовника; передай заборону модальним дієсловом.",
+                    "options": [
+                        "not",
+                        "already",
+                        "still",
+                        "just"
+                    ]
+                },
+                "a4": {
+                    "answer": "run",
+                    "verb_hint": "Почни зі звертання до співрозмовника; передай заборону модальним дієсловом.",
+                    "options": [
+                        "run",
+                        "leave",
+                        "walk",
+                        "wait"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Почни зі звертання до співрозмовника; передай заборону модальним дієсловом.",
+                    "options": [
+                        "in",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни зі звертання до співрозмовника; передай заборону модальним дієсловом.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "classroom.",
+                    "verb_hint": "Почни зі звертання до співрозмовника; передай заборону модальним дієсловом.",
+                    "options": [
+                        "classroom",
+                        "balcony",
+                        "bridge",
+                        "station"
+                    ]
+                }
+            },
+            "verb_hint": "Почни зі звертання до співрозмовника; передай заборону модальним дієсловом.",
+            "accepted_target_texts": [
+                "You must not run in the classroom.",
+                "You mustn't run in the classroom."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You",
+                "must not",
+                "run",
+                "in the classroom."
+            ],
+            "token_groups": [
+                "You",
+                "must not",
+                "run",
+                "in the classroom."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "You",
+                "must",
+                "not",
+                "run",
+                "in",
+                "the",
+                "classroom."
+            ],
+            "options": [
+                "You",
+                "Them",
+                "Myself",
+                "Yourself",
+                "must",
+                "could",
+                "will",
+                "would",
+                "not",
+                "already",
+                "still",
+                "just",
+                "run",
+                "leave",
+                "walk",
+                "wait",
+                "in",
+                "without",
+                "into",
+                "onto",
+                "the",
+                "those",
+                "each",
+                "every",
+                "classroom",
+                "balcony",
+                "bridge",
+                "station"
+            ],
+            "source_text_uk": "Тобі не можна бігати в класі.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a2": [
+                    "must",
+                    "could",
+                    "will",
+                    "would"
+                ],
+                "a3": [
+                    "not",
+                    "already",
+                    "still",
+                    "just"
+                ],
+                "a4": [
+                    "run",
+                    "leave",
+                    "walk",
+                    "wait"
+                ],
+                "a5": [
+                    "in",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a6": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "classroom",
+                    "balcony",
+                    "bridge",
+                    "station"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "modal_negative",
+                "a3": "modal_negative",
+                "a4": "base_activity",
+                "a5": "place",
+                "a6": "place",
+                "a7": "place"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "stq-modals-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Не міг би ти зачинити вікно, будь ласка?",
+            "level": "A2",
+            "type": 4,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Не міг би ти зачинити вікно, будь ласка?",
+            "target_text": "Could you close the window, please?",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "verb_hint": "Постав ввічливе модальне дієслово перед співрозмовником; ввічливе слово залиш наприкінці.",
+                    "options": [
+                        "Could",
+                        "Must",
+                        "Can't",
+                        "Couldn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Постав ввічливе модальне дієслово перед співрозмовником; ввічливе слово залиш наприкінці.",
+                    "options": [
+                        "you",
+                        "it",
+                        "we",
+                        "they"
+                    ]
+                },
+                "a3": {
+                    "answer": "close",
+                    "verb_hint": "Постав ввічливе модальне дієслово перед співрозмовником; ввічливе слово залиш наприкінці.",
+                    "options": [
+                        "close",
+                        "lock",
+                        "check",
+                        "paint"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Постав ввічливе модальне дієслово перед співрозмовником; ввічливе слово залиш наприкінці.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a5": {
+                    "answer": "window,",
+                    "verb_hint": "Постав ввічливе модальне дієслово перед співрозмовником; ввічливе слово залиш наприкінці.",
+                    "options": [
+                        "window",
+                        "drawer",
+                        "gate",
+                        "box"
+                    ]
+                },
+                "a6": {
+                    "answer": "please?",
+                    "verb_hint": "Постав ввічливе модальне дієслово перед співрозмовником; ввічливе слово залиш наприкінці.",
+                    "options": [
+                        "please",
+                        "again",
+                        "now",
+                        "today"
+                    ]
+                }
+            },
+            "verb_hint": "Постав ввічливе модальне дієслово перед співрозмовником; ввічливе слово залиш наприкінці.",
+            "accepted_target_texts": [
+                "Could you close the window, please?",
+                "Would you close the window, please?",
+                "Can you close the window, please?",
+                "Will you close the window, please?",
+                "Might you close the window, please?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Would",
+                    "Can",
+                    "Will",
+                    "Might"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Would",
+                    "Can",
+                    "Will",
+                    "Might"
+                ]
+            },
+            "reorder_groups": [
+                "Could",
+                "you",
+                "close",
+                "the window,",
+                "please?"
+            ],
+            "token_groups": [
+                "Could",
+                "you",
+                "close",
+                "the window,",
+                "please?"
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "Could",
+                "you",
+                "close",
+                "the",
+                "window,",
+                "please?"
+            ],
+            "options": [
+                "Could",
+                "Must",
+                "Can't",
+                "Couldn't",
+                "you",
+                "it",
+                "we",
+                "they",
+                "close",
+                "lock",
+                "check",
+                "paint",
+                "the",
+                "an",
+                "some",
+                "any",
+                "window",
+                "drawer",
+                "gate",
+                "box",
+                "please",
+                "again",
+                "now",
+                "today"
+            ],
+            "source_text_uk": "Не міг би ти зачинити вікно, будь ласка?",
+            "options_by_marker": {
+                "a1": [
+                    "Could",
+                    "Must",
+                    "Can't",
+                    "Couldn't"
+                ],
+                "a2": [
+                    "you",
+                    "it",
+                    "we",
+                    "they"
+                ],
+                "a3": [
+                    "close",
+                    "lock",
+                    "check",
+                    "paint"
+                ],
+                "a4": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a5": [
+                    "window",
+                    "drawer",
+                    "gate",
+                    "box"
+                ],
+                "a6": [
+                    "please",
+                    "again",
+                    "now",
+                    "today"
+                ]
+            },
+            "slot_roles": {
+                "a1": "polite_auxiliary",
+                "a2": "addressee",
+                "a3": "base_transitive",
+                "a4": "object",
+                "a5": "object",
+                "a6": "courtesy"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "stq-modals-b1-c01",
+            "author_id": "B1-c01",
+            "question": "У дитинстві мені дозволяли пізно лягати спати щоп’ятниці.",
+            "level": "B1",
+            "type": 4,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "У дитинстві мені дозволяли пізно лягати спати щоп’ятниці.",
+            "target_text": "I was allowed to stay up late on Fridays as a child.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з мовця; передай минулий дозвіл, не власну здібність.",
+                    "options": [
+                        "I",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Почни з мовця; передай минулий дозвіл, не власну здібність.",
+                    "options": [
+                        "was",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a3": {
+                    "answer": "allowed",
+                    "verb_hint": "Почни з мовця; передай минулий дозвіл, не власну здібність.",
+                    "options": [
+                        "allowed",
+                        "told",
+                        "asked",
+                        "required"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Почни з мовця; передай минулий дозвіл, не власну здібність.",
+                    "options": [
+                        "to",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a5": {
+                    "answer": "stay",
+                    "verb_hint": "Почни з мовця; передай минулий дозвіл, не власну здібність.",
+                    "options": [
+                        "stay",
+                        "sit",
+                        "return",
+                        "music"
+                    ]
+                },
+                "a6": {
+                    "answer": "up",
+                    "verb_hint": "Почни з мовця; передай минулий дозвіл, не власну здібність.",
+                    "options": [
+                        "up",
+                        "out",
+                        "television",
+                        "outside"
+                    ]
+                },
+                "a7": {
+                    "answer": "late",
+                    "verb_hint": "Почни з мовця; передай минулий дозвіл, не власну здібність.",
+                    "options": [
+                        "late",
+                        "quietly",
+                        "alone",
+                        "indoors"
+                    ]
+                },
+                "a8": {
+                    "answer": "on",
+                    "verb_hint": "Почни з мовця; передай минулий дозвіл, не власну здібність.",
+                    "options": [
+                        "on",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a9": {
+                    "answer": "Fridays",
+                    "verb_hint": "Почни з мовця; передай минулий дозвіл, не власну здібність.",
+                    "options": [
+                        "Fridays",
+                        "Weekends",
+                        "Holidays",
+                        "Doors"
+                    ]
+                },
+                "a10": {
+                    "answer": "as",
+                    "verb_hint": "Почни з мовця; передай минулий дозвіл, не власну здібність.",
+                    "options": [
+                        "as",
+                        "cups",
+                        "keys",
+                        "rooms"
+                    ]
+                },
+                "a11": {
+                    "answer": "a",
+                    "verb_hint": "Почни з мовця; передай минулий дозвіл, не власну здібність.",
+                    "options": [
+                        "a",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a12": {
+                    "answer": "child.",
+                    "verb_hint": "Почни з мовця; передай минулий дозвіл, не власну здібність.",
+                    "options": [
+                        "child",
+                        "youth",
+                        "school",
+                        "student"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з мовця; передай минулий дозвіл, не власну здібність.",
+            "accepted_target_texts": [
+                "I was allowed to stay up late on Fridays as a child.",
+                "I was permitted to stay up late on Fridays as a child.",
+                "I was allowed to stay up late on Fridays during my childhood.",
+                "I was permitted to stay up late on Fridays during my childhood."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "permitted"
+                ],
+                "a10": [
+                    "during"
+                ],
+                "a11": [
+                    "my"
+                ],
+                "a12": [
+                    "childhood."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "permitted"
+                ],
+                "a10": [
+                    "during"
+                ],
+                "a11": [
+                    "my"
+                ],
+                "a12": [
+                    "childhood."
+                ]
+            },
+            "reorder_groups": [
+                "I",
+                "was allowed",
+                "to stay up",
+                "late",
+                "on Fridays",
+                "as a child."
+            ],
+            "token_groups": [
+                "I",
+                "was allowed",
+                "to stay up",
+                "late",
+                "on Fridays",
+                "as a child."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "I",
+                "was",
+                "allowed",
+                "to",
+                "stay",
+                "up",
+                "late",
+                "on",
+                "Fridays",
+                "as",
+                "a",
+                "child."
+            ],
+            "options": [
+                "I",
+                "You",
+                "He",
+                "She",
+                "was",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "allowed",
+                "told",
+                "asked",
+                "required",
+                "to",
+                "between",
+                "among",
+                "about",
+                "stay",
+                "sit",
+                "return",
+                "music",
+                "up",
+                "out",
+                "television",
+                "outside",
+                "late",
+                "quietly",
+                "alone",
+                "indoors",
+                "on",
+                "with",
+                "without",
+                "into",
+                "Fridays",
+                "Weekends",
+                "Holidays",
+                "Doors",
+                "as",
+                "cups",
+                "keys",
+                "rooms",
+                "a",
+                "this",
+                "that",
+                "these",
+                "child",
+                "youth",
+                "school",
+                "student"
+            ],
+            "source_text_uk": "У дитинстві мені дозволяли пізно лягати спати щоп’ятниці.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a2": [
+                    "was",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a3": [
+                    "allowed",
+                    "told",
+                    "asked",
+                    "required"
+                ],
+                "a4": [
+                    "to",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a5": [
+                    "stay",
+                    "sit",
+                    "return",
+                    "music"
+                ],
+                "a6": [
+                    "up",
+                    "out",
+                    "television",
+                    "outside"
+                ],
+                "a7": [
+                    "late",
+                    "quietly",
+                    "alone",
+                    "indoors"
+                ],
+                "a8": [
+                    "on",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a9": [
+                    "Fridays",
+                    "Weekends",
+                    "Holidays",
+                    "Doors"
+                ],
+                "a10": [
+                    "as",
+                    "cups",
+                    "keys",
+                    "rooms"
+                ],
+                "a11": [
+                    "a",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a12": [
+                    "child",
+                    "youth",
+                    "school",
+                    "student"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "past_permission",
+                "a3": "past_permission",
+                "a4": "infinitive_activity",
+                "a5": "infinitive_activity",
+                "a6": "infinitive_activity",
+                "a7": "adverb",
+                "a8": "time",
+                "a9": "time",
+                "a10": "childhood_context",
+                "a11": "childhood_context",
+                "a12": "childhood_context"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "stq-modals-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Тобі слід було попередити нас про затримку.",
+            "level": "B2",
+            "type": 4,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Тобі слід було попередити нас про затримку.",
+            "target_text": "You should have warned us about the delay.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Передай докір за невиконану минулу дію; почни зі звертання до співрозмовника.",
+                    "options": [
+                        "You",
+                        "Themselves",
+                        "I",
+                        "He"
+                    ]
+                },
+                "a2": {
+                    "answer": "should",
+                    "verb_hint": "Передай докір за невиконану минулу дію; почни зі звертання до співрозмовника.",
+                    "options": [
+                        "should",
+                        "shall",
+                        "may",
+                        "might"
+                    ]
+                },
+                "a3": {
+                    "answer": "have",
+                    "verb_hint": "Передай докір за невиконану минулу дію; почни зі звертання до співрозмовника.",
+                    "options": [
+                        "have",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "warned",
+                    "verb_hint": "Передай докір за невиконану минулу дію; почни зі звертання до співрозмовника.",
+                    "options": [
+                        "warned",
+                        "met",
+                        "called",
+                        "helped"
+                    ]
+                },
+                "a5": {
+                    "answer": "us",
+                    "verb_hint": "Передай докір за невиконану минулу дію; почни зі звертання до співрозмовника.",
+                    "options": [
+                        "us",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                },
+                "a6": {
+                    "answer": "about",
+                    "verb_hint": "Передай докір за невиконану минулу дію; почни зі звертання до співрозмовника.",
+                    "options": [
+                        "about",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Передай докір за невиконану минулу дію; почни зі звертання до співрозмовника.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a8": {
+                    "answer": "delay.",
+                    "verb_hint": "Передай докір за невиконану минулу дію; почни зі звертання до співрозмовника.",
+                    "options": [
+                        "delay",
+                        "noise",
+                        "accident",
+                        "change"
+                    ]
+                }
+            },
+            "verb_hint": "Передай докір за невиконану минулу дію; почни зі звертання до співрозмовника.",
+            "accepted_target_texts": [
+                "You should have warned us about the delay.",
+                "You ought to have warned us about the delay."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You",
+                "should have",
+                "warned us",
+                "about the delay."
+            ],
+            "token_groups": [
+                "You",
+                "should have",
+                "warned us",
+                "about the delay."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "You",
+                "should",
+                "have",
+                "warned",
+                "us",
+                "about",
+                "the",
+                "delay."
+            ],
+            "options": [
+                "You",
+                "Themselves",
+                "I",
+                "He",
+                "should",
+                "shall",
+                "may",
+                "might",
+                "have",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "warned",
+                "met",
+                "called",
+                "helped",
+                "us",
+                "them",
+                "myself",
+                "yourself",
+                "about",
+                "without",
+                "into",
+                "onto",
+                "the",
+                "both",
+                "a",
+                "an",
+                "delay",
+                "noise",
+                "accident",
+                "change"
+            ],
+            "source_text_uk": "Тобі слід було попередити нас про затримку.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "Themselves",
+                    "I",
+                    "He"
+                ],
+                "a2": [
+                    "should",
+                    "shall",
+                    "may",
+                    "might"
+                ],
+                "a3": [
+                    "have",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a4": [
+                    "warned",
+                    "met",
+                    "called",
+                    "helped"
+                ],
+                "a5": [
+                    "us",
+                    "them",
+                    "myself",
+                    "yourself"
+                ],
+                "a6": [
+                    "about",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a7": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a8": [
+                    "delay",
+                    "noise",
+                    "accident",
+                    "change"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "modal_perfect",
+                "a3": "modal_perfect",
+                "a4": "past_verb_object",
+                "a5": "past_verb_object",
+                "a6": "about_phrase",
+                "a7": "about_phrase",
+                "a8": "about_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "stq-modals-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Вона не могла б відновити доступ без резервного коду.",
+            "level": "C1",
+            "type": 4,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "Вона не могла б відновити доступ без резервного коду.",
+            "target_text": "She could not have regained access without the backup code.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Почни з неї; передай неможливість відновлення доступу без коду в тій минулій ситуації.",
+                    "options": [
+                        "She",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "could",
+                    "verb_hint": "Почни з неї; передай неможливість відновлення доступу без коду в тій минулій ситуації.",
+                    "options": [
+                        "could",
+                        "can't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Почни з неї; передай неможливість відновлення доступу без коду в тій минулій ситуації.",
+                    "options": [
+                        "not",
+                        "usually",
+                        "rarely",
+                        "only"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Почни з неї; передай неможливість відновлення доступу без коду в тій минулій ситуації.",
+                    "options": [
+                        "have",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "regained",
+                    "verb_hint": "Почни з неї; передай неможливість відновлення доступу без коду в тій минулій ситуації.",
+                    "options": [
+                        "regained",
+                        "reached",
+                        "retrieved",
+                        "secured"
+                    ]
+                },
+                "a6": {
+                    "answer": "access",
+                    "verb_hint": "Почни з неї; передай неможливість відновлення доступу без коду в тій минулій ситуації.",
+                    "options": [
+                        "access",
+                        "data",
+                        "entry",
+                        "control"
+                    ]
+                },
+                "a7": {
+                    "answer": "without",
+                    "verb_hint": "Почни з неї; передай неможливість відновлення доступу без коду в тій минулій ситуації.",
+                    "options": [
+                        "without",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з неї; передай неможливість відновлення доступу без коду в тій минулій ситуації.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a9": {
+                    "answer": "backup",
+                    "verb_hint": "Почни з неї; передай неможливість відновлення доступу без коду в тій минулій ситуації.",
+                    "options": [
+                        "backup",
+                        "master",
+                        "security",
+                        "valid"
+                    ]
+                },
+                "a10": {
+                    "answer": "code.",
+                    "verb_hint": "Почни з неї; передай неможливість відновлення доступу без коду в тій минулій ситуації.",
+                    "options": [
+                        "code",
+                        "password",
+                        "pass",
+                        "map"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з неї; передай неможливість відновлення доступу без коду в тій минулій ситуації.",
+            "accepted_target_texts": [
+                "She could not have regained access without the backup code.",
+                "She couldn't have regained access without the backup code.",
+                "She could not have recovered access without the backup code.",
+                "She couldn't have recovered access without the backup code.",
+                "She could not have restored access without the backup code.",
+                "She couldn't have restored access without the backup code."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "recovered",
+                    "restored"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "recovered",
+                    "restored"
+                ]
+            },
+            "reorder_groups": [
+                "She",
+                "could not have",
+                "regained access",
+                "without",
+                "the backup code."
+            ],
+            "token_groups": [
+                "She",
+                "could not have",
+                "regained access",
+                "without",
+                "the backup code."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "She",
+                "could",
+                "not",
+                "have",
+                "regained",
+                "access",
+                "without",
+                "the",
+                "backup",
+                "code."
+            ],
+            "options": [
+                "She",
+                "It",
+                "We",
+                "They",
+                "could",
+                "can't",
+                "won't",
+                "wouldn't",
+                "not",
+                "usually",
+                "rarely",
+                "only",
+                "have",
+                "had",
+                "haven't",
+                "hasn't",
+                "regained",
+                "reached",
+                "retrieved",
+                "secured",
+                "access",
+                "data",
+                "entry",
+                "control",
+                "without",
+                "through",
+                "across",
+                "between",
+                "the",
+                "those",
+                "each",
+                "every",
+                "backup",
+                "master",
+                "security",
+                "valid",
+                "code",
+                "password",
+                "pass",
+                "map"
+            ],
+            "source_text_uk": "Вона не могла б відновити доступ без резервного коду.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "could",
+                    "can't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a3": [
+                    "not",
+                    "usually",
+                    "rarely",
+                    "only"
+                ],
+                "a4": [
+                    "have",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a5": [
+                    "regained",
+                    "reached",
+                    "retrieved",
+                    "secured"
+                ],
+                "a6": [
+                    "access",
+                    "data",
+                    "entry",
+                    "control"
+                ],
+                "a7": [
+                    "without",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a8": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a9": [
+                    "backup",
+                    "master",
+                    "security",
+                    "valid"
+                ],
+                "a10": [
+                    "code",
+                    "password",
+                    "pass",
+                    "map"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "negative_perfect",
+                "a3": "negative_perfect",
+                "a4": "negative_perfect",
+                "a5": "achievement",
+                "a6": "achievement",
+                "a7": "preposition",
+                "a8": "key_object",
+                "a9": "key_object",
+                "a10": "key_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "stq-modals-c2-c01",
+            "author_id": "C2-c01",
+            "question": "До того моменту комісія цілком могла вже дійти одностайного висновку.",
+            "level": "C2",
+            "type": 4,
+            "source": "sentence_transformations_quality_modals",
+            "translation_uk": "До того моменту комісія цілком могла вже дійти одностайного висновку.",
+            "target_text": "By then, the panel may well have reached a unanimous verdict.",
+            "markers": {
+                "a1": {
+                    "answer": "By",
+                    "verb_hint": "Почни з часової межі; збережи обережне припущення про попередній завершений результат, а не певність.",
+                    "options": [
+                        "By",
+                        "Of",
+                        "In",
+                        "On"
+                    ]
+                },
+                "a2": {
+                    "answer": "then,",
+                    "verb_hint": "Почни з часової межі; збережи обережне припущення про попередній завершений результат, а не певність.",
+                    "options": [
+                        "then",
+                        "said",
+                        "met",
+                        "went"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з часової межі; збережи обережне припущення про попередній завершений результат, а не певність.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a4": {
+                    "answer": "panel",
+                    "verb_hint": "Почни з часової межі; збережи обережне припущення про попередній завершений результат, а не певність.",
+                    "options": [
+                        "panel",
+                        "jury",
+                        "committee",
+                        "team"
+                    ]
+                },
+                "a5": {
+                    "answer": "may",
+                    "verb_hint": "Почни з часової межі; збережи обережне припущення про попередній завершений результат, а не певність.",
+                    "options": [
+                        "may",
+                        "can",
+                        "will",
+                        "would"
+                    ]
+                },
+                "a6": {
+                    "answer": "well",
+                    "verb_hint": "Почни з часової межі; збережи обережне припущення про попередній завершений результат, а не певність.",
+                    "options": [
+                        "well",
+                        "key",
+                        "room",
+                        "map"
+                    ]
+                },
+                "a7": {
+                    "answer": "have",
+                    "verb_hint": "Почни з часової межі; збережи обережне припущення про попередній завершений результат, а не певність.",
+                    "options": [
+                        "have",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "reached",
+                    "verb_hint": "Почни з часової межі; збережи обережне припущення про попередній завершений результат, а не певність.",
+                    "options": [
+                        "reached",
+                        "issued",
+                        "recorded",
+                        "announced"
+                    ]
+                },
+                "a9": {
+                    "answer": "a",
+                    "verb_hint": "Почни з часової межі; збережи обережне припущення про попередній завершений результат, а не певність.",
+                    "options": [
+                        "a",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a10": {
+                    "answer": "unanimous",
+                    "verb_hint": "Почни з часової межі; збережи обережне припущення про попередній завершений результат, а не певність.",
+                    "options": [
+                        "unanimous",
+                        "final",
+                        "simple",
+                        "happy"
+                    ]
+                },
+                "a11": {
+                    "answer": "verdict.",
+                    "verb_hint": "Почни з часової межі; збережи обережне припущення про попередній завершений результат, а не певність.",
+                    "options": [
+                        "verdict",
+                        "agreement",
+                        "conclusion",
+                        "resolution"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з часової межі; збережи обережне припущення про попередній завершений результат, а не певність.",
+            "accepted_target_texts": [
+                "By then, the panel may well have reached a unanimous verdict.",
+                "By then, the panel might well have reached a unanimous verdict.",
+                "By then, the panel could already have reached a unanimous verdict.",
+                "By then, the panel may already have reached a unanimous verdict."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "might",
+                    "could"
+                ],
+                "a6": [
+                    "already"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "might",
+                    "could"
+                ],
+                "a6": [
+                    "already"
+                ]
+            },
+            "reorder_groups": [
+                "By then,",
+                "the panel",
+                "may well have",
+                "reached",
+                "a unanimous verdict."
+            ],
+            "token_groups": [
+                "By then,",
+                "the panel",
+                "may well have",
+                "reached",
+                "a unanimous verdict."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "By",
+                "then,",
+                "the",
+                "panel",
+                "may",
+                "well",
+                "have",
+                "reached",
+                "a",
+                "unanimous",
+                "verdict."
+            ],
+            "options": [
+                "By",
+                "Of",
+                "In",
+                "On",
+                "then",
+                "said",
+                "met",
+                "went",
+                "the",
+                "no",
+                "another",
+                "either",
+                "panel",
+                "jury",
+                "committee",
+                "team",
+                "may",
+                "can",
+                "will",
+                "would",
+                "well",
+                "key",
+                "room",
+                "map",
+                "have",
+                "don't",
+                "doesn't",
+                "didn't",
+                "reached",
+                "issued",
+                "recorded",
+                "announced",
+                "a",
+                "that",
+                "these",
+                "those",
+                "unanimous",
+                "final",
+                "simple",
+                "happy",
+                "verdict",
+                "agreement",
+                "conclusion",
+                "resolution"
+            ],
+            "source_text_uk": "До того моменту комісія цілком могла вже дійти одностайного висновку.",
+            "options_by_marker": {
+                "a1": [
+                    "By",
+                    "Of",
+                    "In",
+                    "On"
+                ],
+                "a2": [
+                    "then",
+                    "said",
+                    "met",
+                    "went"
+                ],
+                "a3": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a4": [
+                    "panel",
+                    "jury",
+                    "committee",
+                    "team"
+                ],
+                "a5": [
+                    "may",
+                    "can",
+                    "will",
+                    "would"
+                ],
+                "a6": [
+                    "well",
+                    "key",
+                    "room",
+                    "map"
+                ],
+                "a7": [
+                    "have",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a8": [
+                    "reached",
+                    "issued",
+                    "recorded",
+                    "announced"
+                ],
+                "a9": [
+                    "a",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a10": [
+                    "unanimous",
+                    "final",
+                    "simple",
+                    "happy"
+                ],
+                "a11": [
+                    "verdict",
+                    "agreement",
+                    "conclusion",
+                    "resolution"
+                ]
+            },
+            "slot_roles": {
+                "a1": "deadline",
+                "a2": "deadline",
+                "a3": "institution",
+                "a4": "institution",
+                "a5": "tentative_perfect",
+                "a6": "tentative_perfect",
+                "a7": "tentative_perfect",
+                "a8": "participle",
+                "a9": "outcome",
+                "a10": "outcome",
+                "a11": "outcome"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

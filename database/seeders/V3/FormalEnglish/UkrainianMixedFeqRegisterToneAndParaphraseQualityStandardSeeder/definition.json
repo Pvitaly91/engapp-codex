@@ -1,0 +1,708 @@
+{
+    "schema_version": 1,
+    "quality_revision": "feq-v1",
+    "compiled_from": {
+        "path": "docs/content/formal-english-quality/register-tone-and-paraphrase.v1.json",
+        "sha256": "59bbb0c57605ca5547d5f4f2e8fd5eaa967457e4a2f0ff5cef2694ae9c1c2860"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\FormalEnglish\\UkrainianMixedFeqRegisterToneAndParaphraseQualityStandardSeeder",
+        "uuid_namespace": "formal-english-quality-register-tone-and-paraphrase-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Formal English"
+    },
+    "sources": {
+        "formal_english_quality_register_tone_and_paraphrase": {
+            "name": "Formal English Quality: Register, Tone and Paraphrase"
+        }
+    },
+    "tags": {
+        "register_tone_and_paraphrase": {
+            "name": "register tone and paraphrase",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "formal_tone": {
+            "name": "formal tone",
+            "category": "grammar"
+        },
+        "neutral_paraphrase": {
+            "name": "neutral paraphrase",
+            "category": "grammar"
+        },
+        "avoid_slang": {
+            "name": "avoid slang",
+            "category": "grammar"
+        },
+        "softening_claims": {
+            "name": "softening claims",
+            "category": "grammar"
+        },
+        "precise_academic_verbs": {
+            "name": "precise academic verbs",
+            "category": "grammar"
+        },
+        "preserve_meaning": {
+            "name": "preserve meaning",
+            "category": "grammar"
+        },
+        "register_transformation": {
+            "name": "register transformation",
+            "category": "grammar"
+        },
+        "concise_reformulation": {
+            "name": "concise reformulation",
+            "category": "grammar"
+        },
+        "avoid_over_formality": {
+            "name": "avoid over formality",
+            "category": "grammar"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "grammar"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "feq-ton-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Please {a1} the door when you leave the reading room.",
+            "level": "A1",
+            "type": 0,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Будь ласка, зачини двері, коли виходитимеш із читальної зали.",
+            "target_text": "Please close the door when you leave the reading room.",
+            "markers": {
+                "a1": {
+                    "answer": "close",
+                    "options": [
+                        "close",
+                        "closes",
+                        "closed"
+                    ],
+                    "verb_hint": "Ввічливо попроси зачинити двері; приймаються два звичайні дієслова."
+                }
+            },
+            "verb_hint": "Ввічливо попроси зачинити двері; приймаються два звичайні дієслова.",
+            "accepted_target_texts": [
+                "Please close the door when you leave the reading room.",
+                "Please shut the door when you leave the reading room."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "shut"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "shut"
+                ]
+            },
+            "reorder_groups": [
+                "Please close",
+                "the door",
+                "when you leave",
+                "the reading room."
+            ],
+            "token_groups": [
+                "Please close",
+                "the door",
+                "when you leave",
+                "the reading room."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "feq-ton-a1-g02",
+            "author_id": "A1-g02",
+            "question": "I {a1} sorry about the wrong address.",
+            "level": "A1",
+            "type": 0,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Перепрошую за неправильну адресу.",
+            "target_text": "I am sorry about the wrong address.",
+            "markers": {
+                "a1": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ],
+                    "verb_hint": "Доповни ввічливе вибачення потрібною теперішньою формою дієслова."
+                }
+            },
+            "verb_hint": "Доповни ввічливе вибачення потрібною теперішньою формою дієслова.",
+            "accepted_target_texts": [
+                "I am sorry about the wrong address."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I am sorry",
+                "about the wrong",
+                "address."
+            ],
+            "token_groups": [
+                "I am sorry",
+                "about the wrong",
+                "address."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "feq-ton-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Could you {a1} the date on this form, please?",
+            "level": "A2",
+            "type": 0,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Чи могли б ви перевірити дату в цій формі?",
+            "target_text": "Could you check the date on this form, please?",
+            "markers": {
+                "a1": {
+                    "answer": "check",
+                    "options": [
+                        "check",
+                        "checking",
+                        "checked"
+                    ],
+                    "verb_hint": "Ввічливо попроси перевірити дату; потрібна початкова форма, приймаються два близькі дієслова."
+                }
+            },
+            "verb_hint": "Ввічливо попроси перевірити дату; потрібна початкова форма, приймаються два близькі дієслова.",
+            "accepted_target_texts": [
+                "Could you check the date on this form, please?",
+                "Could you verify the date on this form, please?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "verify"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "verify"
+                ]
+            },
+            "reorder_groups": [
+                "Could you check",
+                "the date",
+                "on this form,",
+                "please?"
+            ],
+            "token_groups": [
+                "Could you check",
+                "the date",
+                "on this form,",
+                "please?"
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "feq-ton-a2-g02",
+            "author_id": "A2-g02",
+            "question": "I am writing {a1} your request for a larger locker.",
+            "level": "A2",
+            "type": 0,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Пишу щодо вашого прохання про більшу шафку.",
+            "target_text": "I am writing about your request for a larger locker.",
+            "markers": {
+                "a1": {
+                    "answer": "about",
+                    "options": [
+                        "about",
+                        "for",
+                        "from"
+                    ],
+                    "verb_hint": "Познач тему листа одним прийменником; приймаються нейтральний і два формальні відповідники."
+                }
+            },
+            "verb_hint": "Познач тему листа одним прийменником; приймаються нейтральний і два формальні відповідники.",
+            "accepted_target_texts": [
+                "I am writing about your request for a larger locker.",
+                "I am writing regarding your request for a larger locker.",
+                "I am writing concerning your request for a larger locker."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "regarding",
+                    "concerning"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "regarding",
+                    "concerning"
+                ]
+            },
+            "reorder_groups": [
+                "I am writing",
+                "about your request",
+                "for a larger",
+                "locker."
+            ],
+            "token_groups": [
+                "I am writing",
+                "about your request",
+                "for a larger",
+                "locker."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "feq-ton-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Would you mind {a1} the corrected invoice today?",
+            "level": "B1",
+            "type": 0,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Чи не могли б ви надіслати виправлений рахунок сьогодні?",
+            "target_text": "Would you mind sending the corrected invoice today?",
+            "markers": {
+                "a1": {
+                    "answer": "sending",
+                    "options": [
+                        "sending",
+                        "send",
+                        "to send"
+                    ],
+                    "verb_hint": "Після ввічливої формули «Чи не заперечуєте» назви надсилання як дію; приймаються два природні дієслова."
+                }
+            },
+            "verb_hint": "Після ввічливої формули «Чи не заперечуєте» назви надсилання як дію; приймаються два природні дієслова.",
+            "accepted_target_texts": [
+                "Would you mind sending the corrected invoice today?",
+                "Would you mind forwarding the corrected invoice today?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "forwarding"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "forwarding"
+                ]
+            },
+            "reorder_groups": [
+                "Would you mind",
+                "sending the corrected",
+                "invoice today?"
+            ],
+            "token_groups": [
+                "Would you mind",
+                "sending the corrected",
+                "invoice today?"
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "feq-ton-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Please accept our {a1} for the duplicate invoice.",
+            "level": "B1",
+            "type": 0,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Прийміть наші вибачення за повторний рахунок.",
+            "target_text": "Please accept our apologies for the duplicate invoice.",
+            "markers": {
+                "a1": {
+                    "answer": "apologies",
+                    "options": [
+                        "apologies",
+                        "apologise",
+                        "apologetic"
+                    ],
+                    "verb_hint": "Назви вибачення іменником після присвійного означника; однина й множина тут природні."
+                }
+            },
+            "verb_hint": "Назви вибачення іменником після присвійного означника; однина й множина тут природні.",
+            "accepted_target_texts": [
+                "Please accept our apologies for the duplicate invoice.",
+                "Please accept our apology for the duplicate invoice."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "apology"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "apology"
+                ]
+            },
+            "reorder_groups": [
+                "Please accept",
+                "our apologies",
+                "for the duplicate",
+                "invoice."
+            ],
+            "token_groups": [
+                "Please accept",
+                "our apologies",
+                "for the duplicate",
+                "invoice."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "feq-ton-b2-g01",
+            "author_id": "B2-g01",
+            "question": "We would be {a1} if you could return the signed copy by Thursday.",
+            "level": "B2",
+            "type": 0,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Ми були б вдячні, якби ви повернули підписаний примірник до четверга.",
+            "target_text": "We would be grateful if you could return the signed copy by Thursday.",
+            "markers": {
+                "a1": {
+                    "answer": "grateful",
+                    "options": [
+                        "grateful",
+                        "gratefully",
+                        "gratitude"
+                    ],
+                    "verb_hint": "Доповни ввічливе прохання прикметником вдячності; приймаються два близькі відповідники."
+                }
+            },
+            "verb_hint": "Доповни ввічливе прохання прикметником вдячності; приймаються два близькі відповідники.",
+            "accepted_target_texts": [
+                "We would be grateful if you could return the signed copy by Thursday.",
+                "We would be thankful if you could return the signed copy by Thursday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "thankful"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "thankful"
+                ]
+            },
+            "reorder_groups": [
+                "We would",
+                "be grateful",
+                "if you could",
+                "return the signed",
+                "copy by Thursday."
+            ],
+            "token_groups": [
+                "We would",
+                "be grateful",
+                "if you could",
+                "return the signed",
+                "copy by Thursday."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "feq-ton-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The supplier did not merely delay the order; it {a1} the agreed specification.",
+            "level": "B2",
+            "type": 0,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Постачальник не просто затримав замовлення: він змінив узгоджену специфікацію.",
+            "target_text": "The supplier did not merely delay the order; it altered the agreed specification.",
+            "markers": {
+                "a1": {
+                    "answer": "altered",
+                    "options": [
+                        "altered",
+                        "altering",
+                        "alter"
+                    ],
+                    "verb_hint": "Передай минулу зміну специфікації без припущення про поліпшення; приймаються три природні дієслова."
+                }
+            },
+            "verb_hint": "Передай минулу зміну специфікації без припущення про поліпшення; приймаються три природні дієслова.",
+            "accepted_target_texts": [
+                "The supplier did not merely delay the order; it altered the agreed specification.",
+                "The supplier did not merely delay the order; it changed the agreed specification.",
+                "The supplier did not merely delay the order; it modified the agreed specification."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "changed",
+                    "modified"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "changed",
+                    "modified"
+                ]
+            },
+            "reorder_groups": [
+                "The supplier",
+                "did not merely",
+                "delay the order;",
+                "it altered",
+                "the agreed specification."
+            ],
+            "token_groups": [
+                "The supplier",
+                "did not merely",
+                "delay the order;",
+                "it altered",
+                "the agreed specification."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "feq-ton-c1-g01",
+            "author_id": "C1-g01",
+            "question": "We would welcome {a1} of how the figures were calculated.",
+            "level": "C1",
+            "type": 0,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Ми були б раді поясненню того, як обчислили ці показники.",
+            "target_text": "We would welcome a clarification of how the figures were calculated.",
+            "markers": {
+                "a1": {
+                    "answer": "a clarification",
+                    "options": [
+                        "a clarification",
+                        "a clarifying",
+                        "a clarified"
+                    ],
+                    "verb_hint": "Назви бажане пояснення разом із потрібним артиклем; приймаються три природні іменникові форми."
+                }
+            },
+            "verb_hint": "Назви бажане пояснення разом із потрібним артиклем; приймаються три природні іменникові форми.",
+            "accepted_target_texts": [
+                "We would welcome a clarification of how the figures were calculated.",
+                "We would welcome an explanation of how the figures were calculated.",
+                "We would welcome a description of how the figures were calculated."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "an explanation",
+                    "a description"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "an explanation",
+                    "a description"
+                ]
+            },
+            "reorder_groups": [
+                "We would welcome",
+                "a clarification",
+                "of how",
+                "the figures",
+                "were calculated."
+            ],
+            "token_groups": [
+                "We would welcome",
+                "a clarification",
+                "of how",
+                "the figures",
+                "were calculated."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "feq-ton-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The reviewer described the evidence as {a1}, not wholly unconvincing.",
+            "level": "C1",
+            "type": 0,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Рецензент зазначив, що свідчення не дають остаточного висновку, а не що вони цілком непереконливі.",
+            "target_text": "The reviewer described the evidence as inconclusive, not wholly unconvincing.",
+            "markers": {
+                "a1": {
+                    "answer": "inconclusive",
+                    "options": [
+                        "inconclusive",
+                        "conclusive",
+                        "inconclusively"
+                    ],
+                    "verb_hint": "Вкажи відсутність остаточного висновку, не заперечуючи всю переконливість; потрібен прикметник."
+                }
+            },
+            "verb_hint": "Вкажи відсутність остаточного висновку, не заперечуючи всю переконливість; потрібен прикметник.",
+            "accepted_target_texts": [
+                "The reviewer described the evidence as inconclusive, not wholly unconvincing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The reviewer",
+                "described the evidence",
+                "as inconclusive,",
+                "not wholly unconvincing."
+            ],
+            "token_groups": [
+                "The reviewer",
+                "described the evidence",
+                "as inconclusive,",
+                "not wholly unconvincing."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "feq-ton-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The response {a1} any criticism of the applicant's motives and addresses the methodology alone.",
+            "level": "C2",
+            "type": 0,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "У відповіді свідомо уникають будь-якої критики мотивів заявника й розглядають лише методологію.",
+            "target_text": "The response eschews any criticism of the applicant's motives and addresses the methodology alone.",
+            "markers": {
+                "a1": {
+                    "answer": "eschews",
+                    "options": [
+                        "eschews",
+                        "eschew",
+                        "eschewed"
+                    ],
+                    "verb_hint": "Передай свідоме уникнення критики в теперішньому часі; приймаються формальне та нейтральне дієслова."
+                }
+            },
+            "verb_hint": "Передай свідоме уникнення критики в теперішньому часі; приймаються формальне та нейтральне дієслова.",
+            "accepted_target_texts": [
+                "The response eschews any criticism of the applicant's motives and addresses the methodology alone.",
+                "The response avoids any criticism of the applicant's motives and addresses the methodology alone."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "avoids"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "avoids"
+                ]
+            },
+            "reorder_groups": [
+                "The response eschews",
+                "any criticism",
+                "of the applicant's",
+                "motives and addresses",
+                "the methodology alone."
+            ],
+            "token_groups": [
+                "The response eschews",
+                "any criticism",
+                "of the applicant's",
+                "motives and addresses",
+                "the methodology alone."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "feq-ton-c2-g02",
+            "author_id": "C2-g02",
+            "question": "{a1}, but the causal claim remains unproven.",
+            "level": "C2",
+            "type": 0,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Можливо, це й так, але причинне твердження залишається недоведеним.",
+            "target_text": "That may be so, but the causal claim remains unproven.",
+            "markers": {
+                "a1": {
+                    "answer": "That may be so",
+                    "options": [
+                        "That may be so",
+                        "That is undeniable",
+                        "That has been proved"
+                    ],
+                    "verb_hint": "Передай обмежену поступку без беззастережної згоди; приймаються три близькі чотирислівні формули."
+                }
+            },
+            "verb_hint": "Передай обмежену поступку без беззастережної згоди; приймаються три близькі чотирислівні формули.",
+            "accepted_target_texts": [
+                "That may be so, but the causal claim remains unproven.",
+                "That might be so, but the causal claim remains unproven.",
+                "That may be true, but the causal claim remains unproven."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "That might be so",
+                    "That may be true"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "That might be so",
+                    "That may be true"
+                ]
+            },
+            "reorder_groups": [
+                "That may",
+                "be so,",
+                "but the causal",
+                "claim remains unproven."
+            ],
+            "token_groups": [
+                "That may",
+                "be so,",
+                "but the causal",
+                "claim remains unproven."
+            ],
+            "quality_revision": "feq-v1"
+        }
+    ]
+}

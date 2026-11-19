@@ -1,0 +1,3959 @@
+{
+    "schema_version": 1,
+    "quality_revision": "cqq-v1",
+    "compiled_from": {
+        "path": "docs/content/conditionals-quality/had-better.v1.json",
+        "sha256": "4ab4fbd1c9ed0257b5faa9d3e3fad5e47e5715be4927f72426dabbc630767a75"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedHadBetterQualityBuilderSeeder",
+        "uuid_namespace": "conditionals-quality-had-better-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "conditionals_quality_had_better": {
+            "name": "Conditionals Quality: Had Better: Specific Advice and Consequences"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_had_better": {
+            "name": "Had better",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "had_better_base": {
+            "name": "Had Better Base",
+            "category": "topic"
+        },
+        "had_better_not": {
+            "name": "Had Better Not",
+            "category": "topic"
+        },
+        "strong_advice": {
+            "name": "Strong Advice",
+            "category": "topic"
+        },
+        "warning": {
+            "name": "Warning",
+            "category": "topic"
+        },
+        "consequence": {
+            "name": "Consequence",
+            "category": "topic"
+        },
+        "had_better_vs_should": {
+            "name": "Had Better Vs Should",
+            "category": "topic"
+        },
+        "no_to_after_had_better": {
+            "name": "No To After Had Better",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cqq-better-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Тобі краще зараз погодувати кота.",
+            "level": "A1",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Тобі краще зараз погодувати кота.",
+            "target_text": "You had better feed the cat now.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Це конкретна порада про годування, не минулий факт.",
+                    "options": [
+                        "You",
+                        "Him",
+                        "Us",
+                        "Them"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Це конкретна порада про годування, не минулий факт.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Це конкретна порада про годування, не минулий факт.",
+                    "options": [
+                        "better",
+                        "quietly",
+                        "slowly",
+                        "clearly"
+                    ]
+                },
+                "a4": {
+                    "answer": "feed",
+                    "verb_hint": "Це конкретна порада про годування, не минулий факт.",
+                    "options": [
+                        "feed",
+                        "open",
+                        "found",
+                        "brought"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Це конкретна порада про годування, не минулий факт.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a6": {
+                    "answer": "cat",
+                    "verb_hint": "Це конкретна порада про годування, не минулий факт.",
+                    "options": [
+                        "cat",
+                        "duck",
+                        "chicken",
+                        "dog"
+                    ]
+                },
+                "a7": {
+                    "answer": "now.",
+                    "verb_hint": "Це конкретна порада про годування, не минулий факт.",
+                    "options": [
+                        "now",
+                        "still",
+                        "then",
+                        "here"
+                    ]
+                }
+            },
+            "verb_hint": "Це конкретна порада про годування, не минулий факт.",
+            "accepted_target_texts": [
+                "You had better feed the cat now."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You had better",
+                "feed",
+                "the cat",
+                "now."
+            ],
+            "token_groups": [
+                "You had better",
+                "feed",
+                "the cat",
+                "now."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "You",
+                "had",
+                "better",
+                "feed",
+                "the",
+                "cat",
+                "now."
+            ],
+            "options": [
+                "You",
+                "Him",
+                "Us",
+                "Them",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "better",
+                "quietly",
+                "slowly",
+                "clearly",
+                "feed",
+                "open",
+                "found",
+                "brought",
+                "the",
+                "these",
+                "those",
+                "each",
+                "cat",
+                "duck",
+                "chicken",
+                "dog",
+                "now",
+                "still",
+                "then",
+                "here"
+            ],
+            "source_text_uk": "Тобі краще зараз погодувати кота.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "Him",
+                    "Us",
+                    "Them"
+                ],
+                "a2": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a3": [
+                    "better",
+                    "quietly",
+                    "slowly",
+                    "clearly"
+                ],
+                "a4": [
+                    "feed",
+                    "open",
+                    "found",
+                    "brought"
+                ],
+                "a5": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a6": [
+                    "cat",
+                    "duck",
+                    "chicken",
+                    "dog"
+                ],
+                "a7": [
+                    "now",
+                    "still",
+                    "then",
+                    "here"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "verb",
+                "a5": "determiner",
+                "a6": "noun",
+                "a7": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "cqq-better-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Мені краще не впустити цю склянку.",
+            "level": "A1",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Мені краще не впустити цю склянку.",
+            "target_text": "I had better not drop this glass.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з мовця; заперечення постав безпосередньо перед дією.",
+                    "options": [
+                        "I",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з мовця; заперечення постав безпосередньо перед дією.",
+                    "options": [
+                        "had",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Почни з мовця; заперечення постав безпосередньо перед дією.",
+                    "options": [
+                        "better",
+                        "still",
+                        "before",
+                        "tomorrow"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Почни з мовця; заперечення постав безпосередньо перед дією.",
+                    "options": [
+                        "not",
+                        "rarely",
+                        "only",
+                        "even"
+                    ]
+                },
+                "a5": {
+                    "answer": "drop",
+                    "verb_hint": "Почни з мовця; заперечення постав безпосередньо перед дією.",
+                    "options": [
+                        "drop",
+                        "reflect",
+                        "resolve",
+                        "propose"
+                    ]
+                },
+                "a6": {
+                    "answer": "this",
+                    "verb_hint": "Почни з мовця; заперечення постав безпосередньо перед дією.",
+                    "options": [
+                        "this",
+                        "a",
+                        "an",
+                        "the"
+                    ]
+                },
+                "a7": {
+                    "answer": "glass.",
+                    "verb_hint": "Почни з мовця; заперечення постав безпосередньо перед дією.",
+                    "options": [
+                        "glass",
+                        "path",
+                        "cat",
+                        "window"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з мовця; заперечення постав безпосередньо перед дією.",
+            "accepted_target_texts": [
+                "I had better not drop this glass."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I had better",
+                "not drop",
+                "this glass."
+            ],
+            "token_groups": [
+                "I had better",
+                "not drop",
+                "this glass."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "had",
+                "better",
+                "not",
+                "drop",
+                "this",
+                "glass."
+            ],
+            "options": [
+                "I",
+                "It",
+                "We",
+                "They",
+                "had",
+                "hadn't",
+                "do",
+                "does",
+                "better",
+                "still",
+                "before",
+                "tomorrow",
+                "not",
+                "rarely",
+                "only",
+                "even",
+                "drop",
+                "reflect",
+                "resolve",
+                "propose",
+                "this",
+                "a",
+                "an",
+                "the",
+                "glass",
+                "path",
+                "cat",
+                "window"
+            ],
+            "source_text_uk": "Мені краще не впустити цю склянку.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "had",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a3": [
+                    "better",
+                    "still",
+                    "before",
+                    "tomorrow"
+                ],
+                "a4": [
+                    "not",
+                    "rarely",
+                    "only",
+                    "even"
+                ],
+                "a5": [
+                    "drop",
+                    "reflect",
+                    "resolve",
+                    "propose"
+                ],
+                "a6": [
+                    "this",
+                    "a",
+                    "an",
+                    "the"
+                ],
+                "a7": [
+                    "glass",
+                    "path",
+                    "cat",
+                    "window"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "negative",
+                "a5": "verb",
+                "a6": "determiner",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "cqq-better-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Нам краще піти короткою стежкою.",
+            "level": "A1",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Нам краще піти короткою стежкою.",
+            "target_text": "We had better take the short path.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з поради для нас; збережи визначену коротку стежку.",
+                    "options": [
+                        "We",
+                        "Him",
+                        "Us",
+                        "Them"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з поради для нас; збережи визначену коротку стежку.",
+                    "options": [
+                        "had",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Почни з поради для нас; збережи визначену коротку стежку.",
+                    "options": [
+                        "better",
+                        "together",
+                        "before",
+                        "tomorrow"
+                    ]
+                },
+                "a4": {
+                    "answer": "take",
+                    "verb_hint": "Почни з поради для нас; збережи визначену коротку стежку.",
+                    "options": [
+                        "take",
+                        "come",
+                        "leave",
+                        "go"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з поради для нас; збережи визначену коротку стежку.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a6": {
+                    "answer": "short",
+                    "verb_hint": "Почни з поради для нас; збережи визначену коротку стежку.",
+                    "options": [
+                        "short",
+                        "old",
+                        "clear",
+                        "unclear"
+                    ]
+                },
+                "a7": {
+                    "answer": "path.",
+                    "verb_hint": "Почни з поради для нас; збережи визначену коротку стежку.",
+                    "options": [
+                        "path",
+                        "quality",
+                        "identity",
+                        "agreement"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з поради для нас; збережи визначену коротку стежку.",
+            "accepted_target_texts": [
+                "We had better take the short path.",
+                "We had better follow the short path."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "follow"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "follow"
+                ]
+            },
+            "reorder_groups": [
+                "We had better",
+                "take",
+                "the short path."
+            ],
+            "token_groups": [
+                "We had better",
+                "take",
+                "the short path."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "had",
+                "better",
+                "take",
+                "the",
+                "short",
+                "path."
+            ],
+            "options": [
+                "We",
+                "Him",
+                "Us",
+                "Them",
+                "had",
+                "does",
+                "did",
+                "don't",
+                "better",
+                "together",
+                "before",
+                "tomorrow",
+                "take",
+                "come",
+                "leave",
+                "go",
+                "the",
+                "these",
+                "those",
+                "each",
+                "short",
+                "old",
+                "clear",
+                "unclear",
+                "path",
+                "quality",
+                "identity",
+                "agreement"
+            ],
+            "source_text_uk": "Нам краще піти короткою стежкою.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Him",
+                    "Us",
+                    "Them"
+                ],
+                "a2": [
+                    "had",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a3": [
+                    "better",
+                    "together",
+                    "before",
+                    "tomorrow"
+                ],
+                "a4": [
+                    "take",
+                    "come",
+                    "leave",
+                    "go"
+                ],
+                "a5": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a6": [
+                    "short",
+                    "old",
+                    "clear",
+                    "unclear"
+                ],
+                "a7": [
+                    "path",
+                    "quality",
+                    "identity",
+                    "agreement"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "verb",
+                "a5": "determiner",
+                "a6": "adjective",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "cqq-better-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Тобі краще спорожнити мішок для пилу.",
+            "level": "A2",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Тобі краще спорожнити мішок для пилу.",
+            "target_text": "You had better empty the dust bag.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Почни з конкретної поради; назви саме мішок для пилу.",
+                    "options": [
+                        "You",
+                        "Yourself",
+                        "Herself",
+                        "Ourselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з конкретної поради; назви саме мішок для пилу.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Почни з конкретної поради; назви саме мішок для пилу.",
+                    "options": [
+                        "better",
+                        "here",
+                        "there",
+                        "now"
+                    ]
+                },
+                "a4": {
+                    "answer": "empty",
+                    "verb_hint": "Почни з конкретної поради; назви саме мішок для пилу.",
+                    "options": [
+                        "empty",
+                        "speak",
+                        "hear",
+                        "trace"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з конкретної поради; назви саме мішок для пилу.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a6": {
+                    "answer": "dust",
+                    "verb_hint": "Почни з конкретної поради; назви саме мішок для пилу.",
+                    "options": [
+                        "dust",
+                        "quality",
+                        "identity",
+                        "agreement"
+                    ]
+                },
+                "a7": {
+                    "answer": "bag.",
+                    "verb_hint": "Почни з конкретної поради; назви саме мішок для пилу.",
+                    "options": [
+                        "bag",
+                        "delay",
+                        "error",
+                        "record"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з конкретної поради; назви саме мішок для пилу.",
+            "accepted_target_texts": [
+                "You had better empty the dust bag."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You had better",
+                "empty",
+                "the dust bag."
+            ],
+            "token_groups": [
+                "You had better",
+                "empty",
+                "the dust bag."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "You",
+                "had",
+                "better",
+                "empty",
+                "the",
+                "dust",
+                "bag."
+            ],
+            "options": [
+                "You",
+                "Yourself",
+                "Herself",
+                "Ourselves",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "better",
+                "here",
+                "there",
+                "now",
+                "empty",
+                "speak",
+                "hear",
+                "trace",
+                "the",
+                "a",
+                "an",
+                "some",
+                "dust",
+                "quality",
+                "identity",
+                "agreement",
+                "bag",
+                "delay",
+                "error",
+                "record"
+            ],
+            "source_text_uk": "Тобі краще спорожнити мішок для пилу.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "Yourself",
+                    "Herself",
+                    "Ourselves"
+                ],
+                "a2": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a3": [
+                    "better",
+                    "here",
+                    "there",
+                    "now"
+                ],
+                "a4": [
+                    "empty",
+                    "speak",
+                    "hear",
+                    "trace"
+                ],
+                "a5": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a6": [
+                    "dust",
+                    "quality",
+                    "identity",
+                    "agreement"
+                ],
+                "a7": [
+                    "bag",
+                    "delay",
+                    "error",
+                    "record"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "verb",
+                "a5": "determiner",
+                "a6": "noun",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "cqq-better-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Нам краще не паркуватися біля гідранта.",
+            "level": "A2",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Нам краще не паркуватися біля гідранта.",
+            "target_text": "We had better not park beside the hydrant.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Збережи заперечення та місце, де не радять паркуватися.",
+                    "options": [
+                        "We",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Збережи заперечення та місце, де не радять паркуватися.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Збережи заперечення та місце, де не радять паркуватися.",
+                    "options": [
+                        "better",
+                        "before",
+                        "tomorrow",
+                        "now"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Збережи заперечення та місце, де не радять паркуватися.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a5": {
+                    "answer": "park",
+                    "verb_hint": "Збережи заперечення та місце, де не радять паркуватися.",
+                    "options": [
+                        "park",
+                        "touch",
+                        "reflect",
+                        "resolve"
+                    ]
+                },
+                "a6": {
+                    "answer": "beside",
+                    "verb_hint": "Збережи заперечення та місце, де не радять паркуватися.",
+                    "options": [
+                        "beside",
+                        "with",
+                        "to",
+                        "of"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Збережи заперечення та місце, де не радять паркуватися.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a8": {
+                    "answer": "hydrant.",
+                    "verb_hint": "Збережи заперечення та місце, де не радять паркуватися.",
+                    "options": [
+                        "hydrant",
+                        "permission",
+                        "consent",
+                        "estimate"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи заперечення та місце, де не радять паркуватися.",
+            "accepted_target_texts": [
+                "We had better not park beside the hydrant."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We had better",
+                "not park",
+                "beside the hydrant."
+            ],
+            "token_groups": [
+                "We had better",
+                "not park",
+                "beside the hydrant."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "had",
+                "better",
+                "not",
+                "park",
+                "beside",
+                "the",
+                "hydrant."
+            ],
+            "options": [
+                "We",
+                "Us",
+                "Them",
+                "Myself",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "better",
+                "before",
+                "tomorrow",
+                "now",
+                "not",
+                "never",
+                "always",
+                "often",
+                "park",
+                "touch",
+                "reflect",
+                "resolve",
+                "beside",
+                "with",
+                "to",
+                "of",
+                "the",
+                "these",
+                "those",
+                "each",
+                "hydrant",
+                "permission",
+                "consent",
+                "estimate"
+            ],
+            "source_text_uk": "Нам краще не паркуватися біля гідранта.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a3": [
+                    "better",
+                    "before",
+                    "tomorrow",
+                    "now"
+                ],
+                "a4": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a5": [
+                    "park",
+                    "touch",
+                    "reflect",
+                    "resolve"
+                ],
+                "a6": [
+                    "beside",
+                    "with",
+                    "to",
+                    "of"
+                ],
+                "a7": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a8": [
+                    "hydrant",
+                    "permission",
+                    "consent",
+                    "estimate"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "negative",
+                "a5": "verb",
+                "a6": "preposition",
+                "a7": "determiner",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "cqq-better-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Мені краще зарядити батарейку дверного дзвінка.",
+            "level": "A2",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Мені краще зарядити батарейку дверного дзвінка.",
+            "target_text": "I had better charge the doorbell battery.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з мовця та назви батарейку саме дверного дзвінка.",
+                    "options": [
+                        "I",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з мовця та назви батарейку саме дверного дзвінка.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Почни з мовця та назви батарейку саме дверного дзвінка.",
+                    "options": [
+                        "better",
+                        "before",
+                        "now",
+                        "then"
+                    ]
+                },
+                "a4": {
+                    "answer": "charge",
+                    "verb_hint": "Почни з мовця та назви батарейку саме дверного дзвінка.",
+                    "options": [
+                        "charge",
+                        "resolve",
+                        "conceal",
+                        "propose"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з мовця та назви батарейку саме дверного дзвінка.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a6": {
+                    "answer": "doorbell",
+                    "verb_hint": "Почни з мовця та назви батарейку саме дверного дзвінка.",
+                    "options": [
+                        "doorbell",
+                        "record",
+                        "evidence",
+                        "argument"
+                    ]
+                },
+                "a7": {
+                    "answer": "battery.",
+                    "verb_hint": "Почни з мовця та назви батарейку саме дверного дзвінка.",
+                    "options": [
+                        "battery",
+                        "name",
+                        "window",
+                        "rice"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з мовця та назви батарейку саме дверного дзвінка.",
+            "accepted_target_texts": [
+                "I had better charge the doorbell battery.",
+                "I had better recharge the doorbell battery."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "recharge"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "recharge"
+                ]
+            },
+            "reorder_groups": [
+                "I had better",
+                "charge",
+                "the doorbell battery."
+            ],
+            "token_groups": [
+                "I had better",
+                "charge",
+                "the doorbell battery."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "had",
+                "better",
+                "charge",
+                "the",
+                "doorbell",
+                "battery."
+            ],
+            "options": [
+                "I",
+                "Me",
+                "Him",
+                "Us",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "better",
+                "before",
+                "now",
+                "then",
+                "charge",
+                "resolve",
+                "conceal",
+                "propose",
+                "the",
+                "no",
+                "another",
+                "either",
+                "doorbell",
+                "record",
+                "evidence",
+                "argument",
+                "battery",
+                "name",
+                "window",
+                "rice"
+            ],
+            "source_text_uk": "Мені краще зарядити батарейку дверного дзвінка.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a3": [
+                    "better",
+                    "before",
+                    "now",
+                    "then"
+                ],
+                "a4": [
+                    "charge",
+                    "resolve",
+                    "conceal",
+                    "propose"
+                ],
+                "a5": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a6": [
+                    "doorbell",
+                    "record",
+                    "evidence",
+                    "argument"
+                ],
+                "a7": [
+                    "battery",
+                    "name",
+                    "window",
+                    "rice"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "verb",
+                "a5": "determiner",
+                "a6": "noun",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "cqq-better-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Тобі краще сфотографувати пошкоджену валізу.",
+            "level": "B1",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Тобі краще сфотографувати пошкоджену валізу.",
+            "target_text": "You had better photograph the damaged suitcase.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Почни з конкретної поради зафіксувати пошкодження на фото.",
+                    "options": [
+                        "You",
+                        "Myself",
+                        "Yourself",
+                        "Herself"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з конкретної поради зафіксувати пошкодження на фото.",
+                    "options": [
+                        "had",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Почни з конкретної поради зафіксувати пошкодження на фото.",
+                    "options": [
+                        "better",
+                        "still",
+                        "even",
+                        "together"
+                    ]
+                },
+                "a4": {
+                    "answer": "photograph",
+                    "verb_hint": "Почни з конкретної поради зафіксувати пошкодження на фото.",
+                    "options": [
+                        "photograph",
+                        "reflect",
+                        "resolve",
+                        "conceal"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з конкретної поради зафіксувати пошкодження на фото.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a6": {
+                    "answer": "damaged",
+                    "verb_hint": "Почни з конкретної поради зафіксувати пошкодження на фото.",
+                    "options": [
+                        "damaged",
+                        "different",
+                        "same",
+                        "early"
+                    ]
+                },
+                "a7": {
+                    "answer": "suitcase.",
+                    "verb_hint": "Почни з конкретної поради зафіксувати пошкодження на фото.",
+                    "options": [
+                        "suitcase",
+                        "name",
+                        "window",
+                        "rice"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з конкретної поради зафіксувати пошкодження на фото.",
+            "accepted_target_texts": [
+                "You had better photograph the damaged suitcase."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You had better",
+                "photograph",
+                "the damaged suitcase."
+            ],
+            "token_groups": [
+                "You had better",
+                "photograph",
+                "the damaged suitcase."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "You",
+                "had",
+                "better",
+                "photograph",
+                "the",
+                "damaged",
+                "suitcase."
+            ],
+            "options": [
+                "You",
+                "Myself",
+                "Yourself",
+                "Herself",
+                "had",
+                "hadn't",
+                "do",
+                "does",
+                "better",
+                "still",
+                "even",
+                "together",
+                "photograph",
+                "reflect",
+                "resolve",
+                "conceal",
+                "the",
+                "those",
+                "each",
+                "every",
+                "damaged",
+                "different",
+                "same",
+                "early",
+                "suitcase",
+                "name",
+                "window",
+                "rice"
+            ],
+            "source_text_uk": "Тобі краще сфотографувати пошкоджену валізу.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "Myself",
+                    "Yourself",
+                    "Herself"
+                ],
+                "a2": [
+                    "had",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a3": [
+                    "better",
+                    "still",
+                    "even",
+                    "together"
+                ],
+                "a4": [
+                    "photograph",
+                    "reflect",
+                    "resolve",
+                    "conceal"
+                ],
+                "a5": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a6": [
+                    "damaged",
+                    "different",
+                    "same",
+                    "early"
+                ],
+                "a7": [
+                    "suitcase",
+                    "name",
+                    "window",
+                    "rice"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "verb",
+                "a5": "determiner",
+                "a6": "adjective",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "cqq-better-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Нам краще забронювати тихіший столик.",
+            "level": "B1",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Нам краще забронювати тихіший столик.",
+            "target_text": "We had better reserve a quieter table.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Збережи порівняльну ознаку столика; почни з поради для нас.",
+                    "options": [
+                        "We",
+                        "Herself",
+                        "Ourselves",
+                        "Themselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Збережи порівняльну ознаку столика; почни з поради для нас.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Збережи порівняльну ознаку столика; почни з поради для нас.",
+                    "options": [
+                        "better",
+                        "there",
+                        "soon",
+                        "inside"
+                    ]
+                },
+                "a4": {
+                    "answer": "reserve",
+                    "verb_hint": "Збережи порівняльну ознаку столика; почни з поради для нас.",
+                    "options": [
+                        "reserve",
+                        "photograph",
+                        "hear",
+                        "swim"
+                    ]
+                },
+                "a5": {
+                    "answer": "a",
+                    "verb_hint": "Збережи порівняльну ознаку столика; почни з поради для нас.",
+                    "options": [
+                        "a",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a6": {
+                    "answer": "quieter",
+                    "verb_hint": "Збережи порівняльну ознаку столика; почни з поради для нас.",
+                    "options": [
+                        "quieter",
+                        "theoretical",
+                        "reliable",
+                        "selective"
+                    ]
+                },
+                "a7": {
+                    "answer": "table.",
+                    "verb_hint": "Збережи порівняльну ознаку столика; почни з поради для нас.",
+                    "options": [
+                        "table",
+                        "damaged",
+                        "quiet",
+                        "hungry"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи порівняльну ознаку столика; почни з поради для нас.",
+            "accepted_target_texts": [
+                "We had better reserve a quieter table.",
+                "We had better book a quieter table."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "book"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "book"
+                ]
+            },
+            "reorder_groups": [
+                "We had better",
+                "reserve",
+                "a quieter table."
+            ],
+            "token_groups": [
+                "We had better",
+                "reserve",
+                "a quieter table."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "had",
+                "better",
+                "reserve",
+                "a",
+                "quieter",
+                "table."
+            ],
+            "options": [
+                "We",
+                "Herself",
+                "Ourselves",
+                "Themselves",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "better",
+                "there",
+                "soon",
+                "inside",
+                "reserve",
+                "photograph",
+                "hear",
+                "swim",
+                "a",
+                "any",
+                "this",
+                "that",
+                "quieter",
+                "theoretical",
+                "reliable",
+                "selective",
+                "table",
+                "damaged",
+                "quiet",
+                "hungry"
+            ],
+            "source_text_uk": "Нам краще забронювати тихіший столик.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Herself",
+                    "Ourselves",
+                    "Themselves"
+                ],
+                "a2": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a3": [
+                    "better",
+                    "there",
+                    "soon",
+                    "inside"
+                ],
+                "a4": [
+                    "reserve",
+                    "photograph",
+                    "hear",
+                    "swim"
+                ],
+                "a5": [
+                    "a",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a6": [
+                    "quieter",
+                    "theoretical",
+                    "reliable",
+                    "selective"
+                ],
+                "a7": [
+                    "table",
+                    "damaged",
+                    "quiet",
+                    "hungry"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "verb",
+                "a5": "determiner",
+                "a6": "adjective",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "cqq-better-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Їм краще не загороджувати аварійний вихід.",
+            "level": "B1",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Їм краще не загороджувати аварійний вихід.",
+            "target_text": "They had better not block the emergency exit.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Заперечення постав перед дією; збережи призначення виходу.",
+                    "options": [
+                        "They",
+                        "Yourself",
+                        "Herself",
+                        "Ourselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Заперечення постав перед дією; збережи призначення виходу.",
+                    "options": [
+                        "had",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Заперечення постав перед дією; збережи призначення виходу.",
+                    "options": [
+                        "better",
+                        "now",
+                        "then",
+                        "here"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Заперечення постав перед дією; збережи призначення виходу.",
+                    "options": [
+                        "not",
+                        "only",
+                        "even",
+                        "almost"
+                    ]
+                },
+                "a5": {
+                    "answer": "block",
+                    "verb_hint": "Заперечення постав перед дією; збережи призначення виходу.",
+                    "options": [
+                        "block",
+                        "reflect",
+                        "resolve",
+                        "conceal"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Заперечення постав перед дією; збережи призначення виходу.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a7": {
+                    "answer": "emergency",
+                    "verb_hint": "Заперечення постав перед дією; збережи призначення виходу.",
+                    "options": [
+                        "emergency",
+                        "name",
+                        "window",
+                        "bread"
+                    ]
+                },
+                "a8": {
+                    "answer": "exit.",
+                    "verb_hint": "Заперечення постав перед дією; збережи призначення виходу.",
+                    "options": [
+                        "exit",
+                        "experience",
+                        "delay",
+                        "error"
+                    ]
+                }
+            },
+            "verb_hint": "Заперечення постав перед дією; збережи призначення виходу.",
+            "accepted_target_texts": [
+                "They had better not block the emergency exit.",
+                "They had better not obstruct the emergency exit."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "obstruct"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "obstruct"
+                ]
+            },
+            "reorder_groups": [
+                "They had better",
+                "not block",
+                "the emergency exit."
+            ],
+            "token_groups": [
+                "They had better",
+                "not block",
+                "the emergency exit."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "They",
+                "had",
+                "better",
+                "not",
+                "block",
+                "the",
+                "emergency",
+                "exit."
+            ],
+            "options": [
+                "They",
+                "Yourself",
+                "Herself",
+                "Ourselves",
+                "had",
+                "did",
+                "don't",
+                "doesn't",
+                "better",
+                "now",
+                "then",
+                "here",
+                "not",
+                "only",
+                "even",
+                "almost",
+                "block",
+                "reflect",
+                "resolve",
+                "conceal",
+                "the",
+                "a",
+                "an",
+                "some",
+                "emergency",
+                "name",
+                "window",
+                "bread",
+                "exit",
+                "experience",
+                "delay",
+                "error"
+            ],
+            "source_text_uk": "Їм краще не загороджувати аварійний вихід.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "Yourself",
+                    "Herself",
+                    "Ourselves"
+                ],
+                "a2": [
+                    "had",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a3": [
+                    "better",
+                    "now",
+                    "then",
+                    "here"
+                ],
+                "a4": [
+                    "not",
+                    "only",
+                    "even",
+                    "almost"
+                ],
+                "a5": [
+                    "block",
+                    "reflect",
+                    "resolve",
+                    "conceal"
+                ],
+                "a6": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a7": [
+                    "emergency",
+                    "name",
+                    "window",
+                    "bread"
+                ],
+                "a8": [
+                    "exit",
+                    "experience",
+                    "delay",
+                    "error"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "negative",
+                "a5": "verb",
+                "a6": "determiner",
+                "a7": "noun",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "cqq-better-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Нам краще перевірити переглянуту специфікацію.",
+            "level": "B2",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Нам краще перевірити переглянуту специфікацію.",
+            "target_text": "We had better verify the revised specification.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з конкретної поради; збережи означення документа.",
+                    "options": [
+                        "We",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з конкретної поради; збережи означення документа.",
+                    "options": [
+                        "had",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Почни з конкретної поради; збережи означення документа.",
+                    "options": [
+                        "better",
+                        "slowly",
+                        "clearly",
+                        "still"
+                    ]
+                },
+                "a4": {
+                    "answer": "verify",
+                    "verb_hint": "Почни з конкретної поради; збережи означення документа.",
+                    "options": [
+                        "verify",
+                        "touch",
+                        "reflect",
+                        "resolve"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з конкретної поради; збережи означення документа.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a6": {
+                    "answer": "revised",
+                    "verb_hint": "Почни з конкретної поради; збережи означення документа.",
+                    "options": [
+                        "revised",
+                        "new",
+                        "old",
+                        "clear"
+                    ]
+                },
+                "a7": {
+                    "answer": "specification.",
+                    "verb_hint": "Почни з конкретної поради; збережи означення документа.",
+                    "options": [
+                        "specification",
+                        "window",
+                        "rice",
+                        "bread"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з конкретної поради; збережи означення документа.",
+            "accepted_target_texts": [
+                "We had better verify the revised specification.",
+                "We had better check the revised specification."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "check"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "check"
+                ]
+            },
+            "reorder_groups": [
+                "We had better",
+                "verify",
+                "the revised specification."
+            ],
+            "token_groups": [
+                "We had better",
+                "verify",
+                "the revised specification."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "had",
+                "better",
+                "verify",
+                "the",
+                "revised",
+                "specification."
+            ],
+            "options": [
+                "We",
+                "Me",
+                "Him",
+                "Us",
+                "had",
+                "hadn't",
+                "do",
+                "does",
+                "better",
+                "slowly",
+                "clearly",
+                "still",
+                "verify",
+                "touch",
+                "reflect",
+                "resolve",
+                "the",
+                "that",
+                "these",
+                "those",
+                "revised",
+                "new",
+                "old",
+                "clear",
+                "specification",
+                "window",
+                "rice",
+                "bread"
+            ],
+            "source_text_uk": "Нам краще перевірити переглянуту специфікацію.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "had",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a3": [
+                    "better",
+                    "slowly",
+                    "clearly",
+                    "still"
+                ],
+                "a4": [
+                    "verify",
+                    "touch",
+                    "reflect",
+                    "resolve"
+                ],
+                "a5": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a6": [
+                    "revised",
+                    "new",
+                    "old",
+                    "clear"
+                ],
+                "a7": [
+                    "specification",
+                    "window",
+                    "rice",
+                    "bread"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "verb",
+                "a5": "determiner",
+                "a6": "adjective",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "cqq-better-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Тобі краще не пропускати невирішеного заперечення.",
+            "level": "B2",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Тобі краще не пропускати невирішеного заперечення.",
+            "target_text": "You had better not omit the unresolved objection.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Збережи заперечення перед дією та стан заперечення в кінці.",
+                    "options": [
+                        "You",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Збережи заперечення перед дією та стан заперечення в кінці.",
+                    "options": [
+                        "had",
+                        "has",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Збережи заперечення перед дією та стан заперечення в кінці.",
+                    "options": [
+                        "better",
+                        "slowly",
+                        "clearly",
+                        "still"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Збережи заперечення перед дією та стан заперечення в кінці.",
+                    "options": [
+                        "not",
+                        "even",
+                        "almost",
+                        "never"
+                    ]
+                },
+                "a5": {
+                    "answer": "omit",
+                    "verb_hint": "Збережи заперечення перед дією та стан заперечення в кінці.",
+                    "options": [
+                        "omit",
+                        "enter",
+                        "speak",
+                        "hear"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Збережи заперечення перед дією та стан заперечення в кінці.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a7": {
+                    "answer": "unresolved",
+                    "verb_hint": "Збережи заперечення перед дією та стан заперечення в кінці.",
+                    "options": [
+                        "unresolved",
+                        "main",
+                        "early",
+                        "late"
+                    ]
+                },
+                "a8": {
+                    "answer": "objection.",
+                    "verb_hint": "Збережи заперечення перед дією та стан заперечення в кінці.",
+                    "options": [
+                        "objection",
+                        "record",
+                        "evidence",
+                        "argument"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи заперечення перед дією та стан заперечення в кінці.",
+            "accepted_target_texts": [
+                "You had better not omit the unresolved objection.",
+                "You had better not leave out the unresolved objection."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You had better",
+                "not omit",
+                "the unresolved objection."
+            ],
+            "token_groups": [
+                "You had better",
+                "not omit",
+                "the unresolved objection."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "You",
+                "had",
+                "better",
+                "not",
+                "omit",
+                "the",
+                "unresolved",
+                "objection."
+            ],
+            "options": [
+                "You",
+                "He",
+                "She",
+                "It",
+                "had",
+                "has",
+                "haven't",
+                "hasn't",
+                "better",
+                "slowly",
+                "clearly",
+                "still",
+                "not",
+                "even",
+                "almost",
+                "never",
+                "omit",
+                "enter",
+                "speak",
+                "hear",
+                "the",
+                "every",
+                "no",
+                "another",
+                "unresolved",
+                "main",
+                "early",
+                "late",
+                "objection",
+                "record",
+                "evidence",
+                "argument"
+            ],
+            "source_text_uk": "Тобі краще не пропускати невирішеного заперечення.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "had",
+                    "has",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a3": [
+                    "better",
+                    "slowly",
+                    "clearly",
+                    "still"
+                ],
+                "a4": [
+                    "not",
+                    "even",
+                    "almost",
+                    "never"
+                ],
+                "a5": [
+                    "omit",
+                    "enter",
+                    "speak",
+                    "hear"
+                ],
+                "a6": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a7": [
+                    "unresolved",
+                    "main",
+                    "early",
+                    "late"
+                ],
+                "a8": [
+                    "objection",
+                    "record",
+                    "evidence",
+                    "argument"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "negative",
+                "a5": "verb",
+                "a6": "determiner",
+                "a7": "adjective",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "cqq-better-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Голові краще пояснити переглянутий кінцевий строк.",
+            "level": "B2",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Голові краще пояснити переглянутий кінцевий строк.",
+            "target_text": "The chair had better explain the revised deadline.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з голови засідання; передай конкретну пораду пояснити зміну.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "chair",
+                    "verb_hint": "Почни з голови засідання; передай конкретну пораду пояснити зміну.",
+                    "options": [
+                        "chair",
+                        "argument",
+                        "claim",
+                        "permission"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Почни з голови засідання; передай конкретну пораду пояснити зміну.",
+                    "options": [
+                        "had",
+                        "has",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "better",
+                    "verb_hint": "Почни з голови засідання; передай конкретну пораду пояснити зміну.",
+                    "options": [
+                        "better",
+                        "then",
+                        "here",
+                        "there"
+                    ]
+                },
+                "a5": {
+                    "answer": "explain",
+                    "verb_hint": "Почни з голови засідання; передай конкретну пораду пояснити зміну.",
+                    "options": [
+                        "explain",
+                        "hear",
+                        "trace",
+                        "reduce"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з голови засідання; передай конкретну пораду пояснити зміну.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a7": {
+                    "answer": "revised",
+                    "verb_hint": "Почни з голови засідання; передай конкретну пораду пояснити зміну.",
+                    "options": [
+                        "revised",
+                        "final",
+                        "slight",
+                        "complete"
+                    ]
+                },
+                "a8": {
+                    "answer": "deadline.",
+                    "verb_hint": "Почни з голови засідання; передай конкретну пораду пояснити зміну.",
+                    "options": [
+                        "deadline",
+                        "name",
+                        "window",
+                        "rice"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з голови засідання; передай конкретну пораду пояснити зміну.",
+            "accepted_target_texts": [
+                "The chair had better explain the revised deadline.",
+                "The chair had better clarify the revised deadline."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "clarify"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "clarify"
+                ]
+            },
+            "reorder_groups": [
+                "The chair",
+                "had better",
+                "explain",
+                "the revised deadline."
+            ],
+            "token_groups": [
+                "The chair",
+                "had better",
+                "explain",
+                "the revised deadline."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "The",
+                "chair",
+                "had",
+                "better",
+                "explain",
+                "the",
+                "revised",
+                "deadline."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "chair",
+                "argument",
+                "claim",
+                "permission",
+                "had",
+                "has",
+                "haven't",
+                "hasn't",
+                "better",
+                "then",
+                "here",
+                "there",
+                "explain",
+                "hear",
+                "trace",
+                "reduce",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "revised",
+                "final",
+                "slight",
+                "complete",
+                "deadline",
+                "name",
+                "window",
+                "rice"
+            ],
+            "source_text_uk": "Голові краще пояснити переглянутий кінцевий строк.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "chair",
+                    "argument",
+                    "claim",
+                    "permission"
+                ],
+                "a3": [
+                    "had",
+                    "has",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a4": [
+                    "better",
+                    "then",
+                    "here",
+                    "there"
+                ],
+                "a5": [
+                    "explain",
+                    "hear",
+                    "trace",
+                    "reduce"
+                ],
+                "a6": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a7": [
+                    "revised",
+                    "final",
+                    "slight",
+                    "complete"
+                ],
+                "a8": [
+                    "deadline",
+                    "name",
+                    "window",
+                    "rice"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "auxiliary",
+                "a4": "adverb",
+                "a5": "verb",
+                "a6": "determiner",
+                "a7": "adjective",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "cqq-better-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Тобі краще відрізняти пропуск від приховування.",
+            "level": "C1",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Тобі краще відрізняти пропуск від приховування.",
+            "target_text": "You had better distinguish omission from concealment.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Почни з конкретної поради; збережи порядок двох понять.",
+                    "options": [
+                        "You",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з конкретної поради; збережи порядок двох понять.",
+                    "options": [
+                        "had",
+                        "has",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Почни з конкретної поради; збережи порядок двох понять.",
+                    "options": [
+                        "better",
+                        "here",
+                        "there",
+                        "soon"
+                    ]
+                },
+                "a4": {
+                    "answer": "distinguish",
+                    "verb_hint": "Почни з конкретної поради; збережи порядок двох понять.",
+                    "options": [
+                        "distinguish",
+                        "hear",
+                        "trace",
+                        "reduce"
+                    ]
+                },
+                "a5": {
+                    "answer": "omission",
+                    "verb_hint": "Почни з конкретної поради; збережи порядок двох понять.",
+                    "options": [
+                        "omission",
+                        "concession",
+                        "name",
+                        "window"
+                    ]
+                },
+                "a6": {
+                    "answer": "from",
+                    "verb_hint": "Почни з конкретної поради; збережи порядок двох понять.",
+                    "options": [
+                        "from",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a7": {
+                    "answer": "concealment.",
+                    "verb_hint": "Почни з конкретної поради; збережи порядок двох понять.",
+                    "options": [
+                        "concealment",
+                        "rice",
+                        "bread",
+                        "delay"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з конкретної поради; збережи порядок двох понять.",
+            "accepted_target_texts": [
+                "You had better distinguish omission from concealment.",
+                "You had better differentiate omission from concealment."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "differentiate"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "differentiate"
+                ]
+            },
+            "reorder_groups": [
+                "You had better",
+                "distinguish",
+                "omission from concealment."
+            ],
+            "token_groups": [
+                "You had better",
+                "distinguish",
+                "omission from concealment."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "You",
+                "had",
+                "better",
+                "distinguish",
+                "omission",
+                "from",
+                "concealment."
+            ],
+            "options": [
+                "You",
+                "Me",
+                "Him",
+                "Us",
+                "had",
+                "has",
+                "haven't",
+                "hasn't",
+                "better",
+                "here",
+                "there",
+                "soon",
+                "distinguish",
+                "hear",
+                "trace",
+                "reduce",
+                "omission",
+                "concession",
+                "name",
+                "window",
+                "from",
+                "over",
+                "under",
+                "through",
+                "concealment",
+                "rice",
+                "bread",
+                "delay"
+            ],
+            "source_text_uk": "Тобі краще відрізняти пропуск від приховування.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "had",
+                    "has",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a3": [
+                    "better",
+                    "here",
+                    "there",
+                    "soon"
+                ],
+                "a4": [
+                    "distinguish",
+                    "hear",
+                    "trace",
+                    "reduce"
+                ],
+                "a5": [
+                    "omission",
+                    "concession",
+                    "name",
+                    "window"
+                ],
+                "a6": [
+                    "from",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a7": [
+                    "concealment",
+                    "rice",
+                    "bread",
+                    "delay"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "verb",
+                "a5": "noun",
+                "a6": "preposition",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "cqq-better-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Нам краще не перебільшувати межі мандата.",
+            "level": "C1",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Нам краще не перебільшувати межі мандата.",
+            "target_text": "We had better not overstate the mandate's scope.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Збережи заперечення та присвійну форму перед назвою меж.",
+                    "options": [
+                        "We",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Збережи заперечення та присвійну форму перед назвою меж.",
+                    "options": [
+                        "had",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Збережи заперечення та присвійну форму перед назвою меж.",
+                    "options": [
+                        "better",
+                        "here",
+                        "there",
+                        "soon"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Збережи заперечення та присвійну форму перед назвою меж.",
+                    "options": [
+                        "not",
+                        "just",
+                        "also",
+                        "usually"
+                    ]
+                },
+                "a5": {
+                    "answer": "overstate",
+                    "verb_hint": "Збережи заперечення та присвійну форму перед назвою меж.",
+                    "options": [
+                        "overstate",
+                        "distinguish",
+                        "rule",
+                        "swim"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Збережи заперечення та присвійну форму перед назвою меж.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a7": {
+                    "answer": "mandate's",
+                    "verb_hint": "Збережи заперечення та присвійну форму перед назвою меж.",
+                    "options": [
+                        "mandate's",
+                        "negotiators",
+                        "boxes",
+                        "chairs"
+                    ]
+                },
+                "a8": {
+                    "answer": "scope.",
+                    "verb_hint": "Збережи заперечення та присвійну форму перед назвою меж.",
+                    "options": [
+                        "scope",
+                        "error",
+                        "record",
+                        "evidence"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи заперечення та присвійну форму перед назвою меж.",
+            "accepted_target_texts": [
+                "We had better not overstate the mandate's scope.",
+                "We had better not exaggerate the mandate's scope."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "exaggerate"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "exaggerate"
+                ]
+            },
+            "reorder_groups": [
+                "We had better",
+                "not overstate",
+                "the mandate's scope."
+            ],
+            "token_groups": [
+                "We had better",
+                "not overstate",
+                "the mandate's scope."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "had",
+                "better",
+                "not",
+                "overstate",
+                "the",
+                "mandate's",
+                "scope."
+            ],
+            "options": [
+                "We",
+                "Us",
+                "Them",
+                "Myself",
+                "had",
+                "did",
+                "don't",
+                "doesn't",
+                "better",
+                "here",
+                "there",
+                "soon",
+                "not",
+                "just",
+                "also",
+                "usually",
+                "overstate",
+                "distinguish",
+                "rule",
+                "swim",
+                "the",
+                "every",
+                "no",
+                "another",
+                "mandate's",
+                "negotiators",
+                "boxes",
+                "chairs",
+                "scope",
+                "error",
+                "record",
+                "evidence"
+            ],
+            "source_text_uk": "Нам краще не перебільшувати межі мандата.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "had",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a3": [
+                    "better",
+                    "here",
+                    "there",
+                    "soon"
+                ],
+                "a4": [
+                    "not",
+                    "just",
+                    "also",
+                    "usually"
+                ],
+                "a5": [
+                    "overstate",
+                    "distinguish",
+                    "rule",
+                    "swim"
+                ],
+                "a6": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a7": [
+                    "mandate's",
+                    "negotiators",
+                    "boxes",
+                    "chairs"
+                ],
+                "a8": [
+                    "scope",
+                    "error",
+                    "record",
+                    "evidence"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "negative",
+                "a5": "verb",
+                "a6": "determiner",
+                "a7": "noun",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "cqq-better-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Переговірникам краще переглянути неявну поступку.",
+            "level": "C1",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Переговірникам краще переглянути неявну поступку.",
+            "target_text": "The negotiators had better revisit the implicit concession.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з переговірників; не перетворюй пораду на вже прийняте рішення.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "negotiators",
+                    "verb_hint": "Почни з переговірників; не перетворюй пораду на вже прийняте рішення.",
+                    "options": [
+                        "negotiators",
+                        "terms",
+                        "paintings",
+                        "criteria"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Почни з переговірників; не перетворюй пораду на вже прийняте рішення.",
+                    "options": [
+                        "had",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a4": {
+                    "answer": "better",
+                    "verb_hint": "Почни з переговірників; не перетворюй пораду на вже прийняте рішення.",
+                    "options": [
+                        "better",
+                        "then",
+                        "here",
+                        "there"
+                    ]
+                },
+                "a5": {
+                    "answer": "revisit",
+                    "verb_hint": "Почни з переговірників; не перетворюй пораду на вже прийняте рішення.",
+                    "options": [
+                        "revisit",
+                        "speak",
+                        "hear",
+                        "reduce"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з переговірників; не перетворюй пораду на вже прийняте рішення.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a7": {
+                    "answer": "implicit",
+                    "verb_hint": "Почни з переговірників; не перетворюй пораду на вже прийняте рішення.",
+                    "options": [
+                        "implicit",
+                        "theoretical",
+                        "reliable",
+                        "selective"
+                    ]
+                },
+                "a8": {
+                    "answer": "concession.",
+                    "verb_hint": "Почни з переговірників; не перетворюй пораду на вже прийняте рішення.",
+                    "options": [
+                        "concession",
+                        "estimate",
+                        "formulation",
+                        "contradiction"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з переговірників; не перетворюй пораду на вже прийняте рішення.",
+            "accepted_target_texts": [
+                "The negotiators had better revisit the implicit concession.",
+                "The negotiators had better reconsider the implicit concession."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "reconsider"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "reconsider"
+                ]
+            },
+            "reorder_groups": [
+                "The negotiators",
+                "had better",
+                "revisit",
+                "the implicit concession."
+            ],
+            "token_groups": [
+                "The negotiators",
+                "had better",
+                "revisit",
+                "the implicit concession."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "The",
+                "negotiators",
+                "had",
+                "better",
+                "revisit",
+                "the",
+                "implicit",
+                "concession."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "negotiators",
+                "terms",
+                "paintings",
+                "criteria",
+                "had",
+                "hasn't",
+                "hadn't",
+                "do",
+                "better",
+                "then",
+                "here",
+                "there",
+                "revisit",
+                "speak",
+                "hear",
+                "reduce",
+                "the",
+                "an",
+                "some",
+                "any",
+                "implicit",
+                "theoretical",
+                "reliable",
+                "selective",
+                "concession",
+                "estimate",
+                "formulation",
+                "contradiction"
+            ],
+            "source_text_uk": "Переговірникам краще переглянути неявну поступку.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "negotiators",
+                    "terms",
+                    "paintings",
+                    "criteria"
+                ],
+                "a3": [
+                    "had",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a4": [
+                    "better",
+                    "then",
+                    "here",
+                    "there"
+                ],
+                "a5": [
+                    "revisit",
+                    "speak",
+                    "hear",
+                    "reduce"
+                ],
+                "a6": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a7": [
+                    "implicit",
+                    "theoretical",
+                    "reliable",
+                    "selective"
+                ],
+                "a8": [
+                    "concession",
+                    "estimate",
+                    "formulation",
+                    "contradiction"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun_plural",
+                "a3": "auxiliary",
+                "a4": "adverb",
+                "a5": "verb",
+                "a6": "determiner",
+                "a7": "adjective",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "cqq-better-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Нам краще зберегти відмінність між обґрунтованістю та певністю.",
+            "level": "C2",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Нам краще зберегти відмінність між обґрунтованістю та певністю.",
+            "target_text": "We had better preserve the distinction between warrant and certainty.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з конкретної поради; не ототожнюй достатні підстави з певністю.",
+                    "options": [
+                        "We",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з конкретної поради; не ототожнюй достатні підстави з певністю.",
+                    "options": [
+                        "had",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Почни з конкретної поради; не ототожнюй достатні підстави з певністю.",
+                    "options": [
+                        "better",
+                        "soon",
+                        "inside",
+                        "carefully"
+                    ]
+                },
+                "a4": {
+                    "answer": "preserve",
+                    "verb_hint": "Почни з конкретної поради; не ототожнюй достатні підстави з певністю.",
+                    "options": [
+                        "preserve",
+                        "reduce",
+                        "reveal",
+                        "justify"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з конкретної поради; не ототожнюй достатні підстави з певністю.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a6": {
+                    "answer": "distinction",
+                    "verb_hint": "Почни з конкретної поради; не ототожнюй достатні підстави з певністю.",
+                    "options": [
+                        "distinction",
+                        "error",
+                        "record",
+                        "evidence"
+                    ]
+                },
+                "a7": {
+                    "answer": "between",
+                    "verb_hint": "Почни з конкретної поради; не ототожнюй достатні підстави з певністю.",
+                    "options": [
+                        "between",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a8": {
+                    "answer": "warrant",
+                    "verb_hint": "Почни з конкретної поради; не ототожнюй достатні підстави з певністю.",
+                    "options": [
+                        "warrant",
+                        "formulation",
+                        "contradiction",
+                        "quality"
+                    ]
+                },
+                "a9": {
+                    "answer": "and",
+                    "verb_hint": "Почни з конкретної поради; не ототожнюй достатні підстави з певністю.",
+                    "options": [
+                        "and",
+                        "but",
+                        "or",
+                        "nor"
+                    ]
+                },
+                "a10": {
+                    "answer": "certainty.",
+                    "verb_hint": "Почни з конкретної поради; не ототожнюй достатні підстави з певністю.",
+                    "options": [
+                        "certainty",
+                        "argument",
+                        "claim",
+                        "permission"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з конкретної поради; не ототожнюй достатні підстави з певністю.",
+            "accepted_target_texts": [
+                "We had better preserve the distinction between warrant and certainty.",
+                "We had better maintain the distinction between warrant and certainty."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "maintain"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "maintain"
+                ]
+            },
+            "reorder_groups": [
+                "We had better",
+                "preserve",
+                "the distinction",
+                "between warrant",
+                "and certainty."
+            ],
+            "token_groups": [
+                "We had better",
+                "preserve",
+                "the distinction",
+                "between warrant",
+                "and certainty."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "had",
+                "better",
+                "preserve",
+                "the",
+                "distinction",
+                "between",
+                "warrant",
+                "and",
+                "certainty."
+            ],
+            "options": [
+                "We",
+                "You",
+                "He",
+                "She",
+                "had",
+                "hadn't",
+                "do",
+                "does",
+                "better",
+                "soon",
+                "inside",
+                "carefully",
+                "preserve",
+                "reduce",
+                "reveal",
+                "justify",
+                "the",
+                "that",
+                "these",
+                "those",
+                "distinction",
+                "error",
+                "record",
+                "evidence",
+                "between",
+                "for",
+                "of",
+                "in",
+                "warrant",
+                "formulation",
+                "contradiction",
+                "quality",
+                "and",
+                "but",
+                "or",
+                "nor",
+                "certainty",
+                "argument",
+                "claim",
+                "permission"
+            ],
+            "source_text_uk": "Нам краще зберегти відмінність між обґрунтованістю та певністю.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a2": [
+                    "had",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a3": [
+                    "better",
+                    "soon",
+                    "inside",
+                    "carefully"
+                ],
+                "a4": [
+                    "preserve",
+                    "reduce",
+                    "reveal",
+                    "justify"
+                ],
+                "a5": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a6": [
+                    "distinction",
+                    "error",
+                    "record",
+                    "evidence"
+                ],
+                "a7": [
+                    "between",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a8": [
+                    "warrant",
+                    "formulation",
+                    "contradiction",
+                    "quality"
+                ],
+                "a9": [
+                    "and",
+                    "but",
+                    "or",
+                    "nor"
+                ],
+                "a10": [
+                    "certainty",
+                    "argument",
+                    "claim",
+                    "permission"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "verb",
+                "a5": "determiner",
+                "a6": "noun",
+                "a7": "preposition",
+                "a8": "noun",
+                "a9": "conjunction",
+                "a10": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "cqq-better-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Тобі краще не оминати застереження незгодної сторони.",
+            "level": "C2",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Тобі краще не оминати застереження незгодної сторони.",
+            "target_text": "You had better not elide the dissenting qualification.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Заперечення постав перед дією; збережи зміст застереження.",
+                    "options": [
+                        "You",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Заперечення постав перед дією; збережи зміст застереження.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Заперечення постав перед дією; збережи зміст застереження.",
+                    "options": [
+                        "better",
+                        "together",
+                        "before",
+                        "tomorrow"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Заперечення постав перед дією; збережи зміст застереження.",
+                    "options": [
+                        "not",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a5": {
+                    "answer": "elide",
+                    "verb_hint": "Заперечення постав перед дією; збережи зміст застереження.",
+                    "options": [
+                        "elide",
+                        "swim",
+                        "enter",
+                        "speak"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Заперечення постав перед дією; збережи зміст застереження.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a7": {
+                    "answer": "dissenting",
+                    "verb_hint": "Заперечення постав перед дією; збережи зміст застереження.",
+                    "options": [
+                        "dissenting",
+                        "formal",
+                        "local",
+                        "reliable"
+                    ]
+                },
+                "a8": {
+                    "answer": "qualification.",
+                    "verb_hint": "Заперечення постав перед дією; збережи зміст застереження.",
+                    "options": [
+                        "qualification",
+                        "estimate",
+                        "formulation",
+                        "contradiction"
+                    ]
+                }
+            },
+            "verb_hint": "Заперечення постав перед дією; збережи зміст застереження.",
+            "accepted_target_texts": [
+                "You had better not elide the dissenting qualification.",
+                "You had better not omit the dissenting qualification."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "omit"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "omit"
+                ]
+            },
+            "reorder_groups": [
+                "You had better",
+                "not elide",
+                "the dissenting qualification."
+            ],
+            "token_groups": [
+                "You had better",
+                "not elide",
+                "the dissenting qualification."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "You",
+                "had",
+                "better",
+                "not",
+                "elide",
+                "the",
+                "dissenting",
+                "qualification."
+            ],
+            "options": [
+                "You",
+                "Them",
+                "Myself",
+                "Yourself",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "better",
+                "together",
+                "before",
+                "tomorrow",
+                "not",
+                "still",
+                "just",
+                "also",
+                "elide",
+                "swim",
+                "enter",
+                "speak",
+                "the",
+                "all",
+                "both",
+                "a",
+                "dissenting",
+                "formal",
+                "local",
+                "reliable",
+                "qualification",
+                "estimate",
+                "formulation",
+                "contradiction"
+            ],
+            "source_text_uk": "Тобі краще не оминати застереження незгодної сторони.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a2": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a3": [
+                    "better",
+                    "together",
+                    "before",
+                    "tomorrow"
+                ],
+                "a4": [
+                    "not",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a5": [
+                    "elide",
+                    "swim",
+                    "enter",
+                    "speak"
+                ],
+                "a6": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a7": [
+                    "dissenting",
+                    "formal",
+                    "local",
+                    "reliable"
+                ],
+                "a8": [
+                    "qualification",
+                    "estimate",
+                    "formulation",
+                    "contradiction"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "auxiliary",
+                "a3": "adverb",
+                "a4": "negative",
+                "a5": "verb",
+                "a6": "determiner",
+                "a7": "adjective",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "cqq-better-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Укладачеві краще уточнити спростовувану презумпцію.",
+            "level": "C2",
+            "type": 4,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Укладачеві краще уточнити спростовувану презумпцію.",
+            "target_text": "The drafter had better specify the defeasible presumption.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з укладача; передай пораду уточнити, а не скасувати презумпцію.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "drafter",
+                    "verb_hint": "Почни з укладача; передай пораду уточнити, а не скасувати презумпцію.",
+                    "options": [
+                        "drafter",
+                        "window",
+                        "rice",
+                        "bread"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Почни з укладача; передай пораду уточнити, а не скасувати презумпцію.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "better",
+                    "verb_hint": "Почни з укладача; передай пораду уточнити, а не скасувати презумпцію.",
+                    "options": [
+                        "better",
+                        "there",
+                        "soon",
+                        "later"
+                    ]
+                },
+                "a5": {
+                    "answer": "specify",
+                    "verb_hint": "Почни з укладача; передай пораду уточнити, а не скасувати презумпцію.",
+                    "options": [
+                        "specify",
+                        "resolve",
+                        "conceal",
+                        "propose"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з укладача; передай пораду уточнити, а не скасувати презумпцію.",
+                    "options": [
+                        "the",
+                        "no",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a7": {
+                    "answer": "defeasible",
+                    "verb_hint": "Почни з укладача; передай пораду уточнити, а не скасувати презумпцію.",
+                    "options": [
+                        "defeasible",
+                        "dissenting",
+                        "local",
+                        "practical"
+                    ]
+                },
+                "a8": {
+                    "answer": "presumption.",
+                    "verb_hint": "Почни з укладача; передай пораду уточнити, а не скасувати презумпцію.",
+                    "options": [
+                        "presumption",
+                        "identity",
+                        "agreement",
+                        "experience"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з укладача; передай пораду уточнити, а не скасувати презумпцію.",
+            "accepted_target_texts": [
+                "The drafter had better specify the defeasible presumption.",
+                "The drafter had better clarify the defeasible presumption."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "clarify"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "clarify"
+                ]
+            },
+            "reorder_groups": [
+                "The drafter",
+                "had better",
+                "specify",
+                "the defeasible presumption."
+            ],
+            "token_groups": [
+                "The drafter",
+                "had better",
+                "specify",
+                "the defeasible presumption."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "The",
+                "drafter",
+                "had",
+                "better",
+                "specify",
+                "the",
+                "defeasible",
+                "presumption."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "drafter",
+                "window",
+                "rice",
+                "bread",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "better",
+                "there",
+                "soon",
+                "later",
+                "specify",
+                "resolve",
+                "conceal",
+                "propose",
+                "the",
+                "no",
+                "all",
+                "both",
+                "defeasible",
+                "dissenting",
+                "local",
+                "practical",
+                "presumption",
+                "identity",
+                "agreement",
+                "experience"
+            ],
+            "source_text_uk": "Укладачеві краще уточнити спростовувану презумпцію.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "drafter",
+                    "window",
+                    "rice",
+                    "bread"
+                ],
+                "a3": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a4": [
+                    "better",
+                    "there",
+                    "soon",
+                    "later"
+                ],
+                "a5": [
+                    "specify",
+                    "resolve",
+                    "conceal",
+                    "propose"
+                ],
+                "a6": [
+                    "the",
+                    "no",
+                    "all",
+                    "both"
+                ],
+                "a7": [
+                    "defeasible",
+                    "dissenting",
+                    "local",
+                    "practical"
+                ],
+                "a8": [
+                    "presumption",
+                    "identity",
+                    "agreement",
+                    "experience"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "auxiliary",
+                "a4": "adverb",
+                "a5": "verb",
+                "a6": "determiner",
+                "a7": "adjective",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

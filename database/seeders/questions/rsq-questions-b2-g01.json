@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66152,
+        "uuid": "rsq-questions-b2-g01",
+        "question": "The inspector asked who {a1} for the alarm at that time.",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 62,
+        "source_id": 529,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "was responsible",
+                "did responsible",
+                "were responsible"
+            ]
+        },
+        "theory_text_block_uuid": "18c44d6a-938f-590a-b7be-ad91b970972d",
+        "created_at": "2026-11-01T20:04:40.000000Z",
+        "updated_at": "2026-11-01T20:04:40.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 529,
+        "name": "Reported Speech Quality: Reported Questions",
+        "created_at": "2026-11-01T20:04:39.000000Z",
+        "updated_at": "2026-11-01T20:04:39.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 68175,
+                "option": "was responsible",
+                "created_at": "2026-11-01T20:04:40.000000Z",
+                "updated_at": "2026-11-01T20:04:40.000000Z"
+            },
+            "pivot": {
+                "question_id": 66152,
+                "option_id": 68175,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68177,
+                "option": "did responsible",
+                "created_at": "2026-11-01T20:04:40.000000Z",
+                "updated_at": "2026-11-01T20:04:40.000000Z"
+            },
+            "pivot": {
+                "question_id": 66152,
+                "option_id": 68177,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68178,
+                "option": "were responsible",
+                "created_at": "2026-11-01T20:04:41.000000Z",
+                "updated_at": "2026-11-01T20:04:41.000000Z"
+            },
+            "pivot": {
+                "question_id": 66152,
+                "option_id": 68178,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 340841,
+                "question_id": 66152,
+                "marker": "a1",
+                "option_id": 68175,
+                "created_at": "2026-11-01T20:04:40.000000Z",
+                "updated_at": "2026-11-01T20:04:40.000000Z"
+            },
+            "option": {
+                "id": 68175,
+                "option": "was responsible",
+                "created_at": "2026-11-01T20:04:40.000000Z",
+                "updated_at": "2026-11-01T20:04:40.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58175,
+                "question_id": 66152,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68176,
+                "created_at": "2026-11-01T20:04:40.000000Z",
+                "updated_at": "2026-11-01T20:04:40.000000Z"
+            },
+            "option": {
+                "id": 68176,
+                "option": "Хто відповідав; питальне слово виконує роль підмета.",
+                "created_at": "2026-11-01T20:04:40.000000Z",
+                "updated_at": "2026-11-01T20:04:40.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58167,
+            "question_id": 66152,
+            "text": "The inspector asked who {a1} for the alarm at that time.",
+            "created_at": "2026-11-01T20:04:41.000000Z",
+            "updated_at": "2026-11-01T20:04:41.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

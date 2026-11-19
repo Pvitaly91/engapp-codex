@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60714,
+        "uuid": "bgq-sentence-structure-c2-g05",
+        "question": "The analysis {a1} with a coherence it never possessed.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 12,
+        "source_id": 428,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedSentenceStructureSvoQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "credits the institution",
+                "the institution credits",
+                "credits it the institution"
+            ]
+        },
+        "theory_text_block_uuid": "ccfcb959-d3a1-58ed-a924-27a00a3ba4ee",
+        "created_at": "2026-10-27T15:50:55.000000Z",
+        "updated_at": "2026-10-27T15:50:55.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 428,
+        "name": "Basic Grammar Quality: Підмет, присудок і додаток",
+        "created_at": "2026-10-27T15:50:53.000000Z",
+        "updated_at": "2026-10-27T15:50:53.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 90,
+                "name": "S-V-O word order",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60714,
+                "tag_id": 90,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 53356,
+                "option": "credits the institution",
+                "created_at": "2026-10-27T15:50:55.000000Z",
+                "updated_at": "2026-10-27T15:50:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 60714,
+                "option_id": 53356,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53358,
+                "option": "the institution credits",
+                "created_at": "2026-10-27T15:50:55.000000Z",
+                "updated_at": "2026-10-27T15:50:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 60714,
+                "option_id": 53358,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53359,
+                "option": "credits it the institution",
+                "created_at": "2026-10-27T15:50:55.000000Z",
+                "updated_at": "2026-10-27T15:50:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 60714,
+                "option_id": 53359,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325875,
+                "question_id": 60714,
+                "marker": "a1",
+                "option_id": 53356,
+                "created_at": "2026-10-27T15:50:55.000000Z",
+                "updated_at": "2026-10-27T15:50:55.000000Z"
+            },
+            "option": {
+                "id": 53356,
+                "option": "credits the institution",
+                "created_at": "2026-10-27T15:50:55.000000Z",
+                "updated_at": "2026-10-27T15:50:55.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43209,
+                "question_id": 60714,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53357,
+                "created_at": "2026-10-27T15:50:55.000000Z",
+                "updated_at": "2026-10-27T15:50:55.000000Z"
+            },
+            "option": {
+                "id": 53357,
+                "option": "Потрібний зміст: «Приписує цій установі». Залиш аналіз підметом і назви установу після дієслова приписування.",
+                "created_at": "2026-10-27T15:50:55.000000Z",
+                "updated_at": "2026-10-27T15:50:55.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52729,
+            "question_id": 60714,
+            "text": "The analysis {a1} with a coherence it never possessed.",
+            "created_at": "2026-10-27T15:50:55.000000Z",
+            "updated_at": "2026-10-27T15:50:55.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

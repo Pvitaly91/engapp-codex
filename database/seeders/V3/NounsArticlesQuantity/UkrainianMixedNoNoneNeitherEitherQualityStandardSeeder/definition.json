@@ -1,0 +1,1665 @@
+{
+    "schema_version": 1,
+    "quality_revision": "nouns-articles-quantity-v1",
+    "compiled_from": {
+        "path": "docs/content/nouns-articles-quantity-quality/no-none-neither-either.v1.json",
+        "sha256": "a9e4998ead5c38442694d909d5024adc84292cb4771a29cec04633637c44c8b3"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\NounsArticlesQuantity\\UkrainianMixedNoNoneNeitherEitherQualityStandardSeeder",
+        "uuid_namespace": "nouns-articles-quantity-quality-no-none-neither-either-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Nouns / Articles / Quantity"
+    },
+    "sources": {
+        "nouns_articles_quantity_quality_no_none_neither_either": {
+            "name": "Nouns Articles Quantity Quality: Заперечення кількості та вибір із двох"
+        }
+    },
+    "tags": {
+        "no_none_neither_either": {
+            "name": "No None Neither Either",
+            "category": "nouns_articles_quantity"
+        },
+        "no_plus_noun": {
+            "name": "No Plus Noun",
+            "category": "topic"
+        },
+        "none_pronoun": {
+            "name": "None Pronoun",
+            "category": "topic"
+        },
+        "none_of": {
+            "name": "None Of",
+            "category": "topic"
+        },
+        "neither_two": {
+            "name": "Neither Two",
+            "category": "topic"
+        },
+        "either_two": {
+            "name": "Either Two",
+            "category": "topic"
+        },
+        "neither_either_of": {
+            "name": "Neither Either Of",
+            "category": "topic"
+        },
+        "neither_nor": {
+            "name": "Neither Nor",
+            "category": "topic"
+        },
+        "either_or": {
+            "name": "Either Or",
+            "category": "topic"
+        },
+        "no_double_negative": {
+            "name": "No Double Negative",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "no_none_neither_either"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "naqq-no-none-neither-either-a1-g01",
+            "author_id": "A1-g01",
+            "question": "There is {a1} chalk in this box.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "У цій коробці немає крейди.",
+            "target_text": "There is no chalk in this box.",
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "none",
+                        "neither"
+                    ],
+                    "verb_hint": "Передай повну відсутність крейди; потрібне слово безпосередньо перед назвою речовини."
+                }
+            },
+            "verb_hint": "Передай повну відсутність крейди; потрібне слово безпосередньо перед назвою речовини.",
+            "accepted_target_texts": [
+                "There is no chalk in this box."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "no chalk",
+                "in this box."
+            ],
+            "token_groups": [
+                "There is",
+                "no chalk",
+                "in this box."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "naqq-no-none-neither-either-a1-g02",
+            "author_id": "A1-g02",
+            "question": "I have {a1} gloves with me.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "У мене із собою немає рукавичок.",
+            "target_text": "I have no gloves with me.",
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "none",
+                        "either"
+                    ],
+                    "verb_hint": "Передай відсутність рукавичок; назва предметів уже стоїть після пропуску."
+                }
+            },
+            "verb_hint": "Передай відсутність рукавичок; назва предметів уже стоїть після пропуску.",
+            "accepted_target_texts": [
+                "I have no gloves with me."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I have",
+                "no gloves",
+                "with me."
+            ],
+            "token_groups": [
+                "I have",
+                "no gloves",
+                "with me."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "naqq-no-none-neither-either-a1-g03",
+            "author_id": "A1-g03",
+            "question": "{a1} of the six pencils is sharp.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Жоден із шести олівців не загострений.",
+            "target_text": "None of the six pencils is sharp.",
+            "markers": {
+                "a1": {
+                    "answer": "None",
+                    "options": [
+                        "None",
+                        "No",
+                        "Either"
+                    ],
+                    "verb_hint": "Запереч для всієї визначеної групи з шести предметів; потрібне самостійне слово перед прийменником."
+                }
+            },
+            "verb_hint": "Запереч для всієї визначеної групи з шести предметів; потрібне самостійне слово перед прийменником.",
+            "accepted_target_texts": [
+                "None of the six pencils is sharp."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "None of",
+                "the six pencils",
+                "is sharp."
+            ],
+            "token_groups": [
+                "None of",
+                "the six pencils",
+                "is sharp."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "naqq-no-none-neither-either-a1-g04",
+            "author_id": "A1-g04",
+            "question": "{a1} of the two keys fits this lock.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Жоден із двох ключів не підходить до цього замка.",
+            "target_text": "Neither of the two keys fits this lock.",
+            "markers": {
+                "a1": {
+                    "answer": "Neither",
+                    "options": [
+                        "Neither",
+                        "Either",
+                        "No"
+                    ],
+                    "verb_hint": "Запереч відповідність обох із рівно двох предметів; після заперечного слова не додавай другого заперечення."
+                }
+            },
+            "verb_hint": "Запереч відповідність обох із рівно двох предметів; після заперечного слова не додавай другого заперечення.",
+            "accepted_target_texts": [
+                "Neither of the two keys fits this lock."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Neither of",
+                "the two keys",
+                "fits this lock."
+            ],
+            "token_groups": [
+                "Neither of",
+                "the two keys",
+                "fits this lock."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "naqq-no-none-neither-either-a1-g05",
+            "author_id": "A1-g05",
+            "question": "{a1} of these two cups is fine for me.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Мені підходить будь-яка з цих двох чашок.",
+            "target_text": "Either of these two cups is fine for me.",
+            "markers": {
+                "a1": {
+                    "answer": "Either",
+                    "options": [
+                        "Either",
+                        "Neither",
+                        "No"
+                    ],
+                    "verb_hint": "Передай вільний вибір одного з двох придатних предметів, не їхню непридатність."
+                }
+            },
+            "verb_hint": "Передай вільний вибір одного з двох придатних предметів, не їхню непридатність.",
+            "accepted_target_texts": [
+                "Either of these two cups is fine for me."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Either of",
+                "these two cups",
+                "is fine",
+                "for me."
+            ],
+            "token_groups": [
+                "Either of",
+                "these two cups",
+                "is fine",
+                "for me."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "naqq-no-none-neither-either-a1-g06",
+            "author_id": "A1-g06",
+            "question": "There are {a1} footprints near the gate.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Біля воріт немає слідів.",
+            "target_text": "There are no footprints near the gate.",
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "none",
+                        "either"
+                    ],
+                    "verb_hint": "Запереч наявність слідів; іменник у множині вже наведений після пропуску."
+                }
+            },
+            "verb_hint": "Запереч наявність слідів; іменник у множині вже наведений після пропуску.",
+            "accepted_target_texts": [
+                "There are no footprints near the gate."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There are",
+                "no footprints",
+                "near the gate."
+            ],
+            "token_groups": [
+                "There are",
+                "no footprints",
+                "near the gate."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "naqq-no-none-neither-either-a2-g01",
+            "author_id": "A2-g01",
+            "question": "{a1} Mila nor Ivan lives in this building.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Ні Міла, ні Іван не живе в цьому будинку.",
+            "target_text": "Neither Mila nor Ivan lives in this building.",
+            "markers": {
+                "a1": {
+                    "answer": "Neither",
+                    "options": [
+                        "Neither",
+                        "Either",
+                        "Both"
+                    ],
+                    "verb_hint": "Запереч обох названих людей парною конструкцією; друга частина пари вже є."
+                }
+            },
+            "verb_hint": "Запереч обох названих людей парною конструкцією; друга частина пари вже є.",
+            "accepted_target_texts": [
+                "Neither Mila nor Ivan lives in this building."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Neither Mila",
+                "nor Ivan",
+                "lives",
+                "in this building."
+            ],
+            "token_groups": [
+                "Neither Mila",
+                "nor Ivan",
+                "lives",
+                "in this building."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "naqq-no-none-neither-either-a2-g02",
+            "author_id": "A2-g02",
+            "question": "You can choose {a1} the blue notebook or the green one.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Ти можеш вибрати або синій зошит, або зелений.",
+            "target_text": "You can choose either the blue notebook or the green one.",
+            "markers": {
+                "a1": {
+                    "answer": "either",
+                    "options": [
+                        "either",
+                        "neither",
+                        "none"
+                    ],
+                    "verb_hint": "Запропонуй вибір між двома предметами; сполучник другої альтернативи вже наведений."
+                }
+            },
+            "verb_hint": "Запропонуй вибір між двома предметами; сполучник другої альтернативи вже наведений.",
+            "accepted_target_texts": [
+                "You can choose either the blue notebook or the green one."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You can choose",
+                "either",
+                "the blue notebook",
+                "or",
+                "the green one."
+            ],
+            "token_groups": [
+                "You can choose",
+                "either",
+                "the blue notebook",
+                "or",
+                "the green one."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "naqq-no-none-neither-either-a2-g03",
+            "author_id": "A2-g03",
+            "question": "{a1} of this paint is usable now.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Зараз уся ця фарба непридатна.",
+            "target_text": "None of this paint is usable now.",
+            "markers": {
+                "a1": {
+                    "answer": "None",
+                    "options": [
+                        "None",
+                        "No",
+                        "Either"
+                    ],
+                    "verb_hint": "Запереч придатність усього визначеного запасу фарби; потрібне самостійне слово перед прийменником."
+                }
+            },
+            "verb_hint": "Запереч придатність усього визначеного запасу фарби; потрібне самостійне слово перед прийменником.",
+            "accepted_target_texts": [
+                "None of this paint is usable now."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "None of",
+                "this paint",
+                "is usable now."
+            ],
+            "token_groups": [
+                "None of",
+                "this paint",
+                "is usable now."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "naqq-no-none-neither-either-a2-g04",
+            "author_id": "A2-g04",
+            "question": "There is {a1} reason to cancel the picnic.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Немає жодної причини скасовувати пікнік.",
+            "target_text": "There is no reason to cancel the picnic.",
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "none",
+                        "neither"
+                    ],
+                    "verb_hint": "Повністю запереч наявність причини; її назва вже стоїть після пропуску."
+                }
+            },
+            "verb_hint": "Повністю запереч наявність причини; її назва вже стоїть після пропуску.",
+            "accepted_target_texts": [
+                "There is no reason to cancel the picnic."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "no reason",
+                "to cancel",
+                "the picnic."
+            ],
+            "token_groups": [
+                "There is",
+                "no reason",
+                "to cancel",
+                "the picnic."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "naqq-no-none-neither-either-a2-g05",
+            "author_id": "A2-g05",
+            "question": "I tried both passwords, but {a1} worked.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Я спробував обидва паролі, але жоден не спрацював.",
+            "target_text": "I tried both passwords, but neither worked.",
+            "markers": {
+                "a1": {
+                    "answer": "neither",
+                    "options": [
+                        "neither",
+                        "either",
+                        "no"
+                    ],
+                    "verb_hint": "Заміни вже названі два паролі самостійним заперечним словом; не повторюй їхню назву."
+                }
+            },
+            "verb_hint": "Заміни вже названі два паролі самостійним заперечним словом; не повторюй їхню назву.",
+            "accepted_target_texts": [
+                "I tried both passwords, but neither worked."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I tried",
+                "both passwords,",
+                "but neither worked."
+            ],
+            "token_groups": [
+                "I tried",
+                "both passwords,",
+                "but neither worked."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "naqq-no-none-neither-either-a2-g06",
+            "author_id": "A2-g06",
+            "question": "We checked all four cupboards and found {a1} sugar.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Ми перевірили всі чотири шафки й не знайшли цукру.",
+            "target_text": "We checked all four cupboards and found no sugar.",
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "none",
+                        "neither"
+                    ],
+                    "verb_hint": "Запереч наявність цукру після перевірки; слово має стояти прямо перед назвою речовини."
+                }
+            },
+            "verb_hint": "Запереч наявність цукру після перевірки; слово має стояти прямо перед назвою речовини.",
+            "accepted_target_texts": [
+                "We checked all four cupboards and found no sugar."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We checked",
+                "all four cupboards",
+                "and found",
+                "no sugar."
+            ],
+            "token_groups": [
+                "We checked",
+                "all four cupboards",
+                "and found",
+                "no sugar."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "naqq-no-none-neither-either-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The form has three signatures. I recognised {a1} them.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "На бланку три підписи. Я не впізнав жодного з них.",
+            "target_text": "The form has three signatures. I recognised none of them.",
+            "markers": {
+                "a1": {
+                    "answer": "none of",
+                    "options": [
+                        "none of",
+                        "neither of",
+                        "no of"
+                    ],
+                    "verb_hint": "Запереч упізнавання всіх трьох підписів; займенник після пропуску вже замінює їхню назву."
+                }
+            },
+            "verb_hint": "Запереч упізнавання всіх трьох підписів; займенник після пропуску вже замінює їхню назву.",
+            "accepted_target_texts": [
+                "The form has three signatures. I recognised none of them."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The form has",
+                "three signatures.",
+                "I recognised",
+                "none of them."
+            ],
+            "token_groups": [
+                "The form has",
+                "three signatures.",
+                "I recognised",
+                "none of them."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "naqq-no-none-neither-either-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The two routes are equally safe, so we can take {a1} one.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Обидва маршрути однаково безпечні, тому можемо вибрати будь-який.",
+            "target_text": "The two routes are equally safe, so we can take either one.",
+            "markers": {
+                "a1": {
+                    "answer": "either",
+                    "options": [
+                        "either",
+                        "neither",
+                        "none"
+                    ],
+                    "verb_hint": "Дозволь вибір одного з двох однаково придатних маршрутів; не додавай заперечного значення."
+                }
+            },
+            "verb_hint": "Дозволь вибір одного з двох однаково придатних маршрутів; не додавай заперечного значення.",
+            "accepted_target_texts": [
+                "The two routes are equally safe, so we can take either one."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The two routes",
+                "are equally safe,",
+                "so we",
+                "can take",
+                "either one."
+            ],
+            "token_groups": [
+                "The two routes",
+                "are equally safe,",
+                "so we",
+                "can take",
+                "either one."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "naqq-no-none-neither-either-b1-g03",
+            "author_id": "B1-g03",
+            "question": "{a1} the printer nor the scanner needs replacing.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Ні принтер, ні сканер не потребує заміни.",
+            "target_text": "Neither the printer nor the scanner needs replacing.",
+            "markers": {
+                "a1": {
+                    "answer": "Neither",
+                    "options": [
+                        "Neither",
+                        "Either",
+                        "Both"
+                    ],
+                    "verb_hint": "Запереч потребу для обох різних пристроїв парною конструкцією; її друга частина вже наведена."
+                }
+            },
+            "verb_hint": "Запереч потребу для обох різних пристроїв парною конструкцією; її друга частина вже наведена.",
+            "accepted_target_texts": [
+                "Neither the printer nor the scanner needs replacing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Neither the printer",
+                "nor the scanner",
+                "needs replacing."
+            ],
+            "token_groups": [
+                "Neither the printer",
+                "nor the scanner",
+                "needs replacing."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "naqq-no-none-neither-either-b1-g04",
+            "author_id": "B1-g04",
+            "question": "There is {a1} evidence that the door was forced.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Немає доказів, що двері зламали силою.",
+            "target_text": "There is no evidence that the door was forced.",
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "none",
+                        "neither"
+                    ],
+                    "verb_hint": "Назви повну відсутність доказового матеріалу; потрібне слово перед незлічуваним іменником."
+                }
+            },
+            "verb_hint": "Назви повну відсутність доказового матеріалу; потрібне слово перед незлічуваним іменником.",
+            "accepted_target_texts": [
+                "There is no evidence that the door was forced."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "no evidence",
+                "that the door",
+                "was forced."
+            ],
+            "token_groups": [
+                "There is",
+                "no evidence",
+                "that the door",
+                "was forced."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "naqq-no-none-neither-either-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Of the five possible dates, {a1} is convenient for the whole team.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Із п’яти можливих дат жодна не зручна всій команді.",
+            "target_text": "Of the five possible dates, none is convenient for the whole team.",
+            "markers": {
+                "a1": {
+                    "answer": "none",
+                    "options": [
+                        "none",
+                        "neither",
+                        "no"
+                    ],
+                    "verb_hint": "Віднеси повне заперечення до всієї вже названої групи з п’яти дат; іменник повторювати не треба."
+                }
+            },
+            "verb_hint": "Віднеси повне заперечення до всієї вже названої групи з п’яти дат; іменник повторювати не треба.",
+            "accepted_target_texts": [
+                "Of the five possible dates, none is convenient for the whole team."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Of the five",
+                "possible dates,",
+                "none is convenient",
+                "for the",
+                "whole team."
+            ],
+            "token_groups": [
+                "Of the five",
+                "possible dates,",
+                "none is convenient",
+                "for the",
+                "whole team."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "naqq-no-none-neither-either-b1-g06",
+            "author_id": "B1-g06",
+            "question": "You can contact us {a1} by email or through the booking form.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "З нами можна зв’язатися або електронною поштою, або через форму бронювання.",
+            "target_text": "You can contact us either by email or through the booking form.",
+            "markers": {
+                "a1": {
+                    "answer": "either",
+                    "options": [
+                        "either",
+                        "neither",
+                        "none"
+                    ],
+                    "verb_hint": "Поєднай два дозволені способи зв’язку парним виразом; другий сполучник уже є."
+                }
+            },
+            "verb_hint": "Поєднай два дозволені способи зв’язку парним виразом; другий сполучник уже є.",
+            "accepted_target_texts": [
+                "You can contact us either by email or through the booking form."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You can",
+                "contact us either",
+                "by email",
+                "or through",
+                "the booking form."
+            ],
+            "token_groups": [
+                "You can",
+                "contact us either",
+                "by email",
+                "or through",
+                "the booking form."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "naqq-no-none-neither-either-b2-g01",
+            "author_id": "B2-g01",
+            "question": "{a1} of the two reports establishes when the error occurred.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Жоден із двох звітів не встановлює, коли сталася помилка.",
+            "target_text": "Neither of the two reports establishes when the error occurred.",
+            "markers": {
+                "a1": {
+                    "answer": "Neither",
+                    "options": [
+                        "Neither",
+                        "Either",
+                        "No"
+                    ],
+                    "verb_hint": "Запереч доказову достатність кожного з двох звітів, не стверджуй, що будь-який із них установлює час."
+                }
+            },
+            "verb_hint": "Запереч доказову достатність кожного з двох звітів, не стверджуй, що будь-який із них установлює час.",
+            "accepted_target_texts": [
+                "Neither of the two reports establishes when the error occurred."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Neither of",
+                "the two reports",
+                "establishes when",
+                "the error occurred."
+            ],
+            "token_groups": [
+                "Neither of",
+                "the two reports",
+                "establishes when",
+                "the error occurred."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "naqq-no-none-neither-either-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The safeguards apply to {a1} category, regardless of which route is chosen.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Гарантії стосуються будь-якої з двох категорій незалежно від обраного шляху.",
+            "target_text": "The safeguards apply to either category, regardless of which route is chosen.",
+            "markers": {
+                "a1": {
+                    "answer": "either",
+                    "options": [
+                        "either",
+                        "neither",
+                        "none"
+                    ],
+                    "verb_hint": "Пошир вимоги на кожну з двох альтернатив окремо; не запереч їхнє застосування."
+                }
+            },
+            "verb_hint": "Пошир вимоги на кожну з двох альтернатив окремо; не запереч їхнє застосування.",
+            "accepted_target_texts": [
+                "The safeguards apply to either category, regardless of which route is chosen."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The safeguards",
+                "apply to",
+                "either category,",
+                "regardless of which",
+                "route is chosen."
+            ],
+            "token_groups": [
+                "The safeguards",
+                "apply to",
+                "either category,",
+                "regardless of which",
+                "route is chosen."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "naqq-no-none-neither-either-b2-g03",
+            "author_id": "B2-g03",
+            "question": "{a1} of the information supplied so far contradicts the original account.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Жодні з наданих досі відомостей не суперечать початковому викладу.",
+            "target_text": "None of the information supplied so far contradicts the original account.",
+            "markers": {
+                "a1": {
+                    "answer": "None",
+                    "options": [
+                        "None",
+                        "No",
+                        "Either"
+                    ],
+                    "verb_hint": "Запереч суперечність для всього вже визначеного обсягу інформації; потрібне самостійне слово перед прийменником."
+                }
+            },
+            "verb_hint": "Запереч суперечність для всього вже визначеного обсягу інформації; потрібне самостійне слово перед прийменником.",
+            "accepted_target_texts": [
+                "None of the information supplied so far contradicts the original account."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "None of",
+                "the information supplied",
+                "so far contradicts",
+                "the original account."
+            ],
+            "token_groups": [
+                "None of",
+                "the information supplied",
+                "so far contradicts",
+                "the original account."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "naqq-no-none-neither-either-b2-g04",
+            "author_id": "B2-g04",
+            "question": "There is {a1} substitute for checking the original documents.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Перевірку оригінальних документів нічим не замінити.",
+            "target_text": "There is no substitute for checking the original documents.",
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "none",
+                        "neither"
+                    ],
+                    "verb_hint": "Повністю запереч наявність заміни; іменник після пропуску вже названий."
+                }
+            },
+            "verb_hint": "Повністю запереч наявність заміни; іменник після пропуску вже названий.",
+            "accepted_target_texts": [
+                "There is no substitute for checking the original documents."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "no substitute",
+                "for checking",
+                "the original documents."
+            ],
+            "token_groups": [
+                "There is",
+                "no substitute",
+                "for checking",
+                "the original documents."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "naqq-no-none-neither-either-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The omission was {a1} accidental nor harmless.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Пропуск не був ані випадковим, ані нешкідливим.",
+            "target_text": "The omission was neither accidental nor harmless.",
+            "markers": {
+                "a1": {
+                    "answer": "neither",
+                    "options": [
+                        "neither",
+                        "either",
+                        "none"
+                    ],
+                    "verb_hint": "Запереч обидві ознаки парною конструкцією; не додавай другого заперечення до дієслова."
+                }
+            },
+            "verb_hint": "Запереч обидві ознаки парною конструкцією; не додавай другого заперечення до дієслова.",
+            "accepted_target_texts": [
+                "The omission was neither accidental nor harmless."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The omission",
+                "was neither accidental",
+                "nor harmless."
+            ],
+            "token_groups": [
+                "The omission",
+                "was neither accidental",
+                "nor harmless."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "naqq-no-none-neither-either-b2-g06",
+            "author_id": "B2-g06",
+            "question": "{a1} of the nine applications satisfied the published criteria.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Жодна з дев’яти заявок не відповідала оприлюдненим критеріям.",
+            "target_text": "None of the nine applications satisfied the published criteria.",
+            "markers": {
+                "a1": {
+                    "answer": "None",
+                    "options": [
+                        "None",
+                        "Neither",
+                        "No"
+                    ],
+                    "verb_hint": "Запереч відповідність усіх дев’яти заявок; це група більша за два предмети."
+                }
+            },
+            "verb_hint": "Запереч відповідність усіх дев’яти заявок; це група більша за два предмети.",
+            "accepted_target_texts": [
+                "None of the nine applications satisfied the published criteria."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "None of",
+                "the nine applications",
+                "satisfied",
+                "the published criteria."
+            ],
+            "token_groups": [
+                "None of",
+                "the nine applications",
+                "satisfied",
+                "the published criteria."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "naqq-no-none-neither-either-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The revised wording left us {a1} the wiser about who was responsible.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Переглянуте формулювання анітрохи не прояснило нам, хто відповідав.",
+            "target_text": "The revised wording left us none the wiser about who was responsible.",
+            "markers": {
+                "a1": {
+                    "answer": "none",
+                    "options": [
+                        "none",
+                        "no",
+                        "neither"
+                    ],
+                    "verb_hint": "Усталений вираз означає, що розуміння зовсім не поліпшилося; перед порівняльною формою потрібне самостійне заперечне слово."
+                }
+            },
+            "verb_hint": "Усталений вираз означає, що розуміння зовсім не поліпшилося; перед порівняльною формою потрібне самостійне заперечне слово.",
+            "accepted_target_texts": [
+                "The revised wording left us none the wiser about who was responsible."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The revised wording",
+                "left us",
+                "none the wiser",
+                "about who",
+                "was responsible."
+            ],
+            "token_groups": [
+                "The revised wording",
+                "left us",
+                "none the wiser",
+                "about who",
+                "was responsible."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "naqq-no-none-neither-either-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The chair was {a1} too pleased to learn that the figures had been withheld.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Голова був зовсім не радий дізнатися, що цифри приховали.",
+            "target_text": "The chair was none too pleased to learn that the figures had been withheld.",
+            "markers": {
+                "a1": {
+                    "answer": "none",
+                    "options": [
+                        "none",
+                        "no",
+                        "neither"
+                    ],
+                    "verb_hint": "Передай стримане заперечення задоволення усталеним виразом перед підсилювачем; назву особи не повторюй."
+                }
+            },
+            "verb_hint": "Передай стримане заперечення задоволення усталеним виразом перед підсилювачем; назву особи не повторюй.",
+            "accepted_target_texts": [
+                "The chair was none too pleased to learn that the figures had been withheld."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The chair",
+                "was none",
+                "too pleased",
+                "to learn",
+                "that the figures",
+                "had been withheld."
+            ],
+            "token_groups": [
+                "The chair",
+                "was none",
+                "too pleased",
+                "to learn",
+                "that the figures",
+                "had been withheld."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "naqq-no-none-neither-either-c1-g03",
+            "author_id": "C1-g03",
+            "question": "{a1} of the competing accounts explains why the same exception recurs in all six files.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Жоден із конкурентних викладів не пояснює, чому той самий виняток повторюється в усіх шести справах.",
+            "target_text": "None of the competing accounts explains why the same exception recurs in all six files.",
+            "markers": {
+                "a1": {
+                    "answer": "None",
+                    "options": [
+                        "None",
+                        "Neither",
+                        "No"
+                    ],
+                    "verb_hint": "Запереч пояснювальну силу всіх викладів у групі більшій за два; самі виклади вже названі означеною групою."
+                }
+            },
+            "verb_hint": "Запереч пояснювальну силу всіх викладів у групі більшій за два; самі виклади вже названі означеною групою.",
+            "accepted_target_texts": [
+                "None of the competing accounts explains why the same exception recurs in all six files."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "None of",
+                "the competing accounts",
+                "explains why",
+                "the same exception",
+                "recurs in",
+                "all six files."
+            ],
+            "token_groups": [
+                "None of",
+                "the competing accounts",
+                "explains why",
+                "the same exception",
+                "recurs in",
+                "all six files."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "naqq-no-none-neither-either-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The policy is defensible on {a1} practical or ethical grounds.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Політику можна обґрунтувати або практичними, або етичними підставами.",
+            "target_text": "The policy is defensible on either practical or ethical grounds.",
+            "markers": {
+                "a1": {
+                    "answer": "either",
+                    "options": [
+                        "either",
+                        "neither",
+                        "none"
+                    ],
+                    "verb_hint": "Назви два можливі незалежні види обґрунтування; сполучник альтернативи вже наведений."
+                }
+            },
+            "verb_hint": "Назви два можливі незалежні види обґрунтування; сполучник альтернативи вже наведений.",
+            "accepted_target_texts": [
+                "The policy is defensible on either practical or ethical grounds."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The policy",
+                "is defensible",
+                "on either practical",
+                "or ethical grounds."
+            ],
+            "token_groups": [
+                "The policy",
+                "is defensible",
+                "on either practical",
+                "or ethical grounds."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "naqq-no-none-neither-either-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The argument provides {a1} basis for treating the exception as a general rule.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Аргумент не дає жодної підстави вважати виняток загальним правилом.",
+            "target_text": "The argument provides no basis for treating the exception as a general rule.",
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "none",
+                        "neither"
+                    ],
+                    "verb_hint": "Повністю запереч наявність підстави; її назва вже стоїть після пропуску."
+                }
+            },
+            "verb_hint": "Повністю запереч наявність підстави; її назва вже стоїть після пропуску.",
+            "accepted_target_texts": [
+                "The argument provides no basis for treating the exception as a general rule."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The argument",
+                "provides no basis",
+                "for treating",
+                "the exception",
+                "as",
+                "a general rule."
+            ],
+            "token_groups": [
+                "The argument",
+                "provides no basis",
+                "for treating",
+                "the exception",
+                "as",
+                "a general rule."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "naqq-no-none-neither-either-c1-g06",
+            "author_id": "C1-g06",
+            "question": "We identified two possible causes, {a1} of which accounts for the timing.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Ми визначили дві можливі причини, жодна з яких не пояснює час події.",
+            "target_text": "We identified two possible causes, neither of which accounts for the timing.",
+            "markers": {
+                "a1": {
+                    "answer": "neither",
+                    "options": [
+                        "neither",
+                        "either",
+                        "no"
+                    ],
+                    "verb_hint": "Приєднай уточнення, що заперечує пояснення для обох саме двох причин; не повторюй назву причин."
+                }
+            },
+            "verb_hint": "Приєднай уточнення, що заперечує пояснення для обох саме двох причин; не повторюй назву причин.",
+            "accepted_target_texts": [
+                "We identified two possible causes, neither of which accounts for the timing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We identified",
+                "two possible causes,",
+                "neither of which",
+                "accounts for",
+                "the timing."
+            ],
+            "token_groups": [
+                "We identified",
+                "two possible causes,",
+                "neither of which",
+                "accounts for",
+                "the timing."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "naqq-no-none-neither-either-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The inference is warranted by {a1} the form nor the substance of the undertaking.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Висновок не випливає ані з форми, ані зі змісту зобов’язання.",
+            "target_text": "The inference is warranted by neither the form nor the substance of the undertaking.",
+            "markers": {
+                "a1": {
+                    "answer": "neither",
+                    "options": [
+                        "neither",
+                        "either",
+                        "none"
+                    ],
+                    "verb_hint": "Запереч обидві підстави парною конструкцією; її друга частина вже наведена, заперечення не додається до дієслова."
+                }
+            },
+            "verb_hint": "Запереч обидві підстави парною конструкцією; її друга частина вже наведена, заперечення не додається до дієслова.",
+            "accepted_target_texts": [
+                "The inference is warranted by neither the form nor the substance of the undertaking."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inference",
+                "is warranted by",
+                "neither the form",
+                "nor the substance",
+                "of the undertaking."
+            ],
+            "token_groups": [
+                "The inference",
+                "is warranted by",
+                "neither the form",
+                "nor the substance",
+                "of the undertaking."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "naqq-no-none-neither-either-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The concession amounts to {a1} more than an acknowledgement that the question remains open.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Поступка є не більше ніж визнанням того, що питання лишається відкритим.",
+            "target_text": "The concession amounts to no more than an acknowledgement that the question remains open.",
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "none",
+                        "neither"
+                    ],
+                    "verb_hint": "Обмеж значення поступки конструкцією «не більше ніж»; це не повне заперечення самого визнання."
+                }
+            },
+            "verb_hint": "Обмеж значення поступки конструкцією «не більше ніж»; це не повне заперечення самого визнання.",
+            "accepted_target_texts": [
+                "The concession amounts to no more than an acknowledgement that the question remains open."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The concession",
+                "amounts to",
+                "no more than",
+                "an acknowledgement",
+                "that the question",
+                "remains open."
+            ],
+            "token_groups": [
+                "The concession",
+                "amounts to",
+                "no more than",
+                "an acknowledgement",
+                "that the question",
+                "remains open."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "naqq-no-none-neither-either-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The documents admit two materially different readings, {a1} of which can be dismissed without argument.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Документи допускають два істотно різні прочитання, жодне з яких не можна відкинути без аргументів.",
+            "target_text": "The documents admit two materially different readings, neither of which can be dismissed without argument.",
+            "markers": {
+                "a1": {
+                    "answer": "neither",
+                    "options": [
+                        "neither",
+                        "either",
+                        "no"
+                    ],
+                    "verb_hint": "Запереч можливість безпідставного відкидання обох прочитань; не стверджуй їхньої тотожності або істинності."
+                }
+            },
+            "verb_hint": "Запереч можливість безпідставного відкидання обох прочитань; не стверджуй їхньої тотожності або істинності.",
+            "accepted_target_texts": [
+                "The documents admit two materially different readings, neither of which can be dismissed without argument."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The documents",
+                "admit two",
+                "materially different readings,",
+                "neither of which",
+                "can be dismissed",
+                "without argument."
+            ],
+            "token_groups": [
+                "The documents",
+                "admit two",
+                "materially different readings,",
+                "neither of which",
+                "can be dismissed",
+                "without argument."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "naqq-no-none-neither-either-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The reservation applies with equal force to {a1} interpretation, however narrowly it is framed.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Застереження однаково стосується будь-якого з двох тлумачень, хоч як вузько його сформулювати.",
+            "target_text": "The reservation applies with equal force to either interpretation, however narrowly it is framed.",
+            "markers": {
+                "a1": {
+                    "answer": "either",
+                    "options": [
+                        "either",
+                        "neither",
+                        "none"
+                    ],
+                    "verb_hint": "Пошир застереження на кожне з двох тлумачень окремо; не запереч його застосування."
+                }
+            },
+            "verb_hint": "Пошир застереження на кожне з двох тлумачень окремо; не запереч його застосування.",
+            "accepted_target_texts": [
+                "The reservation applies with equal force to either interpretation, however narrowly it is framed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The reservation",
+                "applies with",
+                "equal force",
+                "to either interpretation,",
+                "however narrowly",
+                "it is framed."
+            ],
+            "token_groups": [
+                "The reservation",
+                "applies with",
+                "equal force",
+                "to either interpretation,",
+                "however narrowly",
+                "it is framed."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "naqq-no-none-neither-either-c2-g05",
+            "author_id": "C2-g05",
+            "question": "{a1} but the most explicit wording could displace the presumption in this context.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "У цьому контексті припущення могло б спростувати лише найчіткіше формулювання.",
+            "target_text": "None but the most explicit wording could displace the presumption in this context.",
+            "markers": {
+                "a1": {
+                    "answer": "None",
+                    "options": [
+                        "None",
+                        "Neither",
+                        "No"
+                    ],
+                    "verb_hint": "Передай обмеження «ніхто або ніщо, крім» самостійним заперечним словом; сполучник виключення вже є."
+                }
+            },
+            "verb_hint": "Передай обмеження «ніхто або ніщо, крім» самостійним заперечним словом; сполучник виключення вже є.",
+            "accepted_target_texts": [
+                "None but the most explicit wording could displace the presumption in this context.",
+                "Nothing but the most explicit wording could displace the presumption in this context."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Nothing"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Nothing"
+                ]
+            },
+            "reorder_groups": [
+                "None but",
+                "the most",
+                "explicit wording",
+                "could displace",
+                "the presumption",
+                "in this context."
+            ],
+            "token_groups": [
+                "None but",
+                "the most",
+                "explicit wording",
+                "could displace",
+                "the presumption",
+                "in this context."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "naqq-no-none-neither-either-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The apparent agreement offers {a1} resolution of the underlying dispute.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_no_none_neither_either",
+            "translation_uk": "Позірна згода не пропонує жодного розв’язання основної суперечки.",
+            "target_text": "The apparent agreement offers no resolution of the underlying dispute.",
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "none",
+                        "neither"
+                    ],
+                    "verb_hint": "Запереч наявність справжнього розв’язання за видимою згодою; назва результату вже наведена."
+                }
+            },
+            "verb_hint": "Запереч наявність справжнього розв’язання за видимою згодою; назва результату вже наведена.",
+            "accepted_target_texts": [
+                "The apparent agreement offers no resolution of the underlying dispute."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The apparent agreement",
+                "offers no resolution",
+                "of",
+                "the underlying dispute."
+            ],
+            "token_groups": [
+                "The apparent agreement",
+                "offers no resolution",
+                "of",
+                "the underlying dispute."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        }
+    ]
+}

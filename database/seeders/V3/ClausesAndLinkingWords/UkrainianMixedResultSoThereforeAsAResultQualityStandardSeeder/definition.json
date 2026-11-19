@@ -1,0 +1,678 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/result-so-therefore-as-a-result.v1.json",
+        "sha256": "a76b1c22fc67677c47ac7a2accb952f3ea320813f88fecbdf9cbd6359f5ce701"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\UkrainianMixedResultSoThereforeAsAResultQualityStandardSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-result-so-therefore-as-a-result-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "clauses_linking_words_quality_result_so_therefore_as_a_result": {
+            "name": "Clauses and Linking Words Quality: Result: so / therefore / as a result"
+        }
+    },
+    "tags": {
+        "clauses_linking_words_result": {
+            "name": "Result: so / therefore / as a result",
+            "category": "clauses_and_linking_words"
+        },
+        "so_result": {
+            "name": "So Result",
+            "category": "topic"
+        },
+        "therefore": {
+            "name": "Therefore",
+            "category": "topic"
+        },
+        "as_a_result": {
+            "name": "As A Result",
+            "category": "topic"
+        },
+        "consequently": {
+            "name": "Consequently",
+            "category": "topic"
+        },
+        "result_vs_reason": {
+            "name": "Result Vs Reason",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "formal_result_linkers": {
+            "name": "Formal Result Linkers",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "clauses_linking_words_result"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-result-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I am hungry, {a1} I make a sandwich.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_result_so_therefore_as_a_result",
+            "translation_uk": "Я голодний, тому роблю бутерброд.",
+            "target_text": "I am hungry, so I make a sandwich.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Тому роблю; після причини введи наслідок, не змінюючи напрямку зв’язку."
+                }
+            },
+            "verb_hint": "Тому роблю; після причини введи наслідок, не змінюючи напрямку зв’язку.",
+            "accepted_target_texts": [
+                "I am hungry, so I make a sandwich."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I am hungry,",
+                "so",
+                "I make",
+                "a sandwich."
+            ],
+            "token_groups": [
+                "I am hungry,",
+                "so",
+                "I make",
+                "a sandwich."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "clq-result-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The box is heavy, {a1} Dad helps me.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_result_so_therefore_as_a_result",
+            "translation_uk": "Коробка важка, тому тато мені допомагає.",
+            "target_text": "The box is heavy, so Dad helps me.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because of",
+                        "despite"
+                    ],
+                    "verb_hint": "Тому допомагає; потрібен сполучник наслідку перед повною частиною."
+                }
+            },
+            "verb_hint": "Тому допомагає; потрібен сполучник наслідку перед повною частиною.",
+            "accepted_target_texts": [
+                "The box is heavy, so Dad helps me."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The box",
+                "is heavy,",
+                "so",
+                "Dad helps me."
+            ],
+            "token_groups": [
+                "The box",
+                "is heavy,",
+                "so",
+                "Dad helps me."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "clq-result-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The floor was slippery, {a1} we walked slowly.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_result_so_therefore_as_a_result",
+            "translation_uk": "Підлога була слизька, тому ми йшли повільно.",
+            "target_text": "The floor was slippery, so we walked slowly.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "unless"
+                    ],
+                    "verb_hint": "Тому йшли повільно; збережи наслідок названої властивості підлоги."
+                }
+            },
+            "verb_hint": "Тому йшли повільно; збережи наслідок названої властивості підлоги.",
+            "accepted_target_texts": [
+                "The floor was slippery, so we walked slowly."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The floor",
+                "was slippery,",
+                "so",
+                "we walked slowly."
+            ],
+            "token_groups": [
+                "The floor",
+                "was slippery,",
+                "so",
+                "we walked slowly."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "clq-result-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The café had no free tables. {a1}, we bought food to take away.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_result_so_therefore_as_a_result",
+            "translation_uk": "У кафе не було вільних столиків. Унаслідок цього ми купили їжу із собою.",
+            "target_text": "The café had no free tables. As a result, we bought food to take away.",
+            "markers": {
+                "a1": {
+                    "answer": "As a result",
+                    "options": [
+                        "As a result",
+                        "In spite of",
+                        "Because of"
+                    ],
+                    "verb_hint": "Унаслідок цього; на початку нового речення введи результат відсутності місць."
+                }
+            },
+            "verb_hint": "Унаслідок цього; на початку нового речення введи результат відсутності місць.",
+            "accepted_target_texts": [
+                "The café had no free tables. As a result, we bought food to take away.",
+                "The café had no free tables. Therefore, we bought food to take away.",
+                "The café had no free tables. Consequently, we bought food to take away."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Therefore",
+                    "Consequently"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Therefore",
+                    "Consequently"
+                ]
+            },
+            "reorder_groups": [
+                "The café",
+                "had",
+                "no free tables.",
+                "As a result,",
+                "we bought food",
+                "to take away."
+            ],
+            "token_groups": [
+                "The café",
+                "had",
+                "no free tables.",
+                "As a result,",
+                "we bought food",
+                "to take away."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "clq-result-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The river overflowed. {a1}, several roads were blocked.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_result_so_therefore_as_a_result",
+            "translation_uk": "Річка вийшла з берегів. Унаслідок цього кілька доріг перекрили.",
+            "target_text": "The river overflowed. Consequently, several roads were blocked.",
+            "markers": {
+                "a1": {
+                    "answer": "Consequently",
+                    "options": [
+                        "Consequently",
+                        "Because",
+                        "Although"
+                    ],
+                    "verb_hint": "Унаслідок цього; окреме речення повідомляє результат розливу."
+                }
+            },
+            "verb_hint": "Унаслідок цього; окреме речення повідомляє результат розливу.",
+            "accepted_target_texts": [
+                "The river overflowed. Consequently, several roads were blocked.",
+                "The river overflowed. Therefore, several roads were blocked.",
+                "The river overflowed. As a result, several roads were blocked."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Therefore",
+                    "As a result"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Therefore",
+                    "As a result"
+                ]
+            },
+            "reorder_groups": [
+                "The river",
+                "overflowed.",
+                "Consequently,",
+                "several roads",
+                "were blocked."
+            ],
+            "token_groups": [
+                "The river",
+                "overflowed.",
+                "Consequently,",
+                "several roads",
+                "were blocked."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "clq-result-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The battery was flat, {a1} the photographer borrowed another camera.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_result_so_therefore_as_a_result",
+            "translation_uk": "Батарея розрядилася, тому фотограф позичив іншу камеру.",
+            "target_text": "The battery was flat, so the photographer borrowed another camera.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "since",
+                        "whereas"
+                    ],
+                    "verb_hint": "Тому позичив; назви наслідок проблеми з батареєю."
+                }
+            },
+            "verb_hint": "Тому позичив; назви наслідок проблеми з батареєю.",
+            "accepted_target_texts": [
+                "The battery was flat, so the photographer borrowed another camera."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The battery",
+                "was flat,",
+                "so",
+                "the photographer",
+                "borrowed",
+                "another camera."
+            ],
+            "token_groups": [
+                "The battery",
+                "was flat,",
+                "so",
+                "the photographer",
+                "borrowed",
+                "another camera."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "clq-result-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The application lacked a signature. {a1}, it was returned unprocessed.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_result_so_therefore_as_a_result",
+            "translation_uk": "У заяві бракувало підпису. Тому її повернули без розгляду.",
+            "target_text": "The application lacked a signature. Therefore, it was returned unprocessed.",
+            "markers": {
+                "a1": {
+                    "answer": "Therefore",
+                    "options": [
+                        "Therefore",
+                        "Although",
+                        "Because"
+                    ],
+                    "verb_hint": "Тому повернули; введи окреме речення про наслідок неповного оформлення."
+                }
+            },
+            "verb_hint": "Тому повернули; введи окреме речення про наслідок неповного оформлення.",
+            "accepted_target_texts": [
+                "The application lacked a signature. Therefore, it was returned unprocessed.",
+                "The application lacked a signature. Consequently, it was returned unprocessed.",
+                "The application lacked a signature. As a result, it was returned unprocessed."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Consequently",
+                    "As a result"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Consequently",
+                    "As a result"
+                ]
+            },
+            "reorder_groups": [
+                "The application",
+                "lacked",
+                "a signature.",
+                "Therefore,",
+                "it was returned",
+                "unprocessed."
+            ],
+            "token_groups": [
+                "The application",
+                "lacked",
+                "a signature.",
+                "Therefore,",
+                "it was returned",
+                "unprocessed."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "clq-result-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The inspection revealed structural damage, {a1} the venue remained closed.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_result_so_therefore_as_a_result",
+            "translation_uk": "Огляд виявив пошкодження конструкцій, тому приміщення залишилося зачиненим.",
+            "target_text": "The inspection revealed structural damage, so the venue remained closed.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "despite"
+                    ],
+                    "verb_hint": "Тому залишилося зачиненим; друга частина є наслідком висновку огляду."
+                }
+            },
+            "verb_hint": "Тому залишилося зачиненим; друга частина є наслідком висновку огляду.",
+            "accepted_target_texts": [
+                "The inspection revealed structural damage, so the venue remained closed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inspection",
+                "revealed",
+                "structural damage,",
+                "so",
+                "the venue",
+                "remained closed."
+            ],
+            "token_groups": [
+                "The inspection",
+                "revealed",
+                "structural damage,",
+                "so",
+                "the venue",
+                "remained closed."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "clq-result-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The control group was not comparable. {a1}, the observed difference cannot establish causation.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_result_so_therefore_as_a_result",
+            "translation_uk": "Контрольна група не була зіставною. Відповідно, спостережена відмінність не доводить причинності.",
+            "target_text": "The control group was not comparable. Consequently, the observed difference cannot establish causation.",
+            "markers": {
+                "a1": {
+                    "answer": "Consequently",
+                    "options": [
+                        "Consequently",
+                        "Although",
+                        "Because"
+                    ],
+                    "verb_hint": "Відповідно; після методичного обмеження введи його наслідок для висновку."
+                }
+            },
+            "verb_hint": "Відповідно; після методичного обмеження введи його наслідок для висновку.",
+            "accepted_target_texts": [
+                "The control group was not comparable. Consequently, the observed difference cannot establish causation.",
+                "The control group was not comparable. Therefore, the observed difference cannot establish causation.",
+                "The control group was not comparable. As a result, the observed difference cannot establish causation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Therefore",
+                    "As a result"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Therefore",
+                    "As a result"
+                ]
+            },
+            "reorder_groups": [
+                "The control group",
+                "was not comparable.",
+                "Consequently,",
+                "the observed difference",
+                "cannot establish",
+                "causation."
+            ],
+            "token_groups": [
+                "The control group",
+                "was not comparable.",
+                "Consequently,",
+                "the observed difference",
+                "cannot establish",
+                "causation."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "clq-result-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The witness withdrew the allegation, {a1} the tribunal excluded it from consideration.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_result_so_therefore_as_a_result",
+            "translation_uk": "Свідок відкликав твердження, тому трибунал вилучив його з розгляду.",
+            "target_text": "The witness withdrew the allegation, so the tribunal excluded it from consideration.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "since",
+                        "whereas"
+                    ],
+                    "verb_hint": "Тому вилучив; заданий напрямок зв’язку веде від відкликання до процесуального наслідку."
+                }
+            },
+            "verb_hint": "Тому вилучив; заданий напрямок зв’язку веде від відкликання до процесуального наслідку.",
+            "accepted_target_texts": [
+                "The witness withdrew the allegation, so the tribunal excluded it from consideration."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The witness",
+                "withdrew the allegation,",
+                "so",
+                "the tribunal",
+                "excluded it",
+                "from consideration."
+            ],
+            "token_groups": [
+                "The witness",
+                "withdrew the allegation,",
+                "so",
+                "the tribunal",
+                "excluded it",
+                "from consideration."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "clq-result-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The ruling expressly reserves that question. {a1}, it cannot be cited as settling it.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_result_so_therefore_as_a_result",
+            "translation_uk": "Рішення прямо залишає це питання відкритим. Отже, на нього не можна посилатися як на остаточне вирішення.",
+            "target_text": "The ruling expressly reserves that question. Therefore, it cannot be cited as settling it.",
+            "markers": {
+                "a1": {
+                    "answer": "Therefore",
+                    "options": [
+                        "Therefore",
+                        "Because",
+                        "Notwithstanding"
+                    ],
+                    "verb_hint": "Отже; введи логічний наслідок того, що питання прямо не вирішене."
+                }
+            },
+            "verb_hint": "Отже; введи логічний наслідок того, що питання прямо не вирішене.",
+            "accepted_target_texts": [
+                "The ruling expressly reserves that question. Therefore, it cannot be cited as settling it.",
+                "The ruling expressly reserves that question. Consequently, it cannot be cited as settling it.",
+                "The ruling expressly reserves that question. As a result, it cannot be cited as settling it."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Consequently",
+                    "As a result"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Consequently",
+                    "As a result"
+                ]
+            },
+            "reorder_groups": [
+                "The ruling",
+                "expressly reserves",
+                "that question.",
+                "Therefore,",
+                "it cannot",
+                "be cited as",
+                "settling it."
+            ],
+            "token_groups": [
+                "The ruling",
+                "expressly reserves",
+                "that question.",
+                "Therefore,",
+                "it cannot",
+                "be cited as",
+                "settling it."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "clq-result-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The reconstruction conflated two distinct sources, {a1} its apparent consistency was misleading.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_result_so_therefore_as_a_result",
+            "translation_uk": "Реконструкція змішала два різні джерела, тому її позірна узгодженість вводила в оману.",
+            "target_text": "The reconstruction conflated two distinct sources, so its apparent consistency was misleading.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "despite"
+                    ],
+                    "verb_hint": "Тому вводила в оману; зв’яжи методичну помилку з її наслідком для оцінки."
+                }
+            },
+            "verb_hint": "Тому вводила в оману; зв’яжи методичну помилку з її наслідком для оцінки.",
+            "accepted_target_texts": [
+                "The reconstruction conflated two distinct sources, so its apparent consistency was misleading."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The reconstruction",
+                "conflated",
+                "two distinct sources,",
+                "so",
+                "its apparent consistency",
+                "was misleading."
+            ],
+            "token_groups": [
+                "The reconstruction",
+                "conflated",
+                "two distinct sources,",
+                "so",
+                "its apparent consistency",
+                "was misleading."
+            ],
+            "quality_revision": "clq-v1"
+        }
+    ]
+}

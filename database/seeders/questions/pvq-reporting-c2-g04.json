@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 64709,
+        "uuid": "pvq-reporting-c2-g04",
+        "question": "The artefacts are believed {a1} misattributed for decades.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 10,
+        "source_id": 502,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveReportingStructuresQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "to have been",
+                "to has been",
+                "having been"
+            ]
+        },
+        "theory_text_block_uuid": "f319d468-3652-5702-851e-8e4412d8ff9c",
+        "created_at": "2026-10-30T20:18:54.000000Z",
+        "updated_at": "2026-10-30T20:18:54.000000Z"
+    },
+    "category": {
+        "id": 10,
+        "name": "Passive Voice",
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
+    },
+    "source": {
+        "id": 502,
+        "name": "Passive Voice Quality: Пасивні конструкції повідомлення",
+        "created_at": "2026-10-30T20:18:51.000000Z",
+        "updated_at": "2026-10-30T20:18:51.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 1688,
+                "name": "Passive Reporting Structures",
+                "category": null,
+                "created_at": "2026-04-26T00:23:33.000000Z",
+                "updated_at": "2026-04-26T00:23:33.000000Z"
+            },
+            "pivot": {
+                "question_id": 64709,
+                "tag_id": 1688,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 25086,
+                "option": "having been",
+                "created_at": "2026-05-23T17:08:30.000000Z",
+                "updated_at": "2026-05-23T17:08:30.000000Z"
+            },
+            "pivot": {
+                "question_id": 64709,
+                "option_id": 25086,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 60182,
+                "option": "to have been",
+                "created_at": "2026-10-30T20:16:05.000000Z",
+                "updated_at": "2026-10-30T20:16:05.000000Z"
+            },
+            "pivot": {
+                "question_id": 64709,
+                "option_id": 60182,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 60184,
+                "option": "to has been",
+                "created_at": "2026-10-30T20:16:05.000000Z",
+                "updated_at": "2026-10-30T20:16:05.000000Z"
+            },
+            "pivot": {
+                "question_id": 64709,
+                "option_id": 60184,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 336762,
+                "question_id": 64709,
+                "marker": "a1",
+                "option_id": 60182,
+                "created_at": "2026-10-30T20:18:54.000000Z",
+                "updated_at": "2026-10-30T20:18:54.000000Z"
+            },
+            "option": {
+                "id": 60182,
+                "option": "to have been",
+                "created_at": "2026-10-30T20:16:05.000000Z",
+                "updated_at": "2026-10-30T20:16:05.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 54096,
+                "question_id": 64709,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 63659,
+                "created_at": "2026-10-30T20:18:54.000000Z",
+                "updated_at": "2026-10-30T20:18:54.000000Z"
+            },
+            "option": {
+                "id": 63659,
+                "option": "Десятиліттями раніше приписували не тому авторові.",
+                "created_at": "2026-10-30T20:18:54.000000Z",
+                "updated_at": "2026-10-30T20:18:54.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 56724,
+            "question_id": 64709,
+            "text": "The artefacts are believed {a1} misattributed for decades.",
+            "created_at": "2026-10-30T20:18:54.000000Z",
+            "updated_at": "2026-10-30T20:18:54.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

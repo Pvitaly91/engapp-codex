@@ -1,0 +1,1742 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/tags.v1.json",
+        "sha256": "98a7475a1a5be26abd6c7dc408943f3bfc2edd96649a55651f666bcb95d2b187"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedQuestionTagsDisjunctiveQuestionsQualityStandardSeeder",
+        "uuid_namespace": "questions-negations-quality-tags-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "questions_negations_quality_tags": {
+            "name": "Questions and Negations Quality: Question Tags: підтвердження та уточнення"
+        }
+    },
+    "tags": {
+        "question_tags_disjunctive_questions": {
+            "name": "Question Tags",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "positive_negative_tag": {
+            "name": "Positive Statement Negative Tag",
+            "category": "topic"
+        },
+        "negative_positive_tag": {
+            "name": "Negative Statement Positive Tag",
+            "category": "topic"
+        },
+        "matching_auxiliary": {
+            "name": "Matching Auxiliary",
+            "category": "topic"
+        },
+        "to_be_tags": {
+            "name": "To Be Tags",
+            "category": "topic"
+        },
+        "do_does_did_tags": {
+            "name": "Do Does Did Tags",
+            "category": "topic"
+        },
+        "modal_tags": {
+            "name": "Modal Tags",
+            "category": "topic"
+        },
+        "perfect_auxiliary_tags": {
+            "name": "Perfect Auxiliary Tags",
+            "category": "topic"
+        },
+        "imperative_tags": {
+            "name": "Imperative Tags",
+            "category": "topic"
+        },
+        "lets_shall_we": {
+            "name": "Lets Shall We",
+            "category": "topic"
+        },
+        "arent_i": {
+            "name": "Arent I",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "question_tags_disjunctive_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-tags-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The soup is hot, {a1}?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Суп гарячий, чи не так?",
+            "target_text": "The soup is hot, isn't it?",
+            "markers": {
+                "a1": {
+                    "answer": "isn't it",
+                    "options": [
+                        "isn't it",
+                        "doesn't it",
+                        "aren't it"
+                    ],
+                    "verb_hint": "Додай заперечний хвостик до ствердження з дієсловом бути."
+                }
+            },
+            "verb_hint": "Додай заперечний хвостик до ствердження з дієсловом бути.",
+            "accepted_target_texts": [
+                "The soup is hot, isn't it?",
+                "The soup is hot, is it not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is it not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is it not"
+                ]
+            },
+            "reorder_groups": [
+                "The soup",
+                "is hot,",
+                "isn't it?"
+            ],
+            "token_groups": [
+                "The soup",
+                "is hot,",
+                "isn't it?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-tags-a1-g02",
+            "author_id": "A1-g02",
+            "question": "These boots are clean, {a1}?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Ці черевики чисті, чи не так?",
+            "target_text": "These boots are clean, aren't they?",
+            "markers": {
+                "a1": {
+                    "answer": "aren't they",
+                    "options": [
+                        "aren't they",
+                        "isn't they",
+                        "don't they"
+                    ],
+                    "verb_hint": "У хвостику використай множину та заперечну форму дієслова бути."
+                }
+            },
+            "verb_hint": "У хвостику використай множину та заперечну форму дієслова бути.",
+            "accepted_target_texts": [
+                "These boots are clean, aren't they?",
+                "These boots are clean, are they not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are they not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are they not"
+                ]
+            },
+            "reorder_groups": [
+                "These boots",
+                "are clean,",
+                "aren't they?"
+            ],
+            "token_groups": [
+                "These boots",
+                "are clean,",
+                "aren't they?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-tags-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Your uncle works nearby, {a1}?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Твій дядько працює неподалік, чи не так?",
+            "target_text": "Your uncle works nearby, doesn't he?",
+            "markers": {
+                "a1": {
+                    "answer": "doesn't he",
+                    "options": [
+                        "doesn't he",
+                        "isn't he",
+                        "don't he"
+                    ],
+                    "verb_hint": "Підтвердь звичну дію чоловіка заперечним допоміжним дієсловом."
+                }
+            },
+            "verb_hint": "Підтвердь звичну дію чоловіка заперечним допоміжним дієсловом.",
+            "accepted_target_texts": [
+                "Your uncle works nearby, doesn't he?",
+                "Your uncle works nearby, does he not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "does he not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "does he not"
+                ]
+            },
+            "reorder_groups": [
+                "Your uncle",
+                "works nearby,",
+                "doesn't he?"
+            ],
+            "token_groups": [
+                "Your uncle",
+                "works nearby,",
+                "doesn't he?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-tags-a1-g04",
+            "author_id": "A1-g04",
+            "question": "We need a basket, {a1}?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Нам потрібен кошик, чи не так?",
+            "target_text": "We need a basket, don't we?",
+            "markers": {
+                "a1": {
+                    "answer": "don't we",
+                    "options": [
+                        "don't we",
+                        "aren't we",
+                        "doesn't we"
+                    ],
+                    "verb_hint": "Додай заперечний хвостик у теперішньому простому часі."
+                }
+            },
+            "verb_hint": "Додай заперечний хвостик у теперішньому простому часі.",
+            "accepted_target_texts": [
+                "We need a basket, don't we?",
+                "We need a basket, do we not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "do we not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "do we not"
+                ]
+            },
+            "reorder_groups": [
+                "We need",
+                "a basket,",
+                "don't we?"
+            ],
+            "token_groups": [
+                "We need",
+                "a basket,",
+                "don't we?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-tags-a1-g05",
+            "author_id": "A1-g05",
+            "question": "The baby is not hungry, {a1}?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Дівчинка не голодна, чи не так?",
+            "target_text": "The baby is not hungry, is she?",
+            "markers": {
+                "a1": {
+                    "answer": "is she",
+                    "options": [
+                        "is she",
+                        "isn't she",
+                        "does she"
+                    ],
+                    "verb_hint": "Після заперечення потрібен стверджувальний хвостик; мова про дівчинку."
+                }
+            },
+            "verb_hint": "Після заперечення потрібен стверджувальний хвостик; мова про дівчинку.",
+            "accepted_target_texts": [
+                "The baby is not hungry, is she?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The baby",
+                "is not hungry,",
+                "is she?"
+            ],
+            "token_groups": [
+                "The baby",
+                "is not hungry,",
+                "is she?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-tags-a1-g06",
+            "author_id": "A1-g06",
+            "question": "You can swim, {a1}?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Ти вмієш плавати, чи не так?",
+            "target_text": "You can swim, can't you?",
+            "markers": {
+                "a1": {
+                    "answer": "can't you",
+                    "options": [
+                        "can't you",
+                        "don't you",
+                        "aren't you"
+                    ],
+                    "verb_hint": "У хвостику повтори модальне дієслово в заперечній формі."
+                }
+            },
+            "verb_hint": "У хвостику повтори модальне дієслово в заперечній формі.",
+            "accepted_target_texts": [
+                "You can swim, can't you?",
+                "You can swim, can you not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "can you not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "can you not"
+                ]
+            },
+            "reorder_groups": [
+                "You can",
+                "swim,",
+                "can't you?"
+            ],
+            "token_groups": [
+                "You can",
+                "swim,",
+                "can't you?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-tags-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The parcel arrived yesterday, {a1}?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Посилка прибула вчора, чи не так?",
+            "target_text": "The parcel arrived yesterday, didn't it?",
+            "markers": {
+                "a1": {
+                    "answer": "didn't it",
+                    "options": [
+                        "didn't it",
+                        "doesn't it",
+                        "wasn't it"
+                    ],
+                    "verb_hint": "Після минулої простої дії потрібен відповідний заперечний хвостик."
+                }
+            },
+            "verb_hint": "Після минулої простої дії потрібен відповідний заперечний хвостик.",
+            "accepted_target_texts": [
+                "The parcel arrived yesterday, didn't it?",
+                "The parcel arrived yesterday, did it not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "did it not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "did it not"
+                ]
+            },
+            "reorder_groups": [
+                "The parcel",
+                "arrived yesterday,",
+                "didn't it?"
+            ],
+            "token_groups": [
+                "The parcel",
+                "arrived yesterday,",
+                "didn't it?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-tags-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Those tourists were lost, {a1}?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Ті туристи заблукали, чи не так?",
+            "target_text": "Those tourists were lost, weren't they?",
+            "markers": {
+                "a1": {
+                    "answer": "weren't they",
+                    "options": [
+                        "weren't they",
+                        "wasn't they",
+                        "didn't they"
+                    ],
+                    "verb_hint": "Повтори минулу форму дієслова бути для множини із запереченням."
+                }
+            },
+            "verb_hint": "Повтори минулу форму дієслова бути для множини із запереченням.",
+            "accepted_target_texts": [
+                "Those tourists were lost, weren't they?",
+                "Those tourists were lost, were they not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "were they not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "were they not"
+                ]
+            },
+            "reorder_groups": [
+                "Those tourists",
+                "were lost,",
+                "weren't they?"
+            ],
+            "token_groups": [
+                "Those tourists",
+                "were lost,",
+                "weren't they?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-tags-a2-g03",
+            "author_id": "A2-g03",
+            "question": "You have finished breakfast, {a1}?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Ти вже поснідав, чи не так?",
+            "target_text": "You have finished breakfast, haven't you?",
+            "markers": {
+                "a1": {
+                    "answer": "haven't you",
+                    "options": [
+                        "haven't you",
+                        "don't you",
+                        "didn't you"
+                    ],
+                    "verb_hint": "Збережи допоміжне дієслово доконаного часу в хвостику."
+                }
+            },
+            "verb_hint": "Збережи допоміжне дієслово доконаного часу в хвостику.",
+            "accepted_target_texts": [
+                "You have finished breakfast, haven't you?",
+                "You have finished breakfast, have you not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have you not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have you not"
+                ]
+            },
+            "reorder_groups": [
+                "You have",
+                "finished breakfast,",
+                "haven't you?"
+            ],
+            "token_groups": [
+                "You have",
+                "finished breakfast,",
+                "haven't you?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-tags-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The lift wasn't working, {a1}?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Ліфт не працював, чи не так?",
+            "target_text": "The lift wasn't working, was it?",
+            "markers": {
+                "a1": {
+                    "answer": "was it",
+                    "options": [
+                        "was it",
+                        "wasn't it",
+                        "did it"
+                    ],
+                    "verb_hint": "Після заперечного минулого тривалого часу хвостик має бути стверджувальним."
+                }
+            },
+            "verb_hint": "Після заперечного минулого тривалого часу хвостик має бути стверджувальним.",
+            "accepted_target_texts": [
+                "The lift wasn't working, was it?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The lift",
+                "wasn't working,",
+                "was it?"
+            ],
+            "token_groups": [
+                "The lift",
+                "wasn't working,",
+                "was it?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-tags-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Let's walk along the canal, {a1}?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Пройдімося вздовж каналу, гаразд?",
+            "target_text": "Let's walk along the canal, shall we?",
+            "markers": {
+                "a1": {
+                    "answer": "shall we",
+                    "options": [
+                        "shall we",
+                        "will we",
+                        "do we"
+                    ],
+                    "verb_hint": "Для спільної пропозиції потрібен усталений хвостик із питанням про нас."
+                }
+            },
+            "verb_hint": "Для спільної пропозиції потрібен усталений хвостик із питанням про нас.",
+            "accepted_target_texts": [
+                "Let's walk along the canal, shall we?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Let's walk",
+                "along the canal,",
+                "shall we?"
+            ],
+            "token_groups": [
+                "Let's walk",
+                "along the canal,",
+                "shall we?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-tags-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Pass me the salt, {a1}?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Передай мені сіль, гаразд?",
+            "target_text": "Pass me the salt, will you?",
+            "markers": {
+                "a1": {
+                    "answer": "will you",
+                    "options": [
+                        "will you",
+                        "do you",
+                        "are you"
+                    ],
+                    "verb_hint": "Додай звичайний хвостик прохання після наказової форми."
+                }
+            },
+            "verb_hint": "Додай звичайний хвостик прохання після наказової форми.",
+            "accepted_target_texts": [
+                "Pass me the salt, will you?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Pass me",
+                "the salt,",
+                "will you?"
+            ],
+            "token_groups": [
+                "Pass me",
+                "the salt,",
+                "will you?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-tags-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Nobody left a forwarding address, {a1}?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Ніхто не залишив адреси для пересилання, чи не так?",
+            "target_text": "Nobody left a forwarding address, did they?",
+            "markers": {
+                "a1": {
+                    "answer": "did they",
+                    "options": [
+                        "did they",
+                        "didn't they",
+                        "have they"
+                    ],
+                    "verb_hint": "Заперечне за значенням слово вимагає стверджувального хвостика й нейтрального займенника."
+                }
+            },
+            "verb_hint": "Заперечне за значенням слово вимагає стверджувального хвостика й нейтрального займенника.",
+            "accepted_target_texts": [
+                "Nobody left a forwarding address, did they?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nobody left",
+                "a forwarding address,",
+                "did they?"
+            ],
+            "token_groups": [
+                "Nobody left",
+                "a forwarding address,",
+                "did they?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-tags-b1-g02",
+            "author_id": "B1-g02",
+            "question": "There are enough chairs, {a1}?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Стільців достатньо, чи не так?",
+            "target_text": "There are enough chairs, aren't there?",
+            "markers": {
+                "a1": {
+                    "answer": "aren't there",
+                    "options": [
+                        "aren't there",
+                        "aren't they",
+                        "isn't there"
+                    ],
+                    "verb_hint": "У хвостику збережи формальне слово конструкції існування."
+                }
+            },
+            "verb_hint": "У хвостику збережи формальне слово конструкції існування.",
+            "accepted_target_texts": [
+                "There are enough chairs, aren't there?",
+                "There are enough chairs, are there not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are there not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are there not"
+                ]
+            },
+            "reorder_groups": [
+                "There are",
+                "enough chairs,",
+                "aren't there?"
+            ],
+            "token_groups": [
+                "There are",
+                "enough chairs,",
+                "aren't there?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-tags-b1-g03",
+            "author_id": "B1-g03",
+            "question": "I am on the guest list, {a1}?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Я є у списку гостей, чи не так?",
+            "target_text": "I am on the guest list, aren't I?",
+            "markers": {
+                "a1": {
+                    "answer": "aren't I",
+                    "options": [
+                        "aren't I",
+                        "am not I",
+                        "don't I"
+                    ],
+                    "verb_hint": "Застосуй усталений виняток для заперечного хвостика від першої особи."
+                }
+            },
+            "verb_hint": "Застосуй усталений виняток для заперечного хвостика від першої особи.",
+            "accepted_target_texts": [
+                "I am on the guest list, aren't I?",
+                "I am on the guest list, am I not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "am I not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "am I not"
+                ]
+            },
+            "reorder_groups": [
+                "I am",
+                "on",
+                "the guest list,",
+                "aren't I?"
+            ],
+            "token_groups": [
+                "I am",
+                "on",
+                "the guest list,",
+                "aren't I?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-tags-b1-g04",
+            "author_id": "B1-g04",
+            "question": "Nothing was damaged in transit, {a1}?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Ніщо не пошкодили під час перевезення, чи не так?",
+            "target_text": "Nothing was damaged in transit, was it?",
+            "markers": {
+                "a1": {
+                    "answer": "was it",
+                    "options": [
+                        "was it",
+                        "wasn't it",
+                        "did it"
+                    ],
+                    "verb_hint": "Заперечний зміст головної частини потребує стверджувального хвостика."
+                }
+            },
+            "verb_hint": "Заперечний зміст головної частини потребує стверджувального хвостика.",
+            "accepted_target_texts": [
+                "Nothing was damaged in transit, was it?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nothing was",
+                "damaged in transit,",
+                "was it?"
+            ],
+            "token_groups": [
+                "Nothing was",
+                "damaged in transit,",
+                "was it?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-tags-b1-g05",
+            "author_id": "B1-g05",
+            "question": "She used to play the cello, {a1}?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Вона колись грала на віолончелі, чи не так?",
+            "target_text": "She used to play the cello, didn't she?",
+            "markers": {
+                "a1": {
+                    "answer": "didn't she",
+                    "options": [
+                        "didn't she",
+                        "doesn't she",
+                        "wasn't she"
+                    ],
+                    "verb_hint": "Для колишньої звички використай хвостик із допоміжним дієсловом минулого простого часу."
+                }
+            },
+            "verb_hint": "Для колишньої звички використай хвостик із допоміжним дієсловом минулого простого часу.",
+            "accepted_target_texts": [
+                "She used to play the cello, didn't she?",
+                "She used to play the cello, did she not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "did she not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "did she not"
+                ]
+            },
+            "reorder_groups": [
+                "She used to",
+                "play the cello,",
+                "didn't she?"
+            ],
+            "token_groups": [
+                "She used to",
+                "play the cello,",
+                "didn't she?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-tags-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The guests had already eaten, {a1}?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Гості вже поїли до того моменту, чи не так?",
+            "target_text": "The guests had already eaten, hadn't they?",
+            "markers": {
+                "a1": {
+                    "answer": "hadn't they",
+                    "options": [
+                        "hadn't they",
+                        "haven't they",
+                        "didn't they"
+                    ],
+                    "verb_hint": "Збережи допоміжне дієслово минулого доконаного часу."
+                }
+            },
+            "verb_hint": "Збережи допоміжне дієслово минулого доконаного часу.",
+            "accepted_target_texts": [
+                "The guests had already eaten, hadn't they?",
+                "The guests had already eaten, had they not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had they not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had they not"
+                ]
+            },
+            "reorder_groups": [
+                "The guests",
+                "had already eaten,",
+                "hadn't they?"
+            ],
+            "token_groups": [
+                "The guests",
+                "had already eaten,",
+                "hadn't they?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "qnq-tags-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The auditor hardly spoke, {a1}?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Аудиторка майже не говорила, чи не так?",
+            "target_text": "The auditor hardly spoke, did she?",
+            "markers": {
+                "a1": {
+                    "answer": "did she",
+                    "options": [
+                        "did she",
+                        "didn't she",
+                        "has she"
+                    ],
+                    "verb_hint": "Прислівник із заперечним змістом робить хвостик стверджувальним."
+                }
+            },
+            "verb_hint": "Прислівник із заперечним змістом робить хвостик стверджувальним.",
+            "accepted_target_texts": [
+                "The auditor hardly spoke, did she?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The auditor",
+                "hardly spoke,",
+                "did she?"
+            ],
+            "token_groups": [
+                "The auditor",
+                "hardly spoke,",
+                "did she?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "qnq-tags-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Everyone has received the agenda, {a1}?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Усі отримали порядок денний, чи не так?",
+            "target_text": "Everyone has received the agenda, haven't they?",
+            "markers": {
+                "a1": {
+                    "answer": "haven't they",
+                    "options": [
+                        "haven't they",
+                        "hasn't he",
+                        "don't they"
+                    ],
+                    "verb_hint": "Для всіх людей використай нейтральний займенник множини та доконаний час."
+                }
+            },
+            "verb_hint": "Для всіх людей використай нейтральний займенник множини та доконаний час.",
+            "accepted_target_texts": [
+                "Everyone has received the agenda, haven't they?",
+                "Everyone has received the agenda, have they not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have they not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have they not"
+                ]
+            },
+            "reorder_groups": [
+                "Everyone has",
+                "received the agenda,",
+                "haven't they?"
+            ],
+            "token_groups": [
+                "Everyone has",
+                "received the agenda,",
+                "haven't they?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "qnq-tags-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The instructions needn't be printed, {a1}?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Інструкції не обов’язково друкувати, чи не так?",
+            "target_text": "The instructions needn't be printed, need they?",
+            "markers": {
+                "a1": {
+                    "answer": "need they",
+                    "options": [
+                        "need they",
+                        "do they",
+                        "needn't they"
+                    ],
+                    "verb_hint": "Повтори модальне дієслово необхідності без заперечення."
+                }
+            },
+            "verb_hint": "Повтори модальне дієслово необхідності без заперечення.",
+            "accepted_target_texts": [
+                "The instructions needn't be printed, need they?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The instructions",
+                "needn't be printed,",
+                "need they?"
+            ],
+            "token_groups": [
+                "The instructions",
+                "needn't be printed,",
+                "need they?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "qnq-tags-b2-g04",
+            "author_id": "B2-g04",
+            "question": "You would rather postpone it, {a1}?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Ти волів би це відкласти, чи не так?",
+            "target_text": "You would rather postpone it, wouldn't you?",
+            "markers": {
+                "a1": {
+                    "answer": "wouldn't you",
+                    "options": [
+                        "wouldn't you",
+                        "hadn't you",
+                        "don't you"
+                    ],
+                    "verb_hint": "У хвостику повтори допоміжне дієслово конструкції переваги."
+                }
+            },
+            "verb_hint": "У хвостику повтори допоміжне дієслово конструкції переваги.",
+            "accepted_target_texts": [
+                "You would rather postpone it, wouldn't you?",
+                "You would rather postpone it, would you not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "would you not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "would you not"
+                ]
+            },
+            "reorder_groups": [
+                "You would",
+                "rather postpone it,",
+                "wouldn't you?"
+            ],
+            "token_groups": [
+                "You would",
+                "rather postpone it,",
+                "wouldn't you?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "qnq-tags-b2-g05",
+            "author_id": "B2-g05",
+            "question": "Her assistant has been waiting, {a1}?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Її помічник уже певний час чекає, чи не так?",
+            "target_text": "Her assistant has been waiting, hasn't he?",
+            "markers": {
+                "a1": {
+                    "answer": "hasn't he",
+                    "options": [
+                        "hasn't he",
+                        "isn't he",
+                        "doesn't he"
+                    ],
+                    "verb_hint": "Доконаний тривалий час зберігає своє перше допоміжне дієслово."
+                }
+            },
+            "verb_hint": "Доконаний тривалий час зберігає своє перше допоміжне дієслово.",
+            "accepted_target_texts": [
+                "Her assistant has been waiting, hasn't he?",
+                "Her assistant has been waiting, has he not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "has he not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "has he not"
+                ]
+            },
+            "reorder_groups": [
+                "Her assistant",
+                "has been waiting,",
+                "hasn't he?"
+            ],
+            "token_groups": [
+                "Her assistant",
+                "has been waiting,",
+                "hasn't he?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "qnq-tags-b2-g06",
+            "author_id": "B2-g06",
+            "question": "Few delegates objected to the wording, {a1}?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Мало хто з делегатів заперечував проти формулювання, чи не так?",
+            "target_text": "Few delegates objected to the wording, did they?",
+            "markers": {
+                "a1": {
+                    "answer": "did they",
+                    "options": [
+                        "did they",
+                        "didn't they",
+                        "were they"
+                    ],
+                    "verb_hint": "Мала кількість без неозначеного артикля має заперечний відтінок."
+                }
+            },
+            "verb_hint": "Мала кількість без неозначеного артикля має заперечний відтінок.",
+            "accepted_target_texts": [
+                "Few delegates objected to the wording, did they?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Few delegates",
+                "objected",
+                "to the wording,",
+                "did they?"
+            ],
+            "token_groups": [
+                "Few delegates",
+                "objected",
+                "to the wording,",
+                "did they?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "qnq-tags-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The witness has seriously misunderstood, {a1}?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Свідок серйозно помилилася у розумінні, чи не так?",
+            "target_text": "The witness has seriously misunderstood, hasn't she?",
+            "markers": {
+                "a1": {
+                    "answer": "hasn't she",
+                    "options": [
+                        "hasn't she",
+                        "mustn't she",
+                        "didn't she"
+                    ],
+                    "verb_hint": "Підтвердь завершений результат хвостиком із тим самим допоміжним дієсловом доконаного часу."
+                }
+            },
+            "verb_hint": "Підтвердь завершений результат хвостиком із тим самим допоміжним дієсловом доконаного часу.",
+            "accepted_target_texts": [
+                "The witness has seriously misunderstood, hasn't she?",
+                "The witness has seriously misunderstood, has she not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "has she not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "has she not"
+                ]
+            },
+            "reorder_groups": [
+                "The witness",
+                "has seriously misunderstood,",
+                "hasn't she?"
+            ],
+            "token_groups": [
+                "The witness",
+                "has seriously misunderstood,",
+                "hasn't she?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "qnq-tags-c1-g02",
+            "author_id": "C1-g02",
+            "question": "You had better retain counsel, {a1}?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Тобі краще найняти адвоката, чи не так?",
+            "target_text": "You had better retain counsel, hadn't you?",
+            "markers": {
+                "a1": {
+                    "answer": "hadn't you",
+                    "options": [
+                        "hadn't you",
+                        "wouldn't you",
+                        "didn't you"
+                    ],
+                    "verb_hint": "В усталеній пораді повтори саме її допоміжне дієслово."
+                }
+            },
+            "verb_hint": "В усталеній пораді повтори саме її допоміжне дієслово.",
+            "accepted_target_texts": [
+                "You had better retain counsel, hadn't you?",
+                "You had better retain counsel, had you not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had you not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had you not"
+                ]
+            },
+            "reorder_groups": [
+                "You had",
+                "better retain counsel,",
+                "hadn't you?"
+            ],
+            "token_groups": [
+                "You had",
+                "better retain counsel,",
+                "hadn't you?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "qnq-tags-c1-g03",
+            "author_id": "C1-g03",
+            "question": "No substantive objections have emerged, {a1}?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Жодних суттєвих заперечень не виникло, чи не так?",
+            "target_text": "No substantive objections have emerged, have they?",
+            "markers": {
+                "a1": {
+                    "answer": "have they",
+                    "options": [
+                        "have they",
+                        "haven't they",
+                        "did they"
+                    ],
+                    "verb_hint": "Заперечна іменна група вимагає стверджувального хвостика."
+                }
+            },
+            "verb_hint": "Заперечна іменна група вимагає стверджувального хвостика.",
+            "accepted_target_texts": [
+                "No substantive objections have emerged, have they?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "No substantive",
+                "objections have emerged,",
+                "have they?"
+            ],
+            "token_groups": [
+                "No substantive",
+                "objections have emerged,",
+                "have they?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "qnq-tags-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The concession was scarcely voluntary, {a1}?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Поступка навряд чи була добровільною, чи не так?",
+            "target_text": "The concession was scarcely voluntary, was it?",
+            "markers": {
+                "a1": {
+                    "answer": "was it",
+                    "options": [
+                        "was it",
+                        "wasn't it",
+                        "did it"
+                    ],
+                    "verb_hint": "Врахуй заперечний зміст прислівника, а не лише відсутність окремої заперечної частки."
+                }
+            },
+            "verb_hint": "Врахуй заперечний зміст прислівника, а не лише відсутність окремої заперечної частки.",
+            "accepted_target_texts": [
+                "The concession was scarcely voluntary, was it?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The concession",
+                "was scarcely voluntary,",
+                "was it?"
+            ],
+            "token_groups": [
+                "The concession",
+                "was scarcely voluntary,",
+                "was it?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "qnq-tags-c1-g05",
+            "author_id": "C1-g05",
+            "question": "Neither arbitrator has withdrawn, {a1}?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Жоден із двох арбітрів не відмовився від участі, чи не так?",
+            "target_text": "Neither arbitrator has withdrawn, have they?",
+            "markers": {
+                "a1": {
+                    "answer": "have they",
+                    "options": [
+                        "have they",
+                        "haven't they",
+                        "has it"
+                    ],
+                    "verb_hint": "Уникай припущення про стать і збережи стверджувальний хвостик."
+                }
+            },
+            "verb_hint": "Уникай припущення про стать і збережи стверджувальний хвостик.",
+            "accepted_target_texts": [
+                "Neither arbitrator has withdrawn, have they?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Neither arbitrator",
+                "has withdrawn,",
+                "have they?"
+            ],
+            "token_groups": [
+                "Neither arbitrator",
+                "has withdrawn,",
+                "have they?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "qnq-tags-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The evidence will have been reviewed, {a1}?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "На той момент докази вже розглянуть, чи не так?",
+            "target_text": "The evidence will have been reviewed, won't it?",
+            "markers": {
+                "a1": {
+                    "answer": "won't it",
+                    "options": [
+                        "won't it",
+                        "hasn't it",
+                        "isn't it"
+                    ],
+                    "verb_hint": "У складній майбутній доконаній формі хвостик повторює перше допоміжне дієслово."
+                }
+            },
+            "verb_hint": "У складній майбутній доконаній формі хвостик повторює перше допоміжне дієслово.",
+            "accepted_target_texts": [
+                "The evidence will have been reviewed, won't it?",
+                "The evidence will have been reviewed, will it not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will it not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will it not"
+                ]
+            },
+            "reorder_groups": [
+                "The evidence",
+                "will have been",
+                "reviewed,",
+                "won't it?"
+            ],
+            "token_groups": [
+                "The evidence",
+                "will have been",
+                "reviewed,",
+                "won't it?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "qnq-tags-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The ruling cannot reasonably be overturned, {a1}?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Рішення не можна обґрунтовано скасувати, чи не так?",
+            "target_text": "The ruling cannot reasonably be overturned, can it?",
+            "markers": {
+                "a1": {
+                    "answer": "can it",
+                    "options": [
+                        "can it",
+                        "cannot it",
+                        "does it"
+                    ],
+                    "verb_hint": "Після заперечного модального твердження потрібен стверджувальний хвостик."
+                }
+            },
+            "verb_hint": "Після заперечного модального твердження потрібен стверджувальний хвостик.",
+            "accepted_target_texts": [
+                "The ruling cannot reasonably be overturned, can it?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ruling",
+                "cannot reasonably",
+                "be overturned,",
+                "can it?"
+            ],
+            "token_groups": [
+                "The ruling",
+                "cannot reasonably",
+                "be overturned,",
+                "can it?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "qnq-tags-c2-g02",
+            "author_id": "C2-g02",
+            "question": "Little has changed in substance, {a1}?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "По суті мало що змінилося, чи не так?",
+            "target_text": "Little has changed in substance, has it?",
+            "markers": {
+                "a1": {
+                    "answer": "has it",
+                    "options": [
+                        "has it",
+                        "hasn't it",
+                        "did it"
+                    ],
+                    "verb_hint": "Слово про малу кількість має тут заперечний зміст."
+                }
+            },
+            "verb_hint": "Слово про малу кількість має тут заперечний зміст.",
+            "accepted_target_texts": [
+                "Little has changed in substance, has it?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Little has",
+                "changed in substance,",
+                "has it?"
+            ],
+            "token_groups": [
+                "Little has",
+                "changed in substance,",
+                "has it?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "qnq-tags-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The claimant ought to have disclosed this, {a1}?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Позивачка мала це розкрити, чи не так?",
+            "target_text": "The claimant ought to have disclosed this, shouldn't she?",
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't she",
+                    "options": [
+                        "shouldn't she",
+                        "didn't she",
+                        "hasn't she"
+                    ],
+                    "verb_hint": "Використай звичний сучасний хвостик із модальним відповідником обов’язку."
+                }
+            },
+            "verb_hint": "Використай звичний сучасний хвостик із модальним відповідником обов’язку.",
+            "accepted_target_texts": [
+                "The claimant ought to have disclosed this, shouldn't she?",
+                "The claimant ought to have disclosed this, should she not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "should she not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "should she not"
+                ]
+            },
+            "reorder_groups": [
+                "The claimant",
+                "ought to have",
+                "disclosed this,",
+                "shouldn't she?"
+            ],
+            "token_groups": [
+                "The claimant",
+                "ought to have",
+                "disclosed this,",
+                "shouldn't she?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "qnq-tags-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The trustees need have no further doubts, {a1}?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Опікуни не повинні мати подальших сумнівів, чи не так?",
+            "target_text": "The trustees need have no further doubts, need they?",
+            "markers": {
+                "a1": {
+                    "answer": "need they",
+                    "options": [
+                        "need they",
+                        "do they",
+                        "needn't they"
+                    ],
+                    "verb_hint": "Модальне дієслово потреби та заперечне доповнення дають стверджувальний хвостик."
+                }
+            },
+            "verb_hint": "Модальне дієслово потреби та заперечне доповнення дають стверджувальний хвостик.",
+            "accepted_target_texts": [
+                "The trustees need have no further doubts, need they?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The trustees",
+                "need have",
+                "no further doubts,",
+                "need they?"
+            ],
+            "token_groups": [
+                "The trustees",
+                "need have",
+                "no further doubts,",
+                "need they?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "qnq-tags-c2-g05",
+            "author_id": "C2-g05",
+            "question": "What she proposed was eminently reasonable, {a1}?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Те, що вона запропонувала, було цілком розумним, чи не так?",
+            "target_text": "What she proposed was eminently reasonable, wasn't it?",
+            "markers": {
+                "a1": {
+                    "answer": "wasn't it",
+                    "options": [
+                        "wasn't it",
+                        "didn't she",
+                        "wasn't she"
+                    ],
+                    "verb_hint": "Хвостик узгоджується з усією підметовою частиною як з одниною."
+                }
+            },
+            "verb_hint": "Хвостик узгоджується з усією підметовою частиною як з одниною.",
+            "accepted_target_texts": [
+                "What she proposed was eminently reasonable, wasn't it?",
+                "What she proposed was eminently reasonable, was it not?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was it not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was it not"
+                ]
+            },
+            "reorder_groups": [
+                "What she proposed",
+                "was eminently reasonable,",
+                "wasn't it?"
+            ],
+            "token_groups": [
+                "What she proposed",
+                "was eminently reasonable,",
+                "wasn't it?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "qnq-tags-c2-g06",
+            "author_id": "C2-g06",
+            "question": "None of the precautions proved redundant, {a1}?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Жоден із запобіжних заходів не виявився зайвим, чи не так?",
+            "target_text": "None of the precautions proved redundant, did they?",
+            "markers": {
+                "a1": {
+                    "answer": "did they",
+                    "options": [
+                        "did they",
+                        "didn't they",
+                        "were they"
+                    ],
+                    "verb_hint": "Після заперечної групи множини повтори допоміжне дієслово минулої дії без заперечення."
+                }
+            },
+            "verb_hint": "Після заперечної групи множини повтори допоміжне дієслово минулої дії без заперечення.",
+            "accepted_target_texts": [
+                "None of the precautions proved redundant, did they?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "None of",
+                "the precautions",
+                "proved redundant,",
+                "did they?"
+            ],
+            "token_groups": [
+                "None of",
+                "the precautions",
+                "proved redundant,",
+                "did they?"
+            ],
+            "quality_revision": "qnq-v1"
+        }
+    ]
+}

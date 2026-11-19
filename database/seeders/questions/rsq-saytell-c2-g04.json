@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66383,
+        "uuid": "rsq-saytell-c2-g04",
+        "question": "The examiner {a1} whether the reservation undermined the purported consensus.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 62,
+        "source_id": 533,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechSayTellAskQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "asked",
+                "told",
+                "said"
+            ]
+        },
+        "theory_text_block_uuid": "2ab6da7e-79fd-5048-be78-5bee9400128b",
+        "created_at": "2026-11-01T20:05:08.000000Z",
+        "updated_at": "2026-11-01T20:05:08.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 533,
+        "name": "Reported Speech Quality: Say, Tell and Ask",
+        "created_at": "2026-11-01T20:05:06.000000Z",
+        "updated_at": "2026-11-01T20:05:06.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 526,
+                "option": "said",
+                "created_at": "2026-04-23T13:36:16.000000Z",
+                "updated_at": "2026-04-23T13:36:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 66383,
+                "option_id": 526,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 527,
+                "option": "told",
+                "created_at": "2026-04-23T13:36:16.000000Z",
+                "updated_at": "2026-04-23T13:36:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 66383,
+                "option_id": 527,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 535,
+                "option": "asked",
+                "created_at": "2026-04-23T13:36:17.000000Z",
+                "updated_at": "2026-04-23T13:36:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 66383,
+                "option_id": 535,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 341342,
+                "question_id": 66383,
+                "marker": "a1",
+                "option_id": 535,
+                "created_at": "2026-11-01T20:05:08.000000Z",
+                "updated_at": "2026-11-01T20:05:08.000000Z"
+            },
+            "option": {
+                "id": 535,
+                "option": "asked",
+                "created_at": "2026-04-23T13:36:17.000000Z",
+                "updated_at": "2026-04-23T13:36:17.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58676,
+                "question_id": 66383,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68908,
+                "created_at": "2026-11-01T20:05:08.000000Z",
+                "updated_at": "2026-11-01T20:05:08.000000Z"
+            },
+            "option": {
+                "id": 68908,
+                "option": "Запитав; сполучник непрямого питання вже наведений.",
+                "created_at": "2026-11-01T20:05:08.000000Z",
+                "updated_at": "2026-11-01T20:05:08.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58398,
+            "question_id": 66383,
+            "text": "The examiner {a1} whether the reservation undermined the purported consensus.",
+            "created_at": "2026-11-01T20:05:08.000000Z",
+            "updated_at": "2026-11-01T20:05:08.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

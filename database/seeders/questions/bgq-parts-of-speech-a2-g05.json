@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60636,
+        "uuid": "bgq-parts-of-speech-a2-g05",
+        "question": "Their {a1} means a lot to me.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 12,
+        "source_id": 427,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedPartsOfSpeechQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "friendship",
+                "friendly",
+                "befriend"
+            ]
+        },
+        "theory_text_block_uuid": "6b17fe3e-1f10-5088-92b6-f1853ad6324d",
+        "created_at": "2026-10-27T15:50:47.000000Z",
+        "updated_at": "2026-10-27T15:50:47.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 427,
+        "name": "Basic Grammar Quality: Частини мови",
+        "created_at": "2026-10-27T15:50:47.000000Z",
+        "updated_at": "2026-10-27T15:50:47.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 86,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60636,
+                "tag_id": 86,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 1994,
+                "option": "friendly",
+                "created_at": "2026-04-23T14:17:24.000000Z",
+                "updated_at": "2026-04-23T14:17:24.000000Z"
+            },
+            "pivot": {
+                "question_id": 60636,
+                "option_id": 1994,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 22254,
+                "option": "Friendship",
+                "created_at": "2026-05-20T15:24:58.000000Z",
+                "updated_at": "2026-05-20T15:24:58.000000Z"
+            },
+            "pivot": {
+                "question_id": 60636,
+                "option_id": 22254,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53119,
+                "option": "befriend",
+                "created_at": "2026-10-27T15:50:47.000000Z",
+                "updated_at": "2026-10-27T15:50:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 60636,
+                "option_id": 53119,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325691,
+                "question_id": 60636,
+                "marker": "a1",
+                "option_id": 22254,
+                "created_at": "2026-10-27T15:50:47.000000Z",
+                "updated_at": "2026-10-27T15:50:47.000000Z"
+            },
+            "option": {
+                "id": 22254,
+                "option": "Friendship",
+                "created_at": "2026-05-20T15:24:58.000000Z",
+                "updated_at": "2026-05-20T15:24:58.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43025,
+                "question_id": 60636,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53118,
+                "created_at": "2026-10-27T15:50:47.000000Z",
+                "updated_at": "2026-10-27T15:50:47.000000Z"
+            },
+            "option": {
+                "id": 53118,
+                "option": "Потрібний зміст: «Дружба». Після присвійного слова потрібна назва стосунків як іменник.",
+                "created_at": "2026-10-27T15:50:47.000000Z",
+                "updated_at": "2026-10-27T15:50:47.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52651,
+            "question_id": 60636,
+            "text": "Their {a1} means a lot to me.",
+            "created_at": "2026-10-27T15:50:47.000000Z",
+            "updated_at": "2026-10-27T15:50:47.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

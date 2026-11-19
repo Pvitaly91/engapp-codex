@@ -1,0 +1,1686 @@
+{
+    "schema_version": 1,
+    "quality_revision": "verb-to-be-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-to-be-quality/present.v1.json",
+        "sha256": "79618d1d12f1dfe7ecb5eec57df2a5e7a7c525b0399ec358297a3f902a0592cf"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\VerbToBe\\UkrainianMixedVerbToBePresentQualityStandardSeeder",
+        "uuid_namespace": "verb-to-be-quality-present-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика"
+    },
+    "sources": {
+        "verb_to_be_quality_present": {
+            "name": "Verb to Be Quality: Теперішні форми дієслова бути"
+        }
+    },
+    "tags": {
+        "verb_to_be_present": {
+            "name": "Verb to be: present tense (am / is / are)",
+            "category": "topic"
+        },
+        "am_first_person": {
+            "name": "am with I (first person singular)",
+            "category": "pattern"
+        },
+        "is_third_person_singular": {
+            "name": "is with he / she / it (third person singular)",
+            "category": "pattern"
+        },
+        "are_plural_second": {
+            "name": "are with you / we / they",
+            "category": "pattern"
+        },
+        "be_contraction_affirmative": {
+            "name": "Contracted affirmative: I'm / he's / they're",
+            "category": "pattern"
+        },
+        "be_negative_not": {
+            "name": "Negative: is not / are not / am not",
+            "category": "pattern"
+        },
+        "be_negative_contraction": {
+            "name": "Contracted negative: isn't / aren't",
+            "category": "pattern"
+        },
+        "be_yes_no_question": {
+            "name": "Yes/No question inversion: Is he…? / Are they…?",
+            "category": "pattern"
+        },
+        "be_wh_question": {
+            "name": "Wh-question with be: Where is…? / Who are…?",
+            "category": "pattern"
+        },
+        "be_subject_verb_agreement": {
+            "name": "Subject–verb agreement with be",
+            "category": "pattern"
+        },
+        "be_predicate_adjective": {
+            "name": "Be + predicate adjective (She is tall)",
+            "category": "usage"
+        },
+        "be_predicate_noun": {
+            "name": "Be + predicate noun (He is a doctor)",
+            "category": "usage"
+        },
+        "be_location": {
+            "name": "Be + location / prepositional phrase",
+            "category": "usage"
+        },
+        "be_age_origin": {
+            "name": "Be + age / nationality / origin",
+            "category": "usage"
+        },
+        "be_there_is_are": {
+            "name": "There is / There are existential",
+            "category": "pattern"
+        },
+        "be_short_answer": {
+            "name": "Short answer with be (Yes, I am / No, she isn't)",
+            "category": "pattern"
+        },
+        "be_question_tag": {
+            "name": "Question tag with be (…, isn't it?)",
+            "category": "pattern"
+        },
+        "be_formal_register": {
+            "name": "Formal / academic use of be",
+            "category": "register"
+        },
+        "be_emphasis_inversion": {
+            "name": "Emphatic / inverted be (Such is life)",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "verb_to_be_present"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "beq-present-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The puppy {a1} asleep.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Цуценя спить.",
+            "target_text": "The puppy is asleep.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Потрібна теперішня форма дієслова «бути» для однієї тварини."
+                }
+            },
+            "verb_hint": "Потрібна теперішня форма дієслова «бути» для однієї тварини.",
+            "accepted_target_texts": [
+                "The puppy is asleep."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The puppy",
+                "is",
+                "asleep."
+            ],
+            "token_groups": [
+                "The puppy",
+                "is",
+                "asleep."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "beq-present-a1-g02",
+            "author_id": "A1-g02",
+            "question": "These apples {a1} green.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Ці яблука зелені.",
+            "target_text": "These apples are green.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Узгодь теперішню форму дієслова «бути» з множиною предметів."
+                }
+            },
+            "verb_hint": "Узгодь теперішню форму дієслова «бути» з множиною предметів.",
+            "accepted_target_texts": [
+                "These apples are green."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "These apples",
+                "are",
+                "green."
+            ],
+            "token_groups": [
+                "These apples",
+                "are",
+                "green."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "beq-present-a1-g03",
+            "author_id": "A1-g03",
+            "question": "I {a1} eleven years old.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Мені одинадцять років.",
+            "target_text": "I am eleven years old.",
+            "markers": {
+                "a1": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ],
+                    "verb_hint": "Передай вік теперішньою формою дієслова «бути» для мовця."
+                }
+            },
+            "verb_hint": "Передай вік теперішньою формою дієслова «бути» для мовця.",
+            "accepted_target_texts": [
+                "I am eleven years old."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "am",
+                "eleven years old."
+            ],
+            "token_groups": [
+                "I",
+                "am",
+                "eleven years old."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "beq-present-a1-g04",
+            "author_id": "A1-g04",
+            "question": "Nina {a1} today.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Ніна сьогодні щаслива.",
+            "target_text": "Nina is happy today.",
+            "markers": {
+                "a1": {
+                    "answer": "is happy",
+                    "options": [
+                        "is happy",
+                        "are happy",
+                        "am happy"
+                    ],
+                    "verb_hint": "Передай теперішній стан «щаслива», узгодивши дієслово з однією людиною."
+                }
+            },
+            "verb_hint": "Передай теперішній стан «щаслива», узгодивши дієслово з однією людиною.",
+            "accepted_target_texts": [
+                "Nina is happy today.",
+                "Nina is glad today."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is glad"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is glad"
+                ]
+            },
+            "reorder_groups": [
+                "Nina",
+                "is happy",
+                "today."
+            ],
+            "token_groups": [
+                "Nina",
+                "is happy",
+                "today."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "beq-present-a1-g05",
+            "author_id": "A1-g05",
+            "question": "My shoes {a1} under the bed.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Моє взуття під ліжком.",
+            "target_text": "My shoes are under the bed.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Обери теперішню форму дієслова «бути» для кількох предметів."
+                }
+            },
+            "verb_hint": "Обери теперішню форму дієслова «бути» для кількох предметів.",
+            "accepted_target_texts": [
+                "My shoes are under the bed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My shoes",
+                "are",
+                "under the bed."
+            ],
+            "token_groups": [
+                "My shoes",
+                "are",
+                "under the bed."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "beq-present-a1-g06",
+            "author_id": "A1-g06",
+            "question": "You {a1} my new friend.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Ти мій новий друг.",
+            "target_text": "You are my new friend.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "am",
+                        "is"
+                    ],
+                    "verb_hint": "Звернися до співрозмовника з правильною теперішньою формою «бути»."
+                }
+            },
+            "verb_hint": "Звернися до співрозмовника з правильною теперішньою формою «бути».",
+            "accepted_target_texts": [
+                "You are my new friend."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You",
+                "are",
+                "my new friend."
+            ],
+            "token_groups": [
+                "You",
+                "are",
+                "my new friend."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "beq-present-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The tickets in my pocket {a1} for tonight.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Квитки в моїй кишені на сьогоднішній вечір.",
+            "target_text": "The tickets in my pocket are for tonight.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Знайди головний іменник у множині, не узгоджуй дієслово зі словом «кишеня»."
+                }
+            },
+            "verb_hint": "Знайди головний іменник у множині, не узгоджуй дієслово зі словом «кишеня».",
+            "accepted_target_texts": [
+                "The tickets in my pocket are for tonight."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The tickets",
+                "in my pocket",
+                "are",
+                "for tonight."
+            ],
+            "token_groups": [
+                "The tickets",
+                "in my pocket",
+                "are",
+                "for tonight."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "beq-present-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The nearest bus stop {a1} opposite the bank.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Найближча автобусна зупинка навпроти банку.",
+            "target_text": "The nearest bus stop is opposite the bank.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Після назви однієї зупинки потрібна теперішня форма «бути»."
+                }
+            },
+            "verb_hint": "Після назви однієї зупинки потрібна теперішня форма «бути».",
+            "accepted_target_texts": [
+                "The nearest bus stop is opposite the bank."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The nearest",
+                "bus stop",
+                "is",
+                "opposite the bank."
+            ],
+            "token_groups": [
+                "The nearest",
+                "bus stop",
+                "is",
+                "opposite the bank."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "beq-present-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Both of my sisters {a1} keen on swimming.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Обидві мої сестри захоплюються плаванням.",
+            "target_text": "Both of my sisters are keen on swimming.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Обидві людини утворюють множину; передай їхнє теперішнє ставлення."
+                }
+            },
+            "verb_hint": "Обидві людини утворюють множину; передай їхнє теперішнє ставлення.",
+            "accepted_target_texts": [
+                "Both of my sisters are keen on swimming."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Both of",
+                "my sisters",
+                "are",
+                "keen on swimming."
+            ],
+            "token_groups": [
+                "Both of",
+                "my sisters",
+                "are",
+                "keen on swimming."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "beq-present-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The information on this leaflet {a1} useful.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Інформація на цій листівці корисна.",
+            "target_text": "The information on this leaflet is useful.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Незлічуваний іменник «інформація» потребує форми однини."
+                }
+            },
+            "verb_hint": "Незлічуваний іменник «інформація» потребує форми однини.",
+            "accepted_target_texts": [
+                "The information on this leaflet is useful."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The information",
+                "on this leaflet",
+                "is",
+                "useful."
+            ],
+            "token_groups": [
+                "The information",
+                "on this leaflet",
+                "is",
+                "useful."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "beq-present-a2-g05",
+            "author_id": "A2-g05",
+            "question": "I {a1} for the interview.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Я готовий до співбесіди.",
+            "target_text": "I am ready for the interview.",
+            "markers": {
+                "a1": {
+                    "answer": "am ready",
+                    "options": [
+                        "am ready",
+                        "is ready",
+                        "are ready"
+                    ],
+                    "verb_hint": "Передай теперішній стан готовності мовця; додаток про співбесіду вже наведений."
+                }
+            },
+            "verb_hint": "Передай теперішній стан готовності мовця; додаток про співбесіду вже наведений.",
+            "accepted_target_texts": [
+                "I am ready for the interview."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "am ready",
+                "for the interview."
+            ],
+            "token_groups": [
+                "I",
+                "am ready",
+                "for the interview."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "beq-present-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Your glasses {a1} on the windowsill.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Твої окуляри на підвіконні.",
+            "target_text": "Your glasses are on the windowsill.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Назва окулярів має граматичну множину, хоч це одна пара."
+                }
+            },
+            "verb_hint": "Назва окулярів має граматичну множину, хоч це одна пара.",
+            "accepted_target_texts": [
+                "Your glasses are on the windowsill."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Your glasses",
+                "are",
+                "on the windowsill."
+            ],
+            "token_groups": [
+                "Your glasses",
+                "are",
+                "on the windowsill."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "beq-present-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The woman who owns this cafe {a1} my aunt.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Жінка, якій належить це кафе, — моя тітка.",
+            "target_text": "The woman who owns this cafe is my aunt.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Узгодь головне дієслово з однією жінкою, а не зі словами всередині означення."
+                }
+            },
+            "verb_hint": "Узгодь головне дієслово з однією жінкою, а не зі словами всередині означення.",
+            "accepted_target_texts": [
+                "The woman who owns this cafe is my aunt."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The woman",
+                "who owns",
+                "this cafe",
+                "is",
+                "my aunt."
+            ],
+            "token_groups": [
+                "The woman",
+                "who owns",
+                "this cafe",
+                "is",
+                "my aunt."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "beq-present-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The results of our survey {a1} available online.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Результати нашого опитування доступні онлайн.",
+            "target_text": "The results of our survey are available online.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Головний іменник позначає кілька результатів; передай їхню доступність."
+                }
+            },
+            "verb_hint": "Головний іменник позначає кілька результатів; передай їхню доступність.",
+            "accepted_target_texts": [
+                "The results of our survey are available online."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The results",
+                "of our survey",
+                "are",
+                "available online."
+            ],
+            "token_groups": [
+                "The results",
+                "of our survey",
+                "are",
+                "available online."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "beq-present-b1-g03",
+            "author_id": "B1-g03",
+            "question": "What matters most to me {a1} your safety.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Найважливіше для мене — твоя безпека.",
+            "target_text": "What matters most to me is your safety.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Підметовий зворот про найважливіше сприймай як одне ціле."
+                }
+            },
+            "verb_hint": "Підметовий зворот про найважливіше сприймай як одне ціле.",
+            "accepted_target_texts": [
+                "What matters most to me is your safety."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What matters",
+                "most to me",
+                "is",
+                "your safety."
+            ],
+            "token_groups": [
+                "What matters",
+                "most to me",
+                "is",
+                "your safety."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "beq-present-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The people at the front {a1} impatient.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Люди попереду нетерплячі.",
+            "target_text": "The people at the front are impatient.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Форма дієслова залежить від людей у множині, не від місця."
+                }
+            },
+            "verb_hint": "Форма дієслова залежить від людей у множині, не від місця.",
+            "accepted_target_texts": [
+                "The people at the front are impatient."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The people",
+                "at the front",
+                "are",
+                "impatient."
+            ],
+            "token_groups": [
+                "The people",
+                "at the front",
+                "are",
+                "impatient."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "beq-present-b1-g05",
+            "author_id": "B1-g05",
+            "question": "I {a1} that the address is correct.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Я певен, що адреса правильна.",
+            "target_text": "I am certain that the address is correct.",
+            "markers": {
+                "a1": {
+                    "answer": "am certain",
+                    "options": [
+                        "am certain",
+                        "is certain",
+                        "are certain"
+                    ],
+                    "verb_hint": "Передай впевненість мовця; частина про правильну адресу вже наведена."
+                }
+            },
+            "verb_hint": "Передай впевненість мовця; частина про правильну адресу вже наведена.",
+            "accepted_target_texts": [
+                "I am certain that the address is correct.",
+                "I am sure that the address is correct."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "am sure"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "am sure"
+                ]
+            },
+            "reorder_groups": [
+                "I",
+                "am certain",
+                "that the address",
+                "is correct."
+            ],
+            "token_groups": [
+                "I",
+                "am certain",
+                "that the address",
+                "is correct."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "beq-present-b1-g06",
+            "author_id": "B1-g06",
+            "question": "A pair of muddy boots {a1} beside the door.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Пара брудних черевиків біля дверей.",
+            "target_text": "A pair of muddy boots is beside the door.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Головне слово — одна пара, тому потрібна форма однини."
+                }
+            },
+            "verb_hint": "Головне слово — одна пара, тому потрібна форма однини.",
+            "accepted_target_texts": [
+                "A pair of muddy boots is beside the door."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A pair",
+                "of muddy boots",
+                "is",
+                "beside the door."
+            ],
+            "token_groups": [
+                "A pair",
+                "of muddy boots",
+                "is",
+                "beside the door."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "beq-present-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The range of services {a1} wider than before.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Асортимент послуг ширший, ніж раніше.",
+            "target_text": "The range of services is wider than before.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Узгодь дієслово з одним асортиментом, а не з послугами в означенні."
+                }
+            },
+            "verb_hint": "Узгодь дієслово з одним асортиментом, а не з послугами в означенні.",
+            "accepted_target_texts": [
+                "The range of services is wider than before."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The range",
+                "of services",
+                "is",
+                "wider than before."
+            ],
+            "token_groups": [
+                "The range",
+                "of services",
+                "is",
+                "wider than before."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "beq-present-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Several explanations for the discrepancy {a1} plausible.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Кілька пояснень цієї розбіжності правдоподібні.",
+            "target_text": "Several explanations for the discrepancy are plausible.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Кілька можливих пояснень утворюють підмет у множині."
+                }
+            },
+            "verb_hint": "Кілька можливих пояснень утворюють підмет у множині.",
+            "accepted_target_texts": [
+                "Several explanations for the discrepancy are plausible."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Several explanations",
+                "for the discrepancy",
+                "are",
+                "plausible."
+            ],
+            "token_groups": [
+                "Several explanations",
+                "for the discrepancy",
+                "are",
+                "plausible."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "beq-present-b2-g03",
+            "author_id": "B2-g03",
+            "question": "Whether the scheme is affordable {a1} a separate issue.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Чи є ця програма фінансово посильною — окреме питання.",
+            "target_text": "Whether the scheme is affordable is a separate issue.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Підметом є ціле непряме питання; потрібне головне дієслово однини."
+                }
+            },
+            "verb_hint": "Підметом є ціле непряме питання; потрібне головне дієслово однини.",
+            "accepted_target_texts": [
+                "Whether the scheme is affordable is a separate issue."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Whether the scheme",
+                "is affordable",
+                "is",
+                "a separate issue."
+            ],
+            "token_groups": [
+                "Whether the scheme",
+                "is affordable",
+                "is",
+                "a separate issue."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "beq-present-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The criteria for admission {a1} clearly stated.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Критерії вступу чітко сформульовані.",
+            "target_text": "The criteria for admission are clearly stated.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Узгодь зв'язку з іменником «критерії» у множині."
+                }
+            },
+            "verb_hint": "Узгодь зв'язку з іменником «критерії» у множині.",
+            "accepted_target_texts": [
+                "The criteria for admission are clearly stated."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The criteria",
+                "for admission",
+                "are",
+                "clearly stated."
+            ],
+            "token_groups": [
+                "The criteria",
+                "for admission",
+                "are",
+                "clearly stated."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "beq-present-b2-g05",
+            "author_id": "B2-g05",
+            "question": "I {a1} of the risks involved.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Я усвідомлюю пов'язані з цим ризики.",
+            "target_text": "I am aware of the risks involved.",
+            "markers": {
+                "a1": {
+                    "answer": "am aware",
+                    "options": [
+                        "am aware",
+                        "is aware",
+                        "are aware"
+                    ],
+                    "verb_hint": "Передай усвідомлення мовця; фраза про ризики вже стоїть після пропуску."
+                }
+            },
+            "verb_hint": "Передай усвідомлення мовця; фраза про ризики вже стоїть після пропуску.",
+            "accepted_target_texts": [
+                "I am aware of the risks involved."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "am aware",
+                "of the risks",
+                "involved."
+            ],
+            "token_groups": [
+                "I",
+                "am aware",
+                "of the risks",
+                "involved."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "beq-present-b2-g06",
+            "author_id": "B2-g06",
+            "question": "One of the main advantages {a1} its low cost.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Одна з головних переваг — низька вартість.",
+            "target_text": "One of the main advantages is its low cost.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Підмет називає одну перевагу, хоча далі є іменник у множині."
+                }
+            },
+            "verb_hint": "Підмет називає одну перевагу, хоча далі є іменник у множині.",
+            "accepted_target_texts": [
+                "One of the main advantages is its low cost."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "One of",
+                "the main advantages",
+                "is",
+                "its low cost."
+            ],
+            "token_groups": [
+                "One of",
+                "the main advantages",
+                "is",
+                "its low cost."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "beq-present-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The extent to which these measures work {a1} still uncertain.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Міра ефективності цих заходів досі невизначена.",
+            "target_text": "The extent to which these measures work is still uncertain.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Головне слово називає одну міру; не узгоджуй дієслово з множиною заходів."
+                }
+            },
+            "verb_hint": "Головне слово називає одну міру; не узгоджуй дієслово з множиною заходів.",
+            "accepted_target_texts": [
+                "The extent to which these measures work is still uncertain."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The extent",
+                "to which",
+                "these measures work",
+                "is",
+                "still uncertain."
+            ],
+            "token_groups": [
+                "The extent",
+                "to which",
+                "these measures work",
+                "is",
+                "still uncertain."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "beq-present-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The implications of overlooking these discrepancies {a1} far-reaching.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Наслідки ігнорування цих розбіжностей далекосяжні.",
+            "target_text": "The implications of overlooking these discrepancies are far-reaching.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Узгодь зв'язку з кількома наслідками, зберігши формальний опис."
+                }
+            },
+            "verb_hint": "Узгодь зв'язку з кількома наслідками, зберігши формальний опис.",
+            "accepted_target_texts": [
+                "The implications of overlooking these discrepancies are far-reaching."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The implications",
+                "of overlooking",
+                "these discrepancies",
+                "are",
+                "far-reaching."
+            ],
+            "token_groups": [
+                "The implications",
+                "of overlooking",
+                "these discrepancies",
+                "are",
+                "far-reaching."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "beq-present-c1-g03",
+            "author_id": "C1-g03",
+            "question": "What distinguishes this account {a1} its unusual candour.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Цю розповідь вирізняє незвична відвертість.",
+            "target_text": "What distinguishes this account is its unusual candour.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Підметова частина становить єдине ціле; після неї потрібна форма однини."
+                }
+            },
+            "verb_hint": "Підметова частина становить єдине ціле; після неї потрібна форма однини.",
+            "accepted_target_texts": [
+                "What distinguishes this account is its unusual candour."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What distinguishes",
+                "this account",
+                "is",
+                "its unusual candour."
+            ],
+            "token_groups": [
+                "What distinguishes",
+                "this account",
+                "is",
+                "its unusual candour."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "beq-present-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The assumption underlying both arguments {a1} questionable.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Припущення, що лежить в основі обох аргументів, сумнівне.",
+            "target_text": "The assumption underlying both arguments is questionable.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Головний підмет — одне припущення, не два аргументи."
+                }
+            },
+            "verb_hint": "Головний підмет — одне припущення, не два аргументи.",
+            "accepted_target_texts": [
+                "The assumption underlying both arguments is questionable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The assumption",
+                "underlying both arguments",
+                "is",
+                "questionable."
+            ],
+            "token_groups": [
+                "The assumption",
+                "underlying both arguments",
+                "is",
+                "questionable."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "beq-present-c1-g05",
+            "author_id": "C1-g05",
+            "question": "I {a1} of the distinction between consent and mere compliance.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Я усвідомлюю різницю між згодою та простим підкоренням.",
+            "target_text": "I am conscious of the distinction between consent and mere compliance.",
+            "markers": {
+                "a1": {
+                    "answer": "am conscious",
+                    "options": [
+                        "am conscious",
+                        "is conscious",
+                        "are conscious"
+                    ],
+                    "verb_hint": "Передай усвідомлення мовця, не повторюючи вже наведену відмінність."
+                }
+            },
+            "verb_hint": "Передай усвідомлення мовця, не повторюючи вже наведену відмінність.",
+            "accepted_target_texts": [
+                "I am conscious of the distinction between consent and mere compliance."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "am conscious",
+                "of the distinction",
+                "between consent",
+                "and mere compliance."
+            ],
+            "token_groups": [
+                "I",
+                "am conscious",
+                "of the distinction",
+                "between consent",
+                "and mere compliance."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "beq-present-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The measurements from the controlled trials {a1} consistent across sites.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Вимірювання контрольованих досліджень узгоджені між дослідницькими центрами.",
+            "target_text": "The measurements from the controlled trials are consistent across sites.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Узгодь теперішню зв'язку з кількома вимірюваннями, зберігши опис їхньої узгодженості."
+                }
+            },
+            "verb_hint": "Узгодь теперішню зв'язку з кількома вимірюваннями, зберігши опис їхньої узгодженості.",
+            "accepted_target_texts": [
+                "The measurements from the controlled trials are consistent across sites."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The measurements",
+                "from the controlled",
+                "trials are",
+                "consistent across sites."
+            ],
+            "token_groups": [
+                "The measurements",
+                "from the controlled",
+                "trials are",
+                "consistent across sites."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "beq-present-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The presumption that institutional continuity guarantees legitimacy {a1} fundamentally flawed.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Припущення, що інституційна тяглість гарантує легітимність, докорінно хибне.",
+            "target_text": "The presumption that institutional continuity guarantees legitimacy is fundamentally flawed.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Узгодь головне дієслово з одним припущенням, не з поняттями всередині залежної частини."
+                }
+            },
+            "verb_hint": "Узгодь головне дієслово з одним припущенням, не з поняттями всередині залежної частини.",
+            "accepted_target_texts": [
+                "The presumption that institutional continuity guarantees legitimacy is fundamentally flawed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The presumption",
+                "that institutional continuity",
+                "guarantees legitimacy",
+                "is",
+                "fundamentally flawed."
+            ],
+            "token_groups": [
+                "The presumption",
+                "that institutional continuity",
+                "guarantees legitimacy",
+                "is",
+                "fundamentally flawed."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "beq-present-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The competing claims to historical authority {a1} not readily reconcilable.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Конкурентні претензії на історичний авторитет нелегко узгодити.",
+            "target_text": "The competing claims to historical authority are not readily reconcilable.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Збережи теперішній опис кількох претензій у множині."
+                }
+            },
+            "verb_hint": "Збережи теперішній опис кількох претензій у множині.",
+            "accepted_target_texts": [
+                "The competing claims to historical authority are not readily reconcilable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The competing claims",
+                "to historical authority",
+                "are",
+                "not readily reconcilable."
+            ],
+            "token_groups": [
+                "The competing claims",
+                "to historical authority",
+                "are",
+                "not readily reconcilable."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "beq-present-c2-g03",
+            "author_id": "C2-g03",
+            "question": "How far that inference extends beyond the observed cases {a1} open to dispute.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Наскільки цей висновок виходить за межі спостережених випадків — питання спірне.",
+            "target_text": "How far that inference extends beyond the observed cases is open to dispute.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Ціле непряме питання є підметом однини для головної зв'язки."
+                }
+            },
+            "verb_hint": "Ціле непряме питання є підметом однини для головної зв'язки.",
+            "accepted_target_texts": [
+                "How far that inference extends beyond the observed cases is open to dispute."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How far",
+                "that inference",
+                "extends beyond",
+                "the observed cases",
+                "is",
+                "open to dispute."
+            ],
+            "token_groups": [
+                "How far",
+                "that inference",
+                "extends beyond",
+                "the observed cases",
+                "is",
+                "open to dispute."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "beq-present-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The distinction between procedural compliance and substantive fairness {a1} by no means trivial.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Різниця між дотриманням процедур і справедливістю по суті аж ніяк не дріб'язкова.",
+            "target_text": "The distinction between procedural compliance and substantive fairness is by no means trivial.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Головний іменник називає одну різницю; наступні поняття не змінюють узгодження."
+                }
+            },
+            "verb_hint": "Головний іменник називає одну різницю; наступні поняття не змінюють узгодження.",
+            "accepted_target_texts": [
+                "The distinction between procedural compliance and substantive fairness is by no means trivial."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The distinction",
+                "between procedural compliance",
+                "and substantive fairness",
+                "is",
+                "by no means",
+                "trivial."
+            ],
+            "token_groups": [
+                "The distinction",
+                "between procedural compliance",
+                "and substantive fairness",
+                "is",
+                "by no means",
+                "trivial."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "beq-present-c2-g05",
+            "author_id": "C2-g05",
+            "question": "I {a1} of the asymmetry between public accountability and private discretion.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Я пам'ятаю про асиметрію між публічною підзвітністю та приватною свободою розсуду.",
+            "target_text": "I am mindful of the asymmetry between public accountability and private discretion.",
+            "markers": {
+                "a1": {
+                    "answer": "am mindful",
+                    "options": [
+                        "am mindful",
+                        "is mindful",
+                        "are mindful"
+                    ],
+                    "verb_hint": "Передай уважне усвідомлення мовця; не повторюй уже наведених понять."
+                }
+            },
+            "verb_hint": "Передай уважне усвідомлення мовця; не повторюй уже наведених понять.",
+            "accepted_target_texts": [
+                "I am mindful of the asymmetry between public accountability and private discretion."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "am mindful",
+                "of the asymmetry",
+                "between public accountability",
+                "and private discretion."
+            ],
+            "token_groups": [
+                "I",
+                "am mindful",
+                "of the asymmetry",
+                "between public accountability",
+                "and private discretion."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "beq-present-c2-g06",
+            "author_id": "C2-g06",
+            "question": "What the dissenting judges regard as an exception {a1} in fact the governing principle.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_present",
+            "translation_uk": "Те, що судді з окремою думкою вважають винятком, насправді є визначальним принципом.",
+            "target_text": "What the dissenting judges regard as an exception is in fact the governing principle.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Підметова частина — одне ціле; потрібна головна форма однини."
+                }
+            },
+            "verb_hint": "Підметова частина — одне ціле; потрібна головна форма однини.",
+            "accepted_target_texts": [
+                "What the dissenting judges regard as an exception is in fact the governing principle."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What the dissenting",
+                "judges regard",
+                "as an exception",
+                "is",
+                "in fact",
+                "the governing principle."
+            ],
+            "token_groups": [
+                "What the dissenting",
+                "judges regard",
+                "as an exception",
+                "is",
+                "in fact",
+                "the governing principle."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        }
+    ]
+}

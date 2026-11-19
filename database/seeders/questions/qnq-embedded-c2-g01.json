@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62654,
+        "uuid": "qnq-embedded-c2-g01",
+        "question": "The dissent turns on whether {a1} by implication.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 60,
+        "source_id": 464,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedEmbeddedQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "jurisdiction can arise",
+                "can jurisdiction arise",
+                "does jurisdiction arise"
+            ]
+        },
+        "theory_text_block_uuid": "77089cfd-6312-5b1f-b8ee-07b324d3a0d1",
+        "created_at": "2026-10-30T13:53:22.000000Z",
+        "updated_at": "2026-10-30T13:53:22.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 464,
+        "name": "Questions and Negations Quality: Embedded Questions: питання всередині речення",
+        "created_at": "2026-10-30T13:53:18.000000Z",
+        "updated_at": "2026-10-30T13:53:18.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 675,
+                "name": "Embedded Questions",
+                "category": null,
+                "created_at": "2026-04-23T14:37:09.000000Z",
+                "updated_at": "2026-04-23T14:37:09.000000Z"
+            },
+            "pivot": {
+                "question_id": 62654,
+                "tag_id": 675,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 57470,
+                "option": "jurisdiction can arise",
+                "created_at": "2026-10-30T13:53:22.000000Z",
+                "updated_at": "2026-10-30T13:53:22.000000Z"
+            },
+            "pivot": {
+                "question_id": 62654,
+                "option_id": 57470,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57472,
+                "option": "can jurisdiction arise",
+                "created_at": "2026-10-30T13:53:22.000000Z",
+                "updated_at": "2026-10-30T13:53:22.000000Z"
+            },
+            "pivot": {
+                "question_id": 62654,
+                "option_id": 57472,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57473,
+                "option": "does jurisdiction arise",
+                "created_at": "2026-10-30T13:53:22.000000Z",
+                "updated_at": "2026-10-30T13:53:22.000000Z"
+            },
+            "pivot": {
+                "question_id": 62654,
+                "option_id": 57473,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332373,
+                "question_id": 62654,
+                "marker": "a1",
+                "option_id": 57470,
+                "created_at": "2026-10-30T13:53:22.000000Z",
+                "updated_at": "2026-10-30T13:53:22.000000Z"
+            },
+            "option": {
+                "id": 57470,
+                "option": "jurisdiction can arise",
+                "created_at": "2026-10-30T13:53:22.000000Z",
+                "updated_at": "2026-10-30T13:53:22.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49707,
+                "question_id": 62654,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 57471,
+                "created_at": "2026-10-30T13:53:22.000000Z",
+                "updated_at": "2026-10-30T13:53:22.000000Z"
+            },
+            "option": {
+                "id": 57471,
+                "option": "Вбудоване модальне питання потребує прямого порядку підмета й допоміжного дієслова.",
+                "created_at": "2026-10-30T13:53:22.000000Z",
+                "updated_at": "2026-10-30T13:53:22.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54669,
+            "question_id": 62654,
+            "text": "The dissent turns on whether {a1} by implication.",
+            "created_at": "2026-10-30T13:53:22.000000Z",
+            "updated_at": "2026-10-30T13:53:22.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

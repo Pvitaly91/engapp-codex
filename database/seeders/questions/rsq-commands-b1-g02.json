@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66201,
+        "uuid": "rsq-commands-b1-g02",
+        "question": "The host reminded the guests {a1} their umbrellas.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 62,
+        "source_id": 530,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechCommandsRequestsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "to take",
+                "taking",
+                "to took"
+            ]
+        },
+        "theory_text_block_uuid": "a859497f-77ca-5869-8c7b-65809ee580fe",
+        "created_at": "2026-11-01T20:04:48.000000Z",
+        "updated_at": "2026-11-01T20:04:48.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 530,
+        "name": "Reported Speech Quality: Reported Commands and Requests",
+        "created_at": "2026-11-01T20:04:47.000000Z",
+        "updated_at": "2026-11-01T20:04:47.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 4797,
+                "option": "taking",
+                "created_at": "2026-04-23T14:41:15.000000Z",
+                "updated_at": "2026-04-23T14:41:15.000000Z"
+            },
+            "pivot": {
+                "question_id": 66201,
+                "option_id": 4797,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 24095,
+                "option": "to take",
+                "created_at": "2026-05-22T15:40:34.000000Z",
+                "updated_at": "2026-05-22T15:40:34.000000Z"
+            },
+            "pivot": {
+                "question_id": 66201,
+                "option_id": 24095,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68346,
+                "option": "to took",
+                "created_at": "2026-11-01T20:04:48.000000Z",
+                "updated_at": "2026-11-01T20:04:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 66201,
+                "option_id": 68346,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 340978,
+                "question_id": 66201,
+                "marker": "a1",
+                "option_id": 24095,
+                "created_at": "2026-11-01T20:04:48.000000Z",
+                "updated_at": "2026-11-01T20:04:48.000000Z"
+            },
+            "option": {
+                "id": 24095,
+                "option": "to take",
+                "created_at": "2026-05-22T15:40:34.000000Z",
+                "updated_at": "2026-05-22T15:40:34.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58312,
+                "question_id": 66201,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68345,
+                "created_at": "2026-11-01T20:04:48.000000Z",
+                "updated_at": "2026-11-01T20:04:48.000000Z"
+            },
+            "option": {
+                "id": 68345,
+                "option": "Забрати; нагадування адресоване людям, які мають виконати дію.",
+                "created_at": "2026-11-01T20:04:48.000000Z",
+                "updated_at": "2026-11-01T20:04:48.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58216,
+            "question_id": 66201,
+            "text": "The host reminded the guests {a1} their umbrellas.",
+            "created_at": "2026-11-01T20:04:48.000000Z",
+            "updated_at": "2026-11-01T20:04:48.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

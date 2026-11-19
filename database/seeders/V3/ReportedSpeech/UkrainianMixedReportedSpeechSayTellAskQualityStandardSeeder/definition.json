@@ -1,0 +1,1812 @@
+{
+    "schema_version": 1,
+    "quality_revision": "rsq-v1",
+    "compiled_from": {
+        "path": "docs/content/reported-speech-quality/say-tell-ask.v1.json",
+        "sha256": "657837151c2e7127f5d8c74637948be87314be512dc159aeb498c666bcc12580"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechSayTellAskQualityStandardSeeder",
+        "uuid_namespace": "reported-speech-quality-say-tell-ask-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Reported Speech"
+    },
+    "sources": {
+        "reported_speech_quality_say_tell_ask": {
+            "name": "Reported Speech Quality: Say, Tell and Ask"
+        }
+    },
+    "tags": {
+        "reported_speech_say_tell_ask_all_levels": {
+            "name": "reported speech say tell ask all levels",
+            "category": "reported_speech"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "say_something": {
+            "name": "Say Something",
+            "category": "topic"
+        },
+        "say_to_someone": {
+            "name": "Say To Someone",
+            "category": "topic"
+        },
+        "tell_someone_something": {
+            "name": "Tell Someone Something",
+            "category": "topic"
+        },
+        "tell_someone_that": {
+            "name": "Tell Someone That",
+            "category": "topic"
+        },
+        "ask_someone_question": {
+            "name": "Ask Someone Question",
+            "category": "topic"
+        },
+        "ask_if_whether": {
+            "name": "Ask If Whether",
+            "category": "topic"
+        },
+        "ask_someone_to_do": {
+            "name": "Ask Someone To Do",
+            "category": "topic"
+        },
+        "tell_vs_say": {
+            "name": "Tell Vs Say",
+            "category": "topic"
+        },
+        "ask_vs_tell": {
+            "name": "Ask Vs Tell",
+            "category": "topic"
+        },
+        "object_after_tell": {
+            "name": "Object After Tell",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rsq-saytell-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Alina {a1} us her name.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Аліна сказала нам своє ім’я.",
+            "target_text": "Alina told us her name.",
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked"
+                    ],
+                    "verb_hint": "Повідомила нам; адресат уже наведений, прийменник перед ним не потрібний."
+                }
+            },
+            "verb_hint": "Повідомила нам; адресат уже наведений, прийменник перед ним не потрібний.",
+            "accepted_target_texts": [
+                "Alina told us her name."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Alina",
+                "told",
+                "us",
+                "her name."
+            ],
+            "token_groups": [
+                "Alina",
+                "told",
+                "us",
+                "her name."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "rsq-saytell-a1-g02",
+            "author_id": "A1-g02",
+            "question": "My brother {a1} hello at the gate.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Мій брат привітався біля хвіртки.",
+            "target_text": "My brother said hello at the gate.",
+            "markers": {
+                "a1": {
+                    "answer": "said",
+                    "options": [
+                        "said",
+                        "told",
+                        "asked"
+                    ],
+                    "verb_hint": "Сказав привіт; після дієслова не наведено адресата."
+                }
+            },
+            "verb_hint": "Сказав привіт; після дієслова не наведено адресата.",
+            "accepted_target_texts": [
+                "My brother said hello at the gate."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My brother",
+                "said",
+                "hello",
+                "at the gate."
+            ],
+            "token_groups": [
+                "My brother",
+                "said",
+                "hello",
+                "at the gate."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "rsq-saytell-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Dora {a1} a red pencil.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Дора попросила червоний олівець.",
+            "target_text": "Dora asked for a red pencil.",
+            "markers": {
+                "a1": {
+                    "answer": "asked for",
+                    "options": [
+                        "asked for",
+                        "told for",
+                        "said for"
+                    ],
+                    "verb_hint": "Попросила річ; уведи дієслово з потрібним прийменником."
+                }
+            },
+            "verb_hint": "Попросила річ; уведи дієслово з потрібним прийменником.",
+            "accepted_target_texts": [
+                "Dora asked for a red pencil.",
+                "Dora requested a red pencil."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "requested"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "requested"
+                ]
+            },
+            "reorder_groups": [
+                "Dora",
+                "asked for",
+                "a red pencil."
+            ],
+            "token_groups": [
+                "Dora",
+                "asked for",
+                "a red pencil."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "rsq-saytell-a1-g04",
+            "author_id": "A1-g04",
+            "question": "Who {a1} you that joke?",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Хто розповів тобі той жарт?",
+            "target_text": "Who told you that joke?",
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked"
+                    ],
+                    "verb_hint": "Розповів тобі; питальне слово й адресат уже наведені."
+                }
+            },
+            "verb_hint": "Розповів тобі; питальне слово й адресат уже наведені.",
+            "accepted_target_texts": [
+                "Who told you that joke?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "told",
+                "you",
+                "that joke?"
+            ],
+            "token_groups": [
+                "Who",
+                "told",
+                "you",
+                "that joke?"
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "rsq-saytell-a1-g05",
+            "author_id": "A1-g05",
+            "question": "The boy {a1} his age.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Хлопчик запитав про його вік.",
+            "target_text": "The boy asked his age.",
+            "markers": {
+                "a1": {
+                    "answer": "asked",
+                    "options": [
+                        "asked",
+                        "told",
+                        "said"
+                    ],
+                    "verb_hint": "Запитав; далі наведено предмет питання, а не адресата вказівки."
+                }
+            },
+            "verb_hint": "Запитав; далі наведено предмет питання, а не адресата вказівки.",
+            "accepted_target_texts": [
+                "The boy asked his age."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The boy",
+                "asked",
+                "his age."
+            ],
+            "token_groups": [
+                "The boy",
+                "asked",
+                "his age."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "rsq-saytell-a1-g06",
+            "author_id": "A1-g06",
+            "question": "My friend {a1} thank you every day.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Мій друг щодня каже «дякую».",
+            "target_text": "My friend says thank you every day.",
+            "markers": {
+                "a1": {
+                    "answer": "says",
+                    "options": [
+                        "says",
+                        "tells",
+                        "asks"
+                    ],
+                    "verb_hint": "Каже слова подяки; узгодь теперішню форму з одним другом."
+                }
+            },
+            "verb_hint": "Каже слова подяки; узгодь теперішню форму з одним другом.",
+            "accepted_target_texts": [
+                "My friend says thank you every day."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My friend",
+                "says",
+                "thank you",
+                "every day."
+            ],
+            "token_groups": [
+                "My friend",
+                "says",
+                "thank you",
+                "every day."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "rsq-saytell-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The driver {a1} everyone to sit down.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Водій сказав усім сісти.",
+            "target_text": "The driver told everyone to sit down.",
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "spoke"
+                    ],
+                    "verb_hint": "Дав вказівку всім; адресат уже наведений після пропуску."
+                }
+            },
+            "verb_hint": "Дав вказівку всім; адресат уже наведений після пропуску.",
+            "accepted_target_texts": [
+                "The driver told everyone to sit down."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The driver",
+                "told",
+                "everyone",
+                "to sit down."
+            ],
+            "token_groups": [
+                "The driver",
+                "told",
+                "everyone",
+                "to sit down."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "rsq-saytell-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Mira {a1} her neighbour that the lift was broken.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Міра сказала сусідові, що ліфт зламався.",
+            "target_text": "Mira said to her neighbour that the lift was broken.",
+            "markers": {
+                "a1": {
+                    "answer": "said to",
+                    "options": [
+                        "said to",
+                        "told to",
+                        "asked to"
+                    ],
+                    "verb_hint": "Сказала названому адресатові; збережи модель з прийменником."
+                }
+            },
+            "verb_hint": "Сказала названому адресатові; збережи модель з прийменником.",
+            "accepted_target_texts": [
+                "Mira said to her neighbour that the lift was broken."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Mira",
+                "said to",
+                "her neighbour",
+                "that the lift",
+                "was broken."
+            ],
+            "token_groups": [
+                "Mira",
+                "said to",
+                "her neighbour",
+                "that the lift",
+                "was broken."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "rsq-saytell-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The cashier {a1} my receipt.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Касир попросив мій чек.",
+            "target_text": "The cashier asked for my receipt.",
+            "markers": {
+                "a1": {
+                    "answer": "asked for",
+                    "options": [
+                        "asked for",
+                        "said for",
+                        "told for"
+                    ],
+                    "verb_hint": "Попросив документ; уведи всю групу прохання про річ."
+                }
+            },
+            "verb_hint": "Попросив документ; уведи всю групу прохання про річ.",
+            "accepted_target_texts": [
+                "The cashier asked for my receipt.",
+                "The cashier requested my receipt."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "requested"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "requested"
+                ]
+            },
+            "reorder_groups": [
+                "The cashier",
+                "asked for",
+                "my receipt."
+            ],
+            "token_groups": [
+                "The cashier",
+                "asked for",
+                "my receipt."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "rsq-saytell-a2-g04",
+            "author_id": "A2-g04",
+            "question": "I {a1} my cousin about the picnic.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Я розповів двоюрідному братові про пікнік.",
+            "target_text": "I told my cousin about the picnic.",
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked"
+                    ],
+                    "verb_hint": "Повідомив названому слухачеві про подію; прийменник перед слухачем не потрібний."
+                }
+            },
+            "verb_hint": "Повідомив названому слухачеві про подію; прийменник перед слухачем не потрібний.",
+            "accepted_target_texts": [
+                "I told my cousin about the picnic."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "told",
+                "my cousin",
+                "about the picnic."
+            ],
+            "token_groups": [
+                "I",
+                "told",
+                "my cousin",
+                "about the picnic."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "rsq-saytell-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Nelia {a1} why the pool was closed.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Неля запитала, чому басейн був зачинений.",
+            "target_text": "Nelia asked why the pool was closed.",
+            "markers": {
+                "a1": {
+                    "answer": "asked",
+                    "options": [
+                        "asked",
+                        "said",
+                        "told"
+                    ],
+                    "verb_hint": "Запитала; далі наведене непряме питання про причину."
+                }
+            },
+            "verb_hint": "Запитала; далі наведене непряме питання про причину.",
+            "accepted_target_texts": [
+                "Nelia asked why the pool was closed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nelia",
+                "asked",
+                "why the pool",
+                "was closed."
+            ],
+            "token_groups": [
+                "Nelia",
+                "asked",
+                "why the pool",
+                "was closed."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "rsq-saytell-a2-g06",
+            "author_id": "A2-g06",
+            "question": "What did the guide {a1} about the bridge?",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Що гід сказав про міст?",
+            "target_text": "What did the guide say about the bridge?",
+            "markers": {
+                "a1": {
+                    "answer": "say",
+                    "options": [
+                        "say",
+                        "tell",
+                        "ask"
+                    ],
+                    "verb_hint": "Сказати; питальне слово й допоміжне дієслово вже наведені."
+                }
+            },
+            "verb_hint": "Сказати; питальне слово й допоміжне дієслово вже наведені.",
+            "accepted_target_texts": [
+                "What did the guide say about the bridge?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What did",
+                "the guide",
+                "say",
+                "about the bridge?"
+            ],
+            "token_groups": [
+                "What did",
+                "the guide",
+                "say",
+                "about the bridge?"
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "rsq-saytell-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The receptionist {a1} the guests that breakfast started at seven.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Адміністратор повідомив гостям, що сніданок починається о сьомій.",
+            "target_text": "The receptionist told the guests that breakfast started at seven.",
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked"
+                    ],
+                    "verb_hint": "Повідомив названим гостям; адресат уже стоїть після пропуску."
+                }
+            },
+            "verb_hint": "Повідомив названим гостям; адресат уже стоїть після пропуску.",
+            "accepted_target_texts": [
+                "The receptionist told the guests that breakfast started at seven.",
+                "The receptionist informed the guests that breakfast started at seven."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "informed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "informed"
+                ]
+            },
+            "reorder_groups": [
+                "The receptionist",
+                "told",
+                "the guests",
+                "that breakfast",
+                "started at seven."
+            ],
+            "token_groups": [
+                "The receptionist",
+                "told",
+                "the guests",
+                "that breakfast",
+                "started at seven."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "rsq-saytell-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Vira {a1} whether I had packed the compass.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Віра запитала мене, чи я спакував компас.",
+            "target_text": "Vira asked me whether I had packed the compass.",
+            "markers": {
+                "a1": {
+                    "answer": "asked me",
+                    "options": [
+                        "asked me",
+                        "said me",
+                        "told to me"
+                    ],
+                    "verb_hint": "Запитала мене; уведи дієслово й адресата перед уже наведеним сполучником."
+                }
+            },
+            "verb_hint": "Запитала мене; уведи дієслово й адресата перед уже наведеним сполучником.",
+            "accepted_target_texts": [
+                "Vira asked me whether I had packed the compass."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Vira",
+                "asked me",
+                "whether I",
+                "had packed",
+                "the compass."
+            ],
+            "token_groups": [
+                "Vira",
+                "asked me",
+                "whether I",
+                "had packed",
+                "the compass."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "rsq-saytell-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The witness {a1} that the van had no number plate.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Свідок сказав, що фургон не мав номерного знака.",
+            "target_text": "The witness said that the van had no number plate.",
+            "markers": {
+                "a1": {
+                    "answer": "said",
+                    "options": [
+                        "said",
+                        "told",
+                        "asked"
+                    ],
+                    "verb_hint": "Сказав, повідомив; адресата не названо, далі повне повідомлення."
+                }
+            },
+            "verb_hint": "Сказав, повідомив; адресата не названо, далі повне повідомлення.",
+            "accepted_target_texts": [
+                "The witness said that the van had no number plate.",
+                "The witness stated that the van had no number plate.",
+                "The witness reported that the van had no number plate."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "stated",
+                    "reported"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "stated",
+                    "reported"
+                ]
+            },
+            "reorder_groups": [
+                "The witness",
+                "said",
+                "that the van",
+                "had no",
+                "number plate."
+            ],
+            "token_groups": [
+                "The witness",
+                "said",
+                "that the van",
+                "had no",
+                "number plate."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "rsq-saytell-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The ranger {a1} us to avoid the frozen lake.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Рейнджер сказав нам триматися подалі від замерзлого озера.",
+            "target_text": "The ranger told us to avoid the frozen lake.",
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked for"
+                    ],
+                    "verb_hint": "Дав вказівку нам; після адресата вже наведено дію."
+                }
+            },
+            "verb_hint": "Дав вказівку нам; після адресата вже наведено дію.",
+            "accepted_target_texts": [
+                "The ranger told us to avoid the frozen lake."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ranger",
+                "told",
+                "us",
+                "to avoid",
+                "the frozen lake."
+            ],
+            "token_groups": [
+                "The ranger",
+                "told",
+                "us",
+                "to avoid",
+                "the frozen lake."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "rsq-saytell-b1-g05",
+            "author_id": "B1-g05",
+            "question": "I {a1} written confirmation of the booking.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Я попросив письмове підтвердження бронювання.",
+            "target_text": "I asked for written confirmation of the booking.",
+            "markers": {
+                "a1": {
+                    "answer": "asked for",
+                    "options": [
+                        "asked for",
+                        "said for",
+                        "told for"
+                    ],
+                    "verb_hint": "Попросив документ; уведи всю групу перед назвою потрібної речі."
+                }
+            },
+            "verb_hint": "Попросив документ; уведи всю групу перед назвою потрібної речі.",
+            "accepted_target_texts": [
+                "I asked for written confirmation of the booking.",
+                "I requested written confirmation of the booking."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "requested"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "requested"
+                ]
+            },
+            "reorder_groups": [
+                "I",
+                "asked for",
+                "written confirmation",
+                "of the booking."
+            ],
+            "token_groups": [
+                "I",
+                "asked for",
+                "written confirmation",
+                "of the booking."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "rsq-saytell-b1-g06",
+            "author_id": "B1-g06",
+            "question": "Did the mechanic {a1} you how much the repair would cost?",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Чи механік сказав тобі, скільки коштуватиме ремонт?",
+            "target_text": "Did the mechanic tell you how much the repair would cost?",
+            "markers": {
+                "a1": {
+                    "answer": "tell",
+                    "options": [
+                        "tell",
+                        "say",
+                        "ask for"
+                    ],
+                    "verb_hint": "Повідомити тобі; допоміжне дієслово зовнішнього питання вже наведено."
+                }
+            },
+            "verb_hint": "Повідомити тобі; допоміжне дієслово зовнішнього питання вже наведено.",
+            "accepted_target_texts": [
+                "Did the mechanic tell you how much the repair would cost?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Did the mechanic",
+                "tell",
+                "you",
+                "how much",
+                "the repair",
+                "would cost?"
+            ],
+            "token_groups": [
+                "Did the mechanic",
+                "tell",
+                "you",
+                "how much",
+                "the repair",
+                "would cost?"
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "rsq-saytell-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The curator {a1} the donors that the restoration required more time.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Куратор повідомив дарувальникам, що реставрація потребує більше часу.",
+            "target_text": "The curator told the donors that the restoration required more time.",
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked"
+                    ],
+                    "verb_hint": "Повідомив названим адресатам; перед ними не додавай прийменника."
+                }
+            },
+            "verb_hint": "Повідомив названим адресатам; перед ними не додавай прийменника.",
+            "accepted_target_texts": [
+                "The curator told the donors that the restoration required more time.",
+                "The curator informed the donors that the restoration required more time."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "informed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "informed"
+                ]
+            },
+            "reorder_groups": [
+                "The curator",
+                "told",
+                "the donors",
+                "that the restoration",
+                "required more time."
+            ],
+            "token_groups": [
+                "The curator",
+                "told",
+                "the donors",
+                "that the restoration",
+                "required more time."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "rsq-saytell-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The investigator {a1} whether anyone had altered the access log.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Слідчий запитав, чи хтось змінював журнал доступу.",
+            "target_text": "The investigator asked whether anyone had altered the access log.",
+            "markers": {
+                "a1": {
+                    "answer": "asked",
+                    "options": [
+                        "asked",
+                        "told",
+                        "said"
+                    ],
+                    "verb_hint": "Запитав; далі непряме питання, не повідомлення про встановлений факт."
+                }
+            },
+            "verb_hint": "Запитав; далі непряме питання, не повідомлення про встановлений факт.",
+            "accepted_target_texts": [
+                "The investigator asked whether anyone had altered the access log."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The investigator",
+                "asked",
+                "whether anyone",
+                "had altered",
+                "the access log."
+            ],
+            "token_groups": [
+                "The investigator",
+                "asked",
+                "whether anyone",
+                "had altered",
+                "the access log."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "rsq-saytell-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The spokesperson {a1} that negotiations remained confidential.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Речник заявив, що переговори залишаються конфіденційними.",
+            "target_text": "The spokesperson said that negotiations remained confidential.",
+            "markers": {
+                "a1": {
+                    "answer": "said",
+                    "options": [
+                        "said",
+                        "told",
+                        "asked"
+                    ],
+                    "verb_hint": "Заявив, повідомив; адресата в реченні немає."
+                }
+            },
+            "verb_hint": "Заявив, повідомив; адресата в реченні немає.",
+            "accepted_target_texts": [
+                "The spokesperson said that negotiations remained confidential.",
+                "The spokesperson stated that negotiations remained confidential.",
+                "The spokesperson announced that negotiations remained confidential."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "stated",
+                    "announced"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "stated",
+                    "announced"
+                ]
+            },
+            "reorder_groups": [
+                "The spokesperson",
+                "said",
+                "that negotiations",
+                "remained confidential."
+            ],
+            "token_groups": [
+                "The spokesperson",
+                "said",
+                "that negotiations",
+                "remained confidential."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "rsq-saytell-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The auditors {a1} a breakdown of the maintenance costs.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Аудитори попросили деталізований розрахунок витрат на обслуговування.",
+            "target_text": "The auditors asked for a breakdown of the maintenance costs.",
+            "markers": {
+                "a1": {
+                    "answer": "asked for",
+                    "options": [
+                        "asked for",
+                        "told for",
+                        "said for"
+                    ],
+                    "verb_hint": "Попросили надати документ; назва потрібного розрахунку вже наведена."
+                }
+            },
+            "verb_hint": "Попросили надати документ; назва потрібного розрахунку вже наведена.",
+            "accepted_target_texts": [
+                "The auditors asked for a breakdown of the maintenance costs.",
+                "The auditors requested a breakdown of the maintenance costs."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "requested"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "requested"
+                ]
+            },
+            "reorder_groups": [
+                "The auditors",
+                "asked for",
+                "a breakdown",
+                "of the",
+                "maintenance costs."
+            ],
+            "token_groups": [
+                "The auditors",
+                "asked for",
+                "a breakdown",
+                "of the",
+                "maintenance costs."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "rsq-saytell-b2-g05",
+            "author_id": "B2-g05",
+            "question": "Svitlana {a1} not to disclose the provisional figures.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Світлана сказала мені не розголошувати попередні цифри.",
+            "target_text": "Svitlana told me not to disclose the provisional figures.",
+            "markers": {
+                "a1": {
+                    "answer": "told me",
+                    "options": [
+                        "told me",
+                        "said me",
+                        "told to me"
+                    ],
+                    "verb_hint": "Дала мені заперечну вказівку; уведи дієслово й адресата, не повторюй заперечення."
+                }
+            },
+            "verb_hint": "Дала мені заперечну вказівку; уведи дієслово й адресата, не повторюй заперечення.",
+            "accepted_target_texts": [
+                "Svitlana told me not to disclose the provisional figures."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Svitlana",
+                "told me",
+                "not to disclose",
+                "the provisional figures."
+            ],
+            "token_groups": [
+                "Svitlana",
+                "told me",
+                "not to disclose",
+                "the provisional figures."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "rsq-saytell-b2-g06",
+            "author_id": "B2-g06",
+            "question": "What exactly did the chair {a1} about the minority recommendation?",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Що саме голова сказав про рекомендацію меншості?",
+            "target_text": "What exactly did the chair say about the minority recommendation?",
+            "markers": {
+                "a1": {
+                    "answer": "say",
+                    "options": [
+                        "say",
+                        "tell",
+                        "ask for"
+                    ],
+                    "verb_hint": "Сказати про рекомендацію; адресат не названий, питальна рамка вже наведена."
+                }
+            },
+            "verb_hint": "Сказати про рекомендацію; адресат не названий, питальна рамка вже наведена.",
+            "accepted_target_texts": [
+                "What exactly did the chair say about the minority recommendation?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What exactly",
+                "did the chair",
+                "say",
+                "about the",
+                "minority recommendation?"
+            ],
+            "token_groups": [
+                "What exactly",
+                "did the chair",
+                "say",
+                "about the",
+                "minority recommendation?"
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "rsq-saytell-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The rapporteur {a1} the delegates that the annex contained a material omission.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Доповідач повідомив делегатам, що додаток містить істотний пропуск.",
+            "target_text": "The rapporteur told the delegates that the annex contained a material omission.",
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked"
+                    ],
+                    "verb_hint": "Повідомив делегатам; адресат уже наведений без прийменника."
+                }
+            },
+            "verb_hint": "Повідомив делегатам; адресат уже наведений без прийменника.",
+            "accepted_target_texts": [
+                "The rapporteur told the delegates that the annex contained a material omission.",
+                "The rapporteur informed the delegates that the annex contained a material omission."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "informed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "informed"
+                ]
+            },
+            "reorder_groups": [
+                "The rapporteur",
+                "told",
+                "the delegates",
+                "that the annex",
+                "contained a",
+                "material omission."
+            ],
+            "token_groups": [
+                "The rapporteur",
+                "told",
+                "the delegates",
+                "that the annex",
+                "contained a",
+                "material omission."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "rsq-saytell-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The committee {a1} independent corroboration of the allegation.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Комітет попросив незалежне підтвердження звинувачення.",
+            "target_text": "The committee asked for independent corroboration of the allegation.",
+            "markers": {
+                "a1": {
+                    "answer": "asked for",
+                    "options": [
+                        "asked for",
+                        "told for",
+                        "said for"
+                    ],
+                    "verb_hint": "Попросив підтвердні дані; назва потрібного доказового матеріалу вже наведена."
+                }
+            },
+            "verb_hint": "Попросив підтвердні дані; назва потрібного доказового матеріалу вже наведена.",
+            "accepted_target_texts": [
+                "The committee asked for independent corroboration of the allegation.",
+                "The committee requested independent corroboration of the allegation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "requested"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "requested"
+                ]
+            },
+            "reorder_groups": [
+                "The committee",
+                "asked for",
+                "independent corroboration",
+                "of the allegation."
+            ],
+            "token_groups": [
+                "The committee",
+                "asked for",
+                "independent corroboration",
+                "of the allegation."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "rsq-saytell-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The editor {a1} that the paraphrase overstated the certainty of the finding.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Редактор зазначив, що перефразування перебільшує певність висновку.",
+            "target_text": "The editor said that the paraphrase overstated the certainty of the finding.",
+            "markers": {
+                "a1": {
+                    "answer": "said",
+                    "options": [
+                        "said",
+                        "told",
+                        "asked"
+                    ],
+                    "verb_hint": "Зазначив, повідомив; після пропуску наведено повне твердження без адресата."
+                }
+            },
+            "verb_hint": "Зазначив, повідомив; після пропуску наведено повне твердження без адресата.",
+            "accepted_target_texts": [
+                "The editor said that the paraphrase overstated the certainty of the finding.",
+                "The editor stated that the paraphrase overstated the certainty of the finding.",
+                "The editor observed that the paraphrase overstated the certainty of the finding."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "stated",
+                    "observed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "stated",
+                    "observed"
+                ]
+            },
+            "reorder_groups": [
+                "The editor",
+                "said",
+                "that the paraphrase",
+                "overstated the certainty",
+                "of the finding."
+            ],
+            "token_groups": [
+                "The editor",
+                "said",
+                "that the paraphrase",
+                "overstated the certainty",
+                "of the finding."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "rsq-saytell-c1-g04",
+            "author_id": "C1-g04",
+            "question": "Daryna {a1} how the discrepancy had arisen.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Дарина запитала свідка, як виникла розбіжність.",
+            "target_text": "Daryna asked the witness how the discrepancy had arisen.",
+            "markers": {
+                "a1": {
+                    "answer": "asked the witness",
+                    "options": [
+                        "asked the witness",
+                        "said the witness",
+                        "told to the witness"
+                    ],
+                    "verb_hint": "Запитала названого свідка; уведи дієслово й адресата перед питанням про причину."
+                }
+            },
+            "verb_hint": "Запитала названого свідка; уведи дієслово й адресата перед питанням про причину.",
+            "accepted_target_texts": [
+                "Daryna asked the witness how the discrepancy had arisen."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Daryna",
+                "asked the witness",
+                "how the discrepancy",
+                "had arisen."
+            ],
+            "token_groups": [
+                "Daryna",
+                "asked the witness",
+                "how the discrepancy",
+                "had arisen."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "rsq-saytell-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The regulator {a1} the operator to preserve the underlying records.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Регулятор сказав операторові зберегти первинні записи.",
+            "target_text": "The regulator told the operator to preserve the underlying records.",
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked for"
+                    ],
+                    "verb_hint": "Дав названому операторові вказівку; дію вже подано після адресата."
+                }
+            },
+            "verb_hint": "Дав названому операторові вказівку; дію вже подано після адресата.",
+            "accepted_target_texts": [
+                "The regulator told the operator to preserve the underlying records."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The regulator",
+                "told",
+                "the operator",
+                "to preserve",
+                "the underlying records."
+            ],
+            "token_groups": [
+                "The regulator",
+                "told",
+                "the operator",
+                "to preserve",
+                "the underlying records."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "rsq-saytell-c1-g06",
+            "author_id": "C1-g06",
+            "question": "What did the dissenting judge {a1} about the proportionality test?",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Що суддя з окремою думкою сказав про перевірку пропорційності?",
+            "target_text": "What did the dissenting judge say about the proportionality test?",
+            "markers": {
+                "a1": {
+                    "answer": "say",
+                    "options": [
+                        "say",
+                        "tell",
+                        "ask for"
+                    ],
+                    "verb_hint": "Сказати про правовий критерій; зовнішнє питання вже утворене."
+                }
+            },
+            "verb_hint": "Сказати про правовий критерій; зовнішнє питання вже утворене.",
+            "accepted_target_texts": [
+                "What did the dissenting judge say about the proportionality test?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What did",
+                "the dissenting judge",
+                "say",
+                "about the",
+                "proportionality test?"
+            ],
+            "token_groups": [
+                "What did",
+                "the dissenting judge",
+                "say",
+                "about the",
+                "proportionality test?"
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "rsq-saytell-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The advocate {a1} the tribunal that the inference exceeded the evidential warrant.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Представник повідомив трибуналу, що висновок виходить за межі доказових підстав.",
+            "target_text": "The advocate told the tribunal that the inference exceeded the evidential warrant.",
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked"
+                    ],
+                    "verb_hint": "Повідомив названому трибуналу; перед адресатом прийменник не потрібний."
+                }
+            },
+            "verb_hint": "Повідомив названому трибуналу; перед адресатом прийменник не потрібний.",
+            "accepted_target_texts": [
+                "The advocate told the tribunal that the inference exceeded the evidential warrant.",
+                "The advocate informed the tribunal that the inference exceeded the evidential warrant."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "informed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "informed"
+                ]
+            },
+            "reorder_groups": [
+                "The advocate",
+                "told",
+                "the tribunal",
+                "that the inference",
+                "exceeded the",
+                "evidential warrant."
+            ],
+            "token_groups": [
+                "The advocate",
+                "told",
+                "the tribunal",
+                "that the inference",
+                "exceeded the",
+                "evidential warrant."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "rsq-saytell-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The panel {a1} a principled account of the exception rather than an ad hoc assurance.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Комісія попросила принципове пояснення винятку, а не ситуативне запевнення.",
+            "target_text": "The panel asked for a principled account of the exception rather than an ad hoc assurance.",
+            "markers": {
+                "a1": {
+                    "answer": "asked for",
+                    "options": [
+                        "asked for",
+                        "said for",
+                        "told for"
+                    ],
+                    "verb_hint": "Попросила пояснення як потрібний зміст; уведи дієслово з прийменником."
+                }
+            },
+            "verb_hint": "Попросила пояснення як потрібний зміст; уведи дієслово з прийменником.",
+            "accepted_target_texts": [
+                "The panel asked for a principled account of the exception rather than an ad hoc assurance.",
+                "The panel requested a principled account of the exception rather than an ad hoc assurance."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "requested"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "requested"
+                ]
+            },
+            "reorder_groups": [
+                "The panel",
+                "asked for",
+                "a principled account",
+                "of the exception",
+                "rather than",
+                "an ad hoc",
+                "assurance."
+            ],
+            "token_groups": [
+                "The panel",
+                "asked for",
+                "a principled account",
+                "of the exception",
+                "rather than",
+                "an ad hoc",
+                "assurance."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "rsq-saytell-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The theorist {a1} that the distinction was constitutive, not merely terminological.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Теоретик зазначив, що відмінність визначає саму побудову поняття, а не лише термінологію.",
+            "target_text": "The theorist said that the distinction was constitutive, not merely terminological.",
+            "markers": {
+                "a1": {
+                    "answer": "said",
+                    "options": [
+                        "said",
+                        "told",
+                        "asked"
+                    ],
+                    "verb_hint": "Зазначив, ствердив; після пропуску подано твердження, не адресата."
+                }
+            },
+            "verb_hint": "Зазначив, ствердив; після пропуску подано твердження, не адресата.",
+            "accepted_target_texts": [
+                "The theorist said that the distinction was constitutive, not merely terminological.",
+                "The theorist stated that the distinction was constitutive, not merely terminological.",
+                "The theorist argued that the distinction was constitutive, not merely terminological."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "stated",
+                    "argued"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "stated",
+                    "argued"
+                ]
+            },
+            "reorder_groups": [
+                "The theorist",
+                "said",
+                "that the distinction",
+                "was constitutive,",
+                "not merely terminological."
+            ],
+            "token_groups": [
+                "The theorist",
+                "said",
+                "that the distinction",
+                "was constitutive,",
+                "not merely terminological."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "rsq-saytell-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The examiner {a1} whether the reservation undermined the purported consensus.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Експерт запитав, чи застереження підриває заявлений консенсус.",
+            "target_text": "The examiner asked whether the reservation undermined the purported consensus.",
+            "markers": {
+                "a1": {
+                    "answer": "asked",
+                    "options": [
+                        "asked",
+                        "told",
+                        "said"
+                    ],
+                    "verb_hint": "Запитав; сполучник непрямого питання вже наведений."
+                }
+            },
+            "verb_hint": "Запитав; сполучник непрямого питання вже наведений.",
+            "accepted_target_texts": [
+                "The examiner asked whether the reservation undermined the purported consensus."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The examiner",
+                "asked",
+                "whether the reservation",
+                "undermined the",
+                "purported consensus."
+            ],
+            "token_groups": [
+                "The examiner",
+                "asked",
+                "whether the reservation",
+                "undermined the",
+                "purported consensus."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "rsq-saytell-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The dissent {a1} a different story about institutional continuity.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Окрема думка змальовувала іншу картину інституційної тяглості.",
+            "target_text": "The dissent told a different story about institutional continuity.",
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked"
+                    ],
+                    "verb_hint": "Розповідала іншу історію; це усталена модель без особистого адресата."
+                }
+            },
+            "verb_hint": "Розповідала іншу історію; це усталена модель без особистого адресата.",
+            "accepted_target_texts": [
+                "The dissent told a different story about institutional continuity."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dissent",
+                "told",
+                "a different story",
+                "about institutional continuity."
+            ],
+            "token_groups": [
+                "The dissent",
+                "told",
+                "a different story",
+                "about institutional continuity."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "rsq-saytell-c2-g06",
+            "author_id": "C2-g06",
+            "question": "What precisely did the delegation {a1} in response to the interpretative objection?",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_say_tell_ask",
+            "translation_uk": "Що саме делегація сказала у відповідь на заперечення щодо тлумачення?",
+            "target_text": "What precisely did the delegation say in response to the interpretative objection?",
+            "markers": {
+                "a1": {
+                    "answer": "say",
+                    "options": [
+                        "say",
+                        "tell",
+                        "ask for"
+                    ],
+                    "verb_hint": "Сказати у відповіді; не додавай уже наведену рамку прямого питання."
+                }
+            },
+            "verb_hint": "Сказати у відповіді; не додавай уже наведену рамку прямого питання.",
+            "accepted_target_texts": [
+                "What precisely did the delegation say in response to the interpretative objection?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What precisely",
+                "did the delegation",
+                "say",
+                "in response",
+                "to the",
+                "interpretative objection?"
+            ],
+            "token_groups": [
+                "What precisely",
+                "did the delegation",
+                "say",
+                "in response",
+                "to the",
+                "interpretative objection?"
+            ],
+            "quality_revision": "rsq-v1"
+        }
+    ]
+}

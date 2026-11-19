@@ -1,0 +1,683 @@
+{
+    "schema_version": 1,
+    "quality_revision": "ssq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-structure-quality/cleft-sentences-basics.v1.json",
+        "sha256": "a05bdb4e393cf918e073e88ae15a33b8df36ad1117ff4b638f0df746e2987b5e"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SentenceStructure\\UkrainianMixedSsqCleftSentencesBasicsQualityStandardSeeder",
+        "uuid_namespace": "sentence-structure-quality-cleft-sentences-basics-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Sentence Structure"
+    },
+    "sources": {
+        "sentence_structure_quality_cleft_sentences_basics": {
+            "name": "Sentence Structure Quality: Cleft Sentences Basics"
+        }
+    },
+    "tags": {
+        "cleft_sentences_basics": {
+            "name": "cleft sentences basics",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "cleft_basics": {
+            "name": "cleft basics",
+            "category": "grammar"
+        },
+        "it_clefts": {
+            "name": "it clefts",
+            "category": "grammar"
+        },
+        "person_focus": {
+            "name": "person focus",
+            "category": "grammar"
+        },
+        "thing_focus": {
+            "name": "thing focus",
+            "category": "grammar"
+        },
+        "place_time_focus": {
+            "name": "place time focus",
+            "category": "grammar"
+        },
+        "what_clefts": {
+            "name": "what clefts",
+            "category": "grammar"
+        },
+        "subject_focus": {
+            "name": "subject focus",
+            "category": "grammar"
+        },
+        "object_focus": {
+            "name": "object focus",
+            "category": "grammar"
+        },
+        "emphasis_vs_neutral": {
+            "name": "emphasis vs neutral",
+            "category": "grammar"
+        },
+        "who_that": {
+            "name": "who that",
+            "category": "grammar"
+        },
+        "avoid_overuse": {
+            "name": "avoid overuse",
+            "category": "grammar"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "grammar"
+        }
+    },
+    "default_tag_keys": [
+        "cleft_sentences_basics"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "ssq-csb-a1-g01",
+            "author_id": "A1-g01",
+            "question": "This {a1} my aunt, not my cousin.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_basics",
+            "translation_uk": "Це моя тітка, а не моя двоюрідна сестра.",
+            "target_text": "This is my aunt, not my cousin.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "was",
+                        "are"
+                    ],
+                    "verb_hint": "Підготовча вправа: з’єднай указування на одну людину з її назвою в теперішньому часі."
+                }
+            },
+            "verb_hint": "Підготовча вправа: з’єднай указування на одну людину з її назвою в теперішньому часі.",
+            "accepted_target_texts": [
+                "This is my aunt, not my cousin."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This is",
+                "my aunt,",
+                "not my cousin."
+            ],
+            "token_groups": [
+                "This is",
+                "my aunt,",
+                "not my cousin."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "ssq-csb-a1-g02",
+            "author_id": "A1-g02",
+            "question": "I want the green {a1}, not the black one.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_basics",
+            "translation_uk": "Я хочу зелений капелюх, а не чорний.",
+            "target_text": "I want the green hat, not the black one.",
+            "markers": {
+                "a1": {
+                    "answer": "hat",
+                    "options": [
+                        "hat",
+                        "coat",
+                        "scarf"
+                    ],
+                    "verb_hint": "Назви один капелюх; протиставлення двох кольорів уже наведено."
+                }
+            },
+            "verb_hint": "Назви один капелюх; протиставлення двох кольорів уже наведено.",
+            "accepted_target_texts": [
+                "I want the green hat, not the black one."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I want",
+                "the green hat,",
+                "not the",
+                "black one."
+            ],
+            "token_groups": [
+                "I want",
+                "the green hat,",
+                "not the",
+                "black one."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "ssq-csb-a2-g01",
+            "author_id": "A2-g01",
+            "question": "{a1} is the woman who sells the tickets.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_basics",
+            "translation_uk": "Вона — та жінка, яка продає квитки.",
+            "target_text": "She is the woman who sells the tickets.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "options": [
+                        "She",
+                        "Her",
+                        "Hers"
+                    ],
+                    "verb_hint": "Почни з підметової форми для жінки; далі її уточнює відносна частина."
+                }
+            },
+            "verb_hint": "Почни з підметової форми для жінки; далі її уточнює відносна частина.",
+            "accepted_target_texts": [
+                "She is the woman who sells the tickets."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She is",
+                "the woman",
+                "who sells",
+                "the tickets."
+            ],
+            "token_groups": [
+                "She is",
+                "the woman",
+                "who sells",
+                "the tickets."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "ssq-csb-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The cake {a1} made is on the table.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_basics",
+            "translation_uk": "Торт, який я приготував, стоїть на столі.",
+            "target_text": "The cake that I made is on the table.",
+            "markers": {
+                "a1": {
+                    "answer": "that I",
+                    "options": [
+                        "that I",
+                        "who I",
+                        "whose I"
+                    ],
+                    "verb_hint": "Додай об’єктний відносний зв’язок та підмет усередині уточнення; займенник для предмета можна пропустити."
+                }
+            },
+            "verb_hint": "Додай об’єктний відносний зв’язок та підмет усередині уточнення; займенник для предмета можна пропустити.",
+            "accepted_target_texts": [
+                "The cake that I made is on the table.",
+                "The cake which I made is on the table.",
+                "The cake I made is on the table."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "which I",
+                    "I"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "which I",
+                    "I"
+                ]
+            },
+            "reorder_groups": [
+                "The cake",
+                "that I made",
+                "is on",
+                "the table."
+            ],
+            "token_groups": [
+                "The cake",
+                "that I made",
+                "is on",
+                "the table."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "ssq-csb-b1-g01",
+            "author_id": "B1-g01",
+            "question": "It was the {a1} who rescued the swimmer.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_basics",
+            "translation_uk": "Саме рятувальник урятував плавця.",
+            "target_text": "It was the lifeguard who rescued the swimmer.",
+            "markers": {
+                "a1": {
+                    "answer": "lifeguard",
+                    "options": [
+                        "lifeguard",
+                        "lifeguards",
+                        "lifeguarding"
+                    ],
+                    "verb_hint": "Назви одного рятувальника в позиції наголошеного учасника; можливі спеціальна назва рятувальника на воді й загальне слово."
+                }
+            },
+            "verb_hint": "Назви одного рятувальника в позиції наголошеного учасника; можливі спеціальна назва рятувальника на воді й загальне слово.",
+            "accepted_target_texts": [
+                "It was the lifeguard who rescued the swimmer.",
+                "It was the rescuer who rescued the swimmer."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "rescuer"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "rescuer"
+                ]
+            },
+            "reorder_groups": [
+                "It was",
+                "the lifeguard",
+                "who rescued",
+                "the swimmer."
+            ],
+            "token_groups": [
+                "It was",
+                "the lifeguard",
+                "who rescued",
+                "the swimmer."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "ssq-csb-b1-g02",
+            "author_id": "B1-g02",
+            "question": "It was at the {a1} that I left my gloves.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_basics",
+            "translation_uk": "Саме в пекарні я залишив свої рукавички.",
+            "target_text": "It was at the bakery that I left my gloves.",
+            "markers": {
+                "a1": {
+                    "answer": "bakery",
+                    "options": [
+                        "bakery",
+                        "baker",
+                        "baking"
+                    ],
+                    "verb_hint": "Назви пекарню; прийменник і означений артикль уже подано. Приймається також присвійна назва такого закладу."
+                }
+            },
+            "verb_hint": "Назви пекарню; прийменник і означений артикль уже подано. Приймається також присвійна назва такого закладу.",
+            "accepted_target_texts": [
+                "It was at the bakery that I left my gloves.",
+                "It was at the baker’s that I left my gloves."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "baker’s"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "baker’s"
+                ]
+            },
+            "reorder_groups": [
+                "It was",
+                "at the bakery",
+                "that I left",
+                "my gloves."
+            ],
+            "token_groups": [
+                "It was",
+                "at the bakery",
+                "that I left",
+                "my gloves."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "ssq-csb-b2-g01",
+            "author_id": "B2-g01",
+            "question": "What the orchestra needs {a1} a longer rehearsal.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_basics",
+            "translation_uk": "Оркестрові потрібна саме триваліша репетиція.",
+            "target_text": "What the orchestra needs is a longer rehearsal.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "has"
+                    ],
+                    "verb_hint": "Узгодь присудок з усією підметовою частиною про потребу оркестру; питальне за формою слово вже наведено."
+                }
+            },
+            "verb_hint": "Узгодь присудок з усією підметовою частиною про потребу оркестру; питальне за формою слово вже наведено.",
+            "accepted_target_texts": [
+                "What the orchestra needs is a longer rehearsal."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What the orchestra",
+                "needs is",
+                "a longer rehearsal."
+            ],
+            "token_groups": [
+                "What the orchestra",
+                "needs is",
+                "a longer rehearsal."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "ssq-csb-b2-g02",
+            "author_id": "B2-g02",
+            "question": "It was {a1} the harbour that the rescue operation began.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_basics",
+            "translation_uk": "Саме біля гавані почалася рятувальна операція.",
+            "target_text": "It was near the harbour that the rescue operation began.",
+            "markers": {
+                "a1": {
+                    "answer": "near",
+                    "options": [
+                        "near",
+                        "inside",
+                        "beyond"
+                    ],
+                    "verb_hint": "Перед назвою гавані передай близькість до місця, а не перебування всередині чи за його межами."
+                }
+            },
+            "verb_hint": "Перед назвою гавані передай близькість до місця, а не перебування всередині чи за його межами.",
+            "accepted_target_texts": [
+                "It was near the harbour that the rescue operation began.",
+                "It was by the harbour that the rescue operation began.",
+                "It was beside the harbour that the rescue operation began.",
+                "It was next to the harbour that the rescue operation began."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "by",
+                    "beside",
+                    "next to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "by",
+                    "beside",
+                    "next to"
+                ]
+            },
+            "reorder_groups": [
+                "It was",
+                "near the harbour",
+                "that the",
+                "rescue operation began."
+            ],
+            "token_groups": [
+                "It was",
+                "near the harbour",
+                "that the",
+                "rescue operation began."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "ssq-csb-c1-g01",
+            "author_id": "C1-g01",
+            "question": "What the residents objected {a1} was the loss of public access.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_basics",
+            "translation_uk": "Жителі заперечували саме проти втрати публічного доступу.",
+            "target_text": "What the residents objected to was the loss of public access.",
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "about",
+                        "at"
+                    ],
+                    "verb_hint": "Доповни дієслово зі значенням заперечення потрібним прийменником; наголошений зміст стоїть після зв’язки."
+                }
+            },
+            "verb_hint": "Доповни дієслово зі значенням заперечення потрібним прийменником; наголошений зміст стоїть після зв’язки.",
+            "accepted_target_texts": [
+                "What the residents objected to was the loss of public access."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What the residents",
+                "objected to",
+                "was the loss",
+                "of public access."
+            ],
+            "token_groups": [
+                "What the residents",
+                "objected to",
+                "was the loss",
+                "of public access."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "ssq-csb-c1-g02",
+            "author_id": "C1-g02",
+            "question": "It was not the salary {a1} the flexible hours that attracted her.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_basics",
+            "translation_uk": "Її привабила не зарплата, а саме гнучкий графік.",
+            "target_text": "It was not the salary but the flexible hours that attracted her.",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "or",
+                        "and"
+                    ],
+                    "verb_hint": "З’єднай заперечений варіант із тим, який його виправляє; потрібне протиставлення, а не перелік чи вибір."
+                }
+            },
+            "verb_hint": "З’єднай заперечений варіант із тим, який його виправляє; потрібне протиставлення, а не перелік чи вибір.",
+            "accepted_target_texts": [
+                "It was not the salary but the flexible hours that attracted her."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was not",
+                "the salary",
+                "but the",
+                "flexible hours",
+                "that attracted her."
+            ],
+            "token_groups": [
+                "It was not",
+                "the salary",
+                "but the",
+                "flexible hours",
+                "that attracted her."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "ssq-csb-c2-g01",
+            "author_id": "C2-g01",
+            "question": "What renders the inference untenable {a1} the incompatibility of its premises.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_basics",
+            "translation_uk": "Саме несумісність передумов робить цей висновок неприйнятним.",
+            "target_text": "What renders the inference untenable is the incompatibility of its premises.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "Поєднай підметову частину про неприйнятність висновку з наголошеною причиною; зв’язка узгоджується з цілою частиною, а не з множиною передумов."
+                }
+            },
+            "verb_hint": "Поєднай підметову частину про неприйнятність висновку з наголошеною причиною; зв’язка узгоджується з цілою частиною, а не з множиною передумов.",
+            "accepted_target_texts": [
+                "What renders the inference untenable is the incompatibility of its premises."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What renders",
+                "the inference untenable",
+                "is the incompatibility",
+                "of its premises."
+            ],
+            "token_groups": [
+                "What renders",
+                "the inference untenable",
+                "is the incompatibility",
+                "of its premises."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "ssq-csb-c2-g02",
+            "author_id": "C2-g02",
+            "question": "It was {a1} the tribunal had exhausted every alternative that it ordered disclosure.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_basics",
+            "translation_uk": "Саме лише після вичерпання всіх інших можливостей трибунал наказав розкрити інформацію.",
+            "target_text": "It was only after the tribunal had exhausted every alternative that it ordered disclosure.",
+            "markers": {
+                "a1": {
+                    "answer": "only after",
+                    "options": [
+                        "only after",
+                        "even before",
+                        "well before"
+                    ],
+                    "verb_hint": "Передай обмеження в часі: розкриття наказали тільки після вичерпання альтернатив; збережи попередність дії."
+                }
+            },
+            "verb_hint": "Передай обмеження в часі: розкриття наказали тільки після вичерпання альтернатив; збережи попередність дії.",
+            "accepted_target_texts": [
+                "It was only after the tribunal had exhausted every alternative that it ordered disclosure.",
+                "It was only once the tribunal had exhausted every alternative that it ordered disclosure.",
+                "It was only when the tribunal had exhausted every alternative that it ordered disclosure."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "only once",
+                    "only when"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "only once",
+                    "only when"
+                ]
+            },
+            "reorder_groups": [
+                "It was",
+                "only after",
+                "the tribunal",
+                "had exhausted",
+                "every alternative",
+                "that it",
+                "ordered disclosure."
+            ],
+            "token_groups": [
+                "It was",
+                "only after",
+                "the tribunal",
+                "had exhausted",
+                "every alternative",
+                "that it",
+                "ordered disclosure."
+            ],
+            "quality_revision": "ssq-v1"
+        }
+    ]
+}
